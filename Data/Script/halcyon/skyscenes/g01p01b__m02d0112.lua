@@ -26,7 +26,13 @@ return function(hero, partner)
   SkySceneKit.say({english="The footprint is [c_kind:ATTENDANT1]'s![K]\nThe footprint is [c_kind:ATTENDANT1]'s!", french="C'est l'empreinte de [c_kind:ATTENDANT1]![K]\nC'est l'empreinte de [c_kind:ATTENDANT1]!", german="Der Fußabdruck ist von [c_kind:ATTENDANT1]![K]\nDer Fußabdruck ist von [c_kind:ATTENDANT1]!", italian="È la zampa di [c_kind:ATTENDANT1]![K]\nÈ la zampa di [c_kind:ATTENDANT1]!", spanish="¡La huella es de [c_kind:ATTENDANT1]![K]\n¡La huella es de [c_kind:ATTENDANT1]!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GROUND:CharSetEmote(partner, "sweating", 1) end)
-  SkySceneKit.say({english=" Waah!", french=" Aaah!", german=" Waah!", italian=" Aaah!", spanish=" ¡Aaah!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Waah!", french=" Aaah!", german=" Waah!", italian=" Waah!", spanish=" ¡Aaah!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Waah!", french=" Aaah!", german=" Waah!", italian=" Aaah!", spanish=" ¡Aaah!"})
+  else
+  SkySceneKit.say({english=" Waah!", french=" Aaah!", german=" Waah!", italian=" Aaah!", spanish=" ¡Aaah!"})
+  end
   SkySubScreen.Hide(30) -- screen2_FadeOut: retour BOTTOM_FOCUS (timeline ROM)
   GAME:FadeOut(false, 30)
   -- back2_SetMode(0) [mode d'affichage sub NDS: géré par SubScreen]

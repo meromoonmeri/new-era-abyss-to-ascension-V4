@@ -91,7 +91,13 @@ return function(hero, partner)
   pcall(function() GROUND:CharSetEmote(partner, "exclaim", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english="Hey![K] There's the dimensional\nhole!", french="Regardez![K] C'est le gouffre\ndimensionnel!", german="Hey![K] Da ist ein dimensionales\nLoch!", italian=" Ehi![K] C'è il tunnel dimensionale!", spanish=" ¡Mirad![K] ¡El agujero dimensional!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="Hey![K] There's the dimensional\nhole!", french="Regardez![K] C'est le gouffre\ndimensionnel!", german="Hey![K] Da ist ein dimensionales\nLoch!", italian=" Ehi![K] C'è il tunnel dimensionale!", spanish=" ¡Mirad![K] ¡El agujero dimensional!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="Hey![K] There's the dimensional\nhole!", french="Regardez![K] C'est le gouffre\ndimensionnel!", german="Hey![K] Da ist ein dimensionales\nLoch!", italian=" Ehi![K] C'è il tunnel dimensionale!", spanish=" ¡Mirad![K] ¡El agujero dimensional!"})
+  else
+  SkySceneKit.say({english="Hey![K] There's the dimensional\nhole!", french="Regardez![K] C'est le gouffre\ndimensionnel!", german="Hey![K] Da ist ein dimensionales\nLoch!", italian=" Ehi![K] C'è il tunnel dimensionale!", spanish=" ¡Mirad![K] ¡El agujero dimensional!"})
+  end
   GROUND:EntTurn(hero, Direction.Up)
   GAME:WaitFrames(5)
   GROUND:EntTurn(npc_npc_juputoru, Direction.Up)
@@ -155,8 +161,18 @@ return function(hero, partner)
   GAME:WaitFrames(2) -- join WaitAnimation
   GAME:WaitFrames(2) -- join WaitExecuteLives
   -- SetAnimation(2) [anim idle native]
-  SkySceneKit.say({english=" ...Yep?", french=" ... Quoi?", german=" ...Jep?", italian=" ... Sì?", spanish=" ¿Sí?"}) -- SwitchTalk: branche default (canon générique)
-  SkySceneKit.say({english="(...I'm with you!)", french="(... Ça marche, je vous suis!)", german="(Ich bin dabei!)", italian="(Io sono con voi!)", spanish="(De acuerdo.)"}) -- SwitchMonologue: branche default
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" ...Yeah?", french=" ... Quoi?", german=" ...Ja?", italian=" ... Sì?", spanish=" ¿Sí?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" ...Yes?", french=" ... Quoi?", german=" ...Ja?", italian=" ... Sì?", spanish=" ¿Sí?"})
+  else
+  SkySceneKit.say({english=" ...Yep?", french=" ... Quoi?", german=" ...Jep?", italian=" ... Sì?", spanish=" ¿Sí?"})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="(...I'm with you!)", french="(... Ça marche, je vous suis!)", german="(Ich bin dabei!)", italian="(Io sono con voi!)", spanish="(De acuerdo.)"})
+  else
+  SkySceneKit.say({english="(...I'm with you!)", french="(... Ça marche, je vous suis!)", german="(Ich bin dabei!)", italian="(Io sono con voi!)", spanish="(De acuerdo.)"})
+  end
   -- SetAnimation(13) [anim idle native]
   -- SetAnimation(13) [anim idle native]
   -- SetAnimation(12) [anim idle native]

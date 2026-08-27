@@ -14,7 +14,17 @@ return function(hero, partner)
   -- SetAnimation(5) [anim idle native]
   GAME:FadeIn(30)
   GAME:WaitFrames(30)
-  SkySceneKit.say({english=" There's no turning back now.", french="Plus question de rebrousser\nchemin.", german=" Jetzt gibt es kein Zurück mehr.", italian=" Dobbiamo mettercela tutta.", spanish=" Ya no hay marcha atrás."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" It's not far now, [hero].", french="Ce n'est plus très loin,\n[hero].", german="Es ist nicht mehr weit,\n[hero].", italian="Non manca più molto,\n[hero].", spanish="Enseguida llegaremos,\n[hero]."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="We're nearly there,\n[hero].", french="Ce n'est plus très loin,\n[hero].", german=" Wir sind fast da, [hero].", italian=" Ci siamo quasi, [hero].", spanish=" Ya casi estamos, [hero]."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" There's no turning back now.", french="Plus question de rebrousser\nchemin.", german=" Jetzt gibt es kein Zurück mehr.", italian=" Dobbiamo mettercela tutta.", spanish=" Ya no hay marcha atrás."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" There's no turning back now.", french="Plus question de rebrousser\nchemin.", german=" Jetzt gibt es kein Zurück mehr.", italian=" Dobbiamo mettercela tutta.", spanish=" Ya no hay marcha atrás."})
+  else
+  SkySceneKit.say({english=" There's no turning back now.", french="Plus question de rebrousser\nchemin.", german=" Jetzt gibt es kein Zurück mehr.", italian=" Dobbiamo mettercela tutta.", spanish=" Ya no hay marcha atrás."})
+  end
   GAME:WaitFrames(90)
   -- back_SetBackScrollSpeed(0,0): arrêt du défilement
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Startled") end)
@@ -23,19 +33,37 @@ return function(hero, partner)
   GAME:WaitFrames(10)
   -- GAP: SetEffect EFFECT_TWO_ARROWS_AT_SIDE_LEFT — VFX sans émote PMDO équivalente
   -- SetAnimation(2) [anim idle native]
-  SkySceneKit.say({english=" Oh! Up there...", french=" Eh, regarde là-haut...", german=" Oh! Da oben...", italian=" Ehi! Lassù...", spanish=" Fíjate allí arriba."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Hey! Up there...", french=" Eh, regarde là-haut...", german=" Hey! Da oben...", italian=" Ehi! Lassù...", spanish=" Fíjate allí arriba."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Hey! Up there...", french=" Eh, regarde là-haut...", german=" Hey! Da oben...", italian=" Ehi! Lassù...", spanish=" Fíjate allí arriba."})
+  else
+  SkySceneKit.say({english=" Oh! Up there...", french=" Eh, regarde là-haut...", german=" Oh! Da oben...", italian=" Ehi! Lassù...", spanish=" Fíjate allí arriba."})
+  end
   -- back2_SetMode(4) [mode d'affichage sub NDS: géré par SubScreen]
   -- back2_SetGround(V25P02A) [décor sub chargé: Sub_v25p02a]
   -- camera2_SetPositionMark(Position<'m0', 20, 12.5>) [caméra sub NDS: nappe Sub_ cadrée fenêtre NDS, recadrage dynamique non simulé - documenté]
   SkySubScreen.Show("v25p02a", 15, true) -- screen2_FadeIn: BOTH_FOCUS (timeline ROM)
   GAME:WaitFrames(30)
-  SkySceneKit.say({english="The top of [CS:P]Temporal Tower[CR] is\nglowing red...[K] Why is that?", french="Il y a un halo rouge au sommet\nde la [CS:P]Tour du Temps[CR]...[K] Qu'est-ce que c'est?", german="Die Spitze des [CS:P]Zeitturms[CR]\nglüht rot...[K] Warum nur?", italian="La cima della [CS:P]Torre del Tempo[CR]\nemette una luce rossa...[K] Come mai?", spanish="La parte superior de la [CS:P]Torre[CR]\n[CS:P]del Tiempo[CR] tiene un extraño brillo rojizo...[K]\n¿Por qué será?"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="The top of [CS:P]Temporal Tower[CR] is\nglowing red...[K] What's that about?", french="Il y a un halo rouge au sommet\nde la [CS:P]Tour du Temps[CR]...[K] Qu'est-ce que c'est?", german="Die Spitze des [CS:P]Zeitturms[CR]\nglüht rot...[K] Was hat das zu bedeuten?", italian="La cima della [CS:P]Torre del Tempo[CR]\nemette una luce rossa...[K] Di cosa si tratta?", spanish="La parte superior de la [CS:P]Torre[CR]\n[CS:P]del Tiempo[CR] tiene un extraño brillo rojizo...[K]\n¿Por qué será?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="The top of [CS:P]Temporal Tower[CR] is\nglowing red...[K] What could that be?", french="Il y a un halo rouge au sommet\nde la [CS:P]Tour du Temps[CR]...[K] Qu'est-ce que c'est?", german="Die Spitze des [CS:P]Zeitturms[CR]\nglüht rot...[K] Was könnte das sein?", italian="La cima della [CS:P]Torre del Tempo[CR]\nemette una luce rossa...[K] Cosa potrebbe\nessere?", spanish="La parte superior de la [CS:P]Torre[CR]\n[CS:P]del Tiempo[CR] tiene un extraño brillo rojizo...[K]\n¿Por qué será?"})
+  else
+  SkySceneKit.say({english="The top of [CS:P]Temporal Tower[CR] is\nglowing red...[K] Why is that?", french="Il y a un halo rouge au sommet\nde la [CS:P]Tour du Temps[CR]...[K] Qu'est-ce que c'est?", german="Die Spitze des [CS:P]Zeitturms[CR]\nglüht rot...[K] Warum nur?", italian="La cima della [CS:P]Torre del Tempo[CR]\nemette una luce rossa...[K] Come mai?", spanish="La parte superior de la [CS:P]Torre[CR]\n[CS:P]del Tiempo[CR] tiene un extraño brillo rojizo...[K]\n¿Por qué será?"})
+  end
   SkySubScreen.Hide(15) -- screen2_FadeOut: retour BOTTOM_FOCUS (timeline ROM)
   -- back2_SetMode(0) [mode d'affichage sub NDS: géré par SubScreen]
   GAME:WaitFrames(30)
   pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english=" Let's hurry!", french=" Dépêchons-nous!", german=" Beeilen wir uns!", italian=" Presto!", spanish=" ¡Adelante!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Let's move it!", french=" Dépêchons-nous!", german=" Setzen wir uns in Bewegung!", italian=" Muoviamoci!", spanish=" ¡Adelante!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Let's hustle!", french=" Dépêchons-nous!", german=" Machen wir Dampf!", italian=" Sbrighiamoci!", spanish=" ¡Adelante!"})
+  else
+  SkySceneKit.say({english=" Let's hurry!", french=" Dépêchons-nous!", german=" Beeilen wir uns!", italian=" Presto!", spanish=" ¡Adelante!"})
+  end
   do local p=partner.Position; GROUND:MoveToPosition(partner, p.X+(-120), p.Y+(-20), false, 2) end -- Move2PositionOffset
   do local p=hero.Position; GROUND:MoveToPosition(hero, p.X+(-120), p.Y+(-20), false, 2) end -- Move2PositionOffset
   GAME:WaitFrames(30)

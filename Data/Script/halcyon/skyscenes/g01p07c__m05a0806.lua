@@ -9,6 +9,10 @@ return function(hero, partner)
   -- camera_SetMyself() [neutre/état moteur]
   GAME:FadeIn(30)
   GAME:WaitFrames(30)
-  SkySceneKit.say({english="(And that other time...)", french="(Et la seconde fois aussi...)", german="(Und auch das andere Mal...)", italian="(E quell'altra volta...)", spanish="(Y aquella otra vez...)"}) -- SwitchMonologue: branche default
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="(And that other time...)", french="(Et la seconde fois aussi...)", german="(Und auch das andere Mal...)", italian="(E quell'altra volta...)", spanish="(Y aquella otra vez...)"})
+  else
+  SkySceneKit.say({english="(And that other time...)", french="(Et la seconde fois aussi...)", german="(Und auch das andere Mal...)", italian="(E quell'altra volta...)", spanish="(Y aquella otra vez...)"})
+  end
   GAME:FadeOut(false, 30)
 end

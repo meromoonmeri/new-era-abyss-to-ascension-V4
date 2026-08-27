@@ -38,7 +38,17 @@ return function(hero, partner)
   pcall(function() GROUND:CharSetEmote(partner, "shock", 1) end)
   pcall(function() GROUND:CharSetEmote(hero, "shock", 1) end)
   pcall(function() GROUND:CharSetEmote(npc_npc_parukia, "shock", 1) end)
-  SkySceneKit.say({english=" There's a second...[K] [CS:N]Cresselia[CR]?!", french=" Il y a une autre...[K] [CS:N]Cresselia[CR]?!", german="Da ist eine zweite...[K]\n[CS:N]Cresselia[CR]?!?", italian=" C'è una seconda...[K] [CS:N]Cresselia[CR]?!", spanish=" Hay otra...[K] ¡[CS:N]Cresselia[CR]!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" What?!", french=" Quoi?!", german=" Was?!?", italian=" Cosa?!", spanish=" ¡¿Qué?!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" What?!", french=" Quoi?!", german=" Was?!?", italian=" Cosa?!", spanish=" ¡¿Qué?!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" There's a second...[K] [CS:N]Cresselia[CR]?!", french=" Il y a une autre...[K] [CS:N]Cresselia[CR]?!", german="Da ist eine zweite...[K]\n[CS:N]Cresselia[CR]?!?", italian=" C'è una seconda...[K] [CS:N]Cresselia[CR]?!", spanish=" Hay otra...[K] ¡[CS:N]Cresselia[CR]!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" There's a second...[K] [CS:N]Cresselia[CR]?!", french=" Il y a une autre...[K] [CS:N]Cresselia[CR]?!", german="Da ist eine zweite...[K]\n[CS:N]Cresselia[CR]?!?", italian=" C'è una seconda...[K] [CS:N]Cresselia[CR]?!", spanish=" Hay otra...[K] ¡[CS:N]Cresselia[CR]!"})
+  else
+  SkySceneKit.say({english=" There's a second...[K] [CS:N]Cresselia[CR]?!", french=" Il y a une autre...[K] [CS:N]Cresselia[CR]?!", german="Da ist eine zweite...[K]\n[CS:N]Cresselia[CR]?!?", italian=" C'è una seconda...[K] [CS:N]Cresselia[CR]?!", spanish=" Hay otra...[K] ¡[CS:N]Cresselia[CR]!"})
+  end
   -- GAP: se_Play(8199) — id SE NDS sans portage PMDO identifié
   -- GAP: SetEffect 351 — VFX sans émote PMDO équivalente
   GAME:WaitFrames(2) -- join WaitEffect

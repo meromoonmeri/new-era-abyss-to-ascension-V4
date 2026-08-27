@@ -24,7 +24,17 @@ return function(hero, partner)
   SkySubScreen.Show("s04p01a", 30, false) -- screen2_FadeIn: TOP_FOCUS (timeline ROM)
   GAME:FadeIn(30)
   GAME:WaitFrames(30)
-  SkySceneKit.say({english="We have to do this for [CS:N]Grovyle[CR]'s\nsake! Let's go to [CS:P]Temporal Tower[CR]!", french="Il faut qu'on y arrive,\npour [CS:N]Massko[CR]! C'est parti pour la [CS:P]Tour\ndu Temps[CR]!", german="Wir müssen das [CS:N]Reptain[CR] zuliebe\ntun! Gehen wir zum [CS:P]Zeitturm[CR]!", italian="Dobbiamo farlo per [CS:N]Grovyle[CR]!\nAndiamo alla [CS:P]Torre del Tempo[CR]!", spanish="¡Tenemos que hacer esto por\n[CS:N]Grovyle[CR]! ¡Vamos a la [CS:P]Torre del Tiempo[CR]!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Hey, [hero]!", french=" Eh, [hero]!", german=" Hey, [hero]!", italian=" Ehi, [hero]!", spanish=" ¡Oye, [hero]!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Hey, [hero]!", french=" Eh, [hero]!", german=" Hey, [hero]!", italian=" Ehi, [hero]!", spanish=" ¡Oye, [hero]!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="We have to do this for [CS:N]Grovyle[CR]'s\nsake! Let's go to [CS:P]Temporal Tower[CR]!", french="Il faut qu'on y arrive,\npour [CS:N]Massko[CR]! C'est parti pour la [CS:P]Tour\ndu Temps[CR]!", german="Wir müssen das [CS:N]Reptain[CR] zuliebe\ntun! Gehen wir zum [CS:P]Zeitturm[CR]!", italian="Dobbiamo farlo per [CS:N]Grovyle[CR]!\nAndiamo alla [CS:P]Torre del Tempo[CR]!", spanish="¡Tenemos que hacer esto por\n[CS:N]Grovyle[CR]! ¡Vamos a la [CS:P]Torre del Tiempo[CR]!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="We have to do this for [CS:N]Grovyle[CR]'s\nsake! Let's go to [CS:P]Temporal Tower[CR]!", french="Il faut qu'on y arrive,\npour [CS:N]Massko[CR]! C'est parti pour la [CS:P]Tour\ndu Temps[CR]!", german="Wir müssen das [CS:N]Reptain[CR] zuliebe\ntun! Gehen wir zum [CS:P]Zeitturm[CR]!", italian="Dobbiamo farlo per [CS:N]Grovyle[CR]!\nAndiamo alla [CS:P]Torre del Tempo[CR]!", spanish="¡Tenemos que hacer esto por\n[CS:N]Grovyle[CR]! ¡Vamos a la [CS:P]Torre del Tiempo[CR]!"})
+  else
+  SkySceneKit.say({english="We have to do this for [CS:N]Grovyle[CR]'s\nsake! Let's go to [CS:P]Temporal Tower[CR]!", french="Il faut qu'on y arrive,\npour [CS:N]Massko[CR]! C'est parti pour la [CS:P]Tour\ndu Temps[CR]!", german="Wir müssen das [CS:N]Reptain[CR] zuliebe\ntun! Gehen wir zum [CS:P]Zeitturm[CR]!", italian="Dobbiamo farlo per [CS:N]Grovyle[CR]!\nAndiamo alla [CS:P]Torre del Tempo[CR]!", spanish="¡Tenemos que hacer esto por\n[CS:N]Grovyle[CR]! ¡Vamos a la [CS:P]Torre del Tiempo[CR]!"})
+  end
   -- SetAnimation(71) [anim idle native]
   GAME:WaitFrames(2) -- join WaitAnimation
   GAME:WaitFrames(2) -- join WaitExecuteLives

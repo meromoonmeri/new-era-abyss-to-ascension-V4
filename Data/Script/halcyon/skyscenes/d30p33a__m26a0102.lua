@@ -33,7 +33,13 @@ return function(hero, partner)
   -- SetAnimation(2) [anim idle native]
   GAME:WaitFrames(10)
   -- SetAnimation(2) [anim idle native]
-  SkySceneKit.say({english=" Urk! I've got to hurry...", french="Argh! Je ferais mieux\nde me dépêcher...", german=" Umpf! Ich muss mich beeilen...", italian=" Uh! Devo fare in fretta...", spanish=" Debo darme prisa."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Urk! Gotta hurry...", french="Argh! Je ferais mieux\nde me dépêcher...", german=" Umpf! Ich muss mich beeilen...", italian=" Uh! Devo sbrigarmi...", spanish=" Debo darme prisa."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Urk! I've got to hurry...", french="Argh! Je ferais mieux\nde me dépêcher...", german=" Umpf! Ich muss mich beeilen...", italian=" Uh! Devo fare in fretta...", spanish=" Debo darme prisa."})
+  else
+  SkySceneKit.say({english=" Urk! I've got to hurry...", french="Argh! Je ferais mieux\nde me dépêcher...", german=" Umpf! Ich muss mich beeilen...", italian=" Uh! Devo fare in fretta...", spanish=" Debo darme prisa."})
+  end
   pcall(function() GAME:MoveCamera(276, 212, 60, false) end) -- performer/caméra
   GROUND:MoveToPosition(partner, 244, 220, false, 2)
   GAME:WaitFrames(10)
@@ -53,7 +59,17 @@ return function(hero, partner)
   -- camera2_SetPositionMark(Position<'m6', 19.5, 16.5>) [caméra sub NDS: nappe Sub_ cadrée fenêtre NDS, recadrage dynamique non simulé - documenté]
   SkySubScreen.Show("v25p04a", 15, true) -- screen2_FadeIn: BOTH_FOCUS (timeline ROM)
   GAME:WaitFrames(30)
-  SkySceneKit.say({english="It's hard to put the Time Gears\ninto place!", french="Je n'arrive pas à emboîter\nles Rouages du Temps!", german="Es ist schwierig, die Zahnräder\nder Zeit einzusetzen!", italian="È difficile mettere in posizione\ngli Ingranaggi del Tempo!", spanish="¡Resulta muy complicado encajar\nlos Engranajes del Tiempo!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Urk! The floor's heaving...", french=" Aaah, le sol se soulève...", german=" Umpf! Der Boden hebt sich...", italian="Ah! Non riesco quasi a stare in\npiedi...", spanish=" El suelo se mueve."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Urk! The floor's heaving...", french=" Aaah, le sol se soulève...", german=" Umpf! Der Boden hebt sich...", italian="Ah! Non riesco quasi a stare in\npiedi...", spanish=" El suelo se mueve."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="It's hard to put the Time Gears\ninto place!", french="Je n'arrive pas à emboîter\nles Rouages du Temps!", german="Es ist schwierig, die Zahnräder\nder Zeit einzusetzen!", italian="È difficile mettere in posizione\ngli Ingranaggi del Tempo!", spanish="¡Resulta muy complicado encajar\nlos Engranajes del Tiempo!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="It's hard to put the Time Gears\ninto place!", french="Je n'arrive pas à emboîter\nles Rouages du Temps!", german="Es ist schwierig, die Zahnräder\nder Zeit einzusetzen!", italian="È difficile mettere in posizione\ngli Ingranaggi del Tempo!", spanish="¡Resulta muy complicado encajar\nlos Engranajes del Tiempo!"})
+  else
+  SkySceneKit.say({english="It's hard to put the Time Gears\ninto place!", french="Je n'arrive pas à emboîter\nles Rouages du Temps!", german="Es ist schwierig, die Zahnräder\nder Zeit einzusetzen!", italian="È difficile mettere in posizione\ngli Ingranaggi del Tempo!", spanish="¡Resulta muy complicado encajar\nlos Engranajes del Tiempo!"})
+  end
   do local p=partner.Position; GROUND:MoveToPosition(partner, p.X+(0), p.Y+(-8), false, 1) end
   GAME:WaitFrames(2) -- join WaitExecuteLives
   do local p=hero.Position; GROUND:MoveToPosition(hero, p.X+(0), p.Y+(-8), false, 1) end
@@ -67,7 +83,13 @@ return function(hero, partner)
   GAME:WaitFrames(60)
   -- ExecuteCommon(CORO_JUMP_HAPPY_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   pcall(function() GROUND:CharSetEmote(hero, "exclaim", 1) end)
-  SkySceneKit.say({english=" I did it![K] They're in place!", french=" Ça y est![K] Ils sont en place!", german="Ich habe es geschafft![K]\nAlle sitzen richtig!", italian="Ce l'ho fatta![K] Sono tutti al loro\nposto!", spanish="¡Lo conseguí![K] ¡Ya están todos\ncolocados!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" I did it![K] They're all set!", french=" Ça y est![K] Ils sont en place!", german="Ich habe es geschafft![K]\nAlle sitzen richtig!", italian="Ce l'ho fatta![K] Sono tutti al loro\nposto!", spanish="¡Lo conseguí![K] ¡Ya están todos\ncolocados!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Done![K] They're all set!", french=" Ça y est![K] Ils sont en place!", german=" Fertig![K] Alle sitzen richtig!", italian="Fatto![K] Sono tutti al loro\nposto!", spanish="¡Lo conseguí![K] ¡Ya están todos\ncolocados!"})
+  else
+  SkySceneKit.say({english=" I did it![K] They're in place!", french=" Ça y est![K] Ils sont en place!", german="Ich habe es geschafft![K]\nAlle sitzen richtig!", italian="Ce l'ho fatta![K] Sono tutti al loro\nposto!", spanish="¡Lo conseguí![K] ¡Ya están todos\ncolocados!"})
+  end
   -- GAP: se_Play(8462) — id SE NDS sans portage PMDO identifié
   -- supervision_Acting(2) [neutre/état moteur]
   -- SetOutputAttribute(4) [neutre/état moteur]
@@ -103,7 +125,13 @@ return function(hero, partner)
   -- SetAnimation(68) [anim idle native]
   -- GAP: se_Play(8451) — id SE NDS sans portage PMDO identifié
   GROUND:MoveToPosition(partner, 260, 220, false, 2)
-  SkySceneKit.say({english=" Waaaaah!", french=" Ouaaaaah!", german=" Waaaaah!", italian=" Aaaaaah!", spanish=" ¡Aaaaah!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Waaaaah!", french=" Ouaaaaah!", german=" Waaaaah!", italian=" Aaaaaah!", spanish=" ¡Aaaaah!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Waaaaah!", french=" Ouaaaaah!", german=" Waaaaah!", italian=" Aaaaaah!", spanish=" ¡Aaaaah!"})
+  else
+  SkySceneKit.say({english=" Waaaaah!", french=" Ouaaaaah!", german=" Waaaaah!", italian=" Aaaaaah!", spanish=" ¡Aaaaah!"})
+  end
   -- SetAnimation(68) [anim idle native]
   GAME:WaitFrames(2) -- join WaitAnimation
   GAME:WaitFrames(2) -- join WaitExecuteLives
@@ -129,17 +157,47 @@ return function(hero, partner)
   GROUND:EntTurn(partner, Direction.Up)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GAME:WaitFrames(30)
-  SkySceneKit.say({english=" Wh-why?!", french=" Mais qu'est-ce qui se passe?!", german=" W-warum?", italian=" P-Perché?!", spanish=" ¡¿Y ahora qué?!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Wh-why?!", french=" Mais qu'est-ce qui se passe?!", german=" W-warum?", italian=" P-Perché?!", spanish=" ¡¿Y ahora qué?!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Wh-why?!", french=" Mais qu'est-ce qui se passe?!", german=" W-warum?", italian=" P-Perché?!", spanish=" ¡¿Y ahora qué?!"})
+  else
+  SkySceneKit.say({english=" Wh-why?!", french=" Mais qu'est-ce qui se passe?!", german=" W-warum?", italian=" P-Perché?!", spanish=" ¡¿Y ahora qué?!"})
+  end
   GROUND:EntTurn(hero, Direction.Up)
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english="Why aren't these tremors\nstopping?!", french="Pourquoi est-ce que la terre\ncontinue à trembler?!", german="Warum wollen diese\nErschütterungen nicht aufhören?", italian="Perché questi tremori non\ncessano?!", spanish="¿Por qué no se detienen los\ntemblores?"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" I set the Time Gears in place!", french="J'ai pourtant remis les Rouages\ndu Temps à leur place!", german="Ich habe die Zahnräder der Zeit\neingesetzt!", italian="Ho messo gli Ingranaggi del\nTempo al loro posto!", spanish=" ¡Ya he colocado los engranajes!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="I put the Time Gears where\nthey're supposed to go!", french="J'ai pourtant remis les Rouages\ndu Temps à leur place!", german="Ich habe die Zahnräder der Zeit\ndort eingesetzt, wo sie hingehören!", italian="Ho messo gli Ingranaggi del\nTempo dove dovevano essere messi!", spanish=" ¡Ya he colocado los engranajes!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Why isn't this quake stopping?!", french="Pourquoi est-ce que la terre\ncontinue à trembler?!", german="Warum hört dieses Beben nicht\nauf?", italian=" Perché le scosse non cessano?!", spanish="¿Por qué no se detienen los\ntemblores?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Why won't these tremors stop?!", french="Pourquoi est-ce que la terre\ncontinue à trembler?!", german="Warum hören diese\nErschütterungen nicht auf?", italian="Perché questi tremori non\ncessano?!", spanish="¿Por qué no se detienen los\ntemblores?"})
+  else
+  SkySceneKit.say({english="Why aren't these tremors\nstopping?!", french="Pourquoi est-ce que la terre\ncontinue à trembler?!", german="Warum wollen diese\nErschütterungen nicht aufhören?", italian="Perché questi tremori non\ncessano?!", spanish="¿Por qué no se detienen los\ntemblores?"})
+  end
   -- ExecuteCommon(CORO_LOOK_AROUND_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GAME:WaitFrames(30)
   pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
-  SkySceneKit.say({english="Is it too late...[K]to stop the\nplanet's paralysis...?", french="Est-ce que nous arrivons trop\ntard...[K] pour empêcher la Paralysie\nde la Planète...?", german="Ist es bereits zu spät,[K] die\nLähmung des Planeten aufzuhalten?", italian="È troppo tardi...[K] per fermare\nla paralisi del pianeta...?", spanish="¿Es que ya...?[K] ¿Es que ya es\nimposible detener la parálisis del planeta?"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" It can't be...[K] Was I too late...?", french="J'espère que...[K] ça n'était pas\ntrop tard...?", german="Das kann nicht sein...[K] War es zu\nspät?", italian="Non può essere...[K] Era troppo\ntardi...?", spanish="No puede ser...[K] ¿Habré llegado\ndemasiado tarde?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" It can't be...[K] Was I too late...?", french="J'espère que...[K] ça n'était pas\ntrop tard...?", german="Das kann nicht sein...[K] War es zu\nspät?", italian="Non può essere...[K] Era troppo\ntardi...?", spanish="No puede ser...[K] ¿Habré llegado\ndemasiado tarde?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="Will [CS:P]Temporal Tower[CR] keep\nfalling apart...?", french="Est-ce que la [CS:P]Tour du Temps[CR] va\nquand même s'effondrer...?", german="Bricht der [CS:P]Zeitturm[CR] weiterhin\nauseinander?", italian="La [CS:P]Torre del Tempo[CR] alla fine\ncrollerà comunque?", spanish="¿Se derrumbará de todas\nformas la [CS:P]Torre del Tiempo[CR]?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="Will [CS:P]Temporal Tower[CR] continue\nto collapse...?", french="Est-ce que la [CS:P]Tour du Temps[CR] va\nquand même s'effondrer...?", german="Wird der [CS:P]Zeitturm[CR] weiter\nkollabieren?", italian="La [CS:P]Torre del Tempo[CR] alla fine\ncrollerà comunque?", spanish="¿Se derrumbará de todas\nformas la [CS:P]Torre del Tiempo[CR]?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="Is it too late...[K]to stop the\nplanet's paralysis...?", french="Est-ce que nous arrivons trop\ntard...[K] pour empêcher la Paralysie\nde la Planète...?", german="Ist es bereits zu spät,[K] die\nLähmung des Planeten aufzuhalten?", italian="È troppo tardi...[K] per fermare\nla paralisi del pianeta...?", spanish="¿Es que ya...?[K] ¿Es que ya es\nimposible detener la parálisis del planeta?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="Is it too late...[K]to stop the\nplanet's paralysis...?", french="Est-ce que nous arrivons trop\ntard...[K] pour empêcher la Paralysie\nde la Planète...?", german="Ist es bereits zu spät,[K] die\nLähmung des Planeten aufzuhalten?", italian="È troppo tardi...[K] per fermare\nla paralisi del pianeta...?", spanish="¿Es que ya...?[K] ¿Es que ya es\nimposible detener la parálisis del planeta?"})
+  else
+  SkySceneKit.say({english="Is it too late...[K]to stop the\nplanet's paralysis...?", french="Est-ce que nous arrivons trop\ntard...[K] pour empêcher la Paralysie\nde la Planète...?", german="Ist es bereits zu spät,[K] die\nLähmung des Planeten aufzuhalten?", italian="È troppo tardi...[K] per fermare\nla paralisi del pianeta...?", spanish="¿Es que ya...?[K] ¿Es que ya es\nimposible detener la parálisis del planeta?"})
+  end
   -- GAP: se_Play(6401) — id SE NDS sans portage PMDO identifié
   GAME:FadeOut(true, 2) -- screen_WhiteOut
   GAME:WaitFrames(2)

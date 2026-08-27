@@ -57,12 +57,24 @@ return function(hero, partner)
   pcall(function() UI:SetSpeaker(npc_npc_daakurai) end)
   SkySceneKit.say({english=" into a realm of darkness!", french=" ... un royaume de l'ombre!", german=" In ein Reich der Dunkelheit!", italian="Il mondo sarà il regno\ndell'oscurità!", spanish=" ¡En un reino de oscuridad!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  SkySceneKit.say({english=" H-here they come!", french=" Ils... ils arrivent!", german=" H-hier kommen sie!", italian=" E-Ecco che arrivano!", spanish=" ¡Aquí vienen!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" H-here they come!", french=" Ils... ils arrivent!", german=" H-hier kommen sie!", italian=" E-Ecco che arrivano!", spanish=" ¡Aquí vienen!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" H-here they come!", french=" Ils... ils arrivent!", german=" H-hier kommen sie!", italian=" E-Ecco che arrivano!", spanish=" ¡Aquí vienen!"})
+  else
+  SkySceneKit.say({english=" H-here they come!", french=" Ils... ils arrivent!", german=" H-hier kommen sie!", italian=" E-Ecco che arrivano!", spanish=" ¡Aquí vienen!"})
+  end
   pcall(function() UI:SetSpeaker(npc_npc_kureseria) end)
   SkySceneKit.say({english=" Be careful!", french=" Prudence!", german=" Seid vorsichtig!", italian=" Attenzione!", spanish=" ¡Cuidado!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- message_FacePositionOffset(0, -2) [neutre/état moteur]
-  SkySceneKit.say({english="(It will never happen!)", french="(Jamais ça n'arrivera!)", german="(Das wird niemals geschehen!)", italian="(Non deve succedere!)", spanish="(¡Nunca!)"}) -- SwitchMonologue: branche default
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="(I won't let the world be covered in\ndarkness!)", french="(Je ne laisserai pas l'ombre engloutir\nle monde!)", german="(Ich werde nicht zulassen, dass die Welt in\nDunkelheit gehüllt wird!)", italian="(Non lascerò che il mondo venga\navvolto dall'oscurità!)", spanish="(¡No permitiré que reine la oscuridad en\nel mundo!)"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="(It will never happen!)", french="(Jamais ça n'arrivera!)", german="(Das wird niemals geschehen!)", italian="(Non deve succedere!)", spanish="(¡Nunca!)"})
+  else
+  SkySceneKit.say({english="(It will never happen!)", french="(Jamais ça n'arrivera!)", german="(Das wird niemals geschehen!)", italian="(Non deve succedere!)", spanish="(¡Nunca!)"})
+  end
   -- GAP: se_Play(5143) — id SE NDS sans portage PMDO identifié
   GAME:FadeOut(true, 2) -- screen_WhiteOut
   GAME:WaitFrames(2)

@@ -27,13 +27,29 @@ return function(hero, partner)
   -- ExecuteCommon(CORO_JUMP_HAPPY_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() SOUND:FadeOutBGM(160) end)
-  SkySceneKit.say({english=" Oh, wait! Hold on!", french=" Une seconde! Attends!", german=" Oh, warte mal einen Moment!", italian=" Oh, aspetta! Fermo!", spanish=" ¡Un momento! ¡Espera!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Wait a sec! Hold on!", french=" Une seconde! Attends!", german=" Momentchen mal! Langsam!", italian=" Un momento! Aspetta!", spanish=" ¡Un momento! ¡Espera!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Oh, wait! Don't go!", french=" Une seconde! Attends!", german=" Oh, warte! Geh noch nicht!", italian=" Oh, aspetta! Fermo!", spanish=" ¡Un momento! ¡No sigas!"})
+  else
+  SkySceneKit.say({english=" Oh, wait! Hold on!", french=" Une seconde! Attends!", german=" Oh, warte mal einen Moment!", italian=" Oh, aspetta! Fermo!", spanish=" ¡Un momento! ¡Espera!"})
+  end
   GROUND:EntTurn(npc_npc_juputoru, Direction.DownLeft)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() UI:SetSpeaker(npc_npc_juputoru) end)
   SkySceneKit.say({english=" What is it?", french=" Qu'est-ce qu'il y a?", german=" Was ist los?", italian=" Cosa c'è?", spanish=" ¿Qué pasa?"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  SkySceneKit.say({english="[CS:N]Grovyle[CR], will you...[K]keep stealing\nthe Time Gears like you were doing before?", french="[CS:N]Massko[CR], est-ce que...[K]\ntu te remettras à voler les Rouages du Temps?", german="[CS:N]Reptain[CR], wirst du dann...[K]\nWirst du dann weiterhin Zahnräder der Zeit\nstehlen?", italian="[CS:N]Grovyle[CR], tu...[K] continuerai a\nrubare gli Ingranaggi del Tempo come\nfacevi prima?", spanish="¿Vas a...?[K] ¿Vas a seguir robando\nlos Engranajes del Tiempo igual que antes,\n[CS:N]Grovyle[CR]?"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="If the three of us could get back\nto our world...", french="Si on arrive à regagner notre\nmonde...", german="Wenn wir drei in unsere Welt\nzurückkehren könnten...", italian="Se noi tre possiamo tornare nel\nnostro mondo...", spanish=" Si regresamos al pasado..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="If the three of us do return to\nour world...", french="Si on arrive à regagner notre\nmonde...", german="Wenn wir drei in unsere Welt\nzurückkehren...", italian="Se noi tre torniamo nel nostro\nmondo...", spanish=" Si regresamos al pasado..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="[CS:N]Grovyle[CR], will you...[K]keep stealing\nTime Gears like you did before?", french="[CS:N]Massko[CR], est-ce que...[K]\ntu te remettras à voler les Rouages du Temps?", german="[CS:N]Reptain[CR], wirst du dann...[K]\nWirst du dann weiterhin Zahnräder der Zeit\nstehlen?", italian="[CS:N]Grovyle[CR], tu...[K] continuerai a\nrubare gli Ingranaggi del Tempo come\nfacevi prima?", spanish="¿Vas a...?[K] ¿Vas a seguir robando\nlos Engranajes del Tiempo igual que antes,\n[CS:N]Grovyle[CR]?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="[CS:N]Grovyle[CR], will you...[K]steal the Time\nGears like you did before?", french="[CS:N]Massko[CR], est-ce que...[K]\ntu te remettras à voler les Rouages du Temps?", german="[CS:N]Reptain[CR], wirst du dann...[K]\nWirst du wie bisher Zahnräder der Zeit\nstehlen?", italian="[CS:N]Grovyle[CR], tu...[K] ruberai\ngli Ingranaggi del Tempo come facevi\nprima?", spanish="¿Vas a...?[K] ¿Vas a seguir robando\nlos Engranajes del Tiempo igual que antes,\n[CS:N]Grovyle[CR]?"})
+  else
+  SkySceneKit.say({english="[CS:N]Grovyle[CR], will you...[K]keep stealing\nthe Time Gears like you were doing before?", french="[CS:N]Massko[CR], est-ce que...[K]\ntu te remettras à voler les Rouages du Temps?", german="[CS:N]Reptain[CR], wirst du dann...[K]\nWirst du dann weiterhin Zahnräder der Zeit\nstehlen?", italian="[CS:N]Grovyle[CR], tu...[K] continuerai a\nrubare gli Ingranaggi del Tempo come\nfacevi prima?", spanish="¿Vas a...?[K] ¿Vas a seguir robando\nlos Engranajes del Tiempo igual que antes,\n[CS:N]Grovyle[CR]?"})
+  end
   pcall(function() UI:SetSpeaker(npc_npc_juputoru) end)
   SkySceneKit.say({english=" Well...[K]yes, I will.", french=" Eh bien... [K]oui, je recommencerai.", german=" Nun...[K] Ja, das werde ich.", italian=" Beh...[K] Sì, lo farò.", spanish=" Pues...[K] Sí, por supuesto."})
   pcall(function() UI:SetSpeaker(npc_npc_juputoru) end)
@@ -42,7 +58,41 @@ return function(hero, partner)
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Shock") end)
   -- ExecuteCommon(CORO_JUMP_ANGRY_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english=" I'm going to stop you, [CS:N]Grovyle[CR]!", french=" Je ferai tout pour t'arrêter!", german="Dann werde ich dich aufhalten,\n[CS:N]Reptain[CR]!", italian=" Beh, ti fermerò, [CS:N]Grovyle[CR]!", spanish=" Tendré que detenerte, [CS:N]Grovyle[CR]."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" But I...", french=" Mais je...", german=" Aber ich...", italian=" Ma io...", spanish=" Pero es que yo..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" But I...", french=" Mais je...", german=" Aber ich...", italian=" Ma io...", spanish=" Pero es que yo..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" [CS:N]Grovyle[CR], I'm not convinced yet.", french="[CS:N]Massko[CR], je ne suis pas encore\ntotalement convaincu.", german="[CS:N]Reptain[CR], ich bin noch nicht\nüberzeugt.", italian="[CS:N]Grovyle[CR], non sono ancora\nconvinto.", spanish="[CS:N]Grovyle[CR], aún no estoy convencido\ndel todo."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" [CS:N]Grovyle[CR], I'm not convinced yet.", french="[CS:N]Massko[CR], je ne suis pas encore\ntotalement convaincu.", german="[CS:N]Reptain[CR], ich bin noch nicht\nüberzeugt.", italian="[CS:N]Grovyle[CR], non sono ancora\nconvinto.", spanish="[CS:N]Grovyle[CR], aún no estoy convencido\ndel todo."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="Don't assume that you have my\ncomplete trust.", french="Ne va pas t'imaginer que tu as\ntoute ma confiance.", german="Du solltest nicht annehmen, dass\nich dir voll vertraue.", italian="Non credere che io mi fidi\nciecamente di te.", spanish=" No confío plenamente en ti."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" I don't completely trust you yet.", french="Ne va pas t'imaginer que tu as\ntoute ma confiance.", german="Ich vertraue dir noch nicht\nvöllig.", italian="Non mi fido ancora del tutto\ndi te.", spanish=" No confío plenamente en ti."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="I'm only traveling with you\nbecause I want to get back to our world.", french="Je voyage avec toi uniquement\ndans l'espoir de regagner notre monde.", german="Ich reise nur mit dir, weil ich\nwieder in unsere eigene Welt zurück will.", italian="Sono in viaggio con te solo\nperché voglio tornare nel nostro mondo.", spanish="Solo viajo contigo porque quiero\nvolver a mi mundo."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="I'm only cooperating with you\nbecause I want to return to our world.", french="Je voyage avec toi uniquement\ndans l'espoir de regagner notre monde.", german="Ich arbeite nur mit dir\nzusammen, weil ich wieder in unsere eigene\nWelt zurück will.", italian="Sto collaborando con te perché\nvoglio tornare nel nostro mondo.", spanish="Solo viajo contigo porque quiero\nvolver a mi mundo."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" If we do get back, [CS:N]Grovyle[CR]...", french="Si on réussit à rentrer,\n[CS:N]Massko[CR]...", german="Wenn wir es zurück schaffen,\n[CS:N]Reptain[CR]...", italian=" Se torniamo indietro, [CS:N]Grovyle[CR]...", spanish="Si conseguimos regresar,\n[CS:N]Grovyle[CR]..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" If we do return, [CS:N]Grovyle[CR]...", french="Si on réussit à rentrer,\n[CS:N]Massko[CR]...", german="Wenn wir es schaffen\nzurückzukommen, [CS:N]Reptain[CR]...", italian=" Se torniamo, [CS:N]Grovyle[CR]...", spanish=" Si logramos regresar, [CS:N]Grovyle[CR]..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="I'll find out if you really were\nstealing those Time Gears to prevent the\nplanet's paralysis.", french="Je saurai si c'était vraiment\npour empêcher la Paralysie de la Planète que\ntu volais les Rouages du Temps.", german="Dann werde ich herausfinden, ob\ndu die Zahnräder der Zeit wirklich gestohlen\nhast, um die Lähmung des Planeten zu stoppen.", italian="Scoprirò se stavi davvero\nrubando gli Ingranaggi del Tempo per\nprevenire la paralisi del pianeta.", spanish="Averiguaré si realmente estabas\nrobando los Engranajes del Tiempo para evitar\nla parálisis del planeta."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="I'll investigate if you really\nwere stealing those Time Gears to prevent the\nplanet's paralysis.", french="Je saurai si c'était vraiment\npour empêcher la Paralysie de la Planète que\ntu volais les Rouages du Temps.", german="Dann werde ich herausfinden, ob\ndu die Zahnräder der Zeit wirklich gestohlen\nhast, um die Lähmung des Planeten zu stoppen.", italian="Indagherò per scoprire se\ndavvero stavi rubando gli Ingranaggi del Tempo\nper prevenire la paralisi del pianeta.", spanish="Averiguaré si realmente estabas\nrobando los Engranajes del Tiempo para evitar\nla parálisis del planeta."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="[CS:N]Grovyle[CR], if I end up thinking\nyou're wrong for stealing the Time Gears...", french="[CS:N]Massko[CR], si je m'aperçois\ndu contraire... Si tu as eu tort de voler\nles Rouages du Temps...", german="[CS:N]Reptain[CR], wenn ich zu dem\nSchluss kommen sollte, dass du die Zahnräder\nder Zeit zu Unrecht gestohlen hast...", italian="[CS:N]Grovyle[CR], se capirò che stavi\nsbagliando a rubare gli Ingranaggi del Tempo...", spanish="Si llego a la conclusión de que\nno deberías robar los Engranajes del Tiempo..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="[CS:N]Grovyle[CR], if I decide that you're\nwrong for stealing the Time Gears...", french="[CS:N]Massko[CR], si je m'aperçois\ndu contraire... Si tu as eu tort de voler\nles Rouages du Temps...", german="[CS:N]Reptain[CR], wenn ich zu dem\nSchluss kommen sollte, dass du die Zahnräder\nder Zeit zu Unrecht gestohlen hast...", italian="[CS:N]Grovyle[CR], se capirò che stavi\nsbagliando a rubare gli Ingranaggi del Tempo...", spanish="Si llego a la conclusión de que\nno deberías robar los Engranajes del Tiempo..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" I'm going to stop you, [CS:N]Grovyle[CR]!", french=" Je ferai tout pour t'arrêter!", german="Dann werde ich dich aufhalten,\n[CS:N]Reptain[CR]!", italian=" Beh, ti fermerò, [CS:N]Grovyle[CR]!", spanish=" Tendré que detenerte, [CS:N]Grovyle[CR]."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" I'm going to stop you, [CS:N]Grovyle[CR]!", french=" Je ferai tout pour t'arrêter!", german="Dann werde ich dich aufhalten,\n[CS:N]Reptain[CR]!", italian=" Beh, ti fermerò, [CS:N]Grovyle[CR]!", spanish=" Tendré que detenerte, [CS:N]Grovyle[CR]."})
+  else
+  SkySceneKit.say({english=" I'm going to stop you, [CS:N]Grovyle[CR]!", french=" Je ferai tout pour t'arrêter!", german="Dann werde ich dich aufhalten,\n[CS:N]Reptain[CR]!", italian=" Beh, ti fermerò, [CS:N]Grovyle[CR]!", spanish=" Tendré que detenerte, [CS:N]Grovyle[CR]."})
+  end
   GAME:WaitFrames(2) -- join WaitExecuteLives
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:SetSpeaker(npc_npc_juputoru) end)
@@ -60,22 +110,50 @@ return function(hero, partner)
   GAME:WaitFrames(5)
   GROUND:MoveToPosition(hero, 300, 92, false, 1)
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english="(............)", french="(............)", german="(............)", italian="(............)", spanish="(...)"}) -- SwitchMonologue: branche default
-  SkySceneKit.say({english="(I am sensing something strange...)", french="(Je ressens quelque chose d'étrange...)", german="(Ich fühle etwas Seltsames...)", italian="(Sento qualcosa di strano...)", spanish="(Noto algo extraño...)"}) -- SwitchMonologue: branche default
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="(............)", french="(............)", german="(............)", italian="(............)", spanish="(...)"})
+  else
+  SkySceneKit.say({english="(............)", french="(............)", german="(............)", italian="(............)", spanish="(...)"})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="(I feel it...)", french="(Je le sens...)", german="(Ich kann es spüren...)", italian="(Lo sento...)", spanish="(Puedo sentirlo...)"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="(I am sensing something strange...)", french="(Je ressens quelque chose d'étrange...)", german="(Ich fühle etwas Seltsames...)", italian="(Sento qualcosa di strano...)", spanish="(Noto algo extraño...)"})
+  else
+  SkySceneKit.say({english="(I am sensing something strange...)", french="(Je ressens quelque chose d'étrange...)", german="(Ich fühle etwas Seltsames...)", italian="(Sento qualcosa di strano...)", spanish="(Noto algo extraño...)"})
+  end
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Confused") end)
   pcall(function() GROUND:CharSetEmote(partner, "question", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecuteLives
   -- message_FacePositionOffset(-3, 0) [neutre/état moteur]
-  SkySceneKit.say({english=" Hm?[K] What is it, [hero]?", french="Hein?[K] Qu'est-ce qui se passe,\n[hero]?", german="Hm?[K] Was gibt es,\n[hero]?", italian=" Eh?[K] Cosa c'è, [hero]?", spanish=" ¿Eh?[K] ¿Qué pasa, [hero]?"}) -- SwitchTalk: branche default (canon générique)
-  SkySceneKit.say({english="(It was...)", french="(C'était...)", german="(Es war...)", italian="(Era...)", spanish="(Sucedió cuando...)"}) -- SwitchMonologue: branche default
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Hm?[K] What's up, [hero]?", french="Hein?[K] Qu'est-ce qui se passe,\n[hero]?", german=" Hm?[K] Was ist los, [hero]?", italian=" Eh?[K] Cosa c'è, [hero]?", spanish=" ¿Eh?[K] ¿Qué pasa, [hero]?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="Hm?[K] What's the matter,\n[hero]?", french="Hein?[K] Qu'est-ce qui se passe,\n[hero]?", german="Hm?[K] Was gibt es,\n[hero]?", italian="Eh?[K] Qual è il problema,\n[hero]?", spanish=" ¿Eh?[K] ¿Qué pasa, [hero]?"})
+  else
+  SkySceneKit.say({english=" Hm?[K] What is it, [hero]?", french="Hein?[K] Qu'est-ce qui se passe,\n[hero]?", german="Hm?[K] Was gibt es,\n[hero]?", italian=" Eh?[K] Cosa c'è, [hero]?", spanish=" ¿Eh?[K] ¿Qué pasa, [hero]?"})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="(I just know it!)", french="(Je connais cette sensation!)", german="(Ich weiß es einfach!)", italian="(La conosco!)", spanish="(¡Estoy seguro!)"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="(I've felt something like this before...)", french="(Ce n'est pas la première fois que je la\nressens...)", german="(Ich habe schon einmal so etwas gespürt.)", italian="(Ho già provato una sensazione del genere...)", spanish="(He notado algo así antes...)"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="(It was...)", french="(C'était...)", german="(Es war...)", italian="(Era...)", spanish="(Sucedió cuando...)"})
+  else
+  SkySceneKit.say({english="(It was...)", french="(C'était...)", german="(Es war...)", italian="(Era...)", spanish="(Sucedió cuando...)"})
+  end
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Complain") end)
   pcall(function() GROUND:CharSetEmote(hero, "exclaim", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GAME:WaitFrames(2) -- join WaitSe
   -- GAP: BGM BGM_I_SAW_SOMETHING_AGAIN non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)
-  SkySceneKit.say({english="(That's it![K] It was when...)", french="(J'y suis![K] C'était quand...)", german="(Das ist es![K] Es war, als...)", italian="(Ecco![K] È stato quando...)", spanish="(¡Eso es![K] Sucedió cuando...)"}) -- SwitchMonologue: branche default
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="(That's it![K] It was when...)", french="(J'y suis![K] C'était quand...)", german="(Das ist es![K] Es war, als...)", italian="(Ecco![K] Era quando...)", spanish="(¡Eso es![K] Sucedió cuando...)"})
+  else
+  SkySceneKit.say({english="(That's it![K] It was when...)", french="(J'y suis![K] C'était quand...)", german="(Das ist es![K] Es war, als...)", italian="(Ecco![K] È stato quando...)", spanish="(¡Eso es![K] Sucedió cuando...)"})
+  end
   GAME:FadeOut(false, 30)
   SkySceneKit.cleanup_npcs()
 end

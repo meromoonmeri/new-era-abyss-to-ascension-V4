@@ -102,7 +102,29 @@ return function(hero, partner)
   -- ExecuteCommon(CORO_JUMP_ANGRY_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   GAME:WaitFrames(2) -- join WaitExecuteLives
   -- message_FacePositionOffset(-1, 0) [neutre/état moteur]
-  SkySceneKit.say({english=" We should recycle more!", french="Il faut qu'on essaye d'échanger\nle plus d'objets possible, d'accord?", german="Wir sollten noch mehr\nwiederverwerten!", italian=" Dobbiamo riciclare di più!", spanish=" ¡Deberíamos reciclar más!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Wow! So cool!", french=" Ouah! Quelle classe!", german=" Wow! Spitze!", italian=" Wow! Forte!", spanish=" ¡Jo, qué guay!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Wow! So amazing!", french=" Ouah! Quelle classe!", german=" Wow! Wie grandios!", italian=" Wow! Che bello!", spanish=" ¡Guau, es increíble!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="Recycling leftover items, trading\nthem around... They're bound to turn into\nunbelievable treasures!", french="Echanger des objets superflus\ncontre de meilleurs objets... Au final, on\ndoit pouvoir obtenir des trésors fabuleux!", german="Überflüssige Items\nwiederverwerten... Sie tauschen, damit\nsie zu unglaublichen Schätzen werden!", italian="Riciclare strumenti inutilizzati,\nscambiarli in giro... potremmo ritrovarci\nin mano dei veri e propri tesori!", spanish="Al reciclar objetos sobrantes\ne intercambiarlos... ¡lograremos\ntesoros increíbles!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="Recycling leftover items, trading\nthem around... They're bound to turn into\nunbelievable treasures!", french="Echanger des objets superflus\ncontre de meilleurs objets... Au final, on\ndoit pouvoir obtenir des trésors fabuleux!", german="Überflüssige Items\nwiederverwerten... Sie tauschen, damit\nsie zu unglaublichen Schätzen werden!", italian="Riciclare strumenti inutilizzati,\nscambiarli in giro... potremmo ritrovarci\nin mano dei veri e propri tesori!", spanish="Al reciclar objetos sobrantes\ne intercambiarlos... ¡lograremos\ntesoros increíbles!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="And being able to go to\nunexplored places!", french="Et que dire de la possibilité de\npartir explorer de nouveaux territoires!", german="Und dabei zu helfen, unentdeckte\nOrte zu finden!", italian="E non dimentichiamo\nla possibilità di visitare luoghi inesplorati!", spanish="¡Y exploraremos lugares\nrecónditos!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="And being able to explore\nunexplored areas!", french="Et que dire de la possibilité de\npartir explorer de nouveaux territoires!", german="Und dabei zu helfen, unentdeckte\nGebiete zu erforschen!", italian="E non dimentichiamo\nla possibilità di visitare luoghi inesplorati!", spanish="¡Y podremos explorar\nlugares recónditos!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Yowza! I'm so excited!", french="Youhou! Je suis au comble\nde l'excitation!", german=" Oh wow! Ich bin so aufgeregt!", italian=" Yuppi! Sono troppo emozionato!", spanish=" ¡Yuju! ¡Ya estoy de los nervios!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Wahoo! I'm so excited!", french="Youhou! Je suis au comble\nde l'excitation!", german=" Oh ja! Ich bin so aufgeregt!", italian=" Yuhuuu! Che emozione!", spanish=" ¡Yupi! ¡Qué nervios tengo ya!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Let's recycle a bunch, OK?", french="Il faut qu'on essaye d'échanger\nle plus d'objets possible, d'accord?", german="Lass uns so viel wie möglich\nwiederverwerten, in Ordnung?", italian="Diamoci sotto e ricicliamo\na più non posso, ok?", spanish="Vamos a reciclar un montón,\n¿vale?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" We should recycle more!", french="Il faut qu'on essaye d'échanger\nle plus d'objets possible, d'accord?", german="Wir sollten noch mehr\nwiederverwerten!", italian=" Dobbiamo riciclare di più!", spanish=" ¡Tenemos que reciclar más!"})
+  else
+  SkySceneKit.say({english=" We should recycle more!", french="Il faut qu'on essaye d'échanger\nle plus d'objets possible, d'accord?", german="Wir sollten noch mehr\nwiederverwerten!", italian=" Dobbiamo riciclare di più!", spanish=" ¡Deberíamos reciclar más!"})
+  end
   -- SetAnimation(71) [anim idle native]
   GAME:WaitFrames(2) -- join WaitAnimation
   GAME:WaitFrames(2) -- join WaitExecuteLives

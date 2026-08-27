@@ -22,7 +22,13 @@ return function(hero, partner)
   pcall(function() UI:SetSpeaker(npc_npc_perappu) end)
   SkySceneKit.say({english="And, surprisingly, you were\nflushed off to the distant Hot Spring?[K] Is that\nthe gist of your report?", french="Et on se retrouve emporté par\nle courant jusqu'à la Source Chaude, située\nà des lieues de là![K] Est-ce là votre rapport?", german="Und ohne es zu ahnen, wurdet\nihr bis zur weit entfernten Heißen Quelle\ngespült?[K] Sind das die Fakten?", italian="E sorprendentemente, avete\nraggiunto la lontana Sorgente Termale?[K] È\nquesto il succo della vostra storia?", spanish="Y poco después acabasteis en la\nlejanísima Terma.[K] ¿Eso es lo que me\nestáis diciendo?"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  SkySceneKit.say({english="Yes.[K] It's awfully disappointing\nthat we couldn't bring the gem back...", french="C'est ça.[K] Et nous n'avons pas\npu rapporter la gemme avec nous.\nC'est vraiment décevant!", german="Ja.[K] Dass wir den Edelstein nicht\nmitnehmen konnten, ist wirklich schade.", italian="Sì.[K] Purtroppo, però,\nabbiamo dovuto lasciare la gemma là.", spanish="Sí.[K] Pero es una auténtica pena\nque no hayamos podido traer la gema."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="Yep.[K] What's really disappointing\nis that we couldn't bring the gem back.", french="C'est ça.[K] Et nous n'avons pas\npu rapporter la gemme avec nous.\nC'est vraiment décevant!", german="Ja.[K] Dass wir den Edelstein nicht\nmitnehmen konnten, ist wirklich schade.", italian="Sì.[K] Ma purtroppo\nnon ci è stato possibile portare con noi la\ngemma.", spanish="Sí.[K] Lo más decepcionante\nes que no hayamos podido traer la gema."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="Yes.[K] It's really disappointing\nthat we couldn't bring the gem back...", french="C'est ça.[K] Et nous n'avons pas\npu rapporter la gemme avec nous.\nC'est vraiment décevant!", german="Ja.[K] Dass wir den Edelstein nicht\nmitnehmen konnten, ist wirklich schade.", italian="Sì.[K] La cosa deludente è che\nnon ci è stato possibile portare con noi la\ngemma.", spanish="Sí.[K] Pero es un poco\ndecepcionante que no hayamos podido traer\nla gema."})
+  else
+  SkySceneKit.say({english="Yes.[K] It's awfully disappointing\nthat we couldn't bring the gem back...", french="C'est ça.[K] Et nous n'avons pas\npu rapporter la gemme avec nous.\nC'est vraiment décevant!", german="Ja.[K] Dass wir den Edelstein nicht\nmitnehmen konnten, ist wirklich schade.", italian="Sì.[K] Purtroppo, però,\nabbiamo dovuto lasciare la gemma là.", spanish="Sí.[K] Pero es una auténtica pena\nque no hayamos podido traer la gema."})
+  end
   -- GAP: se_Play(5122) — id SE NDS sans portage PMDO identifié
   -- SetAnimation(42) [anim idle native]
   pcall(function() UI:SetSpeaker(npc_npc_perappu) end)
@@ -39,7 +45,13 @@ return function(hero, partner)
   -- ExecuteCommon(CORO_JUMP_HAPPY_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GROUND:CharSetEmote(partner, "happy", 1) end)
-  SkySceneKit.say({english=" R-really?!", french=" Vraiment?!", german=" W-wirklich?!?", italian=" D-Davvero?!", spanish=" ¿De... de verdad?"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" R-really?!", french=" Vraiment?!", german=" W-wirklich?!?", italian=" D-Davvero?!", spanish=" ¿De... de verdad?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" R-really?!", french=" Vraiment?!", german=" W-wirklich?!?", italian=" D-Davvero?!", spanish=" ¿De... de verdad?"})
+  else
+  SkySceneKit.say({english=" R-really?!", french=" Vraiment?!", german=" W-wirklich?!?", italian=" D-Davvero?!", spanish=" ¿De... de verdad?"})
+  end
   -- SetAnimation(44) [anim idle native]
   pcall(function() UI:SetSpeaker(npc_npc_perappu) end)
   SkySceneKit.say({english=" Undoubtedly! ♪", french=" Indubitablement! ♪", german=" Zweifellos! ♪", italian=" Senza dubbio! ♪", spanish=" ¡Sin duda alguna! ♪"})
@@ -52,7 +64,13 @@ return function(hero, partner)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   -- SetAnimation(2) [anim idle native]
   pcall(function() GROUND:CharSetEmote(partner, "happy", 1) end)
-  SkySceneKit.say({english=" Oh, I see! We made a discovery!", french="Oh, je vois! Nous avons fait\nune découverte!", german="Oh, verstehe! Wir haben eine\nEntdeckung gemacht!", italian="Oh, capisco! Abbiamo fatto una\nscoperta!", spanish="¡Ah, ya lo entiendo!\n¡Hemos hecho un descubrimiento!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Oh, I see! We made a discovery!", french="Oh, je vois! Nous avons fait\nune découverte!", german="Oh, verstehe! Wir haben eine\nEntdeckung gemacht!", italian="Oh, capisco! Abbiamo fatto una\nscoperta!", spanish="¡Ah, ya lo entiendo!\n¡Hemos hecho un descubrimiento!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Oh, I see! We made a discovery!", french="Oh, je vois! Nous avons fait\nune découverte!", german="Oh, verstehe! Wir haben eine\nEntdeckung gemacht!", italian="Oh, capisco! Abbiamo fatto una\nscoperta!", spanish="¡Ah, ya lo entiendo!\n¡Hemos hecho un descubrimiento!"})
+  else
+  SkySceneKit.say({english=" Oh, I see! We made a discovery!", french="Oh, je vois! Nous avons fait\nune découverte!", german="Oh, verstehe! Wir haben eine\nEntdeckung gemacht!", italian="Oh, capisco! Abbiamo fatto una\nscoperta!", spanish="¡Ah, ya lo entiendo!\n¡Hemos hecho un descubrimiento!"})
+  end
   pcall(function() GROUND:CharSetEmote(partner, "happy", 1) end)
   pcall(function() GROUND:CharSetEmote(npc_npc_perappu, "happy", 1) end)
   GAME:WaitFrames(10)
@@ -60,7 +78,13 @@ return function(hero, partner)
   pcall(function() SOUND:FadeOutBGM(120) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GAME:WaitFrames(60)
-  SkySceneKit.say({english="(The shadow of that Pokémon I saw...)", french="(... l'ombre du Pokémon que j'ai vu...)", german="(Da sah ich den Schatten eines Pokémon.)", italian="(L'ombra del Pokémon che ho visto...)", spanish="(La sombra de ese Pokémon que vi...)"}) -- SwitchMonologue: branche default
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="(When I had those dizzy spells...)", french="(Quand j'ai eu ces vertiges...)", german="(Als ich diese Schwindelanfälle hatte...)", italian="(Quando ho avuto quei capogiri...)", spanish="(Cuando tuve esos mareos...)"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="(The shadow of that Pokémon I saw...)", french="(... l'ombre du Pokémon que j'ai vu...)", german="(Da sah ich den Schatten eines Pokémon.)", italian="(L'ombra del Pokémon che ho visto...)", spanish="(La sombra de ese Pokémon que vi...)"})
+  else
+  SkySceneKit.say({english="(The shadow of that Pokémon I saw...)", french="(... l'ombre du Pokémon que j'ai vu...)", german="(Da sah ich den Schatten eines Pokémon.)", italian="(L'ombra del Pokémon che ho visto...)", spanish="(La sombra de ese Pokémon que vi...)"})
+  end
   GAME:FadeOut(false, 30)
   SkySceneKit.cleanup_npcs()
 end

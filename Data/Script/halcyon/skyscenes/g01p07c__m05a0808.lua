@@ -9,6 +9,10 @@ return function(hero, partner)
   -- camera_SetMyself() [neutre/état moteur]
   GAME:FadeIn(30)
   GAME:WaitFrames(30)
-  SkySceneKit.say({english="(And when we were exploring [CS:P]Waterfall\nCave[CR]!)", french="(Et aussi quand nous avons exploré la [CS:P]Grotte\nCascade[CR]!)", german="(Als wir die [CS:P]Wasserfallhöhle[CR] erkundeten!)", italian="(E quando stavamo esplorando la [CS:P]Grotta della[CR]\n[CS:P]Cascata[CR]!)", spanish="(¡Y cuando explorábamos la [CS:P]Cueva Cascada[CR]!)"}) -- SwitchMonologue: branche default
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="(And when we were exploring [CS:P]Waterfall\nCave[CR]!)", french="(Et aussi quand nous avons exploré la [CS:P]Grotte\nCascade[CR]!)", german="(Als wir die [CS:P]Wasserfallhöhle[CR] erkundeten!)", italian="(E quando stavamo esplorando la [CS:P]Grotta della[CR]\n[CS:P]Cascata[CR]!)", spanish="(¡Y cuando explorábamos la [CS:P]Cueva Cascada[CR]!)"})
+  else
+  SkySceneKit.say({english="(And when we were exploring [CS:P]Waterfall\nCave[CR]!)", french="(Et aussi quand nous avons exploré la [CS:P]Grotte\nCascade[CR]!)", german="(Als wir die [CS:P]Wasserfallhöhle[CR] erkundeten!)", italian="(E quando stavamo esplorando la [CS:P]Grotta della[CR]\n[CS:P]Cascata[CR]!)", spanish="(¡Y cuando explorábamos la [CS:P]Cueva Cascada[CR]!)"})
+  end
   GAME:FadeOut(false, 30)
 end

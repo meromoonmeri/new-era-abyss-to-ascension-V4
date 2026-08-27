@@ -127,7 +127,13 @@ return function(hero, partner)
   SkySceneKit.say({english=" [CS:N]Dusknoir[CR] is...", french=" [CS:N]Noctunoir[CR] va...", german=" [CS:N]Zwirrfinst[CR]...", italian=" [CS:N]Dusknoir[CR] intende...", spanish=" [CS:N]Dusknoir[CR] se va..."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- message_FacePositionOffset(1, 0) [neutre/état moteur]
-  SkySceneKit.say({english=" Going home?", french=" ... repartir?", german=" Er geht nach Hause?", italian=" ... tornare indietro?", spanish=" ¿A casa?"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Going home?", french=" ... repartir?", german=" Er geht nach Hause?", italian=" ... tornare indietro?", spanish=" ¿A casa?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Going home?", french=" ... repartir?", german=" Er geht nach Hause?", italian=" ... tornare indietro?", spanish=" ¿A casa?"})
+  else
+  SkySceneKit.say({english=" Going home?", french=" ... repartir?", german=" Er geht nach Hause?", italian=" ... tornare indietro?", spanish=" ¿A casa?"})
+  end
   -- message_FacePositionOffset(-1, 0) [neutre/état moteur]
   pcall(function() UI:SetSpeaker(npc_npc_dogoomu) end)
   SkySceneKit.say({english=" Going back to the future...?", french=" Repartir dans le futur...?", german=" Er geht wieder in die Zukunft?", italian=" Vuole tornare nel futuro...?", spanish=" ¿De vuelta al futuro?"})
@@ -169,7 +175,13 @@ return function(hero, partner)
   -- ExecuteCommon(CORO_JUMP_ANGRY_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   GAME:WaitFrames(2) -- join WaitExecuteLives
   -- message_FacePositionOffset(1, 0) [neutre/état moteur]
-  SkySceneKit.say({english="Let's hurry! We have to go to\nTreasure Town!", french="Allez, on se dépêche!\nTous à Bourg-Trésor!", german="Beeilung! Wir müssen nach\nSchatzstadt!", italian="Sbrighiamoci! Corriamo tutti a\nBorgo Tesoro!", spanish="¡Vamos, rápido! ¡Tenemos que\nir a Aldea Tesoro!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="Come on, hurry! We have to go\nto Treasure Town!", french="Allez, on se dépêche!\nTous à Bourg-Trésor!", german="Kommt schon, schnell! Wir\nmüssen nach Schatzstadt!", italian="Coraggio, gente! Tutti a Borgo\nTesoro!", spanish="¡Vamos, rápido! ¡Tenemos que\nir a Aldea Tesoro!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="Let's hurry! We have to go to\nTreasure Town!", french="Allez, on se dépêche!\nTous à Bourg-Trésor!", german="Beeilung! Wir müssen nach\nSchatzstadt!", italian="Sbrighiamoci! Corriamo tutti a\nBorgo Tesoro!", spanish="¡Vamos, rápido! ¡Tenemos que\nir a Aldea Tesoro!"})
+  else
+  SkySceneKit.say({english="Let's hurry! We have to go to\nTreasure Town!", french="Allez, on se dépêche!\nTous à Bourg-Trésor!", german="Beeilung! Wir müssen nach\nSchatzstadt!", italian="Sbrighiamoci! Corriamo tutti a\nBorgo Tesoro!", spanish="¡Vamos, rápido! ¡Tenemos que\nir a Aldea Tesoro!"})
+  end
   -- GAP: se_Play(6422) — id SE NDS sans portage PMDO identifié
   GROUND:EntTurn(npc_npc_dagutorio, Direction.Down)
   -- SetAnimation(25) [anim idle native]

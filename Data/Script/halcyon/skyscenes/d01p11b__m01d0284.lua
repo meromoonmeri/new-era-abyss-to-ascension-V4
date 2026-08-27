@@ -33,7 +33,13 @@ return function(hero, partner)
   -- Destroy() [neutre/état moteur]
   pcall(function() GROUND:CharSetEmote(partner, "shock", 1) end)
   -- message_FacePositionOffset(2, 1) [neutre/état moteur]
-  SkySceneKit.say({english=" Aaaah!", french=" Aaah!", german=" Aaaah!", italian=" Aaaah!", spanish=" ¡Aaah!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Aaaah!", french=" Aaah!", german=" Aaaah!", italian=" Aaaah!", spanish=" ¡Aaah!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Aaaah!", french=" Aaah!", german=" Aaaah!", italian=" Aaaah!", spanish=" ¡Aaah!"})
+  else
+  SkySceneKit.say({english=" Aaaah!", french=" Aaah!", german=" Aaaah!", italian=" Aaaah!", spanish=" ¡Aaah!"})
+  end
   do local p=npc_npc_zubatto.Position; GROUND:MoveToPosition(npc_npc_zubatto, p.X+(28), p.Y+(-24), false, 2) end -- Slide2PositionOffset
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GROUND:EntTurn(npc_npc_zubatto, Direction.Left)

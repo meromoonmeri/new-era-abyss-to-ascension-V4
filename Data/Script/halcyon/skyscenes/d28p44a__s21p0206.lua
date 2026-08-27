@@ -25,7 +25,13 @@ return function(hero, partner)
   SkySceneKit.say({english="I'm taking [CS:N]Dusknoir[CR]...[K]back to\nthe future!", french="Je ramène [CS:N]Noctunoir[CR]...[K]\ndans le futur!", german="Ich nehme [CS:N]Zwirrfinst[CR]...[K] mit in\ndie Zukunft zurück!", italian=" Riporto [CS:N]Dusknoir[CR]...[K] nel futuro!", spanish="Me llevo a [CS:N]Dusknoir[CR]...[K]\n¡de vuelta al futuro!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GROUND:CharSetEmote(partner, "shock", 1) end)
-  SkySceneKit.say({english=" Huh?![K] Wh-what?!", french=" Hein?![K] Quoi?!", german=" Wie bitte?!?[K] W-was?!?", italian=" Eh?![K] C-Cosa?!", spanish=" ¡¿Eh?![K] ¡¿Qué?!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Huh?![K] Wh-what?!", french=" Hein?![K] Quoi?!", german=" Wie bitte?!?[K] W-was?!?", italian=" Eh?![K] C-Cosa?!", spanish=" ¡¿Eh?![K] ¡¿Qué?!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Huh?![K] Wh-what?!", french=" Hein?![K] Quoi?!", german=" Wie bitte?!?[K] W-was?!?", italian=" Eh?![K] C-Cosa?!", spanish=" ¡¿Eh?![K] ¡¿Qué?!"})
+  else
+  SkySceneKit.say({english=" Huh?![K] Wh-what?!", french=" Hein?![K] Quoi?!", german=" Wie bitte?!?[K] W-was?!?", italian=" Eh?![K] C-Cosa?!", spanish=" ¡¿Eh?![K] ¡¿Qué?!"})
+  end
   pcall(function() GROUND:CharTurnToCharAnimated(hero, npc_npc_juputoru, 4) end)
   pcall(function() UI:SetSpeaker(npc_npc_juputoru) end)
   SkySceneKit.say({english="I can never come back here\nagain.", french="Je ne pourrai plus jamais\nrevenir.", german="Ich kann niemals mehr hierher\nzurückkommen.", italian=" Non tornerò mai più.", spanish=" No regresaré."})
@@ -33,7 +39,17 @@ return function(hero, partner)
   SkySceneKit.say({english="Watch [hero]'s back...[K]\nPromise me!", french="Prends soin de [hero]\npour moi...[K] Promets-le-moi!", german="Pass gut auf [hero]\nauf...[K] Versprich mir das!", italian="Prenditi cura di [hero]...[K]\nPromettimelo!", spanish="Cuida de [hero]...[K]\n¡Prométemelo!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GROUND:CharSetEmote(partner, "sweating", 1) end)
-  SkySceneKit.say({english="Take your place, [CS:N]Grovyle[CR]...?[K]\nI can't!", french="Prendre ta place, [CS:N]Massko[CR]...?[K]\nJe ne peux pas faire ça!", german="Deinen Platz einnehmen,\n[CS:N]Reptain[CR]?[K] Das kann ich nicht!", italian="Prendere il tuo posto,\n[CS:N]Grovyle[CR]...?[K] Non posso!", spanish="¿Quieres que ocupe tu lugar,\n[CS:N]Grovyle[CR]?[K] ¡No puedo!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" B-but...!", french=" M-mais!", german=" A-aber...", italian=" M-Ma...!", spanish=" ¡Pero...!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" B-but...!", french=" M-mais!", german=" A-aber...", italian=" M-Ma...!", spanish=" ¡Pero...!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="Take your place, [CS:N]Grovyle[CR]...?[K]\nI can't!", french="Prendre ta place, [CS:N]Massko[CR]...?[K]\nJe ne peux pas faire ça!", german="Deinen Platz einnehmen,\n[CS:N]Reptain[CR]?[K] Das kann ich nicht!", italian="Prendere il tuo posto,\n[CS:N]Grovyle[CR]...?[K] Non posso!", spanish="¿Quieres que ocupe tu lugar,\n[CS:N]Grovyle[CR]?[K] ¡No puedo!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="Take your place, [CS:N]Grovyle[CR]...?[K]\nI can't!", french="Prendre ta place, [CS:N]Massko[CR]...?[K]\nJe ne peux pas faire ça!", german="Deinen Platz einnehmen,\n[CS:N]Reptain[CR]?[K] Das kann ich nicht!", italian="Prendere il tuo posto,\n[CS:N]Grovyle[CR]...?[K] Non posso!", spanish="¿Quieres que ocupe tu lugar,\n[CS:N]Grovyle[CR]?[K] ¡No puedo!"})
+  else
+  SkySceneKit.say({english="Take your place, [CS:N]Grovyle[CR]...?[K]\nI can't!", french="Prendre ta place, [CS:N]Massko[CR]...?[K]\nJe ne peux pas faire ça!", german="Deinen Platz einnehmen,\n[CS:N]Reptain[CR]?[K] Das kann ich nicht!", italian="Prendere il tuo posto,\n[CS:N]Grovyle[CR]...?[K] Non posso!", spanish="¿Quieres que ocupe tu lugar,\n[CS:N]Grovyle[CR]?[K] ¡No puedo!"})
+  end
   pcall(function() UI:SetSpeaker(npc_npc_juputoru) end)
   SkySceneKit.say({english="You must and you will.[K] Because\nyou can, [partner].", french="Tu le dois et tu le feras.[K] Parce\nque tu en es capable, [partner].", german="Du musst und du wirst.[K] Weil du\nes kannst, [partner].", italian="Devi farlo e lo farai.[K] Perché\nne sei in grado, [partner].", spanish="Debes hacerlo, y lo harás...[K]\nporque puedes, [partner]."})
   pcall(function() UI:SetSpeaker(npc_npc_juputoru) end)

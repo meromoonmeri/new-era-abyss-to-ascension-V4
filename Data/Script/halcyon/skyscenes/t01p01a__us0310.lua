@@ -9,6 +9,12 @@ return function(hero, partner)
   pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
-  SkySceneKit.say({english="The beach isn't that way,\n[hero].", french="Ce n'est pas la direction de la\nplage, [hero].", german="Zum Strand geht es nicht dort\nlang, [hero].", italian="La spiaggia non è da quella\nparte, [hero].", spanish="La playa no está por ahí,\n[hero]."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="The beach isn't that way,\n[hero].", french="Ce n'est pas la direction de la\nplage, [hero].", german="Zum Strand geht es nicht dort\nlang, [hero].", italian="La spiaggia non è da quella\nparte, [hero].", spanish="La playa no está por ahí,\n[hero]."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="The beach isn't that way,\n[hero].", french="Ce n'est pas la direction de la\nplage, [hero].", german="Zum Strand geht es nicht dort\nlang, [hero].", italian="La spiaggia non è da quella\nparte, [hero].", spanish="La playa no está por ahí,\n[hero]."})
+  else
+  SkySceneKit.say({english="The beach isn't that way,\n[hero].", french="Ce n'est pas la direction de la\nplage, [hero].", german="Zum Strand geht es nicht dort\nlang, [hero].", italian="La spiaggia non è da quella\nparte, [hero].", spanish="La playa no está por ahí,\n[hero]."})
+  end
   -- supervision_Suspend(-2) [neutre/état moteur]
 end

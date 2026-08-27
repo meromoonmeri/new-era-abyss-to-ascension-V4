@@ -30,7 +30,13 @@ return function(hero, partner)
   pcall(function() UI:SetSpeaker(npc_npc_perappu) end)
   SkySceneKit.say({english="Squawk! What am I supposed to\ndo now?!", french="Couac! Mais qu'est-ce que\nje vais faire maintenant?!", german="Kreisch! Was soll ich jetzt nur\ntun?!?", italian=" Squack! E ora cosa farò???", spanish=" ¡Cruac! ¡¿Y ahora qué hago?!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  SkySceneKit.say({english="Um...[K] We could go get some\nPerfect Apples for you at [CS:P]Apple Woods[CR]...", french="Hum...[K] On pourrait peut-être\naller cueillir des Pommes Parfaites au [CS:P]Bois\naux Pommes[CR]...", german="Äh...[K] Wir könnten ein paar\nPerfekte Äpfel aus dem [CS:P]Apfelwald[CR] holen...", italian="Mmm...[K] Potremmo andare noi al\n[CS:P]Giardino dei Meli[CR] e prendere un po' di Mele\nPerfette!", spanish="Esto...[K] Quizás podríamos ir\na buscar Manzanas Perfectas al [CS:P]Manzanar[CR]."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="Um...[K] We could maybe go get\nsome Perfect Apples at [CS:P]Apple Woods[CR]...", french="Hum...[K] On pourrait peut-être\naller cueillir des Pommes Parfaites au [CS:P]Bois\naux Pommes[CR]...", german="Äh...[K] Wir könnten ja ein paar\nPerfekte Äpfel aus dem [CS:P]Apfelwald[CR] holen...", italian="Beh...[K] Potremmo andare al\n[CS:P]Giardino dei Meli[CR] a prenderne un po'!", spanish="Esto...[K] Quizás podríamos ir\na buscar Manzanas Perfectas al [CS:P]Manzanar[CR]."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="Um...[K] We could go get some\nPerfect Apples for you at [CS:P]Apple Woods[CR]...", french="Hum...[K] On pourrait peut-être\naller cueillir des Pommes Parfaites au [CS:P]Bois\naux Pommes[CR]...", german="Äh...[K] Wir könnten ein paar\nPerfekte Äpfel aus dem [CS:P]Apfelwald[CR] holen...", italian="Mmm...[K] Potremmo andare noi al\n[CS:P]Giardino dei Meli[CR] e prendere un po' di Mele\nPerfette!", spanish="Esto...[K] Quizás podríamos ir\na buscar Manzanas Perfectas al [CS:P]Manzanar[CR]."})
+  else
+  SkySceneKit.say({english="Um...[K] We could go get some\nPerfect Apples for you at [CS:P]Apple Woods[CR]...", french="Hum...[K] On pourrait peut-être\naller cueillir des Pommes Parfaites au [CS:P]Bois\naux Pommes[CR]...", german="Äh...[K] Wir könnten ein paar\nPerfekte Äpfel aus dem [CS:P]Apfelwald[CR] holen...", italian="Mmm...[K] Potremmo andare noi al\n[CS:P]Giardino dei Meli[CR] e prendere un po' di Mele\nPerfette!", spanish="Esto...[K] Quizás podríamos ir\na buscar Manzanas Perfectas al [CS:P]Manzanar[CR]."})
+  end
   GROUND:EntTurn(npc_npc_perappu, Direction.Down)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   -- GAP: se_Play(5122) — id SE NDS sans portage PMDO identifié

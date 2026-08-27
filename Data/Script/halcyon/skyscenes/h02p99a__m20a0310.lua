@@ -16,7 +16,13 @@ return function(hero, partner)
   pcall(function() UI:SetSpeaker(npc_npc_juputoru) end)
   SkySceneKit.say({english="First...[K] We have to decide which\nTime Gear we should target.", french="D'abord...[K] on doit choisir quel\nRouage du Temps chercher en premier.", german="Als Erstes[K] müssen wir\nentscheiden, welches Zahnrad der Zeit wir\nzuerst ins Visier nehmen.", italian="Prima cosa...[K] Dobbiamo\ndecidere da quale Ingranaggio del Tempo\ncominciare.", spanish="Ahora...[K] habrá que decidir qué\nengranaje vamos a buscar en primer lugar."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  SkySceneKit.say({english=" Let's check the Wonder Map.", french=" Consultons la Carte Miracle.", german="Sehen wir uns mal die\nWunderkarte an.", italian="Controlliamo sulla Mappa delle\nmeraviglie.", spanish=" Miremos el Mapa Mágico."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Let's check the Wonder Map.", french=" Consultons la Carte Miracle.", german="Sehen wir uns mal die\nWunderkarte an.", italian="Controlliamo sulla Mappa delle\nmeraviglie.", spanish=" Miremos el Mapa Mágico."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Let's check the Wonder Map.", french=" Consultons la Carte Miracle.", german="Sehen wir uns mal die\nWunderkarte an.", italian="Controlliamo sulla Mappa delle\nmeraviglie.", spanish=" Miremos el Mapa Mágico."})
+  else
+  SkySceneKit.say({english=" Let's check the Wonder Map.", french=" Consultons la Carte Miracle.", german="Sehen wir uns mal die\nWunderkarte an.", italian="Controlliamo sulla Mappa delle\nmeraviglie.", spanish=" Miremos el Mapa Mágico."})
+  end
   -- GAP: se_Play(6667) — id SE NDS sans portage PMDO identifié
   GAME:FadeOut(false, 15)
   SkySceneKit.cleanup_npcs()

@@ -6,7 +6,17 @@ return function(hero, partner)
   pcall(function() SOUND:StopBGM() end)
   -- back_SetGround(LEVEL_S04P01A) [neutre/état moteur]
   GAME:FadeIn(0)
-  SkySceneKit.say({english="This is tougher than I expected.\nLet's go home and regroup.", french="Ce n'est pas de tout repos.\nRestons-en là pour aujourd'hui.", german="Das ist ziemlich schwer. Gehen\nwir heim zu den anderen.", italian="È più difficile di quanto\npensassimo. Andiamo a casa a recuperare\nle forze.", spanish="Esto es bastante duro.\nVolvamos a casa a recuperar fuerzas."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="Ugh, we didn't do so good,\ndid we?", french="Argh, il n'y a pas de quoi\nse glorifier, pas vrai?", german=" Uff, das war wohl nichts, was?", italian=" Ugh... Che fiasco!", spanish="¡Ay! No lo hemos hecho muy\nbien, ¿verdad?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="Ugh, we didn't do well,\ndid we?", french="Argh, il n'y a pas de quoi\nse glorifier, pas vrai?", german=" Uff, das war wohl nichts, was?", italian=" Ohi ohi... Niente da fare.", spanish="¡Ay! No lo hemos hecho muy\nbien, ¿verdad?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="This is pretty tough. Let's go\nhome and regroup.", french="Ce n'est pas de tout repos.\nRestons-en là pour aujourd'hui.", german="Das ist ziemlich schwer. Gehen\nwir heim zu den anderen.", italian="Questa volta è proprio tosta.\nAndiamo a casa per ora.", spanish="Esto es bastante duro.\nVolvamos a casa a recuperar fuerzas."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="This is tougher than expected.\nLet's go home and regroup.", french="Ce n'est pas de tout repos.\nRestons-en là pour aujourd'hui.", german="Das ist ziemlich schwer. Gehen\nwir heim zu den anderen.", italian="È più difficile di quanto\npensassimo. Andiamo a casa a recuperare\nle forze.", spanish="Esto es bastante duro.\nVolvamos a casa a recuperar fuerzas."})
+  else
+  SkySceneKit.say({english="This is tougher than I expected.\nLet's go home and regroup.", french="Ce n'est pas de tout repos.\nRestons-en là pour aujourd'hui.", german="Das ist ziemlich schwer. Gehen\nwir heim zu den anderen.", italian="È più difficile di quanto\npensassimo. Andiamo a casa a recuperare\nle forze.", spanish="Esto es bastante duro.\nVolvamos a casa a recuperar fuerzas."})
+  end
   GAME:FadeOut(false,  60)
   -- message_CloseEnforce
   -- CallCommon CORO_FADE_OUT_ALL_AFTER (fermeture/attente message: géré par say())
@@ -50,7 +60,17 @@ return function(hero, partner)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
   -- message_FacePositionOffset(0, -1) [neutre/état moteur]
-  SkySceneKit.say({english="We're getting closer. Let's keep\nat it, [hero]!", french="On se rapproche du but. Courage,\n[hero]!", german="Wir kommen immer näher.\nDurchhalten, [hero]!", italian="Non manca molto. Dobbiamo\ntener duro, [hero]!", spanish="Ya estamos más cerca. ¡Hay\nque seguir adelante, [hero]!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="We solved the secret of the\nthree crystals.", french="On a résolu l'énigme des trois\ncristaux.", german="Wir haben das Rätsel der drei\nKristalle herausbekommen.", italian="Abbiamo risolto il mistero dei\ntre cristalli.", spanish="Hemos resuelto el misterio de\nlos tres cristales."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="We've solved the mystery of the\nthree crystals.", french="On a résolu l'énigme des trois\ncristaux.", german="Wir haben das Rätsel der drei\nKristalle gelöst.", italian="Abbiamo risolto il mistero dei\ntre cristalli.", spanish="Hemos resuelto el misterio de\nlos tres cristales."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="We're getting closer. Let's keep\nat it, [hero]!", french="On se rapproche du but. Courage,\n[hero]!", german="Wir kommen immer näher.\nDurchhalten, [hero]!", italian="Ci siamo quasi. Non dobbiamo\nmollare, [hero]!", spanish="Ya estamos más cerca. ¡Hay\nque seguir adelante, [hero]!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="I'm sure we were nearly done.\nLet's keep at it, [hero]!", french="On se rapproche du but. Courage,\n[hero]!", german="Wir sind bestimmt bald da.\nDurchhalten, [hero]!", italian="Non manca molto. Dobbiamo\ntener duro, [hero]!", spanish="Creo que pronto llegaremos.\n¡Hay que seguir adelante, [hero]!"})
+  else
+  SkySceneKit.say({english="We're getting closer. Let's keep\nat it, [hero]!", french="On se rapproche du but. Courage,\n[hero]!", german="Wir kommen immer näher.\nDurchhalten, [hero]!", italian="Non manca molto. Dobbiamo\ntener duro, [hero]!", spanish="Ya estamos más cerca. ¡Hay\nque seguir adelante, [hero]!"})
+  end
   pcall(function() SOUND:FadeOutBGM(120) end)
   GAME:FadeOut(false, 60)
   -- supervision_RemoveActing(1) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]

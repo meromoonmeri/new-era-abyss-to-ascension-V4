@@ -26,7 +26,13 @@ return function(hero, partner)
   GAME:WaitFrames(5)
   pcall(function() GROUND:CharSetEmote(partner, "sweating", 1) end)
   -- message_FacePositionOffset(-4, -2) [neutre/état moteur]
-  SkySceneKit.say({english="Wa-waah! Watch out! Everyone,\nwe have to get back!", french=" Wouah! Attention! Reculez!", german="Waaaah! Passt auf!\nWir müssen zurückgehen!", italian="Wa-waah! A-Attenti!\nState indietro!", spanish="¿Quéee? ¡Cuidado!\n¡Atrás!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="Wa-waah! Watch out! Everyone,\nget back!", french=" Wouah! Attention! Reculez!", german="Waaaah! Passt auf!\nGeht alle zurück!", italian="Wa-waah! A-Attenti!\nState indietro!", spanish="¿Quéee? ¡Cuidado!\n¡Apartaos todos!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="Wa-waah! Watch out! Step back,\neveryone!", french=" Wouah! Attention! Reculez!", german="Waaaah! Passt auf!\nGeht in Deckung!", italian="Wa-waah! A-Attenti!\nState indietro!", spanish="¿Quéee? ¡Cuidado!\n¡Hay que retroceder!"})
+  else
+  SkySceneKit.say({english="Wa-waah! Watch out! Everyone,\nwe have to get back!", french=" Wouah! Attention! Reculez!", german="Waaaah! Passt auf!\nWir müssen zurückgehen!", italian="Wa-waah! A-Attenti!\nState indietro!", spanish="¿Quéee? ¡Cuidado!\n¡Atrás!"})
+  end
   pcall(function() local g=GAME:GetCurrentGround(); GAME:MoveCamera(g.ViewCenter.X+(0), g.ViewCenter.Y+(200), 200, false) end) -- MovePositionOffset performer/caméra
   do local p=partner.Position; GROUND:MoveToPosition(partner, p.X+(0), p.Y+(200), false, 2) end
   do local p=hero.Position; GROUND:MoveToPosition(hero, p.X+(0), p.Y+(200), false, 2) end

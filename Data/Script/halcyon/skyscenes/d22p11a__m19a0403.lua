@@ -10,7 +10,11 @@ return function(hero, partner)
   -- camera_SetMyself() [neutre/état moteur]
   GAME:FadeIn(30)
   GAME:WaitFrames(30)
-  SkySceneKit.say({english="(I thought so![K] This is similar to the\nsensation I had back then...)", french="(C'est bien ce que je pensais![K] J'ai ressenti\nla même chose quand...)", german="(Das dachte ich mir![K] Dieses Gefühl war ähnlich\nwie jenes, das ich damals hatte...)", italian="(Penso di sì![K] È simile alla sensazione che\navevo avvertito quando...)", spanish="(¡Era lo que pensaba![K] Esta sensación es como\nla que tuve entonces...)"}) -- SwitchMonologue: branche default
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="(I thought so![K] This is similar to the\nsensation I had back then...)", french="(C'est bien ce que je pensais![K] J'ai ressenti\nla même chose quand...)", german="(Das dachte ich mir![K] Dieses Gefühl war ähnlich\nwie jenes, das ich damals hatte...)", italian="(Penso di sì![K] È simile alla sensazione che\navevo avvertito quando...)", spanish="(¡Era lo que pensaba![K] Esta sensación es como\nla que tuve entonces...)"})
+  else
+  SkySceneKit.say({english="(I thought so![K] This is similar to the\nsensation I had back then...)", french="(C'est bien ce que je pensais![K] J'ai ressenti\nla même chose quand...)", german="(Das dachte ich mir![K] Dieses Gefühl war ähnlich\nwie jenes, das ich damals hatte...)", italian="(Penso di sì![K] È simile alla sensazione che\navevo avvertito quando...)", spanish="(¡Era lo que pensaba![K] Esta sensación es como\nla que tuve entonces...)"})
+  end
   pcall(function() UI:ResetSpeaker() end)
   pcall(function() UI:SetSpeaker(hero) end)
   SkySceneKit.say({english=" Hey! What are you doing?!", french="Eh! Qu'est-ce que vous\nfabriquez?!", german=" Hey! Was macht ihr da?", italian=" Ehi! Cosa state facendo?!", spanish=" ¡Eh! ¡¿Qué ocurre?!"})
@@ -33,7 +37,13 @@ return function(hero, partner)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
   -- message_FacePositionOffset(-3, 0) [neutre/état moteur]
-  SkySceneKit.say({english=" Let's hurry, [hero].", french=" Vite, [hero].", german=" Beeilen wir uns, [hero].", italian=" Facciamo presto, [hero].", spanish=" Démonos prisa, [hero]."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Let's hurry, [hero].", french=" Vite, [hero].", german=" Beeilen wir uns, [hero].", italian=" Veloce, [hero].", spanish=" Démonos prisa, [hero]."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" We have to hurry, [hero].", french=" Vite, [hero].", german="Wir müssen uns\nbeeilen, [hero].", italian="Dobbiamo fare in fretta,\n[hero].", spanish="Hay que darse prisa,\n[hero]."})
+  else
+  SkySceneKit.say({english=" Let's hurry, [hero].", french=" Vite, [hero].", german=" Beeilen wir uns, [hero].", italian=" Facciamo presto, [hero].", spanish=" Démonos prisa, [hero]."})
+  end
   GROUND:MoveToPosition(partner, 276, 4, false, 2)
   GAME:WaitFrames(10)
   GROUND:MoveToPosition(hero, 276, 4, false, 2)

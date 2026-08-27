@@ -30,7 +30,13 @@ return function(hero, partner)
   pcall(function() GROUND:CharSetEmote(partner, "exclaim", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english="It's him![K] It's that nice old\nPokémon we met!", french="C'est lui![K] C'est ce vieux\nPokémon très gentil qu'on a rencontré\nune fois!", german="Der ist das![K] Dieses nette alte\nPokémon, das wir getroffen haben!", italian="È lui![K] Quel simpatico vecchio\nPokémon che abbiamo conosciuto!", spanish="¡Sí![K] ¡Ese anciano Pokémon tan\namable al que conocimos en la Terma!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="It's him![K] It's that nice old\nPokémon we met!", french="C'est lui![K] C'est ce vieux\nPokémon très gentil qu'on a rencontré\nune fois!", german="Der ist das![K] Dieses nette alte\nPokémon, das wir getroffen haben!", italian="È lui![K] Quel simpatico vecchio\nPokémon che abbiamo conosciuto!", spanish="¡Es él![K] ¡Ese anciano Pokémon tan\namable al que conocimos!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="It's him![K] It's that nice old\nPokémon we met!", french="C'est lui![K] C'est ce vieux\nPokémon très gentil qu'on a rencontré\nune fois!", german="Der ist das![K] Dieses nette alte\nPokémon, das wir getroffen haben!", italian="È lui![K] Quel simpatico vecchio\nPokémon che abbiamo conosciuto!", spanish="¡Es él![K] ¡Ese anciano Pokémon tan\namable al que conocimos en la Terma!"})
+  else
+  SkySceneKit.say({english="It's him![K] It's that nice old\nPokémon we met!", french="C'est lui![K] C'est ce vieux\nPokémon très gentil qu'on a rencontré\nune fois!", german="Der ist das![K] Dieses nette alte\nPokémon, das wir getroffen haben!", italian="È lui![K] Quel simpatico vecchio\nPokémon che abbiamo conosciuto!", spanish="¡Sí![K] ¡Ese anciano Pokémon tan\namable al que conocimos en la Terma!"})
+  end
   -- message_FacePositionOffset(1, 0) [neutre/état moteur]
   local npc_npc_pukurin = SkySceneKit.spawn_npc("wigglytuff", 352, 216, Direction.DownLeft, "NPC_PUKURIN")
   pcall(function() UI:SetSpeaker(npc_npc_pukurin) end)
@@ -44,9 +50,21 @@ return function(hero, partner)
   -- GAP: SetEffect EFFECT_TWO_ARROWS_AT_SIDE_LEFT — VFX sans émote PMDO équivalente
   -- SetAnimation(2) [anim idle native]
   pcall(function() GROUND:CharTurnToCharAnimated(npc_npc_chiriin, partner, 4) end)
-  SkySceneKit.say({english="I think we got to the Hot Spring\nthe first time through [CS:P]Waterfall Cave[CR],\n[hero].", french="La dernière fois, je crois\nqu'on a rejoint la Source Chaude en passant\npar la [CS:P]Grotte Cascade[CR]. Pas vrai, [hero]?", german="Wir sind beim ersten Mal durch\ndie [CS:P]Wasserfallhöhle[CR] zur Heißen Quelle gelangt.\nRichtig, [hero]?", italian="Mi pare che si arrivi alla\nSorgente Termale passando per la [CS:P]Grotta[CR]\n[CS:P]della Cascata[CR]. Vero, [hero]?", spanish="Creo que llegamos a la Terma a\ntravés de la [CS:P]Cueva Cascada[CR], ¿verdad,\n[hero]?"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="I think we got to the Hot Spring\nthrough [CS:P]Waterfall Cave[CR]. Right, [hero]?", french="La dernière fois, je crois\nqu'on a rejoint la Source Chaude en passant\npar la [CS:P]Grotte Cascade[CR]. Pas vrai, [hero]?", german="Wir sind durch die\n[CS:P]Wasserfallhöhle[CR] zur Heißen Quelle gelangt.\nRichtig, [hero]?", italian="Mi pare che si arrivi alla\nSorgente Termale passando per la [CS:P]Grotta[CR]\n[CS:P]della Cascata[CR]. Vero, [hero]?", spanish="Llegamos a la Terma a través de\nla [CS:P]Cueva Cascada[CR], ¿verdad, [hero]?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="The first time we went to the\nHot Spring, we had to get there through\n[CS:P]Waterfall Cave[CR], [hero].", french="La dernière fois, je crois\nqu'on a rejoint la Source Chaude en passant\npar la [CS:P]Grotte Cascade[CR]. Pas vrai, [hero]?", german="Als wir das erste Mal zur\nHeißen Quelle gegangen sind, mussten wir\ndurch die [CS:P]Wasserfallhöhle[CR], [hero].", italian="La prima volta che siamo andati\nalla Sorgente Termale, siamo passati per la\n[CS:P]Grotta della Cascata[CR], [hero].", spanish="La primera vez que fuimos a la\nTerma llegamos a través de la [CS:P]Cueva Cascada[CR],\n¿verdad, [hero]?"})
+  else
+  SkySceneKit.say({english="I think we got to the Hot Spring\nthe first time through [CS:P]Waterfall Cave[CR],\n[hero].", french="La dernière fois, je crois\nqu'on a rejoint la Source Chaude en passant\npar la [CS:P]Grotte Cascade[CR]. Pas vrai, [hero]?", german="Wir sind beim ersten Mal durch\ndie [CS:P]Wasserfallhöhle[CR] zur Heißen Quelle gelangt.\nRichtig, [hero]?", italian="Mi pare che si arrivi alla\nSorgente Termale passando per la [CS:P]Grotta[CR]\n[CS:P]della Cascata[CR]. Vero, [hero]?", spanish="Creo que llegamos a la Terma a\ntravés de la [CS:P]Cueva Cascada[CR], ¿verdad,\n[hero]?"})
+  end
   GROUND:EntTurn(npc_npc_dogoomu, Direction.DownRight)
-  SkySceneKit.say({english=" Let's go! Off to the Hot Spring!", french="C'est parti! En route pour\nla Source Chaude!", german="Gehen wir! Auf zur Heißen\nQuelle!", italian=" Forza! Alla Sorgente Termale!", spanish=" ¡Vamos! ¡Rumbo a la Terma!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Let's go! Off to the Hot Spring!", french="C'est parti! En route pour\nla Source Chaude!", german="Gehen wir! Auf zur Heißen\nQuelle!", italian=" Forza! Alla Sorgente Termale!", spanish=" ¡Vamos! ¡Rumbo a la Terma!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="Let's go! Onward to the\nHot Spring!", french="C'est parti! En route pour\nla Source Chaude!", german="Gehen wir! Vorwärts zur\nHeißen Quelle!", italian="Forza! Andiamo alla Sorgente\nTermale!", spanish=" ¡Vamos! ¡Rumbo a la Terma!"})
+  else
+  SkySceneKit.say({english=" Let's go! Off to the Hot Spring!", french="C'est parti! En route pour\nla Source Chaude!", german="Gehen wir! Auf zur Heißen\nQuelle!", italian=" Forza! Alla Sorgente Termale!", spanish=" ¡Vamos! ¡Rumbo a la Terma!"})
+  end
   pcall(function() SOUND:FadeOutBGM(120) end)
   do local p=npc_npc_chiriin.Position; GROUND:MoveToPosition(npc_npc_chiriin, p.X+(8), p.Y+(0), false, 1) end
   GAME:WaitFrames(2) -- join WaitExecuteLives
@@ -77,7 +95,13 @@ return function(hero, partner)
   pcall(function() UI:SetSpeaker(npc_npc_chiriin) end)
   SkySceneKit.say({english=" You must be hungry!", french=" ... vous devez avoir faim!", german=" Ihr müsst Hunger haben!", italian=" E poi avrete una gran fame!", spanish="¡Sin duda tendréis mucha\nhambre!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  SkySceneKit.say({english=" Huh?", french=" Hein?", german=" Huch?", italian=" Eh?", spanish=" ¿Eh?"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Huh?", french=" Hein?", german=" Huch?", italian=" Eh?", spanish=" ¿Eh?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Huh?", french=" Hein?", german=" Huch?", italian=" Eh?", spanish=" ¿Eh?"})
+  else
+  SkySceneKit.say({english=" Huh?", french=" Hein?", german=" Huch?", italian=" Eh?", spanish=" ¿Eh?"})
+  end
   -- GAP: se_Play(8720) — id SE NDS sans portage PMDO identifié
   GAME:WaitFrames(2) -- join WaitSe
   -- GAP: se_Play(8720) — id SE NDS sans portage PMDO identifié
@@ -100,10 +124,22 @@ return function(hero, partner)
   GROUND:EntTurn(npc_npc_kimawari, Direction.UpLeft)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() SOUND:PlayBGM("Guildmaster Wigglytuff.ogg", true) end)
-  SkySceneKit.say({english=" My stomach growled!", french=" J'ai l'estomac qui gargouille!", german=" Mein Magen hat geknurrt!", italian=" La mia pancia ha brontolato!", spanish=" ¡Me ruge el estómago!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" My stomach growled!", french=" J'ai l'estomac qui gargouille!", german=" Mein Magen hat geknurrt!", italian=" La mia pancia ha brontolato!", spanish=" ¡Me ruge el estómago!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" My stomach growled!", french=" J'ai l'estomac qui gargouille!", german=" Mein Magen hat geknurrt!", italian=" La mia pancia ha brontolato!", spanish=" ¡Me ruge el estómago!"})
+  else
+  SkySceneKit.say({english=" My stomach growled!", french=" J'ai l'estomac qui gargouille!", german=" Mein Magen hat geknurrt!", italian=" La mia pancia ha brontolato!", spanish=" ¡Me ruge el estómago!"})
+  end
   pcall(function() GROUND:CharSetEmote(hero, "happy", 1) end)
   pcall(function() GROUND:CharSetEmote(partner, "happy", 1) end)
-  SkySceneKit.say({english=" Ha ha! Yours did too!", french=" Ha ha! Toi aussi!", german=" Haha! Deiner auch!", italian=" Ah ah! Anche la tua!", spanish=" ¡Ja, ja! ¡Y a ti también!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Ha ha! Yours did too!", french=" Ha ha! Toi aussi!", german=" Haha! Deiner auch!", italian=" Ah ah! Anche la tua!", spanish=" ¡Ja, ja! ¡Y a ti también!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Ha ha! Yours did too!", french=" Ha ha! Toi aussi!", german=" Haha! Deiner auch!", italian=" Ah ah! Anche la tua!", spanish=" ¡Ja, ja! ¡Y a ti también!"})
+  else
+  SkySceneKit.say({english=" Ha ha! Yours did too!", french=" Ha ha! Toi aussi!", german=" Haha! Deiner auch!", italian=" Ah ah! Anche la tua!", spanish=" ¡Ja, ja! ¡Y a ti también!"})
+  end
   pcall(function() GROUND:CharSetEmote(partner, nil, 0) end) -- EFFECT_NONE
   pcall(function() GROUND:CharSetEmote(hero, nil, 0) end) -- EFFECT_NONE
   GAME:WaitFrames(30)
@@ -121,7 +157,13 @@ return function(hero, partner)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english="Hey, [hero]'s belly\ngrowled...again!", french="Eh, l'estomac de [hero]\na encore gargouillé!", german="Hey, der Magen von\n[hero] hat schon wieder geknurrt!", italian="Ehi, la pancia di [hero] ha\nbrontolato... di nuovo!", spanish="Vaya, a [hero] le sigue\nrugiendo la tripa..."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="Hey, [hero]'s belly\ngrowled...again!", french="Eh, l'estomac de [hero]\na encore gargouillé!", german="Hey, der Magen von\n[hero] hat schon wieder geknurrt!", italian="Ehi, la pancia di [hero] ha\nbrontolato... di nuovo!", spanish="Vaya, la tripa de [hero]\nha vuelto a rugir..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="Hey, [hero]'s belly\ngrowled...again!", french="Eh, l'estomac de [hero]\na encore gargouillé!", german="Hey, der Magen von\n[hero] hat schon wieder geknurrt!", italian="Ehi, la pancia di [hero] ha\nbrontolato... di nuovo!", spanish="Vaya, a [hero] le sigue\nrugiendo la tripa..."})
+  else
+  SkySceneKit.say({english="Hey, [hero]'s belly\ngrowled...again!", french="Eh, l'estomac de [hero]\na encore gargouillé!", german="Hey, der Magen von\n[hero] hat schon wieder geknurrt!", italian="Ehi, la pancia di [hero] ha\nbrontolato... di nuovo!", spanish="Vaya, a [hero] le sigue\nrugiendo la tripa..."})
+  end
   GROUND:EntTurn(npc_npc_dogoomu, Direction.DownRight)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   -- ExecuteCommon(CORO_JUMP_HAPPY_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]

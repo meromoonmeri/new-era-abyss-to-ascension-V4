@@ -10,14 +10,32 @@ return function(hero, partner)
   GAME:FadeOut(false, 0) -- screen_FlushOut
   GAME:FadeIn(30)
   GAME:WaitFrames(30)
-  SkySceneKit.say({english="Why are you daydreaming?[K]\nIt's not like you, [hero].", french="Tu es ailleurs ou quoi?[K]\nÇa ne te ressemble pas, [hero].", german="Warum bist du so\ngedankenverloren?[K] Das kenne ich gar nicht\nvon dir, [hero].", italian="Stai sognando a occhi aperti?[K]\nNon è da te, [hero].", spanish="¿Qué haces mirando a las\nmusarañas?[K] No es propio de ti, [hero]."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="Why are you daydreaming?[K]\nIt's not like you, [hero].", french="Tu es ailleurs ou quoi?[K]\nÇa ne te ressemble pas, [hero].", german="Warum bist du so\ngedankenverloren?[K] Das kenne ich gar nicht\nvon dir, [hero].", italian="Stai sognando a occhi aperti?[K]\nNon è da te, [hero].", spanish="¿Qué haces mirando a las\nmusarañas?[K] No es propio de ti, [hero]."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="Why are you daydreaming?[K]\nIt's not like you, [hero].", french="Tu es ailleurs ou quoi?[K]\nÇa ne te ressemble pas, [hero].", german="Warum bist du so\ngedankenverloren?[K] Das kenne ich gar nicht\nvon dir, [hero].", italian="Stai sognando a occhi aperti?[K]\nNon è da te, [hero].", spanish="¿Qué haces mirando a las\nmusarañas?[K] No es propio de ti, [hero]."})
+  else
+  SkySceneKit.say({english="Why are you daydreaming?[K]\nIt's not like you, [hero].", french="Tu es ailleurs ou quoi?[K]\nÇa ne te ressemble pas, [hero].", german="Warum bist du so\ngedankenverloren?[K] Das kenne ich gar nicht\nvon dir, [hero].", italian="Stai sognando a occhi aperti?[K]\nNon è da te, [hero].", spanish="¿Qué haces mirando a las\nmusarañas?[K] No es propio de ti, [hero]."})
+  end
   pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GAME:WaitFrames(15)
   -- ExecuteCommon(CORO_JUMP_ANGRY_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english="Come on, let's see some energy,\n[hero]!", french="Allons, un peu d'entrain,\n[hero]!", german="Komm schon, zeig etwas Elan,\n[hero]!", italian="Forza, mettici un po' di energia,\n[hero]!", spanish="Venga, ¡un poco de energía,\n[hero]!"}) -- SwitchTalk: branche default (canon générique)
-  SkySceneKit.say({english="(But...[K][partner] could be right.)", french="(Mais...[K] [partner] a sûrement raison.)", german="(Aber...[K] [partner] könnte recht haben.)", italian="(Ma...[K] [partner] forse ha ragione.)", spanish="(Aunque...[K] [partner] tal vez tenga razón.)"}) -- SwitchMonologue: branche default
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="Come on, let's see some energy,\n[hero]!", french="Allons, un peu d'entrain,\n[hero]!", german="Komm schon, zeig etwas Elan,\n[hero]!", italian="Forza, mettici un po' di energia,\n[hero]!", spanish="Venga, ¡un poco de energía,\n[hero]!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="Come on, let's see some energy,\n[hero]!", french="Allons, un peu d'entrain,\n[hero]!", german="Komm schon, zeig etwas Elan,\n[hero]!", italian="Forza, mettici un po' di energia,\n[hero]!", spanish="Venga, ¡un poco de energía,\n[hero]!"})
+  else
+  SkySceneKit.say({english="Come on, let's see some energy,\n[hero]!", french="Allons, un peu d'entrain,\n[hero]!", german="Komm schon, zeig etwas Elan,\n[hero]!", italian="Forza, mettici un po' di energia,\n[hero]!", spanish="Venga, ¡un poco de energía,\n[hero]!"})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="([partner]'s even peppier than usual.)", french="([partner] montre encore plus de vivacité\nque d'habitude.)", german="([partner] ist sogar noch schwungvoller\nals gewöhnlich.)", italian="([partner] è più vivace del solito.)", spanish="(Qué vitalidad la de [partner].)"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="(But...[K][partner] could be right.)", french="(Mais...[K] [partner] a sûrement raison.)", german="(Aber...[K] [partner] könnte recht haben.)", italian="(Ma...[K] [partner] forse ha ragione.)", spanish="(Aunque...[K] [partner] tal vez tenga razón.)"})
+  else
+  SkySceneKit.say({english="(But...[K][partner] could be right.)", french="(Mais...[K] [partner] a sûrement raison.)", german="(Aber...[K] [partner] könnte recht haben.)", italian="(Ma...[K] [partner] forse ha ragione.)", spanish="(Aunque...[K] [partner] tal vez tenga razón.)"})
+  end
   GAME:FadeOut(false, 30)
   GAME:FadeIn(0) -- screen_FlushIn
 end

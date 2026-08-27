@@ -34,11 +34,27 @@ return function(hero, partner)
   GROUND:EntTurn(partner, Direction.Left)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GAME:WaitFrames(30)
-  SkySceneKit.say({english=" I guess the storm blew over.", french=" L'orage s'est éloigné.", german="Ich denke, der Sturm ist\nvorübergezogen.", italian=" La tempesta è finita.", spanish="Parece que ha amainado la\ntormenta."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" I guess the storm blew over.", french=" L'orage s'est éloigné.", german="Ich denke, der Sturm ist\nvorübergezogen.", italian=" La tempesta è finita.", spanish="Parece que ha amainado la\ntormenta."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Looks like the storm blew over.", french=" L'orage s'est éloigné.", german="Sieht so aus, als sei der Sturm\nvorübergezogen.", italian=" La tempesta è finita.", spanish="Parece que ha amainado la\ntormenta."})
+  else
+  SkySceneKit.say({english=" I guess the storm blew over.", french=" L'orage s'est éloigné.", german="Ich denke, der Sturm ist\nvorübergezogen.", italian=" La tempesta è finita.", spanish="Parece que ha amainado la\ntormenta."})
+  end
   pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
-  SkySceneKit.say({english="Let's put in another good day of\nexploring, [hero]!", french="Un bon jour pour repartir\nen exploration, [hero]!", german="Lass uns einen weiteren guten\nErkundungstag hinlegen, [hero]!", italian="Possiamo tornare a\nesplorare, [hero]!", spanish="¡Vayamos a explorar un día\nmás, [hero]!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" The weather's great again.", french=" Le temps s'est éclairci.", german=" Das Wetter ist wieder schön.", italian=" Il tempo è di nuovo bello.", spanish=" Ha vuelto el buen tiempo."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" The weather has cleared up.", french=" Le temps s'est éclairci.", german="Das Wetter hat sich wieder\naufgeheitert.", italian=" Il tempo è di nuovo bello.", spanish=" Ha vuelto el buen tiempo."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="Let's put in another good day of\nexploring, [hero]!", french="Un bon jour pour repartir\nen exploration, [hero]!", german="Lass uns einen weiteren guten\nErkundungstag hinlegen, [hero]!", italian="Possiamo tornare a\nesplorare, [hero]!", spanish="¡Vayamos a explorar un día\nmás, [hero]!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="Here's to another good day of\nexploring, [hero]!", french="Un bon jour pour repartir\nen exploration, [hero]!", german="Auf einen weiteren guten\nErkundungstag, [hero]!", italian="Possiamo tornare a\nesplorare, [hero]!", spanish="¡Vayamos a explorar un día\nmás, [hero]!"})
+  else
+  SkySceneKit.say({english="Let's put in another good day of\nexploring, [hero]!", french="Un bon jour pour repartir\nen exploration, [hero]!", german="Lass uns einen weiteren guten\nErkundungstag hinlegen, [hero]!", italian="Possiamo tornare a\nesplorare, [hero]!", spanish="¡Vayamos a explorar un día\nmás, [hero]!"})
+  end
   -- bgm2_FadeOut [canal BGM sub: voir bgm2_Play]
   SkySubScreen.Hide(30) -- screen2_FadeOut: retour BOTTOM_FOCUS (timeline ROM)
   -- back2_SetMode(0) [mode d'affichage sub NDS: géré par SubScreen]

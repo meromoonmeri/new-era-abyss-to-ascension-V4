@@ -48,11 +48,23 @@ return function(hero, partner)
   GROUND:EntTurn(partner, Direction.UpRight)
   GROUND:EntTurn(hero, Direction.UpRight)
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english=" No, sorry. Not yet...", french=" Malheureusement, pas encore...", german=" Nein, tut uns leid. Noch nicht...", italian=" No, purtroppo non ancora...", spanish=" No, todavía no..."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" No, sorry. Not yet...", french=" Malheureusement, pas encore...", german=" Nein, tut uns leid. Noch nicht...", italian=" No, purtroppo non ancora...", spanish=" No, todavía no..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" No, sorry. Not yet...", french=" Malheureusement, pas encore...", german=" Nein, tut uns leid. Noch nicht...", italian=" No, purtroppo non ancora...", spanish=" No, todavía no..."})
+  else
+  SkySceneKit.say({english=" No, sorry. Not yet...", french=" Malheureusement, pas encore...", german=" Nein, tut uns leid. Noch nicht...", italian=" No, purtroppo non ancora...", spanish=" No, todavía no..."})
+  end
   pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
-  SkySceneKit.say({english="We have to find the [CS:N]Phione[CR], no\nmatter what, [hero]! It's the only way\nwe can save [CS:N]Manaphy[CR]!", french="Nous devons trouver les [CS:N]Phione[CR]\ncoûte que coûte, [hero]! C'est le seul\nmoyen de sauver [CS:N]Manaphy[CR]!", german="Wir müssen um jeden Preis die\n[CS:N]Phione[CR] finden, [hero]! Es ist der\neinzige Weg, wie wir [CS:N]Manaphy[CR] retten können!", italian="Dobbiamo a tutti i costi trovare\ni [CS:N]Phione[CR], [hero]! È l'unico modo per\nsalvare [CS:N]Manaphy[CR]!", spanish="¡Hay que encontrar a las hadas\n[CS:N]Phione[CR] como sea, [hero]! ¡Es la única\nforma de salvar a [CS:N]Manaphy[CR]!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="We have to find the [CS:N]Phione[CR], no\nmatter what, [hero]! It's the only way\nwe can save [CS:N]Manaphy[CR]!", french="Nous devons trouver les [CS:N]Phione[CR]\ncoûte que coûte, [hero]! C'est le seul\nmoyen de sauver [CS:N]Manaphy[CR]!", german="Wir müssen um jeden Preis die\n[CS:N]Phione[CR] finden, [hero]! Es ist der\neinzige Weg, wie wir [CS:N]Manaphy[CR] retten können!", italian="Dobbiamo a tutti i costi trovare\ni [CS:N]Phione[CR], [hero]! È l'unico modo per\nsalvare [CS:N]Manaphy[CR]!", spanish="¡Hay que encontrar a las hadas\n[CS:N]Phione[CR] como sea, [hero]! ¡Es la única\nforma de salvar a [CS:N]Manaphy[CR]!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="We have to find the [CS:N]Phione[CR], no\nmatter what, [hero]! It's the only way\nwe can save [CS:N]Manaphy[CR]!", french="Nous devons trouver les [CS:N]Phione[CR]\ncoûte que coûte, [hero]! C'est le seul\nmoyen de sauver [CS:N]Manaphy[CR]!", german="Wir müssen um jeden Preis die\n[CS:N]Phione[CR] finden, [hero]! Es ist der\neinzige Weg, wie wir [CS:N]Manaphy[CR] retten können!", italian="Dobbiamo a tutti i costi trovare\ni [CS:N]Phione[CR], [hero]! È l'unico modo per\nsalvare [CS:N]Manaphy[CR]!", spanish="¡Hay que encontrar a las hadas\n[CS:N]Phione[CR] como sea, [hero]! ¡Es la única\nforma de salvar a [CS:N]Manaphy[CR]!"})
+  else
+  SkySceneKit.say({english="We have to find the [CS:N]Phione[CR], no\nmatter what, [hero]! It's the only way\nwe can save [CS:N]Manaphy[CR]!", french="Nous devons trouver les [CS:N]Phione[CR]\ncoûte que coûte, [hero]! C'est le seul\nmoyen de sauver [CS:N]Manaphy[CR]!", german="Wir müssen um jeden Preis die\n[CS:N]Phione[CR] finden, [hero]! Es ist der\neinzige Weg, wie wir [CS:N]Manaphy[CR] retten können!", italian="Dobbiamo a tutti i costi trovare\ni [CS:N]Phione[CR], [hero]! È l'unico modo per\nsalvare [CS:N]Manaphy[CR]!", spanish="¡Hay que encontrar a las hadas\n[CS:N]Phione[CR] como sea, [hero]! ¡Es la única\nforma de salvar a [CS:N]Manaphy[CR]!"})
+  end
   -- SetAnimation(71) [anim idle native]
   GAME:WaitFrames(2) -- join WaitAnimation
   GAME:WaitFrames(2) -- join WaitExecuteLives

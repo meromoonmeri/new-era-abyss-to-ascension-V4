@@ -18,7 +18,17 @@ return function(hero, partner)
   -- GAP: BGM BGM_OCEAN1 non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)
   GAME:FadeIn(30)
   GAME:WaitFrames(30)
-  SkySceneKit.say({english="That's how you met [CS:N]Wigglytuff[CR],\n[CS:N]Lapras[CR]?", french="C'est comme ça que tu as connu\n[CS:N]Grodoudou[CR], [CS:N]Lokhlass[CR]?", german="So hast du also [CS:N]Knuddeluff[CR]\nkennengelernt, [CS:N]Lapras[CR]?", italian="È così che hai conosciuto\n[CS:N]Wigglytuff[CR], [CS:N]Lapras[CR]?", spanish="¿Así es como conociste a\n[CS:N]Wigglytuff[CR], [CS:N]Lapras[CR]?"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Oh, I see...", french=" Oh, je vois...", german=" Oh, ich verstehe...", italian=" Oh, capisco...", spanish=" Ah, ya entiendo..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Oh, I see...", french=" Oh, je vois...", german=" Oh, ich verstehe...", italian=" Oh, capisco...", spanish=" Ah, ya entiendo..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="That's how you met [CS:N]Wigglytuff[CR],\n[CS:N]Lapras[CR]?", french="C'est comme ça que tu as connu\n[CS:N]Grodoudou[CR], [CS:N]Lokhlass[CR]?", german="So hast du also [CS:N]Knuddeluff[CR]\nkennengelernt, [CS:N]Lapras[CR]?", italian="È così che hai conosciuto\n[CS:N]Wigglytuff[CR], [CS:N]Lapras[CR]?", spanish="¿Así es como conociste a\n[CS:N]Wigglytuff[CR], [CS:N]Lapras[CR]?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="That's how you met [CS:N]Wigglytuff[CR],\n[CS:N]Lapras[CR]?", french="C'est comme ça que tu as connu\n[CS:N]Grodoudou[CR], [CS:N]Lokhlass[CR]?", german="So hast du also [CS:N]Knuddeluff[CR]\nkennengelernt, [CS:N]Lapras[CR]?", italian="È così che hai conosciuto\n[CS:N]Wigglytuff[CR], [CS:N]Lapras[CR]?", spanish="¿Así es como conociste a\n[CS:N]Wigglytuff[CR], [CS:N]Lapras[CR]?"})
+  else
+  SkySceneKit.say({english="That's how you met [CS:N]Wigglytuff[CR],\n[CS:N]Lapras[CR]?", french="C'est comme ça que tu as connu\n[CS:N]Grodoudou[CR], [CS:N]Lokhlass[CR]?", german="So hast du also [CS:N]Knuddeluff[CR]\nkennengelernt, [CS:N]Lapras[CR]?", italian="È così che hai conosciuto\n[CS:N]Wigglytuff[CR], [CS:N]Lapras[CR]?", spanish="¿Así es como conociste a\n[CS:N]Wigglytuff[CR], [CS:N]Lapras[CR]?"})
+  end
   -- SetAnimation(2) [anim idle native]
   pcall(function() UI:ResetSpeaker() end)
   pcall(function() UI:SetSpeaker(partner) end)
@@ -32,7 +42,13 @@ return function(hero, partner)
   pcall(function() UI:SetSpeaker(partner) end)
   SkySceneKit.say({english="I made [CS:N]Wigglytuff[CR] promise me\nsomething.", french="... j'ai conclu un pacte avec\n[CS:N]Grodoudou[CR].", german="Später rang ich [CS:N]Knuddeluff[CR] ein\nVersprechen ab.", italian="... ho stretto un patto con\n[CS:N]Wigglytuff[CR].", spanish="Le pedí a [CS:N]Wigglytuff[CR] que me\nhiciera una promesa."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  SkySceneKit.say({english=" A promise?", french=" Un pacte?", german=" Ein Versprechen?", italian=" Un patto?", spanish=" ¿Una promesa?"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" A promise?", french=" Un pacte?", german=" Ein Versprechen?", italian=" Un patto?", spanish=" ¿Una promesa?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" A promise?", french=" Un pacte?", german=" Ein Versprechen?", italian=" Un patto?", spanish=" ¿Una promesa?"})
+  else
+  SkySceneKit.say({english=" A promise?", french=" Un pacte?", german=" Ein Versprechen?", italian=" Un patto?", spanish=" ¿Una promesa?"})
+  end
   pcall(function() UI:ResetSpeaker() end)
   pcall(function() UI:SetSpeaker(partner) end)
   SkySceneKit.say({english=" Yes.", french=" Oui.", german=" Ja.", italian=" Sì.", spanish=" Sí."})

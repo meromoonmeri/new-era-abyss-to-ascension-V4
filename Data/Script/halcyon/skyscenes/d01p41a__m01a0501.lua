@@ -24,7 +24,13 @@ return function(hero, partner)
   pcall(function() GROUND:CharSetEmote(partner, "question", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english=" Oh... What?", french=" Oh... quoi?", german=" Oh... Was?", italian=" Oh... Cosa?", spanish=" Oh... ¿Qué?"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Huh?", french=" Oh... quoi?", german=" Wie?", italian=" Eh?", spanish="¿Cómo?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" What?", french=" Oh... quoi?", german=" Was?", italian=" Cosa?", spanish=" ¿Qué?"})
+  else
+  SkySceneKit.say({english=" Oh... What?", french=" Oh... quoi?", german=" Oh... Was?", italian=" Oh... Cosa?", spanish=" Oh... ¿Qué?"})
+  end
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Startled") end)
   local npc_npc_dogaasu = SkySceneKit.spawn_npc("koffing", 216, 160, Direction.Up, "NPC_DOGAASU")
   pcall(function() GROUND:CharSetEmote(npc_npc_dogaasu, "exclaim", 1) end)
@@ -36,7 +42,17 @@ return function(hero, partner)
   GROUND:EntTurn(npc_npc_zubatto, Direction.Down)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GAME:WaitFrames(15)
-  SkySceneKit.say({english="I expected you to have gotten\nfar away by now.", french="Je ne pensais pas vous revoir\nde sitôt.", german="Ich hatte erwartet, dass ihr\nschon über alle Berge seid.", italian="Pensavo che ormai foste\nlontano da qui.", spanish="Suponía que ya os habríais\nmarchado."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Why are you still here?", french=" Pourquoi vous êtes encore là?", german=" Warum seid ihr immer noch da?", italian=" Cosa ci fate ancora qui?", spanish=" ¿Cómo es que seguís aquí?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" What are you still doing here?", french=" Pourquoi vous êtes encore là?", german=" Was macht ihr immer noch hier?", italian=" Cosa ci fate ancora qui?", spanish=" ¿Qué hacéis aquí todavía?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="I figured you would be long gone\nand far away by now.", french="Je pensais que vous seriez\npartis depuis longtemps.", german="Ich dachte, ihr wärt schon\nlängst über alle Berge.", italian="Pensavo che ormai foste\nlontano da qui.", spanish="Me figuraba que a estas alturas\nya estaríais muy lejos."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="I thought you would have gotten\nfar away by now.", french="Je pensais que vous seriez\npartis depuis longtemps.", german="Ich dachte, ihr wärt schon über\nalle Berge.", italian="Pensavo che ormai foste\nlontano da qui.", spanish="Creía que a estas alturas ya\nestaríais muy lejos."})
+  else
+  SkySceneKit.say({english="I expected you to have gotten\nfar away by now.", french="Je ne pensais pas vous revoir\nde sitôt.", german="Ich hatte erwartet, dass ihr\nschon über alle Berge seid.", italian="Pensavo che ormai foste\nlontano da qui.", spanish="Suponía que ya os habríais\nmarchado."})
+  end
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Sweatdrop") end)
   pcall(function() GROUND:CharSetEmote(npc_npc_dogaasu, "sweating", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect

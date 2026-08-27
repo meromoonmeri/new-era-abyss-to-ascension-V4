@@ -99,6 +99,27 @@ function SkySceneKit.ask(choices)
   return result
 end
 
+-- Rotation sur soi (Turn2DirectionTurn NDS) : EntTurn sur les 8
+-- directions successives, sens ROM (2=antihoraire sinon horaire),
+-- `turns` quarts de tour complets, tempo speed frames par pas.
+local SPIN_ORDER = {
+  Direction.Down, Direction.DownLeft, Direction.Left, Direction.UpLeft,
+  Direction.Up, Direction.UpRight, Direction.Right, Direction.DownRight,
+}
+function SkySceneKit.spin(ch, speed, sens, turns)
+  speed = tonumber(speed) or 4
+  turns = tonumber(turns) or 1
+  local step = (tonumber(sens) == 2) and -1 or 1
+  local idx = 1
+  pcall(function()
+    for _ = 1, 8 * math.max(1, math.min(turns, 4)) do
+      idx = ((idx - 1 + step) % 8) + 1
+      GROUND:EntTurn(ch, SPIN_ORDER[idx])
+      GAME:WaitFrames(math.max(1, math.min(speed, 8)))
+    end
+  end)
+end
+
 -- PNJ temporaires des scènes compilées (cast SSA ROM : espèce via
 -- PMDO_MAPPING entid→species, position tuile*8+off*4, direction SSA).
 -- Même mécanique native que LulubyTown.spawn (GroundChar+AddTempChar).

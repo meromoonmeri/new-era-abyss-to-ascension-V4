@@ -13,10 +13,30 @@ return function(hero, partner)
   GAME:WaitFrames(15)
   pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english=" Oh, right, [hero]!", french=" Au fait, [hero]!", german=" Oh, richtig, [hero]!", italian=" Ah, [hero]!", spanish=" Por cierto, [hero]."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Oh, right, [hero]!", french=" Au fait, [hero]!", german=" Oh, richtig, [hero]!", italian=" Ah, [hero]!", spanish=" Por cierto, [hero]."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Oh, right, [hero]!", french=" Au fait, [hero]!", german=" Oh, richtig, [hero]!", italian=" Ah, [hero]!", spanish=" Por cierto, [hero]."})
+  else
+  SkySceneKit.say({english=" Oh, right, [hero]!", french=" Au fait, [hero]!", german=" Oh, richtig, [hero]!", italian=" Ah, [hero]!", spanish=" Por cierto, [hero]."})
+  end
   pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english="Let's go check out Sharpedo\nBluff, [hero]!", french="En route pour la Falaise\nSharpedo, [hero]!", german="Lass uns bei der Tohaido-Klippe\nnachsehen, [hero]!", italian="Andiamo a controllare al\nPromontorio Sharpedo, [hero]!", spanish="¡Echemos un vistazo en el Risco\nSharpedo, [hero]!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="Let's check out Sharpedo Bluff\nbefore we go back to the guild.", french="Passons par la Falaise Sharpedo\navant de retourner à la Guilde.", german="Sehen wir noch einmal bei der\nTohaido-Klippe vorbei, bevor wir zurück zur\nGilde gehen.", italian="Facciamo un salto al Promontorio\nSharpedo prima di tornare alla Gilda.", spanish="Tenemos que pasar por el Risco\nSharpedo antes de regresar al [CS:N]Pokégremio[CR]."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="We should go over to Sharpedo\nBluff before we go back to the guild.", french="Passons par la Falaise Sharpedo\navant de retourner à la Guilde.", german="Wir sollten noch einmal zur\nTohaido-Klippe, bevor wir zurück zur Gilde\ngehen.", italian="Facciamo un salto al Promontorio\nSharpedo prima di tornare alla Gilda.", spanish="Tenemos que pasar por el Risco\nSharpedo antes de regresar al [CS:N]Pokégremio[CR]."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Maybe [CS:N]Grovyle[CR] has come back.", french="Peut-être que [CS:N]Massko[CR]\nest revenu.", german="Vielleicht ist [CS:N]Reptain[CR]\nzurückgekehrt.", italian=" Magari [CS:N]Grovyle[CR] è tornato.", spanish=" Tal vez [CS:N]Grovyle[CR] haya vuelto ya."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="Just in case [CS:N]Grovyle[CR] has\ncome back.", french="Peut-être que [CS:N]Massko[CR]\nest revenu.", german="Nur für den Fall, dass [CS:N]Reptain[CR]\nzurückgekehrt ist.", italian="Giusto per vedere se è tornato\n[CS:N]Grovyle[CR].", spanish=" Tal vez [CS:N]Grovyle[CR] haya vuelto ya."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="Let's go check out Sharpedo\nBluff, [hero]!", french="En route pour la Falaise\nSharpedo, [hero]!", german="Lass uns bei der Tohaido-Klippe\nnachsehen, [hero]!", italian="Andiamo a controllare al\nPromontorio Sharpedo, [hero]!", spanish="¡Echemos un vistazo en el Risco\nSharpedo, [hero]!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="Let's go check out Sharpedo\nBluff, [hero]!", french="En route pour la Falaise\nSharpedo, [hero]!", german="Lass uns bei der Tohaido-Klippe\nnachsehen, [hero]!", italian="Andiamo a controllare al\nPromontorio Sharpedo, [hero]!", spanish="¡Vamos a echar un vistazo\nal Risco Sharpedo, [hero]!"})
+  else
+  SkySceneKit.say({english="Let's go check out Sharpedo\nBluff, [hero]!", french="En route pour la Falaise\nSharpedo, [hero]!", german="Lass uns bei der Tohaido-Klippe\nnachsehen, [hero]!", italian="Andiamo a controllare al\nPromontorio Sharpedo, [hero]!", spanish="¡Echemos un vistazo en el Risco\nSharpedo, [hero]!"})
+  end
   SV.SkyTalkBitFlags = SV.SkyTalkBitFlags or {}; SV.SkyTalkBitFlags[121] = 1 -- $SCENARIO_TALK_BIT_FLAG[121] = 1 (ROM)
   -- supervision_RemoveCommon(15) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
 end

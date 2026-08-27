@@ -14,7 +14,13 @@ return function(hero, partner)
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecuteLives
   -- message_FacePositionOffset(1, 0) [neutre/état moteur]
-  SkySceneKit.say({english=" [CS:P]Luminous Spring[CR]?", french=" La [CS:P]Source Lumineuse[CR]?", german=" [CS:P]Glitzerquelle[CR]?", italian=" [CS:P]Sorgente Luccichio[CR]?", spanish=" ¿[CS:P]Manantial Luminoso[CR]?"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" [CS:P]Luminous Spring[CR]?", french=" La [CS:P]Source Lumineuse[CR]?", german=" [CS:P]Glitzerquelle[CR]?", italian=" [CS:P]Sorgente Luccichio[CR]?", spanish=" ¿[CS:P]Manantial Luminoso[CR]?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" [CS:P]Luminous Spring[CR]?", french=" La [CS:P]Source Lumineuse[CR]?", german=" [CS:P]Glitzerquelle[CR]?", italian=" [CS:P]Sorgente Luccichio[CR]?", spanish=" ¿[CS:P]Manantial Luminoso[CR]?"})
+  else
+  SkySceneKit.say({english=" [CS:P]Luminous Spring[CR]?", french=" La [CS:P]Source Lumineuse[CR]?", german=" [CS:P]Glitzerquelle[CR]?", italian=" [CS:P]Sorgente Luccichio[CR]?", spanish=" ¿[CS:P]Manantial Luminoso[CR]?"})
+  end
   local npc_npc_pukurin = SkySceneKit.spawn_npc("wigglytuff", 424, 224, Direction.DownRight, "NPC_PUKURIN")
   pcall(function() UI:SetSpeaker(npc_npc_pukurin) end)
   SkySceneKit.say({english="Yup! ♪[K] It was where Pokémon\nonce went to evolve.", french="Ouiii! ♪[K] C'est à cet endroit que\nles Pokémon partaient autrefois pour évoluer.", german="Ja! ♪[K] Dort gingen einst die\nPokémon hin, um sich zu entwickeln.", italian="Sì! ♪[K] È lì che una volta i\nPokémon andavano a evolversi.", spanish="Sí. ♪[K] Allí es donde antaño\niban los Pokémon a evolucionar."})

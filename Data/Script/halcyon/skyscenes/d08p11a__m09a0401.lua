@@ -22,7 +22,13 @@ return function(hero, partner)
   pcall(function() SOUND:StopBGM() end)
   -- back_SetGround(LEVEL_S04P01A) [neutre/état moteur]
   GAME:FadeIn(0)
-  SkySceneKit.say({english=" Ugh, we blew it...", french=" Argh, on a échoué...", german=" Uff, wir haben es vermasselt...", italian=" Ugh, non ce l'abbiamo fatta...", spanish=" Vaya, hemos metido la pata."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Ugh, we blew it...", french=" Argh, on a échoué...", german=" Uff, wir haben es vermasselt...", italian=" Ugh, non ce l'abbiamo fatta...", spanish=" Uf... Hemos metido la pata."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Ugh, we blew it...", french=" Argh, on a échoué...", german=" Uff, wir haben es vermasselt...", italian=" Ugh, non ce l'abbiamo fatta...", spanish=" ¡Qué mal! Hemos metido la pata."})
+  else
+  SkySceneKit.say({english=" Ugh, we blew it...", french=" Argh, on a échoué...", german=" Uff, wir haben es vermasselt...", italian=" Ugh, non ce l'abbiamo fatta...", spanish=" Vaya, hemos metido la pata."})
+  end
   GAME:FadeOut(false,  60)
   -- message_CloseEnforce
   -- back_SetGround(LEVEL_D08P11A) [neutre/état moteur]
@@ -44,7 +50,13 @@ return function(hero, partner)
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Startled") end)
   SkySceneKit.unlock(7) -- Unlock(7) NDS
-  SkySceneKit.say({english=" ...Huh?!", french=" ... Hein?!", german=" ...Wie?!?", italian=" ... Eh?!", spanish=" ¡¿Eh?!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" ...Huh?!", french=" ... Hein?!", german=" ...Wie?!?", italian=" ... Eh?!", spanish=" ¡¿Eh?!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" ...Huh?!", french=" ... Hein?!", german=" ...Wie?!?", italian=" ... Eh?!", spanish=" ¡¿Eh?!"})
+  else
+  SkySceneKit.say({english=" ...Huh?!", french=" ... Hein?!", german=" ...Wie?!?", italian=" ... Eh?!", spanish=" ¡¿Eh?!"})
+  end
   -- message_Close
   SkySceneKit.unlock(5) -- Unlock(5) NDS
   GAME:WaitFrames(15)
@@ -55,7 +67,13 @@ return function(hero, partner)
   pcall(function() GROUND:CharSetEmote(partner, "question", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english=" Wh-where is this?", french=" Mais... où sommes-nous?", german=" W-wo sind wir?", italian=" D-Dove siamo?", spanish=" ¿Do... dónde estamos?"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Wh-where is this?", french=" Mais... où sommes-nous?", german=" W-wo sind wir?", italian=" D-Dove siamo?", spanish=" ¿Do... dónde estamos?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Wh-where is this?", french=" Mais... où sommes-nous?", german=" W-wo sind wir?", italian=" D-Dove siamo?", spanish=" ¿Do... dónde estamos?"})
+  else
+  SkySceneKit.say({english=" Wh-where is this?", french=" Mais... où sommes-nous?", german=" W-wo sind wir?", italian=" D-Dove siamo?", spanish=" ¿Do... dónde estamos?"})
+  end
   pcall(function() UI:SetSpeaker(npc_npc_perappu) end)
   SkySceneKit.say({english="This is the base camp. It\nappears that your exploration has suffered\na setback.", french="Voici le camp de base. On dirait\nque votre exploration n'a pas été de tout\nrepos.", german="Dies ist das Basislager.\nOffenbar läuft eure Erkundung nicht allzu gut.", italian="Questo è il Campo Base. Sembra\nche la vostra esplorazione abbia subito una\nbattuta d'arresto.", spanish="Este es el campamento base.\nParece que vuestra exploración ha sufrido\nun contratiempo."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
@@ -74,7 +92,13 @@ return function(hero, partner)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Sweatdrop") end)
   pcall(function() GROUND:CharSetEmote(partner, "sweating", 1) end)
-  SkySceneKit.say({english="Eep! Let's get going,\n[hero].", french=" Argh! En route, [hero].", german=" Urks! Gehen wir, [hero].", italian="Urk! Andiamo,\n[hero].", spanish=" ¡Ay! Vamos, [hero]."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="Urk! Let's get going,\n[hero].", french=" Argh! En route, [hero].", german=" Urks! Gehen wir, [hero].", italian="Urk! Andiamo,\n[hero].", spanish=" ¡Ay! Vamos, [hero]."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="Urk! Let's get going,\n[hero].", french=" Argh! En route, [hero].", german=" Urks! Gehen wir, [hero].", italian="Urk! Andiamo,\n[hero].", spanish=" ¡Ay! Vamos, [hero]."})
+  else
+  SkySceneKit.say({english="Eep! Let's get going,\n[hero].", french=" Argh! En route, [hero].", german=" Urks! Gehen wir, [hero].", italian="Urk! Andiamo,\n[hero].", spanish=" ¡Ay! Vamos, [hero]."})
+  end
   SkySceneKit.cleanup_npcs()
   SkySceneKit.join_routines()
 end

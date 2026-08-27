@@ -25,7 +25,13 @@ return function(hero, partner)
   GROUND:MoveToPosition(hero, 368, 292, false, 2)
   GROUND:MoveToPosition(partner, 332, 292, false, 2)
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english=" Wow, there's a crowd.", french=" Oh, une foule s'est rassemblée.", german=" Wow, ganz schön viel los.", italian=" Wow, che folla.", spanish=" Vaya, qué gentío."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Wow, there's quite a crowd.", french=" Oh, une foule s'est rassemblée.", german=" Wow, ganz schön viel los.", italian=" Wow, c'è una bella folla.", spanish=" Caray, qué gentío."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Wow, there's a crowd.", french=" Oh, une foule s'est rassemblée.", german=" Wow, ganz schön viel los.", italian=" Wow, che folla.", spanish=" Caramba, cuánta gente."})
+  else
+  SkySceneKit.say({english=" Wow, there's a crowd.", french=" Oh, une foule s'est rassemblée.", german=" Wow, ganz schön viel los.", italian=" Wow, che folla.", spanish=" Vaya, qué gentío."})
+  end
   pcall(function() GAME:MoveCamera(348, 220, 60, false) end) -- performer/caméra
   GAME:WaitFrames(7)
   GROUND:MoveToPosition(hero, 368, 232, false, 2)

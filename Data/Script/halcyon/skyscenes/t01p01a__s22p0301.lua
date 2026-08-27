@@ -101,7 +101,13 @@ return function(hero, partner)
   GROUND:EntTurn(partner, Direction.UpRight)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   -- message_FacePositionOffset(0, 2) [neutre/état moteur]
-  SkySceneKit.say({english="Say, [CS:N]Cresselia[CR].[K] What happened\nto [CS:N]Palkia[CR]?", french="Dis, [CS:N]Cresselia[CR].[K] Qu'est-il arrivé\nà [CS:N]Palkia[CR]?", german="Sag mal, [CS:N]Cresselia[CR].[K] Was ist mit\n[CS:N]Palkia[CR] passiert?", italian="Ehi, [CS:N]Cresselia[CR].[K] Cosa è successo\na [CS:N]Palkia[CR]?", spanish="Oye, [CS:N]Cresselia[CR].[K] ¿Qué ha pasado\ncon [CS:N]Palkia[CR]?"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="Hey, [CS:N]Cresselia[CR].[K] What happened\nto [CS:N]Palkia[CR]?", french="Dis, [CS:N]Cresselia[CR].[K] Qu'est-il arrivé\nà [CS:N]Palkia[CR]?", german="Hey, [CS:N]Cresselia[CR].[K] Was ist mit\n[CS:N]Palkia[CR] geschehen?", italian="Ehi, [CS:N]Cresselia[CR].[K] Cosa è successo\na [CS:N]Palkia[CR]?", spanish="Oye, [CS:N]Cresselia[CR].[K] ¿Qué ha pasado\ncon [CS:N]Palkia[CR]?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="Listen, [CS:N]Cresselia[CR].[K] What happened\nto [CS:N]Palkia[CR]?", french="Dis, [CS:N]Cresselia[CR].[K] Qu'est-il arrivé\nà [CS:N]Palkia[CR]?", german="Hör mal, [CS:N]Cresselia[CR].[K] Was ist mit\n[CS:N]Palkia[CR] geschehen?", italian="Ehi, [CS:N]Cresselia[CR].[K] Cosa è successo\na [CS:N]Palkia[CR]?", spanish="Oye, [CS:N]Cresselia[CR].[K] ¿Qué ha pasado\ncon [CS:N]Palkia[CR]?"})
+  else
+  SkySceneKit.say({english="Say, [CS:N]Cresselia[CR].[K] What happened\nto [CS:N]Palkia[CR]?", french="Dis, [CS:N]Cresselia[CR].[K] Qu'est-il arrivé\nà [CS:N]Palkia[CR]?", german="Sag mal, [CS:N]Cresselia[CR].[K] Was ist mit\n[CS:N]Palkia[CR] passiert?", italian="Ehi, [CS:N]Cresselia[CR].[K] Cosa è successo\na [CS:N]Palkia[CR]?", spanish="Oye, [CS:N]Cresselia[CR].[K] ¿Qué ha pasado\ncon [CS:N]Palkia[CR]?"})
+  end
   GROUND:EntTurn(npc_npc_kureseria, Direction.DownLeft)
   pcall(function() GROUND:CharTurnToCharAnimated(hero, npc_npc_kureseria, 4) end)
   pcall(function() GROUND:CharTurnToCharAnimated(npc_npc_perappu, npc_npc_kureseria, 4) end)
@@ -147,7 +153,17 @@ return function(hero, partner)
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GROUND:CharSetEmote(npc_npc_perappu, nil, 0) end) -- EFFECT_NONE
   -- message_FacePositionOffset(0, 2) [neutre/état moteur]
-  SkySceneKit.say({english="That's how you pulled [CS:N]Palkia[CR]\nand us out of the nightmare.", french="C'est comme ça que tu as pu\nnous sortir du cauchemar, [CS:N]Palkia[CR] et nous.", german="Auf diese Weise hast du [CS:N]Palkia[CR]\nund uns aus dem Albtraum geholt.", italian="È così che hai trascinato [CS:N]Palkia[CR]\ne noi fuori dall'incubo.", spanish="Así lograste sacarnos con [CS:N]Palkia[CR]\nde esa horrible pesadilla."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="I understand...[K] You used your\npower when we were in [CS:N]Palkia[CR]'s nightmare.", french="Je comprends...[K] Tu t'es servie\nde ton pouvoir quand on était dans\nle cauchemar de [CS:N]Palkia[CR].", german="Ich verstehe.[K] Du hast deine\nMacht eingesetzt, als du in dem Albtraum von\n[CS:N]Palkia[CR] warst.", italian="Ho capito...[K] Hai usato il tuo\npotere quando eravamo nell'incubo di [CS:N]Palkia[CR].", spanish="Ahora lo entiendo...[K] Usaste tus\npoderes en la pesadilla de [CS:N]Palkia[CR]."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="I understand...[K] You used your\npower when we were in [CS:N]Palkia[CR]'s nightmare.", french="Je comprends...[K] Tu t'es servie\nde ton pouvoir quand on était dans\nle cauchemar de [CS:N]Palkia[CR].", german="Ich verstehe.[K] Du hast deine\nMacht eingesetzt, als du in dem Albtraum von\n[CS:N]Palkia[CR] warst.", italian="Ho capito...[K] Hai usato il tuo\npotere quando eravamo nell'incubo di [CS:N]Palkia[CR].", spanish="Ahora lo entiendo...[K] Usaste tus\npoderes en la pesadilla de [CS:N]Palkia[CR]."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="That's how you pulled [CS:N]Palkia[CR]\nand us out of the nightmare.", french="C'est comme ça que tu as pu\nnous sortir du cauchemar, [CS:N]Palkia[CR] et nous.", german="Auf diese Weise hast du [CS:N]Palkia[CR]\nund uns aus dem Albtraum geholt.", italian="È così che hai trascinato [CS:N]Palkia[CR]\ne noi fuori dall'incubo.", spanish="Así lograste sacarnos con [CS:N]Palkia[CR]\nde esa horrible pesadilla."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="That's how you pulled [CS:N]Palkia[CR]\nand us out of the nightmare.", french="C'est comme ça que tu as pu\nnous sortir du cauchemar, [CS:N]Palkia[CR] et nous.", german="Auf diese Weise hast du [CS:N]Palkia[CR]\nund uns aus dem Albtraum geholt.", italian="È così che hai trascinato [CS:N]Palkia[CR]\ne noi fuori dall'incubo.", spanish="Así lograste sacarnos con [CS:N]Palkia[CR]\nde esa horrible pesadilla."})
+  else
+  SkySceneKit.say({english="That's how you pulled [CS:N]Palkia[CR]\nand us out of the nightmare.", french="C'est comme ça que tu as pu\nnous sortir du cauchemar, [CS:N]Palkia[CR] et nous.", german="Auf diese Weise hast du [CS:N]Palkia[CR]\nund uns aus dem Albtraum geholt.", italian="È così che hai trascinato [CS:N]Palkia[CR]\ne noi fuori dall'incubo.", spanish="Así lograste sacarnos con [CS:N]Palkia[CR]\nde esa horrible pesadilla."})
+  end
   -- GAP: BGM BGM_WELCOME_TO_THE_WORLD_OF_POKEMON non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)
   -- message_FacePositionOffset(0, -2) [neutre/état moteur]
   pcall(function() UI:SetSpeaker(npc_npc_kureseria) end)
@@ -171,9 +187,23 @@ return function(hero, partner)
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecuteLives
   -- message_FacePositionOffset(0, 2) [neutre/état moteur]
-  SkySceneKit.say({english=" ...That's...[K] That's true!", french=" ... C'est...[K] c'est vrai!", german=" ...Das...[K] Das stimmt!", italian=" È...[K] È vero!", spanish=" Eh...[K] ¡Es verdad!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" ...That's...[K] That's true!", french=" ... C'est...[K] c'est vrai!", german=" ...Das...[K] Das stimmt!", italian=" È...[K] È vero!", spanish=" Eh...[K] ¡Es verdad!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" ...That's...[K] That's true!", french=" ... C'est...[K] c'est vrai!", german=" ...Das...[K] Das stimmt!", italian=" È...[K] È vero!", spanish=" Eh...[K] ¡Es verdad!"})
+  else
+  SkySceneKit.say({english=" ...That's...[K] That's true!", french=" ... C'est...[K] c'est vrai!", german=" ...Das...[K] Das stimmt!", italian=" È...[K] È vero!", spanish=" Eh...[K] ¡Es verdad!"})
+  end
   -- message_FacePositionOffset(-1, 0) [neutre/état moteur]
-  SkySceneKit.say({english="(Then later on, come to think of it...)", french="(Mais par la suite, réflexion faite...)", german="(Und später, wenn ich so darüber nachdenke...)", italian="(Poi, adesso che ci penso...)", spanish="(Y después también, ahora que lo pienso...)"}) -- SwitchMonologue: branche default
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="(It's true...)", french="(C'est vrai...)", german="(Es stimmt.)", italian="(È vero...)", spanish="(Es verdad...)"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="(The first time was in a dream.)", french="(La première fois, c'était dans un rêve.)", german="(Das erste Mal war in einem Traum.)", italian="(La prima volta è stato in un sogno.)", spanish="(La primera vez fue en un sueño.)"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="(Then later on, come to think of it...)", french="(Mais par la suite, réflexion faite...)", german="(Und später, wenn ich so darüber nachdenke...)", italian="(Poi, adesso che ci penso...)", spanish="(Y después también, ahora que lo pienso...)"})
+  else
+  SkySceneKit.say({english="(Then later on, come to think of it...)", french="(Mais par la suite, réflexion faite...)", german="(Und später, wenn ich so darüber nachdenke...)", italian="(Poi, adesso che ci penso...)", spanish="(Y después también, ahora que lo pienso...)"})
+  end
   GAME:FadeOut(false,  30)
   -- CallCommon CORO_FADE_OUT_ALL_AFTER (fermeture/attente message: géré par say())
   SkySceneKit.cleanup_npcs()

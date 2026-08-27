@@ -17,7 +17,13 @@ return function(hero, partner)
   GAME:FadeIn(30)
   pcall(function() SOUND:PlayBGM("Wigglytuff's Guild Remix.ogg", true) end)
   GAME:WaitFrames(30)
-  SkySceneKit.say({english="OK, so we should climb down\nthis hole. And then what?", french="D'accord, on doit descendre dans\nce trou, et après?", german="Okay, wir sollen also in dieses\nLoch steigen. Und weiter?", italian="Ok, quindi dobbiamo scendere di\nqui. Cosa facciamo dopo?", spanish="Vale, entonces bajamos\npor este agujero. ¿Y luego qué?"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="OK, so we climb down this hole.\nWhat next?", french="D'accord, on doit descendre dans\nce trou, et après?", german="Okay, wir steigen also in dieses\nLoch. Und weiter?", italian="Ok, quindi dobbiamo scendere di\nqui. Cosa facciamo dopo?", spanish="Vale, entonces bajamos\npor este agujero. ¿Y luego qué?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="OK, you want us to climb down\nthis hole. And then?", french="D'accord, on doit descendre dans\nce trou, et après?", german="Okay, du willst also, dass wir\nin dieses Loch steigen. Und weiter?", italian="Ok, quindi dobbiamo scendere di\nqui. Cosa facciamo dopo?", spanish="Vale, quieres que bajemos\npor este agujero. ¿Y luego qué?"})
+  else
+  SkySceneKit.say({english="OK, so we should climb down\nthis hole. And then what?", french="D'accord, on doit descendre dans\nce trou, et après?", german="Okay, wir sollen also in dieses\nLoch steigen. Und weiter?", italian="Ok, quindi dobbiamo scendere di\nqui. Cosa facciamo dopo?", spanish="Vale, entonces bajamos\npor este agujero. ¿Y luego qué?"})
+  end
   GROUND:EntTurn(hero, Direction.Left)
   GROUND:EntTurn(partner, Direction.UpLeft)
   GAME:WaitFrames(2) -- join WaitExecuteLives

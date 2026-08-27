@@ -35,7 +35,13 @@ return function(hero, partner)
   pcall(function() GAME:MoveCamera(260, 216, 60, false) end) -- performer/caméra
   GAME:WaitFrames(2) -- join WaitExecutePerformer
   GAME:WaitFrames(30)
-  SkySceneKit.say({english=" Huh? What...? Where are we?", french="Hein? Quoi...? Où est-ce\nqu'on est?", german=" Wie? Was? Wo sind wir?", italian=" Eh? Cosa...? Dove siamo?", spanish="¿Eh? ¿Qué ha pasado?\n¿Dónde estamos?"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Huh? What...? Where are we?", french="Hein? Quoi...? Où est-ce\nqu'on est?", german=" Wie? Was? Wo sind wir?", italian=" Eh? Cosa...? Dove siamo?", spanish="¿Eh? ¿Qué ha pasado?\n¿Dónde estamos?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Huh? What...? Where are we?", french="Hein? Quoi...? Où est-ce\nqu'on est?", german=" Wie? Was? Wo sind wir?", italian=" Eh? Cosa...? Dove siamo?", spanish="¿Eh? ¿Qué ha pasado?\n¿Dónde estamos?"})
+  else
+  SkySceneKit.say({english=" Huh? What...? Where are we?", french="Hein? Quoi...? Où est-ce\nqu'on est?", german=" Wie? Was? Wo sind wir?", italian=" Eh? Cosa...? Dove siamo?", spanish="¿Eh? ¿Qué ha pasado?\n¿Dónde estamos?"})
+  end
   GROUND:MoveToPosition(npc_npc_himeguma, 220, 188, false, 1)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GROUND:EntTurn(npc_npc_himeguma, Direction.DownRight)
@@ -65,13 +71,25 @@ return function(hero, partner)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GROUND:CharTurnToCharAnimated(partner, npc_npc_himeguma, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english=" Where are we?", french=" Où sommes-nous?", german=" Wo sind wir?", italian=" Dove ci troviamo?", spanish=" ¿Dónde estamos?"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Where are we?", french=" Où sommes-nous?", german=" Wo sind wir?", italian=" Dove ci troviamo?", spanish=" ¿Dónde estamos?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Where are we?", french=" Où sommes-nous?", german=" Wo sind wir?", italian=" Dove ci troviamo?", spanish=" ¿Dónde estamos?"})
+  else
+  SkySceneKit.say({english=" Where are we?", french=" Où sommes-nous?", german=" Wo sind wir?", italian=" Dove ci troviamo?", spanish=" ¿Dónde estamos?"})
+  end
   pcall(function() GROUND:CharTurnToCharAnimated(hero, npc_npc_himeguma, 4) end)
   pcall(function() UI:SetSpeaker(npc_npc_himeguma) end)
   SkySceneKit.say({english=" This is the Hot Spring.", french=" A la Source Chaude.", german=" Dies ist die Heiße Quelle.", italian=" Questa è la Sorgente Termale.", spanish=" Esta es la Terma."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Exclaim_Surprised") end)
-  SkySceneKit.say({english=" H-Hot Spring?!", french=" La Source Chaude?!", german=" D-die Heiße Quelle?!?", italian=" S-Sorgente Termale?!", spanish=" ¿La... la Terma?"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" H-Hot Spring?!", french=" La Source Chaude?!", german=" D-die Heiße Quelle?!?", italian=" S-Sorgente Termale?!", spanish=" ¿La... la Terma?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" H-Hot Spring?!", french=" La Source Chaude?!", german=" D-die Heiße Quelle?!?", italian=" S-Sorgente Termale?!", spanish=" ¿La... la Terma?"})
+  else
+  SkySceneKit.say({english=" H-Hot Spring?!", french=" La Source Chaude?!", german=" D-die Heiße Quelle?!?", italian=" S-Sorgente Termale?!", spanish=" ¿La... la Terma?"})
+  end
   pcall(function() SOUND:PlayBGM("Heartwarming.ogg", true) end)
   local npc_npc_kootasu = SkySceneKit.spawn_npc("torkoal", 320, 136, Direction.DownLeft, "NPC_KOOTASU")
   do local p=npc_npc_kootasu.Position; GROUND:MoveToPosition(npc_npc_kootasu, p.X+(-56), p.Y+(0), false, 1) end
@@ -93,7 +111,13 @@ return function(hero, partner)
   pcall(function() UI:SetSpeaker(npc_npc_kootasu) end)
   SkySceneKit.say({english="Tell me, youngster, have you a\nmap?", french="Dites-moi, les jeunes, avez-vous\nune carte?", german="Sag, mein junges Pokémon, hast\ndu eine Karte dabei?", italian="Ditemi, giovani amici Pokémon,\navete una mappa?", spanish="Dime, joven, ¿por casualidad\nllevas un mapa?"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  SkySceneKit.say({english="Map?[K] Oh, our Wonder Map, you\nmean? We have one.", french="Une carte?[K] Oh, tu veux dire une\nCarte Miracle? Bien sûr, oui.", german="Karte?[K] Oh, unsere Wunderkarte\nmeinst du? Die haben wir dabei.", italian="Mappa?[K] Oh, se intendi la\nMappa delle meraviglie, ce l'abbiamo.", spanish="¿Un mapa?[K] ¿Quieres decir\nun Mapa Mágico? Sí, tenemos uno."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="Map?[K] Oh, if you mean our\nWonder Map, sure we do.", french="Une carte?[K] Oh, tu veux dire une\nCarte Miracle? Bien sûr, oui.", german="Karte?[K] Oh, wenn du unsere\nWunderkarte meinst, natürlich.", italian="Mappa?[K] Oh, se intendi la\nMappa delle meraviglie, ce l'abbiamo.", spanish="¿Un mapa?[K] Ah, ¿te refieres\na nuestro Mapa Mágico? Por supuesto."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="Map?[K] Oh, if you mean our\nWonder Map, yes, we have one.", french="Une carte?[K] Oh, tu veux dire une\nCarte Miracle? Bien sûr, oui.", german="Karte?[K] Oh, wenn du unsere\nWunderkarte meinst, die haben wir dabei.", italian="Mappa?[K] Oh, se intendi la\nMappa delle meraviglie, ce l'abbiamo.", spanish="¿Un mapa?[K] Ah, si te refieres\na un Mapa Mágico, sí que tenemos uno."})
+  else
+  SkySceneKit.say({english="Map?[K] Oh, our Wonder Map, you\nmean? We have one.", french="Une carte?[K] Oh, tu veux dire une\nCarte Miracle? Bien sûr, oui.", german="Karte?[K] Oh, unsere Wunderkarte\nmeinst du? Die haben wir dabei.", italian="Mappa?[K] Oh, se intendi la\nMappa delle meraviglie, ce l'abbiamo.", spanish="¿Un mapa?[K] ¿Quieres decir\nun Mapa Mágico? Sí, tenemos uno."})
+  end
   pcall(function() UI:SetSpeaker(npc_npc_kootasu) end)
   SkySceneKit.say({english=" Unfold it for me.", french=" Pourrais-tu la déplier?", german=" Falte sie für mich auf.", italian=" Apritela un attimo.", spanish=" Desplegadlo."})
   -- message_Close

@@ -57,7 +57,13 @@ return function(hero, partner)
   -- message_CloseEnforce
   GAME:WaitFrames(2) -- join WaitExecutePerformer
   pcall(function() GROUND:CharSetEmote(partner, "sweating", 1) end)
-  SkySceneKit.say({english=" Urf...", french=" Arf...", german=" Urf...", italian=" Urf...", spanish=" Ay..."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Urf...", french=" Arf...", german=" Urf...", italian=" Urf...", spanish=" Ay..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Urf...", french=" Arf...", german=" Urf...", italian=" Urf...", spanish=" Ay..."})
+  else
+  SkySceneKit.say({english=" Urf...", french=" Arf...", german=" Urf...", italian=" Urf...", spanish=" Ay..."})
+  end
   pcall(function() SOUND:FadeOutBGM(60) end)
   GAME:FadeOut(false, 60)
   GAME:WaitFrames(30)

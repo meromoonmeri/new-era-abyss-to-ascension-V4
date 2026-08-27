@@ -61,7 +61,13 @@ return function(hero, partner)
   GAME:WaitFrames(15)
   pcall(function() GROUND:CharSetEmote(partner, "sweating", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
-  SkySceneKit.say({english=" Urk![K] It's really tough.", french=" Argh![K] Ce n'est pas de la tarte.", german=" Uff![K] Das ist wirklich brutal.", italian=" Uh![K] È davvero dura.", spanish=" ¡Madre mía![K] ¡No hay manera!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Urk![K] This isn't easy at all.", french=" Argh![K] Ce n'est pas de la tarte.", german=" Uff![K] Das ist gar nicht einfach.", italian=" Uh![K] Non è per niente facile.", spanish=" ¡Vaya![K] Nos han machacado..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Urk![K] This is really challenging.", french=" Argh![K] Ce n'est pas de la tarte.", german="Uff![K] Das ist eine echte\nHerausforderung.", italian=" Uh![K] È davvero impegnativo.", spanish=" ¡Vaya![K] Es bastante complicado."})
+  else
+  SkySceneKit.say({english=" Urk![K] It's really tough.", french=" Argh![K] Ce n'est pas de la tarte.", german=" Uff![K] Das ist wirklich brutal.", italian=" Uh![K] È davvero dura.", spanish=" ¡Madre mía![K] ¡No hay manera!"})
+  end
   pcall(function() UI:SetSpeaker(npc_npc_juputoru) end)
   SkySceneKit.say({english="It doesn't matter if [CS:N]Dusknoir[CR] is\nlying in wait.", french=" [CS:N]Noctunoir[CR] ou pas, peu importe.", german="Es macht nichts, wenn\n[CS:N]Zwirrfinst[CR] uns auflauert.", italian="Non importa se [CS:N]Dusknoir[CR]\nci sta aspettando.", spanish="No importa que [CS:N]Dusknoir[CR] esté\nesperándonos."})
   pcall(function() UI:SetSpeaker(npc_npc_juputoru) end)

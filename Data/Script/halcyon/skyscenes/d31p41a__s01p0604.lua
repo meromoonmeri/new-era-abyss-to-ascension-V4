@@ -23,7 +23,13 @@ return function(hero, partner)
   pcall(function() GROUND:CharSetEmote(partner, "question", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english="Say, [CS:N]Wigglytuff[CR].[K] Please, can you\ntell us what's going on?", french="Hé, [CS:N]Grodoudou[CR].[K] Vous pouvez\nnous expliquer ce qui se passe?", german="Sag mal, [CS:N]Knuddeluff[CR].[K] Kannst du\nuns bitte sagen, was hier vor sich geht?", italian="Ehi, [CS:N]Wigglytuff[CR],[K] puoi dirci cosa\nsta succedendo?", spanish="Oye, [CS:N]Wigglytuff[CR].[K] ¿Puedes\nexplicarnos qué está pasando?"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="Hey, [CS:N]Wigglytuff[CR].[K] Can you tell us\nwhat's going on?", french="Hé, [CS:N]Grodoudou[CR].[K] Vous pouvez\nnous expliquer ce qui se passe?", german="Hey, [CS:N]Knuddeluff[CR].[K] Kannst du uns\nsagen, was hier los ist?", italian="Ehi, [CS:N]Wigglytuff[CR],[K] puoi dirci cosa\nsta succedendo?", spanish="Oye, [CS:N]Wigglytuff[CR].[K] ¿Puedes\nexplicarnos qué está pasando?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="Listen, [CS:N]Wigglytuff[CR].[K] Can you\nplease tell us what's going on?", french="Hé, [CS:N]Grodoudou[CR].[K] Vous pouvez\nnous expliquer ce qui se passe?", german="Hör mal, [CS:N]Knuddeluff[CR].[K] Kannst du\nuns bitte sagen, was hier vor sich geht?", italian="Ehi, [CS:N]Wigglytuff[CR],[K] puoi dirci cosa\nsta succedendo?", spanish="Oye, [CS:N]Wigglytuff[CR].[K] ¿Puedes\nexplicarnos qué está pasando?"})
+  else
+  SkySceneKit.say({english="Say, [CS:N]Wigglytuff[CR].[K] Please, can you\ntell us what's going on?", french="Hé, [CS:N]Grodoudou[CR].[K] Vous pouvez\nnous expliquer ce qui se passe?", german="Sag mal, [CS:N]Knuddeluff[CR].[K] Kannst du\nuns bitte sagen, was hier vor sich geht?", italian="Ehi, [CS:N]Wigglytuff[CR],[K] puoi dirci cosa\nsta succedendo?", spanish="Oye, [CS:N]Wigglytuff[CR].[K] ¿Puedes\nexplicarnos qué está pasando?"})
+  end
   pcall(function() SOUND:FadeOutBGM(120) end)
   local npc_npc_pukurin = SkySceneKit.spawn_npc("wigglytuff", 280, 176, Direction.Down, "NPC_PUKURIN")
   pcall(function() GROUND:CharTurnToCharAnimated(hero, npc_npc_pukurin, 4) end)
@@ -57,7 +63,13 @@ return function(hero, partner)
   pcall(function() GROUND:CharSetEmote(hero, "shock", 1) end)
   pcall(function() GROUND:CharSetEmote(partner, "shock", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
-  SkySceneKit.say({english=" What?!", french=" Quoi?!", german=" Was?!?", italian=" Cosa?!", spanish=" ¿Qué?"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Huh?!", french=" Quoi?!", german=" Ähem?!?", italian=" Eh?!", spanish=" ¿Qué?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" What?!", french=" Quoi?!", german=" Was?!?", italian=" Cosa?!", spanish=" ¿Cómo?"})
+  else
+  SkySceneKit.say({english=" What?!", french=" Quoi?!", german=" Was?!?", italian=" Cosa?!", spanish=" ¿Qué?"})
+  end
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- GAP: BGM BGM_THE_POWER_OF_DARKNESS non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)
   pcall(function() UI:ResetSpeaker() end)
@@ -70,7 +82,13 @@ return function(hero, partner)
   pcall(function() GROUND:CharSetEmote(partner, "shock", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english=" Whaaat?!", french=" Quoiii?!", german=" Waaaas?!?", italian=" Cooosa?!", spanish=" ¡¿Quéee?!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Whaaat?!", french=" Quoiii?!", german=" Waaaas?!?", italian=" Cooosa?!", spanish=" ¡¿Quéee?!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Whaaat?!", french=" Quoiii?!", german=" Waaaas?!?", italian=" Cooosa?!", spanish=" ¡¿Quéee?!"})
+  else
+  SkySceneKit.say({english=" Whaaat?!", french=" Quoiii?!", german=" Waaaas?!?", italian=" Cooosa?!", spanish=" ¡¿Quéee?!"})
+  end
   GROUND:EntTurn(npc_npc_perappu, Direction.DownLeft)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   -- GAP: se_Play(5122) — id SE NDS sans portage PMDO identifié
@@ -114,7 +132,13 @@ return function(hero, partner)
   pcall(function() GROUND:CharSetEmote(partner, "sweating", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english=" Wh-what's going on here?!", french="Mais... mais qu'est-ce qui\nse passe ici, à la fin?!", german=" W-was läuft denn hier?!?", italian=" C-Cosa sta succedendo qui?!", spanish=" ¡¿Qué está ocurriendo aquí?!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Wh-what's going on here?!", french="Mais... mais qu'est-ce qui\nse passe ici, à la fin?!", german=" W-was läuft denn hier?!?", italian=" C-Cosa sta succedendo qui?!", spanish=" ¡¿Qué está ocurriendo aquí?!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Wh-what's going on here?!", french="Mais... mais qu'est-ce qui\nse passe ici, à la fin?!", german=" W-was läuft denn hier?!?", italian=" C-Cosa sta succedendo qui?!", spanish=" ¡¿Qué está ocurriendo aquí?!"})
+  else
+  SkySceneKit.say({english=" Wh-what's going on here?!", french="Mais... mais qu'est-ce qui\nse passe ici, à la fin?!", german=" W-was läuft denn hier?!?", italian=" C-Cosa sta succedendo qui?!", spanish=" ¡¿Qué está ocurriendo aquí?!"})
+  end
   pcall(function() UI:ResetSpeaker() end)
   -- message_FacePositionOffset(0, -1) [neutre/état moteur]
   pcall(function() UI:SetSpeaker(partner) end)

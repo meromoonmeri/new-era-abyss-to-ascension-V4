@@ -71,7 +71,13 @@ return function(hero, partner)
   pcall(function() GROUND:CharSetEmote(partner, "sweating", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english=" Oh, well... Thanks, everyone!", french=" Eh bien... merci, tout le monde!", german=" Na gut! Danke, Leute!", italian=" Oh, bene... Grazie a tutti!", spanish=" Ah, bueno... ¡Gracias a todos!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Oh, well... Thanks, everyone!", french=" Eh bien... merci, tout le monde!", german=" Na gut! Danke, Leute!", italian=" Oh, bene... Grazie a tutti!", spanish=" De acuerdo... ¡Gracias a todos!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Oh, well... Thanks, everyone!", french=" Eh bien... merci, tout le monde!", german=" Na gut! Danke, Leute!", italian=" Oh, bene... Grazie a tutti!", spanish=" Ah, bueno... ¡Gracias a todos!"})
+  else
+  SkySceneKit.say({english=" Oh, well... Thanks, everyone!", french=" Eh bien... merci, tout le monde!", german=" Na gut! Danke, Leute!", italian=" Oh, bene... Grazie a tutti!", spanish=" Ah, bueno... ¡Gracias a todos!"})
+  end
   pcall(function() SOUND:FadeOutBGM(120) end)
   GAME:FadeOut(false, 60)
   GAME:WaitFrames(2) -- join WaitBgm

@@ -108,15 +108,37 @@ return function(hero, partner)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
   pcall(function() GROUND:CharSetEmote(npc_npc_perappu, "happy", 1) end)
-  SkySceneKit.say({english=" So where should we go?", french=" Bon, où est-ce qu'on va?", german=" Wo sollen wir denn suchen?", italian="Secondo te, dove dovremmo\nandare?", spanish=" Entonces, ¿adónde vamos?"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="They said to go search on our\nown today, [hero].", french="On nous a dit de poursuivre\nles recherches aujourd'hui, [hero].", german="Wir sollen heute auf eigene\nFaust suchen, [hero].", italian="Così oggi dobbiamo continuare\nle ricerche per conto nostro, giusto\n[hero]?", spanish="Nos han dicho que busquemos\npor nuestra cuenta, [hero]."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="We're supposed to search on our\nown today, [hero].", french="On nous a dit de poursuivre\nles recherches aujourd'hui, [hero].", german="Wir sollen heute auf eigene\nFaust suchen, [hero].", italian="Oggi dobbiamo continuare le\nricerche per conto nostro, [hero].", spanish="Hoy tenemos que buscar por\nnuestra cuenta, [hero]."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Well, where should we go?", french=" Bon, où est-ce qu'on va?", german=" Okay, wo sollen wir suchen?", italian=" Ma dove possiamo andare?", spanish=" Bueno, ¿adónde vamos?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Where should we go?", french=" Bon, où est-ce qu'on va?", german=" Wo sollen wir suchen?", italian="Secondo te, dove dovremmo\nandare?", spanish=" ¿Adónde vamos?"})
+  else
+  SkySceneKit.say({english=" So where should we go?", french=" Bon, où est-ce qu'on va?", german=" Wo sollen wir denn suchen?", italian="Secondo te, dove dovremmo\nandare?", spanish=" Entonces, ¿adónde vamos?"})
+  end
   GROUND:EntTurn(hero, Direction.DownLeft)
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english="(We can search all we want, but we don't\nhave a clue...)", french="(On peut s'amuser à chercher partout, on n'a\naucun indice...)", german="(Wir können zwar suchen, aber wir haben\nkeinen Schimmer, wo...)", italian="(Possiamo anche cercare tutto il giorno, ma\nsenza nemmeno un indizio...)", spanish="(Podemos buscar todo lo que queramos,\npero no tenemos ninguna pista.)"}) -- SwitchMonologue: branche default
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="(Hmmm, I wonder...?)", french="(Hum, bonne question...)", german="(Hmm, ich frage mich...)", italian="(Mmm, chissà...)", spanish="(Buena pregunta.)"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="(We can search all we want, but we don't\nhave a clue...)", french="(On peut s'amuser à chercher partout, on n'a\naucun indice...)", german="(Wir können zwar suchen, aber wir haben\nkeinen Schimmer, wo...)", italian="(Possiamo anche cercare tutto il giorno, ma\nsenza nemmeno un indizio...)", spanish="(Podemos buscar todo lo que queramos,\npero no tenemos ninguna pista.)"})
+  else
+  SkySceneKit.say({english="(We can search all we want, but we don't\nhave a clue...)", french="(On peut s'amuser à chercher partout, on n'a\naucun indice...)", german="(Wir können zwar suchen, aber wir haben\nkeinen Schimmer, wo...)", italian="(Possiamo anche cercare tutto il giorno, ma\nsenza nemmeno un indizio...)", spanish="(Podemos buscar todo lo que queramos,\npero no tenemos ninguna pista.)"})
+  end
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Startled") end)
   pcall(function() GROUND:CharSetEmote(hero, "exclaim", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english="(Yesterday...when we were out there...)", french="(Hier... quand on était là-bas...)", german="(Gestern... Als wir da draußen waren...)", italian="(Ieri... mentre eravamo...)", spanish="(Ayer, cuando estuvimos en el [CS:P]Desierto[CR]\n[CS:P]Norte[CR]...)"}) -- SwitchMonologue: branche default
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="(Oh![K] Wait a second!)", french="(Oh![K] Une seconde!)", german="(Oh![K] Moment mal!)", italian="(Ehi![K] Aspetta un momento!)", spanish="(¡Oh![K] ¡Espera un momento!)"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="(Yesterday...when we were out there...)", french="(Hier... quand on était là-bas...)", german="(Gestern... Als wir da draußen waren...)", italian="(Ieri... mentre eravamo...)", spanish="(Ayer, cuando estuvimos en el [CS:P]Desierto[CR]\n[CS:P]Norte[CR]...)"})
+  else
+  SkySceneKit.say({english="(Yesterday...when we were out there...)", french="(Hier... quand on était là-bas...)", german="(Gestern... Als wir da draußen waren...)", italian="(Ieri... mentre eravamo...)", spanish="(Ayer, cuando estuvimos en el [CS:P]Desierto[CR]\n[CS:P]Norte[CR]...)"})
+  end
   pcall(function() SOUND:FadeOutBGM(60) end)
   GAME:FadeOut(false, 30)
   SkySceneKit.cleanup_npcs()

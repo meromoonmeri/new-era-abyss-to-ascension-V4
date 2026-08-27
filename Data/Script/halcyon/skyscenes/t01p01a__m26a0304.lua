@@ -25,7 +25,13 @@ return function(hero, partner)
   GAME:FadeIn(30)
   GAME:WaitFrames(60)
   pcall(function() UI:ResetSpeaker() end)
-  SkySceneKit.say({english=" It's Treasure Town!", french=" C'est Bourg-Trésor!", german=" Das ist Schatzstadt!", italian=" È Borgo Tesoro!", spanish=" ¡Es Aldea Tesoro!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" It's Treasure Town!", french=" C'est Bourg-Trésor!", german=" Das ist Schatzstadt!", italian=" È Borgo Tesoro!", spanish=" ¡Es Aldea Tesoro!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" It's Treasure Town!", french=" C'est Bourg-Trésor!", german=" Das ist Schatzstadt!", italian=" È Borgo Tesoro!", spanish=" ¡Es Aldea Tesoro!"})
+  else
+  SkySceneKit.say({english=" It's Treasure Town!", french=" C'est Bourg-Trésor!", german=" Das ist Schatzstadt!", italian=" È Borgo Tesoro!", spanish=" ¡Es Aldea Tesoro!"})
+  end
   -- message_CloseEnforce
   GAME:FadeOut(false,  60)
   -- CallCommon CORO_FADE_OUT_ALL_AFTER (fermeture/attente message: géré par say())

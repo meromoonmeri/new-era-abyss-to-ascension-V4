@@ -29,7 +29,13 @@ return function(hero, partner)
   pcall(function() UI:SetSpeaker(npc_npc_bippa) end)
   SkySceneKit.say({english="I'm glad I caught you![K] I reckoned\nyou were about ready to go out for the day.\nHuff-puff...", french="J'suis hyper content, j'suis pas\narrivé trop tard![K] J'étais sûr qu'vous alliez\npartir pour la journée. Pff, pff...", german="Ich bin froh, euch noch erwischt\nzu haben![K] Ich schätze mal, ihr wolltet gerade\neurem Tagewerk nachgehen. Schnauf, keuch...", italian="Sono felice di avervi\nraggiunto![K] Pensavo di non trovarvi\npiù. Uff-uff...", spanish="¡Menos mal que os he\nencontrado![K] Supongo que estabais a\npunto de marcharos..."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  SkySceneKit.say({english="What's the matter, [CS:N]Bidoof[CR]?[K]\nWhat's the big hurry?", french="Qu'est-ce qu'il y a, [CS:N]Keunotor[CR]?[K]\nPourquoi tu es si pressé?", german="Was liegt an, [CS:N]Bidiza[CR]?[K] Warum\ndie große Eile?", italian="Cosa succede, [CS:N]Bidoof[CR]?[K] Come\nmai tanta fretta?", spanish="¿Qué pasa, [CS:N]Bidoof[CR]?[K] ¿A qué\ntanta prisa?"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="What's up, [CS:N]Bidoof[CR]?[K] What's the\nbig hurry?", french="Qu'est-ce qu'il y a, [CS:N]Keunotor[CR]?[K]\nPourquoi tu es si pressé?", german="Was gibt es, [CS:N]Bidiza[CR]?[K] Warum\ndie große Eile?", italian="Cosa succede, [CS:N]Bidoof[CR]?[K] Come\nmai tanta fretta?", spanish="¿Qué pasa, [CS:N]Bidoof[CR]?[K] ¿A qué\ntanta prisa?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="What's wrong, [CS:N]Bidoof[CR]?[K] Why are\nyou in such a hurry?", french="Qu'est-ce qu'il y a, [CS:N]Keunotor[CR]?[K]\nPourquoi tu es si pressé?", german="Was stimmt nicht, [CS:N]Bidiza[CR]?[K]\nWarum die große Eile?", italian="Cosa succede, [CS:N]Bidoof[CR]?[K] Come\nmai tanta fretta?", spanish="¿Qué pasa, [CS:N]Bidoof[CR]?[K] ¿A qué\ntanta prisa?"})
+  else
+  SkySceneKit.say({english="What's the matter, [CS:N]Bidoof[CR]?[K]\nWhat's the big hurry?", french="Qu'est-ce qu'il y a, [CS:N]Keunotor[CR]?[K]\nPourquoi tu es si pressé?", german="Was liegt an, [CS:N]Bidiza[CR]?[K] Warum\ndie große Eile?", italian="Cosa succede, [CS:N]Bidoof[CR]?[K] Come\nmai tanta fretta?", spanish="¿Qué pasa, [CS:N]Bidoof[CR]?[K] ¿A qué\ntanta prisa?"})
+  end
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Shock_2") end)
   -- ExecuteCommon(CORO_JUMP_ANGRY_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   GAME:WaitFrames(2) -- join WaitExecuteLives
@@ -43,14 +49,26 @@ return function(hero, partner)
   pcall(function() GROUND:CharSetEmote(partner, "shock", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english=" Pardon?[K] [CS:N]Azurill[CR] is in trouble?!", french=" Hein?[K] [CS:N]Azurill[CR] a des ennuis?!", german="Bitte?[K] [CS:N]Azurill[CR] ist in\nSchwierigkeiten?!?", italian=" Eh?[K] [CS:N]Azurill[CR] è nei guai?!", spanish=" ¿Cómo?[K] ¿[CS:N]Azurill[CR] en apuros?"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Huh?[K] [CS:N]Azurill[CR] is in trouble?!", french=" Hein?[K] [CS:N]Azurill[CR] a des ennuis?!", german="Wie war das?[K] [CS:N]Azurill[CR] ist in\nSchwierigkeiten?!?", italian=" Eh?[K] [CS:N]Azurill[CR] è nei guai?!", spanish=" ¿Qué?[K] ¿[CS:N]Azurill[CR] en apuros?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" What?[K] [CS:N]Azurill[CR] is in trouble?!", french=" Hein?[K] [CS:N]Azurill[CR] a des ennuis?!", german="Was?[K] [CS:N]Azurill[CR] ist in\nSchwierigkeiten?!?", italian=" Eh?[K] [CS:N]Azurill[CR] è nei guai?!", spanish=" ¿Qué?[K] ¿[CS:N]Azurill[CR] en apuros?"})
+  else
+  SkySceneKit.say({english=" Pardon?[K] [CS:N]Azurill[CR] is in trouble?!", french=" Hein?[K] [CS:N]Azurill[CR] a des ennuis?!", german="Bitte?[K] [CS:N]Azurill[CR] ist in\nSchwierigkeiten?!?", italian=" Eh?[K] [CS:N]Azurill[CR] è nei guai?!", spanish=" ¿Cómo?[K] ¿[CS:N]Azurill[CR] en apuros?"})
+  end
   pcall(function() UI:SetSpeaker(npc_npc_bippa) end)
   SkySceneKit.say({english="They brought the little feller to\nthe guild!", french="Le p'tit gars, il a été ramené\nà la Guilde!", german="Sie haben das kleine Kerlchen in\ndie Gilde gebracht!", italian=" Lo hanno portato alla Gilda!", spanish=" ¡Lo han llevado al [CS:N]Pokégremio[CR]!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
-  SkySceneKit.say({english=" Let's hurry, [hero]!", french=" Dépêchons-nous, [hero]!", german=" Beeilen wir uns, [hero]!", italian="Dobbiamo sbrigarci,\n[hero]!", spanish=" ¡Deprisa, [hero]!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="We've got to hurry,\n[hero]!", french=" Dépêchons-nous, [hero]!", german="Wir müssen uns beeilen,\n[hero]!", italian="Dobbiamo sbrigarci,\n[hero]!", spanish=" ¡Deprisa, [hero]!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Let's hurry, [hero]!", french=" Dépêchons-nous, [hero]!", german=" Beeilen wir uns, [hero]!", italian="Dobbiamo sbrigarci,\n[hero]!", spanish=" ¡Deprisa, [hero]!"})
+  else
+  SkySceneKit.say({english=" Let's hurry, [hero]!", french=" Dépêchons-nous, [hero]!", german=" Beeilen wir uns, [hero]!", italian="Dobbiamo sbrigarci,\n[hero]!", spanish=" ¡Deprisa, [hero]!"})
+  end
   do local p=hero.Position; GROUND:MoveToPosition(hero, p.X+(120), p.Y+(0), false, 2) end
   do local p=partner.Position; GROUND:MoveToPosition(partner, p.X+(120), p.Y+(0), false, 2) end
   do local p=npc_npc_bippa.Position; GROUND:MoveToPosition(npc_npc_bippa, p.X+(120), p.Y+(0), false, 2) end

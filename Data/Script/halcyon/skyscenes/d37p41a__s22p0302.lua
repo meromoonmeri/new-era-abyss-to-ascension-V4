@@ -19,7 +19,15 @@ return function(hero, partner)
   SkySceneKit.say({english=" I've longed to meet both of you!", french="Cela fait longtemps que je\nsouhaite vous rencontrer!", german="Ich wollte euch beide schon\nlange mal treffen!", italian="È da tempo che\nvolevo incontrarvi!", spanish=" ¡Estaba deseando encontraros!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:ResetSpeaker() end)
-  SkySceneKit.say({english="(In other words, it was still in a dream.)", french="(Autrement dit, c'était quand même dans\nun rêve.)", german="(Mit anderen Worten, ich war dennoch in\neinem Traum.)", italian="(In altre parole, mi trovavo\ncomunque in un sogno.)", spanish="(En otras palabras, que también era un sueño.)"}) -- SwitchMonologue: branche default
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="(That time I wasn't dreaming, so I guess\nit never occurred to me...)", french="(Cette fois-là, je n'étais pas en train de\nrêver, mais ça ne m'avait pas frappé...)", german="(Zu dieser Zeit habe ich nicht geträumt, also\nist es mir nie richtig bewusst geworden...)", italian="(Quella volta non stavo sognando, quindi non\nci avevo mai pensato.)", spanish="(En aquella ocasión no estaba soñando, así\nque no até los cabos...)"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="(But I realize that was in [CS:N]Azurill[CR]'s nightmare.)", french="(... en y repensant, c'est vrai que nous étions\ndans le cauchemar d'[CS:N]Azurill[CR].)", german="(Aber jetzt wird mir klar, dass es in dem\nAlbtraum von [CS:N]Azurill[CR] war.)", italian="(Ma ero nell'incubo di [CS:N]Azurill[CR].)", spanish="(Pero ahora me doy cuenta de que estaba en\nla pesadilla de [CS:N]Azurill[CR].)"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="(In other words, it was still in a dream.)", french="(Autrement dit, c'était quand même dans\nun rêve.)", german="(Mit anderen Worten, ich war dennoch in\neinem Traum.)", italian="(In altre parole, mi trovavo\ncomunque in un sogno.)", spanish="(En otras palabras, que también era un sueño.)"})
+  else
+  SkySceneKit.say({english="(In other words, it was still in a dream.)", french="(Autrement dit, c'était quand même dans\nun rêve.)", german="(Mit anderen Worten, ich war dennoch in\neinem Traum.)", italian="(In altre parole, mi trovavo\ncomunque in un sogno.)", spanish="(En otras palabras, que también era un sueño.)"})
+  end
   GAME:FadeOut(false, 30)
   GAME:FadeIn(0) -- screen_FlushIn
   SkySceneKit.cleanup_npcs()

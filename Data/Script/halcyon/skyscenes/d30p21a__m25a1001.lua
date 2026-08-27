@@ -6,7 +6,13 @@ return function(hero, partner)
   pcall(function() SOUND:StopBGM() end)
   -- back_SetGround(LEVEL_S04P01A) [neutre/état moteur]
   GAME:FadeIn(0)
-  SkySceneKit.say({english=" Ugh...[K] We didn't do so well...", french=" Argh...[K] Quel échec retentissant!", german=" Uff...[K] Wir waren nicht gut...", italian="Uff...[K] Non è andata molto\nbene...", spanish=" Uf...[K] No hemos dado la talla."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Ugh...[K] That was a mess.", french=" Argh...[K] Quel échec retentissant!", german=" Uff...[K] Das war nichts.", italian=" Uff...[K] Abbiamo fallito...", spanish=" Uf...[K] Menuda pifia."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Ugh...[K] That wasn't good.", french=" Argh...[K] Quel échec retentissant!", german=" Uff...[K] Das war nicht gut.", italian=" Uff...[K] È andata male...", spanish=" Uf...[K] Menuda actuación."})
+  else
+  SkySceneKit.say({english=" Ugh...[K] We didn't do so well...", french=" Argh...[K] Quel échec retentissant!", german=" Uff...[K] Wir waren nicht gut...", italian="Uff...[K] Non è andata molto\nbene...", spanish=" Uf...[K] No hemos dado la talla."})
+  end
   GAME:FadeOut(false,  60)
   -- message_CloseEnforce
   -- CallCommon CORO_FADE_OUT_ALL_AFTER (fermeture/attente message: géré par say())
@@ -27,6 +33,18 @@ return function(hero, partner)
   GAME:WaitFrames(15)
   pcall(function() GROUND:CharSetEmote(partner, "sweating", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
-  SkySceneKit.say({english=" Urk![K] We have to get moving.", french="Argh![K] Dépêchons-nous d'y\nretourner.", german="Umpf![K] Wir müssen\nvorankommen.", italian=" Uh![K] Dobbiamo far presto.", spanish="Pero...[K] tenemos que darnos\nprisa."}) -- SwitchTalk: branche default (canon générique)
-  SkySceneKit.say({english="We're so close now...[K] We can't\ngive up now, [hero]!", french="On se rapproche...[K]\nTiens bon, [hero]!", german="Wir sind so nah dran...[K] Wir\nkönnen jetzt nicht aufgeben, [hero]!", italian="Ci siamo quasi...[K] Diamoci\ndentro, [hero]!", spanish="Estamos tan cerca ya...[K]\n¡No podemos rendirnos ahora, [hero]!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Urk![K] But we have to hurry.", french="Argh![K] Dépêchons-nous d'y\nretourner.", german="Umpf![K] Aber wir müssen uns\nbeeilen.", italian=" Oh![K] Dobbiamo darci una mossa.", spanish="Pero...[K] tenemos que darnos\nprisa."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Urk![K] We have to hurry.", french="Argh![K] Dépêchons-nous d'y\nretourner.", german="Umpf![K] Wir müssen uns\nbeeilen.", italian=" Uh![K] Dobbiamo far presto.", spanish="Pero...[K] tenemos que darnos\nprisa."})
+  else
+  SkySceneKit.say({english=" Urk![K] We have to get moving.", french="Argh![K] Dépêchons-nous d'y\nretourner.", german="Umpf![K] Wir müssen\nvorankommen.", italian=" Uh![K] Dobbiamo far presto.", spanish="Pero...[K] tenemos que darnos\nprisa."})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="We're getting really close...[K]\nWe have to keep going, [hero]!", french="On se rapproche...[K]\nTiens bon, [hero]!", german="Wir sind so nah dran...[K] Wir\ndürfen nicht aufgeben, [hero]!", italian="Ci siamo quasi...[K] Diamoci\ndentro, [hero]!", spanish="Estamos realmente cerca...[K]\n¡Tenemos que seguir adelante, [hero]!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="We're nearly there...[K] Let's keep\ngoing, [hero]!", french="On se rapproche...[K]\nTiens bon, [hero]!", german="Wir haben es fast geschafft...[K]\nLass uns dranbleiben, [hero]!", italian="Ci siamo quasi...[K] Diamoci\ndentro, [hero]!", spanish="Ya casi estamos...[K] ¡Tenemos que\nseguir adelante, [hero]!"})
+  else
+  SkySceneKit.say({english="We're so close now...[K] We can't\ngive up now, [hero]!", french="On se rapproche...[K]\nTiens bon, [hero]!", german="Wir sind so nah dran...[K] Wir\nkönnen jetzt nicht aufgeben, [hero]!", italian="Ci siamo quasi...[K] Diamoci\ndentro, [hero]!", spanish="Estamos tan cerca ya...[K]\n¡No podemos rendirnos ahora, [hero]!"})
+  end
 end

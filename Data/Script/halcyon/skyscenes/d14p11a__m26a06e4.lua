@@ -11,7 +11,13 @@ return function(hero, partner)
   GAME:FadeOut(false, 0) -- screen_FlushOut
   GAME:FadeIn(30)
   GAME:WaitFrames(30)
-  SkySceneKit.say({english="So let's go for it! Let's jump into\nthat quicksand pit, [hero]!", french="Alors on fonce! Sautons les yeux\nfermés dans les sables mouvants,\n[hero]!", german="Also, lass es uns tun! Lass uns\nin den Treibsandstrudel springen, [hero]!", italian="Andiamo! Tuffiamoci nelle\nsabbie mobili, [hero]!", spanish="Entonces, adelante... ¡Saltemos\na esas arenas movedizas, [hero]!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="So let's go for it! Let's jump into\nthat quicksand pit, [hero]!", french="Alors on fonce! Sautons les yeux\nfermés dans les sables mouvants,\n[hero]!", german="Also, lass es uns tun! Lass uns\nin den Treibsandstrudel springen, [hero]!", italian="Andiamo! Tuffiamoci nelle\nsabbie mobili, [hero]!", spanish="Entonces, adelante... ¡Saltemos\na esas arenas movedizas, [hero]!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="So let's go for it! Let's jump into\nthat quicksand pit, [hero]!", french="Alors on fonce! Sautons les yeux\nfermés dans les sables mouvants,\n[hero]!", german="Also, lass es uns tun! Lass uns\nin den Treibsandstrudel springen, [hero]!", italian="Andiamo! Tuffiamoci nelle\nsabbie mobili, [hero]!", spanish="Entonces, adelante... ¡Saltemos\na esas arenas movedizas, [hero]!"})
+  else
+  SkySceneKit.say({english="So let's go for it! Let's jump into\nthat quicksand pit, [hero]!", french="Alors on fonce! Sautons les yeux\nfermés dans les sables mouvants,\n[hero]!", german="Also, lass es uns tun! Lass uns\nin den Treibsandstrudel springen, [hero]!", italian="Andiamo! Tuffiamoci nelle\nsabbie mobili, [hero]!", spanish="Entonces, adelante... ¡Saltemos\na esas arenas movedizas, [hero]!"})
+  end
   GAME:WaitFrames(30)
   GROUND:EntTurn(partner, Direction.Up)
   GROUND:EntTurn(hero, Direction.Up)

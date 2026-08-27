@@ -18,10 +18,38 @@ return function(hero, partner)
   SkySubScreen.Show("v01p03b", 30, false) -- screen2_FadeIn: TOP_FOCUS (timeline ROM)
   GAME:FadeIn(30)
   GAME:WaitFrames(30)
-  SkySceneKit.say({english="But I've missed this...[K]\nfantastic sight.", french="Mais ça m'a beaucoup manqué...[K]\nC'est un spectacle féerique.", german="Aber ich habe es vermisst...[K]\nEin fantastischer Anblick.", italian="Ma mi è mancata...[K] questa\nsplendida vista.", spanish="Pero echaba de menos...[K] esta\nfantástica vista."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="I haven't seen this for a long\ntime. It's just as beautiful as I remember.", french="Je n'avais pas vu ça depuis\nlongtemps. C'est aussi beau que dans\nmes souvenirs.", german="Ich habe das so lange nicht\ngesehen. Es ist immer noch so schön wie in\nmeiner Erinnerung.", italian="Non lo vedevo da un sacco di\ntempo. È sempre bello come ricordavo.", spanish="Hacía mucho que no veía la\npuesta de sol. Es tan hermosa como la\nrecordaba."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="I haven't seen this for a long\ntime. It's as beautiful as I remember.", french="Je n'avais pas vu ça depuis\nlongtemps. C'est aussi beau que dans\nmes souvenirs.", german="Ich habe das so lange nicht\ngesehen. Es ist immer noch so schön wie in\nmeiner Erinnerung.", italian="Non lo vedevo da un sacco di\ntempo. È sempre bello come ricordavo.", spanish="Hacía mucho que no veía la\npuesta de sol. Es tan hermosa como la\nrecordaba."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="I've been too busy to come and\nsee it.", french="Ces derniers temps, j'étais trop\noccupé pour venir voir ça.", german="Ich war einfach zu beschäftigt,\num herzukommen und es mir anzusehen.", italian="Avevo troppe cose da fare per\nvenire qui.", spanish="He estado tan ocupado que no\nhe tenido tiempo para venir a contemplarla."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="I've just been too busy to come\nand see it.", french="Ces derniers temps, j'étais trop\noccupé pour venir voir ça.", german="Ich war einfach zu beschäftigt,\num herzukommen und es mir anzusehen.", italian="Ero troppo impegnato per venire\na vederlo.", spanish="He estado tan ocupado que no\nhe tenido tiempo para venir a contemplarla."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="But I've missed this...[K]\nfantastic sight.", french="Mais ça m'a beaucoup manqué...[K]\nC'est un spectacle féerique.", german="Aber ich habe es vermisst...[K]\nEin fantastischer Anblick.", italian="Ma mi è mancata...[K] questa\nsplendida vista.", spanish="Pero echaba de menos...[K] esta\nfantástica vista."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="But I've missed this...[K]\nfantastic sight.", french="Mais ça m'a beaucoup manqué...[K]\nC'est un spectacle féerique.", german="Aber ich habe es vermisst...[K]\nEin fantastischer Anblick.", italian="Ma mi è mancata...[K] questa\nsplendida vista.", spanish="Pero echaba de menos...[K] esta\nfantástica vista."})
+  else
+  SkySceneKit.say({english="But I've missed this...[K]\nfantastic sight.", french="Mais ça m'a beaucoup manqué...[K]\nC'est un spectacle féerique.", german="Aber ich habe es vermisst...[K]\nEin fantastischer Anblick.", italian="Ma mi è mancata...[K] questa\nsplendida vista.", spanish="Pero echaba de menos...[K] esta\nfantástica vista."})
+  end
   pcall(function() SOUND:FadeOutBGM(210) end)
   GAME:WaitFrames(30)
-  SkySceneKit.say({english=" The last time was...", french=" La dernière fois remonte à...", german=" Das letzte Mal war...", italian=" L'ultima volta è stata...", spanish=" La última vez..."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" ..................", french=" ..................", german=" ..................", italian=" ..................", spanish=" ..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" ..................", french=" ..................", german=" ..................", italian=" ..................", spanish=" ..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="When was the last time I saw\nthis, anyway?", french="Je me demande à quand remonte\nla dernière fois que je l'ai vu...", german="Wann habe ich das überhaupt\nzuletzt gesehen?", italian="Quand'è stata l'ultima volta,\ncomunque?", spanish="¿Cuándo fue la última vez\nque disfruté de esta vista?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="I wonder when it was when I\nlast saw this...", french="Je me demande à quand remonte\nla dernière fois que je l'ai vu...", german="Ich frage mich, wann ich das\nzuletzt gesehen habe...", italian="Chissà quand'è stata l'ultima\nvolta...", spanish="¿Cuándo fue la última vez\nque disfruté de esta vista?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" The last time was...", french=" La dernière fois remonte à...", german=" Das letzte Mal war...", italian=" L'ultima volta è stata...", spanish=" La última vez..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" The last time was...", french=" La dernière fois remonte à...", german=" Das letzte Mal war...", italian=" L'ultima volta è stata...", spanish=" La última vez..."})
+  else
+  SkySceneKit.say({english=" The last time was...", french=" La dernière fois remonte à...", german=" Das letzte Mal war...", italian=" L'ultima volta è stata...", spanish=" La última vez..."})
+  end
   GAME:WaitFrames(30)
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Complain") end)
   pcall(function() GROUND:CharSetEmote(partner, "exclaim", 1) end)
@@ -29,7 +57,17 @@ return function(hero, partner)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GAME:WaitFrames(30)
   -- bgm2_FadeOut [canal BGM sub: voir bgm2_Play]
-  SkySceneKit.say({english="It was when...[K]when I met\n[hero]...", french="C'était quand...[K] quand j'ai\nrencontré [hero]...", german="Es war,[K] als ich [hero]\ntraf...", italian="... quando...[K] quando ho\nconosciuto [hero]...", spanish="Fue...[K] cuando conocí a\n[hero]."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Oh...[K] The last time I saw this...", french="Oh...[K] La dernière fois\nque j'ai vu ça...", german=" Oh...[K] Das letzte Mal war...", italian=" Oh...[K] L'ultima volta è stata...", spanish=" Oh...[K] La última vez fue..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Oh...[K] The last time I saw this...", french="Oh...[K] La dernière fois\nque j'ai vu ça...", german=" Oh...[K] Das letzte Mal war...", italian=" Oh...[K] L'ultima volta è stata...", spanish=" Oh...[K] La última vez fue..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="It was when...[K]when I met\n[hero]...", french="C'était quand...[K] quand j'ai\nrencontré [hero]...", german="Es war,[K] als ich [hero]\ntraf...", italian="... quando...[K] quando ho\nconosciuto [hero]...", spanish="Fue...[K] cuando conocí a\n[hero]."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="It was when...[K]when I met\n[hero]...", french="C'était quand...[K] quand j'ai\nrencontré [hero]...", german="Es war,[K] als ich [hero]\ntraf...", italian="... quando...[K] quando ho\nconosciuto [hero]...", spanish="Fue...[K] cuando conocí a\n[hero]."})
+  else
+  SkySceneKit.say({english="It was when...[K]when I met\n[hero]...", french="C'était quand...[K] quand j'ai\nrencontré [hero]...", german="Es war,[K] als ich [hero]\ntraf...", italian="... quando...[K] quando ho\nconosciuto [hero]...", spanish="Fue...[K] cuando conocí a\n[hero]."})
+  end
   SkySubScreen.Hide(30) -- screen2_FadeOut: retour BOTTOM_FOCUS (timeline ROM)
   GAME:FadeOut(false, 30)
   -- back2_SetMode(0) [mode d'affichage sub NDS: géré par SubScreen]

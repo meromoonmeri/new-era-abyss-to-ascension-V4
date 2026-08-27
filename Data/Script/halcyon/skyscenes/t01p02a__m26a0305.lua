@@ -22,7 +22,13 @@ return function(hero, partner)
   GAME:FadeIn(30)
   GAME:WaitFrames(60)
   pcall(function() UI:ResetSpeaker() end)
-  SkySceneKit.say({english=" Everyone looks cheerful!", french=" Tout le monde a l'air si heureux!", german=" Alle sehen fröhlich aus!", italian=" Sembrano tutti allegri!", spanish=" ¡Todos parecen contentos!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Everyone looks happy!", french=" Tout le monde a l'air si heureux!", german=" Alle sehen glücklich aus!", italian=" Sembrano tutti felici!", spanish=" ¡Todos parecen contentos!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Everyone looks happy!", french=" Tout le monde a l'air si heureux!", german=" Alle sehen glücklich aus!", italian=" Sembrano tutti felici!", spanish=" ¡Todos parecen contentos!"})
+  else
+  SkySceneKit.say({english=" Everyone looks cheerful!", french=" Tout le monde a l'air si heureux!", german=" Alle sehen fröhlich aus!", italian=" Sembrano tutti allegri!", spanish=" ¡Todos parecen contentos!"})
+  end
   -- message_CloseEnforce
   GAME:FadeOut(false,  60)
   -- CallCommon CORO_FADE_OUT_ALL_AFTER (fermeture/attente message: géré par say())

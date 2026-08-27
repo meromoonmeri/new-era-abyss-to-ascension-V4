@@ -9,7 +9,29 @@ return function(hero, partner)
   GAME:FadeOut(false, 0) -- screen_FlushOut
   GAME:FadeIn(30)
   GAME:WaitFrames(30)
-  SkySceneKit.say({english=" Be brave...[K] Use all your courage!", french=" Il faut que...[K] je sois courageuse!", german="Sei tapfer...[K] Nimm all deinen\nMumm zusammen!", italian="Sii coraggiosa...[K] Sii la più\ncoraggiosa di tutti!", spanish="Debo ser valiente...[K]\n¡Tengo que echarle coraje!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" OK, I gotta be brave now!", french=" Il faut que je sois courageux!", german=" Okay, ich muss jetzt tapfer sein!", italian=" Ok, devo farmi coraggio adesso!", spanish=" ¡Ahora tengo que ser valiente!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" OK, I gotta be brave now!", french=" Il faut que je sois courageux!", german=" Okay, ich muss jetzt tapfer sein!", italian=" Ok, devo avere coraggio adesso!", spanish=" ¡Ahora tengo que ser valiente!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="If I get scared and fail to leap\nthrough at full speed...", french="Il faut y aller à toute vitesse.\nSi je n'y vais pas à fond parce que j'ai trop\npeur...", german="Wenn ich Angst bekomme und\nnicht mit vollem Tempo abspringe...", italian="Se ho troppa paura e non salto\na tutta velocità...", spanish="Si me asusto a mitad de carrera\ny no consigo saltar a toda velocidad..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="If I get scared and fail to leap\nthrough at full speed...", french="Il faut y aller à toute vitesse.\nSi je n'y vais pas à fond parce que j'ai trop\npeur...", german="Wenn ich Angst bekomme und\nnicht mit vollem Tempo abspringe...", italian="Se mi faccio prendere dalla\npaura e non salto a tutta velocità...", spanish="Si me asusto a mitad de carrera\ny no consigo saltar a toda velocidad..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="I'll be smooshed no matter what\nI do!", french="... je me ferai balayer de toute\nfaçon!", german="Dann wird es sowieso nicht gut\num mich bestellt sein!", italian="Rimarrò schiacciato qualsiasi\ncosa faccia!", spanish=" ¡Voy a acabar hecho fosfatina!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="I'll be smooshed no matter what\nI do!", french="... je me ferai balayer de toute\nfaçon!", german="Dann wird es sowieso nicht gut\num mich bestellt sein!", italian="Rimarrò schiacciato qualsiasi\ncosa faccia!", spanish=" ¡Voy a acabar hecho fosfatina!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="If I'm going for it, I have to go\nfor it without any hesitation.", french="Si je dois le faire, autant y aller\nsans hésitation.", german="Wenn ich es tue, dann darf ich\nnicht zögern.", italian="Se salto, devo farlo senza la\nminima esitazione.", spanish="Si voy a saltar, no puedo dudarlo\nni un instante."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="If I'm doing it, I have to do it\nwithout hesitating.", french="Si je dois le faire, autant y aller\nsans hésitation.", german="Wenn ich es tue, dann darf ich\nkein bisschen zögern.", italian="Se salto, devo farlo senza la\nminima esitazione.", spanish="Si voy a saltar, no puedo dudarlo\nni un instante."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" I need to...[K]summon my courage!", french="Il faut que...[K] je prenne\nmon courage à deux mains!", german="Ich muss[K] meinen ganzen Mut\nzusammennehmen!", italian=" Devo...[K] farmi coraggio!", spanish=" Necesito...[K] ¡armarme de valor!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Be brave...[K] Be the bravest ever!", french="Il faut que...[K] je prenne\nmon courage à deux mains!", german="Sei tapfer...[K] Sei so tapfer wie\nnoch nie!", italian="Sii coraggioso...[K] Sii il più\ncoraggioso di tutti!", spanish="Debo ser valiente...[K]\n¡El más valiente!"})
+  else
+  SkySceneKit.say({english=" Be brave...[K] Use all your courage!", french=" Il faut que...[K] je sois courageuse!", german="Sei tapfer...[K] Nimm all deinen\nMumm zusammen!", italian="Sii coraggiosa...[K] Sii la più\ncoraggiosa di tutti!", spanish="Debo ser valiente...[K]\n¡Tengo que echarle coraje!"})
+  end
   GAME:FadeOut(false, 30)
   GAME:FadeIn(0) -- screen_FlushIn
 end

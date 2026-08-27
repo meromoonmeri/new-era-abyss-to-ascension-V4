@@ -35,7 +35,13 @@ return function(hero, partner)
   GROUND:EntTurn(partner, Direction.Left)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   -- GAP: BGM BGM_OH_NO non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)
-  SkySceneKit.say({english="Ack! Our time-traveling path has\nbeen shattered!", french="Aïe! Notre passage dans\nle temps a volé en éclats!", german="Argh! Unser Zeitreise-Pfad\nwurde zersplittert.", italian="Ah! Il nostro varco temporale\nè stato distrutto!", spanish="¡Aaah! ¡Han destruido la vía\npor la que viajábamos en el tiempo!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="Ack! Our time-traveling path has\nbeen shattered!", french="Aïe! Notre passage dans\nle temps a volé en éclats!", german="Argh! Unser Zeitreise-Pfad\nwurde zersplittert.", italian="Ah! Il nostro varco temporale\nè stato distrutto!", spanish="¡Aaah! ¡Han destruido la vía\npor la que viajábamos en el tiempo!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="Ack! Our time-traveling path has\nbeen shattered!", french="Aïe! Notre passage dans\nle temps a volé en éclats!", german="Argh! Unser Zeitreise-Pfad\nwurde zersplittert.", italian="Ah! Il nostro varco temporale\nè stato distrutto!", spanish="¡Aaah! ¡Han destruido la vía\npor la que viajábamos en el tiempo!"})
+  else
+  SkySceneKit.say({english="Ack! Our time-traveling path has\nbeen shattered!", french="Aïe! Notre passage dans\nle temps a volé en éclats!", german="Argh! Unser Zeitreise-Pfad\nwurde zersplittert.", italian="Ah! Il nostro varco temporale\nè stato distrutto!", spanish="¡Aaah! ¡Han destruido la vía\npor la que viajábamos en el tiempo!"})
+  end
   pcall(function() GAME:MoveCamera(300, 364, 60, false) end) -- performer/caméra
   local npc_npc_yonowaaru = SkySceneKit.spawn_npc("dusknoir", 304, 384, Direction.Down, "NPC_YONOWAARU")
   GROUND:EntTurn(npc_npc_yonowaaru, Direction.Up)
@@ -68,7 +74,13 @@ return function(hero, partner)
   GAME:WaitFrames(2) -- join WaitExecutePerformer
   -- ExecuteCommon(CORO_JUMP_SURPRISE_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english="We got so close to the Passage\nof Time!", french="On y était presque! On a presque\natteint le Couloir du Temps!", german="Wir sind so nahe an den\nZeittunnel gekommen!", italian="Siamo quasi al Portale del\nTempo!", spanish="¡Estábamos ya tan cerca del\npasaje!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="We got so close to the Passage\nof Time!", french="On y était presque! On a presque\natteint le Couloir du Temps!", german="Wir sind so nahe an den\nZeittunnel gekommen!", italian="Siamo molto vicini al Portale\ndel Tempo!", spanish="¡Estábamos ya tan cerca del\npasaje!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="We almost made it to the\nPassage of Time!", french="On y était presque! On a presque\natteint le Couloir du Temps!", german="Wir haben es fast bis zum\nZeittunnel geschafft!", italian="Siamo quasi al Portale del\nTempo!", spanish="¡Estábamos ya tan cerca del\npasaje!"})
+  else
+  SkySceneKit.say({english="We got so close to the Passage\nof Time!", french="On y était presque! On a presque\natteint le Couloir du Temps!", german="Wir sind so nahe an den\nZeittunnel gekommen!", italian="Siamo quasi al Portale del\nTempo!", spanish="¡Estábamos ya tan cerca del\npasaje!"})
+  end
   GROUND:EntTurn(npc_npc_serebii, Direction.Up)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GROUND:EntTurn(partner, Direction.DownRight)
@@ -78,7 +90,13 @@ return function(hero, partner)
   pcall(function() UI:SetSpeaker(npc_npc_serebii) end)
   SkySceneKit.say({english=" Now! Into the Passage of Time!", french="Plongez dans le Couloir\ndu Temps! Vite!", german=" Jetzt! In den Zeittunnel!", italian=" Ora! Nel Portale del Tempo!", spanish=" ¡Ahora! ¡Al Pasaje del Tiempo!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  SkySceneKit.say({english=" Wh-what about you, [CS:N]Celebi[CR]?!", french=" Et... et toi, [CS:N]Celebi[CR]?!", german=" W-was ist mit dir, [CS:N]Celebi[CR]?!?", italian=" C-Che ne sarà di te, [CS:N]Celebi[CR]?!", spanish=" ¡¿Y qué pasará contigo, [CS:N]Celebi[CR]?!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Wh-what about you, [CS:N]Celebi[CR]?!", french=" Et... et toi, [CS:N]Celebi[CR]?!", german=" W-was ist mit dir, [CS:N]Celebi[CR]?!?", italian=" C-Che ne sarà di te, [CS:N]Celebi[CR]?!", spanish=" ¡¿Y qué pasará contigo, [CS:N]Celebi[CR]?!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Wh-what about you, [CS:N]Celebi[CR]?!", french=" Et... et toi, [CS:N]Celebi[CR]?!", german=" W-was ist mit dir, [CS:N]Celebi[CR]?!?", italian=" C-Che ne sarà di te, [CS:N]Celebi[CR]?!", spanish=" ¡¿Y qué pasará contigo, [CS:N]Celebi[CR]?!"})
+  else
+  SkySceneKit.say({english=" Wh-what about you, [CS:N]Celebi[CR]?!", french=" Et... et toi, [CS:N]Celebi[CR]?!", german=" W-was ist mit dir, [CS:N]Celebi[CR]?!?", italian=" C-Che ne sarà di te, [CS:N]Celebi[CR]?!", spanish=" ¡¿Y qué pasará contigo, [CS:N]Celebi[CR]?!"})
+  end
   pcall(function() UI:SetSpeaker(npc_npc_serebii) end)
   SkySceneKit.say({english="Don't fret over me![K] I told you I\ncan't be caught!", french="Ne vous en faites pas pour moi!\nJe vous ai déjà dit qu'on ne pouvait pas me\ncapturer!", german="Kümmert euch nicht um mich![K]\nIch sagte euch doch bereits, ich kann nicht\ngefangen werden!", italian="Non preoccupatevi per me![K]\nVi ho detto che non posso essere catturata!", spanish="¡No os inquietéis![K]\n¡Ya os dije que nadie puede capturarme!"})
   pcall(function() UI:SetSpeaker(npc_npc_serebii) end)
@@ -87,7 +105,13 @@ return function(hero, partner)
   pcall(function() UI:SetSpeaker(npc_npc_juputoru) end)
   SkySceneKit.say({english=" Thanks!", french=" Merci!", german=" Danke!", italian=" Grazie!", spanish=" ¡Gracias!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  SkySceneKit.say({english=" Thank you, [CS:N]Celebi[CR]!", french=" Merci, [CS:N]Celebi[CR]!", german=" Danke, [CS:N]Celebi[CR]!", italian=" Grazie, [CS:N]Celebi[CR]!", spanish=" ¡Gracias, [CS:N]Celebi[CR]!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Thanks, [CS:N]Celebi[CR]!", french=" Merci, [CS:N]Celebi[CR]!", german=" Danke, [CS:N]Celebi[CR]!", italian=" Grazie, [CS:N]Celebi[CR]!", spanish=" ¡Gracias, [CS:N]Celebi[CR]!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Thank you, [CS:N]Celebi[CR]!", french=" Merci, [CS:N]Celebi[CR]!", german=" Danke, [CS:N]Celebi[CR]!", italian=" Grazie, [CS:N]Celebi[CR]!", spanish=" ¡Gracias, [CS:N]Celebi[CR]!"})
+  else
+  SkySceneKit.say({english=" Thank you, [CS:N]Celebi[CR]!", french=" Merci, [CS:N]Celebi[CR]!", german=" Danke, [CS:N]Celebi[CR]!", italian=" Grazie, [CS:N]Celebi[CR]!", spanish=" ¡Gracias, [CS:N]Celebi[CR]!"})
+  end
   pcall(function() UI:SetSpeaker(npc_npc_yonowaaru) end)
   SkySceneKit.say({english=" You're not getting away!", french=" Vous ne m'échapperez pas!", german=" Ihr kommt nicht davon!", italian=" Non riuscirete a scappare!", spanish=" ¡No escaparéis!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())

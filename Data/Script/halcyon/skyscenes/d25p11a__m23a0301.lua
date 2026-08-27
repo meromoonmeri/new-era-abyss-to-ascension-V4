@@ -6,7 +6,13 @@ return function(hero, partner)
   pcall(function() SOUND:StopBGM() end)
   -- back_SetGround(LEVEL_S04P01A) [neutre/état moteur]
   GAME:FadeIn(0)
-  SkySceneKit.say({english=" Ugh! That ended badly.", french=" Argh! On a échoué.", german=" Uff! Nicht geschafft.", italian=" Uff! È andata male.", spanish=" ¡Ay! Esto ha ido fatal."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Ugh! We didn't make it.", french=" Argh! On a échoué.", german=" Uff! Nicht geschafft.", italian=" Uff! Non ce l'abbiamo fatta.", spanish=" ¡Ay! Nos han dado la del pulpo."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Ugh! We didn't make it.", french=" Argh! On a échoué.", german=" Uff! Nicht geschafft.", italian=" Uff! Non ce l'abbiamo fatta.", spanish=" ¡Ay! Menuda zurra."})
+  else
+  SkySceneKit.say({english=" Ugh! That ended badly.", french=" Argh! On a échoué.", german=" Uff! Nicht geschafft.", italian=" Uff! È andata male.", spanish=" ¡Ay! Esto ha ido fatal."})
+  end
   GAME:FadeOut(false,  60)
   -- message_CloseEnforce
   -- CallCommon CORO_FADE_OUT_ALL_AFTER (fermeture/attente message: géré par say())
@@ -41,7 +47,13 @@ return function(hero, partner)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GROUND:CharSetEmote(partner, "sweating", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
-  SkySceneKit.say({english=" Wh-where are we?", french=" Où... où sommes-nous?", german=" W-wo sind wir?", italian=" D-Dove siamo?", spanish=" ¿Pero dónde...?"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Wh-where are we?", french=" Où... où sommes-nous?", german=" W-wo sind wir?", italian=" D-Dove siamo?", spanish=" ¿Pero dónde...?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Wh-where are we?", french=" Où... où sommes-nous?", german=" W-wo sind wir?", italian=" D-Dove siamo?", spanish=" ¿Pero dónde...?"})
+  else
+  SkySceneKit.say({english=" Wh-where are we?", french=" Où... où sommes-nous?", german=" W-wo sind wir?", italian=" D-Dove siamo?", spanish=" ¿Pero dónde...?"})
+  end
   pcall(function() GROUND:CharTurnToCharAnimated(hero, npc_npc_perappu, 4) end)
   pcall(function() GROUND:CharTurnToCharAnimated(partner, npc_npc_perappu, 4) end)
   pcall(function() UI:SetSpeaker(npc_npc_perappu) end)

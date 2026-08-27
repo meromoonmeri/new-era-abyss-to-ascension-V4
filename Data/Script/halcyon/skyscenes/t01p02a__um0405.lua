@@ -53,7 +53,13 @@ return function(hero, partner)
   pcall(function() GROUND:CharSetEmote(partner, "question", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english=" [CS:P]Zero Isle[CR]?", french=" L'[CS:P]Ile Zéro[CR]?", german=" Die [CS:P]Null-Insel[CR]?", italian=" L'[CS:P]Isola Zero[CR]?", spanish=" ¿La [CS:P]Isla Cero[CR]?"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" [CS:P]Zero Isle[CR]?", french=" L'[CS:P]Ile Zéro[CR]?", german=" Die [CS:P]Null-Insel[CR]?", italian=" L'[CS:P]Isola Zero[CR]?", spanish=" ¿La [CS:P]Isla Cero[CR]?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" [CS:P]Zero Isle[CR]?", french=" L'[CS:P]Ile Zéro[CR]?", german=" Die [CS:P]Null-Insel[CR]?", italian=" L'[CS:P]Isola Zero[CR]?", spanish=" ¿La [CS:P]Isla Cero[CR]?"})
+  else
+  SkySceneKit.say({english=" [CS:P]Zero Isle[CR]?", french=" L'[CS:P]Ile Zéro[CR]?", german=" Die [CS:P]Null-Insel[CR]?", italian=" L'[CS:P]Isola Zero[CR]?", spanish=" ¿La [CS:P]Isla Cero[CR]?"})
+  end
   pcall(function() GROUND:CharTurnToCharAnimated(npc_npc_dorapion, partner, 4) end)
   pcall(function() UI:SetSpeaker(npc_npc_dorapion) end)
   SkySceneKit.say({english="Yeah. Rumor has it that the\ngreatest treasures are there...", french="Ouais. Le bruit court que\nc'est là que se trouvent les trésors\nles plus fabuleux...", german="Ja. Gerüchten zufolge sind dort\ndie größten Schätze zu finden...", italian="Sì. Girano voci che ci siano\ndei grandi tesori laggiù...", spanish="Sí. Se rumorea que oculta\ngrandes tesoros..."})

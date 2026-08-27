@@ -198,7 +198,13 @@ return function(hero, partner)
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- ExecuteCommon(CORO_JUMP_ANGRY_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english=" [CS:N]B-Bidoof[CR]!", french=" [CS:N]K-Keunotor[CR]!", german=" [CS:N]B-Bidiza[CR]!", italian=" [CS:N]B-Bidoof[CR]!", spanish=" ¡[CS:N]Bidoof[CR]!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" [CS:N]B-Bidoof[CR]!", french=" [CS:N]K-Keunotor[CR]!", german=" [CS:N]B-Bidiza[CR]!", italian=" [CS:N]B-Bidoof[CR]!", spanish=" ¡[CS:N]Bidoof[CR]!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" [CS:N]B-Bidoof[CR]!", french=" [CS:N]K-Keunotor[CR]!", german=" [CS:N]B-Bidiza[CR]!", italian=" [CS:N]B-Bidoof[CR]!", spanish=" ¡[CS:N]Bidoof[CR]!"})
+  else
+  SkySceneKit.say({english=" [CS:N]B-Bidoof[CR]!", french=" [CS:N]K-Keunotor[CR]!", german=" [CS:N]B-Bidiza[CR]!", italian=" [CS:N]B-Bidoof[CR]!", spanish=" ¡[CS:N]Bidoof[CR]!"})
+  end
   -- ExecuteCommon(CORO_JUMP_ANGRY_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GROUND:EntTurn(partner, Direction.UpRight)
@@ -222,7 +228,13 @@ return function(hero, partner)
   GROUND:EntTurn(partner, Direction.UpRight)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GROUND:EntTurn(hero, Direction.UpRight)
-  SkySceneKit.say({english=" Oh, [CS:N]Corphish[CR]![K] And [CS:N]Sunflora[CR]!", french="Oh, [CS:N]Ecrapince[CR]![K] Et [CS:N]Héliatronc[CR]\naussi!", german=" Oh, [CS:N]Krebscorps[CR]![K] Und [CS:N]Sonnflora[CR]!", italian=" Oh, [CS:N]Corphish[CR]![K] E [CS:N]Sunflora[CR]!", spanish=" ¡[CS:N]Corphish[CR]![K] ¡[CS:N]Sunflora[CR]!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Oh, [CS:N]Corphish[CR]![K] And [CS:N]Sunflora[CR]!", french="Oh, [CS:N]Ecrapince[CR]![K] Et [CS:N]Héliatronc[CR]\naussi!", german=" Oh, [CS:N]Krebscorps[CR]![K] Und [CS:N]Sonnflora[CR]!", italian=" Oh, [CS:N]Corphish[CR]![K] E [CS:N]Sunflora[CR]!", spanish=" ¡[CS:N]Corphish[CR]![K] ¡[CS:N]Sunflora[CR]!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Oh, [CS:N]Corphish[CR]![K] And [CS:N]Sunflora[CR]!", french="Oh, [CS:N]Ecrapince[CR]![K] Et [CS:N]Héliatronc[CR]\naussi!", german=" Oh, [CS:N]Krebscorps[CR]![K] Und [CS:N]Sonnflora[CR]!", italian=" Oh, [CS:N]Corphish[CR]![K] E [CS:N]Sunflora[CR]!", spanish=" ¡[CS:N]Corphish[CR]![K] ¡[CS:N]Sunflora[CR]!"})
+  else
+  SkySceneKit.say({english=" Oh, [CS:N]Corphish[CR]![K] And [CS:N]Sunflora[CR]!", french="Oh, [CS:N]Ecrapince[CR]![K] Et [CS:N]Héliatronc[CR]\naussi!", german=" Oh, [CS:N]Krebscorps[CR]![K] Und [CS:N]Sonnflora[CR]!", italian=" Oh, [CS:N]Corphish[CR]![K] E [CS:N]Sunflora[CR]!", spanish=" ¡[CS:N]Corphish[CR]![K] ¡[CS:N]Sunflora[CR]!"})
+  end
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GROUND:CharTurnToCharAnimated(hero, npc_npc_kimawari, 4) end)
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
@@ -270,7 +282,17 @@ return function(hero, partner)
   pcall(function() GROUND:CharSetEmote(partner, "sweating", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english=" Thank you...[K]for believing us!", french=" Merci...[K] de nous croire!", german=" Danke,[K] dass ihr uns glaubt!", italian="Grazie...[K] per la fiducia che ci\ndimostrate!", spanish=" Gracias...[K] Gracias por creernos."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Urf...[K] Thank you, everyone...", french=" Snif...[K] Merci, tout le monde...", german=" Uff...[K] Danke, Leute...", italian=" Uh...[K] Grazie a tutti...", spanish=" Ay...[K] Muchas gracias a todos..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Urf...[K] Thank you, everyone...", french=" Snif...[K] Merci, tout le monde...", german=" Uff...[K] Danke, Leute...", italian=" Uh...[K] Grazie a tutti...", spanish=" Ay...[K] Muchas gracias a todos..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Thank you...[K]for believing us!", french=" Merci...[K] de nous croire!", german=" Danke,[K] dass ihr uns glaubt!", italian="Grazie...[K] per la fiducia che ci\ndimostrate!", spanish=" Gracias...[K] Gracias por creernos."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Thank you...[K]for believing us!", french=" Merci...[K] de nous croire!", german=" Danke,[K] dass ihr uns glaubt!", italian="Grazie...[K] per la fiducia che ci\ndimostrate!", spanish=" Gracias...[K] Gracias por creernos."})
+  else
+  SkySceneKit.say({english=" Thank you...[K]for believing us!", french=" Merci...[K] de nous croire!", german=" Danke,[K] dass ihr uns glaubt!", italian="Grazie...[K] per la fiducia che ci\ndimostrate!", spanish=" Gracias...[K] Gracias por creernos."})
+  end
   GAME:WaitFrames(30)
   do local p=npc_npc_pukurin.Position; GROUND:MoveToPosition(npc_npc_pukurin, p.X+(-8), p.Y+(0), false, 1) end
   GROUND:EntTurn(npc_npc_pukurin, Direction.DownLeft)
@@ -802,7 +824,13 @@ return function(hero, partner)
   pcall(function() GROUND:CharSetEmote(partner, "question", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english=" [CS:N]Torkoal[CR], the town elder?", french=" [CS:N]Chartor[CR], l'ancien du bourg?", german=" [CS:N]Qurtel[CR], der Dorfälteste?", italian=" [CS:N]Torkoal[CR], l'anziano della città?", spanish=" ¿[CS:N]Torkoal[CR], el anciano de la aldea?"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" [CS:N]Torkoal[CR], the town elder?", french=" [CS:N]Chartor[CR], l'ancien du bourg?", german=" [CS:N]Qurtel[CR], der Dorfälteste?", italian=" [CS:N]Torkoal[CR], l'anziano della città?", spanish=" ¿[CS:N]Torkoal[CR], el anciano de la aldea?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" [CS:N]Torkoal[CR], the town elder?", french=" [CS:N]Chartor[CR], l'ancien du bourg?", german=" [CS:N]Qurtel[CR], der Dorfälteste?", italian=" [CS:N]Torkoal[CR], l'anziano della città?", spanish=" ¿[CS:N]Torkoal[CR], el anciano de la aldea?"})
+  else
+  SkySceneKit.say({english=" [CS:N]Torkoal[CR], the town elder?", french=" [CS:N]Chartor[CR], l'ancien du bourg?", german=" [CS:N]Qurtel[CR], der Dorfälteste?", italian=" [CS:N]Torkoal[CR], l'anziano della città?", spanish=" ¿[CS:N]Torkoal[CR], el anciano de la aldea?"})
+  end
   pcall(function() UI:SetSpeaker(npc_npc_perappu) end)
   SkySceneKit.say({english="That would be the wisest and\noldest Pokémon of Treasure Town.", french="C'est le Pokémon le plus sage\net le plus vieux de Bourg-Trésor.", german="Das ist das älteste und\nweiseste Pokémon von Schatzstadt.", italian="È il più saggio e il più vecchio\ndi tutti i Pokémon di Borgo Tesoro.", spanish="Se trata del Pokémon más\nanciano y sabio de Aldea Tesoro."})
   pcall(function() UI:SetSpeaker(npc_npc_perappu) end)
@@ -814,7 +842,13 @@ return function(hero, partner)
   pcall(function() GROUND:CharSetEmote(partner, "exclaim", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english=" Oh![K] I remember!", french=" Oh![K] Je me souviens!", german=" Oh![K] Ich erinnere mich!", italian=" Ah![K] Mi ricordo!", spanish=" ¡Ah![K] ¡Ya me acuerdo de él!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Oh![K] I remember!", french=" Oh![K] Je me souviens!", german=" Oh![K] Ich erinnere mich!", italian=" Ah![K] Mi ricordo!", spanish=" ¡Oh![K] ¡Ya lo recuerdo!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Oh![K] I remember!", french=" Oh![K] Je me souviens!", german=" Oh![K] Ich erinnere mich!", italian=" Ah![K] Mi ricordo!", spanish=" ¡Oh![K] ¡Ya lo recuerdo!"})
+  else
+  SkySceneKit.say({english=" Oh![K] I remember!", french=" Oh![K] Je me souviens!", german=" Oh![K] Ich erinnere mich!", italian=" Ah![K] Mi ricordo!", spanish=" ¡Ah![K] ¡Ya me acuerdo de él!"})
+  end
   GAME:FadeOut(false, 30)
   SkySceneKit.cleanup_npcs()
 end

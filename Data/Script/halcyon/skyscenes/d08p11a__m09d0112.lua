@@ -13,8 +13,26 @@ return function(hero, partner)
   pcall(function() GROUND:CharSetEmote(partner, "question", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english="Hm? What's wrong,\n[hero]?", french=" Quoi? Qu'y a-t-il, [hero]?", german="Hm? Stimmt was nicht,\n[hero]?", italian="Eh? Cosa c'è che non va,\n[hero]?", spanish=" ¿Qué te ocurre, [hero]?"}) -- SwitchTalk: branche default (canon générique)
-  SkySceneKit.say({english="(Wait a second! I know this place!)", french="(C'est ça! Je connais cet endroit!)", german="(Moment mal! Ich kenne diesen Ort!)", italian="(Un secondo! Questo posto lo conosco!)", spanish="(¡Un momento! ¡Yo conozco este sitio!)"}) -- SwitchMonologue: branche default
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Hm? What's up, [hero]?", french=" Quoi? Qu'y a-t-il, [hero]?", german=" Hm? Was ist los, [hero]?", italian=" Eh? Cosa c'è, [hero]?", spanish=" ¿Qué pasa, [hero]?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="Hm? What's wrong,\n[hero]?", french=" Quoi? Qu'y a-t-il, [hero]?", german="Hm? Stimmt was nicht,\n[hero]?", italian="Eh? Cosa c'è che non va,\n[hero]?", spanish=" ¿Qué te pasa, [hero]?"})
+  else
+  SkySceneKit.say({english="Hm? What's wrong,\n[hero]?", french=" Quoi? Qu'y a-t-il, [hero]?", german="Hm? Stimmt was nicht,\n[hero]?", italian="Eh? Cosa c'è che non va,\n[hero]?", spanish=" ¿Qué te ocurre, [hero]?"})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="(...)", french="(...)", german="(...)", italian="(...)", spanish="(...)"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="(What's this weird sensation?)", french="(Quelle est cette sensation étrange?)", german="(Was ist das für ein seltsames Gefühl?)", italian="(Cos'è questa strana sensazione?)", spanish="(¿Qué es esa sensación tan rara?)"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="(I don't know why I'm feeling this way...)", french="(Je ne sais pas pourquoi je ressens ça...)", german="(Ich weiß nicht, woher es kommt...)", italian="(Non so perché mi sento così...)", spanish="(No sé por qué me siento así.)"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="(I...)", french="(Je...)", german="(Ich...)", italian="(Io...)", spanish="(Yo...)"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="(Wait a second! I know this place!)", french="(C'est ça! Je connais cet endroit!)", german="(Moment mal! Ich kenne diesen Ort!)", italian="(Un secondo! Questo posto lo conosco!)", spanish="(¡Un momento! ¡Yo conozco este sitio!)"})
+  else
+  SkySceneKit.say({english="(Wait a second! I know this place!)", french="(C'est ça! Je connais cet endroit!)", german="(Moment mal! Ich kenne diesen Ort!)", italian="(Un secondo! Questo posto lo conosco!)", spanish="(¡Un momento! ¡Yo conozco este sitio!)"})
+  end
   GAME:FadeOut(false,  30)
   -- CallCommon CORO_FADE_OUT_ALL_AFTER (fermeture/attente message: géré par say())
   GAME:FadeIn(0) -- screen_FlushIn

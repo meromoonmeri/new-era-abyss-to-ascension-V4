@@ -140,7 +140,13 @@ return function(hero, partner)
   -- ExecuteCommon(CORO_JUMP_HAPPY_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   GAME:WaitFrames(2) -- join WaitExecuteLives
   -- message_FacePositionOffset(-3, -1) [neutre/état moteur]
-  SkySceneKit.say({english=" Wait, please.", french=" Attendez une seconde.", german=" Wartet mal, bitte.", italian=" Aspettate, per favore.", spanish=" Esperad un momento."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Wait a second.", french=" Attendez une seconde.", german=" Wartet mal.", italian=" Aspettate un secondo.", spanish=" Esperad un momento."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Wait a second.", french=" Attendez une seconde.", german=" Wartet mal.", italian=" Aspettate un secondo.", spanish=" Esperad un momento."})
+  else
+  SkySceneKit.say({english=" Wait, please.", french=" Attendez une seconde.", german=" Wartet mal, bitte.", italian=" Aspettate, per favore.", spanish=" Esperad un momento."})
+  end
   pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
   pcall(function() GROUND:CharTurnToCharAnimated(npc_npc_perappu, partner, 4) end)
   GAME:WaitFrames(5)
@@ -159,7 +165,17 @@ return function(hero, partner)
   GAME:WaitFrames(15)
   GROUND:EntTurn(partner, Direction.Right)
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english="At first you said there was one\nvicious Pokémon. But then you said \"they\"\nattacked you. There's more than one?", french="Au début, tu as parlé d'une\nhorrible fripouille. Et ensuite tu as dit qu'\"ils\"\nvous avaient attaqués. Ils sont plusieurs?", german="Zuerst sagtest du, es gebe dort\nein boshaftes Pokémon. Dann sagtest du, [F:S2]sie[F:E2]\nhätten dich angegriffen. Gibt es mehr als eins?", italian="Prima avevi detto che c'era un\nPokémon malvagio. Poi hai detto che ti \"hanno\"\nattaccato. Ce n'è più di uno?", spanish="He notado que primero hablabas\nde \"un\" Pokémon despiadado. Y luego dijiste que\neran varios. Entonces, ¿hay uno o son más?"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Hey, [CS:N]Chatot[CR].", french=" Dis, [CS:N]Pijako[CR].", german=" Hey, [CS:N]Plaudagei[CR].", italian=" Ehi, [CS:N]Chatot[CR].", spanish=" Oye, [CS:N]Chatot[CR]..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Hey, [CS:N]Chatot[CR].", french=" Dis, [CS:N]Pijako[CR].", german=" Hey, [CS:N]Plaudagei[CR].", italian=" Ehi, [CS:N]Chatot[CR].", spanish=" Oye, [CS:N]Chatot[CR]..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="At first you said there was one\nvicious Pokémon. But then you said \"they\"\nattacked you. There's more than one?", french="Au début, tu as parlé d'une\nhorrible fripouille. Et ensuite tu as dit qu'\"ils\"\nvous avaient attaqués. Ils sont plusieurs?", german="Zuerst sagtest du, es gebe dort\nein boshaftes Pokémon. Dann sagtest du, [F:S2]sie[F:E2]\nhätten dich angegriffen. Gibt es mehr als eins?", italian="Prima avevi detto che c'era un\nPokémon malvagio. Poi hai detto che ti \"hanno\"\nattaccato. Ce n'è più di uno?", spanish="He notado que primero hablabas\nde \"un\" Pokémon despiadado. Y luego dijiste\nque había más. ¿En qué quedamos?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="At first you said there was one\nvicious Pokémon. But then you said \"they\"\nattacked you. There's more than one?", french="Au début, tu as parlé d'une\nhorrible fripouille. Et ensuite tu as dit qu'\"ils\"\nvous avaient attaqués. Ils sont plusieurs?", german="Zuerst sagtest du, es gebe dort\nein boshaftes Pokémon. Dann sagtest du, [F:S2]sie[F:E2]\nhätten dich angegriffen. Gibt es mehr als eins?", italian="Prima avevi detto che c'era un\nPokémon malvagio. Poi hai detto che ti \"hanno\"\nattaccato. Ce n'è più di uno?", spanish="He notado que primero hablabas\nde \"un\" Pokémon despiadado. Y luego dijiste que\neran varios. Entonces, ¿hay uno o son más?"})
+  else
+  SkySceneKit.say({english="At first you said there was one\nvicious Pokémon. But then you said \"they\"\nattacked you. There's more than one?", french="Au début, tu as parlé d'une\nhorrible fripouille. Et ensuite tu as dit qu'\"ils\"\nvous avaient attaqués. Ils sont plusieurs?", german="Zuerst sagtest du, es gebe dort\nein boshaftes Pokémon. Dann sagtest du, [F:S2]sie[F:E2]\nhätten dich angegriffen. Gibt es mehr als eins?", italian="Prima avevi detto che c'era un\nPokémon malvagio. Poi hai detto che ti \"hanno\"\nattaccato. Ce n'è più di uno?", spanish="He notado que primero hablabas\nde \"un\" Pokémon despiadado. Y luego dijiste que\neran varios. Entonces, ¿hay uno o son más?"})
+  end
   -- message_FacePositionOffset(-2, -1) [neutre/état moteur]
   pcall(function() UI:SetSpeaker(npc_npc_perappu) end)
   SkySceneKit.say({english=" ...[K]No, it wasn't just one.", french=" ... [K]Oui, ils sont plusieurs.", german=" ...[K]Nein, es war nicht nur eins.", italian=" ...[K] Sì, proprio così.", spanish=" Esto...[K] Eran varios."})
@@ -274,7 +290,13 @@ return function(hero, partner)
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecuteLives
   -- message_FacePositionOffset(-3, -1) [neutre/état moteur]
-  SkySceneKit.say({english=" Urk! Understood.", french=" Argh! Compris.", german=" Umpf! Verstanden.", italian=" Uh! Capito.", spanish=" ¡Vale, vale!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Urk! Yeah, OK.", french=" Argh! Compris.", german=" Umpf! Jaja, okay.", italian=" Uh! Sì, ok.", spanish=" ¡Vale, vale!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Urk! Understood.", french=" Argh! Compris.", german=" Umpf! Verstanden.", italian=" Uh! Capito.", spanish=" ¡Vale, vale!"})
+  else
+  SkySceneKit.say({english=" Urk! Understood.", french=" Argh! Compris.", german=" Umpf! Verstanden.", italian=" Uh! Capito.", spanish=" ¡Vale, vale!"})
+  end
   GAME:WaitFrames(15)
   GROUND:EntTurn(npc_npc_perappu, Direction.Down)
   GAME:WaitFrames(2) -- join WaitExecuteLives

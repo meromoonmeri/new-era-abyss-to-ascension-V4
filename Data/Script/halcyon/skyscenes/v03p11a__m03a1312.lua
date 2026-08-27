@@ -16,7 +16,13 @@ return function(hero, partner)
   GAME:FadeIn(15)
   GAME:WaitFrames(30)
   pcall(function() UI:ResetSpeaker() end)
-  SkySceneKit.say({english="I don't really know the answer\nto that question.", french="Je n'ai pas de réponse à cette\nquestion.", german="Ich weiß keine sichere Antwort\nauf diese Frage.", italian="Non conosco proprio la\nrisposta a questa domanda.", spanish="Desconozco la respuesta\na esa pregunta."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="I don't really know the answer\nto that question.", french="Je n'ai pas de réponse à cette\nquestion.", german="Ich weiß keine sichere Antwort\nauf diese Frage.", italian="Non conosco proprio la\nrisposta a questa domanda.", spanish=" No tengo ni idea."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="I don't really know the answer\nto that question.", french="Je n'ai pas de réponse à cette\nquestion.", german="Ich weiß keine sichere Antwort\nauf diese Frage.", italian="Non conosco proprio la\nrisposta a questa domanda.", spanish="No sabría qué responder,\nla verdad."})
+  else
+  SkySceneKit.say({english="I don't really know the answer\nto that question.", french="Je n'ai pas de réponse à cette\nquestion.", german="Ich weiß keine sichere Antwort\nauf diese Frage.", italian="Non conosco proprio la\nrisposta a questa domanda.", spanish="Desconozco la respuesta\na esa pregunta."})
+  end
   -- GAP: se_Play(6420) — id SE NDS sans portage PMDO identifié
   -- SetAnimation(1024) [anim idle native]
   GROUND:MoveToPosition(npc_npc_juputoru, 144, 236, false, 2)

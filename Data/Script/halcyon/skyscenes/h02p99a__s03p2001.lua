@@ -24,12 +24,24 @@ return function(hero, partner)
   -- SetAnimation(71) [anim idle native]
   GAME:WaitFrames(2) -- join WaitAnimation
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english=" OK!", french=" Oui!", german=" Okay!", italian=" Ok!", spanish=" ¡De acuerdo!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" OK!", french=" Oui!", german=" Okay!", italian=" Ok!", spanish=" ¡De acuerdo!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" OK!", french=" Oui!", german=" Okay!", italian=" Ok!", spanish=" ¡De acuerdo!"})
+  else
+  SkySceneKit.say({english=" OK!", french=" Oui!", german=" Okay!", italian=" Ok!", spanish=" ¡De acuerdo!"})
+  end
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   GROUND:EntTurn(partner, Direction.UpRight)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GROUND:EntTurn(npc_npc_perappu, Direction.Right)
-  SkySceneKit.say({english="Here, take this, [CS:N]Manaphy[CR].[K]\nIt's a Phione Dew.", french="Et voilà, [CS:N]Manaphy[CR].[K]\nC'est une Rosée Phione.", german="Hier, nimm das, [CS:N]Manaphy[CR].[K]\nDas ist Phione-Tau.", italian="Ecco, [CS:N]Manaphy[CR].[K]\nÈ la Brina Phione.", spanish="Tómate esto, [CS:N]Manaphy[CR].[K]\nEs un Rocío Phione."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="Here you go, [CS:N]Manaphy[CR].[K]\nIt's a Phione Dew.", french="Et voilà, [CS:N]Manaphy[CR].[K]\nC'est une Rosée Phione.", german="Bitte schön, [CS:N]Manaphy[CR].[K]\nDas ist Phione-Tau.", italian="Ecco, [CS:N]Manaphy[CR].[K]\nÈ la Brina Phione.", spanish="Tómate esto, [CS:N]Manaphy[CR].[K]\nEs un Rocío Phione."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="Here, take this, [CS:N]Manaphy[CR].[K]\nIt's a Phione Dew.", french="Et voilà, [CS:N]Manaphy[CR].[K]\nC'est une Rosée Phione.", german="Hier, nimm das, [CS:N]Manaphy[CR].[K]\nDas ist Phione-Tau.", italian="Ecco, [CS:N]Manaphy[CR].[K]\nÈ la Brina Phione.", spanish="Tómate esto, [CS:N]Manaphy[CR].[K]\nEs un Rocío Phione."})
+  else
+  SkySceneKit.say({english="Here, take this, [CS:N]Manaphy[CR].[K]\nIt's a Phione Dew.", french="Et voilà, [CS:N]Manaphy[CR].[K]\nC'est une Rosée Phione.", german="Hier, nimm das, [CS:N]Manaphy[CR].[K]\nDas ist Phione-Tau.", italian="Ecco, [CS:N]Manaphy[CR].[K]\nÈ la Brina Phione.", spanish="Tómate esto, [CS:N]Manaphy[CR].[K]\nEs un Rocío Phione."})
+  end
   pcall(function() SOUND:FadeOutBGM(120) end)
   do local p=partner.Position; GROUND:MoveToPosition(partner, p.X+(8), p.Y+(-8), false, 1) end
   GAME:WaitFrames(2) -- join WaitExecuteLives
@@ -50,13 +62,25 @@ return function(hero, partner)
   SkySceneKit.say({english="...[K]Thanks...[K] [hero]...[K]\n[partner]...", french="... [K]Merci...[K] [hero]...[K]\n[partner]...", german="...[K]Danke...[K] [hero]...[K]\n[partner]...", italian="...[K] Grazie...[K] [hero]...[K]\n[partner]...", spanish="Gracias...[K] Gracias...[K]\n[hero]...[K] [partner]..."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- GAP: BGM BGM_AT_THE_END_OF_THE_DAY non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)
-  SkySceneKit.say({english=" Whew, thank goodness!", french=" Ouf, je suis si contente!", german=" Puh, ein Glück!", italian=" Fiuuu, come sono contenta!", spanish=" ¡Uf, qué alegría!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Whew, am I glad!", french=" Ouf, je suis si content!", german=" Puh, bin ich froh!", italian=" Fiuuu, come sono contento!", spanish=" ¡Uf, qué alegría!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Whew, am I glad!", french=" Ouf, je suis si content!", german=" Puh, bin ich froh!", italian=" Fiuuu, come sono contento!", spanish=" ¡Uf, qué alegría!"})
+  else
+  SkySceneKit.say({english=" Whew, thank goodness!", french=" Ouf, je suis si contente!", german=" Puh, ein Glück!", italian=" Fiuuu, come sono contenta!", spanish=" ¡Uf, qué alegría!"})
+  end
   pcall(function() UI:SetSpeaker(npc_npc_perappu) end)
   SkySceneKit.say({english=" It seems to be working.", french=" On dirait que ça marche.", german=" Er scheint zu wirken.", italian=" Sembra che funzioni.", spanish=" Parece que funciona."})
   pcall(function() UI:SetSpeaker(npc_npc_perappu) end)
   SkySceneKit.say({english="He should be fine, given two or\nthree days of rest.", french="Il devrait aller mieux après\ndeux ou trois jours de repos.", german="[CS:N]Manaphy[CR] sollte nach ein paar\nTagen Ruhe wieder auf die Beine kommen.", italian="Dovrebbe guarire senza\nproblemi dopo un paio di giorni di riposo.", spanish="Con dos o tres días de descanso\nse pondrá bien."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  SkySceneKit.say({english=" That's great...[K] Am I ever glad...", french=" Tant mieux...[K] Quel soulagement...", german="Das ist großartig...[K]\nIch bin so froh!", italian="È fantastico...[K] Sono così\nfelice...", spanish=" Estupendo...[K] ¡Qué alivio!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" That's great...[K] Am I ever glad...", french=" Tant mieux...[K] Quel soulagement...", german="Das ist großartig...[K]\nIch bin so froh!", italian="È fantastico...[K] Sono così\nfelice...", spanish=" Estupendo...[K] ¡Qué alivio!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" That's great...[K] Am I ever glad...", french=" Tant mieux...[K] Quel soulagement...", german="Das ist großartig...[K]\nIch bin so froh!", italian="È fantastico...[K] Sono così\nfelice...", spanish=" Estupendo...[K] ¡Qué alivio!"})
+  else
+  SkySceneKit.say({english=" That's great...[K] Am I ever glad...", french=" Tant mieux...[K] Quel soulagement...", german="Das ist großartig...[K]\nIch bin so froh!", italian="È fantastico...[K] Sono così\nfelice...", spanish=" Estupendo...[K] ¡Qué alivio!"})
+  end
   GAME:FadeOut(false, 90)
   GAME:WaitFrames(30)
   SkySceneKit.cleanup_npcs()

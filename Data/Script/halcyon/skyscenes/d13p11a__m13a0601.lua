@@ -13,11 +13,23 @@ return function(hero, partner)
   GROUND:MoveToPosition(partner, 216, 268, false, 2)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GAME:WaitFrames(30)
-  SkySceneKit.say({english="Let's find that Time Gear\nthis time!", french="Trouvons le Rouage du Temps\ncette fois-ci!", german="Diesmal finden wir das Zahnrad\nder Zeit!", italian="Questa volta dobbiamo trovare\nl'Ingranaggio del Tempo!", spanish="¡Esta vez tenemos que\nencontrarlo!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="Let's find that Time Gear\nthis time!", french="Trouvons le Rouage du Temps\ncette fois-ci!", german="Diesmal finden wir das Zahnrad\nder Zeit!", italian="Questa volta dobbiamo trovare\nl'Ingranaggio del Tempo!", spanish="¡Esta vez tenemos que\nencontrarlo!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="Let's find the Time Gear\nthis time!", french="Trouvons le Rouage du Temps\ncette fois-ci!", german="Diesmal finden wir das Zahnrad\nder Zeit!", italian="Questa volta dobbiamo trovare\nl'Ingranaggio del Tempo!", spanish="¡Esta vez tenemos que\nencontrarlo!"})
+  else
+  SkySceneKit.say({english="Let's find that Time Gear\nthis time!", french="Trouvons le Rouage du Temps\ncette fois-ci!", german="Diesmal finden wir das Zahnrad\nder Zeit!", italian="Questa volta dobbiamo trovare\nl'Ingranaggio del Tempo!", spanish="¡Esta vez tenemos que\nencontrarlo!"})
+  end
   pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
-  SkySceneKit.say({english=" Let's try our best, [hero]!", french="Faisons de notre mieux,\n[hero]!", german="Strengen wir uns an,\n[hero]!", italian="Facciamo del nostro meglio,\n[hero]!", spanish="¡Hay que esforzarse todo\nlo posible, [hero]!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="Let's give it our best,\n[hero]!", french="Faisons de notre mieux,\n[hero]!", german="Geben wir unser Bestes,\n[hero]!", italian="Diamoci dentro,\n[hero]!", spanish="¡Hay que esforzarse todo\nlo posible, [hero]!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Let's do our best, [hero]!", french="Faisons de notre mieux,\n[hero]!", german="Lass uns unser Bestes geben,\n[hero]!", italian="Facciamo del nostro meglio,\n[hero]!", spanish="¡Hay que esforzarse todo\nlo posible, [hero]!"})
+  else
+  SkySceneKit.say({english=" Let's try our best, [hero]!", french="Faisons de notre mieux,\n[hero]!", german="Strengen wir uns an,\n[hero]!", italian="Facciamo del nostro meglio,\n[hero]!", spanish="¡Hay que esforzarse todo\nlo posible, [hero]!"})
+  end
   -- SetAnimation(71) [anim idle native]
   -- SetAnimation(71) [anim idle native]
   GAME:WaitFrames(2) -- join WaitAnimation

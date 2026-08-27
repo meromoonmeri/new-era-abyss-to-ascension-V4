@@ -22,13 +22,23 @@ return function(hero, partner)
   -- camera2_SetPositionMark(Position<'m0', 33, 9.5>) [caméra sub NDS: nappe Sub_ cadrée fenêtre NDS, recadrage dynamique non simulé - documenté]
   SkySubScreen.Show("v01p03a", 120, false) -- screen2_FadeIn: TOP_FOCUS (timeline ROM)
   GAME:WaitFrames(60)
-  SkySceneKit.say({english="...Where am I?", french="... où suis-je?", german="Wo bin ich?", italian="... sono?", spanish="(¿Dónde estoy?)"}) -- SwitchMonologue: branche default
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="Where...", french="Où...", german="Wo...", italian="Dove...", spanish="(¿Dónde...?)"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="...Where am I?", french="... où suis-je?", german="Wo bin ich?", italian="... sono?", spanish="(¿Dónde estoy?)"})
+  else
+  SkySceneKit.say({english="...Where am I?", french="... où suis-je?", german="Wo bin ich?", italian="... sono?", spanish="(¿Dónde estoy?)"})
+  end
   -- back_SetGround(LEVEL_D01P11A) [neutre/état moteur]
   -- supervision_Acting(0) [neutre/état moteur]
   -- SetAnimation(76) [anim idle native]
   GAME:FadeIn(120)
   GAME:WaitFrames(60)
-  SkySceneKit.say({english="...[K]I can't...[K] Drifting off...", french="...[K] Je n'y arrive pas...[K] Je...", german="...[K]Ich kann nicht...[K] So müde...", italian="...[K] Non ce la faccio...[K] Sto per svenire...", spanish="(No...[K] No puedo...[K] mantenerme despierta.)"}) -- SwitchMonologue: branche default
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="...[K]I can't...[K] Drifting off...", french="...[K] Je n'y arrive pas...[K] Je...", german="...[K]Ich kann nicht...[K] So müde...", italian="...[K] Non ce la faccio...[K] Sto per svenire...", spanish="(No...[K] No puedo...[K] mantenerme despierto.)"})
+  else
+  SkySceneKit.say({english="...[K]I can't...[K] Drifting off...", french="...[K] Je n'y arrive pas...[K] Je...", german="...[K]Ich kann nicht...[K] So müde...", italian="...[K] Non ce la faccio...[K] Sto per svenire...", spanish="(No...[K] No puedo...[K] mantenerme despierta.)"})
+  end
   GAME:FadeOut(false, 20) -- screen_FadeChange vers alpha 128 (assombrissement, adaptation)
   GAME:FadeIn(20) -- screen_FadeChange vers alpha 256 (éclaircissement, adaptation)
   GAME:FadeOut(false, 20) -- screen_FadeChange vers alpha 128 (assombrissement, adaptation)

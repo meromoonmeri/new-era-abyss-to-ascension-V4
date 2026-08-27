@@ -10,7 +10,25 @@ return function(hero, partner)
   GAME:FadeIn(30)
   GAME:WaitFrames(60)
   pcall(function() UI:ResetSpeaker() end)
-  SkySceneKit.say({english=" It survived!", french=" Elle a résisté!", german=" Er hat es überstanden!", italian=" Ha resistito!", spanish=" ¡Sigue aquí!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="It's [CS:P]Temporal Tower[CR].[K] It looks\npretty beaten up...", french="Et voilà la [CS:P]Tour du Temps[CR].[K]\nElle est en très mauvais état...", german="Das ist der [CS:P]Zeitturm[CR].[K] Er sieht\nganz schön ramponiert aus...", italian="La [CS:P]Torre del Tempo[CR]...[K]\nè piuttosto malconcia...", spanish="La [CS:P]Torre del Tiempo[CR]...[K] se ve\nmuy dañada."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="It's [CS:P]Temporal Tower[CR].[K] It seems\nto be badly damaged...", french="Et voilà la [CS:P]Tour du Temps[CR].[K]\nElle est en très mauvais état...", german="Das ist der [CS:P]Zeitturm[CR].[K] Er sieht\nziemlich beschädigt aus...", italian="La [CS:P]Torre del Tempo[CR]...[K]\nè molto danneggiata...", spanish="La [CS:P]Torre del Tiempo[CR]...[K] se ve\nmuy dañada."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" But...[K]it's still standing!", french=" Mais...[K] elle tient toujours debout!", german=" Aber[K] er steht noch!", italian=" Ma...[K] è ancora in piedi!", spanish=" Pero...[K] ¡aún sigue en pie!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" But...[K]it's still standing!", french=" Mais...[K] elle tient toujours debout!", german=" Aber[K] er steht noch!", italian=" Ma...[K] è ancora in piedi!", spanish=" Pero...[K] ¡aún sigue en pie!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="[CS:P]Temporal Tower[CR] didn't\nfall apart...", french="La [CS:P]Tour du Temps[CR] ne s'est pas\neffondrée...", german="Der [CS:P]Zeitturm[CR] ist nicht\neingestürzt...", italian="La [CS:P]Torre del Tempo[CR] non è\ncrollata...", spanish=" No se ha derrumbado."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="[CS:P]Temporal Tower[CR] didn't\ncollapse...", french="La [CS:P]Tour du Temps[CR] ne s'est pas\neffondrée...", german="Der [CS:P]Zeitturm[CR] ist nicht\nkollabiert...", italian="La [CS:P]Torre del Tempo[CR] non è\ncrollata...", spanish=" No se ha derrumbado."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" It survived!", french=" Elle a résisté!", german=" Er hat es überstanden!", italian=" Ha resistito!", spanish=" ¡Sigue aquí!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" It survived!", french=" Elle a résisté!", german=" Er hat es überstanden!", italian=" Ha resistito!", spanish=" ¡Sigue aquí!"})
+  else
+  SkySceneKit.say({english=" It survived!", french=" Elle a résisté!", german=" Er hat es überstanden!", italian=" Ha resistito!", spanish=" ¡Sigue aquí!"})
+  end
   GAME:FadeOut(true, 60) -- screen_WhiteOut
   GAME:WaitFrames(30)
 end

@@ -20,7 +20,13 @@ return function(hero, partner)
   GAME:WaitFrames(2) -- join WaitAnimation
   GAME:WaitFrames(2) -- join WaitExecuteObject(OBJECT_V05P03A1_223) [routine d'objet NDS non simulée - documenté]
   -- SetAnimation(2) [anim idle native]
-  SkySceneKit.say({english=" Waaaaaaah!", french=" Wouaaaaaaah!", german=" Waaaaaaah!", italian=" Waaaaaaah!", spanish=" ¡Aaaaaaaah!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Waaaaaaah!", french=" Wouaaaaaaah!", german=" Waaaaaaah!", italian=" Waaaaaaah!", spanish=" ¡Aaaaaaaah!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Waaaaaaah!", french=" Wouaaaaaaah!", german=" Waaaaaaah!", italian=" Waaaaaaah!", spanish=" ¡Aaaaaaaah!"})
+  else
+  SkySceneKit.say({english=" Waaaaaaah!", french=" Wouaaaaaaah!", german=" Waaaaaaah!", italian=" Waaaaaaah!", spanish=" ¡Aaaaaaaah!"})
+  end
   SkySubScreen.Hide(30) -- screen2_FadeOut: retour BOTTOM_FOCUS (timeline ROM)
   GAME:FadeOut(false,  30)
   -- supervision2_SpecialActing(3, 0, 0) [acting sub NDS: décor déjà reproduit par SubScreen, acteurs sub non simulés - trace]

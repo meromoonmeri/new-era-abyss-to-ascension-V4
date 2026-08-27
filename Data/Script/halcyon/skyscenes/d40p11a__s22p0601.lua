@@ -16,7 +16,13 @@ return function(hero, partner)
   GROUND:MoveToPosition(hero, 196, 212, false, 2)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GAME:WaitFrames(15)
-  SkySceneKit.say({english="So this is the entrance to the\n[CS:P]Dark Crater[CR]...", french="Voici donc l'entrée du [CS:P]Cratère\nObscur[CR]...", german="Das ist also der Eingang zum\n[CS:P]Dunkelkrater[CR]...", italian="Quindi questo è l'ingresso del\n[CS:P]Cratere Oscuro[CR]...", spanish="Así que esta es la entrada al\n[CS:P]Cráter Oscuro[CR]..."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="So this is the entrance to the\n[CS:P]Dark Crater[CR]...", french="Voici donc l'entrée du [CS:P]Cratère\nObscur[CR]...", german="Das ist also der Eingang zum\n[CS:P]Dunkelkrater[CR]...", italian="Quindi questo è l'ingresso del\n[CS:P]Cratere Oscuro[CR]...", spanish="Así que esta es la entrada al\n[CS:P]Cráter Oscuro[CR]..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="So this is the entrance to the\n[CS:P]Dark Crater[CR]...", french="Voici donc l'entrée du [CS:P]Cratère\nObscur[CR]...", german="Das ist also der Eingang zum\n[CS:P]Dunkelkrater[CR]...", italian="Quindi questo è l'ingresso del\n[CS:P]Cratere Oscuro[CR]...", spanish="Así que esta es la entrada al\n[CS:P]Cráter Oscuro[CR]..."})
+  else
+  SkySceneKit.say({english="So this is the entrance to the\n[CS:P]Dark Crater[CR]...", french="Voici donc l'entrée du [CS:P]Cratère\nObscur[CR]...", german="Das ist also der Eingang zum\n[CS:P]Dunkelkrater[CR]...", italian="Quindi questo è l'ingresso del\n[CS:P]Cratere Oscuro[CR]...", spanish="Así que esta es la entrada al\n[CS:P]Cráter Oscuro[CR]..."})
+  end
   GROUND:EntTurn(npc_npc_kureseria, Direction.Down)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() UI:SetSpeaker(npc_npc_kureseria) end)

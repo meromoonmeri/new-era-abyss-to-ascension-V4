@@ -37,7 +37,13 @@ return function(hero, partner)
   SkySceneKit.say({english=" Seriously! What am I to do?!", french="Oh, mes aïeux! Que vais-je\nbien pouvoir faire?!", german=" Im Ernst! Was soll ich tun?!?", italian=" Seriamente! Cosa faccio?!", spanish=" ¡En serio! ¡¿Qué hago yo ahora?!"})
   GAME:WaitFrames(2) -- join WaitExecuteLives
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  SkySceneKit.say({english="It's not our fault. It's because\n[CS:N]Skuntank[CR] and his...", french="On n'y peut rien. En fait, c'est\nà cause de [CS:N]Moufflair[CR] et de ses...", german="Es ist nicht unsere Schuld. Es ist\nso, [CS:N]Skuntank[CR] und seine...", italian="Non è colpa nostra. Voglio dire,\n[CS:N]Skuntank[CR] e la sua...", spanish="No pudimos hacer nada.\n[CS:N]Skuntank[CR] y su..."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="We couldn't help it. I mean,\n[CS:N]Skuntank[CR] and his...", french="On n'y peut rien. En fait, c'est\nà cause de [CS:N]Moufflair[CR] et de ses...", german="Wir konnten nichts machen. Ich\nmeine, [CS:N]Skuntank[CR] und seine...", italian="Non è colpa nostra. Voglio dire,\n[CS:N]Skuntank[CR] e la sua...", spanish="No pudimos hacer nada.\n[CS:N]Skuntank[CR] y su..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="There was nothing we could do.\nYou see, [CS:N]Skuntank[CR] and his...", french="On n'y peut rien. En fait, c'est\nà cause de [CS:N]Moufflair[CR] et de ses...", german="Es gab nichts, was wir tun\nkonnten. Weißt du, [CS:N]Skuntank[CR] und seine...", italian="Non è colpa nostra. Voglio dire,\n[CS:N]Skuntank[CR] e la sua...", spanish="No pudimos hacer nada.\nEl caso es que [CS:N]Skuntank[CR] y su..."})
+  else
+  SkySceneKit.say({english="It's not our fault. It's because\n[CS:N]Skuntank[CR] and his...", french="On n'y peut rien. En fait, c'est\nà cause de [CS:N]Moufflair[CR] et de ses...", german="Es ist nicht unsere Schuld. Es ist\nso, [CS:N]Skuntank[CR] und seine...", italian="Non è colpa nostra. Voglio dire,\n[CS:N]Skuntank[CR] e la sua...", spanish="No pudimos hacer nada.\n[CS:N]Skuntank[CR] y su..."})
+  end
   -- SetAnimation(2) [anim idle native]
   do local p=npc_npc_perappu.Position; GROUND:MoveToPosition(npc_npc_perappu, p.X+(0), p.Y+(16), false, 2) end
   GAME:WaitFrames(2) -- join WaitExecuteLives
@@ -50,7 +56,13 @@ return function(hero, partner)
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Confused_2") end)
   pcall(function() GROUND:CharSetEmote(partner, "sweatdrop", 1) end)
-  SkySceneKit.say({english=" Urk...", french=" Argh...", german=" Urks...", italian=" Urk...", spanish=" Ay..."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Urk...", french=" Argh...", german=" Urks...", italian=" Urk...", spanish=" Ay..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Urk...", french=" Argh...", german=" Urks...", italian=" Urk...", spanish=" Ay..."})
+  else
+  SkySceneKit.say({english=" Urk...", french=" Argh...", german=" Urks...", italian=" Urk...", spanish=" Ay..."})
+  end
   pcall(function() GROUND:CharSetEmote(npc_npc_perappu, nil, 0) end) -- EFFECT_NONE
   pcall(function() UI:SetSpeaker(npc_npc_perappu) end)
   SkySceneKit.say({english=" You leave me no choice.", french=" Vous ne me laissez pas le choix.", german=" Ihr lasst mir keine Wahl.", italian=" Non mi lasciate altra scelta.", spanish=" No me dejáis elección."})
@@ -61,14 +73,26 @@ return function(hero, partner)
   pcall(function() GROUND:CharSetEmote(hero, "shock", 1) end)
   -- ExecuteCommon(CORO_JUMP_SURPRISE_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english=" What?! B-but...", french=" Quoi?! Mais...", german=" Was?!? A-aber...", italian=" C-Cosa?! M-Ma...", spanish=" ¡¿Qué?! Pero si..."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" What?! B-but...", french=" Quoi?! Mais...", german=" Was?!? A-aber...", italian=" C-Cosa?! M-Ma...", spanish=" ¡¿Qué?! Pero si..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" What?! B-but...", french=" Quoi?! Mais...", german=" Was?!? A-aber...", italian=" C-Cosa?! M-Ma...", spanish=" ¡¿Qué?! Pero si..."})
+  else
+  SkySceneKit.say({english=" What?! B-but...", french=" Quoi?! Mais...", german=" Was?!? A-aber...", italian=" C-Cosa?! M-Ma...", spanish=" ¡¿Qué?! Pero si..."})
+  end
   pcall(function() GROUND:CharSetEmote(npc_npc_perappu, "angry", 1) end)
   pcall(function() UI:SetSpeaker(npc_npc_perappu) end)
   SkySceneKit.say({english="You failed to complete an\nimportant job.", french="Vous avez échoué lors d'une\nmission importante.", german="Ihr habt bei einem wichtigen\nJob versagt.", italian="Non avete portato a termine una\nmissione importante.", spanish="Habéis fracasado en una misión\nimportantísima."})
   pcall(function() UI:SetSpeaker(npc_npc_perappu) end)
   SkySceneKit.say({english="Your punishment could be much\nmore severe!", french="Ne vous plaignez pas, votre\npunition pourrait être encore plus sévère!", german="Eure Strafe könnte noch viel\nhärter ausfallen!", italian="La punizione avrebbe potuto\nessere molto più severa!", spanish="¡Vuestro castigo podría ser\nmuchísimo más severo!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  SkySceneKit.say({english=" Ugh...", french=" Argh...", german=" Umpf...", italian=" Ugh...", spanish=" Ay..."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Ugh...", french=" Argh...", german=" Umpf...", italian=" Ugh...", spanish=" Ay..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Ugh...", french=" Argh...", german=" Umpf...", italian=" Ugh...", spanish=" Ay..."})
+  else
+  SkySceneKit.say({english=" Ugh...", french=" Argh...", german=" Umpf...", italian=" Ugh...", spanish=" Ay..."})
+  end
   pcall(function() GROUND:CharSetEmote(npc_npc_perappu, nil, 0) end) -- EFFECT_NONE
   pcall(function() UI:SetSpeaker(npc_npc_perappu) end)
   SkySceneKit.say({english="I don't want to hear anything\nfrom you!", french=" Je ne veux plus vous entendre!", german="Ich will nichts mehr von euch\nhören!", italian=" Non voglio sentire altro!", spanish=" ¡No quiero oír ni una palabra más!"})

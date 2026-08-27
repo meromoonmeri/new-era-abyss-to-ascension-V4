@@ -13,12 +13,24 @@ return function(hero, partner)
   GROUND:MoveToPosition(hero, 244, 196, false, 2)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english=" Let's make it through this time!", french=" On va y arriver cette fois-ci!", german=" Diesmal schaffen wir es!", italian=" Questa volta ce la faremo!", spanish=" ¡Esta vez vamos a conseguirlo!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Let's make it through this time!", french=" On va y arriver cette fois-ci!", german=" Diesmal schaffen wir es!", italian=" Questa volta ce la faremo!", spanish=" ¡Esta vez vamos a conseguirlo!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Let's make it through this time!", french=" On va y arriver cette fois-ci!", german=" Diesmal schaffen wir es!", italian=" Questa volta ce la faremo!", spanish=" ¡Esta vez vamos a conseguirlo!"})
+  else
+  SkySceneKit.say({english=" Let's make it through this time!", french=" On va y arriver cette fois-ci!", german=" Diesmal schaffen wir es!", italian=" Questa volta ce la faremo!", spanish=" ¡Esta vez vamos a conseguirlo!"})
+  end
   pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
   GAME:WaitFrames(10)
   pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english=" [hero], let's try our best!", french="Faisons de notre mieux,\n[hero]!", german="[hero], lass uns unser\nBestes geben!", italian="Mettiamocela tutta,\n[hero]!", spanish="[hero], ¡esforcémonos al\nmáximo!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="[hero], let's give it our\nbest!", french="Faisons de notre mieux,\n[hero]!", german="[hero], geben wir unser\nBestes!", italian=" Diamoci dentro, [hero]! ", spanish="[hero], ¡esforcémonos al\nmáximo!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" [hero], let's do our best!", french="Faisons de notre mieux,\n[hero]!", german="[hero], lass uns unser\nBestes geben!", italian="Mettiamocela tutta,\n[hero]!", spanish="[hero], ¡esforcémonos al\nmáximo!"})
+  else
+  SkySceneKit.say({english=" [hero], let's try our best!", french="Faisons de notre mieux,\n[hero]!", german="[hero], lass uns unser\nBestes geben!", italian="Mettiamocela tutta,\n[hero]!", spanish="[hero], ¡esforcémonos al\nmáximo!"})
+  end
   GROUND:MoveToPosition(partner, 212, 132, false, 2)
   GAME:WaitFrames(10)
   GROUND:MoveToPosition(hero, 244, 132, false, 2)

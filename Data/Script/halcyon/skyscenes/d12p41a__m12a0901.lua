@@ -31,7 +31,13 @@ return function(hero, partner)
   pcall(function() GROUND:CharSetEmote(partner, "sweating", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english="Please, no! You're wrong!\nWe came only to...", french="Non, tu te trompes! On est là\npour...", german="Bitte, nein! Du irrst dich!\nWir sind nur hier, um...", italian=" Un momento! Noi siamo qui per...", spanish="¡No, te equivocas!\n¡Tan solo veníamos a...!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" You're wrong! We came to...", french="Non, tu te trompes! On est là\npour...", german="Du irrst dich! Wir sind hier,\num...", italian=" Un momento! Noi siamo qui per...", spanish=" ¡Te equivocas! ¡Veníamos a...!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="You've got it wrong! We came\nonly to...", french="Non, tu te trompes! On est là\npour...", german="Du täuschst dich! Wir sind nur\nhier, um...", italian=" Un momento! Noi siamo qui per...", spanish=" ¡Te equivocas! ¡Veníamos a...!"})
+  else
+  SkySceneKit.say({english="Please, no! You're wrong!\nWe came only to...", french="Non, tu te trompes! On est là\npour...", german="Bitte, nein! Du irrst dich!\nWir sind nur hier, um...", italian=" Un momento! Noi siamo qui per...", spanish="¡No, te equivocas!\n¡Tan solo veníamos a...!"})
+  end
   pcall(function() UI:SetSpeaker(npc_npc_raiboruto) end)
   SkySceneKit.say({english=" Save your lies!", french=" Epargnez-moi vos mensonges!", german=" Spart euch eure Lügen!", italian=" Silenzio!", spanish="¡Podéis ahorraros vuestras\nmentiras!"})
   pcall(function() UI:SetSpeaker(npc_npc_raiboruto) end)

@@ -10,8 +10,20 @@ return function(hero, partner)
   GAME:FadeIn(60)
   GAME:WaitFrames(60)
   pcall(function() UI:ResetSpeaker() end)
-  SkySceneKit.say({english=" Th-this is...", french=" C'est...", german=" D-das ist...", italian=" Q-Questa è...", spanish=" Esto... Esto es..."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Th-this is...", french=" C'est...", german=" D-das ist...", italian=" Q-Questa è...", spanish=" Esto... Esto es..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Th-this is...", french=" C'est...", german=" D-das ist...", italian=" Q-Questa è...", spanish=" Esto... Esto es..."})
+  else
+  SkySceneKit.say({english=" Th-this is...", french=" C'est...", german=" D-das ist...", italian=" Q-Questa è...", spanish=" Esto... Esto es..."})
+  end
   pcall(function() UI:ResetSpeaker() end)
-  SkySceneKit.say({english="(He must be using telepathy to do so.)", french="(Il doit se servir de la télépathie\npour y arriver.)", german="(Wahrscheinlich setzt es dazu Telepathie ein.)", italian="(Ci sta facendo vedere queste immagini\ncon i suoi poteri telepatici.)", spanish="(Debe de estar usando telepatía.)"}) -- SwitchMonologue: branche default
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="([CS:N]Dialga[CR] must be showing this to us...)", french="(Ça doit être [CS:N]Dialga[CR] qui nous fait voir ça...)", german="([CS:N]Dialga[CR] zeigt uns das wohl gerade...)", italian="([CS:N]Dialga[CR] ci sta facendo vedere...)", spanish="([CS:N]Dialga[CR] debe de estar mostrándonos esto...)"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="(He must be using telepathy to do so.)", french="(Il doit se servir de la télépathie\npour y arriver.)", german="(Wahrscheinlich setzt es dazu Telepathie ein.)", italian="(Ci sta facendo vedere queste immagini\ncon i suoi poteri telepatici.)", spanish="(Debe de estar usando telepatía.)"})
+  else
+  SkySceneKit.say({english="(He must be using telepathy to do so.)", french="(Il doit se servir de la télépathie\npour y arriver.)", german="(Wahrscheinlich setzt es dazu Telepathie ein.)", italian="(Ci sta facendo vedere queste immagini\ncon i suoi poteri telepatici.)", spanish="(Debe de estar usando telepatía.)"})
+  end
   GAME:FadeOut(false, 30)
 end

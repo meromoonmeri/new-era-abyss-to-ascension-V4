@@ -12,6 +12,12 @@ return function(hero, partner)
   pcall(function() SOUND:PlayBGM("Time Gear Remix.ogg", true) end)
   GAME:WaitFrames(30)
   pcall(function() UI:ResetSpeaker() end)
-  SkySceneKit.say({english=" Like in a forest...", french="Ils peuvent se trouver par\nexemple dans une forêt...", german=" Zum Beispiel in einem Wald...", italian=" Ad esempio in una foresta...", spanish="Como por ejemplo en lo más\nprofundo de un bosque..."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Like in a forest...", french="Ils peuvent se trouver par\nexemple dans une forêt...", german=" Zum Beispiel in einem Wald...", italian=" Ad esempio in una foresta...", spanish="Como por ejemplo en lo más\nprofundo de un bosque..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Like in a forest...", french="Ils peuvent se trouver par\nexemple dans une forêt...", german=" Zum Beispiel in einem Wald...", italian=" Ad esempio in una foresta...", spanish="Como por ejemplo en lo más\nprofundo de un bosque..."})
+  else
+  SkySceneKit.say({english=" Like in a forest...", french="Ils peuvent se trouver par\nexemple dans une forêt...", german=" Zum Beispiel in einem Wald...", italian=" Ad esempio in una foresta...", spanish="Como por ejemplo en lo más\nprofundo de un bosque..."})
+  end
   GAME:FadeOut(false, 30)
 end

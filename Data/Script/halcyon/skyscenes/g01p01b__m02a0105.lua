@@ -26,7 +26,13 @@ return function(hero, partner)
   pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
-  SkySceneKit.say({english=" What?[K] Are they arguing?", french=" Quoi?[K] Ils se disputent?", german=" Wie?[K] Streiten sie etwa?", italian=" Eh?[K] Stanno litigando?", spanish="¿Qué?[K] ¡No me digas que se han\npuesto a discutir!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Huh?[K] Are they arguing?", french=" Quoi?[K] Ils se disputent?", german=" Häh?[K] Sind sie am Streiten?", italian=" Eh?[K] Stanno litigando?", spanish=" ¿Eh?[K] ¿Están discutiendo?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" What?[K] Are they arguing?", french=" Quoi?[K] Ils se disputent?", german=" Was?[K] Streiten sie etwa?", italian=" Eh?[K] Stanno litigando?", spanish=" ¿Eh?[K] ¿Se han puesto a discutir?"})
+  else
+  SkySceneKit.say({english=" What?[K] Are they arguing?", french=" Quoi?[K] Ils se disputent?", german=" Wie?[K] Streiten sie etwa?", italian=" Eh?[K] Stanno litigando?", spanish="¿Qué?[K] ¡No me digas que se han\npuesto a discutir!"})
+  end
   GAME:WaitFrames(30)
   -- message_ResetActor() [neutre/état moteur]
   pcall(function() UI:SetSpeaker(partner) end)
@@ -59,13 +65,35 @@ return function(hero, partner)
   GROUND:EntTurn(partner, Direction.UpRight)
   -- ExecuteCommon(CORO_JUMP_SURPRISE_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   pcall(function() GROUND:CharSetEmote(hero, "shock", 1) end)
-  SkySceneKit.say({english=" Yipes!", french=" Gloups...", german=" Oh Mann!", italian=" Gulp!", spanish=" ¡Huy!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Yikes!", french=" Gloups...", german=" Oh Mann!", italian=" Gulp!", spanish=" ¡Huy!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Yikes!", french=" Gloups...", german=" Oh Mann!", italian=" Gulp!", spanish=" ¡Huy!"})
+  else
+  SkySceneKit.say({english=" Yipes!", french=" Gloups...", german=" Oh Mann!", italian=" Gulp!", spanish=" ¡Huy!"})
+  end
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
-  SkySceneKit.say({english=" I'm so nervous! So jittery!", french="Je suis si nerveuse! Je tremble\ncomme une feuille!", german=" Ich bin ganz nervös und hibbelig!", italian=" Sono così nervosa! Ho i brividi!", spanish="¡Qué nerviosa estoy!\n¡Hasta tengo escalofríos!"}) -- SwitchTalk: branche default (canon générique)
-  SkySceneKit.say({english=" Anyway, let's go.", french=" Allez, entrons.", german="Wie auch immer! Gehen wir\nrein.", italian=" Beh, andiamo.", spanish=" Bueno, ya es hora de entrar."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" I'm so nervous! So jittery!", french="Je suis si nerveux! Je tremble\ncomme une feuille!", german=" Ich bin ganz nervös und hibbelig!", italian=" Sono così nervoso! Ho i brividi!", spanish="¡Qué nervios! ¡Estoy como un\nflan!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" I'm so nervous! So jittery!", french="Je suis si nerveux! Je tremble\ncomme une feuille!", german=" Ich bin ganz nervös und hibbelig!", italian=" Sono così nervoso! Ho i brividi!", spanish="¡Qué nervioso estoy!\n¡Estoy temblando!"})
+  else
+  SkySceneKit.say({english=" I'm so nervous! So jittery!", french="Je suis si nerveuse! Je tremble\ncomme une feuille!", german=" Ich bin ganz nervös und hibbelig!", italian=" Sono così nervosa! Ho i brividi!", spanish="¡Qué nerviosa estoy!\n¡Hasta tengo escalofríos!"})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="But I'm glad we're finally\nallowed in.[K] My heart's pounding, though...", french="Mais je suis content de pouvoir\nenfin entrer.[K] Par contre, mon cœur bat\nla chamade...", german="Aber ich bin froh, dass wir\nendlich hineindürfen.[K] Mein Herz klopft mir bis\nzum Hals...", italian="Ma sono felice di poter\nfinalmente entrare.[K] Anche se il cuore\nmi batte forte...", spanish="Pero me alegra que por fin\npodamos entrar.[K] Aunque el corazón\nme late muy deprisa..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="But I'm glad we're finally\nallowed in.[K] My heart's pounding, though...", french="Mais je suis content de pouvoir\nenfin entrer.[K] Par contre, mon cœur bat\nla chamade...", german="Aber ich bin froh, dass wir\nendlich hineindürfen.[K] Mein Herz klopft mir bis\nzum Hals...", italian="Ma sono felice di poter\nfinalmente entrare.[K] Anche se il cuore\nmi batte forte...", spanish="Pero me alegra que por fin\npodamos entrar.[K] Aunque el corazón\nme late muy deprisa..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Anyway, let's go.", french=" Allez, entrons.", german="Wie auch immer! Gehen wir\nrein.", italian=" Beh, andiamo.", spanish=" Venga, entremos."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" OK, let's go in.", french=" Allez, entrons.", german=" Okay, gehen wir rein.", italian=" Ok, andiamo.", spanish=" Vale, entremos."})
+  else
+  SkySceneKit.say({english=" Anyway, let's go.", french=" Allez, entrons.", german="Wie auch immer! Gehen wir\nrein.", italian=" Beh, andiamo.", spanish=" Bueno, ya es hora de entrar."})
+  end
   GROUND:MoveToPosition(hero, 240, 148, false, 2)
   GAME:WaitFrames(5)
   GROUND:MoveToPosition(partner, 240, 172, false, 2)

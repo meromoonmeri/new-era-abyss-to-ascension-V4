@@ -10,7 +10,13 @@ return function(hero, partner)
   GAME:FadeOut(false, 0) -- screen_FlushOut
   GAME:FadeIn(30)
   GAME:WaitFrames(30)
-  SkySceneKit.say({english="We won't let you do that![K]\n[CS:N]Drowzee[CR], you bully!", french="On ne te laissera pas t'en sortir\ncomme ça![K] [CS:N]Soporifik[CR], tu n'es qu'un monstre!", german="Das lassen wir nicht zu![K]\n[CS:N]Traumato[CR], du Bösewicht!", italian="Non te lo permetteremo![K]\n[CS:N]Drowzee[CR], brutto scellerato!", spanish="¡No te permitiremos que le\nobligues a hacer eso![K]\n[CS:N]Drowzee[CR], ¡eres un abusón!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="We won't let you do that![K]\n[CS:N]Drowzee[CR], you bully!", french="On ne te laissera pas t'en sortir\ncomme ça![K] [CS:N]Soporifik[CR], tu n'es qu'un monstre!", german="Das lassen wir nicht zu![K]\n[CS:N]Traumato[CR], du Bösewicht!", italian="Non te lo permetteremo![K]\n[CS:N]Drowzee[CR], brutto delinquente!", spanish="¡No te permitiremos hacerle\neso![K] [CS:N]Drowzee[CR], ¡eres un abusón!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="We won't let you do that![K]\n[CS:N]Drowzee[CR], you bully!", french="On ne te laissera pas t'en sortir\ncomme ça![K] [CS:N]Soporifik[CR], tu n'es qu'un monstre!", german="Das lassen wir nicht zu![K]\n[CS:N]Traumato[CR], du Bösewicht!", italian="Non te lo permetteremo![K]\nVigliacco di un [CS:N]Drowzee[CR]!", spanish="¡No tiene por qué hacer eso![K]\n[CS:N]Drowzee[CR], ¡eres un abusón!"})
+  else
+  SkySceneKit.say({english="We won't let you do that![K]\n[CS:N]Drowzee[CR], you bully!", french="On ne te laissera pas t'en sortir\ncomme ça![K] [CS:N]Soporifik[CR], tu n'es qu'un monstre!", german="Das lassen wir nicht zu![K]\n[CS:N]Traumato[CR], du Bösewicht!", italian="Non te lo permetteremo![K]\n[CS:N]Drowzee[CR], brutto scellerato!", spanish="¡No te permitiremos que le\nobligues a hacer eso![K]\n[CS:N]Drowzee[CR], ¡eres un abusón!"})
+  end
   local npc_npc_suriipu = SkySceneKit.spawn_npc("drowzee", 352, 272, Direction.Down, "NPC_SURIIPU")
   pcall(function() GROUND:CharSetEmote(npc_npc_suriipu, "sweating", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect

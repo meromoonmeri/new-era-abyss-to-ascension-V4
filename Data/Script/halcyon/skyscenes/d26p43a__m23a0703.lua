@@ -12,7 +12,13 @@ return function(hero, partner)
   GROUND:MoveToPosition(partner, 260, 364, false, 2)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english=" Hey! [CS:N]Chatot[CR]!", french=" Eh, [CS:N]Pijako[CR]!", german=" Hey! [CS:N]Plaudagei[CR]!", italian=" Ehi! [CS:N]Chatot[CR]!", spanish=" ¡Oye! ¡[CS:N]Chatot[CR]!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Hey! [CS:N]Chatot[CR]!", french=" Eh, [CS:N]Pijako[CR]!", german=" Hey! [CS:N]Plaudagei[CR]!", italian=" Ehi! [CS:N]Chatot[CR]!", spanish=" ¡Oye! ¡[CS:N]Chatot[CR]!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Hey! [CS:N]Chatot[CR]!", french=" Eh, [CS:N]Pijako[CR]!", german=" Hey! [CS:N]Plaudagei[CR]!", italian=" Ehi! [CS:N]Chatot[CR]!", spanish=" ¡Oye! ¡[CS:N]Chatot[CR]!"})
+  else
+  SkySceneKit.say({english=" Hey! [CS:N]Chatot[CR]!", french=" Eh, [CS:N]Pijako[CR]!", german=" Hey! [CS:N]Plaudagei[CR]!", italian=" Ehi! [CS:N]Chatot[CR]!", spanish=" ¡Oye! ¡[CS:N]Chatot[CR]!"})
+  end
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Exclaim_Surprised") end)
   local npc_npc_perappu = SkySceneKit.spawn_npc("chatot", 280, 328, Direction.Up, "NPC_PERAPPU")
   pcall(function() GROUND:CharSetEmote(npc_npc_perappu, "exclaim", 1) end)
@@ -54,14 +60,26 @@ return function(hero, partner)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   -- GAP: se_Play(8963) — id SE NDS sans portage PMDO identifié
   -- ExecuteCommon(CORO_LOOK_AROUND_RIGHT_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
-  SkySceneKit.say({english="But...[K]there doesn't appear to be\nanywhere to hide here.", french="Mais...[K] il n'y a nulle part\noù se cacher ici.", german="Aber...[K] Es scheint hier nichts zu\ngeben, wo man sich verstecken könnte.", italian="Ma...[K] non vedo posti per\nnascondersi qui.", spanish="Pero...[K] ¡si no hay ningún sitio\ndonde esconderse!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="But...[K]there's just nowhere to\nhide here.", french="Mais...[K] il n'y a nulle part\noù se cacher ici.", german="Aber[K] hier kann man sich\nnirgendwo verstecken.", italian="Ma...[K] non c'è nessun posto per\nnascondersi qui.", spanish="Pero...[K] ¡si no hay ningún sitio\ndonde esconderse!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="But...[K]there doesn't appear to be\nanyplace to hide here.", french="Mais...[K] il n'y a nulle part\noù se cacher ici.", german="Aber...[K] Es scheint hier nichts zu\ngeben, wo man sich verstecken könnte.", italian="Ma...[K] non sembra ci sia un\nposto per nascondersi qui.", spanish="Pero...[K] ¡si no hay ningún sitio\ndonde esconderse!"})
+  else
+  SkySceneKit.say({english="But...[K]there doesn't appear to be\nanywhere to hide here.", french="Mais...[K] il n'y a nulle part\noù se cacher ici.", german="Aber...[K] Es scheint hier nichts zu\ngeben, wo man sich verstecken könnte.", italian="Ma...[K] non vedo posti per\nnascondersi qui.", spanish="Pero...[K] ¡si no hay ningún sitio\ndonde esconderse!"})
+  end
   pcall(function() UI:SetSpeaker(npc_npc_perappu) end)
   SkySceneKit.say({english=" (What is this...?)", french=" (Qu'est-ce que c'est...?)", german=" (Was ist das?)", italian=" (Cos'è questo...?)", spanish=" (¿Qué ocurre?)"})
   pcall(function() UI:SetSpeaker(npc_npc_perappu) end)
   SkySceneKit.say({english=" (An odd sense of foreboding!)", french=" (J'ai un étrange pressentiment!)", german=" (Eine seltsame Vorahnung!)", italian=" (Un presentimento...)", spanish="(¡Tengo un extraño\npresentimiento!)"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- ExecuteCommon(CORO_LOOK_AROUND_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
-  SkySceneKit.say({english="There are only rock walls\naround us.", french="Il n'y a que des parois de pierre\ntout autour de nous.", german="Da sind nur Felswände um uns\nherum.", italian="Ci sono solo muri di roccia\nattorno a noi.", spanish=" Aquí solo hay paredes."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="There are only rock walls\naround us.", french="Il n'y a que des parois de pierre\ntout autour de nous.", german="Um uns herum sind nur\nFelswände.", italian="Ci sono solo muri di roccia\nattorno a noi.", spanish=" Aquí solo hay paredes."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="There are only these rock walls\naround us.", french="Il n'y a que des parois de pierre\ntout autour de nous.", german="Da sind nur Felswände um uns\nherum.", italian="Ci sono solo questi muri di\nroccia attorno a noi.", spanish=" Aquí solo hay paredes."})
+  else
+  SkySceneKit.say({english="There are only rock walls\naround us.", french="Il n'y a que des parois de pierre\ntout autour de nous.", german="Da sind nur Felswände um uns\nherum.", italian="Ci sono solo muri di roccia\nattorno a noi.", spanish=" Aquí solo hay paredes."})
+  end
   pcall(function() UI:SetSpeaker(npc_npc_perappu) end)
   SkySceneKit.say({english="(That one glance I caught of\nthem...[K] I'm on the verge of remembering...)", french="(Je n'ai fait que les\napercevoir...[K] Ça va me revenir...)", german="(Das, was ich aus dem\nAugenwinkel von ihnen gesehen habe...[K] Ich bin\nkurz davor, mich zu erinnern.)", italian="(Li ho solo intravisti, ma...[K]\nMi sembra di ricordare...)", spanish="(Solo les vi un instante...[K]\nPero estoy a punto de recordarlo...)"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())

@@ -47,11 +47,23 @@ return function(hero, partner)
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecuteLives
   -- message_FacePositionOffset(0, 2) [neutre/état moteur]
-  SkySceneKit.say({english="Wow! The sea is right up this\nway, [hero]!", french="Waouh! La mer est par là,\n[hero]!", german="Wow! Das Meer ist gleich da\ndrüben, [hero]!", italian="Wow! Poco più avanti,\nda questa parte, c'è il mare, [hero]!", spanish="Vaya, ¡el mar está\nahí enfrente, [hero]!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="Wow! The sea is right up this\nway, [hero]!", french="Waouh! La mer est par là,\n[hero]!", german="Wow! Das Meer ist gleich da\ndrüben, [hero]!", italian="Wow! Poco più avanti,\nda questa parte, c'è il mare, [hero]!", spanish="Vaya, ¡el mar está\nahí enfrente, [hero]!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="Wow! The sea is right up this\nway, [hero]!", french="Waouh! La mer est par là,\n[hero]!", german="Wow! Das Meer ist gleich da\ndrüben, [hero]!", italian="Wow! Poco più avanti,\nda questa parte, c'è il mare, [hero]!", spanish="Vaya, ¡el mar está\nahí enfrente, [hero]!"})
+  else
+  SkySceneKit.say({english="Wow! The sea is right up this\nway, [hero]!", french="Waouh! La mer est par là,\n[hero]!", german="Wow! Das Meer ist gleich da\ndrüben, [hero]!", italian="Wow! Poco più avanti,\nda questa parte, c'è il mare, [hero]!", spanish="Vaya, ¡el mar está\nahí enfrente, [hero]!"})
+  end
   pcall(function() local g=GAME:GetCurrentGround(); GAME:MoveCamera(g.ViewCenter.X+(-48), g.ViewCenter.Y+(0), 48, false) end) -- MovePositionOffset performer/caméra
   GAME:WaitFrames(2) -- join WaitExecutePerformer
   GROUND:EntTurn(partner, Direction.Left)
-  SkySceneKit.say({english=" And just look at this cliff!", french=" Regarde cette falaise!", german=" Sieh dir nur mal diese Klippe an!", italian="E date un'occhiata a questo\npromontorio!", spanish=" Este acantilado es increíble."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" And just look at this cliff!", french=" Regarde cette falaise!", german=" Sieh dir nur mal diese Klippe an!", italian="E date un'occhiata a questo\npromontorio!", spanish=" Menudo acantilado..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" And just look at this cliff!", french=" Regarde cette falaise!", german=" Sieh dir nur mal diese Klippe an!", italian="E date un'occhiata a questo\npromontorio!", spanish=" Este acantilado es increíble."})
+  else
+  SkySceneKit.say({english=" And just look at this cliff!", french=" Regarde cette falaise!", german=" Sieh dir nur mal diese Klippe an!", italian="E date un'occhiata a questo\npromontorio!", spanish=" Este acantilado es increíble."})
+  end
   -- message_FacePositionOffset(-1, 2) [neutre/état moteur]
   pcall(function() UI:SetSpeaker(npc_npc_bippa) end)
   SkySceneKit.say({english="Yup yup! I reckon this is looking\nmore and more like a true expedition!", french="Ouaip ouaip! Ça ressemble d'plus\nen plus à une vraie expédition, pour sûr!", german="Jawollja! Das sieht mir immer\nmehr nach einer echten Expedition aus!", italian="Già, già! Questa sì che è una\nspedizione coi fiocchi!", spanish="¡Sí, señor! Esto sí empieza a\nparecerse a una expedición después de todo."})
@@ -72,7 +84,13 @@ return function(hero, partner)
   pcall(function() GROUND:CharSetEmote(partner, "question", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english=" Kangaskhan Rock?", french=" Une Statue Kangourex?", german=" Kangama-Speicher?", italian=" Statua Kangaskhan?", spanish=" ¿Una Roca de Kangaskhan?"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Kangaskhan Rock?", french=" Une Statue Kangourex?", german=" Kangama-Speicher?", italian=" Statua Kangaskhan?", spanish=" ¿Una Roca de Kangaskhan?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Kangaskhan Rock?", french=" Une Statue Kangourex?", german=" Kangama-Speicher?", italian=" Statua Kangaskhan?", spanish=" ¿Una Roca de Kangaskhan?"})
+  else
+  SkySceneKit.say({english=" Kangaskhan Rock?", french=" Une Statue Kangourex?", german=" Kangama-Speicher?", italian=" Statua Kangaskhan?", spanish=" ¿Una Roca de Kangaskhan?"})
+  end
   GROUND:EntTurn(npc_npc_bippa, Direction.Right)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GROUND:EntTurn(hero, Direction.Up)
@@ -99,13 +117,29 @@ return function(hero, partner)
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english="We're all beginners at this.\nLet's just do our best.", french="C'est notre première fois à\ntous les trois. Faisons de notre mieux!", german="Das ist für jeden von uns etwas\nNeues. Geben wir einfach unser Bestes.", italian="Siamo tutti dei novellini.\nFacciamo semplicemente del nostro\nmeglio!", spanish="Todos somos principiantes,\npero lo haremos lo mejor que podamos."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Ha ha ha. That goes for us too.", french=" Ha ha ha! Nous aussi!", german=" Hahaha. Das geht uns auch so.", italian=" Ah ah ah. Anche noi.", spanish="¡Ja, ja! No te creas que eres\nel único."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Ha ha ha. That goes for us too.", french=" Ha ha ha! Nous aussi!", german=" Hahaha. Das geht uns auch so.", italian=" Ah ah ah. Anche noi.", spanish="Ja, ja, ja. ¡No creas que solo te\npasa a ti!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="We're all new at this. Let's just\ndo our best.", french="C'est notre première fois à\ntous les trois. Faisons de notre mieux!", german="Wir machen das alle zum ersten\nMal. Geben wir einfach unser Bestes.", italian="Siamo tutti dei novellini.\nFacciamo del nostro meglio!", spanish="También es nuestra primera vez.\nVamos a hacerlo lo mejor que podamos."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="We're all beginners at this.\nLet's just do our best.", french="C'est notre première fois à\ntous les trois. Faisons de notre mieux!", german="Das ist für jeden von uns etwas\nNeues. Geben wir einfach unser Bestes.", italian="Siamo tutti dei novellini.\nFacciamo semplicemente del nostro\nmeglio!", spanish="Todos somos principiantes,\npero lo haremos lo mejor que podamos."})
+  else
+  SkySceneKit.say({english="We're all beginners at this.\nLet's just do our best.", french="C'est notre première fois à\ntous les trois. Faisons de notre mieux!", german="Das ist für jeden von uns etwas\nNeues. Geben wir einfach unser Bestes.", italian="Siamo tutti dei novellini.\nFacciamo semplicemente del nostro\nmeglio!", spanish="Todos somos principiantes,\npero lo haremos lo mejor que podamos."})
+  end
   GROUND:MoveToPosition(partner, 376, 244, false, 2)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GROUND:EntTurn(npc_npc_bippa, Direction.DownRight)
   GROUND:EntTurn(hero, Direction.UpRight)
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english="Let's have a look at the\nWonder Map.", french="Jetons un coup d'œil sur la\nCarte Miracle.", german="Sehen wir uns die Wunderkarte\nmal an.", italian="Diamo un'occhiata\nalla Mappa delle meraviglie.", spanish=" Miremos el Mapa Mágico."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="Let's have a look at the\nWonder Map.", french="Jetons un coup d'œil sur la\nCarte Miracle.", german="Sehen wir uns die Wunderkarte\nmal an.", italian="Diamo un'occhiata\nalla Mappa delle meraviglie.", spanish=" A ver el Mapa Mágico."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Let's check the Wonder Map.", french="Jetons un coup d'œil sur la\nCarte Miracle.", german="Schlagen wir mal die\nWunderkarte auf.", italian="Diamo un'occhiata\nalla Mappa delle meraviglie.", spanish="Vamos a echar un vistazo\nal Mapa Mágico."})
+  else
+  SkySceneKit.say({english="Let's have a look at the\nWonder Map.", french="Jetons un coup d'œil sur la\nCarte Miracle.", german="Sehen wir uns die Wunderkarte\nmal an.", italian="Diamo un'occhiata\nalla Mappa delle meraviglie.", spanish=" Miremos el Mapa Mágico."})
+  end
   -- GAP: se_Play(6667) — id SE NDS sans portage PMDO identifié
   GAME:FadeOut(false, 15)
   SkySceneKit.cleanup_npcs()

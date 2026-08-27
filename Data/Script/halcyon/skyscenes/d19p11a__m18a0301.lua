@@ -6,7 +6,13 @@ return function(hero, partner)
   pcall(function() SOUND:StopBGM() end)
   -- back_SetGround(LEVEL_S04P01A) [neutre/état moteur]
   GAME:FadeIn(0)
-  SkySceneKit.say({english="Ouch...[K] We couldn't break\nthrough...", french="Argh...[K] On s'est pris\nune dérouillée...", german="Autsch...[K] Wir konnten nicht\ndurchbrechen...", italian=" Ouch...[K] Non ce l'abbiamo fatta...", spanish=" Vaya...[K] No hemos podido pasar."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="Ugh...[K] We couldn't get\nthrough...", french="Argh...[K] On s'est pris\nune dérouillée...", german="Ugh...[K] Wir sind nicht\ndurchgekommen...", italian=" Uff...[K] Non ce l'abbiamo fatta...", spanish=" Vaya...[K] No hemos podido pasar."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="Ouch...[K] We couldn't break\nthrough...", french="Argh...[K] On s'est pris\nune dérouillée...", german="Autsch...[K] Wir konnten nicht\ndurchbrechen...", italian="Ouch...[K] Non ce l'abbiamo\nfatta...", spanish=" Vaya...[K] No hemos podido pasar."})
+  else
+  SkySceneKit.say({english="Ouch...[K] We couldn't break\nthrough...", french="Argh...[K] On s'est pris\nune dérouillée...", german="Autsch...[K] Wir konnten nicht\ndurchbrechen...", italian=" Ouch...[K] Non ce l'abbiamo fatta...", spanish=" Vaya...[K] No hemos podido pasar."})
+  end
   GAME:FadeOut(false,  60)
   -- message_CloseEnforce
   -- CallCommon CORO_FADE_OUT_ALL_AFTER (fermeture/attente message: géré par say())
@@ -28,9 +34,25 @@ return function(hero, partner)
   GAME:WaitFrames(15)
   pcall(function() GROUND:CharSetEmote(partner, "sweating", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
-  SkySceneKit.say({english="Hmmm... I think we were a bit\ntoo careless.", french="Hum... On a dû manquer\nde prudence.", german="Hmmm... Ich glaube, wir waren\nzu leichtsinnig.", italian="Mmm... Dovevamo fare più\nattenzione.", spanish="Hum... Quizás nos hemos\ndescuidado un poco."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="Hmmm... We got a little too\ncareless, maybe.", french="Hum... On a dû manquer\nde prudence.", german="Hmmm... Vielleicht waren wir\netwas zu leichtsinnig.", italian="Mmm... Dovevamo fare più\nattenzione, forse.", spanish="Hum... Quizás nos hemos\ndescuidado un poco."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="Hmmm... I think we got a little\ntoo careless.", french="Hum... On a dû manquer\nde prudence.", german="Hmmm... Wir waren wohl zu\nleichtsinnig.", italian="Mmm... Dovevamo fare più\nattenzione.", spanish="Hum... Quizás nos hemos\ndescuidado un poco."})
+  else
+  SkySceneKit.say({english="Hmmm... I think we were a bit\ntoo careless.", french="Hum... On a dû manquer\nde prudence.", german="Hmmm... Ich glaube, wir waren\nzu leichtsinnig.", italian="Mmm... Dovevamo fare più\nattenzione.", spanish="Hum... Quizás nos hemos\ndescuidado un poco."})
+  end
   -- ExecuteCommon(CORO_LOOK_AROUND_FUNC_SERIES, 3) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GAME:WaitFrames(15)
-  SkySceneKit.say({english=" Let's go when you're ready.", french=" On part quand tu veux.", german=" Gehen wir, wenn du so weit bist.", italian=" Quando è tutto pronto andiamo.", spanish=" Cuando quieras, seguimos."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" We have to hurry and go.", french=" Partons vite.", german=" Wir müssen los, Beeilung!", italian=" Diamoci una mossa.", spanish=" Debemos darnos prisa y seguir."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="We need to get away\nfrom them.", french=" Partons vite.", german=" Wir müssen weg von hier.", italian=" Dobbiamo seminarli.", spanish=" Debemos darnos prisa y seguir."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" We'll go when you're ready.", french=" On part quand tu veux.", german=" Wir gehen, wenn du so weit bist.", italian=" Quando è tutto pronto andiamo.", spanish=" Cuando quieras, seguimos."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Let's go when you're ready.", french=" On part quand tu veux.", german=" Gehen wir, wenn du so weit bist.", italian=" Quando è tutto pronto andiamo.", spanish=" Cuando quieras, seguimos."})
+  else
+  SkySceneKit.say({english=" Let's go when you're ready.", french=" On part quand tu veux.", german=" Gehen wir, wenn du so weit bist.", italian=" Quando è tutto pronto andiamo.", spanish=" Cuando quieras, seguimos."})
+  end
 end

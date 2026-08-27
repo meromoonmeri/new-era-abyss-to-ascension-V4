@@ -32,7 +32,21 @@ return function(hero, partner)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GAME:WaitFrames(20)
   pcall(function() GROUND:CharTurnToCharAnimated(partner, npc_npc_juputoru, 4) end)
-  SkySceneKit.say({english="It may be better if we stay\nhere for a while.", french="On ferait mieux de rester ici\npendant quelque temps.", german="Es wäre vielleicht besser, wenn\nwir hier eine Weile bleiben würden.", italian="È meglio se restiamo qui per un\npo'.", spanish="Por el momento, podemos vivir\naquí."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="Whew.[K] I'm glad no one's\nwrecked this place.", french="Ouf![K] Je suis bien content\nque personne ne soit venu démolir cet endroit.", german="Puh.[K] Ich bin froh, dass niemand\ndiesen Ort hier verschandelt hat.", italian="Fiuuu.[K] Per fortuna nessuno ha\ntoccato niente.", spanish="Menos mal.[K] Todo sigue en\nsu sitio. Supongo que nadie ha estado por aquí."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="Whew.[K] I'm glad no one's\nwrecked this place.", french="Ouf![K] Je suis bien content\nque personne ne soit venu démolir cet endroit.", german="Puh.[K] Ich bin froh, dass niemand\ndiesen Ort hier verschandelt hat.", italian="Fiuuu.[K] Per fortuna nessuno ha\ntoccato niente.", spanish="Menos mal.[K] Todo sigue en\nsu sitio. Supongo que nadie ha estado por aquí."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="It goes to show nobody takes\nany notice of this place.", french="Ça prouve bien que personne\nn'en a remarqué l'existence.", german="Das zeigt, dass niemand\ndiesen Ort wirklich beachtet.", italian="Sembra che a nessuno interessi\nmolto di questo posto.", spanish="Una prueba de que este lugar\npasa desapercibido."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="That's proof for how little\nnotice this place attracts.", french="Ça prouve bien que personne\nn'en a remarqué l'existence.", german="Das zeigt, wie wenig\nAufmerksamkeit dieser Ort auf sich zieht.", italian="È la prova che questo posto non\nsi nota molto.", spanish="Una prueba de que este lugar\npasa desapercibido."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="It might be better if we stayed\nhere for a while.", french="On ferait mieux de rester ici\npendant quelque temps.", german="Es wäre vielleicht besser, wenn\nwir hier eine Weile bleiben würden.", italian="È meglio se restiamo qui per un\npo'.", spanish="Creo que, por el momento,\ndeberíamos vivir aquí."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="It may be better if we stay\nhere for the time being.", french="On ferait mieux de rester ici\npendant quelque temps.", german="Es wäre vielleicht besser, wenn\nwir fürs Erste hier bleiben würden.", italian="È meglio se per ora restiamo\nqui.", spanish="Creo que, por el momento,\ndeberíamos vivir aquí."})
+  else
+  SkySceneKit.say({english="It may be better if we stay\nhere for a while.", french="On ferait mieux de rester ici\npendant quelque temps.", german="Es wäre vielleicht besser, wenn\nwir hier eine Weile bleiben würden.", italian="È meglio se restiamo qui per un\npo'.", spanish="Por el momento, podemos vivir\naquí."})
+  end
   pcall(function() UI:SetSpeaker(npc_npc_juputoru) end)
   SkySceneKit.say({english=" Agreed.", french=" C'est d'accord.", german=" Abgemacht.", italian=" D'accordo.", spanish=" Estoy de acuerdo."})
   -- message_Close

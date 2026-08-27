@@ -149,7 +149,13 @@ return function(hero, partner)
   pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
-  SkySceneKit.say({english=" I'm so hungry, [hero]...", french="J'ai tellement faim,\n[hero]...", german="Ich habe solchen Hunger,\n[hero]...", italian=" Ho tanta fame, [hero]...", spanish="Estoy tan hambrienta,\n[hero]..."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" I'm so hungry, [hero]...", french="J'ai tellement faim,\n[hero]...", german="Ich habe solchen Hunger,\n[hero]...", italian=" Ho tanta fame, [hero]...", spanish="Tengo la tripa vacía,\n[hero]..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" I'm so hungry, [hero]...", french="J'ai tellement faim,\n[hero]...", german="Ich habe solchen Hunger,\n[hero]...", italian=" Ho tanta fame, [hero]...", spanish="Estoy tan hambriento,\n[hero]..."})
+  else
+  SkySceneKit.say({english=" I'm so hungry, [hero]...", french="J'ai tellement faim,\n[hero]...", german="Ich habe solchen Hunger,\n[hero]...", italian=" Ho tanta fame, [hero]...", spanish="Estoy tan hambrienta,\n[hero]..."})
+  end
   pcall(function() GROUND:CharTurnToCharAnimated(npc_npc_perappu, hero, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   -- message_FacePositionOffset(0, -1) [neutre/état moteur]
@@ -179,7 +185,13 @@ return function(hero, partner)
   pcall(function() GROUND:CharSetEmote(hero, "shock", 1) end)
   -- ExecuteCommon(CORO_JUMP_SURPRISE_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english=" Huh?! Wh-why?!", french=" Hein?! Pourquoi?!", german=" Häh?!? W-warum?!?", italian=" Eh?! P-Perché?!", spanish=" ¡¿Qué?! ¡¿Por qué?!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Huh?! Wh-why?!", french=" Hein?! Pourquoi?!", german=" Häh?!? W-warum?!?", italian=" Eh?! P-Perché?!", spanish=" ¡¿Qué?! ¡¿Por qué?!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Huh?! Wh-why?!", french=" Hein?! Pourquoi?!", german=" Häh?!? W-warum?!?", italian=" Eh?! P-Perché?!", spanish=" ¡¿Qué?! ¡¿Por qué?!"})
+  else
+  SkySceneKit.say({english=" Huh?! Wh-why?!", french=" Hein?! Pourquoi?!", german=" Häh?!? W-warum?!?", italian=" Eh?! P-Perché?!", spanish=" ¡¿Qué?! ¡¿Por qué?!"})
+  end
   pcall(function() UI:SetSpeaker(npc_npc_perappu) end)
   SkySceneKit.say({english="Your failure yesterday\nweighs heavily.", french="Votre échec d'hier va peser\nlourd dans la balance.", german="Euer gestriges Versagen wiegt\nschwer.", italian="Quello che è successo ieri ha un\npeso determinante.", spanish="El fracaso de ayer sin duda\ntendrá un gran peso en la decisión final."})
   pcall(function() UI:SetSpeaker(npc_npc_perappu) end)
@@ -205,11 +217,23 @@ return function(hero, partner)
   pcall(function() GROUND:CharSetEmote(partner, "sweating", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english="I was already weak\nfrom hunger...", french="J'étais déjà affaiblie par\nla faim...", german="Ich war schon ganz schwach\nvor Hunger.", italian=" Ero già debole per la fame...", spanish="Ya me sentía muy débil\npor el hambre..."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="I was already weak\nfrom hunger...", french="J'étais déjà affaibli par\nla faim...", german="Ich war schon ganz schwach\nvor Hunger.", italian=" Ero già debole per la fame...", spanish="Ya me sentía muy débil\npor el hambre..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="I was already weak\nfrom hunger...", french="J'étais déjà affaibli par\nla faim...", german="Ich war schon ganz schwach\nvor Hunger.", italian=" Ero già debole per la fame...", spanish="Ya me sentía muy débil\npor el hambre..."})
+  else
+  SkySceneKit.say({english="I was already weak\nfrom hunger...", french="J'étais déjà affaiblie par\nla faim...", german="Ich war schon ganz schwach\nvor Hunger.", italian=" Ero già debole per la fame...", spanish="Ya me sentía muy débil\npor el hambre..."})
+  end
   pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
-  SkySceneKit.say({english="And then to be told something\nlike that... There's no way I can get\nmotivated now...", french="Et maintenant, après avoir\nentendu ça... je ne suis plus du tout motivée...", german="Und dann so etwas zu erfahren...\nJetzt kann ich mich gar nicht mehr motivieren.", italian="... e poi mi dicono questa cosa...\nAdesso sarà veramente difficile trovare le\nmotivazioni...", spanish="Y, ahora, que me digan algo así...\nHe perdido toda la motivación."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="And then to be told something\nlike that... There's no way I can get\nmotivated now...", french="Et maintenant, après avoir\nentendu ça... je ne suis plus du tout motivé...", german="Und dann so etwas zu erfahren...\nJetzt kann ich mich gar nicht mehr motivieren.", italian="... e poi mi dicono questa cosa...\nAdesso sarà veramente difficile trovare le\nmotivazioni...", spanish="Y, ahora, que me digan algo así...\nHe perdido toda la motivación."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="And then to be told something\nlike that... There's no way I can get\nmotivated now...", french="Et maintenant, après avoir\nentendu ça... je ne suis plus du tout motivé...", german="Und dann so etwas zu erfahren...\nJetzt kann ich mich gar nicht mehr motivieren.", italian="... e poi mi dicono questa cosa...\nAdesso sarà veramente difficile trovare le\nmotivazioni...", spanish="Y, ahora, que me digan algo así...\nHe perdido toda la motivación."})
+  else
+  SkySceneKit.say({english="And then to be told something\nlike that... There's no way I can get\nmotivated now...", french="Et maintenant, après avoir\nentendu ça... je ne suis plus du tout motivée...", german="Und dann so etwas zu erfahren...\nJetzt kann ich mich gar nicht mehr motivieren.", italian="... e poi mi dicono questa cosa...\nAdesso sarà veramente difficile trovare le\nmotivazioni...", spanish="Y, ahora, que me digan algo así...\nHe perdido toda la motivación."})
+  end
   -- message_ResetActor() [neutre/état moteur]
   pcall(function() UI:SetSpeaker(partner) end)
   SkySceneKit.say({english=" Psst! Listen up!", french=" Psst! Ecoutez!", german=" Psst! Hört mal!", italian=" Psst! Ehi!", spanish=" ¡Pss! Escuchad..."})
@@ -218,7 +242,13 @@ return function(hero, partner)
   pcall(function() GROUND:CharSetEmote(partner, "exclaim", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english="Huh? I heard a voice\nsomewhere...", french=" Hein? J'entends des voix?", german="Huch? Ich habe eine Stimme\ngehört...", italian="Eh? Ho sentito una voce da\nqualche parte...", spanish="¿Eh? Me ha parecido oír una\nvoz..."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="Huh? I heard a voice\nsomewhere...", french=" Hein? J'entends des voix?", german="Huch? Ich habe eine Stimme\ngehört...", italian="Eh? Ho sentito una voce da\nqualche parte...", spanish="¿Eh? Me ha parecido oír una voz\npor ahí..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="Huh? I heard a voice\nsomewhere...", french=" Hein? J'entends des voix?", german="Huch? Ich habe eine Stimme\ngehört...", italian="Eh? Ho sentito una voce da\nqualche parte...", spanish="¿Eh? Me ha parecido oír una\nvoz..."})
+  else
+  SkySceneKit.say({english="Huh? I heard a voice\nsomewhere...", french=" Hein? J'entends des voix?", german="Huch? Ich habe eine Stimme\ngehört...", italian="Eh? Ho sentito una voce da\nqualche parte...", spanish="¿Eh? Me ha parecido oír una\nvoz..."})
+  end
   -- ExecuteCommon(CORO_LOOK_AROUND_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   GAME:WaitFrames(12)
   -- ExecuteCommon(CORO_LOOK_AROUND_LEFT_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
@@ -241,7 +271,13 @@ return function(hero, partner)
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecuteLives
   -- message_FacePositionOffset(0, -2) [neutre/état moteur]
-  SkySceneKit.say({english=" Hi! [CS:N]Bidoof[CR]!", french=" Hé! [CS:N]Keunotor[CR]!", german=" Hallo, [CS:N]Bidiza[CR]!", italian=" Ehi! [CS:N]Bidoof[CR]!", spanish=" ¡Hola! ¡[CS:N]Bidoof[CR]!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Hey! [CS:N]Bidoof[CR]!", french=" Hé! [CS:N]Keunotor[CR]!", german=" Hey! [CS:N]Bidiza[CR]!", italian=" Ehi! [CS:N]Bidoof[CR]!", spanish=" ¡Vaya! ¡Es [CS:N]Bidoof[CR]!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Oh! [CS:N]Bidoof[CR]!", french=" Hé! [CS:N]Keunotor[CR]!", german=" Oh! [CS:N]Bidiza[CR]!", italian=" Ehi! [CS:N]Bidoof[CR]!", spanish=" ¡Oh! ¡Es [CS:N]Bidoof[CR]!"})
+  else
+  SkySceneKit.say({english=" Hi! [CS:N]Bidoof[CR]!", french=" Hé! [CS:N]Keunotor[CR]!", german=" Hallo, [CS:N]Bidiza[CR]!", italian=" Ehi! [CS:N]Bidoof[CR]!", spanish=" ¡Hola! ¡[CS:N]Bidoof[CR]!"})
+  end
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Sweatdrop") end)
   pcall(function() GROUND:CharSetEmote(npc_npc_bippa, "sweating", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect

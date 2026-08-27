@@ -21,13 +21,41 @@ return function(hero, partner)
   GROUND:EntTurn(partner, Direction.Left)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GAME:WaitFrames(30)
-  SkySceneKit.say({english="The view was like this that\ntime too...", french="C'était exactement comme\naujourd'hui...", german="Der Anblick war damals\ngenauso...", italian="La vista quella volta era più o\nmeno la stessa...", spanish=" La luz, el mar... Todo era igual."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="The view was like this that\ntime too...", french="C'était exactement comme\naujourd'hui...", german="Der Anblick war damals\ngenauso...", italian="La vista quella volta era più o\nmeno la stessa...", spanish=" La luz, el mar... Todo era igual."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="The view was like this that\ntime too...", french="C'était exactement comme\naujourd'hui...", german="Der Anblick war damals\ngenauso...", italian="La vista quella volta era più o\nmeno la stessa...", spanish=" La luz, el mar... Es idéntico."})
+  else
+  SkySceneKit.say({english="The view was like this that\ntime too...", french="C'était exactement comme\naujourd'hui...", german="Der Anblick war damals\ngenauso...", italian="La vista quella volta era più o\nmeno la stessa...", spanish=" La luz, el mar... Todo era igual."})
+  end
   GAME:WaitFrames(30)
   pcall(function() GAME:MoveCamera(384, 180, 60, false) end) -- performer/caméra
   GROUND:MoveToPosition(partner, 384, 180, false, 2)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GAME:WaitFrames(60)
-  SkySceneKit.say({english="That was when our adventure\nbegan.", french="C'est là que notre périple\na commencé.", german=" Damit begann unser Abenteuer.", italian="Quando è cominciata la nostra\navventura.", spanish="Fue el inicio de nuestras\naventuras."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="The [CS:N]Krabby[CR] blowing all those\nbubbles along the beach...", french="Les [CS:N]Krabby[CR] qui faisaient\ntoutes ces bulles le long de la plage...", german="Die [CS:N]Krabby[CR] pusteten all diese\nBlasen über den Strand...", italian="I [CS:N]Krabby[CR] facevano le bolle\nlungo la spiaggia...", spanish="Los [CS:N]Krabby[CR] soplando todas\nesas pompitas en la playa..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="The [CS:N]Krabby[CR] blowing all those\nbubbles along the beach...", french="Les [CS:N]Krabby[CR] qui faisaient\ntoutes ces bulles le long de la plage...", german="Die [CS:N]Krabby[CR] pusteten all diese\nBlasen über den Strand...", italian="I [CS:N]Krabby[CR] facevano le bolle\nlungo la spiaggia...", spanish="Los [CS:N]Krabby[CR] soplando todas\nesas pompitas en la playa..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" I noticed someone...right here...", french="J'ai remarqué quelqu'un...\njuste là...", german="Und dann sah ich jemanden...\nGenau hier...", italian="... e poi mi sono accorto che\nc'era qualcuno... proprio qui...", spanish=" Y vi a alguien... justo aquí..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" I noticed someone...right here...", french="J'ai remarqué quelqu'un...\njuste là...", german="Und dann sah ich jemanden...\nGenau hier...", italian="... e poi mi sono accorto che\nc'era qualcuno... proprio qui...", spanish="Entonces vi a alguien...\njusto aquí..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="[hero] was...[K]\nunconscious...", french="[hero] gisait là...[K]\nsans connaissance...", german="[hero] war...[K]\nbewusstlos...", italian="[hero] era...[K]\na terra, incosciente...", spanish="[hero] estaba...[K]\ninconsciente..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="[hero] was...[K]\nunconscious...", french="[hero] gisait là...[K]\nsans connaissance...", german="[hero] war...[K]\nbewusstlos...", italian="[hero] era...[K]\na terra, incosciente...", spanish="[hero] estaba...[K]\ninconsciente..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="That was when...[K][hero]\nand I...", french="C'est là que...[K] [hero]\net moi...", german="Das war, als...[K] [hero]\nund ich...", italian="È stato quando...[K] [hero]\ned io...", spanish="Fue entonces cuando...[K]\n[hero] y yo..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="That was when...[K][hero]\nand I...", french="C'est là que...[K] [hero]\net moi...", german="Das war, als...[K] [hero]\nund ich...", italian="È stato quando...[K] [hero]\ned io...", spanish="Fue entonces cuando...[K]\n[hero] y yo..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="That was when our adventure\nbegan.", french="C'est là que notre périple\na commencé.", german=" Damit begann unser Abenteuer.", italian="Quando è cominciata la nostra\navventura.", spanish="En ese momento comenzaron\nnuestras aventuras."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="That was when our adventure\nbegan.", french="C'est là que notre périple\na commencé.", german=" Damit begann unser Abenteuer.", italian="Quando è cominciata la nostra\navventura.", spanish="Fue el comienzo de nuestras\naventuras."})
+  else
+  SkySceneKit.say({english="That was when our adventure\nbegan.", french="C'est là que notre périple\na commencé.", german=" Damit begann unser Abenteuer.", italian="Quando è cominciata la nostra\navventura.", spanish="Fue el inicio de nuestras\naventuras."})
+  end
   GAME:WaitFrames(30)
   SkySubScreen.Hide(60) -- screen2_WhiteOut: retour BOTTOM_FOCUS (timeline ROM)
   GAME:FadeOut(true, 60) -- screen_WhiteOut

@@ -28,7 +28,13 @@ return function(hero, partner)
   pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
-  SkySceneKit.say({english="Let's do our best on the\ngraduation exam, [hero]!", french="Il faut réussir cet examen,\n[hero]!", german="Geben wir unser Bestes für\ndie Abschlussprüfung, [hero]!", italian="Facciamo di tutto per superare\nl'esame, [hero]!", spanish="¡A por el gran reto,\n[hero]!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="Let's ace this graduation exam,\n[hero]!", french="Il faut réussir cet examen,\n[hero]!", german="Lass uns die Abschlussprüfung\nmit Bravour bestehen, [hero]!", italian="Facciamo di tutto per superare\nl'esame, [hero]!", spanish="¡A por el gran reto,\n[hero]!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="Let's get through this graduation\nexam, [hero]!", french="Il faut réussir cet examen,\n[hero]!", german="Lass uns die Abschlussprüfung\nerfolgreich durchziehen, [hero]!", italian="Facciamo di tutto per superare\nl'esame, [hero]!", spanish="¡Hay que superar el gran reto,\n[hero]!"})
+  else
+  SkySceneKit.say({english="Let's do our best on the\ngraduation exam, [hero]!", french="Il faut réussir cet examen,\n[hero]!", german="Geben wir unser Bestes für\ndie Abschlussprüfung, [hero]!", italian="Facciamo di tutto per superare\nl'esame, [hero]!", spanish="¡A por el gran reto,\n[hero]!"})
+  end
   GROUND:EntTurn(npc_npc_perappu, Direction.Down)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   SkySceneKit.cleanup_npcs()

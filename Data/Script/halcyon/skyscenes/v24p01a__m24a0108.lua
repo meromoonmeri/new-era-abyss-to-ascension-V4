@@ -28,7 +28,17 @@ return function(hero, partner)
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   -- SetAnimation(1) [anim idle native]
   GAME:WaitFrames(30)
-  SkySceneKit.say({english="But...[K]why didn't you want\nanyone to investigate the pattern?", french="Mais...[K] pourquoi tu voulais\nque ce symbole reste un secret?", german="Aber...[K] Warum wolltest du\nniemanden das Muster untersuchen lassen?", italian="Ma...[K] perché non volevi che\nqualcuno indagasse sul disegno?", spanish="Pero...[K] ¿Por qué no querías que\nnadie investigara el símbolo?"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" So that's what happened.", french="Alors c'est comme ça que\nça s'est passé.", german=" Das ist also passiert.", italian=" Allora è andata così.", spanish=" Así que eso fue lo que sucedió."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" So that's what happened.", french="Alors c'est comme ça que\nça s'est passé.", german=" Das ist also passiert.", italian=" Allora è andata così.", spanish=" Así que eso fue lo que sucedió."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="But...[K]why didn't you want\nanyone to investigate the pattern?", french="Mais...[K] pourquoi tu voulais\nque ce symbole reste un secret?", german="Aber...[K] Warum wolltest du\nniemanden das Muster untersuchen lassen?", italian="Ma...[K] perché non volevi che\nqualcuno indagasse sul disegno?", spanish="Pero...[K] ¿Por qué no querías que\nnadie investigara el símbolo?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="But...[K]why didn't you want\nanyone to investigate the pattern?", french="Mais...[K] pourquoi tu voulais\nque ce symbole reste un secret?", german="Aber...[K] Warum wolltest du\nniemanden das Muster untersuchen lassen?", italian="Ma...[K] perché non volevi che\nqualcuno indagasse sul disegno?", spanish="Pero...[K] ¿Por qué no querías que\nnadie investigara el símbolo?"})
+  else
+  SkySceneKit.say({english="But...[K]why didn't you want\nanyone to investigate the pattern?", french="Mais...[K] pourquoi tu voulais\nque ce symbole reste un secret?", german="Aber...[K] Warum wolltest du\nniemanden das Muster untersuchen lassen?", italian="Ma...[K] perché non volevi che\nqualcuno indagasse sul disegno?", spanish="Pero...[K] ¿Por qué no querías que\nnadie investigara el símbolo?"})
+  end
   pcall(function() UI:ResetSpeaker() end)
   pcall(function() UI:SetSpeaker(partner) end)
   SkySceneKit.say({english="In the [CS:P]Hidden Land[CR]...[K]is [CS:P]Temporal\nTower[CR] where [CS:N]Dialga[CR] reigns.", french="Dans les [CS:P]Terres Illusoires[CR]...[K]\nse dresse la [CS:P]Tour du Temps[CR], siège du pouvoir\nde [CS:N]Dialga[CR].", german="Im [CS:P]Verborgenen Land[CR]...[K] Dort\nsteht der [CS:P]Zeitturm[CR], in dem [CS:N]Dialga[CR] herrscht.", italian="Sulla [CS:P]Terra Nascosta[CR]...[K] c'è la\n[CS:P]Torre del Tempo[CR], il regno di [CS:N]Dialga[CR].", spanish="En la [CS:P]Tierra Oculta[CR]...[K] se erige\nla [CS:P]Torre del Tiempo[CR], en la que reina [CS:N]Dialga[CR]."})
@@ -39,7 +49,13 @@ return function(hero, partner)
   pcall(function() UI:SetSpeaker(partner) end)
   SkySceneKit.say({english="He hid the [CS:P]Hidden Land[CR] in a gap\nin time.", french="Il a dissimulé les [CS:P]Terres\nIllusoires[CR] dans une brèche temporelle.", german="Es versteckte das\n[CS:P]Verborgene Land[CR] in einer Spalte in der Zeit.", italian="Ha celato la [CS:P]Terra Nascosta[CR]\nin una breccia del tempo.", spanish="Para ello escondió la [CS:P]Tierra[CR]\n[CS:P]Oculta[CR] en un intervalo temporal."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  SkySceneKit.say({english=" A gap in time?", french=" Une brèche temporelle?", german=" Eine Spalte in der Zeit?", italian=" Una breccia del tempo?", spanish=" ¿Un intervalo temporal?"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" A gap in time?", french=" Une brèche temporelle?", german=" Eine Spalte in der Zeit?", italian=" Una breccia del tempo?", spanish=" ¿Un intervalo temporal?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" A gap in time?", french=" Une brèche temporelle?", german=" Eine Spalte in der Zeit?", italian=" Una breccia del tempo?", spanish=" ¿Un intervalo temporal?"})
+  else
+  SkySceneKit.say({english=" A gap in time?", french=" Une brèche temporelle?", german=" Eine Spalte in der Zeit?", italian=" Una breccia del tempo?", spanish=" ¿Un intervalo temporal?"})
+  end
   pcall(function() UI:ResetSpeaker() end)
   pcall(function() UI:SetSpeaker(partner) end)
   SkySceneKit.say({english=" Yes.[K] It is hard to explain, but...", french="Oui.[K] C'est difficile à expliquer,\nmais...", german="Ja.[K] Das ist schwierig zu\nerklären, aber...", italian="Sì.[K] È difficile da spiegare,\nma...", spanish=" Sí.[K] Es difícil de explicar, pero..."})

@@ -69,7 +69,17 @@ return function(hero, partner)
   GAME:WaitFrames(10)
   pcall(function() local g=GAME:GetCurrentGround(); GAME:MoveCamera(g.ViewCenter.X+(-12000), g.ViewCenter.Y+(0), 120, false) end) -- back_SetBackScrollSpeed(-100.0,0.0) px/frame -> caméra continue (pilote scroll)
   GAME:WaitFrames(30)
-  SkySceneKit.say({english=" [CS:N]Lapras[CR] is flying!", french=" [CS:N]Lokhlass[CR] s'envole!", german=" [CS:N]Lapras[CR] fliegt!", italian=" [CS:N]Lapras[CR] sta volando!", spanish=" ¡[CS:N]Lapras[CR] está volando!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Whoa! [CS:N]Lapras[CR]!", french=" Ouah! [CS:N]Lokhlass[CR]!", german=" Huah! [CS:N]Lapras[CR]!", italian=" Wow! [CS:N]Lapras[CR]!", spanish=" ¡Vaya! ¡[CS:N]Lapras[CR]!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Waah! [CS:N]Lapras[CR]!", french=" Ouah! [CS:N]Lokhlass[CR]!", german=" Uaah! [CS:N]Lapras[CR]!", italian=" Aaah! [CS:N]Lapras[CR]!", spanish=" ¡Vaya! ¡[CS:N]Lapras[CR]!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" [CS:N]Lapras[CR] is flying!", french=" [CS:N]Lokhlass[CR] s'envole!", german=" [CS:N]Lapras[CR] fliegt!", italian=" [CS:N]Lapras[CR] sta volando!", spanish=" ¡[CS:N]Lapras[CR] está volando!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" [CS:N]Lapras[CR] is flying!", french=" [CS:N]Lokhlass[CR] s'envole!", german=" [CS:N]Lapras[CR] fliegt!", italian=" [CS:N]Lapras[CR] sta volando!", spanish=" ¡[CS:N]Lapras[CR] está volando!"})
+  else
+  SkySceneKit.say({english=" [CS:N]Lapras[CR] is flying!", french=" [CS:N]Lokhlass[CR] s'envole!", german=" [CS:N]Lapras[CR] fliegt!", italian=" [CS:N]Lapras[CR] sta volando!", spanish=" ¡[CS:N]Lapras[CR] está volando!"})
+  end
   local npc_npc_juputoru = SkySceneKit.spawn_npc("grovyle", 208, 176, Direction.UpLeft, "NPC_JUPUTORU")
   pcall(function() UI:SetSpeaker(npc_npc_juputoru) end)
   SkySceneKit.say({english=" No! That's not it!", french=" Non! Ce n'est pas ça!", german=" Nein! Das ist es nicht!", italian=" No! Non è così!", spanish=" ¡No! ¡No es eso!"})

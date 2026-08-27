@@ -779,7 +779,10 @@ class SceneCompiler:
                 first = True
                 default_body = None
                 for labels, body in groups:
-                    if labels == ["default"]:
+                    if "default" in labels:
+                        # fallthrough `case N: default:` = le corps
+                        # s'exécute pour N ET pour tout le reste ->
+                        # sémantiquement le default
                         default_body = body
                         continue
                     conds = []
@@ -1112,18 +1115,50 @@ class SceneCompiler:
             else:
                 self.emit("pcall(function() UI:ResetSpeaker() end)")
             self.emit(f"SkySceneKit.say({{{tbl}}})")
-        elif op == "message_SwitchTalk":
-            # variantes $PARTNER_TALK_KIND : la branche default est le
-            # texte canonique générique (le pilote fait pareil)
-            i = args.rfind("default:")
-            if i < 0:
-                self.unsupported.append("message_SwitchTalk:no_default")
+        elif op in ("message_SwitchTalk", "message_SwitchMonologue"):
+            # variantes par TALK_KIND (genre/nature du héros ou du
+            # partenaire, GameVar ROM) : TOUTES les branches compilées
+            # en if/elseif Lua sur SV.SkyVars — le default reste le
+            # texte générique canonique.
+            mvar = re.match(r"\s*\(\s*\$(\w+)\s*\)", args)
+            var = mvar.group(1) if mvar else "PARTNER_TALK_KIND"
+            cases = []          # (num|None, langs)
+            for mo in re.finditer(r"(?:case\s+(\d+)|default)\s*:", args):
+                num = mo.group(1)
+                jb = args.find("{", mo.end())
+                if jb < 0:
+                    continue
+                langs, _ = parse_dialogue_block(args, jb)
+                if langs:
+                    cases.append((int(num) if num else None, langs))
+            if not cases:
+                self.unsupported.append(op + ":no_cases")
                 return
-            langs, _ = parse_dialogue_block(args, args.find("{", i))
-            self.dialogues += 1
-            tbl = ", ".join(f"{k}={lua_str(v)}" for k, v in langs.items())
-            self.emit(f"SkySceneKit.say({{{tbl}}}) "
-                      f"-- SwitchTalk: branche default (canon générique)")
+            self.dialogues += len(cases)
+            expr = f"((SV.SkyVars or {{}}).{var} or 0)"
+            first = True
+            deflt = None
+            for num, langs in cases:
+                tbl = ", ".join(f"{k}={lua_str(v)}"
+                                for k, v in langs.items())
+                if num is None:
+                    deflt = tbl
+                    continue
+                kw = "if" if first else "elseif"
+                first = False
+                self.emit(f"{kw} {expr} == {num} then "
+                          f"-- {op}(${var}) case {num}")
+                self.emit(f"SkySceneKit.say({{{tbl}}})")
+            if deflt is not None:
+                if first:
+                    self.emit(f"SkySceneKit.say({{{deflt}}}) "
+                              f"-- {op}: default seul")
+                else:
+                    self.emit("else")
+                    self.emit(f"SkySceneKit.say({{{deflt}}})")
+                    self.emit("end")
+            elif not first:
+                self.emit("end")
         elif op in ("message_Close", "message_KeyWait", "message_FaceOff"):
             self.emit("-- " + op)
         elif op == "CallCommon":
@@ -1142,6 +1177,15 @@ class SceneCompiler:
                 self.emit(f"GROUND:EntTurn({A}, {d})")
             else:
                 self.unsupported.append(f"{op}:{target}")
+        elif op == "Turn2DirectionTurn":
+            # rotation sur soi NDS (vitesse, sens, quarts) — adaptation
+            # technique: kit.spin (EntTurn 8 directions successives,
+            # sens horaire/antihoraire ROM, tempo = vitesse*frames)
+            f = [x.strip() for x in args.split(",")]
+            if A and len(f) == 3:
+                self.emit(f"SkySceneKit.spin({A}, {f[0]}, {f[1]}, {f[2]})")
+            else:
+                self.unsupported.append("Turn2DirectionTurn")
         elif op == "MovePositionMark" and kind == "performer":
             # performer = caméra dans les SSB (camera_SetMyself performer 0)
             mm = re.search(r"Position<'\w*',\s*([\d.]+),\s*([\d.]+)>", args)

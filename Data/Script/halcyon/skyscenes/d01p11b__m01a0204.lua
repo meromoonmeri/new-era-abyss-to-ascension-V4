@@ -21,7 +21,13 @@ return function(hero, partner)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GAME:WaitFrames(20)
   GROUND:MoveToPosition(partner, 532, 172, false, 1)
-  SkySceneKit.say({english=" Wow! What a beautiful sight!", french=" Waouh! Quel paysage magnifique!", german="Wow! Was für eine herrliche\nAussicht!", italian="Oh, wow! Che panorama\nstupendo!", spanish=" ¡Vaya! ¡Qué vista tan hermosa!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Wow! What an impressive sight!", french=" Waouh! Quel paysage magnifique!", german="Wow! Was für eine herrliche\nAussicht!", italian=" Wow! Che vista stupenda!", spanish="¡Vaya! ¡Qué vista tan\nimpresionante!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Oh, wow! What a pretty sight!", french=" Waouh! Quel paysage magnifique!", german="Oh! Wow! Was für eine\nherrliche Aussicht!", italian="Oh, wow! Che panorama\nstupendo!", spanish="¡Vaya!\n¡Qué vista tan espectacular!"})
+  else
+  SkySceneKit.say({english=" Wow! What a beautiful sight!", french=" Waouh! Quel paysage magnifique!", german="Wow! Was für eine herrliche\nAussicht!", italian="Oh, wow! Che panorama\nstupendo!", spanish=" ¡Vaya! ¡Qué vista tan hermosa!"})
+  end
   GAME:WaitFrames(60)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   -- screen2_FadeOut [sub déjà caché]

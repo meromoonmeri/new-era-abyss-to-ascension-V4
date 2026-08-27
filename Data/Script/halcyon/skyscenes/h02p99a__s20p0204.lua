@@ -37,11 +37,23 @@ return function(hero, partner)
   GROUND:EntTurn(partner, Direction.Left)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GAME:WaitFrames(30)
-  SkySceneKit.say({english="Ooh, yes! The weather's great\ntoday again!", french="Oh, oui! Quel temps magnifique\naujourd'hui!", german="Oh ja! Das Wetter ist heute\nwieder klasse!", italian="Oh, sì! Il tempo è di nuovo\nbello oggi!", spanish=" ¡Hoy hace un tiempo excelente!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="Oh, yeah! The weather's great\ntoday again!", french="Oh, oui! Quel temps magnifique\naujourd'hui!", german="Oh ja! Das Wetter ist heute\nwieder klasse!", italian="Oh, sì! Il tempo è di nuovo\nbello oggi!", spanish=" ¡Hoy hace un tiempo excelente!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="Oh, yeah! The weather's great\ntoday again!", french="Oh, oui! Quel temps magnifique\naujourd'hui!", german="Oh ja! Das Wetter ist heute\nwieder klasse!", italian="Oh, sì! Il tempo è di nuovo\nbello oggi!", spanish=" ¡Hoy hace un tiempo excelente!"})
+  else
+  SkySceneKit.say({english="Ooh, yes! The weather's great\ntoday again!", french="Oh, oui! Quel temps magnifique\naujourd'hui!", german="Oh ja! Das Wetter ist heute\nwieder klasse!", italian="Oh, sì! Il tempo è di nuovo\nbello oggi!", spanish=" ¡Hoy hace un tiempo excelente!"})
+  end
   pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
-  SkySceneKit.say({english="Let's do good again today,\n[hero]!", french="Faisons encore de notre mieux\naujourd'hui, [hero]!", german="Lass uns heute unser Bestes\ngeben, [hero]!", italian="Mettiamocela tutta anche oggi,\n[hero]!", spanish="¡Sigamos con nuestras\naventuras, [hero]!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="Let's do good again today,\n[hero]!", french="Faisons encore de notre mieux\naujourd'hui, [hero]!", german="Lass uns heute unser Bestes\ngeben, [hero]!", italian="Mettiamocela tutta anche oggi,\n[hero]!", spanish="¡Sigamos con nuestras\naventuras, [hero]!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="Let's do good again today,\n[hero]!", french="Faisons encore de notre mieux\naujourd'hui, [hero]!", german="Lass uns heute unser Bestes\ngeben, [hero]!", italian="Mettiamocela tutta anche oggi,\n[hero]!", spanish="¡Sigamos con nuestras\naventuras, [hero]!"})
+  else
+  SkySceneKit.say({english="Let's do good again today,\n[hero]!", french="Faisons encore de notre mieux\naujourd'hui, [hero]!", german="Lass uns heute unser Bestes\ngeben, [hero]!", italian="Mettiamocela tutta anche oggi,\n[hero]!", spanish="¡Sigamos con nuestras\naventuras, [hero]!"})
+  end
   SkySubScreen.Hide(30) -- screen2_FadeOut: retour BOTTOM_FOCUS (timeline ROM)
   -- back2_SetMode(0) [mode d'affichage sub NDS: géré par SubScreen]
   SkySubScreen.Hide(10) -- fin de scène: nappe sub retirée

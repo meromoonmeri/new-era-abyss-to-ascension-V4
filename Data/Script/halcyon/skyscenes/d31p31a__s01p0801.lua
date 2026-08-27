@@ -18,11 +18,27 @@ return function(hero, partner)
   GROUND:MoveToPosition(hero, 240, 300, false, 2)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GAME:WaitFrames(15)
-  SkySceneKit.say({english="We can move on if we avoid\nfalling in.", french="Si on l'évite, on pourra\nprogresser.", german="Wir können weiterkommen, wenn\nwir vermeiden, dort herunterzufallen.", italian="Possiamo continuare se non\nrifacciamo lo stesso errore.", spanish=" Esta vez pasaremos de largo..."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="We fell down this pitfall trap\nlast time...", french="On s'est fait avoir par ce\nPiège Trappe l'autre fois...", german="Wir sind das letzte Mal in diese\nGruben-Falle gestürzt...", italian="L'ultima volta a causa di questa\ntrappola abbiamo fatto un bel capitombolo...", spanish="La última vez caímos en\nla trampa..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="We fell down this pitfall trap\nlast time...", french="On s'est fait avoir par ce\nPiège Trappe l'autre fois...", german="Wir sind das letzte Mal in diese\nGruben-Falle gestürzt...", italian="L'ultima volta a causa di questa\ntrappola abbiamo fatto un bel capitombolo...", spanish="La última vez caímos en\nla trampa..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="We can move on if we avoid\nfalling in.", french="Si on l'évite, on pourra\nprogresser.", german="Wir können weiterkommen, wenn\nwir vermeiden, dort herunterzufallen.", italian="Possiamo continuare se non\nrifacciamo lo stesso errore.", spanish=" Esta vez pasaremos de largo..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="We can move on if we avoid\nfalling in.", french="Si on l'évite, on pourra\nprogresser.", german="Wir können weiterkommen, wenn\nwir vermeiden, dort herunterzufallen.", italian="Possiamo continuare se non\nrifacciamo lo stesso errore.", spanish=" Esta vez pasaremos de largo..."})
+  else
+  SkySceneKit.say({english="We can move on if we avoid\nfalling in.", french="Si on l'évite, on pourra\nprogresser.", german="Wir können weiterkommen, wenn\nwir vermeiden, dort herunterzufallen.", italian="Possiamo continuare se non\nrifacciamo lo stesso errore.", spanish=" Esta vez pasaremos de largo..."})
+  end
   pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
-  SkySceneKit.say({english="But there may be other pitfalls.\nLet's watch our step carefully.", french="Mais il pourrait y en avoir\nd'autres. On doit avancer avec beaucoup\nde précaution.", german="Es könnte dort allerdings noch\nandere Gruben-Fallen geben. Wir müssen\naufpassen, wo wir hintreten.", italian="Ma potrebbero esserci altre\ntrappole. Dobbiamo avanzare con cautela.", spanish="Aunque tendremos que movernos\ncon mucho cuidado, ya que podría haber más."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="But there could be other pitfalls.\nWe should move on really carefully.", french="Mais il pourrait y en avoir\nd'autres. On doit avancer avec beaucoup\nde précaution.", german="Es könnte dort allerdings noch\nandere Gruben-Fallen geben. Wir müssen uns\nsehr vorsichtig bewegen.", italian="Ma potrebbero esserci altre\ntrappole. Dobbiamo avanzare con cautela.", spanish="Aunque tendremos que movernos\ncon mucho cuidado, ya que podría haber más."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="But there may be other pitfalls.\nWe need to tread carefully.", french="Mais il pourrait y en avoir\nd'autres. On doit avancer avec beaucoup\nde précaution.", german="Es könnte dort allerdings noch\nandere Gruben-Fallen geben. Wir müssen sehr\nvorsichtig auftreten.", italian="Ma potrebbero esserci altre\ntrappole. Dobbiamo avanzare con cautela.", spanish="Aunque tendremos que movernos\ncon mucho cuidado, ya que podría haber más."})
+  else
+  SkySceneKit.say({english="But there may be other pitfalls.\nLet's watch our step carefully.", french="Mais il pourrait y en avoir\nd'autres. On doit avancer avec beaucoup\nde précaution.", german="Es könnte dort allerdings noch\nandere Gruben-Fallen geben. Wir müssen\naufpassen, wo wir hintreten.", italian="Ma potrebbero esserci altre\ntrappole. Dobbiamo avanzare con cautela.", spanish="Aunque tendremos que movernos\ncon mucho cuidado, ya que podría haber más."})
+  end
   -- supervision_Acting(1) [neutre/état moteur]
   GAME:WaitFrames(1)
   local npc_npc_pukurin = SkySceneKit.spawn_npc("wigglytuff", 232, 424, Direction.Up, "NPC_PUKURIN")
@@ -46,10 +62,22 @@ return function(hero, partner)
   GAME:FadeOut(false, 5)
   -- GAP: se_Play(7938) — id SE NDS sans portage PMDO identifié
   pcall(function() UI:ResetSpeaker() end)
-  SkySceneKit.say({english=" Waaaah!", french=" Ouaaah!", german=" Uaaaah!", italian=" Aaaaah!", spanish=" ¡Aaaah!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Waaaah!", french=" Ouaaah!", german=" Uaaaah!", italian=" Aaaaah!", spanish=" ¡Aaaah!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Waaaah!", french=" Ouaaah!", german=" Uaaaah!", italian=" Aaaaah!", spanish=" ¡Aaaah!"})
+  else
+  SkySceneKit.say({english=" Waaaah!", french=" Ouaaah!", german=" Uaaaah!", italian=" Aaaaah!", spanish=" ¡Aaaah!"})
+  end
   -- message_CloseEnforce
   -- GAP: se_Play(7939) — id SE NDS sans portage PMDO identifié
   GAME:WaitFrames(2) -- join WaitSe
-  SkySceneKit.say({english=" Owowow...", french=" Ouh là là...", german=" Oh, oh, oh...", italian=" Ahiahiahi...", spanish=" Ay, ay, ay..."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Owowow...", french=" Ouh là là...", german=" Oh, oh, oh...", italian=" Ahiahiahi...", spanish=" Ay, ay, ay..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Owowow...", french=" Ouh là là...", german=" Oh, oh, oh...", italian=" Ahiahiahi...", spanish=" Ay, ay, ay..."})
+  else
+  SkySceneKit.say({english=" Owowow...", french=" Ouh là là...", german=" Oh, oh, oh...", italian=" Ahiahiahi...", spanish=" Ay, ay, ay..."})
+  end
   SkySceneKit.cleanup_npcs()
 end

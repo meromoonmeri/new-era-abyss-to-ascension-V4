@@ -9,6 +9,30 @@ return function(hero, partner)
   -- SetAnimation(2) [anim idle native]
   pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english="Try solving the secret of the\nthree crystals!", french="A toi de jouer, résous l'énigme\ndes trois cristaux!", german="Versuche das Rätsel der\nKristalle zu lösen!", italian="Vai e risolvi il mistero dei tre\ncristalli!", spanish="¡Intenta resolver el secreto de\nlos tres cristales!"}) -- SwitchTalk: branche default (canon générique)
-  SkySceneKit.say({english="(Let's give it a try!)", french="(Faisons un essai!)", german="(Versuchen wir es mal!)", italian="(Proviamo!)", spanish="(¡Probemos!)"}) -- SwitchMonologue: branche default
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="I guess you really are onto\nsomething.", french=" On dirait que tu es sur une piste.", german="Du scheinst einen echten\nGeistesblitz zu haben!", italian="Sono sicuro che sai già cosa\nfare.", spanish="Veo que has dado con algo\ninteresante."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="I guess you really have an idea\nabout what to do.", french=" On dirait que tu es sur une piste.", german="Du bist wohl wirklich auf einen\nguten Gedanken gekommen, was?", italian="Sono sicuro che sai già cosa\nfare.", spanish=" Veo que tienes las cosas claras."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="All right. This is your call,\n[hero].", french="D'accord. Je te laisse faire,\n[hero].", german="Okay. Jetzt bist du dran,\n[hero].", italian=" Mi affido a te, [hero].", spanish="Muy bien. En tus manos queda,\n[hero]."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="OK. I'll leave it up to you,\n[hero].", french="D'accord. Je te laisse faire,\n[hero].", german="Okay. Ich überlasse es dir,\n[hero].", italian=" Mi affido a te, [hero].", spanish="Muy bien. Lo dejo en tus manos,\n[hero]."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="Go on and solve the secret of\nthe three crystals!", french="A toi de jouer, résous l'énigme\ndes trois cristaux!", german=" Löse das Rätsel dieser Kristalle!", italian="Vai e risolvi il mistero dei tre\ncristalli!", spanish="¡Intenta resolver el secreto de\nlos tres cristales!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="See if you can solve the secret\nof the three crystals!", french="A toi de jouer, résous l'énigme\ndes trois cristaux!", german="Mal sehen, ob du das Rätsel der\nKristalle lösen kannst!", italian="Vai e risolvi il mistero dei tre\ncristalli!", spanish="¡A ver si puedes desvelar el\nsecreto de los tres cristales!"})
+  else
+  SkySceneKit.say({english="Try solving the secret of the\nthree crystals!", french="A toi de jouer, résous l'énigme\ndes trois cristaux!", german="Versuche das Rätsel der\nKristalle zu lösen!", italian="Vai e risolvi il mistero dei tre\ncristalli!", spanish="¡Intenta resolver el secreto de\nlos tres cristales!"})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="(Each of these three crystals changes color\nevery time it's touched.)", french="(Chacun de ces cristaux change de couleur\nau moindre contact.)", german="(Jedes Mal, wenn man einen der Kristalle\nberührt, ändert er die Farbe.)", italian="(Ogni cristallo cambia colore quando viene\ntoccato.)", spanish="(Cada uno de estos tres cristales cambia de\ncolor cuando se tocan.)"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="(These three crystals should be changed to the\nsame color.)", french="(Il faut qu'ils prennent tous les trois\nla même couleur.)", german="(Alle drei Kristalle sollen die gleiche\nFarbe haben.)", italian="(Devo fare in modo che siano tutti dello\nstesso colore.)", spanish="(Habrá que hacer que los tres cristales tengan\nel mismo color.)"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="(And that color is...?)", french="(Et cette couleur est...?)", german="(Und diese Farbe ist?)", italian="(Ma quale colore sarà...?)", spanish="(¿Pero cuál será ese color?)"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="(Let's give it a try!)", french="(Faisons un essai!)", german="(Versuchen wir es mal!)", italian="(Proviamo!)", spanish="(¡Probemos!)"})
+  else
+  SkySceneKit.say({english="(Let's give it a try!)", french="(Faisons un essai!)", german="(Versuchen wir es mal!)", italian="(Proviamo!)", spanish="(¡Probemos!)"})
+  end
 end

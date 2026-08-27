@@ -2,11 +2,11 @@
  "schema": "sky-scene-compiler/1",
  "rule": "FAIL-CLOSED: seules les scènes 100% traduites sont émises ; PARTIAL_OPS/MULTIROUTINE comptées, jamais émises approximées",
  "totals": {
-  "COMPILED": 2392,
-  "PARTIAL_OPS": 831,
+  "COMPILED": 2495,
+  "PARTIAL_OPS": 728,
   "SKIPPED_REQUIRES_ENGINE_EXTENSION": 372,
   "TRIVIAL_SKIPPED": 165,
-  "COMPILED_DUAL_SCREEN": 83,
+  "COMPILED_DUAL_SCREEN": 84,
   "COMPILED_MULTIROUTINE": 7
  },
  "scenes": {
@@ -74,7 +74,7 @@
   "D01P11A/m01a0103.ssb": {
    "status": "COMPILED",
    "file": "d01p11a__m01a0103.lua",
-   "dialogues": 6,
+   "dialogues": 10,
    "dual_screen_focus": true,
    "gaps": [
     "BGM BGM_OCEAN1 non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -105,7 +105,7 @@
   "D01P11A/m12d1215.ssb": {
    "status": "COMPILED",
    "file": "d01p11a__m12d1215.lua",
-   "dialogues": 24,
+   "dialogues": 40,
    "dual_screen_focus": null,
    "gaps": [
     "SetEffect EFFECT_LAPRAS_WATER_SHADOW — VFX sans émote PMDO équivalente",
@@ -120,9 +120,12 @@
    ]
   },
   "D01P11A/m24p1101.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "switch:case ['== 25', 'default']"
+   "status": "COMPILED",
+   "file": "d01p11a__m24p1101.lua",
+   "dialogues": 6,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_OCEAN1 non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "D01P11A/n01a0801.ssb": {
@@ -175,7 +178,7 @@
   "D01P11A/s23p0102.ssb": {
    "status": "COMPILED",
    "file": "d01p11a__s23p0102.lua",
-   "dialogues": 11,
+   "dialogues": 19,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_ON_THE_BEACH_AT_DUSK non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -280,10 +283,11 @@
    "gaps": null
   },
   "D01P11A/um2401.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "switch:case ['59', 'default']"
-   ]
+   "status": "COMPILED",
+   "file": "d01p11a__um2401.lua",
+   "dialogues": 41,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D01P11A/um2402.ssb": {
    "status": "PARTIAL_OPS",
@@ -546,7 +550,7 @@
   "D01P11B/m01a0204.ssb": {
    "status": "COMPILED",
    "file": "d01p11b__m01a0204.lua",
-   "dialogues": 1,
+   "dialogues": 3,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_ON_THE_BEACH_AT_DUSK non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -555,7 +559,7 @@
   "D01P11B/m01a0206.ssb": {
    "status": "COMPILED",
    "file": "d01p11b__m01a0206.lua",
-   "dialogues": 1,
+   "dialogues": 9,
    "dual_screen_focus": true,
    "gaps": [
     "BGM BGM_ON_THE_BEACH_AT_DUSK non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -564,14 +568,13 @@
   "D01P11B/m01a0208.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Turn2DirectionTurn",
     "message_SwitchMonologue "
    ]
   },
   "D01P11B/m01a0301.ssb": {
    "status": "COMPILED",
    "file": "d01p11b__m01a0301.lua",
-   "dialogues": 5,
+   "dialogues": 21,
    "dual_screen_focus": true,
    "gaps": [
     "BGM BGM_OCEAN1 non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -580,7 +583,6 @@
   "D01P11B/m01a0702.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Turn2DirectionTurn",
     "forever {\n        switch ",
     "message_SwitchMonologue "
    ]
@@ -588,7 +590,7 @@
   "D01P11B/m01d0282.ssb": {
    "status": "COMPILED",
    "file": "d01p11b__m01d0282.lua",
-   "dialogues": 2,
+   "dialogues": 6,
    "dual_screen_focus": true,
    "gaps": [
     "BGM BGM_MEMORIES_RETURNED non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -597,21 +599,21 @@
   "D01P11B/m01d0284.ssb": {
    "status": "COMPILED",
    "file": "d01p11b__m01d0284.lua",
-   "dialogues": 6,
+   "dialogues": 8,
    "dual_screen_focus": true,
    "gaps": null
   },
   "D01P11B/m01d0722.ssb": {
    "status": "COMPILED",
    "file": "d01p11b__m01d0722.lua",
-   "dialogues": 3,
+   "dialogues": 13,
    "dual_screen_focus": true,
    "gaps": null
   },
   "D01P11B/m22a0901.ssb": {
    "status": "COMPILED",
    "file": "d01p11b__m22a0901.lua",
-   "dialogues": 8,
+   "dialogues": 39,
    "dual_screen_focus": true,
    "gaps": [
     "BGM BGM_OCEAN1 non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
@@ -640,7 +642,7 @@
   "D01P11B/m26a0605.ssb": {
    "status": "COMPILED",
    "file": "d01p11b__m26a0605.lua",
-   "dialogues": 1,
+   "dialogues": 3,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_ON_THE_BEACH_AT_DUSK_SHORTENED non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -649,7 +651,7 @@
   "D01P11B/m26a0607.ssb": {
    "status": "COMPILED",
    "file": "d01p11b__m26a0607.lua",
-   "dialogues": 3,
+   "dialogues": 24,
    "dual_screen_focus": true,
    "gaps": [
     "BGM BGM_ON_THE_BEACH_AT_DUSK_SHORTENED non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -658,7 +660,7 @@
   "D01P11B/m26a0609.ssb": {
    "status": "COMPILED",
    "file": "d01p11b__m26a0609.lua",
-   "dialogues": 2,
+   "dialogues": 18,
    "dual_screen_focus": true,
    "gaps": [
     "BGM BGM_MEMORIES_RETURNED non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -667,7 +669,7 @@
   "D01P11B/m26a0610.ssb": {
    "status": "COMPILED",
    "file": "d01p11b__m26a0610.lua",
-   "dialogues": 1,
+   "dialogues": 9,
    "dual_screen_focus": true,
    "gaps": [
     "BGM BGM_MEMORIES_RETURNED non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -690,7 +692,7 @@
   "D01P11B/s03p2003.ssb": {
    "status": "COMPILED",
    "file": "d01p11b__s03p2003.lua",
-   "dialogues": 21,
+   "dialogues": 35,
    "dual_screen_focus": true,
    "gaps": [
     "BGM BGM_IN_THE_HANDS_OF_FATE non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
@@ -713,7 +715,7 @@
   "D01P41A/m01a0501.ssb": {
    "status": "COMPILED",
    "file": "d01p41a__m01a0501.lua",
-   "dialogues": 7,
+   "dialogues": 14,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_IN_THE_DEPTHS_OF_THE_PIT non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
@@ -798,7 +800,6 @@
    "unsupported_ops": [
     "$EVENT_LOCAL = 1",
     "$SCENARIO_MAIN = scn[4, 6]",
-    "Turn2DirectionTurn",
     "clear $EVENT_LOCAL",
     "routine1:forever {\n        SlidePositionOffset"
    ]
@@ -806,7 +807,7 @@
   "D03P41A/m03a0901.ssb": {
    "status": "COMPILED",
    "file": "d03p41a__m03a0901.lua",
-   "dialogues": 6,
+   "dialogues": 10,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_IN_THE_DEPTHS_OF_THE_PIT non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
@@ -822,15 +823,18 @@
    ]
   },
   "D03P41A/m03d0812.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "switch:case ['0', 'default']"
+   "status": "COMPILED",
+   "file": "d03p41a__m03d0812.lua",
+   "dialogues": 2,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5139) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "D03P41A/s20p0502.ssb": {
    "status": "COMPILED",
    "file": "d03p41a__s20p0502.lua",
-   "dialogues": 2,
+   "dialogues": 4,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -844,7 +848,7 @@
   "D04P11A/m05a0301.ssb": {
    "status": "COMPILED",
    "file": "d04p11a__m05a0301.lua",
-   "dialogues": 10,
+   "dialogues": 36,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_RAIN2 non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
@@ -869,41 +873,44 @@
   "D04P11A/m05d0312.ssb": {
    "status": "COMPILED",
    "file": "d04p11a__m05d0312.lua",
-   "dialogues": 1,
+   "dialogues": 2,
    "dual_screen_focus": null,
    "gaps": null
   },
   "D04P11A/m05d0314.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "switch:case ['0', 'default']"
+   "status": "COMPILED",
+   "file": "d04p11a__m05d0314.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_THAT_SHAPE non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "D04P11A/m05d0332.ssb": {
    "status": "COMPILED",
    "file": "d04p11a__m05d0332.lua",
-   "dialogues": 1,
+   "dialogues": 9,
    "dual_screen_focus": null,
    "gaps": null
   },
   "D04P11A/m05d0334.ssb": {
    "status": "COMPILED",
    "file": "d04p11a__m05d0334.lua",
-   "dialogues": 1,
+   "dialogues": 15,
    "dual_screen_focus": null,
    "gaps": null
   },
   "D04P11A/m05d0335.ssb": {
    "status": "COMPILED",
    "file": "d04p11a__m05d0335.lua",
-   "dialogues": 1,
+   "dialogues": 3,
    "dual_screen_focus": null,
    "gaps": null
   },
   "D04P11A/m26a0612.ssb": {
    "status": "COMPILED",
    "file": "d04p11a__m26a0612.lua",
-   "dialogues": 1,
+   "dialogues": 6,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_MEMORIES_RETURNED non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -934,7 +941,7 @@
   "D04P12A/m05a0502.ssb": {
    "status": "COMPILED",
    "file": "d04p12a__m05a0502.lua",
-   "dialogues": 3,
+   "dialogues": 9,
    "dual_screen_focus": null,
    "gaps": [
     "se_Play(6657) — id SE NDS sans portage PMDO identifié"
@@ -950,14 +957,17 @@
   "D04P31A/m05d0612.ssb": {
    "status": "COMPILED",
    "file": "d04p31a__m05d0612.lua",
-   "dialogues": 1,
+   "dialogues": 3,
    "dual_screen_focus": null,
    "gaps": null
   },
   "D04P31A/m05d0614.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "switch:case ['0', 'default']"
+   "status": "COMPILED",
+   "file": "d04p31a__m05d0614.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_THAT_SHAPE non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "D04P31A/m05d0615.ssb": {
@@ -986,7 +996,7 @@
   "D05P11A/m07a0601.ssb": {
    "status": "COMPILED",
    "file": "d05p11a__m07a0601.lua",
-   "dialogues": 4,
+   "dialogues": 9,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -1026,7 +1036,7 @@
   "D06P11A/m08a0601.ssb": {
    "status": "COMPILED",
    "file": "d06p11a__m08a0601.lua",
-   "dialogues": 16,
+   "dialogues": 29,
    "dual_screen_focus": null,
    "gaps": [
     "se_Play(6667) — id SE NDS sans portage PMDO identifié"
@@ -1047,7 +1057,7 @@
   "D06P11A/m08a0801.ssb": {
    "status": "COMPILED",
    "file": "d06p11a__m08a0801.lua",
-   "dialogues": 4,
+   "dialogues": 14,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -1093,7 +1103,7 @@
   "D07P11A/m08a1003.ssb": {
    "status": "COMPILED",
    "file": "d07p11a__m08a1003.lua",
-   "dialogues": 12,
+   "dialogues": 27,
    "dual_screen_focus": null,
    "gaps": [
     "se_Play(8720) — id SE NDS sans portage PMDO identifié",
@@ -1110,7 +1120,7 @@
   "D07P11A/m08b1201.ssb": {
    "status": "COMPILED",
    "file": "d07p11a__m08b1201.lua",
-   "dialogues": 4,
+   "dialogues": 8,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -1168,7 +1178,7 @@
   "D08P11A/m09a0401.ssb": {
    "status": "COMPILED",
    "file": "d08p11a__m09a0401.lua",
-   "dialogues": 7,
+   "dialogues": 15,
    "dual_screen_focus": null,
    "gaps": [
     "se_Play(8963) — id SE NDS sans portage PMDO identifié",
@@ -1184,7 +1194,7 @@
   "D08P11A/m09d0112.ssb": {
    "status": "COMPILED",
    "file": "d08p11a__m09d0112.lua",
-   "dialogues": 2,
+   "dialogues": 13,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -1202,9 +1212,14 @@
    "gaps": null
   },
   "D08P11A/um0901.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "d08p11a__um0901.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "D08P11A/um0902.ssb": {
@@ -1222,9 +1237,14 @@
    "gaps": null
   },
   "D08P11A/um0904.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "d08p11a__um0904.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "D08P11A/um0905.ssb": {
@@ -1264,7 +1284,7 @@
   "D09P11A/m10a0401.ssb": {
    "status": "COMPILED",
    "file": "d09p11a__m10a0401.lua",
-   "dialogues": 3,
+   "dialogues": 12,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -1362,7 +1382,7 @@
   "D10P21A/m10a0801.ssb": {
    "status": "COMPILED",
    "file": "d10p21a__m10a0801.lua",
-   "dialogues": 3,
+   "dialogues": 9,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -1383,7 +1403,7 @@
   "D10P41A/m10a0901.ssb": {
    "status": "COMPILED",
    "file": "d10p41a__m10a0901.lua",
-   "dialogues": 6,
+   "dialogues": 32,
    "dual_screen_focus": null,
    "gaps": [
     "se_Play(5143) — id SE NDS sans portage PMDO identifié",
@@ -1399,7 +1419,7 @@
   "D10P41A/m10a0903.ssb": {
    "status": "COMPILED",
    "file": "d10p41a__m10a0903.lua",
-   "dialogues": 12,
+   "dialogues": 26,
    "dual_screen_focus": null,
    "gaps": [
     "se_Play(6914) — id SE NDS sans portage PMDO identifié",
@@ -1457,9 +1477,12 @@
    ]
   },
   "D10P41A/m10d0952.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "switch:case ['0', 'default']"
+   "status": "COMPILED",
+   "file": "d10p41a__m10d0952.lua",
+   "dialogues": 13,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_MEMORIES_RETURNED non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "D10P41A/m11a0705.ssb": {
@@ -1497,7 +1520,7 @@
   "D11P11A/m12a0401.ssb": {
    "status": "COMPILED",
    "file": "d11p11a__m12a0401.lua",
-   "dialogues": 2,
+   "dialogues": 6,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -1568,7 +1591,7 @@
   "D12P21A/m12a0701.ssb": {
    "status": "COMPILED",
    "file": "d12p21a__m12a0701.lua",
-   "dialogues": 3,
+   "dialogues": 9,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_FAR_AMP_PLAINS non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -1598,7 +1621,7 @@
   "D12P41A/m12a0901.ssb": {
    "status": "COMPILED",
    "file": "d12p41a__m12a0901.lua",
-   "dialogues": 5,
+   "dialogues": 7,
    "dual_screen_focus": null,
    "gaps": [
     "se_Play(6401) — id SE NDS sans portage PMDO identifié",
@@ -1632,7 +1655,7 @@
   "D13P11A/m13a0601.ssb": {
    "status": "COMPILED",
    "file": "d13p11a__m13a0601.lua",
-   "dialogues": 2,
+   "dialogues": 6,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -1646,7 +1669,7 @@
   "D14P11A/m13d0712.ssb": {
    "status": "COMPILED",
    "file": "d14p11a__m13d0712.lua",
-   "dialogues": 1,
+   "dialogues": 6,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -1659,7 +1682,7 @@
   "D14P11A/m14a0112.ssb": {
    "status": "COMPILED",
    "file": "d14p11a__m14a0112.lua",
-   "dialogues": 3,
+   "dialogues": 21,
    "dual_screen_focus": null,
    "gaps": [
     "se_Play(7169) — id SE NDS sans portage PMDO identifié"
@@ -1668,7 +1691,7 @@
   "D14P11A/m14a0301.ssb": {
    "status": "COMPILED",
    "file": "d14p11a__m14a0301.lua",
-   "dialogues": 1,
+   "dialogues": 6,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_IN_THE_DEPTHS_OF_THE_PIT non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
@@ -1678,14 +1701,14 @@
   "D14P11A/m14d0122.ssb": {
    "status": "COMPILED",
    "file": "d14p11a__m14d0122.lua",
-   "dialogues": 1,
+   "dialogues": 6,
    "dual_screen_focus": null,
    "gaps": null
   },
   "D14P11A/m26a06e4.ssb": {
    "status": "COMPILED",
    "file": "d14p11a__m26a06e4.lua",
-   "dialogues": 1,
+   "dialogues": 3,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_MEMORIES_RETURNED non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -1770,7 +1793,7 @@
   "D15P21A/m14a0401.ssb": {
    "status": "COMPILED",
    "file": "d15p21a__m14a0401.lua",
-   "dialogues": 3,
+   "dialogues": 9,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_QUICKSAND_PIT non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -1794,7 +1817,7 @@
   "D15P41A/m14a0701.ssb": {
    "status": "COMPILED",
    "file": "d15p41a__m14a0701.lua",
-   "dialogues": 5,
+   "dialogues": 7,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_IN_THE_DEPTHS_OF_THE_PIT non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
@@ -1842,28 +1865,32 @@
   "D16P11A/m15a0301.ssb": {
    "status": "COMPILED",
    "file": "d16p11a__m15a0301.lua",
-   "dialogues": 1,
+   "dialogues": 6,
    "dual_screen_focus": null,
    "gaps": null
   },
   "D16P11A/m16a0201.ssb": {
    "status": "COMPILED",
    "file": "d16p11a__m16a0201.lua",
-   "dialogues": 2,
+   "dialogues": 18,
    "dual_screen_focus": null,
    "gaps": null
   },
   "D16P31A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "switch:case ['5', 'default']"
+   "status": "COMPILED",
+   "file": "d16p31a__enter00.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_IN_THE_DEPTHS_OF_THE_PIT non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "D16P31A/enter01.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "SetPositionMark:OBJECT_D16P31A8_55",
-    "switch:case ['5', 'default']"
+    "$CRYSTAL_COLOR_01 += 1",
+    "$CRYSTAL_COLOR_01 = 0",
+    "SetPositionMark:OBJECT_D16P31A8_55"
    ]
   },
   "D16P31A/enter02.ssb": {
@@ -1871,8 +1898,7 @@
    "unsupported_ops": [
     "$CRYSTAL_COLOR_02 += 1",
     "$CRYSTAL_COLOR_02 = 0",
-    "SetPositionMark:OBJECT_D16P31A8_55",
-    "switch:case ['5', 'default']"
+    "SetPositionMark:OBJECT_D16P31A8_55"
    ]
   },
   "D16P31A/enter03.ssb": {
@@ -1880,8 +1906,7 @@
    "unsupported_ops": [
     "$CRYSTAL_COLOR_03 += 1",
     "$CRYSTAL_COLOR_03 = 0",
-    "SetPositionMark:OBJECT_D16P31A8_55",
-    "switch:case ['5', 'default']"
+    "SetPositionMark:OBJECT_D16P31A8_55"
    ]
   },
   "D16P31A/enter35.ssb": {
@@ -1909,7 +1934,7 @@
   "D16P31A/m15a0403.ssb": {
    "status": "COMPILED",
    "file": "d16p31a__m15a0403.lua",
-   "dialogues": 1,
+   "dialogues": 4,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_IN_THE_DEPTHS_OF_THE_PIT non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -1926,7 +1951,7 @@
   "D16P31A/m15a0501.ssb": {
    "status": "COMPILED",
    "file": "d16p31a__m15a0501.lua",
-   "dialogues": 2,
+   "dialogues": 17,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_IN_THE_DEPTHS_OF_THE_PIT non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -1979,14 +2004,14 @@
   "D17P11A/m15b0801.ssb": {
    "status": "COMPILED",
    "file": "d17p11a__m15b0801.lua",
-   "dialogues": 1,
+   "dialogues": 6,
    "dual_screen_focus": null,
    "gaps": null
   },
   "D17P11A/m26a06e5.ssb": {
    "status": "COMPILED",
    "file": "d17p11a__m26a06e5.lua",
-   "dialogues": 1,
+   "dialogues": 6,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_MEMORIES_RETURNED non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -2053,9 +2078,13 @@
    "gaps": null
   },
   "D17P34A/m15b0904.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "switch:case ['0', 'default']"
+   "status": "COMPILED",
+   "file": "d17p34a__m15b0904.lua",
+   "dialogues": 3,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_OH_NO non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
+    "se_Play(5139) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "D17P34A/m15b0906.ssb": {
@@ -2109,7 +2138,7 @@
   "D18P11A/m17a0501.ssb": {
    "status": "COMPILED",
    "file": "d18p11a__m17a0501.lua",
-   "dialogues": 35,
+   "dialogues": 90,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_IN_THE_FUTURE non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -2163,7 +2192,7 @@
   "D19P11A/m18a0301.ssb": {
    "status": "COMPILED",
    "file": "d19p11a__m18a0301.lua",
-   "dialogues": 3,
+   "dialogues": 12,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -2190,7 +2219,7 @@
   "D20P11A/m18b0501.ssb": {
    "status": "COMPILED",
    "file": "d20p11a__m18b0501.lua",
-   "dialogues": 3,
+   "dialogues": 12,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -2203,7 +2232,7 @@
   "D20P11A/m18b0701.ssb": {
    "status": "COMPILED",
    "file": "d20p11a__m18b0701.lua",
-   "dialogues": 3,
+   "dialogues": 9,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -2274,7 +2303,7 @@
   "D21P21A/m18b1002.ssb": {
    "status": "COMPILED",
    "file": "d21p21a__m18b1002.lua",
-   "dialogues": 3,
+   "dialogues": 9,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_SEALED_RUIN_PIT non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -2338,7 +2367,7 @@
   "D22P11A/m19a0201.ssb": {
    "status": "COMPILED",
    "file": "d22p11a__m19a0201.lua",
-   "dialogues": 18,
+   "dialogues": 39,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_IN_THE_FUTURE non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -2353,7 +2382,7 @@
   "D22P11A/m19a0401.ssb": {
    "status": "COMPILED",
    "file": "d22p11a__m19a0401.lua",
-   "dialogues": 18,
+   "dialogues": 60,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_I_SAW_SOMETHING_AGAIN non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -2362,7 +2391,7 @@
   "D22P11A/m19a0403.ssb": {
    "status": "COMPILED",
    "file": "d22p11a__m19a0403.lua",
-   "dialogues": 5,
+   "dialogues": 8,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_I_SAW_SOMETHING_AGAIN non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -2371,7 +2400,7 @@
   "D22P11A/m19a0501.ssb": {
    "status": "COMPILED",
    "file": "d22p11a__m19a0501.lua",
-   "dialogues": 5,
+   "dialogues": 9,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_DUSK_FOREST non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -2412,16 +2441,18 @@
    "gaps": null
   },
   "D22P11A/um1901.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "switch:case ['59', 'default']"
-   ]
+   "status": "COMPILED",
+   "file": "d22p11a__um1901.lua",
+   "dialogues": 41,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D22P11A/um1902.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "switch:case ['59', 'default']"
-   ]
+   "status": "COMPILED",
+   "file": "d22p11a__um1902.lua",
+   "dialogues": 41,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D22P11A/un0801.ssb": {
    "status": "COMPILED",
@@ -2469,28 +2500,32 @@
    "gaps": null
   },
   "D23P11A/um1901.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "switch:case ['59', 'default']"
-   ]
+   "status": "COMPILED",
+   "file": "d23p11a__um1901.lua",
+   "dialogues": 41,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D23P11A/um1902.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
-   ]
+   "status": "COMPILED",
+   "file": "d23p11a__um1902.lua",
+   "dialogues": 15,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D23P11A/um1903.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "switch:case ['59', 'default']"
-   ]
+   "status": "COMPILED",
+   "file": "d23p11a__um1903.lua",
+   "dialogues": 41,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D23P11A/um1904.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
-   ]
+   "status": "COMPILED",
+   "file": "d23p11a__um1904.lua",
+   "dialogues": 15,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D24P11A/enter00.ssb": {
    "status": "PARTIAL_OPS",
@@ -2508,7 +2543,7 @@
   "D24P11A/m20a0401.ssb": {
    "status": "COMPILED",
    "file": "d24p11a__m20a0401.lua",
-   "dialogues": 6,
+   "dialogues": 8,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -2521,7 +2556,7 @@
   "D24P11A/m20a0601.ssb": {
    "status": "COMPILED",
    "file": "d24p11a__m20a0601.lua",
-   "dialogues": 9,
+   "dialogues": 20,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -2533,16 +2568,18 @@
    "gaps": null
   },
   "D24P11A/um2001.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "switch:case ['59', 'default']"
-   ]
+   "status": "COMPILED",
+   "file": "d24p11a__um2001.lua",
+   "dialogues": 41,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D24P11A/um2002.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "switch:case ['59', 'default']"
-   ]
+   "status": "COMPILED",
+   "file": "d24p11a__um2002.lua",
+   "dialogues": 41,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D24P31A/enter00.ssb": {
    "status": "COMPILED",
@@ -2561,14 +2598,14 @@
   "D24P31A/m20a0704.ssb": {
    "status": "COMPILED",
    "file": "d24p31a__m20a0704.lua",
-   "dialogues": 2,
+   "dialogues": 7,
    "dual_screen_focus": null,
    "gaps": null
   },
   "D24P31A/m20a0706.ssb": {
    "status": "COMPILED",
    "file": "d24p31a__m20a0706.lua",
-   "dialogues": 4,
+   "dialogues": 14,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -2588,7 +2625,7 @@
   "D25P11A/m23a0201.ssb": {
    "status": "COMPILED",
    "file": "d25p11a__m23a0201.lua",
-   "dialogues": 68,
+   "dialogues": 77,
    "dual_screen_focus": null,
    "gaps": [
     "se_Play(6916) — id SE NDS sans portage PMDO identifié"
@@ -2597,7 +2634,7 @@
   "D25P11A/m23a0301.ssb": {
    "status": "COMPILED",
    "file": "d25p11a__m23a0301.lua",
-   "dialogues": 6,
+   "dialogues": 10,
    "dual_screen_focus": null,
    "gaps": [
     "se_Play(5122) — id SE NDS sans portage PMDO identifié"
@@ -2606,7 +2643,7 @@
   "D25P11A/m23a0302.ssb": {
    "status": "COMPILED",
    "file": "d25p11a__m23a0302.lua",
-   "dialogues": 3,
+   "dialogues": 12,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -2639,9 +2676,14 @@
    ]
   },
   "D25P11A/um2302.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "d25p11a__um2302.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "D25P11A/um2303.ssb": {
@@ -2748,7 +2790,7 @@
   "D26P21A/m23a0601.ssb": {
    "status": "COMPILED",
    "file": "d26p21a__m23a0601.lua",
-   "dialogues": 3,
+   "dialogues": 12,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_LOWER_BRINE_CAVE non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -2785,7 +2827,7 @@
   "D26P43A/m23a0703.ssb": {
    "status": "COMPILED",
    "file": "d26p43a__m23a0703.lua",
-   "dialogues": 15,
+   "dialogues": 21,
    "dual_screen_focus": null,
    "gaps": [
     "se_Play(8963) — id SE NDS sans portage PMDO identifié",
@@ -2813,7 +2855,7 @@
   "D26P43A/m23a0901.ssb": {
    "status": "COMPILED",
    "file": "d26p43a__m23a0901.lua",
-   "dialogues": 59,
+   "dialogues": 75,
    "dual_screen_focus": null,
    "gaps": [
     "se_Play(7430) — id SE NDS sans portage PMDO identifié",
@@ -2838,7 +2880,7 @@
   "D27P11A/m24a0301.ssb": {
    "status": "COMPILED",
    "file": "d27p11a__m24a0301.lua",
-   "dialogues": 19,
+   "dialogues": 40,
    "dual_screen_focus": true,
    "gaps": null
   },
@@ -2851,14 +2893,14 @@
   "D27P11A/m24a0501.ssb": {
    "status": "COMPILED",
    "file": "d27p11a__m24a0501.lua",
-   "dialogues": 4,
+   "dialogues": 8,
    "dual_screen_focus": null,
    "gaps": null
   },
   "D27P11A/m24a1201.ssb": {
    "status": "COMPILED",
    "file": "d27p11a__m24a1201.lua",
-   "dialogues": 1,
+   "dialogues": 6,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -2876,10 +2918,11 @@
    ]
   },
   "D27P11A/um2402.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "switch:case ['59', 'default']"
-   ]
+   "status": "COMPILED",
+   "file": "d27p11a__um2402.lua",
+   "dialogues": 41,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D27P11A/um2403.ssb": {
    "status": "PARTIAL_OPS",
@@ -2888,10 +2931,11 @@
    ]
   },
   "D27P11A/um2404.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "switch:case ['59', 'default']"
-   ]
+   "status": "COMPILED",
+   "file": "d27p11a__um2404.lua",
+   "dialogues": 41,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D27P11A/um2500.ssb": {
    "status": "COMPILED",
@@ -2967,14 +3011,14 @@
   "D28P21A/m24a0701.ssb": {
    "status": "COMPILED",
    "file": "d28p21a__m24a0701.lua",
-   "dialogues": 4,
+   "dialogues": 8,
    "dual_screen_focus": null,
    "gaps": null
   },
   "D28P21A/m24a0901.ssb": {
    "status": "COMPILED",
    "file": "d28p21a__m24a0901.lua",
-   "dialogues": 9,
+   "dialogues": 11,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -2986,22 +3030,25 @@
    "gaps": null
   },
   "D28P21A/um2401.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "switch:case ['59', 'default']"
-   ]
+   "status": "COMPILED",
+   "file": "d28p21a__um2401.lua",
+   "dialogues": 41,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D28P21A/um2402.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "switch:case ['59', 'default']"
-   ]
+   "status": "COMPILED",
+   "file": "d28p21a__um2402.lua",
+   "dialogues": 41,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D28P21A/um2403.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "switch:case ['59', 'default']"
-   ]
+   "status": "COMPILED",
+   "file": "d28p21a__um2403.lua",
+   "dialogues": 41,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D28P31A/enter00.ssb": {
    "status": "COMPILED",
@@ -3015,7 +3062,7 @@
   "D28P31A/m24a0801.ssb": {
    "status": "COMPILED",
    "file": "d28p31a__m24a0801.lua",
-   "dialogues": 5,
+   "dialogues": 17,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -3109,7 +3156,7 @@
   "D28P44A/m24a0804.ssb": {
    "status": "COMPILED",
    "file": "d28p44a__m24a0804.lua",
-   "dialogues": 17,
+   "dialogues": 22,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_THE_POWER_OF_DARKNESS non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
@@ -3142,7 +3189,7 @@
   "D28P44A/m25a0201.ssb": {
    "status": "COMPILED",
    "file": "d28p44a__m25a0201.lua",
-   "dialogues": 40,
+   "dialogues": 59,
    "dual_screen_focus": null,
    "gaps": [
     "se_Play(5126) — id SE NDS sans portage PMDO identifié",
@@ -3169,7 +3216,7 @@
   "D28P44A/m25a0304.ssb": {
    "status": "COMPILED",
    "file": "d28p44a__m25a0304.lua",
-   "dialogues": 3,
+   "dialogues": 12,
    "dual_screen_focus": null,
    "gaps": [
     "SetEffect 653 — VFX sans émote PMDO équivalente",
@@ -3179,7 +3226,7 @@
   "D28P44A/m25a0306.ssb": {
    "status": "COMPILED",
    "file": "d28p44a__m25a0306.lua",
-   "dialogues": 3,
+   "dialogues": 38,
    "dual_screen_focus": null,
    "gaps": [
     "SetEffect 653 — VFX sans émote PMDO équivalente"
@@ -3204,7 +3251,7 @@
   "D28P44A/m26a06e2.ssb": {
    "status": "COMPILED",
    "file": "d28p44a__m26a06e2.lua",
-   "dialogues": 1,
+   "dialogues": 6,
    "dual_screen_focus": true,
    "gaps": [
     "BGM BGM_MEMORIES_RETURNED non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
@@ -3214,7 +3261,7 @@
   "D28P44A/s21p0206.ssb": {
    "status": "COMPILED",
    "file": "d28p44a__s21p0206.lua",
-   "dialogues": 8,
+   "dialogues": 15,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_IN_THE_HANDS_OF_FATE non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
@@ -3251,7 +3298,7 @@
   "D29P11A/m25a0701.ssb": {
    "status": "COMPILED",
    "file": "d29p11a__m25a0701.lua",
-   "dialogues": 3,
+   "dialogues": 9,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -3321,7 +3368,7 @@
   "D30P21A/m25a1001.ssb": {
    "status": "COMPILED",
    "file": "d30p21a__m25a1001.lua",
-   "dialogues": 3,
+   "dialogues": 9,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_TEMPORAL_SPIRE non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -3337,7 +3384,7 @@
   "D30P32A/m26a0201.ssb": {
    "status": "COMPILED",
    "file": "d30p32a__m26a0201.lua",
-   "dialogues": 13,
+   "dialogues": 34,
    "dual_screen_focus": null,
    "gaps": [
     "SetEffect EFFECT_TWO_ARROWS_AT_SIDE_LEFT — VFX sans émote PMDO équivalente",
@@ -3360,7 +3407,7 @@
   "D30P33A/m26a0102.ssb": {
    "status": "COMPILED",
    "file": "d30p33a__m26a0102.lua",
-   "dialogues": 7,
+   "dialogues": 33,
    "dual_screen_focus": true,
    "gaps": [
     "BGM BGM_EARTHQUAKE2 non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
@@ -3378,7 +3425,7 @@
   "D30P34A/m26a0103.ssb": {
    "status": "COMPILED",
    "file": "d30p34a__m26a0103.lua",
-   "dialogues": 1,
+   "dialogues": 3,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_EARTHQUAKE3 non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
@@ -3405,7 +3452,7 @@
   "D30P41A/m25a1201.ssb": {
    "status": "COMPILED",
    "file": "d30p41a__m25a1201.lua",
-   "dialogues": 6,
+   "dialogues": 15,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_HEAVY_FEELING non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
@@ -3461,7 +3508,7 @@
   "D31P11A/s01p0401.ssb": {
    "status": "COMPILED",
    "file": "d31p11a__s01p0401.lua",
-   "dialogues": 3,
+   "dialogues": 9,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -3474,7 +3521,7 @@
   "D31P11A/s01p0701.ssb": {
    "status": "COMPILED",
    "file": "d31p11a__s01p0701.lua",
-   "dialogues": 4,
+   "dialogues": 21,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -3501,7 +3548,7 @@
   "D31P31A/s01p0801.ssb": {
    "status": "COMPILED",
    "file": "d31p31a__s01p0801.lua",
-   "dialogues": 4,
+   "dialogues": 15,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_IN_THE_DEPTHS_OF_THE_PIT non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
@@ -3530,7 +3577,7 @@
   "D31P41A/s01p0604.ssb": {
    "status": "COMPILED",
    "file": "d31p41a__s01p0604.lua",
-   "dialogues": 13,
+   "dialogues": 21,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_THE_POWER_OF_DARKNESS non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
@@ -3913,7 +3960,7 @@
   "D37P41A/s22p0302.ssb": {
    "status": "COMPILED",
    "file": "d37p41a__s22p0302.lua",
-   "dialogues": 4,
+   "dialogues": 9,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_WELCOME_TO_THE_WORLD_OF_POKEMON non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -4031,21 +4078,21 @@
   "D39P21A/s21p1001.ssb": {
    "status": "COMPILED",
    "file": "d39p21a__s21p1001.lua",
-   "dialogues": 3,
+   "dialogues": 12,
    "dual_screen_focus": null,
    "gaps": null
   },
   "D39P21A/s21p1202.ssb": {
    "status": "COMPILED",
    "file": "d39p21a__s21p1202.lua",
-   "dialogues": 6,
+   "dialogues": 31,
    "dual_screen_focus": null,
    "gaps": null
   },
   "D39P21A/s21p1501.ssb": {
    "status": "COMPILED",
    "file": "d39p21a__s21p1501.lua",
-   "dialogues": 4,
+   "dialogues": 18,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -4059,7 +4106,7 @@
   "D39P32A/s22p0201.ssb": {
    "status": "COMPILED",
    "file": "d39p32a__s22p0201.lua",
-   "dialogues": 61,
+   "dialogues": 147,
    "dual_screen_focus": null,
    "gaps": [
     "se_Play(8201) — id SE NDS sans portage PMDO identifié",
@@ -4081,7 +4128,7 @@
   "D39P32A/s22p0203.ssb": {
    "status": "COMPILED",
    "file": "d39p32a__s22p0203.lua",
-   "dialogues": 1,
+   "dialogues": 6,
    "dual_screen_focus": null,
    "gaps": [
     "se_Play(8199) — id SE NDS sans portage PMDO identifié",
@@ -4144,7 +4191,7 @@
   "D40P11A/s22p0601.ssb": {
    "status": "COMPILED",
    "file": "d40p11a__s22p0601.lua",
-   "dialogues": 3,
+   "dialogues": 5,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_ON_THE_CEILING non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -4153,7 +4200,7 @@
   "D40P11A/s22p0801.ssb": {
    "status": "COMPILED",
    "file": "d40p11a__s22p0801.lua",
-   "dialogues": 4,
+   "dialogues": 6,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -4315,21 +4362,21 @@
   "D41P41A/s22p1105.ssb": {
    "status": "COMPILED",
    "file": "d41p41a__s22p1105.lua",
-   "dialogues": 12,
+   "dialogues": 19,
    "dual_screen_focus": null,
    "gaps": null
   },
   "D41P41A/s22p1108.ssb": {
    "status": "COMPILED",
    "file": "d41p41a__s22p1108.lua",
-   "dialogues": 10,
+   "dialogues": 11,
    "dual_screen_focus": null,
    "gaps": null
   },
   "D41P41A/s22p1110.ssb": {
    "status": "COMPILED",
    "file": "d41p41a__s22p1110.lua",
-   "dialogues": 88,
+   "dialogues": 152,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_PLANETS_PARALYSIS non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
@@ -4360,7 +4407,7 @@
   "D41P41A/s22p1301.ssb": {
    "status": "COMPILED",
    "file": "d41p41a__s22p1301.lua",
-   "dialogues": 9,
+   "dialogues": 14,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_DOWN_A_DARK_PATH non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
@@ -4586,22 +4633,27 @@
    ]
   },
   "D45P21A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "switch:case ['1', 'default']"
+   "status": "COMPILED",
+   "file": "d45p21a__enter00.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_FORTUNE_RAVINE_DEPTHS non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "D45P21A/enter05.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "switch:case ['254', 'default']"
-   ]
+   "status": "COMPILED",
+   "file": "d45p21a__enter05.lua",
+   "dialogues": 10,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D45P21A/enter06.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "switch:case ['254', 'default']"
-   ]
+   "status": "COMPILED",
+   "file": "d45p21a__enter06.lua",
+   "dialogues": 10,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D45P21A/enter07.ssb": {
    "status": "COMPILED",
@@ -5346,22 +5398,27 @@
    ]
   },
   "D54P11A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "switch:case ['3', 'default']"
+   "status": "COMPILED",
+   "file": "d54p11a__enter00.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_SOUTHERN_JUNGLE non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "D54P11A/enter03.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "switch:case ['135', 'default']"
-   ]
+   "status": "COMPILED",
+   "file": "d54p11a__enter03.lua",
+   "dialogues": 37,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D54P11A/enter04.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "switch:case ['135', 'default']"
-   ]
+   "status": "COMPILED",
+   "file": "d54p11a__enter04.lua",
+   "dialogues": 30,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D54P11A/enter06.ssb": {
    "status": "COMPILED",
@@ -5380,22 +5437,25 @@
    ]
   },
   "D55P11A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "switch:case ['3', 'default']"
-   ]
+   "status": "COMPILED",
+   "file": "d55p11a__enter00.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D55P11A/enter03.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "switch:case ['135', 'default']"
-   ]
+   "status": "COMPILED",
+   "file": "d55p11a__enter03.lua",
+   "dialogues": 37,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D55P11A/enter04.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "switch:case ['135', 'default']"
-   ]
+   "status": "COMPILED",
+   "file": "d55p11a__enter04.lua",
+   "dialogues": 30,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D55P11A/enter05.ssb": {
    "status": "COMPILED",
@@ -5446,22 +5506,25 @@
    ]
   },
   "D55P21A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "switch:case ['3', 'default']"
-   ]
+   "status": "COMPILED",
+   "file": "d55p21a__enter00.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D55P21A/enter05.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "switch:case ['135', 'default']"
-   ]
+   "status": "COMPILED",
+   "file": "d55p21a__enter05.lua",
+   "dialogues": 37,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D55P21A/enter06.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "switch:case ['135', 'default']"
-   ]
+   "status": "COMPILED",
+   "file": "d55p21a__enter06.lua",
+   "dialogues": 30,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D55P21A/enter07.ssb": {
    "status": "COMPILED",
@@ -5529,22 +5592,27 @@
    ]
   },
   "D56P11A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "switch:case ['3', 'default']"
+   "status": "COMPILED",
+   "file": "d56p11a__enter00.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_ILLUSION_STONE_CHAMBER non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "D56P11A/enter03.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "switch:case ['135', 'default']"
-   ]
+   "status": "COMPILED",
+   "file": "d56p11a__enter03.lua",
+   "dialogues": 37,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D56P11A/enter04.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "switch:case ['135', 'default']"
-   ]
+   "status": "COMPILED",
+   "file": "d56p11a__enter04.lua",
+   "dialogues": 30,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D56P11A/enter09.ssb": {
    "status": "COMPILED",
@@ -5657,22 +5725,27 @@
    ]
   },
   "D56P21A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "switch:case ['3', 'default']"
+   "status": "COMPILED",
+   "file": "d56p21a__enter00.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_DEEP_LIMESTONE_CAVERN non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "D56P21A/enter05.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "switch:case ['135', 'default']"
-   ]
+   "status": "COMPILED",
+   "file": "d56p21a__enter05.lua",
+   "dialogues": 37,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D56P21A/enter06.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "switch:case ['135', 'default']"
-   ]
+   "status": "COMPILED",
+   "file": "d56p21a__enter06.lua",
+   "dialogues": 30,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D56P21A/enter07.ssb": {
    "status": "COMPILED",
@@ -5764,10 +5837,11 @@
    ]
   },
   "D57P21A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "switch:case ['2', 'default']"
-   ]
+   "status": "COMPILED",
+   "file": "d57p21a__enter00.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "D57P21A/enter01.ssb": {
    "status": "COMPILED",
@@ -6028,7 +6102,7 @@
   "D73P11A/enter17.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "switch:case ['224', 'default']"
+    "supervision_ExecuteActing"
    ]
   },
   "D73P11A/enter22.ssb": {
@@ -7914,8 +7988,7 @@
   "G01P01A/enter00.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "supervision_ExecuteStationSub",
-    "switch:case ['201', 'default']"
+    "supervision_ExecuteStationSub"
    ]
   },
   "G01P01A/enter02.ssb": {
@@ -8105,9 +8178,14 @@
    "gaps": null
   },
   "G01P01B/m01a0104.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "g01p01b__m01a0104.lua",
+   "dialogues": 45,
+   "dual_screen_focus": true,
+   "gaps": [
+    "BGM BGM_FIRE_CRACKLING_LOUDER non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
+    "se_Play(8963) — id SE NDS sans portage PMDO identifié",
+    "se_Play(6410) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P01B/m02a0101.ssb": {
@@ -8119,7 +8197,7 @@
   "G01P01B/m02a0105.ssb": {
    "status": "COMPILED",
    "file": "g01p01b__m02a0105.lua",
-   "dialogues": 8,
+   "dialogues": 19,
    "dual_screen_focus": true,
    "gaps": [
     "BGM BGM_FIRE_CRACKLING_LOUDER non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
@@ -8131,14 +8209,14 @@
   "G01P01B/m02d0112.ssb": {
    "status": "COMPILED",
    "file": "g01p01b__m02d0112.lua",
-   "dialogues": 4,
+   "dialogues": 6,
    "dual_screen_focus": true,
    "gaps": null
   },
   "G01P01B/m04a0103.ssb": {
    "status": "COMPILED",
    "file": "g01p01b__m04a0103.lua",
-   "dialogues": 1,
+   "dialogues": 6,
    "dual_screen_focus": true,
    "gaps": [
     "se_Play(8966) — id SE NDS sans portage PMDO identifié"
@@ -8154,7 +8232,7 @@
   "G01P01B/m26a0601.ssb": {
    "status": "COMPILED",
    "file": "g01p01b__m26a0601.lua",
-   "dialogues": 5,
+   "dialogues": 9,
    "dual_screen_focus": true,
    "gaps": [
     "BGM BGM_A_WISH_FOR_PEACE non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -8228,10 +8306,11 @@
    ]
   },
   "G01P02A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "switch:case ['195', 'default']"
-   ]
+   "status": "COMPILED",
+   "file": "g01p02a__enter00.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P02A/enter01.ssb": {
    "status": "COMPILED",
@@ -8264,15 +8343,14 @@
   "G01P02A/m02a0106.ssb": {
    "status": "COMPILED",
    "file": "g01p02a__m02a0106.lua",
-   "dialogues": 1,
+   "dialogues": 3,
    "dual_screen_focus": null,
    "gaps": null
   },
   "G01P03A/enter00.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "supervision_ExecuteStationSub",
-    "switch:case ['201', 'default']"
+    "supervision_ExecuteStationSub"
    ]
   },
   "G01P03A/enter02.ssb": {
@@ -8285,28 +8363,27 @@
   "G01P03A/enter11.ssb": {
    "status": "COMPILED",
    "file": "g01p03a__enter11.lua",
-   "dialogues": 4,
+   "dialogues": 12,
    "dual_screen_focus": null,
    "gaps": null
   },
   "G01P03A/enter12.ssb": {
    "status": "COMPILED",
    "file": "g01p03a__enter12.lua",
-   "dialogues": 2,
+   "dialogues": 9,
    "dual_screen_focus": null,
    "gaps": null
   },
   "G01P03A/m00p0302.ssb": {
    "status": "COMPILED",
    "file": "g01p03a__m00p0302.lua",
-   "dialogues": 14,
+   "dialogues": 26,
    "dual_screen_focus": null,
    "gaps": null
   },
   "G01P03A/m02a0108.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "Turn2DirectionTurn",
     "routine3:forever {\n        Turn2Direction"
    ]
   },
@@ -8326,7 +8403,7 @@
   "G01P03A/m03a0102.ssb": {
    "status": "COMPILED",
    "file": "g01p03a__m03a0102.lua",
-   "dialogues": 42,
+   "dialogues": 75,
    "dual_screen_focus": true,
    "gaps": null
   },
@@ -8348,7 +8425,6 @@
    "unsupported_ops": [
     "$EVENT_LOCAL = 1",
     "$PERFORMANCE_PROGRESS_LIST[3] = 1",
-    "Turn2DirectionTurn",
     "clear $EVENT_LOCAL",
     "routine1:forever {\n        SlidePositionOffset"
    ]
@@ -8356,14 +8432,14 @@
   "G01P03A/m03a0701.ssb": {
    "status": "COMPILED",
    "file": "g01p03a__m03a0701.lua",
-   "dialogues": 1,
+   "dialogues": 6,
    "dual_screen_focus": null,
    "gaps": null
   },
   "G01P03A/m03a1203.ssb": {
    "status": "COMPILED",
    "file": "g01p03a__m03a1203.lua",
-   "dialogues": 5,
+   "dialogues": 26,
    "dual_screen_focus": null,
    "gaps": [
     "se_Play(8720) — id SE NDS sans portage PMDO identifié",
@@ -8395,7 +8471,7 @@
   "G01P03A/m07a0801.ssb": {
    "status": "COMPILED",
    "file": "g01p03a__m07a0801.lua",
-   "dialogues": 22,
+   "dialogues": 30,
    "dual_screen_focus": null,
    "gaps": [
     "se_Play(5122) — id SE NDS sans portage PMDO identifié",
@@ -8406,7 +8482,7 @@
   "G01P03A/m12a0301.ssb": {
    "status": "COMPILED",
    "file": "g01p03a__m12a0301.lua",
-   "dialogues": 1,
+   "dialogues": 6,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -8425,14 +8501,14 @@
   "G01P03A/m13a0501.ssb": {
    "status": "COMPILED",
    "file": "g01p03a__m13a0501.lua",
-   "dialogues": 7,
+   "dialogues": 14,
    "dual_screen_focus": null,
    "gaps": null
   },
   "G01P03A/m13a0801.ssb": {
    "status": "COMPILED",
    "file": "g01p03a__m13a0801.lua",
-   "dialogues": 32,
+   "dialogues": 39,
    "dual_screen_focus": null,
    "gaps": [
     "se_Play(5122) — id SE NDS sans portage PMDO identifié"
@@ -8441,21 +8517,21 @@
   "G01P03A/m14a0201.ssb": {
    "status": "COMPILED",
    "file": "g01p03a__m14a0201.lua",
-   "dialogues": 1,
+   "dialogues": 6,
    "dual_screen_focus": null,
    "gaps": null
   },
   "G01P03A/m15a0201.ssb": {
    "status": "COMPILED",
    "file": "g01p03a__m15a0201.lua",
-   "dialogues": 5,
+   "dialogues": 15,
    "dual_screen_focus": null,
    "gaps": null
   },
   "G01P03A/m15b0701.ssb": {
    "status": "COMPILED",
    "file": "g01p03a__m15b0701.lua",
-   "dialogues": 5,
+   "dialogues": 15,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -8468,7 +8544,7 @@
   "G01P03A/m26a0611.ssb": {
    "status": "COMPILED",
    "file": "g01p03a__m26a0611.lua",
-   "dialogues": 4,
+   "dialogues": 18,
    "dual_screen_focus": true,
    "gaps": [
     "BGM BGM_MEMORIES_RETURNED non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -8917,7 +8993,7 @@
   "G01P03A/um1104.ssb": {
    "status": "COMPILED",
    "file": "g01p03a__um1104.lua",
-   "dialogues": 11,
+   "dialogues": 15,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -8931,7 +9007,7 @@
   "G01P03A/um1106.ssb": {
    "status": "COMPILED",
    "file": "g01p03a__um1106.lua",
-   "dialogues": 21,
+   "dialogues": 23,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -9074,9 +9150,14 @@
    "gaps": null
   },
   "G01P03A/um1301.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "g01p03a__um1301.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P03A/um1302.ssb": {
@@ -9094,9 +9175,14 @@
    "gaps": null
   },
   "G01P03A/um1304.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "g01p03a__um1304.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P03A/um1305.ssb": {
@@ -10302,7 +10388,7 @@
   "G01P04A/c00a0401.ssb": {
    "status": "COMPILED",
    "file": "g01p04a__c00a0401.lua",
-   "dialogues": 2,
+   "dialogues": 12,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -10339,8 +10425,7 @@
   "G01P04A/enter00.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "supervision_ExecuteStationSub",
-    "switch:case ['202', 'default']"
+    "supervision_ExecuteStationSub"
    ]
   },
   "G01P04A/enter01.ssb": {
@@ -10385,7 +10470,7 @@
   "G01P04A/m02a0109.ssb": {
    "status": "COMPILED",
    "file": "g01p04a__m02a0109.lua",
-   "dialogues": 11,
+   "dialogues": 15,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -10419,7 +10504,7 @@
   "G01P04A/m03a0702.ssb": {
    "status": "COMPILED",
    "file": "g01p04a__m03a0702.lua",
-   "dialogues": 1,
+   "dialogues": 6,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -10434,7 +10519,7 @@
   "G01P04A/m04a0104.ssb": {
    "status": "COMPILED",
    "file": "g01p04a__m04a0104.lua",
-   "dialogues": 2,
+   "dialogues": 4,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -10460,7 +10545,7 @@
   "G01P04A/m05a0701.ssb": {
    "status": "COMPILED",
    "file": "g01p04a__m05a0701.lua",
-   "dialogues": 14,
+   "dialogues": 23,
    "dual_screen_focus": null,
    "gaps": [
     "se_Play(5122) — id SE NDS sans portage PMDO identifié"
@@ -10469,7 +10554,7 @@
   "G01P04A/m05a0705.ssb": {
    "status": "COMPILED",
    "file": "g01p04a__m05a0705.lua",
-   "dialogues": 28,
+   "dialogues": 48,
    "dual_screen_focus": null,
    "gaps": [
     "se_Play(5122) — id SE NDS sans portage PMDO identifié",
@@ -10520,14 +10605,14 @@
   "G01P04A/m07a1301.ssb": {
    "status": "COMPILED",
    "file": "g01p04a__m07a1301.lua",
-   "dialogues": 31,
+   "dialogues": 43,
    "dual_screen_focus": null,
    "gaps": null
   },
   "G01P04A/m07a1401.ssb": {
    "status": "COMPILED",
    "file": "g01p04a__m07a1401.lua",
-   "dialogues": 7,
+   "dialogues": 11,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -10566,7 +10651,7 @@
   "G01P04A/m11a0502.ssb": {
    "status": "COMPILED",
    "file": "g01p04a__m11a0502.lua",
-   "dialogues": 13,
+   "dialogues": 15,
    "dual_screen_focus": null,
    "gaps": [
     "se_Play(5122) — id SE NDS sans portage PMDO identifié"
@@ -10581,21 +10666,21 @@
   "G01P04A/m12a0302.ssb": {
    "status": "COMPILED",
    "file": "g01p04a__m12a0302.lua",
-   "dialogues": 1,
+   "dialogues": 6,
    "dual_screen_focus": null,
    "gaps": null
   },
   "G01P04A/m13a0502.ssb": {
    "status": "COMPILED",
    "file": "g01p04a__m13a0502.lua",
-   "dialogues": 1,
+   "dialogues": 6,
    "dual_screen_focus": null,
    "gaps": null
   },
   "G01P04A/m13a0901.ssb": {
    "status": "COMPILED",
    "file": "g01p04a__m13a0901.lua",
-   "dialogues": 10,
+   "dialogues": 21,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -10609,7 +10694,7 @@
   "G01P04A/m14a0202.ssb": {
    "status": "COMPILED",
    "file": "g01p04a__m14a0202.lua",
-   "dialogues": 10,
+   "dialogues": 20,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -10635,7 +10720,7 @@
   "G01P04A/m16a0601.ssb": {
    "status": "COMPILED",
    "file": "g01p04a__m16a0601.lua",
-   "dialogues": 26,
+   "dialogues": 30,
    "dual_screen_focus": null,
    "gaps": [
     "se_Play(7182) — id SE NDS sans portage PMDO identifié",
@@ -10645,7 +10730,7 @@
   "G01P04A/m21a0201.ssb": {
    "status": "COMPILED",
    "file": "g01p04a__m21a0201.lua",
-   "dialogues": 54,
+   "dialogues": 88,
    "dual_screen_focus": null,
    "gaps": [
     "se_Play(5122) — id SE NDS sans portage PMDO identifié",
@@ -10657,7 +10742,7 @@
   "G01P04A/m21a0203.ssb": {
    "status": "COMPILED",
    "file": "g01p04a__m21a0203.lua",
-   "dialogues": 113,
+   "dialogues": 126,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_I_SAW_SOMETHING_AGAIN non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
@@ -10674,7 +10759,7 @@
   "G01P04A/m21a0205.ssb": {
    "status": "COMPILED",
    "file": "g01p04a__m21a0205.lua",
-   "dialogues": 17,
+   "dialogues": 31,
    "dual_screen_focus": null,
    "gaps": [
     "SetEffect EFFECT_TWO_ARROWS_AT_SIDE_LEFT — VFX sans émote PMDO équivalente",
@@ -10698,7 +10783,7 @@
   "G01P04A/m21a0701.ssb": {
    "status": "COMPILED",
    "file": "g01p04a__m21a0701.lua",
-   "dialogues": 12,
+   "dialogues": 14,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -10711,7 +10796,7 @@
   "G01P04A/m22a0201.ssb": {
    "status": "COMPILED",
    "file": "g01p04a__m22a0201.lua",
-   "dialogues": 26,
+   "dialogues": 42,
    "dual_screen_focus": null,
    "gaps": [
     "se_Play(8965) — id SE NDS sans portage PMDO identifié",
@@ -10721,7 +10806,7 @@
   "G01P04A/m22a0204.ssb": {
    "status": "COMPILED",
    "file": "g01p04a__m22a0204.lua",
-   "dialogues": 81,
+   "dialogues": 109,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_I_SAW_SOMETHING_AGAIN non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
@@ -10818,21 +10903,21 @@
   "G01P04A/s01p1004.ssb": {
    "status": "COMPILED",
    "file": "g01p04a__s01p1004.lua",
-   "dialogues": 4,
+   "dialogues": 6,
    "dual_screen_focus": null,
    "gaps": null
   },
   "G01P04A/s01p1201.ssb": {
    "status": "COMPILED",
    "file": "g01p04a__s01p1201.lua",
-   "dialogues": 7,
+   "dialogues": 9,
    "dual_screen_focus": null,
    "gaps": null
   },
   "G01P04A/s03p0302.ssb": {
    "status": "COMPILED",
    "file": "g01p04a__s03p0302.lua",
-   "dialogues": 21,
+   "dialogues": 45,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -10916,9 +11001,14 @@
    "gaps": null
   },
   "G01P04A/um0307.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "g01p04a__um0307.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/um0308.ssb": {
@@ -10929,9 +11019,14 @@
    "gaps": null
   },
   "G01P04A/um0309.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "g01p04a__um0309.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/um0310.ssb": {
@@ -10951,9 +11046,14 @@
    "gaps": null
   },
   "G01P04A/um0312.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "g01p04a__um0312.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/um0400.ssb": {
@@ -10980,9 +11080,14 @@
    ]
   },
   "G01P04A/um0403.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "g01p04a__um0403.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/um0500.ssb": {
@@ -11000,9 +11105,14 @@
    "gaps": null
   },
   "G01P04A/um0502.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "g01p04a__um0502.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/um0600.ssb": {
@@ -11029,9 +11139,14 @@
    "gaps": null
   },
   "G01P04A/um0603.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "g01p04a__um0603.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/um0604.ssb": {
@@ -11042,9 +11157,14 @@
    "gaps": null
   },
   "G01P04A/um0605.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "g01p04a__um0605.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/um0606.ssb": {
@@ -11064,9 +11184,14 @@
    "gaps": null
   },
   "G01P04A/um0608.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "g01p04a__um0608.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/um0700.ssb": {
@@ -11084,9 +11209,14 @@
    "gaps": null
   },
   "G01P04A/um0702.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "g01p04a__um0702.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/um0703.ssb": {
@@ -11097,9 +11227,14 @@
    "gaps": null
   },
   "G01P04A/um0704.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "g01p04a__um0704.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/um0705.ssb": {
@@ -11124,9 +11259,14 @@
    "gaps": null
   },
   "G01P04A/um0801.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "g01p04a__um0801.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/um1100.ssb": {
@@ -11144,9 +11284,14 @@
    "gaps": null
   },
   "G01P04A/um1102.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "g01p04a__um1102.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/um1103.ssb": {
@@ -11157,9 +11302,14 @@
    "gaps": null
   },
   "G01P04A/um1104.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "g01p04a__um1104.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/um1105.ssb": {
@@ -11170,9 +11320,14 @@
    "gaps": null
   },
   "G01P04A/um1106.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "g01p04a__um1106.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/um1200.ssb": {
@@ -11190,9 +11345,14 @@
    "gaps": null
   },
   "G01P04A/um1202.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "g01p04a__um1202.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/um1203.ssb": {
@@ -11203,9 +11363,14 @@
    "gaps": null
   },
   "G01P04A/um1204.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "g01p04a__um1204.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/um1300.ssb": {
@@ -11216,15 +11381,25 @@
    "gaps": null
   },
   "G01P04A/um1301.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "g01p04a__um1301.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/um1302.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "g01p04a__um1302.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/um1303.ssb": {
@@ -11242,9 +11417,14 @@
    "gaps": null
   },
   "G01P04A/um1401.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "g01p04a__um1401.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/um1402.ssb": {
@@ -11255,9 +11435,14 @@
    "gaps": null
   },
   "G01P04A/um1403.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "g01p04a__um1403.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/um1404.ssb": {
@@ -11275,15 +11460,25 @@
    "gaps": null
   },
   "G01P04A/um1501.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "g01p04a__um1501.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/um1502.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "g01p04a__um1502.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/um1600.ssb": {
@@ -11301,9 +11496,14 @@
    "gaps": null
   },
   "G01P04A/um1602.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "g01p04a__um1602.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/um1603.ssb": {
@@ -11323,9 +11523,14 @@
    ]
   },
   "G01P04A/um1605.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "g01p04a__um1605.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/um2000.ssb": {
@@ -11343,9 +11548,14 @@
    "gaps": null
   },
   "G01P04A/um2101.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "g01p04a__um2101.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/um2200.ssb": {
@@ -11363,9 +11573,14 @@
    "gaps": null
   },
   "G01P04A/um2202.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "g01p04a__um2202.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/um2203.ssb": {
@@ -11376,9 +11591,14 @@
    "gaps": null
   },
   "G01P04A/um2204.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "g01p04a__um2204.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/um2400.ssb": {
@@ -11405,9 +11625,14 @@
    ]
   },
   "G01P04A/um2403.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "g01p04a__um2403.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/um2500.ssb": {
@@ -11434,9 +11659,14 @@
    ]
   },
   "G01P04A/um2503.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "g01p04a__um2503.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/un0100.ssb": {
@@ -11517,9 +11747,14 @@
    "gaps": null
   },
   "G01P04A/us0101.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "g01p04a__us0101.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/us0102.ssb": {
@@ -11539,9 +11774,14 @@
    ]
   },
   "G01P04A/us0104.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "g01p04a__us0104.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/us0105.ssb": {
@@ -11566,9 +11806,14 @@
    "gaps": null
   },
   "G01P04A/us0202.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "g01p04a__us0202.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/us0203.ssb": {
@@ -11579,9 +11824,14 @@
    "gaps": null
   },
   "G01P04A/us0204.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "g01p04a__us0204.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/us0300.ssb": {
@@ -11599,9 +11849,14 @@
    "gaps": null
   },
   "G01P04A/us0302.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "g01p04a__us0302.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/us0303.ssb": {
@@ -11619,9 +11874,14 @@
    "gaps": null
   },
   "G01P04A/us0305.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "g01p04a__us0305.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/us0306.ssb": {
@@ -11639,9 +11899,14 @@
    "gaps": null
   },
   "G01P04A/us0308.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "g01p04a__us0308.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/us0309.ssb": {
@@ -11659,9 +11924,14 @@
    "gaps": null
   },
   "G01P04A/us0311.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "g01p04a__us0311.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/us0400.ssb": {
@@ -11715,9 +11985,14 @@
    ]
   },
   "G01P04A/us0407.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "g01p04a__us0407.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/us0408.ssb": {
@@ -11728,9 +12003,14 @@
    "gaps": null
   },
   "G01P04A/us0409.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "g01p04a__us0409.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/us2000.ssb": {
@@ -11748,9 +12028,14 @@
    "gaps": null
   },
   "G01P04A/us2002.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "g01p04a__us2002.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/us2003.ssb": {
@@ -11774,9 +12059,14 @@
    "gaps": null
   },
   "G01P04A/us2006.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "g01p04a__us2006.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/us2007.ssb": {
@@ -11821,9 +12111,14 @@
    "gaps": null
   },
   "G01P04A/us2102.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "g01p04a__us2102.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/us2200.ssb": {
@@ -11850,9 +12145,14 @@
    "gaps": null
   },
   "G01P04A/us2203.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "g01p04a__us2203.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/us2204.ssb": {
@@ -11872,9 +12172,14 @@
    "gaps": null
   },
   "G01P04A/us2206.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "g01p04a__us2206.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/us2300.ssb": {
@@ -11901,9 +12206,14 @@
    "gaps": null
   },
   "G01P04A/us2303.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "g01p04a__us2303.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/us3100.ssb": {
@@ -11914,9 +12224,14 @@
    "gaps": null
   },
   "G01P04A/us3101.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "g01p04a__us3101.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P04A/us3102.ssb": {
@@ -12889,7 +13204,7 @@
   "G01P06B/m07a0901.ssb": {
    "status": "COMPILED",
    "file": "g01p06b__m07a0901.lua",
-   "dialogues": 6,
+   "dialogues": 8,
    "dual_screen_focus": null,
    "gaps": [
     "SetEffect EFFECT_EATING — VFX sans émote PMDO équivalente",
@@ -12954,20 +13269,25 @@
   "G01P07A/m02a0111.ssb": {
    "status": "COMPILED",
    "file": "g01p07a__m02a0111.lua",
-   "dialogues": 5,
+   "dialogues": 7,
    "dual_screen_focus": null,
    "gaps": null
   },
   "G01P07A/m02a0201.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "g01p07a__m02a0201.lua",
+   "dialogues": 42,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(8970) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5143) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P07A/m05a0401.ssb": {
    "status": "COMPILED",
    "file": "g01p07a__m05a0401.lua",
-   "dialogues": 1,
+   "dialogues": 6,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -13001,7 +13321,7 @@
   "G01P07A/m15b1101.ssb": {
    "status": "COMPILED",
    "file": "g01p07a__m15b1101.lua",
-   "dialogues": 26,
+   "dialogues": 49,
    "dual_screen_focus": null,
    "gaps": [
     "se_Play(8963) — id SE NDS sans portage PMDO identifié",
@@ -13026,7 +13346,7 @@
   "G01P07A/s20p0801.ssb": {
    "status": "COMPILED",
    "file": "g01p07a__s20p0801.lua",
-   "dialogues": 18,
+   "dialogues": 44,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -13070,9 +13390,14 @@
    "gaps": null
   },
   "G01P07A/us2001.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "g01p07a__us2001.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "G01P07A/us2002.ssb": {
@@ -13176,7 +13501,7 @@
   "G01P07C/c00a0301.ssb": {
    "status": "COMPILED",
    "file": "g01p07c__c00a0301.lua",
-   "dialogues": 1,
+   "dialogues": 9,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -13197,7 +13522,7 @@
   "G01P07C/m02a0601.ssb": {
    "status": "COMPILED",
    "file": "g01p07c__m02a0601.lua",
-   "dialogues": 3,
+   "dialogues": 5,
    "dual_screen_focus": null,
    "gaps": [
     "SetEffect EFFECT_TWO_ARROWS_AT_SIDE_LEFT — VFX sans émote PMDO équivalente"
@@ -13224,21 +13549,21 @@
   "G01P07C/m03a1311.ssb": {
    "status": "COMPILED",
    "file": "g01p07c__m03a1311.lua",
-   "dialogues": 1,
+   "dialogues": 3,
    "dual_screen_focus": null,
    "gaps": null
   },
   "G01P07C/m04a0302.ssb": {
    "status": "COMPILED",
    "file": "g01p07c__m04a0302.lua",
-   "dialogues": 2,
+   "dialogues": 10,
    "dual_screen_focus": null,
    "gaps": null
   },
   "G01P07C/m05a0802.ssb": {
    "status": "COMPILED",
    "file": "g01p07c__m05a0802.lua",
-   "dialogues": 10,
+   "dialogues": 42,
    "dual_screen_focus": true,
    "gaps": [
     "se_Play(6410) — id SE NDS sans portage PMDO identifié",
@@ -13248,7 +13573,7 @@
   "G01P07C/m05a0804.ssb": {
    "status": "COMPILED",
    "file": "g01p07c__m05a0804.lua",
-   "dialogues": 4,
+   "dialogues": 25,
    "dual_screen_focus": null,
    "gaps": [
     "se_Play(8965) — id SE NDS sans portage PMDO identifié",
@@ -13258,21 +13583,21 @@
   "G01P07C/m05a0806.ssb": {
    "status": "COMPILED",
    "file": "g01p07c__m05a0806.lua",
-   "dialogues": 1,
+   "dialogues": 2,
    "dual_screen_focus": null,
    "gaps": null
   },
   "G01P07C/m05a0808.ssb": {
    "status": "COMPILED",
    "file": "g01p07c__m05a0808.lua",
-   "dialogues": 1,
+   "dialogues": 2,
    "dual_screen_focus": null,
    "gaps": null
   },
   "G01P07C/m05a0811.ssb": {
    "status": "COMPILED",
    "file": "g01p07c__m05a0811.lua",
-   "dialogues": 10,
+   "dialogues": 52,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_I_SAW_SOMETHING_AGAIN non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
@@ -13283,14 +13608,14 @@
   "G01P07C/m07a1201.ssb": {
    "status": "COMPILED",
    "file": "g01p07c__m07a1201.lua",
-   "dialogues": 4,
+   "dialogues": 24,
    "dual_screen_focus": null,
    "gaps": null
   },
   "G01P07C/m08a0102.ssb": {
    "status": "COMPILED",
    "file": "g01p07c__m08a0102.lua",
-   "dialogues": 8,
+   "dialogues": 55,
    "dual_screen_focus": true,
    "gaps": null
   },
@@ -13303,14 +13628,14 @@
   "G01P07C/m11a0702.ssb": {
    "status": "COMPILED",
    "file": "g01p07c__m11a0702.lua",
-   "dialogues": 3,
+   "dialogues": 18,
    "dual_screen_focus": true,
    "gaps": null
   },
   "G01P07C/m11a0704.ssb": {
    "status": "COMPILED",
    "file": "g01p07c__m11a0704.lua",
-   "dialogues": 6,
+   "dialogues": 24,
    "dual_screen_focus": null,
    "gaps": [
     "se_Play(5143) — id SE NDS sans portage PMDO identifié"
@@ -13332,7 +13657,7 @@
   "G01P07C/m21a0302.ssb": {
    "status": "COMPILED",
    "file": "g01p07c__m21a0302.lua",
-   "dialogues": 3,
+   "dialogues": 18,
    "dual_screen_focus": true,
    "gaps": null
   },
@@ -13352,7 +13677,7 @@
   "G01P07C/m26a06c2.ssb": {
    "status": "COMPILED",
    "file": "g01p07c__m26a06c2.lua",
-   "dialogues": 3,
+   "dialogues": 15,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_MEMORIES_RETURNED non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -13366,10 +13691,11 @@
    "gaps": null
   },
   "G01P08A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "switch:case ['203', 'default']"
-   ]
+   "status": "COMPILED",
+   "file": "g01p08a__enter00.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "G01P08A/enter01.ssb": {
    "status": "COMPILED",
@@ -13486,7 +13812,7 @@
   "H01P99A/c00a1001.ssb": {
    "status": "COMPILED",
    "file": "h01p99a__c00a1001.lua",
-   "dialogues": 1,
+   "dialogues": 9,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_OCEAN1 non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -13495,8 +13821,7 @@
   "H01P99A/enter00.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "supervision_ExecuteStationSub",
-    "switch:case ['324', 'default']"
+    "supervision_ExecuteStationSub"
    ]
   },
   "H01P99A/enter01.ssb": {
@@ -13538,7 +13863,7 @@
   "H01P99A/m20a0202.ssb": {
    "status": "COMPILED",
    "file": "h01p99a__m20a0202.lua",
-   "dialogues": 6,
+   "dialogues": 19,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_OCEAN1 non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
@@ -13564,7 +13889,7 @@
   "H01P99A/s03p2002.ssb": {
    "status": "COMPILED",
    "file": "h01p99a__s03p2002.lua",
-   "dialogues": 7,
+   "dialogues": 21,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_AT_THE_END_OF_THE_DAY non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -13579,7 +13904,7 @@
   "H01P99A/s20p0401.ssb": {
    "status": "COMPILED",
    "file": "h01p99a__s20p0401.lua",
-   "dialogues": 8,
+   "dialogues": 14,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_OCEAN1 non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -13588,7 +13913,7 @@
   "H01P99A/s21p0401.ssb": {
    "status": "COMPILED",
    "file": "h01p99a__s21p0401.lua",
-   "dialogues": 4,
+   "dialogues": 24,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_OCEAN1 non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -14020,7 +14345,7 @@
   "H01P99E/m20a0305.ssb": {
    "status": "COMPILED",
    "file": "h01p99e__m20a0305.lua",
-   "dialogues": 12,
+   "dialogues": 38,
    "dual_screen_focus": true,
    "gaps": [
     "se_Play(6410) — id SE NDS sans portage PMDO identifié"
@@ -14029,14 +14354,14 @@
   "H01P99E/m20a0307.ssb": {
    "status": "COMPILED",
    "file": "h01p99e__m20a0307.lua",
-   "dialogues": 1,
+   "dialogues": 6,
    "dual_screen_focus": true,
    "gaps": null
   },
   "H01P99E/m20a0309.ssb": {
    "status": "COMPILED",
    "file": "h01p99e__m20a0309.lua",
-   "dialogues": 11,
+   "dialogues": 24,
    "dual_screen_focus": true,
    "gaps": null
   },
@@ -14052,7 +14377,7 @@
   "H01P99E/s21p0203.ssb": {
    "status": "COMPILED",
    "file": "h01p99e__s21p0203.lua",
-   "dialogues": 1,
+   "dialogues": 15,
    "dual_screen_focus": true,
    "gaps": [
     "BGM BGM_IN_THE_HANDS_OF_FATE non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -14061,7 +14386,7 @@
   "H01P99E/s21p0204.ssb": {
    "status": "COMPILED",
    "file": "h01p99e__s21p0204.lua",
-   "dialogues": 3,
+   "dialogues": 13,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_IN_THE_HANDS_OF_FATE non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -14070,7 +14395,7 @@
   "H01P99E/s21p0205.ssb": {
    "status": "COMPILED",
    "file": "h01p99e__s21p0205.lua",
-   "dialogues": 2,
+   "dialogues": 15,
    "dual_screen_focus": true,
    "gaps": [
     "BGM BGM_IN_THE_HANDS_OF_FATE non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -14079,7 +14404,7 @@
   "H01P99E/s21p0207.ssb": {
    "status": "COMPILED",
    "file": "h01p99e__s21p0207.lua",
-   "dialogues": 6,
+   "dialogues": 33,
    "dual_screen_focus": true,
    "gaps": [
     "BGM BGM_IN_THE_HANDS_OF_FATE non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -14088,7 +14413,7 @@
   "H02P99A/c00a1101.ssb": {
    "status": "COMPILED",
    "file": "h02p99a__c00a1101.lua",
-   "dialogues": 2,
+   "dialogues": 7,
    "dual_screen_focus": true,
    "gaps": [
     "BGM BGM_DO_YOUR_BEST_AS_ALWAYS non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -14097,8 +14422,7 @@
   "H02P99A/enter00.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "supervision_ExecuteStationSub",
-    "switch:case ['218', 'default']"
+    "supervision_ExecuteStationSub"
    ]
   },
   "H02P99A/enter04.ssb": {
@@ -14118,7 +14442,7 @@
   "H02P99A/m20a0203.ssb": {
    "status": "COMPILED",
    "file": "h02p99a__m20a0203.lua",
-   "dialogues": 3,
+   "dialogues": 11,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_OCEAN1 non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -14127,7 +14451,7 @@
   "H02P99A/m20a0310.ssb": {
    "status": "COMPILED",
    "file": "h02p99a__m20a0310.lua",
-   "dialogues": 3,
+   "dialogues": 5,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_OCEAN1 non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
@@ -14143,7 +14467,7 @@
   "H02P99A/m20a0801.ssb": {
    "status": "COMPILED",
    "file": "h02p99a__m20a0801.lua",
-   "dialogues": 42,
+   "dialogues": 93,
    "dual_screen_focus": null,
    "gaps": [
     "SetEffect EFFECT_TWO_ARROWS_AT_SIDE_LEFT — VFX sans émote PMDO équivalente",
@@ -14165,7 +14489,7 @@
   "H02P99A/s03p0502.ssb": {
    "status": "COMPILED",
    "file": "h02p99a__s03p0502.lua",
-   "dialogues": 10,
+   "dialogues": 24,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_DO_YOUR_BEST_AS_ALWAYS non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -14180,7 +14504,7 @@
   "H02P99A/s03p0903.ssb": {
    "status": "COMPILED",
    "file": "h02p99a__s03p0903.lua",
-   "dialogues": 7,
+   "dialogues": 22,
    "dual_screen_focus": true,
    "gaps": [
     "BGM BGM_OCEAN1 non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -14199,7 +14523,7 @@
   "H02P99A/s03p1401.ssb": {
    "status": "COMPILED",
    "file": "h02p99a__s03p1401.lua",
-   "dialogues": 4,
+   "dialogues": 8,
    "dual_screen_focus": true,
    "gaps": [
     "BGM BGM_OCEAN1 non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -14208,7 +14532,7 @@
   "H02P99A/s03p2001.ssb": {
    "status": "COMPILED",
    "file": "h02p99a__s03p2001.lua",
-   "dialogues": 10,
+   "dialogues": 18,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_OCEAN1 non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
@@ -14231,7 +14555,7 @@
   "H02P99A/s20p0107.ssb": {
    "status": "COMPILED",
    "file": "h02p99a__s20p0107.lua",
-   "dialogues": 2,
+   "dialogues": 9,
    "dual_screen_focus": true,
    "gaps": [
     "BGM BGM_DO_YOUR_BEST_AS_ALWAYS non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -14240,7 +14564,7 @@
   "H02P99A/s20p0204.ssb": {
    "status": "COMPILED",
    "file": "h02p99a__s20p0204.lua",
-   "dialogues": 3,
+   "dialogues": 7,
    "dual_screen_focus": true,
    "gaps": [
     "BGM BGM_DO_YOUR_BEST_AS_ALWAYS non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -14249,7 +14573,7 @@
   "H02P99A/s20p0303.ssb": {
    "status": "COMPILED",
    "file": "h02p99a__s20p0303.lua",
-   "dialogues": 8,
+   "dialogues": 32,
    "dual_screen_focus": true,
    "gaps": [
     "BGM BGM_OCEAN1 non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -14258,7 +14582,7 @@
   "H02P99A/s20p0305.ssb": {
    "status": "COMPILED",
    "file": "h02p99a__s20p0305.lua",
-   "dialogues": 6,
+   "dialogues": 34,
    "dual_screen_focus": true,
    "gaps": [
     "BGM BGM_OCEAN1 non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
@@ -14268,14 +14592,14 @@
   "H02P99A/s21p0104.ssb": {
    "status": "COMPILED",
    "file": "h02p99a__s21p0104.lua",
-   "dialogues": 3,
+   "dialogues": 10,
    "dual_screen_focus": null,
    "gaps": null
   },
   "H02P99A/s21p0208.ssb": {
    "status": "COMPILED",
    "file": "h02p99a__s21p0208.lua",
-   "dialogues": 6,
+   "dialogues": 47,
    "dual_screen_focus": true,
    "gaps": [
     "BGM BGM_OCEAN1 non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -14284,7 +14608,7 @@
   "H02P99A/s22p0701.ssb": {
    "status": "COMPILED",
    "file": "h02p99a__s22p0701.lua",
-   "dialogues": 3,
+   "dialogues": 16,
    "dual_screen_focus": true,
    "gaps": [
     "BGM BGM_OCEAN1 non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -14346,9 +14670,14 @@
    "gaps": null
   },
   "H02P99A/us0303.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "h02p99a__us0303.lua",
+   "dialogues": 148,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié",
+    "se_Play(5122) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "H02P99A/us0400.ssb": {
@@ -14412,7 +14741,7 @@
   "H02P99C/m20a0205.ssb": {
    "status": "COMPILED",
    "file": "h02p99c__m20a0205.lua",
-   "dialogues": 39,
+   "dialogues": 88,
    "dual_screen_focus": true,
    "gaps": [
     "BGM BGM_FIRE_CRACKLING non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
@@ -14447,7 +14776,7 @@
   "H02P99C/s20p0102.ssb": {
    "status": "COMPILED",
    "file": "h02p99c__s20p0102.lua",
-   "dialogues": 4,
+   "dialogues": 36,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_OCEAN1 non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -14456,7 +14785,7 @@
   "H02P99C/s20p0104.ssb": {
    "status": "COMPILED",
    "file": "h02p99c__s20p0104.lua",
-   "dialogues": 4,
+   "dialogues": 20,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_OCEAN1 non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
@@ -14472,7 +14801,7 @@
   "H02P99C/s20p0203.ssb": {
    "status": "COMPILED",
    "file": "h02p99c__s20p0203.lua",
-   "dialogues": 4,
+   "dialogues": 14,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_OCEAN1 non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -14487,7 +14816,7 @@
   "H02P99C/s21p0102.ssb": {
    "status": "COMPILED",
    "file": "h02p99c__s21p0102.lua",
-   "dialogues": 7,
+   "dialogues": 52,
    "dual_screen_focus": true,
    "gaps": [
     "BGM BGM_OCEAN1 non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -14496,7 +14825,7 @@
   "H02P99C/s21p0103.ssb": {
    "status": "COMPILED",
    "file": "h02p99c__s21p0103.lua",
-   "dialogues": 2,
+   "dialogues": 28,
    "dual_screen_focus": true,
    "gaps": [
     "BGM BGM_OCEAN1 non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -14505,7 +14834,7 @@
   "H02P99C/s21p0105.ssb": {
    "status": "COMPILED",
    "file": "h02p99c__s21p0105.lua",
-   "dialogues": 1,
+   "dialogues": 34,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_OCEAN1 non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -14514,7 +14843,7 @@
   "H02P99C/s21p0106.ssb": {
    "status": "COMPILED",
    "file": "h02p99c__s21p0106.lua",
-   "dialogues": 3,
+   "dialogues": 10,
    "dual_screen_focus": true,
    "gaps": null
   },
@@ -14592,7 +14921,7 @@
   "P01P01A/enter27.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "switch:case ['224', 'default']"
+    "supervision_ExecuteActing"
    ]
   },
   "P01P01A/enter42.ssb": {
@@ -14607,7 +14936,7 @@
   "P01P01A/m00p0301.ssb": {
    "status": "COMPILED",
    "file": "p01p01a__m00p0301.lua",
-   "dialogues": 9,
+   "dialogues": 15,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -14664,14 +14993,14 @@
   "P01P01A/m22a0401.ssb": {
    "status": "COMPILED",
    "file": "p01p01a__m22a0401.lua",
-   "dialogues": 1,
+   "dialogues": 6,
    "dual_screen_focus": null,
    "gaps": null
   },
   "P01P01A/m22a0801.ssb": {
    "status": "COMPILED",
    "file": "p01p01a__m22a0801.lua",
-   "dialogues": 1,
+   "dialogues": 6,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -14765,7 +15094,7 @@
   "P01P01A/s03p0801.ssb": {
    "status": "COMPILED",
    "file": "p01p01a__s03p0801.lua",
-   "dialogues": 1,
+   "dialogues": 3,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -14778,14 +15107,14 @@
   "P01P01A/s03p1101.ssb": {
    "status": "COMPILED",
    "file": "p01p01a__s03p1101.lua",
-   "dialogues": 1,
+   "dialogues": 6,
    "dual_screen_focus": null,
    "gaps": null
   },
   "P01P01A/s03p1201.ssb": {
    "status": "COMPILED",
    "file": "p01p01a__s03p1201.lua",
-   "dialogues": 1,
+   "dialogues": 6,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -14866,7 +15195,7 @@
   "P01P01A/um0404.ssb": {
    "status": "COMPILED",
    "file": "p01p01a__um0404.lua",
-   "dialogues": 6,
+   "dialogues": 8,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -15073,7 +15402,7 @@
   "P01P01A/us0105.ssb": {
    "status": "COMPILED",
    "file": "p01p01a__us0105.lua",
-   "dialogues": 11,
+   "dialogues": 15,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -15087,7 +15416,7 @@
   "P01P01A/us0107.ssb": {
    "status": "COMPILED",
    "file": "p01p01a__us0107.lua",
-   "dialogues": 21,
+   "dialogues": 23,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -15178,7 +15507,7 @@
   "P01P01A/us3101.ssb": {
    "status": "COMPILED",
    "file": "p01p01a__us3101.lua",
-   "dialogues": 11,
+   "dialogues": 15,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -15192,15 +15521,16 @@
   "P01P01A/us3103.ssb": {
    "status": "COMPILED",
    "file": "p01p01a__us3103.lua",
-   "dialogues": 21,
+   "dialogues": 23,
    "dual_screen_focus": null,
    "gaps": null
   },
   "P01P02A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "switch:case ['224', 'default']"
-   ]
+   "status": "COMPILED",
+   "file": "p01p02a__enter00.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "P01P02A/enter01.ssb": {
    "status": "COMPILED",
@@ -15219,7 +15549,7 @@
   "P01P02A/m00p1201.ssb": {
    "status": "COMPILED",
    "file": "p01p02a__m00p1201.lua",
-   "dialogues": 8,
+   "dialogues": 21,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -15246,7 +15576,7 @@
   "P01P04A/enter05.ssb": {
    "status": "COMPILED",
    "file": "p01p04a__enter05.lua",
-   "dialogues": 6,
+   "dialogues": 8,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -15287,7 +15617,7 @@
   "P01P04A/s30a0302.ssb": {
    "status": "COMPILED",
    "file": "p01p04a__s30a0302.lua",
-   "dialogues": 14,
+   "dialogues": 16,
    "dual_screen_focus": null,
    "gaps": [
     "se_Play(6669) — id SE NDS sans portage PMDO identifié",
@@ -15303,7 +15633,7 @@
   "P01P04A/s30a0304.ssb": {
    "status": "COMPILED",
    "file": "p01p04a__s30a0304.lua",
-   "dialogues": 10,
+   "dialogues": 24,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_SPINDAS_CAFE non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
@@ -15541,7 +15871,7 @@
   "P01P04A/um0726.ssb": {
    "status": "COMPILED",
    "file": "p01p04a__um0726.lua",
-   "dialogues": 6,
+   "dialogues": 8,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -16332,7 +16662,7 @@
   "P01P04A/us3113.ssb": {
    "status": "COMPILED",
    "file": "p01p04a__us3113.lua",
-   "dialogues": 6,
+   "dialogues": 8,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -16394,7 +16724,7 @@
   "P02P01A/m05a0603.ssb": {
    "status": "COMPILED",
    "file": "p02p01a__m05a0603.lua",
-   "dialogues": 12,
+   "dialogues": 20,
    "dual_screen_focus": null,
    "gaps": [
     "SetEffect EFFECT_STUCK_IN_YELLOW_WATER — VFX sans émote PMDO équivalente",
@@ -16411,7 +16741,7 @@
   "P02P01A/m05a0606.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "switch:case ['0', 'default']"
+    "$COMPULSORY_SAVE_POINT = 3"
    ]
   },
   "P02P01A/m21a0601.ssb": {
@@ -17333,7 +17663,7 @@
   "P03P01A/m09d0613.ssb": {
    "status": "COMPILED",
    "file": "p03p01a__m09d0613.lua",
-   "dialogues": 2,
+   "dialogues": 8,
    "dual_screen_focus": null,
    "gaps": [
     "se_Play(5133) — id SE NDS sans portage PMDO identifié"
@@ -17351,7 +17681,7 @@
   "P03P01A/m09d0615.ssb": {
    "status": "COMPILED",
    "file": "p03p01a__m09d0615.lua",
-   "dialogues": 5,
+   "dialogues": 34,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_I_SAW_SOMETHING_AGAIN non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -17360,7 +17690,7 @@
   "P03P01A/m09d0652.ssb": {
    "status": "COMPILED",
    "file": "p03p01a__m09d0652.lua",
-   "dialogues": 1,
+   "dialogues": 3,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -17374,7 +17704,7 @@
   "P03P02A/m09a0606.ssb": {
    "status": "COMPILED",
    "file": "p03p02a__m09a0606.lua",
-   "dialogues": 9,
+   "dialogues": 31,
    "dual_screen_focus": true,
    "gaps": null
   },
@@ -17415,7 +17745,7 @@
   "P04P01C/m10a1201.ssb": {
    "status": "COMPILED",
    "file": "p04p01c__m10a1201.lua",
-   "dialogues": 4,
+   "dialogues": 8,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_TIME_GEAR non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -17424,7 +17754,7 @@
   "P04P01C/m10a1204.ssb": {
    "status": "COMPILED",
    "file": "p04p01c__m10a1204.lua",
-   "dialogues": 6,
+   "dialogues": 25,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_TIME_GEAR non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -17512,7 +17842,7 @@
   "P05P02A/m17a0104.ssb": {
    "status": "COMPILED",
    "file": "p05p02a__m17a0104.lua",
-   "dialogues": 10,
+   "dialogues": 36,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_IN_THE_FUTURE non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -17558,7 +17888,7 @@
   "P05P04A/m17a0401.ssb": {
    "status": "COMPILED",
    "file": "p05p04a__m17a0401.lua",
-   "dialogues": 15,
+   "dialogues": 37,
    "dual_screen_focus": null,
    "gaps": [
     "se_Play(7193) — id SE NDS sans portage PMDO identifié",
@@ -17568,7 +17898,7 @@
   "P05P04A/m17a0403.ssb": {
    "status": "COMPILED",
    "file": "p05p04a__m17a0403.lua",
-   "dialogues": 6,
+   "dialogues": 15,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_PLANETS_PARALYSIS non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -17591,7 +17921,7 @@
   "P06P01A/m26a0614.ssb": {
    "status": "COMPILED",
    "file": "p06p01a__m26a0614.lua",
-   "dialogues": 2,
+   "dialogues": 6,
    "dual_screen_focus": true,
    "gaps": [
     "BGM BGM_MEMORIES_RETURNED non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -17619,7 +17949,7 @@
   "P08P01A/m19a0601.ssb": {
    "status": "COMPILED",
    "file": "p08p01a__m19a0601.lua",
-   "dialogues": 58,
+   "dialogues": 90,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_IN_THE_FUTURE non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
@@ -17688,7 +18018,7 @@
   "P09P01A/m19b1001.ssb": {
    "status": "COMPILED",
    "file": "p09p01a__m19b1001.lua",
-   "dialogues": 103,
+   "dialogues": 150,
    "dual_screen_focus": true,
    "gaps": [
     "SetEffect 640 — VFX sans émote PMDO équivalente",
@@ -17711,7 +18041,7 @@
   "P09P01A/m19b1009.ssb": {
    "status": "COMPILED",
    "file": "p09p01a__m19b1009.lua",
-   "dialogues": 12,
+   "dialogues": 20,
    "dual_screen_focus": null,
    "gaps": [
     "SetEffect 640 — VFX sans émote PMDO équivalente",
@@ -17726,7 +18056,7 @@
   "P09P01A/m19d1072.ssb": {
    "status": "COMPILED",
    "file": "p09p01a__m19d1072.lua",
-   "dialogues": 7,
+   "dialogues": 14,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -17762,7 +18092,7 @@
   "P11P01A/m23a1001.ssb": {
    "status": "COMPILED",
    "file": "p11p01a__m23a1001.lua",
-   "dialogues": 11,
+   "dialogues": 32,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_OCEAN1 non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -17771,7 +18101,7 @@
   "P11P01A/m23a1003.ssb": {
    "status": "COMPILED",
    "file": "p11p01a__m23a1003.lua",
-   "dialogues": 10,
+   "dialogues": 36,
    "dual_screen_focus": true,
    "gaps": [
     "BGM BGM_OCEAN1 non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
@@ -17846,7 +18176,7 @@
   "P13P01A/m25a0405.ssb": {
    "status": "COMPILED",
    "file": "p13p01a__m25a0405.lua",
-   "dialogues": 4,
+   "dialogues": 15,
    "dual_screen_focus": true,
    "gaps": [
     "SetEffect EFFECT_TWO_ARROWS_AT_SIDE_LEFT — VFX sans émote PMDO équivalente"
@@ -17861,7 +18191,7 @@
   "P13P01A/m26a0501.ssb": {
    "status": "COMPILED",
    "file": "p13p01a__m26a0501.lua",
-   "dialogues": 3,
+   "dialogues": 21,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_HAVE_TO_GET_HOME non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
@@ -17902,7 +18232,7 @@
   "P14P01A/s20p0103.ssb": {
    "status": "COMPILED",
    "file": "p14p01a__s20p0103.lua",
-   "dialogues": 10,
+   "dialogues": 16,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -17930,8 +18260,7 @@
   "P16P01A/enter00.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "supervision_ExecuteStationSub",
-    "switch:case ['1', 'default']"
+    "supervision_ExecuteStationSub"
    ]
   },
   "P16P01A/n02a0202.ssb": {
@@ -18027,8 +18356,7 @@
   "P17P02A/enter00.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "supervision_ExecuteStationSub",
-    "switch:case ['1', 'default']"
+    "supervision_ExecuteStationSub"
    ]
   },
   "P17P02A/enter03.ssb": {
@@ -18135,16 +18463,20 @@
    "gaps": null
   },
   "P19P01A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "switch:case ['1', 'default']"
+   "status": "COMPILED",
+   "file": "p19p01a__enter00.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_A_FUN_EXPLORATION non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "P19P01A/enter04.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "switch:case ['254', 'default']"
-   ]
+   "status": "COMPILED",
+   "file": "p19p01a__enter04.lua",
+   "dialogues": 10,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "P19P01A/enter05.ssb": {
    "status": "COMPILED",
@@ -18209,9 +18541,12 @@
    "gaps": null
   },
   "P19P02A/enter00.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "switch:case ['1', 'default']"
+   "status": "COMPILED",
+   "file": "p19p02a__enter00.lua",
+   "dialogues": 0,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_FIRE_CRACKLING non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "P19P02A/enter02.ssb": {
@@ -18335,7 +18670,7 @@
   "S00P01A/partner.ssb": {
    "status": "COMPILED",
    "file": "s00p01a__partner.lua",
-   "dialogues": 63,
+   "dialogues": 339,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -18533,7 +18868,7 @@
   "S02P01A/m05a0704.ssb": {
    "status": "COMPILED",
    "file": "s02p01a__m05a0704.lua",
-   "dialogues": 3,
+   "dialogues": 8,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_THAT_SHAPE non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
@@ -18543,7 +18878,7 @@
   "S02P01A/s20p0202.ssb": {
    "status": "COMPILED",
    "file": "s02p01a__s20p0202.lua",
-   "dialogues": 13,
+   "dialogues": 28,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_WELCOME_TO_THE_WORLD_OF_POKEMON non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
@@ -18558,7 +18893,7 @@
   "S02P01A/s20p0302.ssb": {
    "status": "COMPILED",
    "file": "s02p01a__s20p0302.lua",
-   "dialogues": 14,
+   "dialogues": 40,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_WELCOME_TO_THE_WORLD_OF_POKEMON non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
@@ -18956,7 +19291,7 @@
   "T00P01/m01a0103.ssb": {
    "status": "COMPILED",
    "file": "t00p01__m01a0103.lua",
-   "dialogues": 8,
+   "dialogues": 12,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -19091,7 +19426,7 @@
   "T00P01/m01a0705.ssb": {
    "status": "COMPILED",
    "file": "t00p01__m01a0705.lua",
-   "dialogues": 8,
+   "dialogues": 12,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -19235,8 +19570,7 @@
   "T01P01A/enter00.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "supervision_ExecuteStationSub",
-    "switch:case ['224', 'default']"
+    "supervision_ExecuteStationSub"
    ]
   },
   "T01P01A/enter01.ssb": {
@@ -19298,7 +19632,7 @@
   "T01P01A/m00p0601.ssb": {
    "status": "COMPILED",
    "file": "t01p01a__m00p0601.lua",
-   "dialogues": 2,
+   "dialogues": 9,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -19316,15 +19650,16 @@
    ]
   },
   "T01P01A/m03a0109.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
-   ]
+   "status": "COMPILED",
+   "file": "t01p01a__m03a0109.lua",
+   "dialogues": 23,
+   "dual_screen_focus": null,
+   "gaps": null
   },
   "T01P01A/m03a0201.ssb": {
    "status": "COMPILED",
    "file": "t01p01a__m03a0201.lua",
-   "dialogues": 2,
+   "dialogues": 9,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -19338,7 +19673,7 @@
   "T01P01A/m03a0403.ssb": {
    "status": "COMPILED",
    "file": "t01p01a__m03a0403.lua",
-   "dialogues": 12,
+   "dialogues": 72,
    "dual_screen_focus": null,
    "gaps": [
     "SetEffect EFFECT_TWO_ARROWS_AT_SIDE_RIGHT — VFX sans émote PMDO équivalente"
@@ -19408,14 +19743,14 @@
   "T01P01A/m16d0714.ssb": {
    "status": "COMPILED",
    "file": "t01p01a__m16d0714.lua",
-   "dialogues": 8,
+   "dialogues": 12,
    "dual_screen_focus": null,
    "gaps": null
   },
   "T01P01A/m22a0501.ssb": {
    "status": "COMPILED",
    "file": "t01p01a__m22a0501.lua",
-   "dialogues": 2,
+   "dialogues": 12,
    "dual_screen_focus": null,
    "gaps": [
     "se_Play(8965) — id SE NDS sans portage PMDO identifié"
@@ -19424,7 +19759,7 @@
   "T01P01A/m26a0304.ssb": {
    "status": "COMPILED",
    "file": "t01p01a__m26a0304.lua",
-   "dialogues": 1,
+   "dialogues": 3,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -19438,7 +19773,7 @@
   "T01P01A/s22p0301.ssb": {
    "status": "COMPILED",
    "file": "t01p01a__s22p0301.lua",
-   "dialogues": 30,
+   "dialogues": 44,
    "dual_screen_focus": null,
    "gaps": [
     "se_Play(5122) — id SE NDS sans portage PMDO identifié",
@@ -19448,7 +19783,7 @@
   "T01P01A/s22p0303.ssb": {
    "status": "COMPILED",
    "file": "t01p01a__s22p0303.lua",
-   "dialogues": 60,
+   "dialogues": 94,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_WELCOME_TO_THE_WORLD_OF_POKEMON non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
@@ -19459,7 +19794,7 @@
   "T01P01A/s22p0305.ssb": {
    "status": "COMPILED",
    "file": "t01p01a__s22p0305.lua",
-   "dialogues": 25,
+   "dialogues": 48,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_THROUGH_THE_SEA_OF_TIME non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -19643,7 +19978,7 @@
   "T01P01A/um0504.ssb": {
    "status": "COMPILED",
    "file": "t01p01a__um0504.lua",
-   "dialogues": 99,
+   "dialogues": 103,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -19706,7 +20041,7 @@
   "T01P01A/um0701.ssb": {
    "status": "COMPILED",
    "file": "t01p01a__um0701.lua",
-   "dialogues": 99,
+   "dialogues": 103,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -19727,7 +20062,7 @@
   "T01P01A/um0706.ssb": {
    "status": "COMPILED",
    "file": "t01p01a__um0706.lua",
-   "dialogues": 99,
+   "dialogues": 103,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -20750,7 +21085,7 @@
   "T01P01A/us0310.ssb": {
    "status": "COMPILED",
    "file": "t01p01a__us0310.lua",
-   "dialogues": 1,
+   "dialogues": 3,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -20820,7 +21155,7 @@
   "T01P01A/us0412.ssb": {
    "status": "COMPILED",
    "file": "t01p01a__us0412.lua",
-   "dialogues": 11,
+   "dialogues": 15,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -20834,7 +21169,7 @@
   "T01P01A/us0414.ssb": {
    "status": "COMPILED",
    "file": "t01p01a__us0414.lua",
-   "dialogues": 21,
+   "dialogues": 23,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -20862,7 +21197,7 @@
   "T01P01A/us2003.ssb": {
    "status": "COMPILED",
    "file": "t01p01a__us2003.lua",
-   "dialogues": 11,
+   "dialogues": 15,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -20876,7 +21211,7 @@
   "T01P01A/us2005.ssb": {
    "status": "COMPILED",
    "file": "t01p01a__us2005.lua",
-   "dialogues": 21,
+   "dialogues": 23,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -21127,8 +21462,7 @@
   "T01P02A/enter00.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "supervision_ExecuteStationSub",
-    "switch:case ['323', 'default']"
+    "supervision_ExecuteStationSub"
    ]
   },
   "T01P02A/enter01.ssb": {
@@ -21215,9 +21549,12 @@
    ]
   },
   "T01P02A/m03d0314.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "Turn2DirectionTurn"
+   "status": "COMPILED",
+   "file": "t01p02a__m03d0314.lua",
+   "dialogues": 57,
+   "dual_screen_focus": null,
+   "gaps": [
+    "se_Play(8963) — id SE NDS sans portage PMDO identifié"
    ]
   },
   "T01P02A/m11a0501.ssb": {
@@ -21236,7 +21573,7 @@
   "T01P02A/m12a1101.ssb": {
    "status": "COMPILED",
    "file": "t01p02a__m12a1101.lua",
-   "dialogues": 29,
+   "dialogues": 78,
    "dual_screen_focus": null,
    "gaps": [
     "SetEffect EFFECT_TWO_ARROWS_AT_SIDE_LEFT — VFX sans émote PMDO équivalente"
@@ -21252,7 +21589,7 @@
   "T01P02A/m22a1101.ssb": {
    "status": "COMPILED",
    "file": "t01p02a__m22a1101.lua",
-   "dialogues": 2,
+   "dialogues": 12,
    "dual_screen_focus": null,
    "gaps": [
     "se_Play(8965) — id SE NDS sans portage PMDO identifié"
@@ -21261,7 +21598,7 @@
   "T01P02A/m26a0305.ssb": {
    "status": "COMPILED",
    "file": "t01p02a__m26a0305.lua",
-   "dialogues": 1,
+   "dialogues": 3,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -21275,7 +21612,7 @@
   "T01P02A/um0301.ssb": {
    "status": "COMPILED",
    "file": "t01p02a__um0301.lua",
-   "dialogues": 99,
+   "dialogues": 103,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -21296,7 +21633,7 @@
   "T01P02A/um0305.ssb": {
    "status": "COMPILED",
    "file": "t01p02a__um0305.lua",
-   "dialogues": 99,
+   "dialogues": 103,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -21317,7 +21654,7 @@
   "T01P02A/um0309.ssb": {
    "status": "COMPILED",
    "file": "t01p02a__um0309.lua",
-   "dialogues": 99,
+   "dialogues": 103,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -21352,14 +21689,14 @@
   "T01P02A/um0401.ssb": {
    "status": "COMPILED",
    "file": "t01p02a__um0401.lua",
-   "dialogues": 99,
+   "dialogues": 103,
    "dual_screen_focus": null,
    "gaps": null
   },
   "T01P02A/um0403.ssb": {
    "status": "COMPILED",
    "file": "t01p02a__um0403.lua",
-   "dialogues": 11,
+   "dialogues": 15,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -21373,7 +21710,7 @@
   "T01P02A/um0405.ssb": {
    "status": "COMPILED",
    "file": "t01p02a__um0405.lua",
-   "dialogues": 21,
+   "dialogues": 23,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -21436,7 +21773,7 @@
   "T01P02A/um0604.ssb": {
    "status": "COMPILED",
    "file": "t01p02a__um0604.lua",
-   "dialogues": 99,
+   "dialogues": 103,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -21485,7 +21822,7 @@
   "T01P02A/um0803.ssb": {
    "status": "COMPILED",
    "file": "t01p02a__um0803.lua",
-   "dialogues": 99,
+   "dialogues": 103,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -21534,7 +21871,7 @@
   "T01P02A/um1101.ssb": {
    "status": "COMPILED",
    "file": "t01p02a__um1101.lua",
-   "dialogues": 99,
+   "dialogues": 103,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -21562,7 +21899,7 @@
   "T01P02A/um1106.ssb": {
    "status": "COMPILED",
    "file": "t01p02a__um1106.lua",
-   "dialogues": 99,
+   "dialogues": 103,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -21625,7 +21962,7 @@
   "T01P02A/um1303.ssb": {
    "status": "COMPILED",
    "file": "t01p02a__um1303.lua",
-   "dialogues": 99,
+   "dialogues": 103,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -21653,7 +21990,7 @@
   "T01P02A/um1307.ssb": {
    "status": "COMPILED",
    "file": "t01p02a__um1307.lua",
-   "dialogues": 99,
+   "dialogues": 103,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -21681,7 +22018,7 @@
   "T01P02A/um1311.ssb": {
    "status": "COMPILED",
    "file": "t01p02a__um1311.lua",
-   "dialogues": 99,
+   "dialogues": 103,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -21709,7 +22046,7 @@
   "T01P02A/um1315.ssb": {
    "status": "COMPILED",
    "file": "t01p02a__um1315.lua",
-   "dialogues": 99,
+   "dialogues": 103,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -21751,7 +22088,7 @@
   "T01P02A/um1401.ssb": {
    "status": "COMPILED",
    "file": "t01p02a__um1401.lua",
-   "dialogues": 99,
+   "dialogues": 103,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -21786,7 +22123,7 @@
   "T01P02A/um1407.ssb": {
    "status": "COMPILED",
    "file": "t01p02a__um1407.lua",
-   "dialogues": 99,
+   "dialogues": 103,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -21842,7 +22179,7 @@
   "T01P02A/um1503.ssb": {
    "status": "COMPILED",
    "file": "t01p02a__um1503.lua",
-   "dialogues": 99,
+   "dialogues": 103,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -21870,7 +22207,7 @@
   "T01P02A/um1601.ssb": {
    "status": "COMPILED",
    "file": "t01p02a__um1601.lua",
-   "dialogues": 99,
+   "dialogues": 103,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -21898,7 +22235,7 @@
   "T01P02A/um1606.ssb": {
    "status": "COMPILED",
    "file": "t01p02a__um1606.lua",
-   "dialogues": 99,
+   "dialogues": 103,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -21939,7 +22276,7 @@
   "T01P02A/um2102.ssb": {
    "status": "COMPILED",
    "file": "t01p02a__um2102.lua",
-   "dialogues": 99,
+   "dialogues": 103,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -21974,7 +22311,7 @@
   "T01P02A/um2110.ssb": {
    "status": "COMPILED",
    "file": "t01p02a__um2110.lua",
-   "dialogues": 99,
+   "dialogues": 103,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -22037,7 +22374,7 @@
   "T01P02A/um2205.ssb": {
    "status": "COMPILED",
    "file": "t01p02a__um2205.lua",
-   "dialogues": 99,
+   "dialogues": 103,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -22085,7 +22422,7 @@
   "T01P02A/um2404.ssb": {
    "status": "COMPILED",
    "file": "t01p02a__um2404.lua",
-   "dialogues": 99,
+   "dialogues": 103,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -22134,7 +22471,7 @@
   "T01P02A/um2504.ssb": {
    "status": "COMPILED",
    "file": "t01p02a__um2504.lua",
-   "dialogues": 99,
+   "dialogues": 103,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -22260,7 +22597,7 @@
   "T01P02A/us0101.ssb": {
    "status": "COMPILED",
    "file": "t01p02a__us0101.lua",
-   "dialogues": 99,
+   "dialogues": 103,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -22288,7 +22625,7 @@
   "T01P02A/us0106.ssb": {
    "status": "COMPILED",
    "file": "t01p02a__us0106.lua",
-   "dialogues": 99,
+   "dialogues": 103,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -22328,7 +22665,7 @@
   "T01P02A/us0202.ssb": {
    "status": "COMPILED",
    "file": "t01p02a__us0202.lua",
-   "dialogues": 99,
+   "dialogues": 103,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -22349,7 +22686,7 @@
   "T01P02A/us0207.ssb": {
    "status": "COMPILED",
    "file": "t01p02a__us0207.lua",
-   "dialogues": 99,
+   "dialogues": 103,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -22377,7 +22714,7 @@
   "T01P02A/us0301.ssb": {
    "status": "COMPILED",
    "file": "t01p02a__us0301.lua",
-   "dialogues": 99,
+   "dialogues": 103,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -22398,7 +22735,7 @@
   "T01P02A/us0304.ssb": {
    "status": "COMPILED",
    "file": "t01p02a__us0304.lua",
-   "dialogues": 99,
+   "dialogues": 103,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -22426,7 +22763,7 @@
   "T01P02A/us0308.ssb": {
    "status": "COMPILED",
    "file": "t01p02a__us0308.lua",
-   "dialogues": 99,
+   "dialogues": 103,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -22440,14 +22777,14 @@
   "T01P02A/us0401.ssb": {
    "status": "COMPILED",
    "file": "t01p02a__us0401.lua",
-   "dialogues": 99,
+   "dialogues": 103,
    "dual_screen_focus": null,
    "gaps": null
   },
   "T01P02A/us0403.ssb": {
    "status": "COMPILED",
    "file": "t01p02a__us0403.lua",
-   "dialogues": 99,
+   "dialogues": 103,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -22488,7 +22825,7 @@
   "T01P02A/us2001.ssb": {
    "status": "COMPILED",
    "file": "t01p02a__us2001.lua",
-   "dialogues": 99,
+   "dialogues": 103,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -22522,7 +22859,7 @@
   "T01P02A/us2008.ssb": {
    "status": "COMPILED",
    "file": "t01p02a__us2008.lua",
-   "dialogues": 99,
+   "dialogues": 103,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -22550,7 +22887,7 @@
   "T01P02A/us2012.ssb": {
    "status": "COMPILED",
    "file": "t01p02a__us2012.lua",
-   "dialogues": 99,
+   "dialogues": 103,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -22585,7 +22922,7 @@
   "T01P02A/us2101.ssb": {
    "status": "COMPILED",
    "file": "t01p02a__us2101.lua",
-   "dialogues": 99,
+   "dialogues": 103,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -22605,7 +22942,7 @@
   "T01P02A/us2201.ssb": {
    "status": "COMPILED",
    "file": "t01p02a__us2201.lua",
-   "dialogues": 99,
+   "dialogues": 103,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -22633,7 +22970,7 @@
   "T01P02A/us2206.ssb": {
    "status": "COMPILED",
    "file": "t01p02a__us2206.lua",
-   "dialogues": 99,
+   "dialogues": 103,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -22689,7 +23026,7 @@
   "T01P02A/us2303.ssb": {
    "status": "COMPILED",
    "file": "t01p02a__us2303.lua",
-   "dialogues": 99,
+   "dialogues": 103,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -22743,14 +23080,14 @@
   "T01P02A/us3104.ssb": {
    "status": "COMPILED",
    "file": "t01p02a__us3104.lua",
-   "dialogues": 99,
+   "dialogues": 103,
    "dual_screen_focus": null,
    "gaps": null
   },
   "T01P03A/enter00.ssb": {
    "status": "PARTIAL_OPS",
    "unsupported_ops": [
-    "switch:case ['323', 'default']"
+    "back_ChangeGround"
    ]
   },
   "T01P03A/enter01.ssb": {
@@ -23005,14 +23342,14 @@
   "V03P06A/m03a1305.ssb": {
    "status": "COMPILED",
    "file": "v03p06a__m03a1305.lua",
-   "dialogues": 1,
+   "dialogues": 3,
    "dual_screen_focus": null,
    "gaps": null
   },
   "V03P06A/m03a1313.ssb": {
    "status": "COMPILED",
    "file": "v03p06a__m03a1313.lua",
-   "dialogues": 2,
+   "dialogues": 18,
    "dual_screen_focus": null,
    "gaps": [
     "SetEffect EFFECT_VERY_HEAVY_RAIN — VFX sans émote PMDO équivalente",
@@ -23036,7 +23373,7 @@
   "V03P07A/m03a1306.ssb": {
    "status": "COMPILED",
    "file": "v03p07a__m03a1306.lua",
-   "dialogues": 1,
+   "dialogues": 3,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -23062,7 +23399,7 @@
   "V03P08A/m03a1307.ssb": {
    "status": "COMPILED",
    "file": "v03p08a__m03a1307.lua",
-   "dialogues": 1,
+   "dialogues": 3,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -23121,7 +23458,7 @@
   "V03P11A/m03a1312.ssb": {
    "status": "COMPILED",
    "file": "v03p11a__m03a1312.lua",
-   "dialogues": 1,
+   "dialogues": 3,
    "dual_screen_focus": null,
    "gaps": [
     "SetEffect EFFECT_VERY_HEAVY_RAIN — VFX sans émote PMDO équivalente",
@@ -23209,7 +23546,7 @@
   "V05P03A/m05a0602.ssb": {
    "status": "COMPILED",
    "file": "v05p03a__m05a0602.lua",
-   "dialogues": 1,
+   "dialogues": 3,
    "dual_screen_focus": null,
    "gaps": [
     "se_Play(6659) — id SE NDS sans portage PMDO identifié",
@@ -23382,7 +23719,7 @@
   "V15P02A/m15b0902.ssb": {
    "status": "COMPILED",
    "file": "v15p02a__m15b0902.lua",
-   "dialogues": 6,
+   "dialogues": 27,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -23437,7 +23774,7 @@
   "V17P03A/m17a0402.ssb": {
    "status": "COMPILED",
    "file": "v17p03a__m17a0402.lua",
-   "dialogues": 1,
+   "dialogues": 12,
    "dual_screen_focus": true,
    "gaps": [
     "BGM BGM_PLANETS_PARALYSIS non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -23519,7 +23856,7 @@
   "V23P04A/m23a1002.ssb": {
    "status": "COMPILED",
    "file": "v23p04a__m23a1002.lua",
-   "dialogues": 1,
+   "dialogues": 6,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_OCEAN1 non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -23534,7 +23871,7 @@
   "V24P01A/m24a0106.ssb": {
    "status": "COMPILED",
    "file": "v24p01a__m24a0106.lua",
-   "dialogues": 8,
+   "dialogues": 15,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_OCEAN1 non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -23543,7 +23880,7 @@
   "V24P01A/m24a0108.ssb": {
    "status": "COMPILED",
    "file": "v24p01a__m24a0108.lua",
-   "dialogues": 16,
+   "dialogues": 23,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_OCEAN1 non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
@@ -23552,14 +23889,14 @@
   "V24P02A/m24a0202.ssb": {
    "status": "COMPILED",
    "file": "v24p02a__m24a0202.lua",
-   "dialogues": 8,
+   "dialogues": 14,
    "dual_screen_focus": null,
    "gaps": null
   },
   "V24P03A/m24a0205.ssb": {
    "status": "COMPILED",
    "file": "v24p03a__m24a0205.lua",
-   "dialogues": 5,
+   "dialogues": 10,
    "dual_screen_focus": null,
    "gaps": [
     "BGM BGM_THROUGH_THE_SEA_OF_TIME non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
@@ -23623,7 +23960,7 @@
   "V26P03A/m26a0307.ssb": {
    "status": "COMPILED",
    "file": "v26p03a__m26a0307.lua",
-   "dialogues": 1,
+   "dialogues": 12,
    "dual_screen_focus": null,
    "gaps": null
   },
@@ -23696,14 +24033,14 @@
   "V26P09A/m26a0301.ssb": {
    "status": "COMPILED",
    "file": "v26p09a__m26a0301.lua",
-   "dialogues": 2,
+   "dialogues": 7,
    "dual_screen_focus": null,
    "gaps": null
   },
   "V26P10A/m26a0302.ssb": {
    "status": "COMPILED",
    "file": "v26p10a__m26a0302.lua",
-   "dialogues": 2,
+   "dialogues": 9,
    "dual_screen_focus": null,
    "gaps": null
   },

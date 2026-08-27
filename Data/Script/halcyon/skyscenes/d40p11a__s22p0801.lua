@@ -24,7 +24,13 @@ return function(hero, partner)
   pcall(function() UI:SetSpeaker(npc_npc_kureseria) end)
   SkySceneKit.say({english="All the world's Pokémon will\nbecome imprisoned in a nightmare...", french="... tous les Pokémon du monde\nse retrouveront à jamais emprisonnés\ndans un cauchemar...", german="Dann wird die ganze Welt der\nPokémon zur Gefangenen eines Albtraums.", italian="Se non lo fermiamo, tutti i\nPokémon del mondo saranno imprigionati in un\nincubo.", spanish="Todos los Pokémon del mundo\nquedarán atrapados en una pesadilla..."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  SkySceneKit.say({english=" This time, we'll get it done!", french=" Cette fois-ci, on doit réussir!", german=" Diesmal erledigen wir die Sache!", italian=" Questa volta dobbiamo farcela!", spanish=" ¡Esta vez lo conseguiremos!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" This time, we have to do it!", french=" Cette fois-ci, on doit réussir!", german="Diesmal müssen wir es\nschaffen!", italian=" Questa volta dobbiamo farcela!", spanish=" ¡Esta vez lo conseguiremos!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" This time, we'll get it done!", french=" Cette fois-ci, on doit réussir!", german=" Diesmal erledigen wir die Sache!", italian=" Questa volta dobbiamo farcela!", spanish=" ¡Esta vez lo conseguiremos!"})
+  else
+  SkySceneKit.say({english=" This time, we'll get it done!", french=" Cette fois-ci, on doit réussir!", german=" Diesmal erledigen wir die Sache!", italian=" Questa volta dobbiamo farcela!", spanish=" ¡Esta vez lo conseguiremos!"})
+  end
   -- SetAnimation(71) [anim idle native]
   -- SetAnimation(71) [anim idle native]
   GAME:WaitFrames(2) -- join WaitAnimation

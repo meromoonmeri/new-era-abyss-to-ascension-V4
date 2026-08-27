@@ -30,7 +30,13 @@ return function(hero, partner)
   GAME:WaitFrames(2) -- join WaitExecuteObject(OBJECT_D30P33A4_78) [routine d'objet NDS non simulée - documenté]
   -- supervision_RemoveActing(2) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   -- GAP: se_Play(8455) — id SE NDS sans portage PMDO identifié
-  SkySceneKit.say({english=" Waaaaah!", french=" Ouaaaaah!", german=" Waaaaah!", italian=" Aaaaaah!", spanish=" ¡Aaaaah!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Waaaaah!", french=" Ouaaaaah!", german=" Waaaaah!", italian=" Aaaaaah!", spanish=" ¡Aaaaah!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Waaaaah!", french=" Ouaaaaah!", german=" Waaaaah!", italian=" Aaaaaah!", spanish=" ¡Aaaaah!"})
+  else
+  SkySceneKit.say({english=" Waaaaah!", french=" Ouaaaaah!", german=" Waaaaah!", italian=" Aaaaaah!", spanish=" ¡Aaaaah!"})
+  end
   -- GAP: se_Play(6403) — id SE NDS sans portage PMDO identifié
   pcall(function() SOUND:FadeOutBGM(120) end)
   -- bgm2_FadeOut [canal BGM sub: voir bgm2_Play]

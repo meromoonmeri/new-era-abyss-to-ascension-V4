@@ -26,7 +26,13 @@ return function(hero, partner)
   pcall(function() GROUND:CharSetEmote(partner, "sweating", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english="You're mistaken! We didn't come\nhere to steal the Time Gear!", french="C'est un malentendu! On n'est pas\nlà pour voler le Rouage du Temps!", german="Du verstehst das falsch! Wir\nsind nicht hier, um das Zahnrad der Zeit zu\nstehlen!", italian="Ti sbagli! Non siamo qui\nper rubare l'Ingranaggio del Tempo!", spanish="¡Te equivocas! ¡No hemos venido\na robar el Engranaje del Tiempo!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="You're wrong! We didn't come\nhere to steal the Time Gear!", french="C'est un malentendu! On n'est pas\nlà pour voler le Rouage du Temps!", german="Du irrst dich! Wir sind nicht\nhier, um das Zahnrad der Zeit zu stehlen!", italian="Ma non capisci! Non siamo qui\nper rubare l'Ingranaggio del Tempo!", spanish="¡Te equivocas! ¡No hemos venido\na robar el Engranaje del Tiempo!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="You're wrong! We didn't come\nhere to steal the Time Gear!", french="C'est un malentendu! On n'est pas\nlà pour voler le Rouage du Temps!", german="Du irrst dich! Wir sind nicht\nhier, um das Zahnrad der Zeit zu stehlen!", italian="Ti sbagli! Non siamo qui\nper rubare l'Ingranaggio del Tempo!", spanish="¡Te equivocas! ¡No hemos venido\na robar el Engranaje del Tiempo!"})
+  else
+  SkySceneKit.say({english="You're mistaken! We didn't come\nhere to steal the Time Gear!", french="C'est un malentendu! On n'est pas\nlà pour voler le Rouage du Temps!", german="Du verstehst das falsch! Wir\nsind nicht hier, um das Zahnrad der Zeit zu\nstehlen!", italian="Ti sbagli! Non siamo qui\nper rubare l'Ingranaggio del Tempo!", spanish="¡Te equivocas! ¡No hemos venido\na robar el Engranaje del Tiempo!"})
+  end
   pcall(function() UI:SetSpeaker(npc_npc_emuritto) end)
   SkySceneKit.say({english="You say that...[K] But you can't be\ntrusted!", french="C'est ce que vous dites...[K]\nMais vous n'êtes pas dignes de confiance!", german="Das sagst du...[K]\nAber ich traue dir nicht!", italian="Come osate...[K] prendervi gioco\ndi me!", spanish="Eso decís...[K] ¡pero no puedo\nfiarme de vuestras intenciones!"})
   pcall(function() UI:SetSpeaker(npc_npc_emuritto) end)

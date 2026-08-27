@@ -9,5 +9,15 @@ return function(hero, partner)
   pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
-  SkySceneKit.say({english=" Let's go to Treasure Town.", french=" Allez, on va à Bourg-Trésor.", german=" Gehen wir nach Schatzstadt.", italian=" Andiamo a Borgo Tesoro.", spanish=" Vamos a Aldea Tesoro."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="We can't go off on our own\nnow. We have to get ready for tomorrow's\nmission.", french="On ne peut pas partir\nà l'aventure maintenant. On doit se préparer\npour la mission de demain.", german="Wir können jetzt nicht allein\nlosgehen. Wir müssen uns auf morgen\nvorbereiten.", italian="Adesso non possiamo andare lì.\nDobbiamo prepararci per la missione di domani.", spanish="No podemos marcharnos por ahí\nen este momento. Hay que prepararse para\nla importantísima misión de mañana."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="We have to get ready for\ntomorrow's mission. We shouldn't be going off\non an adventure.", french="On ne peut pas partir\nà l'aventure maintenant. On doit se préparer\npour la mission de demain.", german="Wir müssen uns für die morgige\nMission bereit machen. Wir sollten jetzt kein\nAbenteuer suchen.", italian="Dobbiamo prepararci per la\nmissione di domani. Ora non possiamo andare\na esplorare.", spanish="Hay que prepararse para\nla misión de mañana. No es momento\npara irse por ahí de aventuras."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Let's go to Treasure Town.", french=" Allez, on va à Bourg-Trésor.", german=" Gehen wir nach Schatzstadt.", italian=" Andiamo a Borgo Tesoro.", spanish=" Vamos a Aldea Tesoro."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Let's go to Treasure Town.", french=" Allez, on va à Bourg-Trésor.", german=" Gehen wir nach Schatzstadt.", italian=" Andiamo a Borgo Tesoro.", spanish=" Vamos a Aldea Tesoro."})
+  else
+  SkySceneKit.say({english=" Let's go to Treasure Town.", french=" Allez, on va à Bourg-Trésor.", german=" Gehen wir nach Schatzstadt.", italian=" Andiamo a Borgo Tesoro.", spanish=" Vamos a Aldea Tesoro."})
+  end
 end

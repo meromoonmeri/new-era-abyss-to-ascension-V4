@@ -26,11 +26,27 @@ return function(hero, partner)
   pcall(function() UI:SetSpeaker(npc_npc_heigani) end)
   SkySceneKit.say({english=" Hey, hey! The fog is gone!", french="Eh dis donc! Le brouillard\na disparu!", german=" Hey, hey! Der Nebel ist weg!", italian=" Ehi, ehi! La nebbia è sparita!", spanish="¡Oye, oye! ¡La niebla ha\ndesaparecido!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  SkySceneKit.say({english=" The sunlight's harsh!", french=" Le soleil brille fort!", german=" Das Sonnenlicht blendet richtig!", italian=" La luce del sole è abbagliante!", spanish=" El sol brilla con fuerza."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" The sky cleared...", french=" Le ciel est dégagé...", german=" Der Himmel hat aufgeklart...", italian=" Il cielo, si vede il cielo...!", spanish=" El cielo se ha despejado."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" The sky cleared...", french=" Le ciel est dégagé...", german=" Der Himmel hat aufgeklart...", italian=" Il cielo, si vede il cielo...!", spanish=" El cielo se ha despejado."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" The sunlight's harsh!", french=" Le soleil brille fort!", german=" Das Sonnenlicht blendet richtig!", italian=" La luce del sole è abbagliante!", spanish=" El sol brilla con fuerza."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" The sunlight's harsh!", french=" Le soleil brille fort!", german=" Das Sonnenlicht blendet richtig!", italian=" La luce del sole è abbagliante!", spanish=" El sol brilla con fuerza."})
+  else
+  SkySceneKit.say({english=" The sunlight's harsh!", french=" Le soleil brille fort!", german=" Das Sonnenlicht blendet richtig!", italian=" La luce del sole è abbagliante!", spanish=" El sol brilla con fuerza."})
+  end
   -- SetAnimation(73) [anim idle native]
   GAME:WaitFrames(2) -- join WaitAnimation
   GAME:WaitFrames(45)
-  SkySceneKit.say({english=" Hey! Look!", french=" Hé! Regardez!", german=" Hey! Sieh nur!", italian=" Ehi! Guardate!", spanish=" ¡Vaya! ¡Mirad!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Hey! Look!", french=" Hé! Regardez!", german=" Hey! Sieh nur!", italian=" Ehi! Guardate!", spanish=" ¡Vaya! ¡Mirad!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Hey! Look!", french=" Hé! Regardez!", german=" Hey! Sieh nur!", italian=" Ehi! Guardate!", spanish=" ¡Vaya! ¡Mirad!"})
+  else
+  SkySceneKit.say({english=" Hey! Look!", french=" Hé! Regardez!", german=" Hey! Sieh nur!", italian=" Ehi! Guardate!", spanish=" ¡Vaya! ¡Mirad!"})
+  end
   GROUND:EntTurn(hero, Direction.UpRight)
   GROUND:EntTurn(npc_npc_heigani, Direction.UpLeft)
   GAME:WaitFrames(30)
@@ -40,7 +56,13 @@ return function(hero, partner)
   GAME:WaitFrames(30)
   GROUND:EntTurn(partner, Direction.DownRight)
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english=" B-both of you![K] Up! Look up!", french="Vous deux![K] En l'air! Regardez\nen l'air!", german=" I-ihr beide![K] Da oben! Seht!", italian="Voi due![K] In alto!\nGuardate in alto!", spanish=" ¡Los dos![K] ¡Mirad allí arriba!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" B-both of you![K] Up! Look up!", french="Vous deux![K] En l'air! Regardez\nen l'air!", german=" I-ihr beide![K] Da oben! Seht!", italian="Voi due![K] In alto!\nGuardate in alto!", spanish=" ¡Los dos![K] ¡Mirad allí arriba!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" B-both of you![K] Up! Look up!", french="Vous deux![K] En l'air! Regardez\nen l'air!", german=" I-ihr beide![K] Da oben! Seht!", italian="Voi due![K] In alto!\nGuardate in alto!", spanish=" ¡Los dos![K] ¡Mirad allí arriba!"})
+  else
+  SkySceneKit.say({english=" B-both of you![K] Up! Look up!", french="Vous deux![K] En l'air! Regardez\nen l'air!", german=" I-ihr beide![K] Da oben! Seht!", italian="Voi due![K] In alto!\nGuardate in alto!", spanish=" ¡Los dos![K] ¡Mirad allí arriba!"})
+  end
   GROUND:EntTurn(hero, Direction.Up)
   GROUND:EntTurn(npc_npc_heigani, Direction.Up)
   GAME:WaitFrames(5)
@@ -58,7 +80,21 @@ return function(hero, partner)
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() SOUND:PlayBGM("Time Gear Remix.ogg", true) end)
   GAME:WaitFrames(15)
-  SkySceneKit.say({english="We were just wandering around\nin circles ourselves.", french="Même nous, nous avons tourné\nen rond pendant pas mal de temps.", german="Wir sind selbst gerade die ganze\nZeit im Kreis gelaufen.", italian="Anche noi ci stavamo\ngirando attorno.", spanish="No hemos hecho otra cosa que\nandar en círculo."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" That's what the fog was hiding.", french="Voilà, c'était donc ça que\ncachait le brouillard.", german="Das ist, was der Nebel\nverborgen hat.", italian=" Ecco cosa nascondeva la nebbia.", spanish=" Eso es lo que ocultaba la niebla."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" That's what the fog was hiding.", french="Voilà, c'était donc ça que\ncachait le brouillard.", german="Das ist, was der Nebel\nverborgen hat.", italian=" Ecco cosa nascondeva la nebbia.", spanish=" Eso es lo que ocultaba la niebla."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="No wonder no one could ever\nfind [CS:P]Fogbound Lake[CR].", french="Pas étonnant que personne n'ait\njamais découvert le [CS:P]Lac des Brumes[CR].", german="Kein Wunder, dass den [CS:P]Nebelsee[CR]\nniemand finden konnte.", italian="Ecco perché nessuno era mai\nriuscito a trovare il [CS:P]Lago Foschia[CR].", spanish="No me extraña que nadie pudiera\nencontrar el [CS:P]Lago Velado[CR]."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="It's no wonder [CS:P]Fogbound Lake[CR]\nevaded discovery for all this time.", french="Pas étonnant que personne n'ait\njamais découvert le [CS:P]Lac des Brumes[CR].", german="Kein Wunder, dass der [CS:P]Nebelsee[CR]\nbis jetzt unentdeckt geblieben ist.", italian="Ecco perché nessuno era mai\nriuscito a trovare il [CS:P]Lago Foschia[CR].", spanish="No me extraña que nadie pudiera\nencontrar el [CS:P]Lago Velado[CR]."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="We were just wandering around\nin circles ourselves.", french="Même nous, nous avons tourné\nen rond pendant pas mal de temps.", german="Wir sind selbst gerade die ganze\nZeit im Kreis gelaufen.", italian="Anche noi ci stavamo\ngirando attorno.", spanish="No hemos hecho otra cosa que\nandar en círculo."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="We were just wandering around\nin circles too.", french="Même nous, nous avons tourné\nen rond pendant pas mal de temps.", german="Wir sind selbst auch die ganze\nZeit im Kreis gelaufen.", italian="Anche noi ci stavamo\ngirando attorno.", spanish="No hemos hecho otra cosa que\nandar en círculo."})
+  else
+  SkySceneKit.say({english="We were just wandering around\nin circles ourselves.", french="Même nous, nous avons tourné\nen rond pendant pas mal de temps.", german="Wir sind selbst gerade die ganze\nZeit im Kreis gelaufen.", italian="Anche noi ci stavamo\ngirando attorno.", spanish="No hemos hecho otra cosa que\nandar en círculo."})
+  end
   GROUND:EntTurn(npc_npc_heigani, Direction.UpLeft)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GAME:WaitFrames(10)
@@ -72,7 +108,17 @@ return function(hero, partner)
   pcall(function() UI:SetSpeaker(npc_npc_heigani) end)
   SkySceneKit.say({english="You're saying [CS:P]Fogbound Lake[CR] is\nup there? Hey, hey, hey?!", french="... que le [CS:P]Lac des Brumes[CR]\nest là-haut? Dis donc!", german="Du meinst, dass der [CS:P]Nebelsee[CR]\nda oben ist? Hey, hey, hey?!?", italian="Stai dicendo che quello lassù\nè il [CS:P]Lago Foschia[CR]?\nEhi, ehi, ehi?!", spanish="¿Estás diciendo que el [CS:P]Lago[CR]\n[CS:P]Velado[CR] está allí arriba?"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  SkySceneKit.say({english="[CS:P]Fogbound Lake[CR] has to be\nup there!", french="Le [CS:P]Lac des Brumes[CR] doit être\nlà-haut!", german=" Der [CS:P]Nebelsee[CR] muss da oben sein!", italian="Il [CS:P]Lago Foschia[CR] dev'essere\nlassù!", spanish="¡El [CS:P]Lago Velado[CR] tiene que estar\nallí arriba!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Yes, that's what I think.", french=" Oui, c'est ce que je pense.", german=" Ja, das meine ich.", italian=" Sì, penso proprio di sì.", spanish=" Sí, eso es lo que creo."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Yes. That's what I think.", french=" Oui, c'est ce que je pense.", german=" Ja, das meine ich.", italian=" Sì, penso proprio di sì.", spanish=" Sí, eso es lo que creo."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="[CS:P]Fogbound Lake[CR] has to be\nup there!", french="Le [CS:P]Lac des Brumes[CR] doit être\nlà-haut!", german=" Der [CS:P]Nebelsee[CR] muss da oben sein!", italian="Il [CS:P]Lago Foschia[CR] dev'essere\nlassù!", spanish="¡El [CS:P]Lago Velado[CR] tiene que estar\nallí arriba!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="[CS:P]Fogbound Lake[CR] has to be\nup there!", french="Le [CS:P]Lac des Brumes[CR] doit être\nlà-haut!", german=" Der [CS:P]Nebelsee[CR] muss da oben sein!", italian="Il [CS:P]Lago Foschia[CR] dev'essere\nlassù!", spanish="¡El [CS:P]Lago Velado[CR] tiene que estar\nallí arriba!"})
+  else
+  SkySceneKit.say({english="[CS:P]Fogbound Lake[CR] has to be\nup there!", french="Le [CS:P]Lac des Brumes[CR] doit être\nlà-haut!", german=" Der [CS:P]Nebelsee[CR] muss da oben sein!", italian="Il [CS:P]Lago Foschia[CR] dev'essere\nlassù!", spanish="¡El [CS:P]Lago Velado[CR] tiene que estar\nallí arriba!"})
+  end
   pcall(function() local g=GAME:GetCurrentGround(); GAME:MoveCamera(g.ViewCenter.X+(0), g.ViewCenter.Y+(-180), 51, false) end) -- MovePositionOffset performer/caméra
   GAME:WaitFrames(20)
   SkySubScreen.Hide(30) -- screen2_FadeOut: retour BOTTOM_FOCUS (timeline ROM)

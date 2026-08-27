@@ -25,14 +25,26 @@ return function(hero, partner)
   pcall(function() GROUND:CharSetEmote(hero, "exclaim", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english=" Hi! [CS:N]Chimecho[CR]!", french=" Salut, [CS:N]Eoko[CR]!", german=" Hallo! [CS:N]Palimpalim[CR]!", italian=" Ehilà! [CS:N]Chimecho[CR]!", spanish=" ¡Hola! ¡[CS:N]Chimecho[CR]!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Hey! [CS:N]Chimecho[CR]!", french=" Salut, [CS:N]Eoko[CR]!", german=" Hey! [CS:N]Palimpalim[CR]!", italian=" Ehi! [CS:N]Chimecho[CR]!", spanish=" ¿Qué hay, [CS:N]Chimecho[CR]?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Hey! [CS:N]Chimecho[CR]!", french=" Salut, [CS:N]Eoko[CR]!", german=" Hey! [CS:N]Palimpalim[CR]!", italian=" Ehi! [CS:N]Chimecho[CR]!", spanish=" ¡Eh! ¡[CS:N]Chimecho[CR]!"})
+  else
+  SkySceneKit.say({english=" Hi! [CS:N]Chimecho[CR]!", french=" Salut, [CS:N]Eoko[CR]!", german=" Hallo! [CS:N]Palimpalim[CR]!", italian=" Ehilà! [CS:N]Chimecho[CR]!", spanish=" ¡Hola! ¡[CS:N]Chimecho[CR]!"})
+  end
   pcall(function() GAME:MoveCamera(212, 196, 60, false) end) -- performer/caméra
   GROUND:MoveToPosition(hero, 196, 180, false, 2)
   GAME:WaitFrames(5)
   GROUND:MoveToPosition(partner, 196, 204, false, 2)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GAME:WaitFrames(15)
-  SkySceneKit.say({english=" What's happening?", french=" Quoi de neuf?", german=" Was liegt an?", italian=" Come stai?", spanish=" ¿Qué ocurre?"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" What's up?", french=" Quoi de neuf?", german=" Was ist los?", italian=" Come te la passi?", spanish=" ¿Qué pasa?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" What's going on?", french=" Quoi de neuf?", german=" Was gibt es?", italian=" Come stai?", spanish=" ¿Qué sucede?"})
+  else
+  SkySceneKit.say({english=" What's happening?", french=" Quoi de neuf?", german=" Was liegt an?", italian=" Come stai?", spanish=" ¿Qué ocurre?"})
+  end
   pcall(function() UI:SetSpeaker(npc_npc_chiriin) end)
   SkySceneKit.say({english=" Oh, [hero]! [partner]!", french=" Oh, [hero]! [partner]!", german=" Oh, [hero]! [partner]!", italian=" Oh, [hero]! [partner]!", spanish="¡[hero]!\n¡[partner]!"})
   pcall(function() UI:SetSpeaker(npc_npc_chiriin) end)
@@ -53,7 +65,13 @@ return function(hero, partner)
   pcall(function() GROUND:CharSetEmote(partner, "question", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english=" A special service?", french=" Un service très spécial?", german=" Einen Sonderservice?", italian=" Servizio speciale?", spanish=" ¿Un servicio especial?"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Special service?", french=" Un service très spécial?", german=" Sonderservice?", italian=" Servizio speciale?", spanish=" ¿Un servicio especial? ¿Ah, sí?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Special service?", french=" Un service très spécial?", german=" Sonderservice?", italian=" Servizio speciale?", spanish=" ¿Un servicio especial...?"})
+  else
+  SkySceneKit.say({english=" A special service?", french=" Un service très spécial?", german=" Einen Sonderservice?", italian=" Servizio speciale?", spanish=" ¿Un servicio especial?"})
+  end
   pcall(function() SOUND:FadeOutBGM(60) end)
   GAME:FadeOut(false, 60)
   GAME:WaitFrames(30)

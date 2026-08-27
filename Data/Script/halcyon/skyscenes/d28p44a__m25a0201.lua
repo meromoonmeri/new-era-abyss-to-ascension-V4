@@ -60,7 +60,13 @@ return function(hero, partner)
   GAME:WaitFrames(60)
   -- ExecuteCommon(CORO_JUMP_HAPPY_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english=" We...[K]did it...", french=" Nous...[K] nous avons réussi...", german=" Wir...[K] Wir haben es geschafft...", italian=" Ce...[K] l'abbiamo fatta...", spanish=" Lo hemos...[K] conseguido."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" We...[K]did it...", french=" Nous...[K] nous avons réussi...", german=" Wir...[K] Wir haben es geschafft...", italian=" Ce...[K] l'abbiamo fatta...", spanish=" Lo hemos...[K] conseguido."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" We...[K]did it...", french=" Nous...[K] nous avons réussi...", german=" Wir...[K] Wir haben es geschafft...", italian=" Ce...[K] l'abbiamo fatta...", spanish=" Lo hemos...[K] conseguido."})
+  else
+  SkySceneKit.say({english=" We...[K]did it...", french=" Nous...[K] nous avons réussi...", german=" Wir...[K] Wir haben es geschafft...", italian=" Ce...[K] l'abbiamo fatta...", spanish=" Lo hemos...[K] conseguido."})
+  end
   local npc_npc_juputoru = SkySceneKit.spawn_npc("grovyle", 288, 280, Direction.UpLeft, "NPC_JUPUTORU")
   pcall(function() UI:SetSpeaker(npc_npc_juputoru) end)
   SkySceneKit.say({english=" [CS:N]Dusknoir[CR] is...[K]down...", french=" [CS:N]Noctunoir[CR] est...[K] vaincu...", german=" [CS:N]Zwirrfinst[CR] ist...[K] erledigt...", italian=" [CS:N]Dusknoir[CR] è...[K] sconfitto...", spanish=" [CS:N]Dusknoir[CR] ha...[K] caído..."})
@@ -172,7 +178,13 @@ return function(hero, partner)
   GROUND:EntTurn(hero, Direction.UpRight)
   pcall(function() GROUND:CharTurnToCharAnimated(partner, npc_npc_juputoru, 4) end)
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  SkySceneKit.say({english=" What is it?", french=" Qu'est-ce qui se passe?", german=" Was ist los?", italian=" Cosa c'è?", spanish=" ¿Qué?"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" What is it?", french=" Qu'est-ce qui se passe?", german=" Was ist los?", italian=" Cosa c'è?", spanish=" ¿Qué?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" What is it?", french=" Qu'est-ce qui se passe?", german=" Was ist los?", italian=" Cosa c'è?", spanish=" ¿Qué?"})
+  else
+  SkySceneKit.say({english=" What is it?", french=" Qu'est-ce qui se passe?", german=" Was ist los?", italian=" Cosa c'è?", spanish=" ¿Qué?"})
+  end
   pcall(function() UI:SetSpeaker(npc_npc_juputoru) end)
   SkySceneKit.say({english=" Go to the top of the temple.", french=" Va au sommet du temple.", german=" Steig den Tempel ganz hinauf.", italian=" Vai in cima al tempio.", spanish=" Sube al templo."})
   pcall(function() UI:SetSpeaker(npc_npc_juputoru) end)
@@ -186,7 +198,13 @@ return function(hero, partner)
   GAME:WaitFrames(2) -- join WaitAnimation
   GAME:WaitFrames(2) -- join WaitExecuteLives
   -- SetAnimation(2) [anim idle native]
-  SkySceneKit.say({english=" OK. I'll go do that.", french=" Entendu, j'y vais.", german=" Okay. Das mache ich.", italian=" Ok. Vado subito.", spanish=" Muy bien. Ahora mismo voy."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" All right. I'll go do that.", french=" Entendu, j'y vais.", german=" Alles klar. Das mache ich.", italian=" Va bene. Vado.", spanish=" Vale, ya voy."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" OK. I'll go do that.", french=" Entendu, j'y vais.", german=" Okay. Das mache ich.", italian=" Ok. Vado subito.", spanish=" Muy bien. Ahora mismo voy."})
+  else
+  SkySceneKit.say({english=" OK. I'll go do that.", french=" Entendu, j'y vais.", german=" Okay. Das mache ich.", italian=" Ok. Vado subito.", spanish=" Muy bien. Ahora mismo voy."})
+  end
   GROUND:MoveToPosition(partner, 36, 236, false, 2)
   GROUND:EntTurn(hero, Direction.Left)
   GAME:WaitFrames(2) -- join WaitExecuteLives
@@ -236,7 +254,13 @@ return function(hero, partner)
   pcall(function() GROUND:CharSetEmote(npc_npc_juputoru, "exclaim", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english="(If history is changed...[K]Pokémon of the\nfuture will disappear?)", french="(Si on modifie le cours de l'histoire...[K]\nles Pokémon du futur disparaîtront?)", german="(Wenn die Geschichte verändert wird,[K] dann\nwerden die Pokémon der Zukunft\nverschwinden?)", italian="(Se la storia cambia...[K] i Pokémon del futuro\nscompariranno?)", spanish="(Si la historia cambia...[K] ¿los Pokémon del\nfuturo desaparecerán?)"}) -- SwitchMonologue: branche default
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="(Wh-what?)", french="(Hein, quoi?)", german="(W-was?)", italian="(C-Cosa?)", spanish="(¿Cómo dices?)"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="(If history is changed...[K]Pokémon of the\nfuture will disappear?)", french="(Si on modifie le cours de l'histoire...[K]\nles Pokémon du futur disparaîtront?)", german="(Wenn die Geschichte verändert wird,[K] dann\nwerden die Pokémon der Zukunft\nverschwinden?)", italian="(Se la storia cambia...[K] i Pokémon del futuro\nscompariranno?)", spanish="(Si la historia cambia...[K] ¿los Pokémon del\nfuturo desaparecerán?)"})
+  else
+  SkySceneKit.say({english="(If history is changed...[K]Pokémon of the\nfuture will disappear?)", french="(Si on modifie le cours de l'histoire...[K]\nles Pokémon du futur disparaîtront?)", german="(Wenn die Geschichte verändert wird,[K] dann\nwerden die Pokémon der Zukunft\nverschwinden?)", italian="(Se la storia cambia...[K] i Pokémon del futuro\nscompariranno?)", spanish="(Si la historia cambia...[K] ¿los Pokémon del\nfuturo desaparecerán?)"})
+  end
   pcall(function() UI:SetSpeaker(npc_npc_yonowaaru) end)
   SkySceneKit.say({english=" It won't be just me.", french="Je ne serai pas le seul dans\nce cas.", german=" Das betrifft nicht nur mich.", italian=" Non solo io.", spanish=" Y no seré solo yo."})
   pcall(function() UI:SetSpeaker(npc_npc_yonowaaru) end)
@@ -244,10 +268,22 @@ return function(hero, partner)
   pcall(function() UI:SetSpeaker(npc_npc_yonowaaru) end)
   SkySceneKit.say({english="Since you come from a future\nthat will cease to exist, you will both\ndisappear too...[K] Is that what you really want?", french="Puisque vous venez d'un futur\nqui cessera d'exister...[K] Est-ce là ce que\nvous voulez?", german="Da ihr aus einer Zukunft kommt,\ndie nicht mehr existieren wird, werdet auch\nihr verschwinden...[K] Wollt ihr das wirklich?", italian="Venite da un futuro che cesserà\ndi esistere, quindi scomparirete anche voi...[K]\nÈ quello che volete davvero?", spanish="Venís de un futuro que\nva a dejar de existir, vosotros también\ndesapareceréis...[K] ¿Es eso lo que queréis?"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  SkySceneKit.say({english="(Is [CS:N]Dusknoir[CR] telling...[K]the truth?)", french="(Est-ce que [CS:N]Noctunoir[CR] dit...[K] vrai?)", german="(Sagt [CS:N]Zwirrfinst[CR] etwa...[K] die Wahrheit?)", italian="([CS:N]Dusknoir[CR] starà dicendo...[K] la verità?)", spanish="(¿O será...?[K] ¿O será verdad lo que dice?)"}) -- SwitchMonologue: branche default
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="(If we change history, we'll disappear too?!)", french="(Si on change le cours de l'histoire,\non disparaîtra, nous aussi?!)", german="(Wenn wir die Geschichte verändern,\nverschwinden auch wir?!?)", italian="(Se cambiamo la storia, scompariremo anche\nnoi?!)", spanish="(Si cambiamos la historia, ¡¿también\ndesapareceremos?!)"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="(Is [CS:N]Dusknoir[CR]...)", french="(Est-ce que [CS:N]Noctunoir[CR]...)", german="(Sagt [CS:N]Zwirrfinst[CR] etwa...)", italian="([CS:N]Dusknoir[CR]...)", spanish="(¿Estará [CS:N]Dusknoir[CR] mintiendo?)"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="(Is [CS:N]Dusknoir[CR] telling...[K]the truth?)", french="(Est-ce que [CS:N]Noctunoir[CR] dit...[K] vrai?)", german="(Sagt [CS:N]Zwirrfinst[CR] etwa...[K] die Wahrheit?)", italian="([CS:N]Dusknoir[CR] starà dicendo...[K] la verità?)", spanish="(¿O será...?[K] ¿O será verdad lo que dice?)"})
+  else
+  SkySceneKit.say({english="(Is [CS:N]Dusknoir[CR] telling...[K]the truth?)", french="(Est-ce que [CS:N]Noctunoir[CR] dit...[K] vrai?)", german="(Sagt [CS:N]Zwirrfinst[CR] etwa...[K] die Wahrheit?)", italian="([CS:N]Dusknoir[CR] starà dicendo...[K] la verità?)", spanish="(¿O será...?[K] ¿O será verdad lo que dice?)"})
+  end
   GROUND:EntTurn(hero, Direction.UpRight)
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english="([CS:N]Grovyle[CR]!)", french="([CS:N]Massko[CR]!)", german="([CS:N]Reptain[CR]!)", italian="([CS:N]Grovyle[CR]!)", spanish="(¡[CS:N]Grovyle[CR]!)"}) -- SwitchMonologue: branche default
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="([CS:N]Grovyle[CR]!)", french="([CS:N]Massko[CR]!)", german="([CS:N]Reptain[CR]!)", italian="([CS:N]Grovyle[CR]!)", spanish="(¡[CS:N]Grovyle[CR]!)"})
+  else
+  SkySceneKit.say({english="([CS:N]Grovyle[CR]!)", french="([CS:N]Massko[CR]!)", german="([CS:N]Reptain[CR]!)", italian="([CS:N]Grovyle[CR]!)", spanish="(¡[CS:N]Grovyle[CR]!)"})
+  end
   GROUND:EntTurn(npc_npc_juputoru, Direction.DownLeft)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GAME:WaitFrames(30)
@@ -260,7 +296,11 @@ return function(hero, partner)
   pcall(function() GROUND:CharSetEmote(hero, "shock", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english="([CS:N]G-Grovyle[CR]!)", french="([CS:N]M-Massko[CR]!)", german="([CS:N]R-Reptain[CR]!)", italian="([CS:N]G-Grovyle[CR]!)", spanish="(¡[CS:N]Grovyle[CR]!)"}) -- SwitchMonologue: branche default
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="([CS:N]G-Grovyle[CR]!)", french="([CS:N]M-Massko[CR]!)", german="([CS:N]R-Reptain[CR]!)", italian="([CS:N]G-Grovyle[CR]!)", spanish="(¡[CS:N]Grovyle[CR]!)"})
+  else
+  SkySceneKit.say({english="([CS:N]G-Grovyle[CR]!)", french="([CS:N]M-Massko[CR]!)", german="([CS:N]R-Reptain[CR]!)", italian="([CS:N]G-Grovyle[CR]!)", spanish="(¡[CS:N]Grovyle[CR]!)"})
+  end
   GROUND:EntTurn(npc_npc_juputoru, Direction.Up)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() UI:SetSpeaker(npc_npc_juputoru) end)
@@ -275,7 +315,13 @@ return function(hero, partner)
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Exclaim_Surprised") end)
   pcall(function() GROUND:CharSetEmote(hero, "exclaim", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
-  SkySceneKit.say({english="(Oh![K] I recall, when we were in the future...)", french="(Oh![K] Je me souviens, quand nous étions\ndans le futur...)", german="(Oh![K] Ich erinnere mich, als wir damals in der\nZukunft waren...)", italian="(Oh![K] Ricordo, quando eravamo nel futuro...)", spanish="(¡Oh![K] Ahora recuerdo que cuando estábamos\nen el futuro...)"}) -- SwitchMonologue: branche default
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="(Even [CS:N]Celebi[CR]?)", french="(Même [CS:N]Celebi[CR]?)", german="(Sogar [CS:N]Celebi[CR]?)", italian="(Anche [CS:N]Celebi[CR]?)", spanish="(¿Incluso [CS:N]Celebi[CR]?)"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="(Oh![K] I recall, when we were in the future...)", french="(Oh![K] Je me souviens, quand nous étions\ndans le futur...)", german="(Oh![K] Ich erinnere mich, als wir damals in der\nZukunft waren...)", italian="(Oh![K] Ricordo, quando eravamo nel futuro...)", spanish="(¡Oh![K] Ahora recuerdo que cuando estábamos\nen el futuro...)"})
+  else
+  SkySceneKit.say({english="(Oh![K] I recall, when we were in the future...)", french="(Oh![K] Je me souviens, quand nous étions\ndans le futur...)", german="(Oh![K] Ich erinnere mich, als wir damals in der\nZukunft waren...)", italian="(Oh![K] Ricordo, quando eravamo nel futuro...)", spanish="(¡Oh![K] Ahora recuerdo que cuando estábamos\nen el futuro...)"})
+  end
   GAME:FadeOut(false, 30)
   SkySceneKit.cleanup_npcs()
 end

@@ -33,13 +33,25 @@ return function(hero, partner)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GROUND:EntTurn(partner, Direction.UpLeft)
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english=" Yep.[K] Out for a walk.", french="Ouaip.[K] Je vais faire une petite\npromenade.", german=" Jep.[K] Ein kleiner Spaziergang.", italian="Sì.[K] Esco a fare una\npasseggiata.", spanish=" Sí.[K] Voy a dar una vuelta."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Yup.[K] Out for a walk.", french="Ouaip.[K] Je vais faire une petite\npromenade.", german=" Jep.[K] Ein kleiner Spaziergang.", italian=" Già.[K] Vado a fare due passi.", spanish=" Sí.[K] Voy a dar una vuelta."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Yes.[K] Out for a walk.", french="Ouaip.[K] Je vais faire une petite\npromenade.", german=" Jep.[K] Ein kleiner Spaziergang.", italian="Sì.[K] Esco a fare una\npasseggiata.", spanish=" Sí.[K] Voy a dar una vuelta."})
+  else
+  SkySceneKit.say({english=" Yep.[K] Out for a walk.", french="Ouaip.[K] Je vais faire une petite\npromenade.", german=" Jep.[K] Ein kleiner Spaziergang.", italian="Sì.[K] Esco a fare una\npasseggiata.", spanish=" Sí.[K] Voy a dar una vuelta."})
+  end
   pcall(function() UI:SetSpeaker(npc_npc_bippa) end)
   SkySceneKit.say({english=" Sounds nice, yup yup!", french="T'as raison, c'est agréable,\nah ça oui!", german=" Hört sich nett an, jawollja!", italian=" Buona idea, sì, sì.", spanish=" Buena idea. Sí, señor."})
   pcall(function() UI:SetSpeaker(npc_npc_bippa) end)
   SkySceneKit.say({english="It'll be dinnertime soon, though.\nYou don't want to be late for that!", french="Mais, attention, c'est bientôt\nl'heure d'manger. Faut pas rater ça, hein!", german="Es ist allerdings bald Zeit fürs\nAbendessen. Da willst du doch bestimmt nicht\nzu spät kommen!", italian="Però presto sarà ora di cena.\nNon fare tardi!", spanish="Aunque pronto será hora de\ncenar. ¡Procura no retrasarte!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  SkySceneKit.say({english=" Yep.[K] I hear you.", french=" Oui.[K] Entendu.", german=" Jep.[K] Das stimmt.", italian=" Sì.[K] Va bene.", spanish=" Vale.[K] De acuerdo."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Yep.[K] I hear you.", french=" Oui.[K] Entendu.", german=" Jep.[K] Das stimmt.", italian=" Sì.[K] Va bene.", spanish=" Vale.[K] De acuerdo."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" OK.[K] Understood.", french=" Oui.[K] Entendu.", german=" Okay.[K] Du hast recht.", italian=" Ok.[K] Capito.", spanish=" Vale.[K] Entendido."})
+  else
+  SkySceneKit.say({english=" Yep.[K] I hear you.", french=" Oui.[K] Entendu.", german=" Jep.[K] Das stimmt.", italian=" Sì.[K] Va bene.", spanish=" Vale.[K] De acuerdo."})
+  end
   do local p=partner.Position; GROUND:MoveToPosition(partner, p.X+(0), p.Y+(80), false, 2) end
   GROUND:EntTurn(npc_npc_bippa, Direction.Down)
   GAME:WaitFrames(80)

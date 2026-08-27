@@ -13,17 +13,37 @@ return function(hero, partner)
   -- GAP: BGM BGM_IN_THE_HANDS_OF_FATE non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)
   GAME:FadeIn(30)
   GAME:WaitFrames(30)
-  SkySceneKit.say({english="(And...[K]I will disappear too...)", french="(Et moi aussi...[K] je disparaîtrai...)", german="(Und...[K] Auch ich werde verschwinden.)", italian="(E...[K] anche io scomparirò...)", spanish="(Y...[K] yo también.)"}) -- SwitchMonologue: branche default
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="(That's right...)", french="(C'est vrai...)", german="(Das stimmt...)", italian="(È vero...)", spanish="(Sí que es duro.)"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="(If the future is changed, [CS:N]Grovyle[CR] will\ndisappear...)", french="(Si on modifie le futur, [CS:N]Massko[CR] disparaîtra...)", german="(Wenn die Zukunft verändert wird, dann wird\n[CS:N]Reptain[CR] verschwinden.)", italian="(Se il futuro cambia, [CS:N]Grovyle[CR] scomparirà...)", spanish="(Si el futuro cambia, [CS:N]Grovyle[CR] desaparecerá.)"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="(And...[K]I will disappear too...)", french="(Et moi aussi...[K] je disparaîtrai...)", german="(Und...[K] Auch ich werde verschwinden.)", italian="(E...[K] anche io scomparirò...)", spanish="(Y...[K] yo también.)"})
+  else
+  SkySceneKit.say({english="(And...[K]I will disappear too...)", french="(Et moi aussi...[K] je disparaîtrai...)", german="(Und...[K] Auch ich werde verschwinden.)", italian="(E...[K] anche io scomparirò...)", spanish="(Y...[K] yo también.)"})
+  end
   GROUND:MoveToPosition(partner, 276, 188, false, 1)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   -- Destroy() [neutre/état moteur]
   GAME:WaitFrames(45)
   GROUND:EntTurn(partner, Direction.DownLeft)
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english=" Say, [hero].", french=" Eh, [hero].", german=" Sag mal, [hero].", italian=" Senti, [hero].", spanish=" Oye, [hero]."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Hey, [hero].", french=" Eh, [hero].", german=" Hey, [hero].", italian=" Ehi, [hero].", spanish=" Oye, [hero]."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Hey, [hero].", french=" Eh, [hero].", german=" Hey, [hero].", italian=" Ehi, [hero].", spanish=" Oye, [hero]."})
+  else
+  SkySceneKit.say({english=" Say, [hero].", french=" Eh, [hero].", german=" Sag mal, [hero].", italian=" Senti, [hero].", spanish=" Oye, [hero]."})
+  end
   GROUND:EntTurn(hero, Direction.UpRight)
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english="The last thing [CS:N]Grovyle[CR] said to\nyou, [hero]...", french="La dernière chose que [CS:N]Massko[CR]\nt'a dite, [hero]...", german="Das Letzte, was [CS:N]Reptain[CR] zu dir\nsagte, [hero]...", italian="L'ultima cosa che ti ha detto\n[CS:N]Grovyle[CR], [hero]...", spanish="Lo último que te dijo [CS:N]Grovyle[CR],\n[hero]..."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="The last thing [CS:N]Grovyle[CR] said to\nyou, [hero]...", french="La dernière chose que [CS:N]Massko[CR]\nt'a dite, [hero]...", german="Das Letzte, was [CS:N]Reptain[CR] zu dir\nsagte, [hero]...", italian="L'ultima cosa che ti ha detto\n[CS:N]Grovyle[CR], [hero]...", spanish="Lo último que te dijo [CS:N]Grovyle[CR],\n[hero]..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="The last thing [CS:N]Grovyle[CR] said to\nyou, [hero]...", french="La dernière chose que [CS:N]Massko[CR]\nt'a dite, [hero]...", german="Das Letzte, was [CS:N]Reptain[CR] zu dir\nsagte, [hero]...", italian="L'ultima cosa che ti ha detto\n[CS:N]Grovyle[CR], [hero]...", spanish="Lo último que te dijo [CS:N]Grovyle[CR],\n[hero]..."})
+  else
+  SkySceneKit.say({english="The last thing [CS:N]Grovyle[CR] said to\nyou, [hero]...", french="La dernière chose que [CS:N]Massko[CR]\nt'a dite, [hero]...", german="Das Letzte, was [CS:N]Reptain[CR] zu dir\nsagte, [hero]...", italian="L'ultima cosa che ti ha detto\n[CS:N]Grovyle[CR], [hero]...", spanish="Lo último que te dijo [CS:N]Grovyle[CR],\n[hero]..."})
+  end
   GAME:FadeOut(false,  30)
   -- CallCommon CORO_FADE_OUT_ALL_AFTER (fermeture/attente message: géré par say())
 end

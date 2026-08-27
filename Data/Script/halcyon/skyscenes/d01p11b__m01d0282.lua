@@ -27,7 +27,13 @@ return function(hero, partner)
   pcall(function() GROUND:CharSetEmote(partner, "shock", 1) end)
   -- ExecuteCommon(CORO_JUMP_SURPRISE_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english="Waah![K] Someone has collapsed on\nthe sand!", french="Aaah![K] Quelqu'un vient de\ns'effondrer sur le sable!", german="Waah![K] Da ist jemand im Sand\nzusammengebrochen!", italian="Aaah![K] Qualcuno è\nsvenuto sulla sabbia!", spanish=" ¡Aaah![K] ¡Alguien se ha desmayado!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="Waah![K] Someone has collapsed on\nthe sand!", french="Aaah![K] Quelqu'un vient de\ns'effondrer sur le sable!", german="Waah![K] Da ist jemand im Sand\nzusammengebrochen!", italian="Waah![K] Qualcuno è\nsvenuto sulla sabbia!", spanish=" ¡Aaah![K] ¡Alguien se ha desmayado!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="Waah![K] Someone has collapsed on\nthe sand!", french="Aaah![K] Quelqu'un vient de\ns'effondrer sur le sable!", german="Waah![K] Da ist jemand im Sand\nzusammengebrochen!", italian="Aaah![K] Qualcuno è\nsvenuto sulla sabbia!", spanish=" ¡Aaah![K] ¡Alguien se ha desmayado!"})
+  else
+  SkySceneKit.say({english="Waah![K] Someone has collapsed on\nthe sand!", french="Aaah![K] Quelqu'un vient de\ns'effondrer sur le sable!", german="Waah![K] Da ist jemand im Sand\nzusammengebrochen!", italian="Aaah![K] Qualcuno è\nsvenuto sulla sabbia!", spanish=" ¡Aaah![K] ¡Alguien se ha desmayado!"})
+  end
   pcall(function() GAME:MoveCamera(308, 176, 60, false) end) -- performer/caméra
   -- SetAnimation(1024) [anim idle native]
   GROUND:MoveToPosition(partner, 312, 172, false, 2)
@@ -36,7 +42,13 @@ return function(hero, partner)
   GAME:WaitFrames(10)
   -- ExecuteCommon(CORO_JUMP_ANGRY_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english=" What happened?![K] Are you OK?", french=" Que s'est-il passé?![K] Ça va?", german=" Was ist passiert?!?[K] Alles okay?", italian=" Cos'è successo?![K] Stai bene?", spanish=" ¿Qué ha ocurrido?[K] ¿Estás bien?"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" What happened?![K] Are you OK?", french=" Que s'est-il passé?![K] Ça va?", german=" Was ist passiert?!?[K] Alles okay?", italian=" Cos'è successo?![K] Stai bene?", spanish=" ¿Qué ha ocurrido?[K] ¿Estás bien?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" What happened?![K] Are you OK?", french=" Que s'est-il passé?![K] Ça va?", german=" Was ist passiert?!?[K] Alles okay?", italian=" Cos'è successo?![K] Stai bene?", spanish=" ¿Qué ha ocurrido?[K] ¿Estás bien?"})
+  else
+  SkySceneKit.say({english=" What happened?![K] Are you OK?", french=" Que s'est-il passé?![K] Ça va?", german=" Was ist passiert?!?[K] Alles okay?", italian=" Cos'è successo?![K] Stai bene?", spanish=" ¿Qué ha ocurrido?[K] ¿Estás bien?"})
+  end
   SkySubScreen.Hide(30) -- screen2_FadeOut: retour BOTTOM_FOCUS (timeline ROM)
   GAME:FadeOut(false, 30)
   -- back2_SetMode(0) [mode d'affichage sub NDS: géré par SubScreen]

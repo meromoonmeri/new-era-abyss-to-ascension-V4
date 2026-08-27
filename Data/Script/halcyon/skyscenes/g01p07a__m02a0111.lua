@@ -33,7 +33,13 @@ return function(hero, partner)
   -- SetAnimation(2) [anim idle native]
   pcall(function() GROUND:CharSetEmote(partner, "happy", 1) end)
   -- message_FacePositionOffset(-2, -1) [neutre/état moteur]
-  SkySceneKit.say({english=" Yay! We get beds!", french=" Waouh! On a des lits!", german=" Hurra! Wir bekommen Betten!", italian=" Wow! Dei letti!", spanish=" ¡Bien! ¡Nos han dado camas!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Wow! We get beds!", french=" Waouh! On a des lits!", german=" Wow! Wir bekommen Betten!", italian=" Wow! Dei letti!", spanish=" ¡Vaya! ¡Nos dan camas!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Great! We get beds!", french=" Waouh! On a des lits!", german=" Super! Wir bekommen Betten!", italian=" Wow! Dei letti!", spanish=" ¡Qué bien! ¡Nos dan camas!"})
+  else
+  SkySceneKit.say({english=" Yay! We get beds!", french=" Waouh! On a des lits!", german=" Hurra! Wir bekommen Betten!", italian=" Wow! Dei letti!", spanish=" ¡Bien! ¡Nos han dado camas!"})
+  end
   pcall(function() GROUND:CharSetEmote(partner, nil, 0) end) -- EFFECT_NONE
   GROUND:EntTurn(partner, Direction.UpLeft)
   pcall(function() GROUND:CharTurnToCharAnimated(hero, npc_npc_perappu, 4) end)

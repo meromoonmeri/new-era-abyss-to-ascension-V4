@@ -15,7 +15,25 @@ return function(hero, partner)
   SkySubScreen.Show("v21p02b", 30, false) -- screen2_FadeIn: TOP_FOCUS (timeline ROM)
   GAME:FadeIn(30)
   GAME:WaitFrames(30)
-  SkySceneKit.say({english="Maybe that's why I was able to\nkeep going without giving up!", french="C'est peut-être grâce à ça que\nj'ai pu m'accrocher jusqu'au bout!", german="Vielleicht war das der Grund,\naus dem ich weitermachen konnte, ohne\naufzugeben!", italian="Forse è per questo che sono\nriuscita a tenere duro senza arrendermi!", spanish="¡Tal vez por eso pude seguir\nadelante sin rendirme!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" It all gave me courage.", french=" ... cela m'a redonné courage.", german=" Das hat mir immer Mut gemacht.", italian="Beh, la sua presenza mi dava\ncoraggio.", spanish="Me daba valor para seguir\nadelante."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" It all gave me courage.", french=" ... cela m'a redonné courage.", german=" Das hat mir immer Mut gemacht.", italian="Beh, la sua presenza mi dava\ncoraggio.", spanish="Me daba valor para seguir\nadelante."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="With [hero], I felt like I\ncould conquer any challenge.", french="Avec [hero] à mes côtés,\nj'ai toujours eu l'impression que je pourrais\nsoulever des montagnes.", german="Mit [hero] fühlte ich\nmich bereit für jede Herausforderung.", italian="Con [hero], sentivo di\npoter vincere ogni sfida.", spanish="Con [hero] a mi lado,\nsentía que podía superar cualquier\nobstáculo."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="With [hero], I felt like I\ncould overcome any challenge.", french="Avec [hero] à mes côtés,\nj'ai toujours eu l'impression que je pourrais\nsoulever des montagnes.", german="Mit [hero] fühlte ich\nmich jeder Herausforderung gewachsen.", italian="Con [hero], sentivo di\npoter affrontare qualunque sfida.", spanish="Con [hero] a mi lado,\nsentía que podía superar cualquier\nobstáculo."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="That's how I came to think\nover time.", french="Le temps a passé, et cette\nimpression a persisté.", german=" So fühlte ich nach einiger Zeit.", italian=" Col tempo sono cambiato.", spanish="Así es como acabé sintiéndome\nal cabo del tiempo."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="That's how I came to feel\nover time.", french="Le temps a passé, et cette\nimpression a persisté.", german=" So fühlte ich nach einiger Zeit.", italian=" Col tempo sono cambiato.", spanish="Así es como acabé sintiéndome\nal cabo del tiempo."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="Maybe that's why I was able to\nkeep going without giving up!", french="C'est peut-être grâce à ça que\nj'ai pu m'accrocher jusqu'au bout!", german="Vielleicht war das der Grund,\naus dem ich weitermachen konnte, ohne\naufzugeben!", italian="Forse è per questo che sono\nriuscito a tenere duro senza arrendermi!", spanish="¡Tal vez por eso pude seguir\nadelante sin rendirme!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="Maybe that's why I was able to\nkeep going without giving up!", french="C'est peut-être grâce à ça que\nj'ai pu m'accrocher jusqu'au bout!", german="Vielleicht war das der Grund,\naus dem ich weitermachen konnte, ohne\naufzugeben!", italian="Forse è per questo che sono\nriuscito a tenere duro senza arrendermi!", spanish="¡Tal vez por eso pude seguir\nadelante sin rendirme!"})
+  else
+  SkySceneKit.say({english="Maybe that's why I was able to\nkeep going without giving up!", french="C'est peut-être grâce à ça que\nj'ai pu m'accrocher jusqu'au bout!", german="Vielleicht war das der Grund,\naus dem ich weitermachen konnte, ohne\naufzugeben!", italian="Forse è per questo che sono\nriuscita a tenere duro senza arrendermi!", spanish="¡Tal vez por eso pude seguir\nadelante sin rendirme!"})
+  end
   local npc_npc_juputoru = SkySceneKit.spawn_npc("grovyle", 216, 160, Direction.UpLeft, "NPC_JUPUTORU")
   pcall(function() UI:SetSpeaker(npc_npc_juputoru) end)
   SkySceneKit.say({english=" ...[K]All right.", french=" ...[K] Je vois.", german=" ...[K]Alles klar.", italian=" ...[K] Va bene.", spanish=" Ah...[K] Ya veo."})
@@ -59,7 +77,13 @@ return function(hero, partner)
   pcall(function() GROUND:CharTurnToCharAnimated(partner, npc_npc_juputoru, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GAME:WaitFrames(15)
-  SkySceneKit.say({english=" Yep.", french=" D'accord.", german=" Jep.", italian=" Sì.", spanish=" Sí."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Yup.", french=" D'accord.", german=" Jep.", italian=" Sì.", spanish=" Sí."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Yes.", french=" D'accord.", german=" Ja.", italian=" Sì.", spanish=" Sí."})
+  else
+  SkySceneKit.say({english=" Yep.", french=" D'accord.", german=" Jep.", italian=" Sì.", spanish=" Sí."})
+  end
   GROUND:MoveToPosition(npc_npc_juputoru, 232, 172, false, 2)
   GROUND:MoveToPosition(npc_npc_juputoru, 296, 172, false, 2)
   do local p=partner.Position; GROUND:MoveToPosition(partner, p.X+(8), p.Y+(8), false, 1) end

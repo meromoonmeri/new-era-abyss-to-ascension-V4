@@ -45,7 +45,13 @@ return function(hero, partner)
   do local p=hero.Position; GROUND:MoveToPosition(hero, p.X+(-30), p.Y+(-16), false, 1) end -- Move2PositionOffset
   GAME:WaitFrames(5)
   do local p=npc_npc_perappu.Position; GROUND:MoveToPosition(npc_npc_perappu, p.X+(-24), p.Y+(-12), false, 1) end -- Move2PositionOffset
-  SkySceneKit.say({english=" [CS:N]Manaphy[CR]...", french=" [CS:N]Manaphy[CR]...", german=" [CS:N]Manaphy[CR]...", italian=" [CS:N]Manaphy[CR]...", spanish=" [CS:N]Manaphy[CR]..."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" [CS:N]Manaphy[CR]...", french=" [CS:N]Manaphy[CR]...", german=" [CS:N]Manaphy[CR]...", italian=" [CS:N]Manaphy[CR]...", spanish=" [CS:N]Manaphy[CR]..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" [CS:N]Manaphy[CR]...", french=" [CS:N]Manaphy[CR]...", german=" [CS:N]Manaphy[CR]...", italian=" [CS:N]Manaphy[CR]...", spanish=" [CS:N]Manaphy[CR]..."})
+  else
+  SkySceneKit.say({english=" [CS:N]Manaphy[CR]...", french=" [CS:N]Manaphy[CR]...", german=" [CS:N]Manaphy[CR]...", italian=" [CS:N]Manaphy[CR]...", spanish=" [CS:N]Manaphy[CR]..."})
+  end
   GROUND:EntTurn(npc_npc_manafi, Direction.Right)
   GROUND:EntTurn(hero, Direction.Left)
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
@@ -56,7 +62,13 @@ return function(hero, partner)
   pcall(function() GROUND:CharSetEmote(partner, "sweating", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english=" [CS:N]Manaphy[CR]!", french=" [CS:N]Manaphy[CR]!", german=" [CS:N]Manaphy[CR]!", italian=" [CS:N]Manaphy[CR]!", spanish=" ¡[CS:N]Manaphy[CR]!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" [CS:N]Manaphy[CR]!", french=" [CS:N]Manaphy[CR]!", german=" [CS:N]Manaphy[CR]!", italian=" [CS:N]Manaphy[CR]!", spanish=" ¡[CS:N]Manaphy[CR]!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" [CS:N]Manaphy[CR]!", french=" [CS:N]Manaphy[CR]!", german=" [CS:N]Manaphy[CR]!", italian=" [CS:N]Manaphy[CR]!", spanish=" ¡[CS:N]Manaphy[CR]!"})
+  else
+  SkySceneKit.say({english=" [CS:N]Manaphy[CR]!", french=" [CS:N]Manaphy[CR]!", german=" [CS:N]Manaphy[CR]!", italian=" [CS:N]Manaphy[CR]!", spanish=" ¡[CS:N]Manaphy[CR]!"})
+  end
   GROUND:MoveToPosition(partner, 448, 172, false, 2)
   GROUND:MoveToPosition(hero, 448, 196, false, 2)
   GROUND:MoveToPosition(npc_npc_perappu, 436, 212, false, 2)
@@ -65,7 +77,13 @@ return function(hero, partner)
   GROUND:EntTurn(hero, Direction.UpLeft)
   GROUND:EntTurn(npc_npc_perappu, Direction.Up)
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english="You're really...[K]that little\n[CS:N]Manaphy[CR]?", french="C'est vraiment toi...[K] notre petit\n[CS:N]Manaphy[CR]?", german="Du bist wirklich...[K] das kleine\n[CS:N]Manaphy[CR]?", italian="Sei davvero...[K] il nostro piccolo\n[CS:N]Manaphy[CR]?", spanish="Eres realmente...[K] ¿el pequeño\n[CS:N]Manaphy[CR]?"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="You're really...[K]that little\n[CS:N]Manaphy[CR]?", french="C'est vraiment toi...[K] notre petit\n[CS:N]Manaphy[CR]?", german="Du bist wirklich...[K] das kleine\n[CS:N]Manaphy[CR]?", italian="Sei davvero...[K] il nostro piccolo\n[CS:N]Manaphy[CR]?", spanish="Eres realmente...[K] ¿el pequeño\n[CS:N]Manaphy[CR]?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="You're really...[K]that little\n[CS:N]Manaphy[CR]?", french="C'est vraiment toi...[K] notre petit\n[CS:N]Manaphy[CR]?", german="Du bist wirklich...[K] das kleine\n[CS:N]Manaphy[CR]?", italian="Sei davvero...[K] il nostro piccolo\n[CS:N]Manaphy[CR]?", spanish="Eres realmente...[K] ¿el pequeño\n[CS:N]Manaphy[CR]?"})
+  else
+  SkySceneKit.say({english="You're really...[K]that little\n[CS:N]Manaphy[CR]?", french="C'est vraiment toi...[K] notre petit\n[CS:N]Manaphy[CR]?", german="Du bist wirklich...[K] das kleine\n[CS:N]Manaphy[CR]?", italian="Sei davvero...[K] il nostro piccolo\n[CS:N]Manaphy[CR]?", spanish="Eres realmente...[K] ¿el pequeño\n[CS:N]Manaphy[CR]?"})
+  end
   -- ExecuteCommon(CORO_JUMP_ANGRY_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   pcall(function() UI:SetSpeaker(npc_npc_manafi) end)
   SkySceneKit.say({english=" Yup, yup!", french=" Ouaip ouaip!", german=" Jep, jep!", italian=" Sì, sì!", spanish=" ¡Sí, sí!"})
@@ -77,7 +95,13 @@ return function(hero, partner)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() GROUND:CharSetEmote(partner, "sweating", 1) end)
-  SkySceneKit.say({english=" Oh![K] You remembered us!", french=" Oh![K] Tu t'es souvenu de nous!", german=" Oh![K] Du erinnerst dich an uns!", italian=" Oh![K] Ti ricordi di noi!", spanish=" ¡Oh![K] ¡Nos recuerdas!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Oh![K] You remembered us!", french=" Oh![K] Tu t'es souvenu de nous!", german=" Oh![K] Du erinnerst dich an uns!", italian=" Oh![K] Ti ricordi di noi!", spanish=" ¡Oh![K] ¡Nos recuerdas!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Oh![K] You remembered us!", french=" Oh![K] Tu t'es souvenu de nous!", german=" Oh![K] Du erinnerst dich an uns!", italian=" Oh![K] Ti ricordi di noi!", spanish=" ¡Oh![K] ¡Nos recuerdas!"})
+  else
+  SkySceneKit.say({english=" Oh![K] You remembered us!", french=" Oh![K] Tu t'es souvenu de nous!", german=" Oh![K] Du erinnerst dich an uns!", italian=" Oh![K] Ti ricordi di noi!", spanish=" ¡Oh![K] ¡Nos recuerdas!"})
+  end
   pcall(function() UI:SetSpeaker(npc_npc_manafi) end)
   SkySceneKit.say({english=" Of course! I didn't forget you!", french="Bien sûr, je ne pouvais pas vous\noublier!", german="Natürlich habe ich euch nicht\nvergessen!", italian=" Certo che mi ricordo!", spanish=" ¡Claro que os recuerdo!"})
   pcall(function() UI:SetSpeaker(npc_npc_manafi) end)

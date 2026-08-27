@@ -20,7 +20,13 @@ return function(hero, partner)
   GAME:WaitFrames(15)
   -- ExecuteCommon(CORO_LOOK_AROUND_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english=" Wow, it's become dark outside!", french=" Waouh, il fait si sombre dehors!", german="Wow, draußen ist es dunkel\ngeworden!", italian="Wow! È buio pesto, non\ntrovate?", spanish=" Vaya, ¡qué oscuridad!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Wow, it's so dark outside now!", french=" Waouh, il fait si sombre dehors!", german="Wow, es ist jetzt ganz dunkel\ndraußen!", italian="Wow! Si è fatto scuro fuori,\neh?", spanish=" Vaya, ¡qué oscuro!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Wow, it's become dark outside!", french=" Waouh, il fait si sombre dehors!", german="Wow, draußen ist es dunkel\ngeworden!", italian="Wow! È buio pesto, non\ntrovate?", spanish=" Vaya, ¡qué oscuridad!"})
+  else
+  SkySceneKit.say({english=" Wow, it's become dark outside!", french=" Waouh, il fait si sombre dehors!", german="Wow, draußen ist es dunkel\ngeworden!", italian="Wow! È buio pesto, non\ntrovate?", spanish=" Vaya, ¡qué oscuridad!"})
+  end
   GROUND:MoveToPosition(npc_npc_yukushii, 156, 348, false, 1)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GAME:WaitFrames(15)
@@ -40,7 +46,13 @@ return function(hero, partner)
   GROUND:MoveToPosition(hero, 176, 380, false, 1)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   GAME:WaitFrames(15)
-  SkySceneKit.say({english=" Wow!", french=" Waouh!", german=" Wow!", italian=" Wow!", spanish=" ¡Vaya!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Wow!", french=" Waouh!", german=" Wow!", italian=" Wow!", spanish=" ¡Vaya!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Wow!", french=" Waouh!", german=" Wow!", italian=" Wow!", spanish=" ¡Vaya!"})
+  else
+  SkySceneKit.say({english=" Wow!", french=" Waouh!", german=" Wow!", italian=" Wow!", spanish=" ¡Vaya!"})
+  end
   pcall(function() local g=GAME:GetCurrentGround(); GAME:MoveCamera(g.ViewCenter.X+(0), g.ViewCenter.Y+(-180), 180, false) end) -- MovePositionOffset performer/caméra
   GAME:WaitFrames(60)
   GAME:FadeOut(false, 30)

@@ -13,7 +13,13 @@ return function(hero, partner)
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Exclaim") end)
   -- ExecuteCommon(CORO_JUMP_SURPRISE_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english=" What...?!", french=" Quoi...?!", german=" Was?!?", italian=" Oh!", spanish=" ¡¿Cómo?!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" What...?!", french=" Quoi...?!", german=" Was?!?", italian=" Oh!", spanish=" ¡¿Cómo?!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" What...?!", french=" Quoi...?!", german=" Was?!?", italian=" Oh!", spanish=" ¡¿Cómo?!"})
+  else
+  SkySceneKit.say({english=" What...?!", french=" Quoi...?!", german=" Was?!?", italian=" Oh!", spanish=" ¡¿Cómo?!"})
+  end
   pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
   local npc_npc_perappu = SkySceneKit.spawn_npc("chatot", 352, 216, Direction.Down, "NPC_PERAPPU")
   pcall(function() GROUND:CharTurnToCharAnimated(npc_npc_perappu, partner, 4) end)
@@ -38,7 +44,17 @@ return function(hero, partner)
   local npc_npc_diguda = SkySceneKit.spawn_npc("diglett", 320, 248, Direction.UpRight, "NPC_DIGUDA")
   pcall(function() GROUND:CharTurnToCharAnimated(npc_npc_diguda, partner, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english=" But nobody found anything?", french="Mais personne n'a découvert\nquoi que ce soit?", german="Aber niemand hat etwas\ngefunden?", italian="Possibile che nessuno abbia\ntrovato niente?", spanish=" ¿Pero nadie ha encontrado nada?"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="So everyone's back from their\nsearches...", french=" Alors tout le monde est rentré...", german="Es sind also alle von ihrer\nSuche zurück...", italian="Anche gli altri hanno terminato\nle loro ricerche.", spanish="Así que todos han regresado\nde sus exploraciones..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="So everyone's back from their\nsearches...", french=" Alors tout le monde est rentré...", german="Es sind also alle von ihrer\nSuche zurück...", italian="Anche gli altri hanno terminato\nle loro ricerche.", spanish="Así que todos han regresado\nde sus exploraciones..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" But nobody found anything?", french="Mais personne n'a découvert\nquoi que ce soit?", german="Aber niemand hat etwas\ngefunden?", italian="Possibile che nessuno abbia\ntrovato niente?", spanish=" ¿Pero nadie ha encontrado nada?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" But nobody found anything?", french="Mais personne n'a découvert\nquoi que ce soit?", german="Aber niemand hat etwas\ngefunden?", italian="Possibile che nessuno abbia\ntrovato niente?", spanish=" ¿Pero nadie ha encontrado nada?"})
+  else
+  SkySceneKit.say({english=" But nobody found anything?", french="Mais personne n'a découvert\nquoi que ce soit?", german="Aber niemand hat etwas\ngefunden?", italian="Possibile che nessuno abbia\ntrovato niente?", spanish=" ¿Pero nadie ha encontrado nada?"})
+  end
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Sweatdrop") end)
   pcall(function() GROUND:CharSetEmote(npc_npc_dagutorio, "sweating", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect

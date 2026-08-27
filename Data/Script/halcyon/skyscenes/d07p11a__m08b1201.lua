@@ -34,7 +34,13 @@ return function(hero, partner)
   GAME:WaitFrames(15)
   pcall(function() GROUND:CharSetEmote(partner, "sweating", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
-  SkySceneKit.say({english="Hmm... We got maybe a little\ncareless.", french="Hmm... On aurait dû être plus\nprudents...", german="Hmm... Vielleicht waren wir\netwas zu leichtsinnig.", italian="Forse siamo stati troppo\nspericolati.", spanish="Hum. Supongo que nos hemos\nconfiado más de la cuenta."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="Hmm... We were maybe a little\ncareless.", french="Hmm... On aurait dû être plus\nprudents...", german="Hmm... Vielleicht waren wir\nein bisschen leichtsinnig.", italian="Forse siamo stati troppo\nspericolati.", spanish="Hum. Creo que nos hemos\nconfiado más de la cuenta."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="Hmm... I think we may have\nbeen a little careless.", french="Hmm... On aurait dû être plus\nprudents...", german="Hmm... Ich glaube, wir waren\nvielleicht ein bisschen leichtsinnig.", italian="Forse siamo stati troppo\nspericolati.", spanish="Hum. Tal vez nos hemos\nconfiado más de la cuenta."})
+  else
+  SkySceneKit.say({english="Hmm... We got maybe a little\ncareless.", french="Hmm... On aurait dû être plus\nprudents...", german="Hmm... Vielleicht waren wir\netwas zu leichtsinnig.", italian="Forse siamo stati troppo\nspericolati.", spanish="Hum. Supongo que nos hemos\nconfiado más de la cuenta."})
+  end
   pcall(function() GROUND:CharTurnToCharAnimated(hero, npc_npc_bippa, 4) end)
   GROUND:EntTurn(partner, Direction.DownLeft)
   GAME:WaitFrames(2) -- join WaitExecuteLives
@@ -45,6 +51,12 @@ return function(hero, partner)
   GROUND:EntTurn(hero, Direction.UpLeft)
   GROUND:EntTurn(npc_npc_bippa, Direction.UpRight)
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english=" Yup![K] Let's get it done!", french=" Oui![K] Finissons-en!", german=" Ja![K] Wir schaffen das!", italian=" Sì![K] Dobbiamo farcela!", spanish=" ¡Sí![K] ¡Adelante!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Yup![K] Let's get it done!", french=" Oui![K] Finissons-en!", german=" Ja![K] Wir schaffen das!", italian=" Già![K] Dobbiamo farcela!", spanish=" ¡Sí![K] ¡Venga!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Yes![K] Let's get it done!", french=" Oui![K] Finissons-en!", german=" Ja![K] Wir schaffen das!", italian=" Sì![K] Dobbiamo farcela!", spanish=" ¡Sí![K] ¡Vamos!"})
+  else
+  SkySceneKit.say({english=" Yup![K] Let's get it done!", french=" Oui![K] Finissons-en!", german=" Ja![K] Wir schaffen das!", italian=" Sì![K] Dobbiamo farcela!", spanish=" ¡Sí![K] ¡Adelante!"})
+  end
   SkySceneKit.cleanup_npcs()
 end

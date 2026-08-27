@@ -6,7 +6,13 @@ return function(hero, partner)
   pcall(function() SOUND:StopBGM() end)
   -- back_SetGround(LEVEL_S04P01A) [neutre/état moteur]
   GAME:FadeIn(0)
-  SkySceneKit.say({english=" Ugh, that wasn't so good...", french=" Argh, quelle défaite...", german=" Ugh, das lief nicht gut...", italian=" Ohi, non è andata troppo bene...", spanish=" ¡Ay! Esto no ha ido muy bien..."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Ugh, we blew that attempt...", french=" Argh, quelle défaite...", german=" Ugh, das war ein Reinfall...", italian=" Ugh, che batosta...", spanish=" ¡Ay! No lo hemos conseguido..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Ugh, that ended badly...", french=" Argh, quelle défaite...", german=" Ugh, das ging nicht gut aus...", italian=" Ohi, non è andata troppo bene...", spanish=" ¡Ay! Esto no ha ido bien..."})
+  else
+  SkySceneKit.say({english=" Ugh, that wasn't so good...", french=" Argh, quelle défaite...", german=" Ugh, das lief nicht gut...", italian=" Ohi, non è andata troppo bene...", spanish=" ¡Ay! Esto no ha ido muy bien..."})
+  end
   GAME:FadeOut(false,  60)
   -- message_CloseEnforce
   -- CallCommon CORO_FADE_OUT_ALL_AFTER (fermeture/attente message: géré par say())
@@ -30,6 +36,18 @@ return function(hero, partner)
   GAME:WaitFrames(15)
   pcall(function() GROUND:CharSetEmote(partner, "sweating", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
-  SkySceneKit.say({english=" This won't be easy...", french="C'est plus dur que je ne le\npensais!", german=" Das wird nicht leicht...", italian=" Non sarà facile...", spanish=" ¡Esto no va a ser fácil!"}) -- SwitchTalk: branche default (canon générique)
-  SkySceneKit.say({english="But we're almost there.\nLet's keep at it!", french="Mais on y est presque! Il faut\ntenir bon!", german="Aber wir sind fast da.\nGeben wir nicht auf!", italian="Ma non manca molto ormai.\nDiamo del nostro meglio!", spanish="Pero ya casi estamos.\n¡Hay que seguir!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" This is tougher than I thought!", french="C'est plus dur que je ne le\npensais!", german=" Das ist schwerer, als ich dachte!", italian="È più tosta di quel che\npensassi...", spanish="¡Esto es más difícil de lo que\nesperaba!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" This is harder than expected...", french="C'est plus dur que je ne le\npensais!", german=" Das ist schwerer als erwartet...", italian="È più difficile di quel che\npensassi...", spanish="¡Esto es más difícil de lo que\nesperaba!"})
+  else
+  SkySceneKit.say({english=" This won't be easy...", french="C'est plus dur que je ne le\npensais!", german=" Das wird nicht leicht...", italian=" Non sarà facile...", spanish=" ¡Esto no va a ser fácil!"})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="But we're almost there.\nLet's keep at it!", french="Mais on y est presque! Il faut\ntenir bon!", german="Aber wir sind fast da.\nGeben wir nicht auf!", italian="Ma ci siamo quasi! Diamoci\ndentro!", spanish="Pero ya casi estamos.\n¡Hay que seguir!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="But we were nearly there.\nLet's keep at it!", french="Mais on y est presque! Il faut\ntenir bon!", german="Aber wir waren fast da.\nGeben wir nicht auf!", italian="Ma non manca molto ormai.\nDiamo del nostro meglio!", spanish="Pero ya casi estamos.\n¡Hay que seguir!"})
+  else
+  SkySceneKit.say({english="But we're almost there.\nLet's keep at it!", french="Mais on y est presque! Il faut\ntenir bon!", german="Aber wir sind fast da.\nGeben wir nicht auf!", italian="Ma non manca molto ormai.\nDiamo del nostro meglio!", spanish="Pero ya casi estamos.\n¡Hay que seguir!"})
+  end
 end

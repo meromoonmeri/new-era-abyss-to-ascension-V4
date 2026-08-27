@@ -22,7 +22,13 @@ return function(hero, partner)
   pcall(function() SOUND:StopBGM() end)
   -- back_SetGround(LEVEL_S04P01A) [neutre/état moteur]
   GAME:FadeIn(0)
-  SkySceneKit.say({english=" Ugh...[K] We didn't make it.", french=" Argh...[K] On a raté notre coup.", german=" Uff...[K] Nicht geschafft.", italian=" Uh...[K] Non ce l'abbiamo fatta.", spanish=" Ay...[K] No hemos conseguido pasar."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Ugh...[K] We blew that attempt.", french=" Argh...[K] On a raté notre coup.", german=" Uff...[K] Der Versuch war nichts.", italian="Uh...[K] Ci siamo sforzati\ninutilmente.", spanish="Ay...[K] No lo hemos logrado esta\nvez."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Ugh...[K] That wasn't good.", french=" Argh...[K] On a raté notre coup.", german=" Uff...[K] Das war nicht gut.", italian="Uh...[K] Non è andata per niente\nbene.", spanish="Ay...[K] No, no hemos tenido mucho\ntino."})
+  else
+  SkySceneKit.say({english=" Ugh...[K] We didn't make it.", french=" Argh...[K] On a raté notre coup.", german=" Uff...[K] Nicht geschafft.", italian=" Uh...[K] Non ce l'abbiamo fatta.", spanish=" Ay...[K] No hemos conseguido pasar."})
+  end
   GAME:FadeOut(false,  60)
   -- message_CloseEnforce
   -- CallCommon CORO_FADE_OUT_ALL_AFTER (fermeture/attente message: géré par say())
@@ -50,7 +56,13 @@ return function(hero, partner)
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Sweatdrop") end)
   pcall(function() GROUND:CharSetEmote(partner, "sweating", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
-  SkySceneKit.say({english="Urk... This is kind of\nchallenging...", french=" Aaah... Ce que c'est difficile...", german="Umpf... Das ist eine echte\nHerausforderung...", italian=" Uff... È molto impegnativo...", spanish="Desde luego, esto es todo un\ndesafío."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="Urk... This is pretty tough\ngoing...", french=" Aaah... Ce que c'est difficile...", german="Umpf... Das ist eine ziemlich\nraue Gangart...", italian=" Uff... È piuttosto dura...", spanish=" La cosa está difícil..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Urk... This isn't easy at all...", french=" Aaah... Ce que c'est difficile...", german="Umpf... Das ist gar nicht\neinfach...", italian=" Uff... Non è per niente facile...", spanish="Es más complicado de lo que\nparece."})
+  else
+  SkySceneKit.say({english="Urk... This is kind of\nchallenging...", french=" Aaah... Ce que c'est difficile...", german="Umpf... Das ist eine echte\nHerausforderung...", italian=" Uff... È molto impegnativo...", spanish="Desde luego, esto es todo un\ndesafío."})
+  end
   GROUND:EntTurn(npc_npc_juputoru, Direction.Down)
   pcall(function() GROUND:CharTurnToCharAnimated(partner, npc_npc_juputoru, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives

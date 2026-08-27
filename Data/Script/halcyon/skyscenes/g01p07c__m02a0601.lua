@@ -9,7 +9,13 @@ return function(hero, partner)
   -- camera_SetMyself() [neutre/état moteur]
   GAME:FadeIn(30)
   GAME:WaitFrames(30)
-  SkySceneKit.say({english=" Why don't we get some sleep?", french=" Il est l'heure de dormir.", german="Wieso legen wir uns nicht\nschlafen?", italian=" Andiamo a dormire.", spanish="Será mejor que nos vayamos\na dormir."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Let's get some sleep.", french=" Il est l'heure de dormir.", german=" Lass uns schlafen gehen.", italian=" Andiamo a dormire.", spanish=" Vamos a dormir."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" We should get some sleep.", french=" Il est l'heure de dormir.", german=" Wir sollten schlafen gehen.", italian=" Andiamo a dormire.", spanish=" Será mejor que durmamos."})
+  else
+  SkySceneKit.say({english=" Why don't we get some sleep?", french=" Il est l'heure de dormir.", german="Wieso legen wir uns nicht\nschlafen?", italian=" Andiamo a dormire.", spanish="Será mejor que nos vayamos\na dormir."})
+  end
   -- supervision_Acting(1) [neutre/état moteur]
   GAME:WaitFrames(1)
   local npc_npc_perappu = SkySceneKit.spawn_npc("chatot", 16, 184, Direction.Right, "NPC_PERAPPU")

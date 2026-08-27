@@ -12,7 +12,25 @@ return function(hero, partner)
   GAME:WaitFrames(30)
   -- ExecuteCommon(CORO_JUMP_HAPPY_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english=" This couldn't be more dazzling!", french=" Quel spectacle éblouissant!", german=" Das ist einfach umwerfend!", italian=" È bellissimo!", spanish=" ¡Qué hermoso!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Unbelievable!", french=" Je n'en crois pas mes yeux!", german=" Unglaublich!", italian=" Incredibile!", spanish=" ¡Increíble!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" That's incredible!", french=" Je n'en crois pas mes yeux!", german=" Das ist unglaublich!", italian=" È fantastico!", spanish=" ¡Es increíble!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="Such a big lake! Who'd ever\nexpect it way up here on this plateau!", french="Qui aurait pu penser qu'un\nsi grand lac puisse se trouver à une telle\naltitude?", german="Was für ein großer See! Wer\nhätte so etwas hier oben erwartet?", italian="Che lago enorme! Chi l'avrebbe\nmai detto, così in alto...", spanish="¡Qué lago tan grande!\n¿Quién se lo iba a esperar aquí arriba,\nen esta especie de meseta?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="Who'd expect to see such a big\nlake on a plateau so high up?", french="Qui aurait pu penser qu'un\nsi grand lac puisse se trouver à une telle\naltitude?", german="Wer würde so hoch oben\neinen so großen See erwarten?", italian="Chi avrebbe mai immaginato che\nci potesse essere un lago così immenso\nquassù?", spanish="¿Quién se iba a esperar ver un\nlago tan grande aquí arriba, en esta meseta?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="And look! Those [CS:N]Volbeat[CR] and\n[CS:N]Illumise[CR] flying around...", french="Et regarde tous ces [CS:N]Muciole[CR]\net ces [CS:N]Lumivole[CR] un peu partout dans le ciel...", german="Und sieh mal! Diese\numherfliegenden [CS:N]Volbeat[CR] und [CS:N]Illumise[CR]...", italian="E guarda! Tutti quei [CS:N]Volbeat[CR] e\nquegli [CS:N]Illumise[CR] che volano...", spanish="¡Y mira cómo revolotean por\naquí esos [CS:N]Illumise[CR] y [CS:N]Volbeat[CR]!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="And those floating [CS:N]Volbeat[CR] and\n[CS:N]Illumise[CR]...", french="Et regarde tous ces [CS:N]Muciole[CR]\net ces [CS:N]Lumivole[CR] un peu partout dans le ciel...", german="Und diese umherschwebenden\n[CS:N]Volbeat[CR] und [CS:N]Illumise[CR]...", italian="E tutti quei [CS:N]Volbeat[CR] e gli\n[CS:N]Illumise[CR] che volano...", spanish="¡Y mira cómo revolotean por\naquí esos [CS:N]Illumise[CR] y [CS:N]Volbeat[CR]!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Amazing!", french=" Quel spectacle éblouissant!", german=" Großartig!", italian=" Davvero incredibile!", spanish=" ¡Increíble!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" So beautiful!", french=" Quel spectacle éblouissant!", german=" Wunderschön!", italian=" È bellissimo!", spanish=" ¡Esto es fascinante!"})
+  else
+  SkySceneKit.say({english=" This couldn't be more dazzling!", french=" Quel spectacle éblouissant!", german=" Das ist einfach umwerfend!", italian=" È bellissimo!", spanish=" ¡Qué hermoso!"})
+  end
   local npc_npc_yukushii = SkySceneKit.spawn_npc("uxie", 160, 352, Direction.Up, "NPC_YUKUSHII")
   pcall(function() UI:SetSpeaker(npc_npc_yukushii) end)
   SkySceneKit.say({english="Water constantly wells up from\nfar below this place.", french="Un puits d'eau très profond\nalimente constamment le lac.", german="Unter diesem Ort quillt\nunablässig Wasser nach oben.", italian="L'acqua sgorga incessantemente\ndalle profondità di questo luogo...", spanish="El agua brota con fuerza bajo\neste lugar."})
@@ -24,7 +42,21 @@ return function(hero, partner)
   pcall(function() UI:SetSpeaker(npc_npc_yukushii) end)
   SkySceneKit.say({english="Now cast your eyes to the\nglowing area at the lake's center.", french="Maintenant, tournez votre\nregard vers le point lumineux en son centre.", german="Nun richtet euren Blick auf die\nleuchtende Stelle in der Mitte des Sees.", italian="Adesso, vi prego di volgere il\nvostro sguardo alla luce che si trova al centro.", spanish="Ahora mirad con atención\nel resplandor del centro."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  SkySceneKit.say({english=" The bluish green radiance, right?", french="C'est cette lumière bleu-vert,\nc'est ça?", german="Das bläulich grüne Strahlen,\noder?", italian="Quella luce tra il blu e il\nverde, giusto?", spanish="Te refieres a esa especie\nde resplandor azul verdoso, ¿no?"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Yep, I see it!", french=" Oui, je le vois!", german=" Okay, ich sehe sie!", italian=" Ok! La vedo!", spanish=" ¡Sí, ya lo veo!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Yes, I see it!", french=" Oui, je le vois!", german=" Ja, ich sehe sie!", italian=" Sì, la vedo!", spanish=" ¡Sí, ya lo veo!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" It's coming from below!", french="La lumière provient du fond\ndu lac!", german=" Es kommt von unten!", italian=" Viene da sotto!", spanish=" ¡Sale del fondo!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" It's radiating from below!", french="La lumière provient du fond\ndu lac!", german=" Das Leuchten kommt von unten!", italian=" Proviene dal fondo del lago!", spanish=" ¡La luz sale del fondo!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="That sorta blue, sorta green\nlight, right?", french="C'est cette lumière bleu-vert,\nc'est ça?", german="Dieses halb grünliche, halb\nbläuliche Licht, oder?", italian="È quella luce un po' blu e un po'\nverdina, no?", spanish="Te refieres a esa especie\nde resplandor azul verdoso, ¿no?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" That blue green radiance, right?", french="C'est cette lumière bleu-vert,\nc'est ça?", german=" Dieses grünblaue Strahlen, oder?", italian="Quella luce tra il blu e il\nverde, giusto?", spanish="Te refieres a esa especie\nde resplandor azul verdoso, ¿no?"})
+  else
+  SkySceneKit.say({english=" The bluish green radiance, right?", french="C'est cette lumière bleu-vert,\nc'est ça?", german="Das bläulich grüne Strahlen,\noder?", italian="Quella luce tra il blu e il\nverde, giusto?", spanish="Te refieres a esa especie\nde resplandor azul verdoso, ¿no?"})
+  end
   pcall(function() UI:SetSpeaker(npc_npc_yukushii) end)
   SkySceneKit.say({english=" Step forward for a closer look.", french="Approchez-vous pour la voir\nde plus près.", german="Geht näher heran und seht\ngenauer hin.", italian=" Avvicinatevi.", spanish="Dad un paso al frente para poder\nverlo mejor."})
   -- message_Close

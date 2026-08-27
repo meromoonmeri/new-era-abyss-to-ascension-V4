@@ -50,7 +50,13 @@ return function(hero, partner)
   GAME:WaitFrames(10)
   -- ExecuteCommon(CORO_JUMP_ANGRY_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english="Wow! We're two floors under\nthe ground, but you can see outside!", french="Waouh! Alors qu'on est\nau deuxième sous-sol, on voit le ciel dehors!", german="Wow! Wir sind im zweiten\nUntergeschoss, und man kann trotzdem nach\ndraußen sehen!", italian="Wow! Siamo due piani sottoterra\nma si può vedere fuori!", spanish="¡Mira! ¡Estamos a dos pisos\nbajo tierra, pero se ve el exterior!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="Wow! We're two floors under\nthe ground, but you can see outside!", french="Waouh! Alors qu'on est\nau deuxième sous-sol, on voit le ciel dehors!", german="Wow! Wir sind im zweiten\nUntergeschoss, und man kann trotzdem nach\ndraußen sehen!", italian="Wow! Siamo due piani sottoterra\nma si può vedere fuori!", spanish="¡Vaya! ¡Estamos a dos pisos\nbajo tierra, pero se ve el exterior!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="Wow! We're two floors under\nthe ground, but you can see outside!", french="Waouh! Alors qu'on est\nau deuxième sous-sol, on voit le ciel dehors!", german="Wow! Wir sind im zweiten\nUntergeschoss, und man kann trotzdem nach\ndraußen sehen!", italian="Wow! Siamo due piani sottoterra\nma si può vedere fuori!", spanish="¡Caramba! ¡Estamos a dos pisos\nbajo tierra, pero se puede ver el exterior!"})
+  else
+  SkySceneKit.say({english="Wow! We're two floors under\nthe ground, but you can see outside!", french="Waouh! Alors qu'on est\nau deuxième sous-sol, on voit le ciel dehors!", german="Wow! Wir sind im zweiten\nUntergeschoss, und man kann trotzdem nach\ndraußen sehen!", italian="Wow! Siamo due piani sottoterra\nma si può vedere fuori!", spanish="¡Mira! ¡Estamos a dos pisos\nbajo tierra, pero se ve el exterior!"})
+  end
   pcall(function() SOUND:PlayBattleSE("EVT_Emote_Shock") end)
   -- ExecuteCommon(CORO_JUMP_ANGRY_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   GAME:WaitFrames(2) -- join WaitExecuteLives
@@ -64,7 +70,13 @@ return function(hero, partner)
   pcall(function() UI:SetSpeaker(npc_npc_perappu) end)
   SkySceneKit.say({english="It's only natural that you would\nbe able to see outside.", french="C'est donc tout à fait normal\nque l'on puisse voir dehors.", german="Selbstverständlich kann man\nnach draußen sehen.", italian="È ovvio che si riesca a guardare\nfuori.", spanish="Es completamente lógico que\nse pueda ver el exterior."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  SkySceneKit.say({english=" Oh.", french=" Ah bon.", german=" Oh.", italian=" Oh.", spanish=" Ah."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Oh.", french=" Ah bon.", german=" Oh.", italian=" Oh.", spanish=" Ah."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Oh.", french=" Ah bon.", german=" Oh.", italian=" Oh.", spanish=" Ah."})
+  else
+  SkySceneKit.say({english=" Oh.", french=" Ah bon.", german=" Oh.", italian=" Oh.", spanish=" Ah."})
+  end
   pcall(function() GROUND:CharTurnToCharAnimated(npc_npc_perappu, hero, 4) end)
   GAME:WaitFrames(20)
   do local p=partner.Position; GROUND:MoveToPosition(partner, p.X+(-16), p.Y+(-16), false, 2) end -- Move2PositionOffset

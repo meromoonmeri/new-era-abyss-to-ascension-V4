@@ -16,8 +16,18 @@ return function(hero, partner)
   GAME:WaitFrames(30)
   GAME:WaitFrames(30)
   pcall(function() UI:ResetSpeaker() end)
-  SkySceneKit.say({english="(I've seen that shape before...)", french="(... je l'ai déjà vue...)", german="(Ich habe diese Form schon einmal gesehen.)", italian="(Ho già visto quella forma...)", spanish="(Yo he visto esa silueta antes...)"}) -- SwitchMonologue: branche default
-  SkySceneKit.say({english="(That shape...[K] There's no mistaking it!)", french="(Cette silhouette...[K] Il n'y a pas d'erreur\npossible!)", german="(Diese Form...[K] Sie ist unverwechselbar!)", italian="(Quella forma...[K] È impossibile sbagliarsi!)", spanish="(Esa silueta...[K] ¡Es inconfundible!)"}) -- SwitchMonologue: branche default
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="(That shape...)", french="(Cette silhouette...)", german="(Diese Form...)", italian="(Quella forma...)", spanish="(Esa forma...)"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="(I've seen that shape before...)", french="(... je l'ai déjà vue...)", german="(Ich habe diese Form schon einmal gesehen.)", italian="(Ho già visto quella forma...)", spanish="(Yo he visto esa silueta antes...)"})
+  else
+  SkySceneKit.say({english="(I've seen that shape before...)", french="(... je l'ai déjà vue...)", german="(Ich habe diese Form schon einmal gesehen.)", italian="(Ho già visto quella forma...)", spanish="(Yo he visto esa silueta antes...)"})
+  end
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="(That shape...[K] There's no mistaking it!)", french="(Cette silhouette...[K] Il n'y a pas d'erreur\npossible!)", german="(Diese Form...[K] Sie ist unverwechselbar!)", italian="(Quella forma...[K] È impossibile sbagliarsi!)", spanish="(Esa silueta...[K] ¡Es inconfundible!)"})
+  else
+  SkySceneKit.say({english="(That shape...[K] There's no mistaking it!)", french="(Cette silhouette...[K] Il n'y a pas d'erreur\npossible!)", german="(Diese Form...[K] Sie ist unverwechselbar!)", italian="(Quella forma...[K] È impossibile sbagliarsi!)", spanish="(Esa silueta...[K] ¡Es inconfundible!)"})
+  end
   pcall(function() SOUND:FadeOutBGM(120) end)
   GAME:WaitFrames(20)
   GROUND:EntTurn(npc_npc_pukurin, Direction.DownRight)
@@ -28,7 +38,11 @@ return function(hero, partner)
   GROUND:EntTurn(npc_npc_pukurin, Direction.Right)
   GAME:WaitFrames(2) -- join WaitSe
   pcall(function() UI:ResetSpeaker() end)
-  SkySceneKit.say({english="(That was...[K][CS:N]Wigglytuff[CR]!)", french="(C'était... [K][CS:N]Grodoudou[CR]!)", german="(Das war...[K] [CS:N]Knuddeluff[CR]!)", italian="(Quello era...[K] [CS:N]Wigglytuff[CR]!)", spanish="(Se trataba de...[K] ¡[CS:N]Wigglytuff[CR]!)"}) -- SwitchMonologue: branche default
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 4 then -- message_SwitchMonologue($PARTNER_TALK_KIND) case 4
+  SkySceneKit.say({english="(That was...[K][CS:N]Wigglytuff[CR]!)", french="(C'était... [K][CS:N]Grodoudou[CR]!)", german="(Das war...[K] [CS:N]Knuddeluff[CR]!)", italian="(Quello era...[K] [CS:N]Wigglytuff[CR]!)", spanish="(Se trataba de...[K] ¡[CS:N]Wigglytuff[CR]!)"})
+  else
+  SkySceneKit.say({english="(That was...[K][CS:N]Wigglytuff[CR]!)", french="(C'était... [K][CS:N]Grodoudou[CR]!)", german="(Das war...[K] [CS:N]Knuddeluff[CR]!)", italian="(Quello era...[K] [CS:N]Wigglytuff[CR]!)", spanish="(Se trataba de...[K] ¡[CS:N]Wigglytuff[CR]!)"})
+  end
   GAME:FadeOut(false,  30)
   -- CallCommon CORO_FADE_OUT_ALL_AFTER (fermeture/attente message: géré par say())
   SkySceneKit.cleanup_npcs()

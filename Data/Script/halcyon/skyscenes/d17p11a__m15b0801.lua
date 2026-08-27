@@ -16,7 +16,17 @@ return function(hero, partner)
   pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
-  SkySceneKit.say({english=" Let's keep our spirits up!", french=" Tiens bon!", german=" Nicht aufgeben!", italian=" Teniamo alta la guardia!", spanish=" ¡Sigamos adelante!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="We don't have far to go now,\n[hero]!", french=" On y est presque, [hero]!", german="Es ist jetzt nicht mehr weit,\n[hero]!", italian=" Manca poco, [hero]!", spanish="¡Ya no queda mucho,\n[hero]!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="It can't be far to go now,\n[hero]!", french=" On y est presque, [hero]!", german="Es kann jetzt nicht mehr weit\nsein, [hero]!", italian=" Manca poco, [hero]!", spanish="¡Ya no puede estar lejos,\n[hero]!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Let's keep at it!", french=" Tiens bon!", german=" Nicht schlappmachen!", italian=" Teniamo alta la guardia!", spanish=" ¡Sigamos adelante!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Let's keep at it!", french=" Tiens bon!", german=" Nicht schlappmachen!", italian=" Teniamo alta la guardia!", spanish=" ¡Sigamos adelante!"})
+  else
+  SkySceneKit.say({english=" Let's keep our spirits up!", french=" Tiens bon!", german=" Nicht aufgeben!", italian=" Teniamo alta la guardia!", spanish=" ¡Sigamos adelante!"})
+  end
   GROUND:MoveToPosition(hero, 300, 212, false, 2)
   GAME:WaitFrames(20)
   GROUND:MoveToPosition(partner, 300, 212, false, 2)

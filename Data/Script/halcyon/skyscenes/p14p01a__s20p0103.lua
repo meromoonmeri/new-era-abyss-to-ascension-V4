@@ -10,7 +10,13 @@ return function(hero, partner)
   GAME:FadeOut(false, 0) -- screen_FlushOut
   GAME:FadeIn(30)
   GAME:WaitFrames(30)
-  SkySceneKit.say({english=" Why can't I evolve?", french="Pourquoi je ne peux pas\névoluer?", german="Warum kann ich mich nicht\nentwickeln?", italian=" Perché io non posso?", spanish="¿Por qué yo no puedo\nevolucionar?"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Why can't I evolve?", french="Pourquoi je ne peux pas\névoluer?", german="Warum kann ich mich nicht\nentwickeln?", italian=" Perché io non posso?", spanish="¿Por qué yo no puedo\nevolucionar?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Why can't I evolve?", french="Pourquoi je ne peux pas\névoluer?", german="Warum kann ich mich nicht\nentwickeln?", italian=" Perché io non posso?", spanish="¿Por qué yo no puedo\nevolucionar?"})
+  else
+  SkySceneKit.say({english=" Why can't I evolve?", french="Pourquoi je ne peux pas\névoluer?", german="Warum kann ich mich nicht\nentwickeln?", italian=" Perché io non posso?", spanish="¿Por qué yo no puedo\nevolucionar?"})
+  end
   GAME:WaitFrames(2) -- join WaitExecuteLives
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
   pcall(function() UI:ResetSpeaker() end)
@@ -22,7 +28,13 @@ return function(hero, partner)
   pcall(function() GROUND:CharSetEmote(partner, "question", 1) end)
   GAME:WaitFrames(2) -- join WaitEffect
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english=" Distortion?[K] The fabric of space?", french="Une distorsion?[K] Dans la trame\nde l'espace?", german=" Verzerrung?[K] Das Raumgefüge?", italian="Distorsione?[K] Della struttura\ndello spazio?", spanish=" ¿Deformación?[K] ¿Del espacio?"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Distortion?[K] The fabric of space?", french="Une distorsion?[K] Dans la trame\nde l'espace?", german=" Verzerrung?[K] Das Raumgefüge?", italian="Distorsione?[K] Della struttura\ndello spazio?", spanish=" ¿Deformación?[K] ¿Del espacio?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Distortion?[K] The fabric of space?", french="Une distorsion?[K] Dans la trame\nde l'espace?", german=" Verzerrung?[K] Das Raumgefüge?", italian="Distorsione?[K] Della struttura\ndello spazio?", spanish=" ¿Deformación?[K] ¿Del espacio?"})
+  else
+  SkySceneKit.say({english=" Distortion?[K] The fabric of space?", french="Une distorsion?[K] Dans la trame\nde l'espace?", german=" Verzerrung?[K] Das Raumgefüge?", italian="Distorsione?[K] Della struttura\ndello spazio?", spanish=" ¿Deformación?[K] ¿Del espacio?"})
+  end
   pcall(function() UI:ResetSpeaker() end)
   pcall(function() UI:SetSpeaker(partner) end)
   SkySceneKit.say({english="[CN]Why that should be, I do not know...", french="[CN]Quelle en est la cause, je l'ignore...", german="[CN]Ich weiß nicht, warum das so sein könnte...", italian="[CN]Il motivo, non lo conosco...", spanish="[CN]No sé por qué..."})
@@ -46,7 +58,13 @@ return function(hero, partner)
   GROUND:EntTurn(npc_npc_ringuma, Direction.DownLeft)
   GROUND:EntTurn(npc_npc_ringuma2, Direction.DownRight)
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english=" What?! [hero] too?!", french=" Hein?! [hero] aussi?!", german=" Was?!? [hero] auch?!?", italian=" Cosa?! Anche [hero]?!", spanish="¡¿Quéee?! ¿[hero]\ntampoco?"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Huh?! [hero] too?!", french=" Hein?! [hero] aussi?!", german=" Huch?!? [hero] auch?!?", italian=" Eh?! Anche [hero]?!", spanish="¡¿Quéee?! ¿[hero]\ntampoco?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" What?! [hero] too?!", french=" Hein?! [hero] aussi?!", german=" Was?!? [hero] auch?!?", italian=" Cosa?! Anche [hero]?!", spanish="¡¿Quéee?! ¿[hero]\ntampoco?"})
+  else
+  SkySceneKit.say({english=" What?! [hero] too?!", french=" Hein?! [hero] aussi?!", german=" Was?!? [hero] auch?!?", italian=" Cosa?! Anche [hero]?!", spanish="¡¿Quéee?! ¿[hero]\ntampoco?"})
+  end
   GAME:FadeOut(false, 30)
   GAME:FadeIn(0) -- screen_FlushIn
   SkySceneKit.cleanup_npcs()

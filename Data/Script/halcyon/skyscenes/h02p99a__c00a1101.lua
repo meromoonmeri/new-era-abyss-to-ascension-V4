@@ -36,7 +36,17 @@ return function(hero, partner)
   pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
-  SkySceneKit.say({english=" Let's make it another great day!", french="Aujourd'hui encore, faisons\nde notre mieux!", german=" Auf einen weiteren tollen Tag!", italian=" Diamoci dentro!", spanish="¡A ver si hoy se nos da bien la\nexploración!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Good morning, [hero]!", french=" Bonjour, [hero]!", german=" Guten Morgen, [hero]!", italian=" Buongiorno, [hero]!", spanish=" ¡Buenos días, [hero]!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Good morning, [hero]!", french=" Bonjour, [hero]!", german=" Guten Morgen, [hero]!", italian=" Buongiorno, [hero]!", spanish=" ¡Buenos días, [hero]!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Let's make it another great day!", french="Aujourd'hui encore, faisons\nde notre mieux!", german=" Auf einen weiteren tollen Tag!", italian=" Diamoci dentro!", spanish="¡A ver si hoy se nos da bien la\nexploración!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Let's make it another great day!", french="Aujourd'hui encore, faisons\nde notre mieux!", german=" Auf einen weiteren tollen Tag!", italian=" Diamoci dentro!", spanish="¡A ver si hoy se nos da bien la\nexploración!"})
+  else
+  SkySceneKit.say({english=" Let's make it another great day!", french="Aujourd'hui encore, faisons\nde notre mieux!", german=" Auf einen weiteren tollen Tag!", italian=" Diamoci dentro!", spanish="¡A ver si hoy se nos da bien la\nexploración!"})
+  end
   SkySubScreen.Hide(30) -- screen2_FadeOut: retour BOTTOM_FOCUS (timeline ROM)
   -- back2_SetMode(0) [mode d'affichage sub NDS: géré par SubScreen]
   SkySubScreen.Hide(10) -- fin de scène: nappe sub retirée

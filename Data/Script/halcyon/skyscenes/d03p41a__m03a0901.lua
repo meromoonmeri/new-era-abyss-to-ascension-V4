@@ -22,14 +22,26 @@ return function(hero, partner)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   -- SetAnimation(2) [anim idle native]
   pcall(function() GROUND:CharSetEmote(npc_npc_ruriri, "exclaim", 1) end)
-  SkySceneKit.say({english=" [CS:N]Drowzee[CR]!", french=" [CS:N]Soporifik[CR]!", german=" [CS:N]Traumato[CR]!", italian=" [CS:N]Drowzee[CR]!", spanish=" ¡[CS:N]Drowzee[CR]!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" [CS:N]Drowzee[CR]!", french=" [CS:N]Soporifik[CR]!", german=" [CS:N]Traumato[CR]!", italian=" [CS:N]Drowzee[CR]!", spanish=" ¡[CS:N]Drowzee[CR]!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" [CS:N]Drowzee[CR]!", french=" [CS:N]Soporifik[CR]!", german=" [CS:N]Traumato[CR]!", italian=" [CS:N]Drowzee[CR]!", spanish=" ¡[CS:N]Drowzee[CR]!"})
+  else
+  SkySceneKit.say({english=" [CS:N]Drowzee[CR]!", french=" [CS:N]Soporifik[CR]!", german=" [CS:N]Traumato[CR]!", italian=" [CS:N]Drowzee[CR]!", spanish=" ¡[CS:N]Drowzee[CR]!"})
+  end
   local npc_npc_suriipu = SkySceneKit.spawn_npc("drowzee", 352, 272, Direction.Up, "NPC_SURIIPU")
   GROUND:EntTurn(npc_npc_suriipu, Direction.Down)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() UI:SetSpeaker(npc_npc_suriipu) end)
   SkySceneKit.say({english=" Not you again.", french=" Encore vous?!", german=" Nicht ihr schon wieder.", italian=" Ancora voi.", spanish=" ¡Otra vez no!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  SkySceneKit.say({english=" Let go of [CS:N]Azurill[CR], [CS:N]Drowzee[CR]!", french=" [CS:N]Soporifik[CR]! Laisse partir [CS:N]Azurill[CR]!", german=" Lass [CS:N]Azurill[CR] in Ruhe, [CS:N]Traumato[CR]!", italian=" Lascia andare [CS:N]Azurill[CR], [CS:N]Drowzee[CR]!", spanish=" ¡[CS:N]Drowzee[CR], suelta a [CS:N]Azurill[CR]!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Let go of [CS:N]Azurill[CR], [CS:N]Drowzee[CR]!", french=" [CS:N]Soporifik[CR]! Laisse partir [CS:N]Azurill[CR]!", german=" Lass [CS:N]Azurill[CR] in Ruhe, [CS:N]Traumato[CR]!", italian=" Lascia andare [CS:N]Azurill[CR], [CS:N]Drowzee[CR]!", spanish=" ¡[CS:N]Drowzee[CR], suelta a [CS:N]Azurill[CR]!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Let go of [CS:N]Azurill[CR], [CS:N]Drowzee[CR]!", french=" [CS:N]Soporifik[CR]! Laisse partir [CS:N]Azurill[CR]!", german=" Lass [CS:N]Azurill[CR] in Ruhe, [CS:N]Traumato[CR]!", italian=" Lascia andare [CS:N]Azurill[CR], [CS:N]Drowzee[CR]!", spanish=" ¡[CS:N]Drowzee[CR], suelta a [CS:N]Azurill[CR]!"})
+  else
+  SkySceneKit.say({english=" Let go of [CS:N]Azurill[CR], [CS:N]Drowzee[CR]!", french=" [CS:N]Soporifik[CR]! Laisse partir [CS:N]Azurill[CR]!", german=" Lass [CS:N]Azurill[CR] in Ruhe, [CS:N]Traumato[CR]!", italian=" Lascia andare [CS:N]Azurill[CR], [CS:N]Drowzee[CR]!", spanish=" ¡[CS:N]Drowzee[CR], suelta a [CS:N]Azurill[CR]!"})
+  end
   pcall(function() UI:SetSpeaker(npc_npc_suriipu) end)
   SkySceneKit.say({english="You foolish pests. Do I have to\nembarrass you again?", french="Imbéciles. Combien de fois\nfaudra-t-il vous mettre une raclée?", german="Ihr dämlichen Nervensägen.\nMuss ich euch noch einmal bloßstellen?", italian="Ancora voi guastafeste. Devo\ndarvi un'altra lezione?", spanish="Sois insoportables. ¿Tengo\nque dejaros en evidencia otra vez?"})
   pcall(function() UI:SetSpeaker(npc_npc_suriipu) end)

@@ -27,7 +27,13 @@ return function(hero, partner)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english="Did you try asking [CS:N]Wynaut[CR]\nover there?", french="Demande plutôt à [CS:N]Okéoké[CR],\nà côté.", german="Probier doch mal,\n[CS:N]Isso[CR] anzusprechen.", italian="Hai provato a chiedere\na [CS:N]Wynaut[CR]?", spanish="¿Has probado a preguntarle a\n[CS:N]Wynaut[CR]?"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="Did you try asking [CS:N]Wynaut[CR]\nover there?", french="Demande plutôt à [CS:N]Okéoké[CR],\nà côté.", german="Probier doch mal,\n[CS:N]Isso[CR] anzusprechen.", italian="Hai provato a chiedere\na [CS:N]Wynaut[CR]?", spanish="¿Has probado a preguntarle a\n[CS:N]Wynaut[CR]?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="Did you try asking [CS:N]Wynaut[CR]\nover there?", french="Demande plutôt à [CS:N]Okéoké[CR],\nà côté.", german="Probier doch mal,\n[CS:N]Isso[CR] anzusprechen.", italian="Hai provato a chiedere\na [CS:N]Wynaut[CR]?", spanish="¿Has probado a preguntarle a\n[CS:N]Wynaut[CR]?"})
+  else
+  SkySceneKit.say({english="Did you try asking [CS:N]Wynaut[CR]\nover there?", french="Demande plutôt à [CS:N]Okéoké[CR],\nà côté.", german="Probier doch mal,\n[CS:N]Isso[CR] anzusprechen.", italian="Hai provato a chiedere\na [CS:N]Wynaut[CR]?", spanish="¿Has probado a preguntarle a\n[CS:N]Wynaut[CR]?"})
+  end
   -- @label_131 [étiquette de flux ExplorerScript]
   -- JumpCommon(CORO_END_TALK) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   elseif (SkyProg.cmp(29, 9) >= 0) or (SkyProg.cmp(29, 8) >= 0) then -- elseif ROM: scn($SCENARIO_MAIN) >= [29, 9] || scn($SCENARIO_MAIN) >= [29

@@ -9,7 +9,13 @@ return function(hero, partner)
   GAME:FadeOut(false, 0) -- screen_FlushOut
   GAME:FadeIn(30)
   GAME:WaitFrames(30)
-  SkySceneKit.say({english=" Be brave...[K] Use all your courage!", french=" Il faut que...[K] je sois courageuse!", german="Sei tapfer...[K] Nimm all deinen\nMumm zusammen!", italian="Sii coraggiosa...[K] Sii la più\ncoraggiosa di tutti!", spanish="Debo ser valiente...[K]\n¡Tengo que echarle coraje!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" I need to...[K]summon my courage!", french="Il faut que...[K] je prenne\nmon courage à deux mains!", german="Ich muss[K] meinen ganzen Mut\nzusammennehmen!", italian=" Devo...[K] farmi coraggio!", spanish=" Necesito...[K] ¡armarme de valor!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Be brave...[K] Be the bravest ever!", french="Il faut que...[K] je prenne\nmon courage à deux mains!", german="Sei tapfer...[K] Sei so tapfer wie\nnoch nie!", italian="Sii coraggioso...[K] Sii il più\ncoraggioso di tutti!", spanish="Debo ser valiente...[K]\n¡El más valiente!"})
+  else
+  SkySceneKit.say({english=" Be brave...[K] Use all your courage!", french=" Il faut que...[K] je sois courageuse!", german="Sei tapfer...[K] Nimm all deinen\nMumm zusammen!", italian="Sii coraggiosa...[K] Sii la più\ncoraggiosa di tutti!", spanish="Debo ser valiente...[K]\n¡Tengo que echarle coraje!"})
+  end
   GAME:WaitFrames(2) -- join WaitExecuteLives
   -- message_Close
   GAME:FadeOut(false, 30)

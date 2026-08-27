@@ -29,7 +29,13 @@ return function(hero, partner)
   GAME:WaitFrames(2) -- join WaitExecuteLives
   -- SetAnimation(11) [anim idle native]
   -- SetAnimation(11) [anim idle native]
-  SkySceneKit.say({english=" Waah!", french=" Ouaaah!", german=" Waah!", italian=" Aaah!", spanish=" ¡Aaah!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Waah!", french=" Ouaaah!", german=" Waah!", italian=" Aargh!!!", spanish=" ¡Aaah!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Waah!", french=" Ouaaah!", german=" Waah!", italian=" Aaah!", spanish=" ¡Aaah!"})
+  else
+  SkySceneKit.say({english=" Waah!", french=" Ouaaah!", german=" Waah!", italian=" Aaah!", spanish=" ¡Aaah!"})
+  end
   local npc_npc_ringuma = SkySceneKit.spawn_npc("ursaring", 272, 240, Direction.UpRight, "NPC_RINGUMA")
   pcall(function() GROUND:CharSetEmote(npc_npc_ringuma, "exclaim", 1) end)
   local npc_npc_s_diguda = SkySceneKit.spawn_npc("diglett", 440, 216, Direction.UpLeft, "NPC_S_DIGUDA")
@@ -61,7 +67,13 @@ return function(hero, partner)
   do local p=hero.Position; GROUND:MoveToPosition(hero, p.X+(0), p.Y+(-24), false, 1) end -- SlidePositionOffset
   do local p=partner.Position; GROUND:MoveToPosition(partner, p.X+(0), p.Y+(-24), false, 1) end -- SlidePositionOffset
   pcall(function() SOUND:FadeOutBGM(60) end)
-  SkySceneKit.say({english=" Waaah!", french=" Ouaaah!", german=" Waaah!", italian=" Aaaah!", spanish=" ¡Aaah!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Waaah!", french=" Ouaaah!", german=" Waaah!", italian=" Aaaah!", spanish=" ¡Aaah!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Waaah!", french=" Ouaaah!", german=" Waaah!", italian=" Aaaah!", spanish=" ¡Aaah!"})
+  else
+  SkySceneKit.say({english=" Waaah!", french=" Ouaaah!", german=" Waaah!", italian=" Aaaah!", spanish=" ¡Aaah!"})
+  end
   -- message_CloseEnforce
   -- Destroy() [neutre/état moteur]
   -- Destroy() [neutre/état moteur]

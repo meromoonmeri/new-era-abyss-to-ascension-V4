@@ -15,29 +15,79 @@ return function(hero, partner)
   pcall(function() UI:SetSpeaker(npc_npc_juputoru) end)
   SkySceneKit.say({english=" Come on! Faster! Pick it up!", french=" Allez! Plus vite! Du nerf!", german=" Kommt! Schneller! Macht schon!", italian="Coraggio! Più in fretta!\nAndiamocene!", spanish=" ¡Vamos! ¡Más rápido! ¡Apuraos!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  SkySceneKit.say({english=" Don't order me around!", french=" Et je ne suis pas à tes ordres!", german="Hör auf, mich\nherumzukommandieren!", italian=" Smettila di darmi ordini!", spanish=" ¡Deja de darme órdenes!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" This is the fastest I can go!", french=" Je fais aussi vite que je peux!", german=" Ich kann nicht schneller!", italian=" Più in fretta di così non posso!", spanish=" ¡No puedo ir más rápido!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" This is the fastest I can go!", french=" Je fais aussi vite que je peux!", german=" Ich kann nicht schneller!", italian=" Più in fretta di così non posso!", spanish=" ¡No puedo ir más rápido!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Quit ordering me around!", french=" Et je ne suis pas à tes ordres!", german="Hör auf, mich\nherumzukommandieren!", italian=" Smettila di darmi ordini!", spanish=" ¡Deja de darme órdenes!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Quit ordering me around!", french=" Et je ne suis pas à tes ordres!", german="Hör auf, mich\nherumzukommandieren!", italian=" Smettila di darmi ordini!", spanish=" ¡Deja de darme órdenes!"})
+  else
+  SkySceneKit.say({english=" Don't order me around!", french=" Et je ne suis pas à tes ordres!", german="Hör auf, mich\nherumzukommandieren!", italian=" Smettila di darmi ordini!", spanish=" ¡Deja de darme órdenes!"})
+  end
   GAME:WaitFrames(20)
-  SkySceneKit.say({english=" Anyway, [CS:N]Grovyle[CR]...!", french=" Au fait, [CS:N]Massko[CR]...!", german=" Wie auch immer, [CS:N]Reptain[CR]!", italian=" Ad ogni modo, [CS:N]Grovyle[CR]...!", spanish=" Oye, [CS:N]Grovyle[CR]..."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Anyway, [CS:N]Grovyle[CR]...!", french=" Au fait, [CS:N]Massko[CR]...!", german=" Wie auch immer, [CS:N]Reptain[CR]!", italian=" Ad ogni modo, [CS:N]Grovyle[CR]...!", spanish=" Oye, [CS:N]Grovyle[CR]..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Anyway, [CS:N]Grovyle[CR]...!", french=" Au fait, [CS:N]Massko[CR]...!", german=" Wie auch immer, [CS:N]Reptain[CR]!", italian=" Ad ogni modo, [CS:N]Grovyle[CR]...!", spanish=" Oye, [CS:N]Grovyle[CR]..."})
+  else
+  SkySceneKit.say({english=" Anyway, [CS:N]Grovyle[CR]...!", french=" Au fait, [CS:N]Massko[CR]...!", german=" Wie auch immer, [CS:N]Reptain[CR]!", italian=" Ad ogni modo, [CS:N]Grovyle[CR]...!", spanish=" Oye, [CS:N]Grovyle[CR]..."})
+  end
   pcall(function() UI:SetSpeaker(npc_npc_juputoru) end)
   SkySceneKit.say({english=" What?", french=" Quoi?", german=" Was?", italian=" Cosa?", spanish=" ¿Qué?"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  SkySceneKit.say({english=" Is this...[K]the future?", french=" Est-ce qu'on est...[K] dans le futur?", german=" Ist das hier...[K] die Zukunft?", italian=" Questo è...[K] il futuro?", spanish=" ¿Esto es...?[K] ¿Esto es el futuro?"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Is this...[K]the future?", french=" Est-ce qu'on est...[K] dans le futur?", german=" Ist das hier...[K] die Zukunft?", italian=" Questo è...[K] il futuro?", spanish=" ¿Esto es...?[K] ¿Esto es el futuro?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Is this...[K]the future?", french=" Est-ce qu'on est...[K] dans le futur?", german=" Ist das hier...[K] die Zukunft?", italian=" Questo è...[K] il futuro?", spanish=" ¿Esto es...?[K] ¿Esto es el futuro?"})
+  else
+  SkySceneKit.say({english=" Is this...[K]the future?", french=" Est-ce qu'on est...[K] dans le futur?", german=" Ist das hier...[K] die Zukunft?", italian=" Questo è...[K] il futuro?", spanish=" ¿Esto es...?[K] ¿Esto es el futuro?"})
+  end
   pcall(function() UI:SetSpeaker(npc_npc_juputoru) end)
   SkySceneKit.say({english=" That's right.[K] You catch on fast.", french=" C'est exact.[K] Tu comprends vite.", german=" So ist es.[K] Du schaltest schnell.", italian="Proprio così.[K] Afferri le cose in\nfretta.", spanish=" Así es.[K] Vaya, qué sagaz."})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  SkySceneKit.say({english="Are we...[K] Are we going to be\nable to get back to our world?", french="Est-ce qu'on...[K] est-ce qu'on\npourra rentrer chez nous?", german="Werden wir...[K] Werden wir in\nunsere Welt zurückkehren können?", italian="Noi...[K] riusciremo a ritornare\nnel presente?", spanish="¿Y vamos...?[K]\n¿Vamos a poder regresar a nuestro mundo?"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Urk! So it is, after all...", french="Argh! Alors on y est bel et\nbien...", german=" Urk! Also tatsächlich...", italian=" Ah! È così, dopotutto...", spanish=" ¡Glup! O sea, que sí lo es..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Urk! So it is, after all...", french="Argh! Alors on y est bel et\nbien...", german=" Urk! Also tatsächlich...", italian=" Ah! È così, dopotutto...", spanish=" ¡Glup! Así que sí lo es..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="Are we...[K] Are we going to be\nable to get back to our world?", french="Est-ce qu'on...[K] est-ce qu'on\npourra rentrer chez nous?", german="Werden wir...[K] Werden wir in\nunsere Welt zurückkehren können?", italian="Noi...[K] riusciremo a ritornare\nnel presente?", spanish="¿Y vamos...?[K]\n¿Vamos a poder regresar a nuestro mundo?"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="Are we...[K] Are we going to be\nable to get back to our world?", french="Est-ce qu'on...[K] est-ce qu'on\npourra rentrer chez nous?", german="Werden wir...[K] Werden wir in\nunsere Welt zurückkehren können?", italian="Noi...[K] riusciremo a ritornare\nnel presente?", spanish="¿Y vamos...?[K]\n¿Vamos a poder regresar a nuestro mundo?"})
+  else
+  SkySceneKit.say({english="Are we...[K] Are we going to be\nable to get back to our world?", french="Est-ce qu'on...[K] est-ce qu'on\npourra rentrer chez nous?", german="Werden wir...[K] Werden wir in\nunsere Welt zurückkehren können?", italian="Noi...[K] riusciremo a ritornare\nnel presente?", spanish="¿Y vamos...?[K]\n¿Vamos a poder regresar a nuestro mundo?"})
+  end
   pcall(function() UI:SetSpeaker(npc_npc_juputoru) end)
   SkySceneKit.say({english="Who knows?[K] We just need to get\naway for now.", french="Qui sait?[K] La priorité pour\nl'instant, c'est de sortir de là.", german="Wer weiß?[K] Wir müssen fürs\nErste einfach weg von hier.", italian="Chi lo sa?[K] Per ora pensiamo a\nscappare.", spanish="Quién sabe...[K]\nDe momento tenemos que salir de aquí."})
   pcall(function() UI:SetSpeaker(npc_npc_juputoru) end)
   SkySceneKit.say({english="If we get caught, returning home\nwill be the least of your worries.[K] Run faster!", french="S'ils nous rattrapent, rentrer\nchez vous sera le cadet de vos soucis.[K]\nAccélérez!", german="Wenn sie uns fangen, wird es\neure geringste Sorge sein, wie wir\nzurückkommen.[K] Lauft schneller!", italian="Se ci prendono, ritornare a casa\ndiventerà l'ultimo dei vostri problemi.[K]\nSbrighiamoci!", spanish="Si nos atrapan, volver a casa\nserá lo que menos te importe.[K]\n¡Corred más rápido!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  SkySceneKit.say({english="I can't![K] I'm exhausted...[K]\nHuff-huff...", french="Impossible![K] Je suis épuisée...[K]\nPff, pff...", german="Ich kann nicht![K] Ich bin fix und\nfertig...[K] Keuch, keuch...", italian="Non ce la faccio![K] Sono\nesausta...[K] Pant-pant...", spanish="No puedo...[K] Estoy agotada...[K]\nUf... Puf..."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english="I can't![K] I'm exhausted...[K]\nHuff-huff...", french="Impossible![K] Je suis épuisé...[K]\nPff, pff...", german="Ich kann nicht![K] Ich bin fix und\nfertig...[K] Keuch, keuch...", italian="Non ce la faccio![K] Sono\nesausto...[K] Pant-pant...", spanish="No puedo...[K] Estoy agotado...[K]\nUf... Puf..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english="I can't![K] I'm exhausted...[K]\nHuff-huff...", french="Impossible![K] Je suis épuisé...[K]\nPff, pff...", german="Ich kann nicht![K] Ich bin fix und\nfertig...[K] Keuch, keuch...", italian="Non ce la faccio![K] Sono\nesausto...[K] Pant-pant...", spanish="No puedo...[K] Estoy agotado...[K]\nUf... Puf..."})
+  else
+  SkySceneKit.say({english="I can't![K] I'm exhausted...[K]\nHuff-huff...", french="Impossible![K] Je suis épuisée...[K]\nPff, pff...", german="Ich kann nicht![K] Ich bin fix und\nfertig...[K] Keuch, keuch...", italian="Non ce la faccio![K] Sono\nesausta...[K] Pant-pant...", spanish="No puedo...[K] Estoy agotada...[K]\nUf... Puf..."})
+  end
   pcall(function() UI:SetSpeaker(npc_npc_juputoru) end)
   SkySceneKit.say({english="We're almost there![K]\nLook! The exit is right there!", french="Nous y sommes presque![K]\nRegardez! La sortie est juste là!", german="Wir sind fast da![K]\nSeht! Der Ausgang ist gleich da!", italian="Ci siamo quasi![K] Guardate!\nL'uscita è proprio lì!", spanish="¡Ya casi estamos![K]\n¡Mirad! ¡La salida está allí mismo!"})
   -- CallCommon CORO_MESSAGE_CLOSE_WAIT_FUNC (fermeture/attente message: géré par say())
-  SkySceneKit.say({english=" Huff-huff...[K] Huff-huff...", french=" Pff, pff...[K] Pff, pff...", german=" Keuch, keuch...[K] Keuch, keuch...", italian=" Uff-uff...[K] Uff-uff...", spanish=" Uf... Puf...[K] Uf... Puf..."}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Huff-huff...[K] Huff-huff...", french=" Pff, pff...[K] Pff, pff...", german=" Keuch, keuch...[K] Keuch, keuch...", italian=" Uff-uff...[K] Uff-uff...", spanish=" Uf... Puf...[K] Uf... Puf..."})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Huff-huff...[K] Huff-huff...", french=" Pff, pff...[K] Pff, pff...", german=" Keuch, keuch...[K] Keuch, keuch...", italian=" Uff-uff...[K] Uff-uff...", spanish=" Uf... Puf...[K] Uf... Puf..."})
+  else
+  SkySceneKit.say({english=" Huff-huff...[K] Huff-huff...", french=" Pff, pff...[K] Pff, pff...", german=" Keuch, keuch...[K] Keuch, keuch...", italian=" Uff-uff...[K] Uff-uff...", spanish=" Uf... Puf...[K] Uf... Puf..."})
+  end
   GAME:WaitFrames(30)
-  SkySceneKit.say({english=" We did it![K] We're...[K]outside!", french=" On a réussi![K] On est...[K] dehors!", german=" Geschafft![K] Wir sind...[K] draußen!", italian="Ce l'abbiamo fatta![K] Siamo...[K]\nfuori!", spanish="¡Lo logramos![K]\nEstamos...[K] ¡en el exterior!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" We did it![K] We're...[K]outside!", french=" On a réussi![K] On est...[K] dehors!", german=" Geschafft![K] Wir sind...[K] draußen!", italian="Ce l'abbiamo fatta![K] Siamo...[K]\nfuori!", spanish="¡Lo logramos![K]\nEstamos...[K] ¡en el exterior!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" We did it![K] We're...[K]outside!", french=" On a réussi![K] On est...[K] dehors!", german=" Geschafft![K] Wir sind...[K] draußen!", italian="Ce l'abbiamo fatta![K] Siamo...[K]\nfuori!", spanish="¡Lo logramos![K]\nEstamos...[K] ¡en el exterior!"})
+  else
+  SkySceneKit.say({english=" We did it![K] We're...[K]outside!", french=" On a réussi![K] On est...[K] dehors!", german=" Geschafft![K] Wir sind...[K] draußen!", italian="Ce l'abbiamo fatta![K] Siamo...[K]\nfuori!", spanish="¡Lo logramos![K]\nEstamos...[K] ¡en el exterior!"})
+  end
   -- se_FadeOut(7193, 30) [SE one-shot PMDO déjà terminé: fondu sans objet, canal SE V2]
   GAME:WaitFrames(2) -- join WaitSe
   -- GAP: se_Play(7187) — id SE NDS sans portage PMDO identifié
@@ -65,7 +115,13 @@ return function(hero, partner)
   pcall(function() GROUND:CharSetEmote(partner, "shock", 1) end)
   -- ExecuteCommon(CORO_JUMP_SURPRISE_FUNC_SERIES, 0) [gestion de station NDS: le chargement/la coroutine commune est assurée par le harnais journey PMDO]
   GAME:WaitFrames(2) -- join WaitExecuteLives
-  SkySceneKit.say({english=" Wah! What...[K]what is this?!", french=" Ouah! Que...[K] qu'est-ce que c'est?!", german=" Wah! Was...[K] ist das?!?", italian="Aah! Che...[K] Che cos'è tutto\nquesto?!", spanish=" ¡Aah! ¿Qué?[K] ¡¿Qué es esto?!"}) -- SwitchTalk: branche default (canon générique)
+  if ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 1 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 1
+  SkySceneKit.say({english=" Wah! What...[K]what is this?!", french=" Ouah! Que...[K] qu'est-ce que c'est?!", german=" Wah! Was...[K] ist das?!?", italian="Aah! Che...[K] Che cos'è tutto\nquesto?!", spanish=" ¡Aah! ¿Qué?[K] ¡¿Qué es esto?!"})
+  elseif ((SV.SkyVars or {}).PARTNER_TALK_KIND or 0) == 2 then -- message_SwitchTalk($PARTNER_TALK_KIND) case 2
+  SkySceneKit.say({english=" Wah! What...[K]what is this?!", french=" Ouah! Que...[K] qu'est-ce que c'est?!", german=" Wah! Was...[K] ist das?!?", italian="Aah! Che...[K] Che cos'è tutto\nquesto?!", spanish=" ¡Aah! ¿Qué?[K] ¡¿Qué es esto?!"})
+  else
+  SkySceneKit.say({english=" Wah! What...[K]what is this?!", french=" Ouah! Que...[K] qu'est-ce que c'est?!", german=" Wah! Was...[K] ist das?!?", italian="Aah! Che...[K] Che cos'è tutto\nquesto?!", spanish=" ¡Aah! ¿Qué?[K] ¡¿Qué es esto?!"})
+  end
   GAME:FadeOut(false, 30)
   SkySceneKit.cleanup_npcs()
 end
