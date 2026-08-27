@@ -153,7 +153,7 @@ def main():
                     px, py = x, y
         if px is None:  # certains ff n'ont pas de LEADER: centre
             px, py = W // 2, H - 2
-        obj['EntryPoints'] = [{'Loc': {'X': px, 'Y': py}, 'Dir': 8}]
+        obj['EntryPoints'] = [{'Loc': {'X': px, 'Y': py}, 'Dir': 4}]
         teams = []
         ent_i = 0
         for y, r in enumerate(rows):

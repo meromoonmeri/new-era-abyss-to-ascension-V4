@@ -62,6 +62,15 @@ local CONFIG={
   -- schéma LoadGen/fixed.bin). next_zone remplace le segment boss :
   -- après le dernier étage procédural, le validateur entre dans la zone
   -- d'arène et vérifie l'espèce du boss (fixed.bin/arm9 ov29).
+  bottomless_sea={floors=49,sky=true,next_zone='bottomless_sea_depths',
+    boss_species='kyogre',
+    provenance='PMD_SKY_ROM/fixed.bin ff23 (Kyogre L51 mappa d74)'},
+  sky_stairway={floors=49,sky=true,next_zone='sky_stairway_apex',
+    boss_species='rayquaza',
+    provenance='PMD_SKY_ROM/fixed.bin ff26 (Rayquaza L50 mappa d84)'},
+  deep_dark_crater={floors=14,sky=true,next_zone='dark_crater_pit',
+    boss_species='darkrai',
+    provenance='PMD_SKY_ROM/fixed.bin ff19 (Darkrai L53 mappa d69)'},
   beach_cave={floors=4,sky=true,next_zone='beach_cave_pit',
     boss_species='koffing',
     provenance='PMD_SKY_ROM/fixed.bin ff1 (Team Skull)'},

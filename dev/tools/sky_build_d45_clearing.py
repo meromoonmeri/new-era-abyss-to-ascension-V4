@@ -106,7 +106,7 @@ def main():
         for x, c in enumerate(r):
             if c == 'P':
                 px, py = x, y
-    obj['EntryPoints'] = [{'Loc': {'X': px, 'Y': py}, 'Dir': 8}]
+    obj['EntryPoints'] = [{'Loc': {'X': px, 'Y': py}, 'Dir': 4}]
     # cast
     teams = []
     for y, r in enumerate(ROWS):
