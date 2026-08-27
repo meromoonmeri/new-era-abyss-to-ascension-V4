@@ -3,13 +3,13 @@
  "Object": {
   "$type": "RogueEssence.Dungeon.Map, RogueEssence",
   "Name": {
-   "DefaultText": "World Abyss Pit",
+   "DefaultText": "Limestone Cavern Depths",
    "LocalTexts": {
-    "fr": "Puits du Gouffre du Monde"
+    "fr": "Profondeurs de la Caverne Calcaire"
    }
   },
   "Released": true,
-  "Comment": "PMD Sky EU fixed floor 24 — géométrie exacte fixed.bin 19x13, cast ov29 (espèces entid%600 prouvées), niveaux mappa du donjon parent, HP=0 stats natives.",
+  "Comment": "PMD Sky EU fixed floor 38 — géométrie exacte fixed.bin 14x15, cast ov29 (espèces entid%600 prouvées), niveaux mappa du donjon parent, HP=0 stats natives.",
   "Begun": false,
   "ID": 0,
   "MapTeams": [
@@ -192,12 +192,12 @@
       "OriginalUUID": "",
       "OriginalTeam": "",
       "BaseForm": {
-       "Species": "giratina",
+       "Species": "weavile",
        "Form": 0,
        "Skin": "normal",
        "Gender": -1
       },
-      "Level": 48,
+      "Level": 33,
       "EXP": 0,
       "MaxHPBonus": 0,
       "AtkBonus": 0,
@@ -259,8 +259,522 @@
       "ActionEvents": [],
       "ScriptVars": null,
       "CharLoc": {
-       "X": 7,
-       "Y": 3
+       "X": 4,
+       "Y": 7
+      }
+     }
+    ],
+    "Guests": [],
+    "inventory": [],
+    "Name": "Magma Cavern Pit - Groudon",
+    "LeaderIndex": 0,
+    "FoeConflict": false
+   },
+   {
+    "$type": "RogueEssence.Dungeon.MonsterTeam, RogueEssence",
+    "Players": [
+     {
+      "Element1": "ground",
+      "Element2": "none",
+      "TurnWait": 0,
+      "TurnUsed": false,
+      "movementSpeed": 0,
+      "dead": false,
+      "serializationLoc": {
+       "X": 5,
+       "Y": 1
+      },
+      "serializationDir": 0,
+      "ProxyName": "",
+      "ProxySprite": {
+       "Species": "",
+       "Form": -1,
+       "Skin": "",
+       "Gender": -1
+      },
+      "CurrentForm": {
+       "Species": "groudon",
+       "Form": 0,
+       "Skin": "normal",
+       "Gender": -1
+      },
+      "ProxyAtk": -1,
+      "ProxyDef": -1,
+      "ProxyMAtk": -1,
+      "ProxyMDef": -1,
+      "ProxySpeed": -1,
+      "Skills": [
+       {
+        "Element": {
+         "SkillNum": "mud_shot",
+         "Charges": 10,
+         "Enabled": true,
+         "Sealed": false
+        },
+        "BackRef": 0
+       },
+       {
+        "Element": {
+         "SkillNum": "scary_face",
+         "Charges": 10,
+         "Enabled": true,
+         "Sealed": false
+        },
+        "BackRef": 1
+       },
+       {
+        "Element": {
+         "SkillNum": "ancient_power",
+         "Charges": 10,
+         "Enabled": true,
+         "Sealed": false
+        },
+        "BackRef": 2
+       },
+       {
+        "Element": {
+         "SkillNum": "slash",
+         "Charges": 10,
+         "Enabled": true,
+         "Sealed": false
+        },
+        "BackRef": 3
+       }
+      ],
+      "Intrinsics": [
+       {
+        "Element": {
+         "ID": "drought"
+        },
+        "BackRef": 0
+       }
+      ],
+      "EquippedItem": {
+       "ID": "",
+       "Cursed": false,
+       "HiddenValue": "",
+       "Amount": 0,
+       "Price": 0
+      },
+      "Absentee": false,
+      "ChargeBoost": 0,
+      "HP": 0,
+      "HPRemainder": 0,
+      "Fullness": 100,
+      "FullnessRemainder": 0,
+      "MaxFullness": 100,
+      "StatusEffects": {},
+      "MissChain": 0,
+      "EXPMarked": false,
+      "Tactic": {
+       "Name": {
+        "DefaultText": "Boss",
+        "LocalTexts": {}
+       },
+       "Released": false,
+       "Comment": "",
+       "ID": "boss",
+       "Assignable": false,
+       "Plans": [
+        {
+         "$type": "PMDC.Dungeon.AttackFoesPlan, PMDC",
+         "AttackPattern": 4,
+         "PositionPattern": 2,
+         "IQ": 253,
+         "RestrictedMobilityTypes": 0,
+         "RestrictMobilityPassable": false,
+         "AttackRange": 0,
+         "StatusRange": 0,
+         "SelfStatusRange": 4,
+         "AbandonRangeOnHit": true
+        },
+        {
+         "$type": "PMDC.Dungeon.FollowLeaderPlan, PMDC",
+         "IQ": 253,
+         "RestrictedMobilityTypes": 0,
+         "RestrictMobilityPassable": false,
+         "AttackRange": 0,
+         "StatusRange": 0,
+         "SelfStatusRange": 0,
+         "AbandonRangeOnHit": false
+        },
+        {
+         "$type": "PMDC.Dungeon.ExplorePlan, PMDC",
+         "IQ": 253,
+         "RestrictedMobilityTypes": 0,
+         "RestrictMobilityPassable": false,
+         "AttackRange": 0,
+         "StatusRange": 0,
+         "SelfStatusRange": 0,
+         "AbandonRangeOnHit": false
+        },
+        {
+         "$type": "PMDC.Dungeon.WaitPlan, PMDC",
+         "IQ": 253,
+         "RestrictedMobilityTypes": 0,
+         "RestrictMobilityPassable": false,
+         "AttackRange": 0,
+         "StatusRange": 0,
+         "SelfStatusRange": 0,
+         "AbandonRangeOnHit": false
+        }
+       ]
+      },
+      "Mobility": 0,
+      "CantWalk": false,
+      "ItemDisabled": false,
+      "IntrinsicDisabled": false,
+      "CanRemoveStuck": false,
+      "StopItemAtHit": false,
+      "ForceAI": false,
+      "MovesScrambled": false,
+      "ChargeSaver": false,
+      "WaitToAttack": false,
+      "CantInteract": false,
+      "EnemyOfFriend": false,
+      "AttackFriend": false,
+      "TileSight": -1,
+      "CharSight": -1,
+      "Unidentifiable": false,
+      "Unlocatable": false,
+      "SeeAllChars": false,
+      "SeeItems": false,
+      "SeeWallItems": false,
+      "SeeTraps": false,
+      "CharStates": [],
+      "BackRef": {
+       "Index": -1
+      },
+      "Nickname": "",
+      "OriginalUUID": "",
+      "OriginalTeam": "",
+      "BaseForm": {
+       "Species": "arbok",
+       "Form": 0,
+       "Skin": "normal",
+       "Gender": -1
+      },
+      "Level": 26,
+      "EXP": 0,
+      "MaxHPBonus": 0,
+      "AtkBonus": 0,
+      "DefBonus": 0,
+      "MAtkBonus": 0,
+      "MDefBonus": 0,
+      "SpeedBonus": 0,
+      "BaseSkills": [
+       {
+        "SkillNum": "",
+        "Charges": 10,
+        "CanForget": false
+       },
+       {
+        "SkillNum": "",
+        "Charges": 10,
+        "CanForget": false
+       },
+       {
+        "SkillNum": "",
+        "Charges": 10,
+        "CanForget": false
+       },
+       {
+        "SkillNum": "",
+        "Charges": 10,
+        "CanForget": false
+       }
+      ],
+      "BaseIntrinsics": [
+       "drought"
+      ],
+      "FormIntrinsicSlot": 2,
+      "Relearnables": {},
+      "Discriminator": 0,
+      "MetAt": "",
+      "MetLoc": {
+       "ID": "",
+       "StructID": {
+        "Segment": -1,
+        "ID": -1
+       },
+       "EntryPoint": -1
+      },
+      "DefeatAt": "",
+      "DefeatLoc": {
+       "ID": "",
+       "StructID": {
+        "Segment": -1,
+        "ID": -1
+       },
+       "EntryPoint": -1
+      },
+      "IsFounder": false,
+      "IsPartner": false,
+      "NameLocked": false,
+      "IsFavorite": false,
+      "Unrecruitable": true,
+      "ActionEvents": [],
+      "ScriptVars": null,
+      "CharLoc": {
+       "X": 3,
+       "Y": 8
+      }
+     }
+    ],
+    "Guests": [],
+    "inventory": [],
+    "Name": "Magma Cavern Pit - Groudon",
+    "LeaderIndex": 0,
+    "FoeConflict": false
+   },
+   {
+    "$type": "RogueEssence.Dungeon.MonsterTeam, RogueEssence",
+    "Players": [
+     {
+      "Element1": "ground",
+      "Element2": "none",
+      "TurnWait": 0,
+      "TurnUsed": false,
+      "movementSpeed": 0,
+      "dead": false,
+      "serializationLoc": {
+       "X": 5,
+       "Y": 1
+      },
+      "serializationDir": 0,
+      "ProxyName": "",
+      "ProxySprite": {
+       "Species": "",
+       "Form": -1,
+       "Skin": "",
+       "Gender": -1
+      },
+      "CurrentForm": {
+       "Species": "groudon",
+       "Form": 0,
+       "Skin": "normal",
+       "Gender": -1
+      },
+      "ProxyAtk": -1,
+      "ProxyDef": -1,
+      "ProxyMAtk": -1,
+      "ProxyMDef": -1,
+      "ProxySpeed": -1,
+      "Skills": [
+       {
+        "Element": {
+         "SkillNum": "mud_shot",
+         "Charges": 10,
+         "Enabled": true,
+         "Sealed": false
+        },
+        "BackRef": 0
+       },
+       {
+        "Element": {
+         "SkillNum": "scary_face",
+         "Charges": 10,
+         "Enabled": true,
+         "Sealed": false
+        },
+        "BackRef": 1
+       },
+       {
+        "Element": {
+         "SkillNum": "ancient_power",
+         "Charges": 10,
+         "Enabled": true,
+         "Sealed": false
+        },
+        "BackRef": 2
+       },
+       {
+        "Element": {
+         "SkillNum": "slash",
+         "Charges": 10,
+         "Enabled": true,
+         "Sealed": false
+        },
+        "BackRef": 3
+       }
+      ],
+      "Intrinsics": [
+       {
+        "Element": {
+         "ID": "drought"
+        },
+        "BackRef": 0
+       }
+      ],
+      "EquippedItem": {
+       "ID": "",
+       "Cursed": false,
+       "HiddenValue": "",
+       "Amount": 0,
+       "Price": 0
+      },
+      "Absentee": false,
+      "ChargeBoost": 0,
+      "HP": 0,
+      "HPRemainder": 0,
+      "Fullness": 100,
+      "FullnessRemainder": 0,
+      "MaxFullness": 100,
+      "StatusEffects": {},
+      "MissChain": 0,
+      "EXPMarked": false,
+      "Tactic": {
+       "Name": {
+        "DefaultText": "Boss",
+        "LocalTexts": {}
+       },
+       "Released": false,
+       "Comment": "",
+       "ID": "boss",
+       "Assignable": false,
+       "Plans": [
+        {
+         "$type": "PMDC.Dungeon.AttackFoesPlan, PMDC",
+         "AttackPattern": 4,
+         "PositionPattern": 2,
+         "IQ": 253,
+         "RestrictedMobilityTypes": 0,
+         "RestrictMobilityPassable": false,
+         "AttackRange": 0,
+         "StatusRange": 0,
+         "SelfStatusRange": 4,
+         "AbandonRangeOnHit": true
+        },
+        {
+         "$type": "PMDC.Dungeon.FollowLeaderPlan, PMDC",
+         "IQ": 253,
+         "RestrictedMobilityTypes": 0,
+         "RestrictMobilityPassable": false,
+         "AttackRange": 0,
+         "StatusRange": 0,
+         "SelfStatusRange": 0,
+         "AbandonRangeOnHit": false
+        },
+        {
+         "$type": "PMDC.Dungeon.ExplorePlan, PMDC",
+         "IQ": 253,
+         "RestrictedMobilityTypes": 0,
+         "RestrictMobilityPassable": false,
+         "AttackRange": 0,
+         "StatusRange": 0,
+         "SelfStatusRange": 0,
+         "AbandonRangeOnHit": false
+        },
+        {
+         "$type": "PMDC.Dungeon.WaitPlan, PMDC",
+         "IQ": 253,
+         "RestrictedMobilityTypes": 0,
+         "RestrictMobilityPassable": false,
+         "AttackRange": 0,
+         "StatusRange": 0,
+         "SelfStatusRange": 0,
+         "AbandonRangeOnHit": false
+        }
+       ]
+      },
+      "Mobility": 0,
+      "CantWalk": false,
+      "ItemDisabled": false,
+      "IntrinsicDisabled": false,
+      "CanRemoveStuck": false,
+      "StopItemAtHit": false,
+      "ForceAI": false,
+      "MovesScrambled": false,
+      "ChargeSaver": false,
+      "WaitToAttack": false,
+      "CantInteract": false,
+      "EnemyOfFriend": false,
+      "AttackFriend": false,
+      "TileSight": -1,
+      "CharSight": -1,
+      "Unidentifiable": false,
+      "Unlocatable": false,
+      "SeeAllChars": false,
+      "SeeItems": false,
+      "SeeWallItems": false,
+      "SeeTraps": false,
+      "CharStates": [],
+      "BackRef": {
+       "Index": -1
+      },
+      "Nickname": "",
+      "OriginalUUID": "",
+      "OriginalTeam": "",
+      "BaseForm": {
+       "Species": "drapion",
+       "Form": 0,
+       "Skin": "normal",
+       "Gender": -1
+      },
+      "Level": 29,
+      "EXP": 0,
+      "MaxHPBonus": 0,
+      "AtkBonus": 0,
+      "DefBonus": 0,
+      "MAtkBonus": 0,
+      "MDefBonus": 0,
+      "SpeedBonus": 0,
+      "BaseSkills": [
+       {
+        "SkillNum": "",
+        "Charges": 10,
+        "CanForget": false
+       },
+       {
+        "SkillNum": "",
+        "Charges": 10,
+        "CanForget": false
+       },
+       {
+        "SkillNum": "",
+        "Charges": 10,
+        "CanForget": false
+       },
+       {
+        "SkillNum": "",
+        "Charges": 10,
+        "CanForget": false
+       }
+      ],
+      "BaseIntrinsics": [
+       "drought"
+      ],
+      "FormIntrinsicSlot": 2,
+      "Relearnables": {},
+      "Discriminator": 0,
+      "MetAt": "",
+      "MetLoc": {
+       "ID": "",
+       "StructID": {
+        "Segment": -1,
+        "ID": -1
+       },
+       "EntryPoint": -1
+      },
+      "DefeatAt": "",
+      "DefeatLoc": {
+       "ID": "",
+       "StructID": {
+        "Segment": -1,
+        "ID": -1
+       },
+       "EntryPoint": -1
+      },
+      "IsFounder": false,
+      "IsPartner": false,
+      "NameLocked": false,
+      "IsFavorite": false,
+      "Unrecruitable": true,
+      "ActionEvents": [],
+      "ScriptVars": null,
+      "CharLoc": {
+       "X": 5,
+       "Y": 8
       }
      }
     ],
@@ -282,9 +796,9 @@
     17909611376780542444
    ]
   },
-  "AssetName": "world_abyss_pit_map",
+  "AssetName": "limestone_cavern_depths_map",
   "ScriptEvents": {},
-  "Music": "Chasm Cave.ogg",
+  "Music": "Deep Limestone Cavern.ogg",
   "TileSight": 0,
   "CharSight": 0,
   "Status": {
@@ -483,19 +997,6 @@
     true,
     true,
     true,
-    true
-   ],
-   [
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
     true,
     true,
     true
@@ -503,19 +1004,6 @@
    [
     true,
     true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true
-   ],
-   [
     true,
     true,
     true,
@@ -543,19 +1031,6 @@
     true,
     true,
     true,
-    true
-   ],
-   [
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
     true,
     true,
     true
@@ -563,19 +1038,6 @@
    [
     true,
     true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true
-   ],
-   [
     true,
     true,
     true,
@@ -603,19 +1065,6 @@
     true,
     true,
     true,
-    true
-   ],
-   [
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
     true,
     true,
     true
@@ -623,19 +1072,6 @@
    [
     true,
     true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true
-   ],
-   [
     true,
     true,
     true,
@@ -663,19 +1099,6 @@
     true,
     true,
     true,
-    true
-   ],
-   [
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
     true,
     true,
     true
@@ -683,19 +1106,6 @@
    [
     true,
     true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true
-   ],
-   [
     true,
     true,
     true,
@@ -723,6 +1133,25 @@
     true,
     true,
     true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
     true
    ],
    [
@@ -738,9 +1167,47 @@
     true,
     true,
     true,
+    true,
+    true,
     true
    ],
    [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
     true,
     true,
     true,
@@ -764,159 +1231,91 @@
     "Tiles": [
      [
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      }
-     ],
-     [
-      {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -924,159 +1323,91 @@
      ],
      [
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      }
-     ],
-     [
-      {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -1084,159 +1415,91 @@
      ],
      [
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      }
-     ],
-     [
-      {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -1244,159 +1507,91 @@
      ],
      [
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      }
-     ],
-     [
-      {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -1404,159 +1599,91 @@
      ],
      [
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      }
-     ],
-     [
-      {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -1564,159 +1691,91 @@
      ],
      [
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      }
-     ],
-     [
-      {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -1724,159 +1783,91 @@
      ],
      [
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      }
-     ],
-     [
-      {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -1884,79 +1875,91 @@
      ],
      [
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -1964,79 +1967,91 @@
      ],
      [
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -2044,79 +2059,91 @@
      ],
      [
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -2124,79 +2151,91 @@
      ],
      [
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -2204,79 +2243,275 @@
      ],
      [
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      }
+     ],
+     [
+      {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      }
+     ],
+     [
+      {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -2299,7 +2534,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -2321,7 +2556,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -2343,7 +2578,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -2365,7 +2600,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -2387,7 +2622,73 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -2409,7 +2710,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -2431,7 +2732,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -2453,7 +2754,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -2475,7 +2776,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -2497,7 +2798,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -2519,7 +2820,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -2541,317 +2842,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    }
-   ],
-   [
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -2875,7 +2866,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -2897,7 +2888,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -2919,7 +2910,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -2941,7 +2932,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -2963,7 +2954,7 @@
      "Data": {
       "ID": "floor",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -2985,7 +2976,7 @@
      "Data": {
       "ID": "floor",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -3007,207 +2998,7 @@
      "Data": {
       "ID": "floor",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    }
-   ],
-   [
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -3229,7 +3020,7 @@
      "Data": {
       "ID": "floor",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -3251,7 +3042,7 @@
      "Data": {
       "ID": "floor",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -3273,73 +3064,7 @@
      "Data": {
       "ID": "floor",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -3361,7 +3086,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -3383,7 +3108,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -3405,7 +3130,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -3427,7 +3152,29 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -3451,7 +3198,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -3473,183 +3220,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -3671,7 +3242,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -3693,7 +3264,139 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -3715,229 +3418,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    }
-   ],
-   [
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -3959,7 +3440,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -3981,7 +3462,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -4003,7 +3484,29 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -4027,205 +3530,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -4247,7 +3552,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -4269,7 +3574,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -4291,7 +3596,249 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -4315,205 +3862,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -4535,7 +3884,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -4557,7 +3906,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -4579,7 +3928,249 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -4603,205 +4194,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -4823,7 +4216,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -4845,7 +4238,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -4867,7 +4260,249 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -4891,205 +4526,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -5111,7 +4548,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -5133,7 +4570,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -5155,7 +4592,249 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -5179,7 +4858,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -5201,183 +4880,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -5399,7 +4902,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -5421,7 +4924,139 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -5443,7 +5078,95 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -5467,7 +5190,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -5489,7 +5212,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -5511,139 +5234,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -5665,7 +5256,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -5687,7 +5278,73 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -5709,7 +5366,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -5731,7 +5388,117 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -5755,7 +5522,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -5777,7 +5544,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -5799,7 +5566,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -5821,73 +5588,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -5909,7 +5610,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -5931,7 +5632,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -5953,7 +5654,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -5975,7 +5676,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -5997,7 +5698,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6019,31 +5720,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    }
-   ],
-   [
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6065,7 +5742,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6087,7 +5764,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6109,7 +5786,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6131,7 +5808,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6153,161 +5830,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6331,7 +5854,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6353,7 +5876,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6375,7 +5898,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6397,7 +5920,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6419,7 +5942,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6441,7 +5964,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6463,7 +5986,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6485,7 +6008,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6507,7 +6030,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6529,7 +6052,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6551,7 +6074,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6573,7 +6096,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6595,7 +6118,51 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6619,7 +6186,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6641,7 +6208,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6663,7 +6230,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6685,7 +6252,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6707,7 +6274,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6729,7 +6296,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6751,7 +6318,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6773,7 +6340,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6795,7 +6362,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6817,7 +6384,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6839,7 +6406,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6861,7 +6428,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6883,7 +6450,51 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6907,7 +6518,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6929,7 +6540,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6951,7 +6562,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6973,7 +6584,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6995,7 +6606,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -7017,7 +6628,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -7039,7 +6650,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -7061,7 +6672,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -7083,7 +6694,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -7105,7 +6716,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -7127,7 +6738,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -7149,7 +6760,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -7171,7 +6782,51 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -7195,7 +6850,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -7217,7 +6872,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -7239,7 +6894,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -7261,7 +6916,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -7283,7 +6938,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -7305,7 +6960,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -7327,7 +6982,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -7349,7 +7004,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -7371,7 +7026,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -7393,7 +7048,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -7415,7 +7070,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -7437,7 +7092,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -7459,31 +7114,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    }
-   ],
-   [
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -7505,7 +7136,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -7527,227 +7158,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "deep_limestone_cavern_ts_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -7771,7 +7182,7 @@
   "EntryPoints": [
    {
     "Loc": {
-     "X": 7,
+     "X": 4,
      "Y": 5
     },
     "Dir": 4

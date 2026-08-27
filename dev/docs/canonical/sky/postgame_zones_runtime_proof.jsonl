@@ -106,3 +106,16 @@
 {"event": "postgame_zone", "zone": "limestone_cavern", "dungeon": "d155", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS", "floors": 5}
 {"event": "postgame_zone", "zone": "deep_limestone_cavern", "dungeon": "d156", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS", "floors": 5}
 {"event": "postgame_zone", "zone": "spring_cave", "dungeon": "d158", "rom_comparison": "EXACT", "runtime": "CANONICAL_RUNTIME_PASS", "floors": 4}
+{"event": "se_arena_build", "date": "2026-08-27", "arenas": 11, "note": "ff29-ff39 fixed.bin, especes ov29 entity/monster tables, niveaux overlay10 FIXED_ROOM_MONSTER_SPAWN_STATS_TABLE (exacts ROM), ALLY_HELP -> AllyTeams ExplorerTeam natif; decors ts>=184 MAP_BG -> autotile donjon parent (adaptation documentee comme d45); musiques ROM mid"}
+{"event": "boss_arena", "zone": "sky_peak_summit", "dungeon": "d122", "fixed_floor": 29, "cast": "muk L44 + grimers + 3 alli\u00e9s guides (mawile/machoke/breloom ALLY_HELP ov29)", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "boss_arena", "zone": "deep_star_cave_team_rogue", "dungeon": "d125", "fixed_floor": 30, "cast": "Team Rogue: bagon L8, gligar L8, snover L22", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "boss_arena", "zone": "star_cave_pit", "dungeon": "d127", "fixed_floor": 31, "cast": "JIRACHI L16 (md 417 natdex 385)", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "boss_arena", "zone": "fortune_ravine_pit", "dungeon": "d132", "fixed_floor": 32, "cast": "probopass/vespiquen/yanmega/exploud/claydol/camerupt (niveaux ROM stats table)", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "boss_arena", "zone": "barren_valley_clearing", "dungeon": "d135", "fixed_floor": 33, "cast": "4 sableye L38", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "boss_arena", "zone": "black_swamp", "dungeon": "d140", "fixed_floor": 34, "cast": "6 sableye L38", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "boss_arena", "zone": "dark_ice_mountain_pinnacle", "dungeon": "d144", "fixed_floor": 35, "cast": "mamoswine L32 + 4 glalie L32", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "boss_arena", "zone": "vast_ice_mountain_pinnacle", "dungeon": "d148", "fixed_floor": 36, "cast": "DIALGA (Primal) L48", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "boss_arena", "zone": "boulder_quarry_clearing", "dungeon": "d152", "fixed_floor": 37, "cast": "aggron L36 + 6 lairon L28", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "boss_arena", "zone": "limestone_cavern_depths", "dungeon": "d157", "fixed_floor": 38, "cast": "weavile L33, arbok L26, drapion L29", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "boss_arena", "zone": "upper_spring_cave_haunter", "dungeon": "d159", "fixed_floor": 39, "cast": "haunter L25", "runtime": "CANONICAL_RUNTIME_PASS"}
+{"event": "arena_music_fix", "date": "2026-08-27", "note": "10 arenas ff17-ff26 musiques realignees ROM (mid donjon parent): spacial_rift_bottom Sealed Ruin, giant_volcano_peak Dark Crater, shimmer_desert_pit Northern Desert, mt_avalanche_peak Blizzard Medley, bottomless_sea_depths Lower Brine Cave, world_abyss_pit Chasm Cave, deep_mystery_jungle Concealed Ruins, sky_stairway_apex Crystal Cave, dark_crater_pit mid 999 silence ROM (musique posee par scene boss)", "retest": "dark_crater_pit+sky_stairway_apex+regigigas_chamber_boss PASS"}

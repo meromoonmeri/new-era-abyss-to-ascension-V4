@@ -3,13 +3,13 @@
  "Object": {
   "$type": "RogueEssence.Dungeon.Map, RogueEssence",
   "Name": {
-   "DefaultText": "World Abyss Pit",
+   "DefaultText": "Upper Spring Cave",
    "LocalTexts": {
-    "fr": "Puits du Gouffre du Monde"
+    "fr": "Grotte Source Supérieure (Haunter)"
    }
   },
   "Released": true,
-  "Comment": "PMD Sky EU fixed floor 24 — géométrie exacte fixed.bin 19x13, cast ov29 (espèces entid%600 prouvées), niveaux mappa du donjon parent, HP=0 stats natives.",
+  "Comment": "PMD Sky EU fixed floor 39 — géométrie exacte fixed.bin 14x14, cast ov29 (espèces entid%600 prouvées), niveaux mappa du donjon parent, HP=0 stats natives.",
   "Begun": false,
   "ID": 0,
   "MapTeams": [
@@ -192,12 +192,12 @@
       "OriginalUUID": "",
       "OriginalTeam": "",
       "BaseForm": {
-       "Species": "giratina",
+       "Species": "haunter",
        "Form": 0,
        "Skin": "normal",
        "Gender": -1
       },
-      "Level": 48,
+      "Level": 25,
       "EXP": 0,
       "MaxHPBonus": 0,
       "AtkBonus": 0,
@@ -259,7 +259,7 @@
       "ActionEvents": [],
       "ScriptVars": null,
       "CharLoc": {
-       "X": 7,
+       "X": 4,
        "Y": 3
       }
      }
@@ -282,9 +282,9 @@
     17909611376780542444
    ]
   },
-  "AssetName": "world_abyss_pit_map",
+  "AssetName": "upper_spring_cave_haunter_map",
   "ScriptEvents": {},
-  "Music": "Chasm Cave.ogg",
+  "Music": "Spring Cave.ogg",
   "TileSight": 0,
   "CharSight": 0,
   "Status": {
@@ -483,39 +483,11 @@
     true,
     true,
     true,
-    true
-   ],
-   [
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
     true,
     true
    ],
    [
     true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true
-   ],
-   [
     true,
     true,
     true,
@@ -543,39 +515,11 @@
     true,
     true,
     true,
-    true
-   ],
-   [
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
     true,
     true
    ],
    [
     true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true
-   ],
-   [
     true,
     true,
     true,
@@ -603,39 +547,11 @@
     true,
     true,
     true,
-    true
-   ],
-   [
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
     true,
     true
    ],
    [
     true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true
-   ],
-   [
     true,
     true,
     true,
@@ -663,39 +579,11 @@
     true,
     true,
     true,
-    true
-   ],
-   [
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
     true,
     true
    ],
    [
     true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true
-   ],
-   [
     true,
     true,
     true,
@@ -723,6 +611,23 @@
     true,
     true,
     true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
     true
    ],
    [
@@ -738,9 +643,43 @@
     true,
     true,
     true,
+    true,
     true
    ],
    [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   [
+    true,
     true,
     true,
     true,
@@ -764,159 +703,85 @@
     "Tiles": [
      [
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      }
-     ],
-     [
-      {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -924,159 +789,85 @@
      ],
      [
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      }
-     ],
-     [
-      {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -1084,159 +875,85 @@
      ],
      [
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      }
-     ],
-     [
-      {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -1244,159 +961,85 @@
      ],
      [
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      }
-     ],
-     [
-      {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -1404,159 +1047,85 @@
      ],
      [
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      }
-     ],
-     [
-      {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -1564,159 +1133,85 @@
      ],
      [
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      }
-     ],
-     [
-      {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -1724,159 +1219,85 @@
      ],
      [
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      }
-     ],
-     [
-      {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -1884,79 +1305,85 @@
      ],
      [
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -1964,79 +1391,85 @@
      ],
      [
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -2044,79 +1477,85 @@
      ],
      [
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -2124,79 +1563,85 @@
      ],
      [
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -2204,79 +1649,257 @@
      ],
      [
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
       },
       {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      }
+     ],
+     [
+      {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      }
+     ],
+     [
+      {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      {
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -2299,7 +1922,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -2321,7 +1944,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -2343,7 +1966,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -2365,7 +1988,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -2387,7 +2010,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -2409,7 +2032,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -2431,7 +2054,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -2453,7 +2076,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -2475,7 +2098,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -2497,7 +2120,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -2519,7 +2142,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -2541,7 +2164,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -2563,31 +2186,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    }
-   ],
-   [
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -2609,249 +2208,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -2875,7 +2232,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -2897,7 +2254,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -2919,29 +2276,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -2963,7 +2298,7 @@
      "Data": {
       "ID": "floor",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -2985,7 +2320,7 @@
      "Data": {
       "ID": "floor",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -3007,207 +2342,7 @@
      "Data": {
       "ID": "floor",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    }
-   ],
-   [
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -3229,117 +2364,7 @@
      "Data": {
       "ID": "floor",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -3361,7 +2386,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -3383,7 +2408,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -3405,7 +2430,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -3427,7 +2452,73 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -3451,7 +2542,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -3473,7 +2564,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -3495,7 +2586,7 @@
      "Data": {
       "ID": "floor",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -3517,7 +2608,7 @@
      "Data": {
       "ID": "floor",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -3539,117 +2630,7 @@
      "Data": {
       "ID": "floor",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -3671,7 +2652,51 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -3693,7 +2718,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -3715,7 +2740,715 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    }
+   ],
+   [
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    }
+   ],
+   [
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -3739,7 +3472,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -3761,7 +3494,7 @@
      "Data": {
       "ID": "floor",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -3783,7 +3516,7 @@
      "Data": {
       "ID": "floor",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -3805,7 +3538,7 @@
      "Data": {
       "ID": "floor",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -3827,7 +3560,7 @@
      "Data": {
       "ID": "floor",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -3849,7 +3582,7 @@
      "Data": {
       "ID": "floor",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -3871,7 +3604,7 @@
      "Data": {
       "ID": "floor",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -3893,7 +3626,7 @@
      "Data": {
       "ID": "floor",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -3915,29 +3648,7 @@
      "Data": {
       "ID": "floor",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -3959,7 +3670,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -3981,7 +3692,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -4003,7 +3714,51 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -4027,205 +3782,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -4247,7 +3804,95 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -4269,7 +3914,29 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -4291,7 +3958,117 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -4315,205 +4092,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -4535,7 +4114,29 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -4557,7 +4158,73 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_floor",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "floor",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_floor",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -4579,7 +4246,139 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -4603,205 +4402,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -4823,7 +4424,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -4845,7 +4446,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -4867,229 +4468,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    }
-   ],
-   [
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -5111,7 +4490,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -5133,7 +4512,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -5155,7 +4534,161 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -5179,7 +4712,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -5201,183 +4734,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -5399,7 +4756,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -5421,7 +4778,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -5443,31 +4800,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    }
-   ],
-   [
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -5489,7 +4822,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -5511,139 +4844,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -5665,7 +4866,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -5687,7 +4888,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -5709,7 +4910,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -5731,7 +4932,73 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -5755,7 +5022,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -5777,7 +5044,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -5799,7 +5066,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -5821,73 +5088,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "floor",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_floor",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -5909,7 +5110,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -5931,7 +5132,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -5953,7 +5154,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -5975,7 +5176,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -5997,7 +5198,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6019,31 +5220,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    }
-   ],
-   [
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6065,7 +5242,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6087,7 +5264,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6109,7 +5286,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6131,183 +5308,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6331,7 +5332,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6353,7 +5354,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6375,7 +5376,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6397,7 +5398,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6419,7 +5420,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6441,7 +5442,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6463,7 +5464,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6485,7 +5486,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6507,7 +5508,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6529,7 +5530,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6551,7 +5552,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6573,7 +5574,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6595,7 +5596,29 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6619,7 +5642,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6641,7 +5664,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6663,7 +5686,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6685,7 +5708,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6707,7 +5730,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6729,7 +5752,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6751,7 +5774,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6773,7 +5796,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6795,7 +5818,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6817,7 +5840,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6839,7 +5862,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6861,7 +5884,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6883,7 +5906,29 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
+       "Associates": [],
+       "Layers": [],
+       "NeighborCode": -1
+      },
+      "StableTex": false
+     },
+     "Effect": {
+      "TileLoc": {
+       "X": 0,
+       "Y": 0
+      },
+      "ID": "",
+      "Revealed": false,
+      "Owner": 0,
+      "TileStates": []
+     }
+    },
+    {
+     "Data": {
+      "ID": "unbreakable",
+      "TileTex": {
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6907,7 +5952,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6929,7 +5974,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6951,7 +5996,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6973,7 +6018,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -6995,7 +6040,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -7017,7 +6062,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -7039,7 +6084,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -7061,7 +6106,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -7083,7 +6128,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -7105,7 +6150,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -7127,7 +6172,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -7149,7 +6194,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -7171,31 +6216,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    }
-   ],
-   [
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -7217,537 +6238,7 @@
      "Data": {
       "ID": "unbreakable",
       "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    }
-   ],
-   [
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
-       "Associates": [],
-       "Layers": [],
-       "NeighborCode": -1
-      },
-      "StableTex": false
-     },
-     "Effect": {
-      "TileLoc": {
-       "X": 0,
-       "Y": 0
-      },
-      "ID": "",
-      "Revealed": false,
-      "Owner": 0,
-      "TileStates": []
-     }
-    },
-    {
-     "Data": {
-      "ID": "unbreakable",
-      "TileTex": {
-       "AutoTileset": "world_abyss_1_wall",
+       "AutoTileset": "waterfall_cave_wall",
        "Associates": [],
        "Layers": [],
        "NeighborCode": -1
@@ -7771,7 +6262,7 @@
   "EntryPoints": [
    {
     "Loc": {
-     "X": 7,
+     "X": 4,
      "Y": 5
     },
     "Dir": 4

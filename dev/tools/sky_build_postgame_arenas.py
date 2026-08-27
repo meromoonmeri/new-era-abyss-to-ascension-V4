@@ -12,6 +12,9 @@ Sources canoniques par arène :
   * tileset/musique : layout mappa du donjon parent (mêmes tables que les
     zones déjà construites).
 HP=0 -> stats natives moteur (jamais l'approximation).
+Musiques = MUSIC_MID_MAP.json (mid du 1er étage du donjon parent,
+overlay10 EU prouvé) ; mid 999 = silence ROM (musique posée par la
+scène boss).
 """
 import copy
 import json
@@ -33,32 +36,83 @@ ARENAS = [
      [('regigigas', 45), ('hitmonlee', 45), ('bronzong', 45)]),
     ('spacial_rift_bottom', 18, 'Spacial Rift Bottom',
      'Fond de la Faille Spatiale', 'spacial_rift_2',
-     'Random Dungeon Theme 1.ogg', [('palkia', 53)]),
+     'Sealed Ruin.ogg', [('palkia', 53)]),
     ('dark_crater_pit', 19, 'Dark Crater Pit',
-     'Puits du Cratère Obscur', 'dark_crater_2', 'Deep Dark Crater.ogg',
+     'Puits du Cratère Obscur', 'dark_crater_2', '',
      [('darkrai', 53), ('arbok', 49), ('magmortar', 49),
       ('magcargo', 49), ('aggron', 49), ('camerupt', 49)]),
     ('giant_volcano_peak', 20, 'Giant Volcano Peak',
      'Sommet du Volcan Géant', 'giant_volcano',
-     'Random Dungeon Theme 1.ogg', [('heatran', 46)]),
+     'Dark Crater.ogg', [('heatran', 46)]),
     ('shimmer_desert_pit', 21, 'Shimmer Desert Pit',
      'Puits du Désert Chatoyant', 'shimmer_desert',
-     'Random Dungeon Theme 1.ogg', [('groudon', 44)]),
+     'Northern Desert.ogg', [('groudon', 44)]),
     ('mt_avalanche_peak', 22, 'Mt. Avalanche Peak',
      'Pic du Mont Avalanche', 'mt_avalanche',
-     'Random Dungeon Theme 1.ogg', [('articuno', 46)]),
+     'Blizzard Island Rescue Team Medley.ogg', [('articuno', 46)]),
     ('bottomless_sea_depths', 23, 'Bottomless Sea Depths',
      'Profondeurs de la Mer sans Fond', 'bottomless_sea',
-     'Random Dungeon Theme 1.ogg', [('kyogre', 51)]),
+     'Lower Brine Cave.ogg', [('kyogre', 51)]),
     ('world_abyss_pit', 24, 'World Abyss Pit',
      'Puits du Gouffre du Monde', 'world_abyss_1',
-     'Random Dungeon Theme 1.ogg', [('giratina', 48)]),
+     'Chasm Cave.ogg', [('giratina', 48)]),
     ('deep_mystery_jungle', 25, 'Deep Mystery Jungle',
      'Cœur de la Jungle Mystère', 'mystery_jungle_1',
-     'Random Dungeon Theme 1.ogg', [('mew', 48)]),
+     'Concealed Ruins.ogg', [('mew', 48)]),
     ('sky_stairway_apex', 26, 'Sky Stairway Apex',
      'Apogée de l\'Escalier Céleste', 'sky_stairway',
-     'Random Dungeon Theme 1.ogg', [('rayquaza', 50)]),
+     'Crystal Cave.ogg', [('rayquaza', 50)]),
+    # ---- Sky Peak + épisodes spéciaux (ff29-ff39, session 2026-08-27) —
+    # espèces/niveaux = ov29 entity/monster tables × overlay10
+    # FIXED_ROOM_MONSTER_SPAWN_STATS_TABLE (niveaux EXACTS ROM) ;
+    # décors ts>=184 = MAP_BG images (précédent d45) -> autotile du donjon
+    # parent, différence de décor documentée ; musiques = mid ROM.
+    ('sky_peak_summit', 29, 'Sky Peak Summit', 'Sommet du Pic Céleste',
+     'sky_peak_summit_pass_ts', 'Sky Peak Final Pass.ogg',
+     [('muk', 44), ('grimer', 43), ('grimer', 43), ('muk', 44),
+      ('muk', 44), ('mawile', 30, 'ally'), ('machoke', 55, 'ally'),
+      ('breloom', 55, 'ally'), ('grimer', 43), ('grimer', 43),
+      ('grimer', 43)]),
+    ('deep_star_cave_team_rogue', 30, 'Deep Star Cave',
+     'Grotte Étoile Profonde (Team Rogue)', 'deep_star_cave_ts',
+     'Deep Star Cave.ogg',
+     [('bagon', 8), ('gligar', 8), ('snover', 22)]),
+    ('star_cave_pit', 31, 'Star Cave Pit', 'Puits de la Grotte Étoile',
+     'deep_star_cave_ts', 'Deep Star Cave.ogg', [('jirachi', 16)]),
+    ('fortune_ravine_pit', 32, 'Fortune Ravine Pit',
+     'Puits du Ravin Fortune', 'ice_aegis_cave',
+     'Fortune Ravine Depths.ogg',
+     [('probopass', 10), ('vespiquen', 17), ('yanmega', 12),
+      ('exploud', 9), ('claydol', 15), ('camerupt', 30)]),
+    ('barren_valley_clearing', 33, 'Barren Valley Clearing',
+     'Clairière de la Vallée Aride', 'sky_peak_summit_pass_ts',
+     'Barren Valley.ogg',
+     [('sableye', 38), ('sableye', 38), ('sableye', 38),
+      ('sableye', 38)]),
+    ('black_swamp', 34, 'Black Swamp', 'Marais Noir', 'dark_wasteland_ts',
+     'Dusk Forest.ogg',
+     [('sableye', 38), ('sableye', 38), ('sableye', 38), ('sableye', 38),
+      ('sableye', 38), ('sableye', 38)]),
+    ('dark_ice_mountain_pinnacle', 35, 'Dark Ice Mountain Pinnacle',
+     'Cime du Mont Glace Obscur', 'dark_ice_mountain_peak_ts',
+     'Dark Ice Mountain.ogg',
+     [('mamoswine', 32), ('glalie', 32), ('glalie', 32), ('glalie', 32),
+      ('glalie', 32)]),
+    ('vast_ice_mountain_pinnacle', 36, 'Vast Ice Mountain Pinnacle',
+     'Cime du Mont Glace Immense', 'vast_ice_mountain_peak_ts',
+     'Vast Ice Mountain Peak.ogg', [('dialga', 48)]),
+    ('boulder_quarry_clearing', 37, 'Boulder Quarry Clearing',
+     'Clairière de la Carrière Rocheuse', 'deep_boulder_quarry_ts',
+     'Boulder Quarry.ogg',
+     [('aggron', 36), ('lairon', 28), ('lairon', 28), ('lairon', 28),
+      ('lairon', 28), ('lairon', 28), ('lairon', 28)]),
+    ('limestone_cavern_depths', 38, 'Limestone Cavern Depths',
+     'Profondeurs de la Caverne Calcaire', 'deep_limestone_cavern_ts',
+     'Deep Limestone Cavern.ogg',
+     [('weavile', 33), ('arbok', 26), ('drapion', 29)]),
+    ('upper_spring_cave_haunter', 39, 'Upper Spring Cave',
+     'Grotte Source Supérieure (Haunter)', 'waterfall_cave',
+     'Spring Cave.ogg', [('haunter', 25)]),
 ]
 
 
@@ -155,11 +209,14 @@ def main():
             px, py = W // 2, H - 2
         obj['EntryPoints'] = [{'Loc': {'X': px, 'Y': py}, 'Dir': 4}]
         teams = []
+        allies = []
         ent_i = 0
         for y, r in enumerate(rows):
             for x, c in enumerate(r):
                 if 'A' <= c <= 'Z' and c != 'P':
-                    sp, lv = cast[min(ent_i, len(cast) - 1)]
+                    entry = cast[min(ent_i, len(cast) - 1)]
+                    sp, lv = entry[0], entry[1]
+                    is_ally = len(entry) > 2 and entry[2] == 'ally'
                     ent_i += 1
                     team = copy.deepcopy(model_team)
                     pl = copy.deepcopy(model_player)
@@ -171,8 +228,16 @@ def main():
                         for s in pl['BaseSkills']:
                             s['SkillNum'] = ''
                     team['Players'] = [pl]
-                    teams.append(team)
+                    if is_ally:
+                        # ALLY_HELP ov29 (ff29 guides Sky Peak) : équipe
+                        # alliée native PMDO (ExplorerTeam AllyTeams)
+                        team['$type'] = ('RogueEssence.Dungeon.'
+                                         'ExplorerTeam, RogueEssence')
+                        allies.append(team)
+                    else:
+                        teams.append(team)
         obj['MapTeams'] = teams
+        obj['AllyTeams'] = allies
         out_map = os.path.join(REPO, 'Data', 'Map', zone_id + '_map.rsmap')
         json.dump(tpl, open(out_map, 'w', encoding='utf-8-sig'),
                   ensure_ascii=False, indent=1)

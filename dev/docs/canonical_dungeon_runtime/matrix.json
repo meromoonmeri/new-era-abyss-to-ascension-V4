@@ -66804,5 +66804,379 @@
    "non_traversable": 0,
    "invalid": 0
   }
+ },
+ "sky_peak_summit": {
+  "zone": "sky_peak_summit",
+  "floors": {
+   "seg0_floor0": {
+    "generation": "PASS",
+    "topology": "PASS",
+    "traversal": "PASS",
+    "stairs": "PASS",
+    "autotile": "PASS",
+    "complexity": "PASS",
+    "rooms": -1,
+    "halls": -1,
+    "branches": -1,
+    "loops": -1,
+    "dead_ends": -1,
+    "width": 16,
+    "height": 16,
+    "autotiles": "magma_cavern_2_floor,magma_cavern_2_wall",
+    "iterations_seen": 1,
+    "error": null
+   }
+  },
+  "floor_count": 1,
+  "failures": 0,
+  "verdict": "CANONICAL_RUNTIME_PASS",
+  "engine_end": {
+   "event": "end",
+   "attempted": 1,
+   "generated": 1,
+   "failures": 0,
+   "non_traversable": 0,
+   "invalid": 0
+  }
+ },
+ "deep_star_cave_team_rogue": {
+  "zone": "deep_star_cave_team_rogue",
+  "floors": {
+   "seg0_floor0": {
+    "generation": "PASS",
+    "topology": "PASS",
+    "traversal": "PASS",
+    "stairs": "PASS",
+    "autotile": "PASS",
+    "complexity": "PASS",
+    "rooms": -1,
+    "halls": -1,
+    "branches": -1,
+    "loops": -1,
+    "dead_ends": -1,
+    "width": 16,
+    "height": 16,
+    "autotiles": "magma_cavern_2_floor,magma_cavern_2_wall",
+    "iterations_seen": 1,
+    "error": null
+   }
+  },
+  "floor_count": 1,
+  "failures": 0,
+  "verdict": "CANONICAL_RUNTIME_PASS",
+  "engine_end": {
+   "event": "end",
+   "attempted": 1,
+   "generated": 1,
+   "failures": 0,
+   "non_traversable": 0,
+   "invalid": 0
+  }
+ },
+ "star_cave_pit": {
+  "zone": "star_cave_pit",
+  "floors": {
+   "seg0_floor0": {
+    "generation": "PASS",
+    "topology": "PASS",
+    "traversal": "PASS",
+    "stairs": "PASS",
+    "autotile": "PASS",
+    "complexity": "PASS",
+    "rooms": -1,
+    "halls": -1,
+    "branches": -1,
+    "loops": -1,
+    "dead_ends": -1,
+    "width": 16,
+    "height": 14,
+    "autotiles": "magma_cavern_2_floor,magma_cavern_2_wall",
+    "iterations_seen": 1,
+    "error": null
+   }
+  },
+  "floor_count": 1,
+  "failures": 0,
+  "verdict": "CANONICAL_RUNTIME_PASS",
+  "engine_end": {
+   "event": "end",
+   "attempted": 1,
+   "generated": 1,
+   "failures": 0,
+   "non_traversable": 0,
+   "invalid": 0
+  }
+ },
+ "fortune_ravine_pit": {
+  "zone": "fortune_ravine_pit",
+  "floors": {
+   "seg0_floor0": {
+    "generation": "PASS",
+    "topology": "PASS",
+    "traversal": "PASS",
+    "stairs": "PASS",
+    "autotile": "PASS",
+    "complexity": "PASS",
+    "rooms": -1,
+    "halls": -1,
+    "branches": -1,
+    "loops": -1,
+    "dead_ends": -1,
+    "width": 16,
+    "height": 16,
+    "autotiles": "magma_cavern_2_floor,magma_cavern_2_wall",
+    "iterations_seen": 1,
+    "error": null
+   }
+  },
+  "floor_count": 1,
+  "failures": 0,
+  "verdict": "CANONICAL_RUNTIME_PASS",
+  "engine_end": {
+   "event": "end",
+   "attempted": 1,
+   "generated": 1,
+   "failures": 0,
+   "non_traversable": 0,
+   "invalid": 0
+  }
+ },
+ "barren_valley_clearing": {
+  "zone": "barren_valley_clearing",
+  "floors": {
+   "seg0_floor0": {
+    "generation": "PASS",
+    "topology": "PASS",
+    "traversal": "PASS",
+    "stairs": "PASS",
+    "autotile": "PASS",
+    "complexity": "PASS",
+    "rooms": -1,
+    "halls": -1,
+    "branches": -1,
+    "loops": -1,
+    "dead_ends": -1,
+    "width": 14,
+    "height": 16,
+    "autotiles": "magma_cavern_2_floor,magma_cavern_2_wall",
+    "iterations_seen": 1,
+    "error": null
+   }
+  },
+  "floor_count": 1,
+  "failures": 0,
+  "verdict": "CANONICAL_RUNTIME_PASS",
+  "engine_end": {
+   "event": "end",
+   "attempted": 1,
+   "generated": 1,
+   "failures": 0,
+   "non_traversable": 0,
+   "invalid": 0
+  }
+ },
+ "black_swamp": {
+  "zone": "black_swamp",
+  "floors": {
+   "seg0_floor0": {
+    "generation": "PASS",
+    "topology": "PASS",
+    "traversal": "PASS",
+    "stairs": "PASS",
+    "autotile": "PASS",
+    "complexity": "PASS",
+    "rooms": -1,
+    "halls": -1,
+    "branches": -1,
+    "loops": -1,
+    "dead_ends": -1,
+    "width": 14,
+    "height": 13,
+    "autotiles": "magma_cavern_2_floor,magma_cavern_2_wall",
+    "iterations_seen": 1,
+    "error": null
+   }
+  },
+  "floor_count": 1,
+  "failures": 0,
+  "verdict": "CANONICAL_RUNTIME_PASS",
+  "engine_end": {
+   "event": "end",
+   "attempted": 1,
+   "generated": 1,
+   "failures": 0,
+   "non_traversable": 0,
+   "invalid": 0
+  }
+ },
+ "dark_ice_mountain_pinnacle": {
+  "zone": "dark_ice_mountain_pinnacle",
+  "floors": {
+   "seg0_floor0": {
+    "generation": "PASS",
+    "topology": "PASS",
+    "traversal": "PASS",
+    "stairs": "PASS",
+    "autotile": "PASS",
+    "complexity": "PASS",
+    "rooms": -1,
+    "halls": -1,
+    "branches": -1,
+    "loops": -1,
+    "dead_ends": -1,
+    "width": 16,
+    "height": 12,
+    "autotiles": "magma_cavern_2_floor,magma_cavern_2_wall",
+    "iterations_seen": 1,
+    "error": null
+   }
+  },
+  "floor_count": 1,
+  "failures": 0,
+  "verdict": "CANONICAL_RUNTIME_PASS",
+  "engine_end": {
+   "event": "end",
+   "attempted": 1,
+   "generated": 1,
+   "failures": 0,
+   "non_traversable": 0,
+   "invalid": 0
+  }
+ },
+ "vast_ice_mountain_pinnacle": {
+  "zone": "vast_ice_mountain_pinnacle",
+  "floors": {
+   "seg0_floor0": {
+    "generation": "PASS",
+    "topology": "PASS",
+    "traversal": "PASS",
+    "stairs": "PASS",
+    "autotile": "PASS",
+    "complexity": "PASS",
+    "rooms": -1,
+    "halls": -1,
+    "branches": -1,
+    "loops": -1,
+    "dead_ends": -1,
+    "width": 16,
+    "height": 15,
+    "autotiles": "magma_cavern_2_floor,magma_cavern_2_wall",
+    "iterations_seen": 1,
+    "error": null
+   }
+  },
+  "floor_count": 1,
+  "failures": 0,
+  "verdict": "CANONICAL_RUNTIME_PASS",
+  "engine_end": {
+   "event": "end",
+   "attempted": 1,
+   "generated": 1,
+   "failures": 0,
+   "non_traversable": 0,
+   "invalid": 0
+  }
+ },
+ "boulder_quarry_clearing": {
+  "zone": "boulder_quarry_clearing",
+  "floors": {
+   "seg0_floor0": {
+    "generation": "PASS",
+    "topology": "PASS",
+    "traversal": "PASS",
+    "stairs": "PASS",
+    "autotile": "PASS",
+    "complexity": "PASS",
+    "rooms": -1,
+    "halls": -1,
+    "branches": -1,
+    "loops": -1,
+    "dead_ends": -1,
+    "width": 16,
+    "height": 14,
+    "autotiles": "magma_cavern_2_floor,magma_cavern_2_wall",
+    "iterations_seen": 1,
+    "error": null
+   }
+  },
+  "floor_count": 1,
+  "failures": 0,
+  "verdict": "CANONICAL_RUNTIME_PASS",
+  "engine_end": {
+   "event": "end",
+   "attempted": 1,
+   "generated": 1,
+   "failures": 0,
+   "non_traversable": 0,
+   "invalid": 0
+  }
+ },
+ "limestone_cavern_depths": {
+  "zone": "limestone_cavern_depths",
+  "floors": {
+   "seg0_floor0": {
+    "generation": "PASS",
+    "topology": "PASS",
+    "traversal": "PASS",
+    "stairs": "PASS",
+    "autotile": "PASS",
+    "complexity": "PASS",
+    "rooms": -1,
+    "halls": -1,
+    "branches": -1,
+    "loops": -1,
+    "dead_ends": -1,
+    "width": 14,
+    "height": 15,
+    "autotiles": "magma_cavern_2_floor,magma_cavern_2_wall",
+    "iterations_seen": 1,
+    "error": null
+   }
+  },
+  "floor_count": 1,
+  "failures": 0,
+  "verdict": "CANONICAL_RUNTIME_PASS",
+  "engine_end": {
+   "event": "end",
+   "attempted": 1,
+   "generated": 1,
+   "failures": 0,
+   "non_traversable": 0,
+   "invalid": 0
+  }
+ },
+ "upper_spring_cave_haunter": {
+  "zone": "upper_spring_cave_haunter",
+  "floors": {
+   "seg0_floor0": {
+    "generation": "PASS",
+    "topology": "PASS",
+    "traversal": "PASS",
+    "stairs": "PASS",
+    "autotile": "PASS",
+    "complexity": "PASS",
+    "rooms": -1,
+    "halls": -1,
+    "branches": -1,
+    "loops": -1,
+    "dead_ends": -1,
+    "width": 14,
+    "height": 14,
+    "autotiles": "magma_cavern_2_floor,magma_cavern_2_wall",
+    "iterations_seen": 1,
+    "error": null
+   }
+  },
+  "floor_count": 1,
+  "failures": 0,
+  "verdict": "CANONICAL_RUNTIME_PASS",
+  "engine_end": {
+   "event": "end",
+   "attempted": 1,
+   "generated": 1,
+   "failures": 0,
+   "non_traversable": 0,
+   "invalid": 0
+  }
  }
 }
