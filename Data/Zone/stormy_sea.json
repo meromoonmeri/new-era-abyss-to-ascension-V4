@@ -484,6 +484,113 @@
                     }
                   }
                 }
+              },
+              {
+                "Key": {
+                  "str": [
+                    3,
+                    3
+                  ]
+                },
+                "Value": {
+                  "$type": "PMDC.LevelGen.PatternTerrainStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
+                  "Terrain": {
+                    "$type": "RogueEssence.Dungeon.Tile, RogueEssence",
+                    "Data": {
+                      "ID": "water",
+                      "TileTex": {
+                        "AutoTileset": "",
+                        "Associates": [],
+                        "Layers": [],
+                        "NeighborCode": -1
+                      },
+                      "StableTex": false
+                    },
+                    "Effect": {
+                      "TileLoc": {
+                        "X": 0,
+                        "Y": 0
+                      },
+                      "ID": "",
+                      "Revealed": false,
+                      "Owner": 0,
+                      "TileStates": []
+                    }
+                  },
+                  "Filters": [
+                    {
+                      "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
+                      "Connection": 1
+                    }
+                  ],
+                  "IncludeHalls": false,
+                  "AllowTerminal": true,
+                  "TerrainStencil": {
+                    "$type": "RogueElements.MultiTerrainStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+                    "List": [
+                      {
+                        "$type": "RogueElements.MapTerrainStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+                        "Room": true,
+                        "Wall": false,
+                        "Blocked": false,
+                        "Not": false
+                      },
+                      {
+                        "$type": "RogueEssence.LevelGen.TileEffectStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+                        "Not": true
+                      }
+                    ],
+                    "RequireAny": false
+                  },
+                  "Amount": {
+                    "Min": 1,
+                    "Max": 10
+                  },
+                  "Maps": [
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_blob",
+                        "Pattern": 0
+                      },
+                      "Rate": 3
+                    },
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_blob_small",
+                        "Pattern": 0
+                      },
+                      "Rate": 3
+                    },
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_checker",
+                        "Pattern": 0
+                      },
+                      "Rate": 2
+                    },
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_plus",
+                        "Pattern": 0
+                      },
+                      "Rate": 2
+                    },
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_crosshair",
+                        "Pattern": 0
+                      },
+                      "Rate": 1
+                    },
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_slash",
+                        "Pattern": 0
+                      },
+                      "Rate": 1
+                    }
+                  ]
+                }
               }
             ],
             "Comment": "stormy_shelf — profile looping — grid 5x4 cells 9x10 — authoring-seed 6053031196769375822 (debug only: selects the parameters, NOT the layout; the layout is rolled by the engine RNG at every entry)"
@@ -2779,6 +2886,113 @@
                     }
                   }
                 }
+              },
+              {
+                "Key": {
+                  "str": [
+                    3,
+                    3
+                  ]
+                },
+                "Value": {
+                  "$type": "PMDC.LevelGen.PatternTerrainStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
+                  "Terrain": {
+                    "$type": "RogueEssence.Dungeon.Tile, RogueEssence",
+                    "Data": {
+                      "ID": "water",
+                      "TileTex": {
+                        "AutoTileset": "",
+                        "Associates": [],
+                        "Layers": [],
+                        "NeighborCode": -1
+                      },
+                      "StableTex": false
+                    },
+                    "Effect": {
+                      "TileLoc": {
+                        "X": 0,
+                        "Y": 0
+                      },
+                      "ID": "",
+                      "Revealed": false,
+                      "Owner": 0,
+                      "TileStates": []
+                    }
+                  },
+                  "Filters": [
+                    {
+                      "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
+                      "Connection": 1
+                    }
+                  ],
+                  "IncludeHalls": false,
+                  "AllowTerminal": true,
+                  "TerrainStencil": {
+                    "$type": "RogueElements.MultiTerrainStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+                    "List": [
+                      {
+                        "$type": "RogueElements.MapTerrainStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+                        "Room": true,
+                        "Wall": false,
+                        "Blocked": false,
+                        "Not": false
+                      },
+                      {
+                        "$type": "RogueEssence.LevelGen.TileEffectStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+                        "Not": true
+                      }
+                    ],
+                    "RequireAny": false
+                  },
+                  "Amount": {
+                    "Min": 1,
+                    "Max": 10
+                  },
+                  "Maps": [
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_blob",
+                        "Pattern": 0
+                      },
+                      "Rate": 3
+                    },
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_blob_small",
+                        "Pattern": 0
+                      },
+                      "Rate": 3
+                    },
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_checker",
+                        "Pattern": 0
+                      },
+                      "Rate": 2
+                    },
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_plus",
+                        "Pattern": 0
+                      },
+                      "Rate": 2
+                    },
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_crosshair",
+                        "Pattern": 0
+                      },
+                      "Rate": 1
+                    },
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_slash",
+                        "Pattern": 0
+                      },
+                      "Rate": 1
+                    }
+                  ]
+                }
               }
             ],
             "Comment": "stormy_shelf — profile mixed — grid 7x5 cells 11x7 — authoring-seed 6053031196769375822 (debug only: selects the parameters, NOT the layout; the layout is rolled by the engine RNG at every entry)"
@@ -5073,6 +5287,113 @@
                     }
                   }
                 }
+              },
+              {
+                "Key": {
+                  "str": [
+                    3,
+                    3
+                  ]
+                },
+                "Value": {
+                  "$type": "PMDC.LevelGen.PatternTerrainStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
+                  "Terrain": {
+                    "$type": "RogueEssence.Dungeon.Tile, RogueEssence",
+                    "Data": {
+                      "ID": "water",
+                      "TileTex": {
+                        "AutoTileset": "",
+                        "Associates": [],
+                        "Layers": [],
+                        "NeighborCode": -1
+                      },
+                      "StableTex": false
+                    },
+                    "Effect": {
+                      "TileLoc": {
+                        "X": 0,
+                        "Y": 0
+                      },
+                      "ID": "",
+                      "Revealed": false,
+                      "Owner": 0,
+                      "TileStates": []
+                    }
+                  },
+                  "Filters": [
+                    {
+                      "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
+                      "Connection": 1
+                    }
+                  ],
+                  "IncludeHalls": false,
+                  "AllowTerminal": true,
+                  "TerrainStencil": {
+                    "$type": "RogueElements.MultiTerrainStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+                    "List": [
+                      {
+                        "$type": "RogueElements.MapTerrainStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+                        "Room": true,
+                        "Wall": false,
+                        "Blocked": false,
+                        "Not": false
+                      },
+                      {
+                        "$type": "RogueEssence.LevelGen.TileEffectStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+                        "Not": true
+                      }
+                    ],
+                    "RequireAny": false
+                  },
+                  "Amount": {
+                    "Min": 1,
+                    "Max": 10
+                  },
+                  "Maps": [
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_blob",
+                        "Pattern": 0
+                      },
+                      "Rate": 3
+                    },
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_blob_small",
+                        "Pattern": 0
+                      },
+                      "Rate": 3
+                    },
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_checker",
+                        "Pattern": 0
+                      },
+                      "Rate": 2
+                    },
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_plus",
+                        "Pattern": 0
+                      },
+                      "Rate": 2
+                    },
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_crosshair",
+                        "Pattern": 0
+                      },
+                      "Rate": 1
+                    },
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_slash",
+                        "Pattern": 0
+                      },
+                      "Rate": 1
+                    }
+                  ]
+                }
               }
             ],
             "Comment": "stormy_shelf — profile looping — grid 4x4 cells 12x9 — authoring-seed 6053031196769375822 (debug only: selects the parameters, NOT the layout; the layout is rolled by the engine RNG at every entry)"
@@ -7215,6 +7536,113 @@
                       "Max": 4
                     }
                   }
+                }
+              },
+              {
+                "Key": {
+                  "str": [
+                    3,
+                    3
+                  ]
+                },
+                "Value": {
+                  "$type": "PMDC.LevelGen.PatternTerrainStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
+                  "Terrain": {
+                    "$type": "RogueEssence.Dungeon.Tile, RogueEssence",
+                    "Data": {
+                      "ID": "water",
+                      "TileTex": {
+                        "AutoTileset": "",
+                        "Associates": [],
+                        "Layers": [],
+                        "NeighborCode": -1
+                      },
+                      "StableTex": false
+                    },
+                    "Effect": {
+                      "TileLoc": {
+                        "X": 0,
+                        "Y": 0
+                      },
+                      "ID": "",
+                      "Revealed": false,
+                      "Owner": 0,
+                      "TileStates": []
+                    }
+                  },
+                  "Filters": [
+                    {
+                      "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
+                      "Connection": 1
+                    }
+                  ],
+                  "IncludeHalls": false,
+                  "AllowTerminal": true,
+                  "TerrainStencil": {
+                    "$type": "RogueElements.MultiTerrainStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+                    "List": [
+                      {
+                        "$type": "RogueElements.MapTerrainStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+                        "Room": true,
+                        "Wall": false,
+                        "Blocked": false,
+                        "Not": false
+                      },
+                      {
+                        "$type": "RogueEssence.LevelGen.TileEffectStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+                        "Not": true
+                      }
+                    ],
+                    "RequireAny": false
+                  },
+                  "Amount": {
+                    "Min": 1,
+                    "Max": 10
+                  },
+                  "Maps": [
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_blob",
+                        "Pattern": 0
+                      },
+                      "Rate": 3
+                    },
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_blob_small",
+                        "Pattern": 0
+                      },
+                      "Rate": 3
+                    },
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_checker",
+                        "Pattern": 0
+                      },
+                      "Rate": 2
+                    },
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_plus",
+                        "Pattern": 0
+                      },
+                      "Rate": 2
+                    },
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_crosshair",
+                        "Pattern": 0
+                      },
+                      "Rate": 1
+                    },
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_slash",
+                        "Pattern": 0
+                      },
+                      "Rate": 1
+                    }
+                  ]
                 }
               }
             ],
@@ -11254,6 +11682,113 @@
                     }
                   }
                 }
+              },
+              {
+                "Key": {
+                  "str": [
+                    3,
+                    3
+                  ]
+                },
+                "Value": {
+                  "$type": "PMDC.LevelGen.PatternTerrainStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
+                  "Terrain": {
+                    "$type": "RogueEssence.Dungeon.Tile, RogueEssence",
+                    "Data": {
+                      "ID": "water",
+                      "TileTex": {
+                        "AutoTileset": "",
+                        "Associates": [],
+                        "Layers": [],
+                        "NeighborCode": -1
+                      },
+                      "StableTex": false
+                    },
+                    "Effect": {
+                      "TileLoc": {
+                        "X": 0,
+                        "Y": 0
+                      },
+                      "ID": "",
+                      "Revealed": false,
+                      "Owner": 0,
+                      "TileStates": []
+                    }
+                  },
+                  "Filters": [
+                    {
+                      "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
+                      "Connection": 1
+                    }
+                  ],
+                  "IncludeHalls": false,
+                  "AllowTerminal": true,
+                  "TerrainStencil": {
+                    "$type": "RogueElements.MultiTerrainStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+                    "List": [
+                      {
+                        "$type": "RogueElements.MapTerrainStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+                        "Room": true,
+                        "Wall": false,
+                        "Blocked": false,
+                        "Not": false
+                      },
+                      {
+                        "$type": "RogueEssence.LevelGen.TileEffectStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+                        "Not": true
+                      }
+                    ],
+                    "RequireAny": false
+                  },
+                  "Amount": {
+                    "Min": 1,
+                    "Max": 10
+                  },
+                  "Maps": [
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_blob",
+                        "Pattern": 0
+                      },
+                      "Rate": 3
+                    },
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_blob_small",
+                        "Pattern": 0
+                      },
+                      "Rate": 3
+                    },
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_checker",
+                        "Pattern": 0
+                      },
+                      "Rate": 2
+                    },
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_plus",
+                        "Pattern": 0
+                      },
+                      "Rate": 2
+                    },
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_crosshair",
+                        "Pattern": 0
+                      },
+                      "Rate": 1
+                    },
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_slash",
+                        "Pattern": 0
+                      },
+                      "Rate": 1
+                    }
+                  ]
+                }
               }
             ],
             "Comment": "stormy_deep — profile looping — grid 5x4 cells 10x10 — authoring-seed 6053031196769375822 (debug only: selects the parameters, NOT the layout; the layout is rolled by the engine RNG at every entry)"
@@ -13541,6 +14076,113 @@
                     }
                   }
                 }
+              },
+              {
+                "Key": {
+                  "str": [
+                    3,
+                    3
+                  ]
+                },
+                "Value": {
+                  "$type": "PMDC.LevelGen.PatternTerrainStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
+                  "Terrain": {
+                    "$type": "RogueEssence.Dungeon.Tile, RogueEssence",
+                    "Data": {
+                      "ID": "water",
+                      "TileTex": {
+                        "AutoTileset": "",
+                        "Associates": [],
+                        "Layers": [],
+                        "NeighborCode": -1
+                      },
+                      "StableTex": false
+                    },
+                    "Effect": {
+                      "TileLoc": {
+                        "X": 0,
+                        "Y": 0
+                      },
+                      "ID": "",
+                      "Revealed": false,
+                      "Owner": 0,
+                      "TileStates": []
+                    }
+                  },
+                  "Filters": [
+                    {
+                      "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
+                      "Connection": 1
+                    }
+                  ],
+                  "IncludeHalls": false,
+                  "AllowTerminal": true,
+                  "TerrainStencil": {
+                    "$type": "RogueElements.MultiTerrainStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+                    "List": [
+                      {
+                        "$type": "RogueElements.MapTerrainStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+                        "Room": true,
+                        "Wall": false,
+                        "Blocked": false,
+                        "Not": false
+                      },
+                      {
+                        "$type": "RogueEssence.LevelGen.TileEffectStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+                        "Not": true
+                      }
+                    ],
+                    "RequireAny": false
+                  },
+                  "Amount": {
+                    "Min": 1,
+                    "Max": 10
+                  },
+                  "Maps": [
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_blob",
+                        "Pattern": 0
+                      },
+                      "Rate": 3
+                    },
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_blob_small",
+                        "Pattern": 0
+                      },
+                      "Rate": 3
+                    },
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_checker",
+                        "Pattern": 0
+                      },
+                      "Rate": 2
+                    },
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_plus",
+                        "Pattern": 0
+                      },
+                      "Rate": 2
+                    },
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_crosshair",
+                        "Pattern": 0
+                      },
+                      "Rate": 1
+                    },
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_slash",
+                        "Pattern": 0
+                      },
+                      "Rate": 1
+                    }
+                  ]
+                }
               }
             ],
             "Comment": "stormy_deep — profile looping — grid 5x4 cells 9x8 — authoring-seed 6053031196769375822 (debug only: selects the parameters, NOT the layout; the layout is rolled by the engine RNG at every entry)"
@@ -15827,6 +16469,113 @@
                       "Max": 4
                     }
                   }
+                }
+              },
+              {
+                "Key": {
+                  "str": [
+                    3,
+                    3
+                  ]
+                },
+                "Value": {
+                  "$type": "PMDC.LevelGen.PatternTerrainStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
+                  "Terrain": {
+                    "$type": "RogueEssence.Dungeon.Tile, RogueEssence",
+                    "Data": {
+                      "ID": "water",
+                      "TileTex": {
+                        "AutoTileset": "",
+                        "Associates": [],
+                        "Layers": [],
+                        "NeighborCode": -1
+                      },
+                      "StableTex": false
+                    },
+                    "Effect": {
+                      "TileLoc": {
+                        "X": 0,
+                        "Y": 0
+                      },
+                      "ID": "",
+                      "Revealed": false,
+                      "Owner": 0,
+                      "TileStates": []
+                    }
+                  },
+                  "Filters": [
+                    {
+                      "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
+                      "Connection": 1
+                    }
+                  ],
+                  "IncludeHalls": false,
+                  "AllowTerminal": true,
+                  "TerrainStencil": {
+                    "$type": "RogueElements.MultiTerrainStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+                    "List": [
+                      {
+                        "$type": "RogueElements.MapTerrainStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+                        "Room": true,
+                        "Wall": false,
+                        "Blocked": false,
+                        "Not": false
+                      },
+                      {
+                        "$type": "RogueEssence.LevelGen.TileEffectStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+                        "Not": true
+                      }
+                    ],
+                    "RequireAny": false
+                  },
+                  "Amount": {
+                    "Min": 1,
+                    "Max": 10
+                  },
+                  "Maps": [
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_blob",
+                        "Pattern": 0
+                      },
+                      "Rate": 3
+                    },
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_blob_small",
+                        "Pattern": 0
+                      },
+                      "Rate": 3
+                    },
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_checker",
+                        "Pattern": 0
+                      },
+                      "Rate": 2
+                    },
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_plus",
+                        "Pattern": 0
+                      },
+                      "Rate": 2
+                    },
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_crosshair",
+                        "Pattern": 0
+                      },
+                      "Rate": 1
+                    },
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_slash",
+                        "Pattern": 0
+                      },
+                      "Rate": 1
+                    }
+                  ]
                 }
               }
             ],
@@ -19580,6 +20329,113 @@
                     }
                   }
                 }
+              },
+              {
+                "Key": {
+                  "str": [
+                    3,
+                    3
+                  ]
+                },
+                "Value": {
+                  "$type": "PMDC.LevelGen.PatternTerrainStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
+                  "Terrain": {
+                    "$type": "RogueEssence.Dungeon.Tile, RogueEssence",
+                    "Data": {
+                      "ID": "water",
+                      "TileTex": {
+                        "AutoTileset": "",
+                        "Associates": [],
+                        "Layers": [],
+                        "NeighborCode": -1
+                      },
+                      "StableTex": false
+                    },
+                    "Effect": {
+                      "TileLoc": {
+                        "X": 0,
+                        "Y": 0
+                      },
+                      "ID": "",
+                      "Revealed": false,
+                      "Owner": 0,
+                      "TileStates": []
+                    }
+                  },
+                  "Filters": [
+                    {
+                      "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
+                      "Connection": 1
+                    }
+                  ],
+                  "IncludeHalls": false,
+                  "AllowTerminal": true,
+                  "TerrainStencil": {
+                    "$type": "RogueElements.MultiTerrainStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+                    "List": [
+                      {
+                        "$type": "RogueElements.MapTerrainStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+                        "Room": true,
+                        "Wall": false,
+                        "Blocked": false,
+                        "Not": false
+                      },
+                      {
+                        "$type": "RogueEssence.LevelGen.TileEffectStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+                        "Not": true
+                      }
+                    ],
+                    "RequireAny": false
+                  },
+                  "Amount": {
+                    "Min": 1,
+                    "Max": 10
+                  },
+                  "Maps": [
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_blob",
+                        "Pattern": 0
+                      },
+                      "Rate": 3
+                    },
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_blob_small",
+                        "Pattern": 0
+                      },
+                      "Rate": 3
+                    },
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_checker",
+                        "Pattern": 0
+                      },
+                      "Rate": 2
+                    },
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_plus",
+                        "Pattern": 0
+                      },
+                      "Rate": 2
+                    },
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_crosshair",
+                        "Pattern": 0
+                      },
+                      "Rate": 1
+                    },
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_slash",
+                        "Pattern": 0
+                      },
+                      "Rate": 1
+                    }
+                  ]
+                }
               }
             ],
             "Comment": "stormy_abyss — profile looping — grid 5x4 cells 11x10 — authoring-seed 6053031196769375822 (debug only: selects the parameters, NOT the layout; the layout is rolled by the engine RNG at every entry)"
@@ -21831,6 +22687,113 @@
                       "Max": 4
                     }
                   }
+                }
+              },
+              {
+                "Key": {
+                  "str": [
+                    3,
+                    3
+                  ]
+                },
+                "Value": {
+                  "$type": "PMDC.LevelGen.PatternTerrainStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
+                  "Terrain": {
+                    "$type": "RogueEssence.Dungeon.Tile, RogueEssence",
+                    "Data": {
+                      "ID": "water",
+                      "TileTex": {
+                        "AutoTileset": "",
+                        "Associates": [],
+                        "Layers": [],
+                        "NeighborCode": -1
+                      },
+                      "StableTex": false
+                    },
+                    "Effect": {
+                      "TileLoc": {
+                        "X": 0,
+                        "Y": 0
+                      },
+                      "ID": "",
+                      "Revealed": false,
+                      "Owner": 0,
+                      "TileStates": []
+                    }
+                  },
+                  "Filters": [
+                    {
+                      "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
+                      "Connection": 1
+                    }
+                  ],
+                  "IncludeHalls": false,
+                  "AllowTerminal": true,
+                  "TerrainStencil": {
+                    "$type": "RogueElements.MultiTerrainStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+                    "List": [
+                      {
+                        "$type": "RogueElements.MapTerrainStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+                        "Room": true,
+                        "Wall": false,
+                        "Blocked": false,
+                        "Not": false
+                      },
+                      {
+                        "$type": "RogueEssence.LevelGen.TileEffectStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+                        "Not": true
+                      }
+                    ],
+                    "RequireAny": false
+                  },
+                  "Amount": {
+                    "Min": 1,
+                    "Max": 10
+                  },
+                  "Maps": [
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_blob",
+                        "Pattern": 0
+                      },
+                      "Rate": 3
+                    },
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_blob_small",
+                        "Pattern": 0
+                      },
+                      "Rate": 3
+                    },
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_checker",
+                        "Pattern": 0
+                      },
+                      "Rate": 2
+                    },
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_plus",
+                        "Pattern": 0
+                      },
+                      "Rate": 2
+                    },
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_crosshair",
+                        "Pattern": 0
+                      },
+                      "Rate": 1
+                    },
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_slash",
+                        "Pattern": 0
+                      },
+                      "Rate": 1
+                    }
+                  ]
                 }
               }
             ],
@@ -24213,6 +25176,113 @@
                       "Max": 4
                     }
                   }
+                }
+              },
+              {
+                "Key": {
+                  "str": [
+                    3,
+                    3
+                  ]
+                },
+                "Value": {
+                  "$type": "PMDC.LevelGen.PatternTerrainStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
+                  "Terrain": {
+                    "$type": "RogueEssence.Dungeon.Tile, RogueEssence",
+                    "Data": {
+                      "ID": "water",
+                      "TileTex": {
+                        "AutoTileset": "",
+                        "Associates": [],
+                        "Layers": [],
+                        "NeighborCode": -1
+                      },
+                      "StableTex": false
+                    },
+                    "Effect": {
+                      "TileLoc": {
+                        "X": 0,
+                        "Y": 0
+                      },
+                      "ID": "",
+                      "Revealed": false,
+                      "Owner": 0,
+                      "TileStates": []
+                    }
+                  },
+                  "Filters": [
+                    {
+                      "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
+                      "Connection": 1
+                    }
+                  ],
+                  "IncludeHalls": false,
+                  "AllowTerminal": true,
+                  "TerrainStencil": {
+                    "$type": "RogueElements.MultiTerrainStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+                    "List": [
+                      {
+                        "$type": "RogueElements.MapTerrainStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+                        "Room": true,
+                        "Wall": false,
+                        "Blocked": false,
+                        "Not": false
+                      },
+                      {
+                        "$type": "RogueEssence.LevelGen.TileEffectStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+                        "Not": true
+                      }
+                    ],
+                    "RequireAny": false
+                  },
+                  "Amount": {
+                    "Min": 1,
+                    "Max": 10
+                  },
+                  "Maps": [
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_blob",
+                        "Pattern": 0
+                      },
+                      "Rate": 3
+                    },
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_blob_small",
+                        "Pattern": 0
+                      },
+                      "Rate": 3
+                    },
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_checker",
+                        "Pattern": 0
+                      },
+                      "Rate": 2
+                    },
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_plus",
+                        "Pattern": 0
+                      },
+                      "Rate": 2
+                    },
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_crosshair",
+                        "Pattern": 0
+                      },
+                      "Rate": 1
+                    },
+                    {
+                      "Spawn": {
+                        "MapID": "pattern_slash",
+                        "Pattern": 0
+                      },
+                      "Rate": 1
+                    }
+                  ]
                 }
               }
             ],

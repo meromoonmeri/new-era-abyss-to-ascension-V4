@@ -1,0 +1,598 @@
+{
+ "rule": "R8 GBA secondaryStructuresBudget (offset 12) -> PatternTerrainStep eau (motifs POOL/CHECKER/PLUS/SLASH vanilla)",
+ "status": "PORTED_APPROXIMATED (ISLAND warp+loot = cycle C#)",
+ "apply": true,
+ "zones": [
+  {
+   "zone": "fantasy_strait",
+   "floors": [
+    {
+     "floor": 1,
+     "budget": 10
+    },
+    {
+     "floor": 5,
+     "budget": 10
+    },
+    {
+     "floor": 9,
+     "budget": 10
+    },
+    {
+     "floor": 13,
+     "budget": 10
+    },
+    {
+     "floor": 17,
+     "budget": 10
+    },
+    {
+     "floor": 21,
+     "budget": 10
+    },
+    {
+     "floor": 25,
+     "budget": 10
+    },
+    {
+     "floor": 29,
+     "budget": 10
+    }
+   ]
+  },
+  {
+   "zone": "far_off_sea",
+   "floors": [
+    {
+     "floor": 5,
+     "budget": 1
+    },
+    {
+     "floor": 10,
+     "budget": 1
+    },
+    {
+     "floor": 15,
+     "budget": 1
+    },
+    {
+     "floor": 20,
+     "budget": 1
+    },
+    {
+     "floor": 25,
+     "budget": 1
+    },
+    {
+     "floor": 30,
+     "budget": 1
+    },
+    {
+     "floor": 35,
+     "budget": 1
+    },
+    {
+     "floor": 40,
+     "budget": 1
+    },
+    {
+     "floor": 45,
+     "budget": 1
+    },
+    {
+     "floor": 50,
+     "budget": 1
+    },
+    {
+     "floor": 55,
+     "budget": 1
+    },
+    {
+     "floor": 60,
+     "budget": 1
+    },
+    {
+     "floor": 65,
+     "budget": 1
+    },
+    {
+     "floor": 70,
+     "budget": 1
+    },
+    {
+     "floor": 75,
+     "budget": 1
+    }
+   ]
+  },
+  {
+   "zone": "howling_forest",
+   "floors": [
+    {
+     "floor": 6,
+     "budget": 1
+    },
+    {
+     "floor": 7,
+     "budget": 1
+    },
+    {
+     "floor": 9,
+     "budget": 1
+    },
+    {
+     "floor": 10,
+     "budget": 1
+    },
+    {
+     "floor": 12,
+     "budget": 1
+    },
+    {
+     "floor": 13,
+     "budget": 1
+    },
+    {
+     "floor": 15,
+     "budget": 1
+    }
+   ]
+  },
+  {
+   "zone": "marvelous_sea",
+   "floors": [
+    {
+     "floor": 1,
+     "budget": 10
+    },
+    {
+     "floor": 5,
+     "budget": 10
+    },
+    {
+     "floor": 9,
+     "budget": 10
+    },
+    {
+     "floor": 13,
+     "budget": 10
+    },
+    {
+     "floor": 17,
+     "budget": 10
+    }
+   ]
+  },
+  {
+   "zone": "northern_range",
+   "floors": [
+    {
+     "floor": 1,
+     "budget": 1
+    },
+    {
+     "floor": 3,
+     "budget": 1
+    },
+    {
+     "floor": 5,
+     "budget": 1
+    },
+    {
+     "floor": 7,
+     "budget": 1
+    },
+    {
+     "floor": 9,
+     "budget": 1
+    },
+    {
+     "floor": 11,
+     "budget": 1
+    },
+    {
+     "floor": 13,
+     "budget": 1
+    },
+    {
+     "floor": 15,
+     "budget": 1
+    },
+    {
+     "floor": 17,
+     "budget": 1
+    },
+    {
+     "floor": 19,
+     "budget": 1
+    },
+    {
+     "floor": 21,
+     "budget": 1
+    },
+    {
+     "floor": 23,
+     "budget": 1
+    },
+    {
+     "floor": 25,
+     "budget": 1
+    }
+   ]
+  },
+  {
+   "zone": "pitfall_valley",
+   "floors": [
+    {
+     "floor": 1,
+     "budget": 10
+    },
+    {
+     "floor": 5,
+     "budget": 10
+    },
+    {
+     "floor": 9,
+     "budget": 10
+    },
+    {
+     "floor": 12,
+     "budget": 10
+    },
+    {
+     "floor": 15,
+     "budget": 10
+    },
+    {
+     "floor": 18,
+     "budget": 10
+    },
+    {
+     "floor": 21,
+     "budget": 10
+    },
+    {
+     "floor": 25,
+     "budget": 10
+    }
+   ]
+  },
+  {
+   "zone": "remains_island",
+   "floors": [
+    {
+     "floor": 1,
+     "budget": 10
+    },
+    {
+     "floor": 5,
+     "budget": 10
+    },
+    {
+     "floor": 9,
+     "budget": 10
+    },
+    {
+     "floor": 12,
+     "budget": 10
+    },
+    {
+     "floor": 15,
+     "budget": 10
+    },
+    {
+     "floor": 16,
+     "budget": 10
+    },
+    {
+     "floor": 17,
+     "budget": 10
+    },
+    {
+     "floor": 18,
+     "budget": 10
+    },
+    {
+     "floor": 19,
+     "budget": 10
+    },
+    {
+     "floor": 20,
+     "budget": 10
+    }
+   ]
+  },
+  {
+   "zone": "silver_trench",
+   "floors": [
+    {
+     "floor": 1,
+     "budget": 10
+    },
+    {
+     "floor": 5,
+     "budget": 10
+    },
+    {
+     "floor": 9,
+     "budget": 10
+    },
+    {
+     "floor": 13,
+     "budget": 10
+    },
+    {
+     "floor": 17,
+     "budget": 10
+    },
+    {
+     "floor": 21,
+     "budget": 10
+    },
+    {
+     "floor": 25,
+     "budget": 10
+    },
+    {
+     "floor": 29,
+     "budget": 10
+    },
+    {
+     "floor": 33,
+     "budget": 10
+    },
+    {
+     "floor": 37,
+     "budget": 10
+    },
+    {
+     "floor": 41,
+     "budget": 10
+    },
+    {
+     "floor": 45,
+     "budget": 10
+    },
+    {
+     "floor": 49,
+     "budget": 10
+    },
+    {
+     "floor": 53,
+     "budget": 10
+    },
+    {
+     "floor": 57,
+     "budget": 10
+    },
+    {
+     "floor": 61,
+     "budget": 10
+    },
+    {
+     "floor": 65,
+     "budget": 10
+    },
+    {
+     "floor": 71,
+     "budget": 10
+    },
+    {
+     "floor": 79,
+     "budget": 10
+    },
+    {
+     "floor": 83,
+     "budget": 10
+    },
+    {
+     "floor": 87,
+     "budget": 10
+    },
+    {
+     "floor": 91,
+     "budget": 10
+    },
+    {
+     "floor": 95,
+     "budget": 10
+    },
+    {
+     "floor": 99,
+     "budget": 10
+    }
+   ]
+  },
+  {
+   "zone": "snow_path",
+   "floors": [
+    {
+     "floor": 3,
+     "budget": 1
+    }
+   ]
+  },
+  {
+   "zone": "stormy_sea",
+   "floors": [
+    {
+     "floor": 1,
+     "budget": 10
+    },
+    {
+     "floor": 5,
+     "budget": 10
+    },
+    {
+     "floor": 9,
+     "budget": 10
+    },
+    {
+     "floor": 13,
+     "budget": 10
+    },
+    {
+     "floor": 17,
+     "budget": 10
+    },
+    {
+     "floor": 21,
+     "budget": 10
+    },
+    {
+     "floor": 25,
+     "budget": 10
+    },
+    {
+     "floor": 29,
+     "budget": 10
+    },
+    {
+     "floor": 33,
+     "budget": 10
+    },
+    {
+     "floor": 37,
+     "budget": 10
+    }
+   ]
+  },
+  {
+   "zone": "wish_cave",
+   "floors": [
+    {
+     "floor": 3,
+     "budget": 10
+    },
+    {
+     "floor": 6,
+     "budget": 10
+    },
+    {
+     "floor": 9,
+     "budget": 10
+    },
+    {
+     "floor": 12,
+     "budget": 10
+    },
+    {
+     "floor": 15,
+     "budget": 10
+    },
+    {
+     "floor": 18,
+     "budget": 10
+    },
+    {
+     "floor": 21,
+     "budget": 10
+    },
+    {
+     "floor": 24,
+     "budget": 10
+    },
+    {
+     "floor": 27,
+     "budget": 10
+    },
+    {
+     "floor": 30,
+     "budget": 10
+    },
+    {
+     "floor": 33,
+     "budget": 10
+    },
+    {
+     "floor": 36,
+     "budget": 10
+    },
+    {
+     "floor": 39,
+     "budget": 10
+    },
+    {
+     "floor": 42,
+     "budget": 10
+    },
+    {
+     "floor": 45,
+     "budget": 10
+    },
+    {
+     "floor": 48,
+     "budget": 10
+    },
+    {
+     "floor": 51,
+     "budget": 10
+    },
+    {
+     "floor": 54,
+     "budget": 10
+    },
+    {
+     "floor": 57,
+     "budget": 10
+    },
+    {
+     "floor": 60,
+     "budget": 10
+    },
+    {
+     "floor": 63,
+     "budget": 10
+    },
+    {
+     "floor": 66,
+     "budget": 10
+    },
+    {
+     "floor": 69,
+     "budget": 10
+    },
+    {
+     "floor": 72,
+     "budget": 10
+    },
+    {
+     "floor": 75,
+     "budget": 10
+    },
+    {
+     "floor": 78,
+     "budget": 10
+    },
+    {
+     "floor": 81,
+     "budget": 10
+    },
+    {
+     "floor": 84,
+     "budget": 10
+    },
+    {
+     "floor": 87,
+     "budget": 10
+    },
+    {
+     "floor": 90,
+     "budget": 10
+    },
+    {
+     "floor": 93,
+     "budget": 10
+    },
+    {
+     "floor": 96,
+     "budget": 10
+    },
+    {
+     "floor": 99,
+     "budget": 10
+    }
+   ]
+  }
+ ]
+}
