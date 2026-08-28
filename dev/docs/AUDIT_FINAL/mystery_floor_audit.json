@@ -1,0 +1,178 @@
+{
+ "rule": "R11",
+ "zones": [
+  {
+   "zone": "amp_clearing",
+   "dungeon": "d19",
+   "floors": 1
+  },
+  {
+   "zone": "amp_plains",
+   "dungeon": "d17",
+   "floors": 10
+  },
+  {
+   "zone": "craggy_coast",
+   "dungeon": "d08",
+   "floors": 9
+  },
+  {
+   "zone": "crystal_cave",
+   "dungeon": "d24",
+   "floors": 9
+  },
+  {
+   "zone": "crystal_crossing",
+   "dungeon": "d25",
+   "floors": 11
+  },
+  {
+   "zone": "crystal_lake",
+   "dungeon": "d26",
+   "floors": 1
+  },
+  {
+   "zone": "eighth_station_pass",
+   "dungeon": "d118",
+   "floors": 4
+  },
+  {
+   "zone": "far_amp_plains",
+   "dungeon": "d18",
+   "floors": 9
+  },
+  {
+   "zone": "fifth_station_clearing",
+   "dungeon": "d121",
+   "floors": 1
+  },
+  {
+   "zone": "fifth_station_pass",
+   "dungeon": "d115",
+   "floors": 4
+  },
+  {
+   "zone": "first_station_pass",
+   "dungeon": "d111",
+   "floors": 3
+  },
+  {
+   "zone": "fourth_station_pass",
+   "dungeon": "d114",
+   "floors": 3
+  },
+  {
+   "zone": "happy_outlook",
+   "dungeon": "d94",
+   "floors": 20
+  },
+  {
+   "zone": "inferno_cave",
+   "dungeon": "d110",
+   "floors": 30
+  },
+  {
+   "zone": "lake_afar",
+   "dungeon": "d93",
+   "floors": 25
+  },
+  {
+   "zone": "lost_wilderness",
+   "dungeon": "d97",
+   "floors": 18
+  },
+  {
+   "zone": "marine_resort",
+   "dungeon": "d72",
+   "floors": 19
+  },
+  {
+   "zone": "midnight_forest",
+   "dungeon": "d98",
+   "floors": 25
+  },
+  {
+   "zone": "mt_horn",
+   "dungeon": "d10",
+   "floors": 14
+  },
+  {
+   "zone": "mt_mistral",
+   "dungeon": "d95",
+   "floors": 20
+  },
+  {
+   "zone": "mt_travail_post",
+   "dungeon": "d62",
+   "floors": 19
+  },
+  {
+   "zone": "mystifying_forest_post",
+   "dungeon": "d44",
+   "floors": 13
+  },
+  {
+   "zone": "ninth_station_pass",
+   "dungeon": "d119",
+   "floors": 5
+  },
+  {
+   "zone": "oblivion_forest",
+   "dungeon": "d107",
+   "floors": 15
+  },
+  {
+   "zone": "second_station_pass",
+   "dungeon": "d112",
+   "floors": 3
+  },
+  {
+   "zone": "seventh_station_pass",
+   "dungeon": "d117",
+   "floors": 4
+  },
+  {
+   "zone": "shimmer_hill",
+   "dungeon": "d96",
+   "floors": 18
+  },
+  {
+   "zone": "sixth_station_pass",
+   "dungeon": "d116",
+   "floors": 4
+  },
+  {
+   "zone": "sky_peak_summit_pass",
+   "dungeon": "d120",
+   "floors": 5
+  },
+  {
+   "zone": "southeastern_islands",
+   "dungeon": "d109",
+   "floors": 25
+  },
+  {
+   "zone": "third_station_pass",
+   "dungeon": "d113",
+   "floors": 3
+  },
+  {
+   "zone": "treacherous_waters",
+   "dungeon": "d108",
+   "floors": 20
+  },
+  {
+   "zone": "treeshroud_forest",
+   "dungeon": "d34",
+   "floors": 20
+  },
+  {
+   "zone": "zero_isle_east",
+   "dungeon": "d100",
+   "floors": 40
+  }
+ ],
+ "total_floors": 430,
+ "runtime_proof": "dev/docs/canonical/sky/hidden_stairs_runtime_proof.jsonl",
+ "status": "PASS_mecanique"
+}

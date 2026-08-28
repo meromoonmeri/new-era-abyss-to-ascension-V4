@@ -1,0 +1,36 @@
+{
+ "ground": "d11p03",
+ "name": "Mt. Freeze summit pass (Ninetales)",
+ "rom_audit": {
+  "verdict": "PASS",
+  "reasons": [],
+  "dims_rom": [
+   63,
+   63
+  ],
+  "dims_pmdo": [
+   63,
+   63
+  ],
+  "rom_bpa": [],
+  "rom_pal_anims_declared": {},
+  "rom_pal_anims_effective": {},
+  "pmdo_anim_cells": 0,
+  "pmdo_max_frames": 0,
+  "artifact_cells": 0,
+  "palette_coverage_pct": 0.0
+ },
+ "scripts": {
+  "redscene": "Data/Script/halcyon/redscenes/d11p03__station.lua",
+  "cinematics": "FugitiveCinematics.lua l.400 (RadiantDawn VFX, dialogues, pos 252,168 ROM 1:1)"
+ },
+ "runtime": {
+  "pilot": "PILOT d11p03 mt_freeze idx2 LOAD+MOVEMENT_PASS",
+  "journey": "RED_GLOBAL_JOURNEY_PASS (Glalie boss chain)"
+ },
+ "verdict": "PASS",
+ "notes": [
+  "ROM d11p03 statique (rom_bpa=[], pal anims effectives={}) — contre-épreuve bits chunks",
+  "palette 100% ROM, artifact_cells=0"
+ ]
+}

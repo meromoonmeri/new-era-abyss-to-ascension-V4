@@ -1,0 +1,67 @@
+{
+ "lots": {
+  "A_structures_exotiques": {
+   "rule": "R6",
+   "zones": 15,
+   "floors": 73,
+   "report": "dev/docs/canonical/SKY_EXOTIC_STRUCTURE_FIX_REPORT.json",
+   "proof": "ASCII dprobe chasm_cave/apple_woods",
+   "status": "PASS"
+  },
+  "B_monster_houses": {
+   "rule": "R4.4",
+   "zones": 122,
+   "occurrences": 226,
+   "amounts": {
+    "sky": [
+     21,
+     33
+    ],
+    "gba": [
+     14,
+     18
+    ]
+   },
+   "caps_rom": {
+    "gba": 18,
+    "nds": 45
+   },
+   "report": "dev/docs/canonical/MONSTER_HOUSE_AMOUNT_FIX_REPORT.json",
+   "proof": "dev/docs/canonical/sky/monster_house_canonical_proof.jsonl (mh_mobs 24-32)",
+   "status": "PASS"
+  },
+  "C_hidden_stairs": {
+   "rule": "R11",
+   "zones": 34,
+   "floors": 430,
+   "report": "dev/docs/canonical/HIDDEN_STAIRS_SKY_REPORT.json",
+   "proof": "dev/docs/canonical/sky/hidden_stairs_runtime_proof.jsonl (16 salles secretes)",
+   "status": "PASS_mecanique/PARTIAL_contenu(Bazaar)"
+  },
+  "D_sticky_items": {
+   "rule": "R12",
+   "zones": 36,
+   "entries": 3813,
+   "controle": "bottomless_sea 6.81% vs 7% ROM",
+   "report": "dev/docs/canonical/STICKY_ITEM_FIX_REPORT.json",
+   "status": "PASS"
+  },
+  "E_kecleon_shops": {
+   "rule": "R5",
+   "zones": 65,
+   "ranges": 171,
+   "items_requires_mod_exclus": 67,
+   "report": "dev/docs/canonical/KECLEON_SHOP_SKY_REPORT.json",
+   "proof": "dev/docs/canonical/sky/kecleon_shop_runtime_proof.jsonl (9/120 etages, 7.5% vs 8-10% ROM)",
+   "status": "PASS"
+  }
+ },
+ "restes_documentes": [
+  "R7 RoomGenImperfect (primitive C#)",
+  "R10 RoomGenMaze (primitive C#)",
+  "R8 ISLAND compose",
+  "MobThemeRoomScaled",
+  "R4.5 pieges MH",
+  "Secret Bazaar PNJ"
+ ]
+}
