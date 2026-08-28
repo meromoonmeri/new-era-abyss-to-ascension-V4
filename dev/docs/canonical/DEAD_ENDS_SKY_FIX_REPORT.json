@@ -1,0 +1,710 @@
+{
+ "rule": "R9 dead_ends mappa_s -> ConnectPercent 0/100 par étage (EoS create_connections l.507)",
+ "apply": true,
+ "zones": [
+  {
+   "zone": "aegis_cave_pit",
+   "dungeon": "d60",
+   "floors_dead_ends": 2,
+   "steps_changed": 2
+  },
+  {
+   "zone": "apple_woods",
+   "dungeon": "d07",
+   "floors_dead_ends": 12,
+   "steps_changed": 12
+  },
+  {
+   "zone": "armaldos_shelter",
+   "dungeon": "d176",
+   "floors_dead_ends": 1,
+   "steps_changed": 1
+  },
+  {
+   "zone": "barren_valley",
+   "dungeon": "d133",
+   "floors_dead_ends": 1,
+   "steps_changed": 1
+  },
+  {
+   "zone": "bottomless_sea",
+   "dungeon": "d73",
+   "floors_dead_ends": 25,
+   "steps_changed": 25
+  },
+  {
+   "zone": "boulder_quarry",
+   "dungeon": "d150",
+   "floors_dead_ends": 1,
+   "steps_changed": 1
+  },
+  {
+   "zone": "brine_cave",
+   "dungeon": "d35",
+   "floors_dead_ends": 9,
+   "steps_changed": 9
+  },
+  {
+   "zone": "brine_cave_pit",
+   "status": "SKIP_LOADGEN_BOSS"
+  },
+  {
+   "zone": "challenge_river",
+   "dungeon": "d167",
+   "floors_dead_ends": 2,
+   "steps_changed": 2
+  },
+  {
+   "zone": "chasm_cave",
+   "dungeon": "d27",
+   "floors_dead_ends": 8,
+   "steps_changed": 8
+  },
+  {
+   "zone": "concealed_ruins_post",
+   "dungeon": "d70",
+   "floors_dead_ends": 26,
+   "steps_changed": 26
+  },
+  {
+   "zone": "craggy_coast",
+   "dungeon": "d08",
+   "floors_dead_ends": 5,
+   "steps_changed": 5
+  },
+  {
+   "zone": "crevice_cave",
+   "dungeon": "d47",
+   "floors_dead_ends": 10,
+   "steps_changed": 10
+  },
+  {
+   "zone": "crystal_cave",
+   "dungeon": "d24",
+   "floors_dead_ends": 10,
+   "steps_changed": 10
+  },
+  {
+   "zone": "crystal_crossing",
+   "dungeon": "d25",
+   "floors_dead_ends": 5,
+   "steps_changed": 5
+  },
+  {
+   "zone": "dark_hill",
+   "dungeon": "d28",
+   "floors_dead_ends": 7,
+   "steps_changed": 7
+  },
+  {
+   "zone": "dark_ice_mountain",
+   "dungeon": "d142",
+   "floors_dead_ends": 3,
+   "steps_changed": 3
+  },
+  {
+   "zone": "dark_ice_mountain_peak",
+   "dungeon": "d143",
+   "floors_dead_ends": 1,
+   "steps_changed": 1
+  },
+  {
+   "zone": "dark_wasteland",
+   "dungeon": "d136",
+   "floors_dead_ends": 1,
+   "steps_changed": 1
+  },
+  {
+   "zone": "deep_barren_valley",
+   "dungeon": "d134",
+   "floors_dead_ends": 2,
+   "steps_changed": 2
+  },
+  {
+   "zone": "deep_boulder_quarry",
+   "dungeon": "d151",
+   "floors_dead_ends": 2,
+   "steps_changed": 2
+  },
+  {
+   "zone": "deep_limestone_cavern",
+   "dungeon": "d156",
+   "floors_dead_ends": 2,
+   "steps_changed": 2
+  },
+  {
+   "zone": "deep_miracle_sea",
+   "dungeon": "d52",
+   "floors_dead_ends": 4,
+   "steps_changed": 4
+  },
+  {
+   "zone": "deep_spacial_rift",
+   "dungeon": "d65",
+   "floors_dead_ends": 3,
+   "steps_changed": 3
+  },
+  {
+   "zone": "deep_star_cave_dungeon",
+   "dungeon": "d124",
+   "floors_dead_ends": 1,
+   "steps_changed": 1
+  },
+  {
+   "zone": "destiny_tower",
+   "dungeon": "d104",
+   "floors_dead_ends": 33,
+   "steps_changed": 33
+  },
+  {
+   "zone": "drenched_bluff",
+   "dungeon": "d03",
+   "floors_dead_ends": 3,
+   "steps_changed": 3
+  },
+  {
+   "zone": "dusk_forest",
+   "dungeon": "d32",
+   "floors_dead_ends": 8,
+   "steps_changed": 8
+  },
+  {
+   "zone": "dusk_forest_se5",
+   "dungeon": "d139",
+   "floors_dead_ends": 7,
+   "steps_changed": 7
+  },
+  {
+   "zone": "eastern_cave",
+   "dungeon": "d129",
+   "floors_dead_ends": 3,
+   "steps_changed": 3
+  },
+  {
+   "zone": "eighth_station_pass",
+   "dungeon": "d118",
+   "floors_dead_ends": 2,
+   "steps_changed": 2
+  },
+  {
+   "zone": "fifth_station_pass",
+   "dungeon": "d115",
+   "floors_dead_ends": 4,
+   "steps_changed": 4
+  },
+  {
+   "zone": "first_station_pass",
+   "dungeon": "d111",
+   "floors_dead_ends": 1,
+   "steps_changed": 1
+  },
+  {
+   "zone": "forest_path",
+   "dungeon": "d13",
+   "floors_dead_ends": 5,
+   "steps_changed": 5
+  },
+  {
+   "zone": "fortune_ravine",
+   "dungeon": "d130",
+   "floors_dead_ends": 2,
+   "steps_changed": 2
+  },
+  {
+   "zone": "fortune_ravine_depths",
+   "dungeon": "d131",
+   "floors_dead_ends": 2,
+   "steps_changed": 2
+  },
+  {
+   "zone": "fourth_station_pass",
+   "dungeon": "d114",
+   "floors_dead_ends": 3,
+   "steps_changed": 3
+  },
+  {
+   "zone": "giant_volcano",
+   "dungeon": "d79",
+   "floors_dead_ends": 8,
+   "steps_changed": 8
+  },
+  {
+   "zone": "guiding_sea",
+   "dungeon": "d169",
+   "floors_dead_ends": 1,
+   "steps_changed": 1
+  },
+  {
+   "zone": "hidden_highland",
+   "dungeon": "d39",
+   "floors_dead_ends": 8,
+   "steps_changed": 8
+  },
+  {
+   "zone": "hidden_land",
+   "dungeon": "d38",
+   "floors_dead_ends": 15,
+   "steps_changed": 15
+  },
+  {
+   "zone": "hidden_shopkeeper_village",
+   "dungeon": "d170",
+   "floors_dead_ends": 1,
+   "steps_changed": 1
+  },
+  {
+   "zone": "hot_spring_dungeon",
+   "dungeon": "d178",
+   "floors_dead_ends": 2,
+   "steps_changed": 2
+  },
+  {
+   "zone": "ice_aegis_cave",
+   "dungeon": "d54",
+   "floors_dead_ends": 1,
+   "steps_changed": 1
+  },
+  {
+   "zone": "icicle_forest",
+   "dungeon": "d145",
+   "floors_dead_ends": 3,
+   "steps_changed": 3
+  },
+  {
+   "zone": "inferno_cave",
+   "dungeon": "d110",
+   "floors_dead_ends": 9,
+   "steps_changed": 9
+  },
+  {
+   "zone": "lake_afar",
+   "dungeon": "d93",
+   "floors_dead_ends": 25,
+   "steps_changed": 25
+  },
+  {
+   "zone": "landslide_cave",
+   "dungeon": "d88",
+   "floors_dead_ends": 13,
+   "steps_changed": 13
+  },
+  {
+   "zone": "left_cave_path",
+   "dungeon": "d154",
+   "floors_dead_ends": 1,
+   "steps_changed": 1
+  },
+  {
+   "zone": "limestone_cavern",
+   "dungeon": "d155",
+   "floors_dead_ends": 1,
+   "steps_changed": 1
+  },
+  {
+   "zone": "little_plains",
+   "dungeon": "d165",
+   "floors_dead_ends": 1,
+   "steps_changed": 1
+  },
+  {
+   "zone": "lost_wilderness",
+   "dungeon": "d97",
+   "floors_dead_ends": 9,
+   "steps_changed": 9
+  },
+  {
+   "zone": "lower_brine_cave",
+   "dungeon": "d36",
+   "floors_dead_ends": 5,
+   "steps_changed": 5
+  },
+  {
+   "zone": "lower_spring_cave",
+   "dungeon": "d162",
+   "floors_dead_ends": 1,
+   "steps_changed": 1
+  },
+  {
+   "zone": "luminous_spring_dungeon",
+   "dungeon": "d177",
+   "floors_dead_ends": 1,
+   "steps_changed": 1
+  },
+  {
+   "zone": "lush_prairie_post",
+   "dungeon": "d89",
+   "floors_dead_ends": 2,
+   "steps_changed": 2
+  },
+  {
+   "zone": "midnight_forest",
+   "dungeon": "d98",
+   "floors_dead_ends": 25,
+   "steps_changed": 25
+  },
+  {
+   "zone": "miracle_sea",
+   "dungeon": "d51",
+   "floors_dead_ends": 18,
+   "steps_changed": 18
+  },
+  {
+   "zone": "miracle_seabed",
+   "dungeon": "d53",
+   "floors_dead_ends": 1,
+   "steps_changed": 1
+  },
+  {
+   "zone": "mt_avalanche",
+   "dungeon": "d77",
+   "floors_dead_ends": 19,
+   "steps_changed": 19
+  },
+  {
+   "zone": "mt_bristle",
+   "dungeon": "d04",
+   "floors_dead_ends": 5,
+   "steps_changed": 5
+  },
+  {
+   "zone": "mt_bristle_peak",
+   "status": "SKIP_LOADGEN_BOSS"
+  },
+  {
+   "zone": "mt_clear",
+   "dungeon": "d166",
+   "floors_dead_ends": 2,
+   "steps_changed": 2
+  },
+  {
+   "zone": "mt_horn",
+   "dungeon": "d10",
+   "floors_dead_ends": 14,
+   "steps_changed": 14
+  },
+  {
+   "zone": "murky_forest",
+   "dungeon": "d128",
+   "floors_dead_ends": 2,
+   "steps_changed": 2
+  },
+  {
+   "zone": "mystery_jungle",
+   "dungeon": "d85",
+   "floors_dead_ends": 14,
+   "steps_changed": 14
+  },
+  {
+   "zone": "mystifying_forest_post",
+   "dungeon": "d44",
+   "floors_dead_ends": 4,
+   "steps_changed": 4
+  },
+  {
+   "zone": "ninth_station_pass",
+   "dungeon": "d119",
+   "floors_dead_ends": 2,
+   "steps_changed": 2
+  },
+  {
+   "zone": "northern_desert",
+   "dungeon": "d20",
+   "floors_dead_ends": 15,
+   "steps_changed": 15
+  },
+  {
+   "zone": "oblivion_forest",
+   "dungeon": "d107",
+   "floors_dead_ends": 5,
+   "steps_changed": 5
+  },
+  {
+   "zone": "old_ruins",
+   "status": "SKIP_LOADGEN_BOSS"
+  },
+  {
+   "zone": "regice_chamber",
+   "dungeon": "d55",
+   "floors_dead_ends": 1,
+   "steps_changed": 1
+  },
+  {
+   "zone": "regirock_chamber",
+   "dungeon": "d57",
+   "floors_dead_ends": 1,
+   "steps_changed": 1
+  },
+  {
+   "zone": "right_cave_path",
+   "dungeon": "d153",
+   "floors_dead_ends": 1,
+   "steps_changed": 1
+  },
+  {
+   "zone": "rock_aegis_cave",
+   "dungeon": "d56",
+   "floors_dead_ends": 1,
+   "steps_changed": 1
+  },
+  {
+   "zone": "sealed_ruin",
+   "dungeon": "d29",
+   "floors_dead_ends": 2,
+   "steps_changed": 2
+  },
+  {
+   "zone": "sealed_ruin_pit",
+   "dungeon": "d30",
+   "floors_dead_ends": 2,
+   "steps_changed": 2
+  },
+  {
+   "zone": "second_station_pass",
+   "dungeon": "d112",
+   "floors_dead_ends": 1,
+   "steps_changed": 1
+  },
+  {
+   "zone": "seventh_station_pass",
+   "dungeon": "d117",
+   "floors_dead_ends": 4,
+   "steps_changed": 4
+  },
+  {
+   "zone": "shaymin_village",
+   "dungeon": "d175",
+   "floors_dead_ends": 1,
+   "steps_changed": 1
+  },
+  {
+   "zone": "shimmer_hill",
+   "dungeon": "d96",
+   "floors_dead_ends": 7,
+   "steps_changed": 7
+  },
+  {
+   "zone": "sixth_station_pass",
+   "dungeon": "d116",
+   "floors_dead_ends": 4,
+   "steps_changed": 4
+  },
+  {
+   "zone": "sky_peak_summit_pass",
+   "dungeon": "d120",
+   "floors_dead_ends": 2,
+   "steps_changed": 2
+  },
+  {
+   "zone": "sky_stairway",
+   "dungeon": "d83",
+   "floors_dead_ends": 16,
+   "steps_changed": 16
+  },
+  {
+   "zone": "southeastern_islands",
+   "dungeon": "d109",
+   "floors_dead_ends": 8,
+   "steps_changed": 8
+  },
+  {
+   "zone": "southern_jungle",
+   "dungeon": "d149",
+   "floors_dead_ends": 3,
+   "steps_changed": 3
+  },
+  {
+   "zone": "spacial_cliffs",
+   "dungeon": "d141",
+   "floors_dead_ends": 3,
+   "steps_changed": 3
+  },
+  {
+   "zone": "spacial_rift",
+   "dungeon": "d64",
+   "floors_dead_ends": 5,
+   "steps_changed": 5
+  },
+  {
+   "zone": "spiritomb_room",
+   "status": "SKIP_LOADGEN_BOSS"
+  },
+  {
+   "zone": "spring_cave",
+   "dungeon": "d158",
+   "floors_dead_ends": 1,
+   "steps_changed": 1
+  },
+  {
+   "zone": "spring_cave_depths",
+   "dungeon": "d163",
+   "floors_dead_ends": 2,
+   "steps_changed": 2
+  },
+  {
+   "zone": "star_cave",
+   "dungeon": "d174",
+   "floors_dead_ends": 4,
+   "steps_changed": 4
+  },
+  {
+   "zone": "star_cave_depths",
+   "dungeon": "d126",
+   "floors_dead_ends": 1,
+   "steps_changed": 1
+  },
+  {
+   "zone": "star_cave_se1",
+   "dungeon": "d123",
+   "floors_dead_ends": 2,
+   "steps_changed": 2
+  },
+  {
+   "zone": "steam_cave",
+   "dungeon": "d14",
+   "floors_dead_ends": 8,
+   "steps_changed": 8
+  },
+  {
+   "zone": "steam_cave_peak",
+   "status": "SKIP_LOADGEN_BOSS"
+  },
+  {
+   "zone": "steel_aegis_cave",
+   "dungeon": "d58",
+   "floors_dead_ends": 2,
+   "steps_changed": 2
+  },
+  {
+   "zone": "surrounded_sea",
+   "dungeon": "d50",
+   "floors_dead_ends": 6,
+   "steps_changed": 6
+  },
+  {
+   "zone": "temporal_spire",
+   "dungeon": "d42",
+   "floors_dead_ends": 3,
+   "steps_changed": 3
+  },
+  {
+   "zone": "temporal_spire_se5",
+   "dungeon": "d138",
+   "floors_dead_ends": 3,
+   "steps_changed": 3
+  },
+  {
+   "zone": "temporal_tower",
+   "dungeon": "d41",
+   "floors_dead_ends": 5,
+   "steps_changed": 5
+  },
+  {
+   "zone": "temporal_tower_se5",
+   "dungeon": "d137",
+   "floors_dead_ends": 4,
+   "steps_changed": 4
+  },
+  {
+   "zone": "the_nightmare",
+   "dungeon": "d63",
+   "floors_dead_ends": 17,
+   "steps_changed": 17
+  },
+  {
+   "zone": "third_station_pass",
+   "dungeon": "d113",
+   "floors_dead_ends": 3,
+   "steps_changed": 3
+  },
+  {
+   "zone": "tiny_meadow_post",
+   "dungeon": "d90",
+   "floors_dead_ends": 2,
+   "steps_changed": 2
+  },
+  {
+   "zone": "treacherous_waters",
+   "dungeon": "d108",
+   "floors_dead_ends": 6,
+   "steps_changed": 6
+  },
+  {
+   "zone": "treeshroud_forest",
+   "dungeon": "d34",
+   "floors_dead_ends": 6,
+   "steps_changed": 6
+  },
+  {
+   "zone": "trial_forest",
+   "dungeon": "d168",
+   "floors_dead_ends": 2,
+   "steps_changed": 2
+  },
+  {
+   "zone": "upper_spring_cave",
+   "dungeon": "d160",
+   "floors_dead_ends": 2,
+   "steps_changed": 2
+  },
+  {
+   "zone": "upper_steam_cave",
+   "dungeon": "d15",
+   "floors_dead_ends": 7,
+   "steps_changed": 7
+  },
+  {
+   "zone": "vast_ice_mountain",
+   "dungeon": "d146",
+   "floors_dead_ends": 3,
+   "steps_changed": 3
+  },
+  {
+   "zone": "vast_ice_mountain_peak",
+   "dungeon": "d147",
+   "floors_dead_ends": 2,
+   "steps_changed": 2
+  },
+  {
+   "zone": "waterfall_cave",
+   "dungeon": "d06",
+   "floors_dead_ends": 3,
+   "steps_changed": 3
+  },
+  {
+   "zone": "world_abyss",
+   "dungeon": "d81",
+   "floors_dead_ends": 9,
+   "steps_changed": 9
+  },
+  {
+   "zone": "zero_isle_center",
+   "dungeon": "d103",
+   "floors_dead_ends": 9,
+   "steps_changed": 9
+  },
+  {
+   "zone": "zero_isle_east",
+   "dungeon": "d100",
+   "floors_dead_ends": 13,
+   "steps_changed": 13
+  },
+  {
+   "zone": "zero_isle_north",
+   "dungeon": "d99",
+   "floors_dead_ends": 25,
+   "steps_changed": 25
+  },
+  {
+   "zone": "zero_isle_south",
+   "dungeon": "d102",
+   "floors_dead_ends": 33,
+   "steps_changed": 33
+  },
+  {
+   "zone": "zero_isle_west",
+   "dungeon": "d101",
+   "floors_dead_ends": 13,
+   "steps_changed": 13
+  }
+ ]
+}

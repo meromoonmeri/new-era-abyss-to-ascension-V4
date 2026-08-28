@@ -3445,7 +3445,7 @@
                 },
                 "Value": {
                   "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "ConnectPercent": 100,
+                  "ConnectPercent": 0,
                   "Filters": []
                 }
               },
@@ -4265,7 +4265,7 @@
                 },
                 "Value": {
                   "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "ConnectPercent": 100,
+                  "ConnectPercent": 0,
                   "Filters": []
                 }
               },
@@ -5085,7 +5085,7 @@
                 },
                 "Value": {
                   "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "ConnectPercent": 100,
+                  "ConnectPercent": 0,
                   "Filters": []
                 }
               },
