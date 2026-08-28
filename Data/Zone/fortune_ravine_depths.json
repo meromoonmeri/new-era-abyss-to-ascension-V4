@@ -493,6 +493,86 @@
                 }
               }
             ]
+          },
+          {
+            "$type": "PMDC.LevelGen.SpreadHouseZoneStep, PMDC",
+            "Priority": {
+              "str": [
+                4,
+                1
+              ]
+            },
+            "HouseStepSpawns": [
+              {
+                "Spawn": {
+                  "$type": "PMDC.LevelGen.MonsterHouseStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], PMDC",
+                  "Filters": [
+                    {
+                      "$type": "RogueElements.RoomFilterComponent, RogueElements",
+                      "Negate": true,
+                      "Components": [
+                        {
+                          "$type": "RogueEssence.LevelGen.ImmutableRoom, RogueEssence"
+                        },
+                        {
+                          "$type": "PMDC.LevelGen.NoEventRoom, PMDC"
+                        }
+                      ]
+                    }
+                  ],
+                  "Items": [],
+                  "ItemThemes": [],
+                  "Mobs": [],
+                  "MobThemes": []
+                },
+                "Rate": 10
+              }
+            ],
+            "Items": [],
+            "ItemThemes": [
+              {
+                "Spawn": {
+                  "$type": "PMDC.LevelGen.ItemThemeNone, PMDC",
+                  "SpecialRatio": 40,
+                  "Amount": {
+                    "Min": 2,
+                    "Max": 4
+                  }
+                },
+                "Rate": 30,
+                "Range": {
+                  "Min": 0,
+                  "Max": 6
+                }
+              }
+            ],
+            "Mobs": [],
+            "MobThemes": [
+              {
+                "Spawn": {
+                  "$type": "PMDC.LevelGen.MobThemeNone, PMDC",
+                  "SpecialRatio": 40,
+                  "Amount": {
+                    "Min": 7,
+                    "Max": 13
+                  }
+                },
+                "Rate": 10,
+                "Range": {
+                  "Min": 0,
+                  "Max": 6
+                }
+              }
+            ],
+            "SpreadPlan": {
+              "$type": "RogueEssence.LevelGen.SpreadPlanChance, RogueEssence",
+              "Chance": 7,
+              "FloorRange": {
+                "Min": 0,
+                "Max": 6
+              }
+            },
+            "ModStates": []
           }
         ],
         "Floors": [
@@ -525,7 +605,7 @@
                   "CellWidth": 10,
                   "CellHeight": 10,
                   "CellX": 4,
-                  "CellY": 4,
+                  "CellY": 3,
                   "CellWall": 2,
                   "Wrap": false
                 }
@@ -1146,7 +1226,7 @@
                   "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "CellWidth": 10,
                   "CellHeight": 10,
-                  "CellX": 4,
+                  "CellX": 5,
                   "CellY": 4,
                   "CellWall": 2,
                   "Wrap": false
@@ -1768,7 +1848,7 @@
                   "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "CellWidth": 10,
                   "CellHeight": 10,
-                  "CellX": 4,
+                  "CellX": 5,
                   "CellY": 4,
                   "CellWall": 2,
                   "Wrap": false
@@ -2390,7 +2470,7 @@
                   "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "CellWidth": 10,
                   "CellHeight": 10,
-                  "CellX": 4,
+                  "CellX": 5,
                   "CellY": 4,
                   "CellWall": 2,
                   "Wrap": false
@@ -3012,7 +3092,7 @@
                   "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "CellWidth": 10,
                   "CellHeight": 10,
-                  "CellX": 4,
+                  "CellX": 5,
                   "CellY": 4,
                   "CellWall": 2,
                   "Wrap": false
@@ -3596,7 +3676,7 @@
                   "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "CellWidth": 10,
                   "CellHeight": 10,
-                  "CellX": 4,
+                  "CellX": 5,
                   "CellY": 4,
                   "CellWall": 2,
                   "Wrap": false

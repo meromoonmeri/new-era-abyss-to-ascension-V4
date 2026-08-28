@@ -24,8 +24,8 @@
             "movementSpeed": 0,
             "dead": false,
             "serializationLoc": {
-              "X": 5,
-              "Y": 1
+              "X": 7,
+              "Y": 4
             },
             "serializationDir": 0,
             "ProxyName": "",
@@ -262,17 +262,7 @@
               "X": 5,
               "Y": 4
             }
-          }
-        ],
-        "Guests": [],
-        "inventory": [],
-        "Name": "Magma Cavern Pit - Groudon",
-        "LeaderIndex": 0,
-        "FoeConflict": false
-      },
-      {
-        "$type": "RogueEssence.Dungeon.MonsterTeam, RogueEssence",
-        "Players": [
+          },
           {
             "Element1": "ground",
             "Element2": "none",
@@ -282,7 +272,7 @@
             "dead": false,
             "serializationLoc": {
               "X": 5,
-              "Y": 1
+              "Y": 4
             },
             "serializationDir": 0,
             "ProxyName": "",
@@ -519,17 +509,7 @@
               "X": 7,
               "Y": 4
             }
-          }
-        ],
-        "Guests": [],
-        "inventory": [],
-        "Name": "Magma Cavern Pit - Groudon",
-        "LeaderIndex": 0,
-        "FoeConflict": false
-      },
-      {
-        "$type": "RogueEssence.Dungeon.MonsterTeam, RogueEssence",
-        "Players": [
+          },
           {
             "Element1": "ground",
             "Element2": "none",
@@ -538,8 +518,749 @@
             "movementSpeed": 0,
             "dead": false,
             "serializationLoc": {
-              "X": 5,
-              "Y": 1
+              "X": 9,
+              "Y": 4
+            },
+            "serializationDir": 0,
+            "ProxyName": "",
+            "ProxySprite": {
+              "Species": "",
+              "Form": -1,
+              "Skin": "",
+              "Gender": -1
+            },
+            "CurrentForm": {
+              "Species": "groudon",
+              "Form": 0,
+              "Skin": "normal",
+              "Gender": -1
+            },
+            "ProxyAtk": -1,
+            "ProxyDef": -1,
+            "ProxyMAtk": -1,
+            "ProxyMDef": -1,
+            "ProxySpeed": -1,
+            "Skills": [
+              {
+                "Element": {
+                  "SkillNum": "mud_shot",
+                  "Charges": 10,
+                  "Enabled": true,
+                  "Sealed": false
+                },
+                "BackRef": 0
+              },
+              {
+                "Element": {
+                  "SkillNum": "scary_face",
+                  "Charges": 10,
+                  "Enabled": true,
+                  "Sealed": false
+                },
+                "BackRef": 1
+              },
+              {
+                "Element": {
+                  "SkillNum": "ancient_power",
+                  "Charges": 10,
+                  "Enabled": true,
+                  "Sealed": false
+                },
+                "BackRef": 2
+              },
+              {
+                "Element": {
+                  "SkillNum": "slash",
+                  "Charges": 10,
+                  "Enabled": true,
+                  "Sealed": false
+                },
+                "BackRef": 3
+              }
+            ],
+            "Intrinsics": [
+              {
+                "Element": {
+                  "ID": "drought"
+                },
+                "BackRef": 0
+              }
+            ],
+            "EquippedItem": {
+              "ID": "",
+              "Cursed": false,
+              "HiddenValue": "",
+              "Amount": 0,
+              "Price": 0
+            },
+            "Absentee": false,
+            "ChargeBoost": 0,
+            "HP": 0,
+            "HPRemainder": 0,
+            "Fullness": 100,
+            "FullnessRemainder": 0,
+            "MaxFullness": 100,
+            "StatusEffects": {},
+            "MissChain": 0,
+            "EXPMarked": false,
+            "Tactic": {
+              "Name": {
+                "DefaultText": "Boss",
+                "LocalTexts": {}
+              },
+              "Released": false,
+              "Comment": "",
+              "ID": "boss",
+              "Assignable": false,
+              "Plans": [
+                {
+                  "$type": "PMDC.Dungeon.AttackFoesPlan, PMDC",
+                  "AttackPattern": 4,
+                  "PositionPattern": 2,
+                  "IQ": 253,
+                  "RestrictedMobilityTypes": 0,
+                  "RestrictMobilityPassable": false,
+                  "AttackRange": 0,
+                  "StatusRange": 0,
+                  "SelfStatusRange": 4,
+                  "AbandonRangeOnHit": true
+                },
+                {
+                  "$type": "PMDC.Dungeon.FollowLeaderPlan, PMDC",
+                  "IQ": 253,
+                  "RestrictedMobilityTypes": 0,
+                  "RestrictMobilityPassable": false,
+                  "AttackRange": 0,
+                  "StatusRange": 0,
+                  "SelfStatusRange": 0,
+                  "AbandonRangeOnHit": false
+                },
+                {
+                  "$type": "PMDC.Dungeon.ExplorePlan, PMDC",
+                  "IQ": 253,
+                  "RestrictedMobilityTypes": 0,
+                  "RestrictMobilityPassable": false,
+                  "AttackRange": 0,
+                  "StatusRange": 0,
+                  "SelfStatusRange": 0,
+                  "AbandonRangeOnHit": false
+                },
+                {
+                  "$type": "PMDC.Dungeon.WaitPlan, PMDC",
+                  "IQ": 253,
+                  "RestrictedMobilityTypes": 0,
+                  "RestrictMobilityPassable": false,
+                  "AttackRange": 0,
+                  "StatusRange": 0,
+                  "SelfStatusRange": 0,
+                  "AbandonRangeOnHit": false
+                }
+              ]
+            },
+            "Mobility": 0,
+            "CantWalk": false,
+            "ItemDisabled": false,
+            "IntrinsicDisabled": false,
+            "CanRemoveStuck": false,
+            "StopItemAtHit": false,
+            "ForceAI": false,
+            "MovesScrambled": false,
+            "ChargeSaver": false,
+            "WaitToAttack": false,
+            "CantInteract": false,
+            "EnemyOfFriend": false,
+            "AttackFriend": false,
+            "TileSight": -1,
+            "CharSight": -1,
+            "Unidentifiable": false,
+            "Unlocatable": false,
+            "SeeAllChars": false,
+            "SeeItems": false,
+            "SeeWallItems": false,
+            "SeeTraps": false,
+            "CharStates": [],
+            "BackRef": {
+              "Index": -1
+            },
+            "Nickname": "",
+            "OriginalUUID": "",
+            "OriginalTeam": "",
+            "BaseForm": {
+              "Species": "hitmonlee",
+              "Form": 0,
+              "Skin": "normal",
+              "Gender": -1
+            },
+            "Level": 45,
+            "EXP": 0,
+            "MaxHPBonus": 0,
+            "AtkBonus": 0,
+            "DefBonus": 0,
+            "MAtkBonus": 0,
+            "MDefBonus": 0,
+            "SpeedBonus": 0,
+            "BaseSkills": [
+              {
+                "SkillNum": "",
+                "Charges": 10,
+                "CanForget": false
+              },
+              {
+                "SkillNum": "",
+                "Charges": 10,
+                "CanForget": false
+              },
+              {
+                "SkillNum": "",
+                "Charges": 10,
+                "CanForget": false
+              },
+              {
+                "SkillNum": "",
+                "Charges": 10,
+                "CanForget": false
+              }
+            ],
+            "BaseIntrinsics": [
+              "drought"
+            ],
+            "FormIntrinsicSlot": 2,
+            "Relearnables": {},
+            "Discriminator": 0,
+            "MetAt": "",
+            "MetLoc": {
+              "ID": "",
+              "StructID": {
+                "Segment": -1,
+                "ID": -1
+              },
+              "EntryPoint": -1
+            },
+            "DefeatAt": "",
+            "DefeatLoc": {
+              "ID": "",
+              "StructID": {
+                "Segment": -1,
+                "ID": -1
+              },
+              "EntryPoint": -1
+            },
+            "IsFounder": false,
+            "IsPartner": false,
+            "NameLocked": false,
+            "IsFavorite": false,
+            "Unrecruitable": true,
+            "ActionEvents": [],
+            "ScriptVars": null,
+            "CharLoc": {
+              "X": 7,
+              "Y": 4
+            }
+          },
+          {
+            "Element1": "ground",
+            "Element2": "none",
+            "TurnWait": 0,
+            "TurnUsed": false,
+            "movementSpeed": 0,
+            "dead": false,
+            "serializationLoc": {
+              "X": 6,
+              "Y": 5
+            },
+            "serializationDir": 0,
+            "ProxyName": "",
+            "ProxySprite": {
+              "Species": "",
+              "Form": -1,
+              "Skin": "",
+              "Gender": -1
+            },
+            "CurrentForm": {
+              "Species": "groudon",
+              "Form": 0,
+              "Skin": "normal",
+              "Gender": -1
+            },
+            "ProxyAtk": -1,
+            "ProxyDef": -1,
+            "ProxyMAtk": -1,
+            "ProxyMDef": -1,
+            "ProxySpeed": -1,
+            "Skills": [
+              {
+                "Element": {
+                  "SkillNum": "mud_shot",
+                  "Charges": 10,
+                  "Enabled": true,
+                  "Sealed": false
+                },
+                "BackRef": 0
+              },
+              {
+                "Element": {
+                  "SkillNum": "scary_face",
+                  "Charges": 10,
+                  "Enabled": true,
+                  "Sealed": false
+                },
+                "BackRef": 1
+              },
+              {
+                "Element": {
+                  "SkillNum": "ancient_power",
+                  "Charges": 10,
+                  "Enabled": true,
+                  "Sealed": false
+                },
+                "BackRef": 2
+              },
+              {
+                "Element": {
+                  "SkillNum": "slash",
+                  "Charges": 10,
+                  "Enabled": true,
+                  "Sealed": false
+                },
+                "BackRef": 3
+              }
+            ],
+            "Intrinsics": [
+              {
+                "Element": {
+                  "ID": "drought"
+                },
+                "BackRef": 0
+              }
+            ],
+            "EquippedItem": {
+              "ID": "",
+              "Cursed": false,
+              "HiddenValue": "",
+              "Amount": 0,
+              "Price": 0
+            },
+            "Absentee": false,
+            "ChargeBoost": 0,
+            "HP": 0,
+            "HPRemainder": 0,
+            "Fullness": 100,
+            "FullnessRemainder": 0,
+            "MaxFullness": 100,
+            "StatusEffects": {},
+            "MissChain": 0,
+            "EXPMarked": false,
+            "Tactic": {
+              "Name": {
+                "DefaultText": "Boss",
+                "LocalTexts": {}
+              },
+              "Released": false,
+              "Comment": "",
+              "ID": "boss",
+              "Assignable": false,
+              "Plans": [
+                {
+                  "$type": "PMDC.Dungeon.AttackFoesPlan, PMDC",
+                  "AttackPattern": 4,
+                  "PositionPattern": 2,
+                  "IQ": 253,
+                  "RestrictedMobilityTypes": 0,
+                  "RestrictMobilityPassable": false,
+                  "AttackRange": 0,
+                  "StatusRange": 0,
+                  "SelfStatusRange": 4,
+                  "AbandonRangeOnHit": true
+                },
+                {
+                  "$type": "PMDC.Dungeon.FollowLeaderPlan, PMDC",
+                  "IQ": 253,
+                  "RestrictedMobilityTypes": 0,
+                  "RestrictMobilityPassable": false,
+                  "AttackRange": 0,
+                  "StatusRange": 0,
+                  "SelfStatusRange": 0,
+                  "AbandonRangeOnHit": false
+                },
+                {
+                  "$type": "PMDC.Dungeon.ExplorePlan, PMDC",
+                  "IQ": 253,
+                  "RestrictedMobilityTypes": 0,
+                  "RestrictMobilityPassable": false,
+                  "AttackRange": 0,
+                  "StatusRange": 0,
+                  "SelfStatusRange": 0,
+                  "AbandonRangeOnHit": false
+                },
+                {
+                  "$type": "PMDC.Dungeon.WaitPlan, PMDC",
+                  "IQ": 253,
+                  "RestrictedMobilityTypes": 0,
+                  "RestrictMobilityPassable": false,
+                  "AttackRange": 0,
+                  "StatusRange": 0,
+                  "SelfStatusRange": 0,
+                  "AbandonRangeOnHit": false
+                }
+              ]
+            },
+            "Mobility": 0,
+            "CantWalk": false,
+            "ItemDisabled": false,
+            "IntrinsicDisabled": false,
+            "CanRemoveStuck": false,
+            "StopItemAtHit": false,
+            "ForceAI": false,
+            "MovesScrambled": false,
+            "ChargeSaver": false,
+            "WaitToAttack": false,
+            "CantInteract": false,
+            "EnemyOfFriend": false,
+            "AttackFriend": false,
+            "TileSight": -1,
+            "CharSight": -1,
+            "Unidentifiable": false,
+            "Unlocatable": false,
+            "SeeAllChars": false,
+            "SeeItems": false,
+            "SeeWallItems": false,
+            "SeeTraps": false,
+            "CharStates": [],
+            "BackRef": {
+              "Index": -1
+            },
+            "Nickname": "",
+            "OriginalUUID": "",
+            "OriginalTeam": "",
+            "BaseForm": {
+              "Species": "hitmonlee",
+              "Form": 0,
+              "Skin": "normal",
+              "Gender": -1
+            },
+            "Level": 45,
+            "EXP": 0,
+            "MaxHPBonus": 0,
+            "AtkBonus": 0,
+            "DefBonus": 0,
+            "MAtkBonus": 0,
+            "MDefBonus": 0,
+            "SpeedBonus": 0,
+            "BaseSkills": [
+              {
+                "SkillNum": "",
+                "Charges": 10,
+                "CanForget": false
+              },
+              {
+                "SkillNum": "",
+                "Charges": 10,
+                "CanForget": false
+              },
+              {
+                "SkillNum": "",
+                "Charges": 10,
+                "CanForget": false
+              },
+              {
+                "SkillNum": "",
+                "Charges": 10,
+                "CanForget": false
+              }
+            ],
+            "BaseIntrinsics": [
+              "drought"
+            ],
+            "FormIntrinsicSlot": 2,
+            "Relearnables": {},
+            "Discriminator": 0,
+            "MetAt": "",
+            "MetLoc": {
+              "ID": "",
+              "StructID": {
+                "Segment": -1,
+                "ID": -1
+              },
+              "EntryPoint": -1
+            },
+            "DefeatAt": "",
+            "DefeatLoc": {
+              "ID": "",
+              "StructID": {
+                "Segment": -1,
+                "ID": -1
+              },
+              "EntryPoint": -1
+            },
+            "IsFounder": false,
+            "IsPartner": false,
+            "NameLocked": false,
+            "IsFavorite": false,
+            "Unrecruitable": true,
+            "ActionEvents": [],
+            "ScriptVars": null,
+            "CharLoc": {
+              "X": 7,
+              "Y": 4
+            }
+          },
+          {
+            "Element1": "ground",
+            "Element2": "none",
+            "TurnWait": 0,
+            "TurnUsed": false,
+            "movementSpeed": 0,
+            "dead": false,
+            "serializationLoc": {
+              "X": 8,
+              "Y": 5
+            },
+            "serializationDir": 0,
+            "ProxyName": "",
+            "ProxySprite": {
+              "Species": "",
+              "Form": -1,
+              "Skin": "",
+              "Gender": -1
+            },
+            "CurrentForm": {
+              "Species": "groudon",
+              "Form": 0,
+              "Skin": "normal",
+              "Gender": -1
+            },
+            "ProxyAtk": -1,
+            "ProxyDef": -1,
+            "ProxyMAtk": -1,
+            "ProxyMDef": -1,
+            "ProxySpeed": -1,
+            "Skills": [
+              {
+                "Element": {
+                  "SkillNum": "mud_shot",
+                  "Charges": 10,
+                  "Enabled": true,
+                  "Sealed": false
+                },
+                "BackRef": 0
+              },
+              {
+                "Element": {
+                  "SkillNum": "scary_face",
+                  "Charges": 10,
+                  "Enabled": true,
+                  "Sealed": false
+                },
+                "BackRef": 1
+              },
+              {
+                "Element": {
+                  "SkillNum": "ancient_power",
+                  "Charges": 10,
+                  "Enabled": true,
+                  "Sealed": false
+                },
+                "BackRef": 2
+              },
+              {
+                "Element": {
+                  "SkillNum": "slash",
+                  "Charges": 10,
+                  "Enabled": true,
+                  "Sealed": false
+                },
+                "BackRef": 3
+              }
+            ],
+            "Intrinsics": [
+              {
+                "Element": {
+                  "ID": "drought"
+                },
+                "BackRef": 0
+              }
+            ],
+            "EquippedItem": {
+              "ID": "",
+              "Cursed": false,
+              "HiddenValue": "",
+              "Amount": 0,
+              "Price": 0
+            },
+            "Absentee": false,
+            "ChargeBoost": 0,
+            "HP": 0,
+            "HPRemainder": 0,
+            "Fullness": 100,
+            "FullnessRemainder": 0,
+            "MaxFullness": 100,
+            "StatusEffects": {},
+            "MissChain": 0,
+            "EXPMarked": false,
+            "Tactic": {
+              "Name": {
+                "DefaultText": "Boss",
+                "LocalTexts": {}
+              },
+              "Released": false,
+              "Comment": "",
+              "ID": "boss",
+              "Assignable": false,
+              "Plans": [
+                {
+                  "$type": "PMDC.Dungeon.AttackFoesPlan, PMDC",
+                  "AttackPattern": 4,
+                  "PositionPattern": 2,
+                  "IQ": 253,
+                  "RestrictedMobilityTypes": 0,
+                  "RestrictMobilityPassable": false,
+                  "AttackRange": 0,
+                  "StatusRange": 0,
+                  "SelfStatusRange": 4,
+                  "AbandonRangeOnHit": true
+                },
+                {
+                  "$type": "PMDC.Dungeon.FollowLeaderPlan, PMDC",
+                  "IQ": 253,
+                  "RestrictedMobilityTypes": 0,
+                  "RestrictMobilityPassable": false,
+                  "AttackRange": 0,
+                  "StatusRange": 0,
+                  "SelfStatusRange": 0,
+                  "AbandonRangeOnHit": false
+                },
+                {
+                  "$type": "PMDC.Dungeon.ExplorePlan, PMDC",
+                  "IQ": 253,
+                  "RestrictedMobilityTypes": 0,
+                  "RestrictMobilityPassable": false,
+                  "AttackRange": 0,
+                  "StatusRange": 0,
+                  "SelfStatusRange": 0,
+                  "AbandonRangeOnHit": false
+                },
+                {
+                  "$type": "PMDC.Dungeon.WaitPlan, PMDC",
+                  "IQ": 253,
+                  "RestrictedMobilityTypes": 0,
+                  "RestrictMobilityPassable": false,
+                  "AttackRange": 0,
+                  "StatusRange": 0,
+                  "SelfStatusRange": 0,
+                  "AbandonRangeOnHit": false
+                }
+              ]
+            },
+            "Mobility": 0,
+            "CantWalk": false,
+            "ItemDisabled": false,
+            "IntrinsicDisabled": false,
+            "CanRemoveStuck": false,
+            "StopItemAtHit": false,
+            "ForceAI": false,
+            "MovesScrambled": false,
+            "ChargeSaver": false,
+            "WaitToAttack": false,
+            "CantInteract": false,
+            "EnemyOfFriend": false,
+            "AttackFriend": false,
+            "TileSight": -1,
+            "CharSight": -1,
+            "Unidentifiable": false,
+            "Unlocatable": false,
+            "SeeAllChars": false,
+            "SeeItems": false,
+            "SeeWallItems": false,
+            "SeeTraps": false,
+            "CharStates": [],
+            "BackRef": {
+              "Index": -1
+            },
+            "Nickname": "",
+            "OriginalUUID": "",
+            "OriginalTeam": "",
+            "BaseForm": {
+              "Species": "hitmonlee",
+              "Form": 0,
+              "Skin": "normal",
+              "Gender": -1
+            },
+            "Level": 45,
+            "EXP": 0,
+            "MaxHPBonus": 0,
+            "AtkBonus": 0,
+            "DefBonus": 0,
+            "MAtkBonus": 0,
+            "MDefBonus": 0,
+            "SpeedBonus": 0,
+            "BaseSkills": [
+              {
+                "SkillNum": "",
+                "Charges": 10,
+                "CanForget": false
+              },
+              {
+                "SkillNum": "",
+                "Charges": 10,
+                "CanForget": false
+              },
+              {
+                "SkillNum": "",
+                "Charges": 10,
+                "CanForget": false
+              },
+              {
+                "SkillNum": "",
+                "Charges": 10,
+                "CanForget": false
+              }
+            ],
+            "BaseIntrinsics": [
+              "drought"
+            ],
+            "FormIntrinsicSlot": 2,
+            "Relearnables": {},
+            "Discriminator": 0,
+            "MetAt": "",
+            "MetLoc": {
+              "ID": "",
+              "StructID": {
+                "Segment": -1,
+                "ID": -1
+              },
+              "EntryPoint": -1
+            },
+            "DefeatAt": "",
+            "DefeatLoc": {
+              "ID": "",
+              "StructID": {
+                "Segment": -1,
+                "ID": -1
+              },
+              "EntryPoint": -1
+            },
+            "IsFounder": false,
+            "IsPartner": false,
+            "NameLocked": false,
+            "IsFavorite": false,
+            "Unrecruitable": true,
+            "ActionEvents": [],
+            "ScriptVars": null,
+            "CharLoc": {
+              "X": 7,
+              "Y": 4
+            }
+          },
+          {
+            "Element1": "ground",
+            "Element2": "none",
+            "TurnWait": 0,
+            "TurnUsed": false,
+            "movementSpeed": 0,
+            "dead": false,
+            "serializationLoc": {
+              "X": 3,
+              "Y": 5
             },
             "serializationDir": 0,
             "ProxyName": "",
@@ -776,17 +1497,7 @@
               "X": 9,
               "Y": 4
             }
-          }
-        ],
-        "Guests": [],
-        "inventory": [],
-        "Name": "Magma Cavern Pit - Groudon",
-        "LeaderIndex": 0,
-        "FoeConflict": false
-      },
-      {
-        "$type": "RogueEssence.Dungeon.MonsterTeam, RogueEssence",
-        "Players": [
+          },
           {
             "Element1": "ground",
             "Element2": "none",
@@ -795,8 +1506,8 @@
             "movementSpeed": 0,
             "dead": false,
             "serializationLoc": {
-              "X": 5,
-              "Y": 1
+              "X": 4,
+              "Y": 5
             },
             "serializationDir": 0,
             "ProxyName": "",
@@ -1033,17 +1744,7 @@
               "X": 3,
               "Y": 5
             }
-          }
-        ],
-        "Guests": [],
-        "inventory": [],
-        "Name": "Magma Cavern Pit - Groudon",
-        "LeaderIndex": 0,
-        "FoeConflict": false
-      },
-      {
-        "$type": "RogueEssence.Dungeon.MonsterTeam, RogueEssence",
-        "Players": [
+          },
           {
             "Element1": "ground",
             "Element2": "none",
@@ -1052,8 +1753,8 @@
             "movementSpeed": 0,
             "dead": false,
             "serializationLoc": {
-              "X": 5,
-              "Y": 1
+              "X": 10,
+              "Y": 5
             },
             "serializationDir": 0,
             "ProxyName": "",
@@ -1290,17 +1991,7 @@
               "X": 4,
               "Y": 5
             }
-          }
-        ],
-        "Guests": [],
-        "inventory": [],
-        "Name": "Magma Cavern Pit - Groudon",
-        "LeaderIndex": 0,
-        "FoeConflict": false
-      },
-      {
-        "$type": "RogueEssence.Dungeon.MonsterTeam, RogueEssence",
-        "Players": [
+          },
           {
             "Element1": "ground",
             "Element2": "none",
@@ -1309,8 +2000,8 @@
             "movementSpeed": 0,
             "dead": false,
             "serializationLoc": {
-              "X": 5,
-              "Y": 1
+              "X": 11,
+              "Y": 5
             },
             "serializationDir": 0,
             "ProxyName": "",
@@ -1546,1548 +2237,6 @@
             "CharLoc": {
               "X": 6,
               "Y": 5
-            }
-          }
-        ],
-        "Guests": [],
-        "inventory": [],
-        "Name": "Magma Cavern Pit - Groudon",
-        "LeaderIndex": 0,
-        "FoeConflict": false
-      },
-      {
-        "$type": "RogueEssence.Dungeon.MonsterTeam, RogueEssence",
-        "Players": [
-          {
-            "Element1": "ground",
-            "Element2": "none",
-            "TurnWait": 0,
-            "TurnUsed": false,
-            "movementSpeed": 0,
-            "dead": false,
-            "serializationLoc": {
-              "X": 5,
-              "Y": 1
-            },
-            "serializationDir": 0,
-            "ProxyName": "",
-            "ProxySprite": {
-              "Species": "",
-              "Form": -1,
-              "Skin": "",
-              "Gender": -1
-            },
-            "CurrentForm": {
-              "Species": "groudon",
-              "Form": 0,
-              "Skin": "normal",
-              "Gender": -1
-            },
-            "ProxyAtk": -1,
-            "ProxyDef": -1,
-            "ProxyMAtk": -1,
-            "ProxyMDef": -1,
-            "ProxySpeed": -1,
-            "Skills": [
-              {
-                "Element": {
-                  "SkillNum": "mud_shot",
-                  "Charges": 10,
-                  "Enabled": true,
-                  "Sealed": false
-                },
-                "BackRef": 0
-              },
-              {
-                "Element": {
-                  "SkillNum": "scary_face",
-                  "Charges": 10,
-                  "Enabled": true,
-                  "Sealed": false
-                },
-                "BackRef": 1
-              },
-              {
-                "Element": {
-                  "SkillNum": "ancient_power",
-                  "Charges": 10,
-                  "Enabled": true,
-                  "Sealed": false
-                },
-                "BackRef": 2
-              },
-              {
-                "Element": {
-                  "SkillNum": "slash",
-                  "Charges": 10,
-                  "Enabled": true,
-                  "Sealed": false
-                },
-                "BackRef": 3
-              }
-            ],
-            "Intrinsics": [
-              {
-                "Element": {
-                  "ID": "drought"
-                },
-                "BackRef": 0
-              }
-            ],
-            "EquippedItem": {
-              "ID": "",
-              "Cursed": false,
-              "HiddenValue": "",
-              "Amount": 0,
-              "Price": 0
-            },
-            "Absentee": false,
-            "ChargeBoost": 0,
-            "HP": 0,
-            "HPRemainder": 0,
-            "Fullness": 100,
-            "FullnessRemainder": 0,
-            "MaxFullness": 100,
-            "StatusEffects": {},
-            "MissChain": 0,
-            "EXPMarked": false,
-            "Tactic": {
-              "Name": {
-                "DefaultText": "Boss",
-                "LocalTexts": {}
-              },
-              "Released": false,
-              "Comment": "",
-              "ID": "boss",
-              "Assignable": false,
-              "Plans": [
-                {
-                  "$type": "PMDC.Dungeon.AttackFoesPlan, PMDC",
-                  "AttackPattern": 4,
-                  "PositionPattern": 2,
-                  "IQ": 253,
-                  "RestrictedMobilityTypes": 0,
-                  "RestrictMobilityPassable": false,
-                  "AttackRange": 0,
-                  "StatusRange": 0,
-                  "SelfStatusRange": 4,
-                  "AbandonRangeOnHit": true
-                },
-                {
-                  "$type": "PMDC.Dungeon.FollowLeaderPlan, PMDC",
-                  "IQ": 253,
-                  "RestrictedMobilityTypes": 0,
-                  "RestrictMobilityPassable": false,
-                  "AttackRange": 0,
-                  "StatusRange": 0,
-                  "SelfStatusRange": 0,
-                  "AbandonRangeOnHit": false
-                },
-                {
-                  "$type": "PMDC.Dungeon.ExplorePlan, PMDC",
-                  "IQ": 253,
-                  "RestrictedMobilityTypes": 0,
-                  "RestrictMobilityPassable": false,
-                  "AttackRange": 0,
-                  "StatusRange": 0,
-                  "SelfStatusRange": 0,
-                  "AbandonRangeOnHit": false
-                },
-                {
-                  "$type": "PMDC.Dungeon.WaitPlan, PMDC",
-                  "IQ": 253,
-                  "RestrictedMobilityTypes": 0,
-                  "RestrictMobilityPassable": false,
-                  "AttackRange": 0,
-                  "StatusRange": 0,
-                  "SelfStatusRange": 0,
-                  "AbandonRangeOnHit": false
-                }
-              ]
-            },
-            "Mobility": 0,
-            "CantWalk": false,
-            "ItemDisabled": false,
-            "IntrinsicDisabled": false,
-            "CanRemoveStuck": false,
-            "StopItemAtHit": false,
-            "ForceAI": false,
-            "MovesScrambled": false,
-            "ChargeSaver": false,
-            "WaitToAttack": false,
-            "CantInteract": false,
-            "EnemyOfFriend": false,
-            "AttackFriend": false,
-            "TileSight": -1,
-            "CharSight": -1,
-            "Unidentifiable": false,
-            "Unlocatable": false,
-            "SeeAllChars": false,
-            "SeeItems": false,
-            "SeeWallItems": false,
-            "SeeTraps": false,
-            "CharStates": [],
-            "BackRef": {
-              "Index": -1
-            },
-            "Nickname": "",
-            "OriginalUUID": "",
-            "OriginalTeam": "",
-            "BaseForm": {
-              "Species": "bronzong",
-              "Form": 0,
-              "Skin": "normal",
-              "Gender": -1
-            },
-            "Level": 45,
-            "EXP": 0,
-            "MaxHPBonus": 0,
-            "AtkBonus": 0,
-            "DefBonus": 0,
-            "MAtkBonus": 0,
-            "MDefBonus": 0,
-            "SpeedBonus": 0,
-            "BaseSkills": [
-              {
-                "SkillNum": "",
-                "Charges": 10,
-                "CanForget": false
-              },
-              {
-                "SkillNum": "",
-                "Charges": 10,
-                "CanForget": false
-              },
-              {
-                "SkillNum": "",
-                "Charges": 10,
-                "CanForget": false
-              },
-              {
-                "SkillNum": "",
-                "Charges": 10,
-                "CanForget": false
-              }
-            ],
-            "BaseIntrinsics": [
-              "drought"
-            ],
-            "FormIntrinsicSlot": 2,
-            "Relearnables": {},
-            "Discriminator": 0,
-            "MetAt": "",
-            "MetLoc": {
-              "ID": "",
-              "StructID": {
-                "Segment": -1,
-                "ID": -1
-              },
-              "EntryPoint": -1
-            },
-            "DefeatAt": "",
-            "DefeatLoc": {
-              "ID": "",
-              "StructID": {
-                "Segment": -1,
-                "ID": -1
-              },
-              "EntryPoint": -1
-            },
-            "IsFounder": false,
-            "IsPartner": false,
-            "NameLocked": false,
-            "IsFavorite": false,
-            "Unrecruitable": true,
-            "ActionEvents": [],
-            "ScriptVars": null,
-            "CharLoc": {
-              "X": 8,
-              "Y": 5
-            }
-          }
-        ],
-        "Guests": [],
-        "inventory": [],
-        "Name": "Magma Cavern Pit - Groudon",
-        "LeaderIndex": 0,
-        "FoeConflict": false
-      },
-      {
-        "$type": "RogueEssence.Dungeon.MonsterTeam, RogueEssence",
-        "Players": [
-          {
-            "Element1": "ground",
-            "Element2": "none",
-            "TurnWait": 0,
-            "TurnUsed": false,
-            "movementSpeed": 0,
-            "dead": false,
-            "serializationLoc": {
-              "X": 5,
-              "Y": 1
-            },
-            "serializationDir": 0,
-            "ProxyName": "",
-            "ProxySprite": {
-              "Species": "",
-              "Form": -1,
-              "Skin": "",
-              "Gender": -1
-            },
-            "CurrentForm": {
-              "Species": "groudon",
-              "Form": 0,
-              "Skin": "normal",
-              "Gender": -1
-            },
-            "ProxyAtk": -1,
-            "ProxyDef": -1,
-            "ProxyMAtk": -1,
-            "ProxyMDef": -1,
-            "ProxySpeed": -1,
-            "Skills": [
-              {
-                "Element": {
-                  "SkillNum": "mud_shot",
-                  "Charges": 10,
-                  "Enabled": true,
-                  "Sealed": false
-                },
-                "BackRef": 0
-              },
-              {
-                "Element": {
-                  "SkillNum": "scary_face",
-                  "Charges": 10,
-                  "Enabled": true,
-                  "Sealed": false
-                },
-                "BackRef": 1
-              },
-              {
-                "Element": {
-                  "SkillNum": "ancient_power",
-                  "Charges": 10,
-                  "Enabled": true,
-                  "Sealed": false
-                },
-                "BackRef": 2
-              },
-              {
-                "Element": {
-                  "SkillNum": "slash",
-                  "Charges": 10,
-                  "Enabled": true,
-                  "Sealed": false
-                },
-                "BackRef": 3
-              }
-            ],
-            "Intrinsics": [
-              {
-                "Element": {
-                  "ID": "drought"
-                },
-                "BackRef": 0
-              }
-            ],
-            "EquippedItem": {
-              "ID": "",
-              "Cursed": false,
-              "HiddenValue": "",
-              "Amount": 0,
-              "Price": 0
-            },
-            "Absentee": false,
-            "ChargeBoost": 0,
-            "HP": 0,
-            "HPRemainder": 0,
-            "Fullness": 100,
-            "FullnessRemainder": 0,
-            "MaxFullness": 100,
-            "StatusEffects": {},
-            "MissChain": 0,
-            "EXPMarked": false,
-            "Tactic": {
-              "Name": {
-                "DefaultText": "Boss",
-                "LocalTexts": {}
-              },
-              "Released": false,
-              "Comment": "",
-              "ID": "boss",
-              "Assignable": false,
-              "Plans": [
-                {
-                  "$type": "PMDC.Dungeon.AttackFoesPlan, PMDC",
-                  "AttackPattern": 4,
-                  "PositionPattern": 2,
-                  "IQ": 253,
-                  "RestrictedMobilityTypes": 0,
-                  "RestrictMobilityPassable": false,
-                  "AttackRange": 0,
-                  "StatusRange": 0,
-                  "SelfStatusRange": 4,
-                  "AbandonRangeOnHit": true
-                },
-                {
-                  "$type": "PMDC.Dungeon.FollowLeaderPlan, PMDC",
-                  "IQ": 253,
-                  "RestrictedMobilityTypes": 0,
-                  "RestrictMobilityPassable": false,
-                  "AttackRange": 0,
-                  "StatusRange": 0,
-                  "SelfStatusRange": 0,
-                  "AbandonRangeOnHit": false
-                },
-                {
-                  "$type": "PMDC.Dungeon.ExplorePlan, PMDC",
-                  "IQ": 253,
-                  "RestrictedMobilityTypes": 0,
-                  "RestrictMobilityPassable": false,
-                  "AttackRange": 0,
-                  "StatusRange": 0,
-                  "SelfStatusRange": 0,
-                  "AbandonRangeOnHit": false
-                },
-                {
-                  "$type": "PMDC.Dungeon.WaitPlan, PMDC",
-                  "IQ": 253,
-                  "RestrictedMobilityTypes": 0,
-                  "RestrictMobilityPassable": false,
-                  "AttackRange": 0,
-                  "StatusRange": 0,
-                  "SelfStatusRange": 0,
-                  "AbandonRangeOnHit": false
-                }
-              ]
-            },
-            "Mobility": 0,
-            "CantWalk": false,
-            "ItemDisabled": false,
-            "IntrinsicDisabled": false,
-            "CanRemoveStuck": false,
-            "StopItemAtHit": false,
-            "ForceAI": false,
-            "MovesScrambled": false,
-            "ChargeSaver": false,
-            "WaitToAttack": false,
-            "CantInteract": false,
-            "EnemyOfFriend": false,
-            "AttackFriend": false,
-            "TileSight": -1,
-            "CharSight": -1,
-            "Unidentifiable": false,
-            "Unlocatable": false,
-            "SeeAllChars": false,
-            "SeeItems": false,
-            "SeeWallItems": false,
-            "SeeTraps": false,
-            "CharStates": [],
-            "BackRef": {
-              "Index": -1
-            },
-            "Nickname": "",
-            "OriginalUUID": "",
-            "OriginalTeam": "",
-            "BaseForm": {
-              "Species": "bronzong",
-              "Form": 0,
-              "Skin": "normal",
-              "Gender": -1
-            },
-            "Level": 45,
-            "EXP": 0,
-            "MaxHPBonus": 0,
-            "AtkBonus": 0,
-            "DefBonus": 0,
-            "MAtkBonus": 0,
-            "MDefBonus": 0,
-            "SpeedBonus": 0,
-            "BaseSkills": [
-              {
-                "SkillNum": "",
-                "Charges": 10,
-                "CanForget": false
-              },
-              {
-                "SkillNum": "",
-                "Charges": 10,
-                "CanForget": false
-              },
-              {
-                "SkillNum": "",
-                "Charges": 10,
-                "CanForget": false
-              },
-              {
-                "SkillNum": "",
-                "Charges": 10,
-                "CanForget": false
-              }
-            ],
-            "BaseIntrinsics": [
-              "drought"
-            ],
-            "FormIntrinsicSlot": 2,
-            "Relearnables": {},
-            "Discriminator": 0,
-            "MetAt": "",
-            "MetLoc": {
-              "ID": "",
-              "StructID": {
-                "Segment": -1,
-                "ID": -1
-              },
-              "EntryPoint": -1
-            },
-            "DefeatAt": "",
-            "DefeatLoc": {
-              "ID": "",
-              "StructID": {
-                "Segment": -1,
-                "ID": -1
-              },
-              "EntryPoint": -1
-            },
-            "IsFounder": false,
-            "IsPartner": false,
-            "NameLocked": false,
-            "IsFavorite": false,
-            "Unrecruitable": true,
-            "ActionEvents": [],
-            "ScriptVars": null,
-            "CharLoc": {
-              "X": 10,
-              "Y": 5
-            }
-          }
-        ],
-        "Guests": [],
-        "inventory": [],
-        "Name": "Magma Cavern Pit - Groudon",
-        "LeaderIndex": 0,
-        "FoeConflict": false
-      },
-      {
-        "$type": "RogueEssence.Dungeon.MonsterTeam, RogueEssence",
-        "Players": [
-          {
-            "Element1": "ground",
-            "Element2": "none",
-            "TurnWait": 0,
-            "TurnUsed": false,
-            "movementSpeed": 0,
-            "dead": false,
-            "serializationLoc": {
-              "X": 5,
-              "Y": 1
-            },
-            "serializationDir": 0,
-            "ProxyName": "",
-            "ProxySprite": {
-              "Species": "",
-              "Form": -1,
-              "Skin": "",
-              "Gender": -1
-            },
-            "CurrentForm": {
-              "Species": "groudon",
-              "Form": 0,
-              "Skin": "normal",
-              "Gender": -1
-            },
-            "ProxyAtk": -1,
-            "ProxyDef": -1,
-            "ProxyMAtk": -1,
-            "ProxyMDef": -1,
-            "ProxySpeed": -1,
-            "Skills": [
-              {
-                "Element": {
-                  "SkillNum": "mud_shot",
-                  "Charges": 10,
-                  "Enabled": true,
-                  "Sealed": false
-                },
-                "BackRef": 0
-              },
-              {
-                "Element": {
-                  "SkillNum": "scary_face",
-                  "Charges": 10,
-                  "Enabled": true,
-                  "Sealed": false
-                },
-                "BackRef": 1
-              },
-              {
-                "Element": {
-                  "SkillNum": "ancient_power",
-                  "Charges": 10,
-                  "Enabled": true,
-                  "Sealed": false
-                },
-                "BackRef": 2
-              },
-              {
-                "Element": {
-                  "SkillNum": "slash",
-                  "Charges": 10,
-                  "Enabled": true,
-                  "Sealed": false
-                },
-                "BackRef": 3
-              }
-            ],
-            "Intrinsics": [
-              {
-                "Element": {
-                  "ID": "drought"
-                },
-                "BackRef": 0
-              }
-            ],
-            "EquippedItem": {
-              "ID": "",
-              "Cursed": false,
-              "HiddenValue": "",
-              "Amount": 0,
-              "Price": 0
-            },
-            "Absentee": false,
-            "ChargeBoost": 0,
-            "HP": 0,
-            "HPRemainder": 0,
-            "Fullness": 100,
-            "FullnessRemainder": 0,
-            "MaxFullness": 100,
-            "StatusEffects": {},
-            "MissChain": 0,
-            "EXPMarked": false,
-            "Tactic": {
-              "Name": {
-                "DefaultText": "Boss",
-                "LocalTexts": {}
-              },
-              "Released": false,
-              "Comment": "",
-              "ID": "boss",
-              "Assignable": false,
-              "Plans": [
-                {
-                  "$type": "PMDC.Dungeon.AttackFoesPlan, PMDC",
-                  "AttackPattern": 4,
-                  "PositionPattern": 2,
-                  "IQ": 253,
-                  "RestrictedMobilityTypes": 0,
-                  "RestrictMobilityPassable": false,
-                  "AttackRange": 0,
-                  "StatusRange": 0,
-                  "SelfStatusRange": 4,
-                  "AbandonRangeOnHit": true
-                },
-                {
-                  "$type": "PMDC.Dungeon.FollowLeaderPlan, PMDC",
-                  "IQ": 253,
-                  "RestrictedMobilityTypes": 0,
-                  "RestrictMobilityPassable": false,
-                  "AttackRange": 0,
-                  "StatusRange": 0,
-                  "SelfStatusRange": 0,
-                  "AbandonRangeOnHit": false
-                },
-                {
-                  "$type": "PMDC.Dungeon.ExplorePlan, PMDC",
-                  "IQ": 253,
-                  "RestrictedMobilityTypes": 0,
-                  "RestrictMobilityPassable": false,
-                  "AttackRange": 0,
-                  "StatusRange": 0,
-                  "SelfStatusRange": 0,
-                  "AbandonRangeOnHit": false
-                },
-                {
-                  "$type": "PMDC.Dungeon.WaitPlan, PMDC",
-                  "IQ": 253,
-                  "RestrictedMobilityTypes": 0,
-                  "RestrictMobilityPassable": false,
-                  "AttackRange": 0,
-                  "StatusRange": 0,
-                  "SelfStatusRange": 0,
-                  "AbandonRangeOnHit": false
-                }
-              ]
-            },
-            "Mobility": 0,
-            "CantWalk": false,
-            "ItemDisabled": false,
-            "IntrinsicDisabled": false,
-            "CanRemoveStuck": false,
-            "StopItemAtHit": false,
-            "ForceAI": false,
-            "MovesScrambled": false,
-            "ChargeSaver": false,
-            "WaitToAttack": false,
-            "CantInteract": false,
-            "EnemyOfFriend": false,
-            "AttackFriend": false,
-            "TileSight": -1,
-            "CharSight": -1,
-            "Unidentifiable": false,
-            "Unlocatable": false,
-            "SeeAllChars": false,
-            "SeeItems": false,
-            "SeeWallItems": false,
-            "SeeTraps": false,
-            "CharStates": [],
-            "BackRef": {
-              "Index": -1
-            },
-            "Nickname": "",
-            "OriginalUUID": "",
-            "OriginalTeam": "",
-            "BaseForm": {
-              "Species": "bronzong",
-              "Form": 0,
-              "Skin": "normal",
-              "Gender": -1
-            },
-            "Level": 45,
-            "EXP": 0,
-            "MaxHPBonus": 0,
-            "AtkBonus": 0,
-            "DefBonus": 0,
-            "MAtkBonus": 0,
-            "MDefBonus": 0,
-            "SpeedBonus": 0,
-            "BaseSkills": [
-              {
-                "SkillNum": "",
-                "Charges": 10,
-                "CanForget": false
-              },
-              {
-                "SkillNum": "",
-                "Charges": 10,
-                "CanForget": false
-              },
-              {
-                "SkillNum": "",
-                "Charges": 10,
-                "CanForget": false
-              },
-              {
-                "SkillNum": "",
-                "Charges": 10,
-                "CanForget": false
-              }
-            ],
-            "BaseIntrinsics": [
-              "drought"
-            ],
-            "FormIntrinsicSlot": 2,
-            "Relearnables": {},
-            "Discriminator": 0,
-            "MetAt": "",
-            "MetLoc": {
-              "ID": "",
-              "StructID": {
-                "Segment": -1,
-                "ID": -1
-              },
-              "EntryPoint": -1
-            },
-            "DefeatAt": "",
-            "DefeatLoc": {
-              "ID": "",
-              "StructID": {
-                "Segment": -1,
-                "ID": -1
-              },
-              "EntryPoint": -1
-            },
-            "IsFounder": false,
-            "IsPartner": false,
-            "NameLocked": false,
-            "IsFavorite": false,
-            "Unrecruitable": true,
-            "ActionEvents": [],
-            "ScriptVars": null,
-            "CharLoc": {
-              "X": 11,
-              "Y": 5
-            }
-          }
-        ],
-        "Guests": [],
-        "inventory": [],
-        "Name": "Magma Cavern Pit - Groudon",
-        "LeaderIndex": 0,
-        "FoeConflict": false
-      },
-      {
-        "$type": "RogueEssence.Dungeon.MonsterTeam, RogueEssence",
-        "Players": [
-          {
-            "Element1": "ground",
-            "Element2": "none",
-            "TurnWait": 0,
-            "TurnUsed": false,
-            "movementSpeed": 0,
-            "dead": false,
-            "serializationLoc": {
-              "X": 5,
-              "Y": 1
-            },
-            "serializationDir": 0,
-            "ProxyName": "",
-            "ProxySprite": {
-              "Species": "",
-              "Form": -1,
-              "Skin": "",
-              "Gender": -1
-            },
-            "CurrentForm": {
-              "Species": "groudon",
-              "Form": 0,
-              "Skin": "normal",
-              "Gender": -1
-            },
-            "ProxyAtk": -1,
-            "ProxyDef": -1,
-            "ProxyMAtk": -1,
-            "ProxyMDef": -1,
-            "ProxySpeed": -1,
-            "Skills": [
-              {
-                "Element": {
-                  "SkillNum": "mud_shot",
-                  "Charges": 10,
-                  "Enabled": true,
-                  "Sealed": false
-                },
-                "BackRef": 0
-              },
-              {
-                "Element": {
-                  "SkillNum": "scary_face",
-                  "Charges": 10,
-                  "Enabled": true,
-                  "Sealed": false
-                },
-                "BackRef": 1
-              },
-              {
-                "Element": {
-                  "SkillNum": "ancient_power",
-                  "Charges": 10,
-                  "Enabled": true,
-                  "Sealed": false
-                },
-                "BackRef": 2
-              },
-              {
-                "Element": {
-                  "SkillNum": "slash",
-                  "Charges": 10,
-                  "Enabled": true,
-                  "Sealed": false
-                },
-                "BackRef": 3
-              }
-            ],
-            "Intrinsics": [
-              {
-                "Element": {
-                  "ID": "drought"
-                },
-                "BackRef": 0
-              }
-            ],
-            "EquippedItem": {
-              "ID": "",
-              "Cursed": false,
-              "HiddenValue": "",
-              "Amount": 0,
-              "Price": 0
-            },
-            "Absentee": false,
-            "ChargeBoost": 0,
-            "HP": 0,
-            "HPRemainder": 0,
-            "Fullness": 100,
-            "FullnessRemainder": 0,
-            "MaxFullness": 100,
-            "StatusEffects": {},
-            "MissChain": 0,
-            "EXPMarked": false,
-            "Tactic": {
-              "Name": {
-                "DefaultText": "Boss",
-                "LocalTexts": {}
-              },
-              "Released": false,
-              "Comment": "",
-              "ID": "boss",
-              "Assignable": false,
-              "Plans": [
-                {
-                  "$type": "PMDC.Dungeon.AttackFoesPlan, PMDC",
-                  "AttackPattern": 4,
-                  "PositionPattern": 2,
-                  "IQ": 253,
-                  "RestrictedMobilityTypes": 0,
-                  "RestrictMobilityPassable": false,
-                  "AttackRange": 0,
-                  "StatusRange": 0,
-                  "SelfStatusRange": 4,
-                  "AbandonRangeOnHit": true
-                },
-                {
-                  "$type": "PMDC.Dungeon.FollowLeaderPlan, PMDC",
-                  "IQ": 253,
-                  "RestrictedMobilityTypes": 0,
-                  "RestrictMobilityPassable": false,
-                  "AttackRange": 0,
-                  "StatusRange": 0,
-                  "SelfStatusRange": 0,
-                  "AbandonRangeOnHit": false
-                },
-                {
-                  "$type": "PMDC.Dungeon.ExplorePlan, PMDC",
-                  "IQ": 253,
-                  "RestrictedMobilityTypes": 0,
-                  "RestrictMobilityPassable": false,
-                  "AttackRange": 0,
-                  "StatusRange": 0,
-                  "SelfStatusRange": 0,
-                  "AbandonRangeOnHit": false
-                },
-                {
-                  "$type": "PMDC.Dungeon.WaitPlan, PMDC",
-                  "IQ": 253,
-                  "RestrictedMobilityTypes": 0,
-                  "RestrictMobilityPassable": false,
-                  "AttackRange": 0,
-                  "StatusRange": 0,
-                  "SelfStatusRange": 0,
-                  "AbandonRangeOnHit": false
-                }
-              ]
-            },
-            "Mobility": 0,
-            "CantWalk": false,
-            "ItemDisabled": false,
-            "IntrinsicDisabled": false,
-            "CanRemoveStuck": false,
-            "StopItemAtHit": false,
-            "ForceAI": false,
-            "MovesScrambled": false,
-            "ChargeSaver": false,
-            "WaitToAttack": false,
-            "CantInteract": false,
-            "EnemyOfFriend": false,
-            "AttackFriend": false,
-            "TileSight": -1,
-            "CharSight": -1,
-            "Unidentifiable": false,
-            "Unlocatable": false,
-            "SeeAllChars": false,
-            "SeeItems": false,
-            "SeeWallItems": false,
-            "SeeTraps": false,
-            "CharStates": [],
-            "BackRef": {
-              "Index": -1
-            },
-            "Nickname": "",
-            "OriginalUUID": "",
-            "OriginalTeam": "",
-            "BaseForm": {
-              "Species": "bronzong",
-              "Form": 0,
-              "Skin": "normal",
-              "Gender": -1
-            },
-            "Level": 45,
-            "EXP": 0,
-            "MaxHPBonus": 0,
-            "AtkBonus": 0,
-            "DefBonus": 0,
-            "MAtkBonus": 0,
-            "MDefBonus": 0,
-            "SpeedBonus": 0,
-            "BaseSkills": [
-              {
-                "SkillNum": "",
-                "Charges": 10,
-                "CanForget": false
-              },
-              {
-                "SkillNum": "",
-                "Charges": 10,
-                "CanForget": false
-              },
-              {
-                "SkillNum": "",
-                "Charges": 10,
-                "CanForget": false
-              },
-              {
-                "SkillNum": "",
-                "Charges": 10,
-                "CanForget": false
-              }
-            ],
-            "BaseIntrinsics": [
-              "drought"
-            ],
-            "FormIntrinsicSlot": 2,
-            "Relearnables": {},
-            "Discriminator": 0,
-            "MetAt": "",
-            "MetLoc": {
-              "ID": "",
-              "StructID": {
-                "Segment": -1,
-                "ID": -1
-              },
-              "EntryPoint": -1
-            },
-            "DefeatAt": "",
-            "DefeatLoc": {
-              "ID": "",
-              "StructID": {
-                "Segment": -1,
-                "ID": -1
-              },
-              "EntryPoint": -1
-            },
-            "IsFounder": false,
-            "IsPartner": false,
-            "NameLocked": false,
-            "IsFavorite": false,
-            "Unrecruitable": true,
-            "ActionEvents": [],
-            "ScriptVars": null,
-            "CharLoc": {
-              "X": 4,
-              "Y": 7
-            }
-          }
-        ],
-        "Guests": [],
-        "inventory": [],
-        "Name": "Magma Cavern Pit - Groudon",
-        "LeaderIndex": 0,
-        "FoeConflict": false
-      },
-      {
-        "$type": "RogueEssence.Dungeon.MonsterTeam, RogueEssence",
-        "Players": [
-          {
-            "Element1": "ground",
-            "Element2": "none",
-            "TurnWait": 0,
-            "TurnUsed": false,
-            "movementSpeed": 0,
-            "dead": false,
-            "serializationLoc": {
-              "X": 5,
-              "Y": 1
-            },
-            "serializationDir": 0,
-            "ProxyName": "",
-            "ProxySprite": {
-              "Species": "",
-              "Form": -1,
-              "Skin": "",
-              "Gender": -1
-            },
-            "CurrentForm": {
-              "Species": "groudon",
-              "Form": 0,
-              "Skin": "normal",
-              "Gender": -1
-            },
-            "ProxyAtk": -1,
-            "ProxyDef": -1,
-            "ProxyMAtk": -1,
-            "ProxyMDef": -1,
-            "ProxySpeed": -1,
-            "Skills": [
-              {
-                "Element": {
-                  "SkillNum": "mud_shot",
-                  "Charges": 10,
-                  "Enabled": true,
-                  "Sealed": false
-                },
-                "BackRef": 0
-              },
-              {
-                "Element": {
-                  "SkillNum": "scary_face",
-                  "Charges": 10,
-                  "Enabled": true,
-                  "Sealed": false
-                },
-                "BackRef": 1
-              },
-              {
-                "Element": {
-                  "SkillNum": "ancient_power",
-                  "Charges": 10,
-                  "Enabled": true,
-                  "Sealed": false
-                },
-                "BackRef": 2
-              },
-              {
-                "Element": {
-                  "SkillNum": "slash",
-                  "Charges": 10,
-                  "Enabled": true,
-                  "Sealed": false
-                },
-                "BackRef": 3
-              }
-            ],
-            "Intrinsics": [
-              {
-                "Element": {
-                  "ID": "drought"
-                },
-                "BackRef": 0
-              }
-            ],
-            "EquippedItem": {
-              "ID": "",
-              "Cursed": false,
-              "HiddenValue": "",
-              "Amount": 0,
-              "Price": 0
-            },
-            "Absentee": false,
-            "ChargeBoost": 0,
-            "HP": 0,
-            "HPRemainder": 0,
-            "Fullness": 100,
-            "FullnessRemainder": 0,
-            "MaxFullness": 100,
-            "StatusEffects": {},
-            "MissChain": 0,
-            "EXPMarked": false,
-            "Tactic": {
-              "Name": {
-                "DefaultText": "Boss",
-                "LocalTexts": {}
-              },
-              "Released": false,
-              "Comment": "",
-              "ID": "boss",
-              "Assignable": false,
-              "Plans": [
-                {
-                  "$type": "PMDC.Dungeon.AttackFoesPlan, PMDC",
-                  "AttackPattern": 4,
-                  "PositionPattern": 2,
-                  "IQ": 253,
-                  "RestrictedMobilityTypes": 0,
-                  "RestrictMobilityPassable": false,
-                  "AttackRange": 0,
-                  "StatusRange": 0,
-                  "SelfStatusRange": 4,
-                  "AbandonRangeOnHit": true
-                },
-                {
-                  "$type": "PMDC.Dungeon.FollowLeaderPlan, PMDC",
-                  "IQ": 253,
-                  "RestrictedMobilityTypes": 0,
-                  "RestrictMobilityPassable": false,
-                  "AttackRange": 0,
-                  "StatusRange": 0,
-                  "SelfStatusRange": 0,
-                  "AbandonRangeOnHit": false
-                },
-                {
-                  "$type": "PMDC.Dungeon.ExplorePlan, PMDC",
-                  "IQ": 253,
-                  "RestrictedMobilityTypes": 0,
-                  "RestrictMobilityPassable": false,
-                  "AttackRange": 0,
-                  "StatusRange": 0,
-                  "SelfStatusRange": 0,
-                  "AbandonRangeOnHit": false
-                },
-                {
-                  "$type": "PMDC.Dungeon.WaitPlan, PMDC",
-                  "IQ": 253,
-                  "RestrictedMobilityTypes": 0,
-                  "RestrictMobilityPassable": false,
-                  "AttackRange": 0,
-                  "StatusRange": 0,
-                  "SelfStatusRange": 0,
-                  "AbandonRangeOnHit": false
-                }
-              ]
-            },
-            "Mobility": 0,
-            "CantWalk": false,
-            "ItemDisabled": false,
-            "IntrinsicDisabled": false,
-            "CanRemoveStuck": false,
-            "StopItemAtHit": false,
-            "ForceAI": false,
-            "MovesScrambled": false,
-            "ChargeSaver": false,
-            "WaitToAttack": false,
-            "CantInteract": false,
-            "EnemyOfFriend": false,
-            "AttackFriend": false,
-            "TileSight": -1,
-            "CharSight": -1,
-            "Unidentifiable": false,
-            "Unlocatable": false,
-            "SeeAllChars": false,
-            "SeeItems": false,
-            "SeeWallItems": false,
-            "SeeTraps": false,
-            "CharStates": [],
-            "BackRef": {
-              "Index": -1
-            },
-            "Nickname": "",
-            "OriginalUUID": "",
-            "OriginalTeam": "",
-            "BaseForm": {
-              "Species": "bronzong",
-              "Form": 0,
-              "Skin": "normal",
-              "Gender": -1
-            },
-            "Level": 45,
-            "EXP": 0,
-            "MaxHPBonus": 0,
-            "AtkBonus": 0,
-            "DefBonus": 0,
-            "MAtkBonus": 0,
-            "MDefBonus": 0,
-            "SpeedBonus": 0,
-            "BaseSkills": [
-              {
-                "SkillNum": "",
-                "Charges": 10,
-                "CanForget": false
-              },
-              {
-                "SkillNum": "",
-                "Charges": 10,
-                "CanForget": false
-              },
-              {
-                "SkillNum": "",
-                "Charges": 10,
-                "CanForget": false
-              },
-              {
-                "SkillNum": "",
-                "Charges": 10,
-                "CanForget": false
-              }
-            ],
-            "BaseIntrinsics": [
-              "drought"
-            ],
-            "FormIntrinsicSlot": 2,
-            "Relearnables": {},
-            "Discriminator": 0,
-            "MetAt": "",
-            "MetLoc": {
-              "ID": "",
-              "StructID": {
-                "Segment": -1,
-                "ID": -1
-              },
-              "EntryPoint": -1
-            },
-            "DefeatAt": "",
-            "DefeatLoc": {
-              "ID": "",
-              "StructID": {
-                "Segment": -1,
-                "ID": -1
-              },
-              "EntryPoint": -1
-            },
-            "IsFounder": false,
-            "IsPartner": false,
-            "NameLocked": false,
-            "IsFavorite": false,
-            "Unrecruitable": true,
-            "ActionEvents": [],
-            "ScriptVars": null,
-            "CharLoc": {
-              "X": 3,
-              "Y": 8
-            }
-          }
-        ],
-        "Guests": [],
-        "inventory": [],
-        "Name": "Magma Cavern Pit - Groudon",
-        "LeaderIndex": 0,
-        "FoeConflict": false
-      },
-      {
-        "$type": "RogueEssence.Dungeon.MonsterTeam, RogueEssence",
-        "Players": [
-          {
-            "Element1": "ground",
-            "Element2": "none",
-            "TurnWait": 0,
-            "TurnUsed": false,
-            "movementSpeed": 0,
-            "dead": false,
-            "serializationLoc": {
-              "X": 5,
-              "Y": 1
-            },
-            "serializationDir": 0,
-            "ProxyName": "",
-            "ProxySprite": {
-              "Species": "",
-              "Form": -1,
-              "Skin": "",
-              "Gender": -1
-            },
-            "CurrentForm": {
-              "Species": "groudon",
-              "Form": 0,
-              "Skin": "normal",
-              "Gender": -1
-            },
-            "ProxyAtk": -1,
-            "ProxyDef": -1,
-            "ProxyMAtk": -1,
-            "ProxyMDef": -1,
-            "ProxySpeed": -1,
-            "Skills": [
-              {
-                "Element": {
-                  "SkillNum": "mud_shot",
-                  "Charges": 10,
-                  "Enabled": true,
-                  "Sealed": false
-                },
-                "BackRef": 0
-              },
-              {
-                "Element": {
-                  "SkillNum": "scary_face",
-                  "Charges": 10,
-                  "Enabled": true,
-                  "Sealed": false
-                },
-                "BackRef": 1
-              },
-              {
-                "Element": {
-                  "SkillNum": "ancient_power",
-                  "Charges": 10,
-                  "Enabled": true,
-                  "Sealed": false
-                },
-                "BackRef": 2
-              },
-              {
-                "Element": {
-                  "SkillNum": "slash",
-                  "Charges": 10,
-                  "Enabled": true,
-                  "Sealed": false
-                },
-                "BackRef": 3
-              }
-            ],
-            "Intrinsics": [
-              {
-                "Element": {
-                  "ID": "drought"
-                },
-                "BackRef": 0
-              }
-            ],
-            "EquippedItem": {
-              "ID": "",
-              "Cursed": false,
-              "HiddenValue": "",
-              "Amount": 0,
-              "Price": 0
-            },
-            "Absentee": false,
-            "ChargeBoost": 0,
-            "HP": 0,
-            "HPRemainder": 0,
-            "Fullness": 100,
-            "FullnessRemainder": 0,
-            "MaxFullness": 100,
-            "StatusEffects": {},
-            "MissChain": 0,
-            "EXPMarked": false,
-            "Tactic": {
-              "Name": {
-                "DefaultText": "Boss",
-                "LocalTexts": {}
-              },
-              "Released": false,
-              "Comment": "",
-              "ID": "boss",
-              "Assignable": false,
-              "Plans": [
-                {
-                  "$type": "PMDC.Dungeon.AttackFoesPlan, PMDC",
-                  "AttackPattern": 4,
-                  "PositionPattern": 2,
-                  "IQ": 253,
-                  "RestrictedMobilityTypes": 0,
-                  "RestrictMobilityPassable": false,
-                  "AttackRange": 0,
-                  "StatusRange": 0,
-                  "SelfStatusRange": 4,
-                  "AbandonRangeOnHit": true
-                },
-                {
-                  "$type": "PMDC.Dungeon.FollowLeaderPlan, PMDC",
-                  "IQ": 253,
-                  "RestrictedMobilityTypes": 0,
-                  "RestrictMobilityPassable": false,
-                  "AttackRange": 0,
-                  "StatusRange": 0,
-                  "SelfStatusRange": 0,
-                  "AbandonRangeOnHit": false
-                },
-                {
-                  "$type": "PMDC.Dungeon.ExplorePlan, PMDC",
-                  "IQ": 253,
-                  "RestrictedMobilityTypes": 0,
-                  "RestrictMobilityPassable": false,
-                  "AttackRange": 0,
-                  "StatusRange": 0,
-                  "SelfStatusRange": 0,
-                  "AbandonRangeOnHit": false
-                },
-                {
-                  "$type": "PMDC.Dungeon.WaitPlan, PMDC",
-                  "IQ": 253,
-                  "RestrictedMobilityTypes": 0,
-                  "RestrictMobilityPassable": false,
-                  "AttackRange": 0,
-                  "StatusRange": 0,
-                  "SelfStatusRange": 0,
-                  "AbandonRangeOnHit": false
-                }
-              ]
-            },
-            "Mobility": 0,
-            "CantWalk": false,
-            "ItemDisabled": false,
-            "IntrinsicDisabled": false,
-            "CanRemoveStuck": false,
-            "StopItemAtHit": false,
-            "ForceAI": false,
-            "MovesScrambled": false,
-            "ChargeSaver": false,
-            "WaitToAttack": false,
-            "CantInteract": false,
-            "EnemyOfFriend": false,
-            "AttackFriend": false,
-            "TileSight": -1,
-            "CharSight": -1,
-            "Unidentifiable": false,
-            "Unlocatable": false,
-            "SeeAllChars": false,
-            "SeeItems": false,
-            "SeeWallItems": false,
-            "SeeTraps": false,
-            "CharStates": [],
-            "BackRef": {
-              "Index": -1
-            },
-            "Nickname": "",
-            "OriginalUUID": "",
-            "OriginalTeam": "",
-            "BaseForm": {
-              "Species": "bronzong",
-              "Form": 0,
-              "Skin": "normal",
-              "Gender": -1
-            },
-            "Level": 45,
-            "EXP": 0,
-            "MaxHPBonus": 0,
-            "AtkBonus": 0,
-            "DefBonus": 0,
-            "MAtkBonus": 0,
-            "MDefBonus": 0,
-            "SpeedBonus": 0,
-            "BaseSkills": [
-              {
-                "SkillNum": "",
-                "Charges": 10,
-                "CanForget": false
-              },
-              {
-                "SkillNum": "",
-                "Charges": 10,
-                "CanForget": false
-              },
-              {
-                "SkillNum": "",
-                "Charges": 10,
-                "CanForget": false
-              },
-              {
-                "SkillNum": "",
-                "Charges": 10,
-                "CanForget": false
-              }
-            ],
-            "BaseIntrinsics": [
-              "drought"
-            ],
-            "FormIntrinsicSlot": 2,
-            "Relearnables": {},
-            "Discriminator": 0,
-            "MetAt": "",
-            "MetLoc": {
-              "ID": "",
-              "StructID": {
-                "Segment": -1,
-                "ID": -1
-              },
-              "EntryPoint": -1
-            },
-            "DefeatAt": "",
-            "DefeatLoc": {
-              "ID": "",
-              "StructID": {
-                "Segment": -1,
-                "ID": -1
-              },
-              "EntryPoint": -1
-            },
-            "IsFounder": false,
-            "IsPartner": false,
-            "NameLocked": false,
-            "IsFavorite": false,
-            "Unrecruitable": true,
-            "ActionEvents": [],
-            "ScriptVars": null,
-            "CharLoc": {
-              "X": 5,
-              "Y": 8
             }
           }
         ],

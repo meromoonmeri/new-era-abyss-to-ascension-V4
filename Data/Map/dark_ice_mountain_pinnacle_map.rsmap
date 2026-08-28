@@ -27,7 +27,7 @@
               "X": 5,
               "Y": 1
             },
-            "serializationDir": 0,
+            "serializationDir": 1,
             "ProxyName": "",
             "ProxySprite": {
               "Species": "",
@@ -281,10 +281,10 @@
             "movementSpeed": 0,
             "dead": false,
             "serializationLoc": {
-              "X": 5,
-              "Y": 1
+              "X": 2,
+              "Y": 2
             },
-            "serializationDir": 0,
+            "serializationDir": 7,
             "ProxyName": "",
             "ProxySprite": {
               "Species": "",
@@ -538,10 +538,10 @@
             "movementSpeed": 0,
             "dead": false,
             "serializationLoc": {
-              "X": 5,
-              "Y": 1
+              "X": 8,
+              "Y": 2
             },
-            "serializationDir": 0,
+            "serializationDir": 2,
             "ProxyName": "",
             "ProxySprite": {
               "Species": "",
@@ -795,10 +795,10 @@
             "movementSpeed": 0,
             "dead": false,
             "serializationLoc": {
-              "X": 5,
-              "Y": 1
+              "X": 2,
+              "Y": 4
             },
-            "serializationDir": 0,
+            "serializationDir": 5,
             "ProxyName": "",
             "ProxySprite": {
               "Species": "",
@@ -1052,10 +1052,10 @@
             "movementSpeed": 0,
             "dead": false,
             "serializationLoc": {
-              "X": 5,
-              "Y": 1
+              "X": 8,
+              "Y": 4
             },
-            "serializationDir": 0,
+            "serializationDir": 2,
             "ProxyName": "",
             "ProxySprite": {
               "Species": "",
@@ -7189,7 +7189,7 @@
           "X": 4,
           "Y": 3
         },
-        "Dir": 4
+        "Dir": 5
       }
     ],
     "Items": []

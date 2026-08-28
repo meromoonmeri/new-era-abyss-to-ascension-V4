@@ -1,0 +1,249 @@
+{
+ "amp_clearing_arena": {
+  "moved": 0,
+  "turned": 8,
+  "entry": 0
+ },
+ "barren_valley_clearing_map": {
+  "moved": 4,
+  "turned": 4,
+  "entry": 0
+ },
+ "beach_cave_pit_arena": {
+  "moved": 0,
+  "turned": 2,
+  "entry": 0
+ },
+ "black_swamp_map": {
+  "moved": 6,
+  "turned": 5,
+  "entry": 0
+ },
+ "bottomless_sea_depths_map": {
+  "moved": 1,
+  "turned": 0,
+  "entry": 0
+ },
+ "boulder_quarry_clearing_map": {
+  "moved": 7,
+  "turned": 6,
+  "entry": 0
+ },
+ "brine_cave_pit_arena": {
+  "moved": 0,
+  "turned": 3,
+  "entry": 0
+ },
+ "crystal_lake_arena": {
+  "moved": 0,
+  "turned": 1,
+  "entry": 0
+ },
+ "dark_crater_pit_map": {
+  "moved": 5,
+  "turned": 4,
+  "entry": 0
+ },
+ "dark_ice_mountain_pinnacle_map": {
+  "moved": 4,
+  "turned": 5,
+  "entry": 0
+ },
+ "deep_mystery_jungle_map": {
+  "moved": 1,
+  "turned": 0,
+  "entry": 0
+ },
+ "deep_star_cave_team_rogue_map": {
+  "moved": 3,
+  "turned": 3,
+  "entry": 0
+ },
+ "fortune_ravine_pit_map": {
+  "moved": 6,
+  "turned": 6,
+  "entry": 0
+ },
+ "frosty_forest_summit": {
+  "moved": 0,
+  "turned": 1,
+  "entry": 0
+ },
+ "giant_volcano_peak_map": {
+  "moved": 1,
+  "turned": 0,
+  "entry": 0
+ },
+ "gloomy_forest_boss": {
+  "moved": 0,
+  "turned": 3,
+  "entry": 0
+ },
+ "limestone_cavern_depths_map": {
+  "moved": 3,
+  "turned": 3,
+  "entry": 0
+ },
+ "middle_spring_cave_map": {
+  "moved": 1,
+  "turned": 0,
+  "entry": 0
+ },
+ "mt_avalanche_peak_map": {
+  "moved": 1,
+  "turned": 0,
+  "entry": 0
+ },
+ "mt_blaze_peak_boss": {
+  "moved": 0,
+  "turned": 1,
+  "entry": 0
+ },
+ "mt_blaze_summit": {
+  "moved": 0,
+  "turned": 1,
+  "entry": 0
+ },
+ "mt_bristle_peak_arena": {
+  "moved": 0,
+  "turned": 1,
+  "entry": 0
+ },
+ "mt_freeze_peak_boss": {
+  "moved": 0,
+  "turned": 1,
+  "entry": 0
+ },
+ "mt_steel_boss": {
+  "moved": 0,
+  "turned": 1,
+  "entry": 0
+ },
+ "mt_thunder_peak_boss": {
+  "moved": 0,
+  "turned": 1,
+  "entry": 0
+ },
+ "mystifying_clearing_d45": {
+  "moved": 9,
+  "turned": 8,
+  "entry": 0
+ },
+ "old_ruins_arena": {
+  "moved": 0,
+  "turned": 6,
+  "entry": 0
+ },
+ "regigigas_chamber_boss_map": {
+  "moved": 6,
+  "turned": 5,
+  "entry": 0,
+  "still_on_wall": [
+   [
+    "bronzong",
+    5,
+    1
+   ],
+   [
+    "bronzong",
+    5,
+    1
+   ],
+   [
+    "bronzong",
+    5,
+    1
+   ],
+   [
+    "bronzong",
+    5,
+    1
+   ],
+   [
+    "bronzong",
+    5,
+    1
+   ],
+   [
+    "bronzong",
+    5,
+    1
+   ]
+  ]
+ },
+ "sanctuaire_titans": {
+  "moved": 0,
+  "turned": 6,
+  "entry": 0
+ },
+ "shimmer_desert_pit_map": {
+  "moved": 1,
+  "turned": 0,
+  "entry": 0
+ },
+ "sky_peak_summit_map": {
+  "moved": 8,
+  "turned": 7,
+  "entry": 0
+ },
+ "sky_stairway_apex_map": {
+  "moved": 1,
+  "turned": 0,
+  "entry": 0
+ },
+ "spacial_rift_bottom_map": {
+  "moved": 1,
+  "turned": 0,
+  "entry": 0
+ },
+ "spiritomb_arena": {
+  "moved": 0,
+  "turned": 1,
+  "entry": 0
+ },
+ "spring_cave_pit_map": {
+  "moved": 3,
+  "turned": 0,
+  "entry": 0
+ },
+ "star_cave_pit_map": {
+  "moved": 1,
+  "turned": 0,
+  "entry": 0
+ },
+ "steam_cave_peak_arena": {
+  "moved": 0,
+  "turned": 1,
+  "entry": 0
+ },
+ "temporal_pinnacle_arena": {
+  "moved": 0,
+  "turned": 1,
+  "entry": 0
+ },
+ "underground_lake_arena": {
+  "moved": 0,
+  "turned": 1,
+  "entry": 0
+ },
+ "upper_spring_cave_haunter_map": {
+  "moved": 1,
+  "turned": 0,
+  "entry": 0
+ },
+ "vast_ice_mountain_pinnacle_map": {
+  "moved": 1,
+  "turned": 0,
+  "entry": 0
+ },
+ "wish_cave_jirachi": {
+  "moved": 0,
+  "turned": 1,
+  "entry": 0
+ },
+ "world_abyss_pit_map": {
+  "moved": 1,
+  "turned": 0,
+  "entry": 0
+ }
+}

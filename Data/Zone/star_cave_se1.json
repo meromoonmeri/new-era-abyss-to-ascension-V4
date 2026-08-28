@@ -844,7 +844,7 @@
                   "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "CellWidth": 10,
                   "CellHeight": 10,
-                  "CellX": 4,
+                  "CellX": 5,
                   "CellY": 4,
                   "CellWall": 2,
                   "Wrap": false
@@ -1428,7 +1428,7 @@
                   "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "CellWidth": 10,
                   "CellHeight": 10,
-                  "CellX": 4,
+                  "CellX": 5,
                   "CellY": 4,
                   "CellWall": 2,
                   "Wrap": false
@@ -2012,7 +2012,7 @@
                   "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "CellWidth": 10,
                   "CellHeight": 10,
-                  "CellX": 4,
+                  "CellX": 5,
                   "CellY": 4,
                   "CellWall": 2,
                   "Wrap": false
@@ -2596,7 +2596,7 @@
                   "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "CellWidth": 10,
                   "CellHeight": 10,
-                  "CellX": 4,
+                  "CellX": 5,
                   "CellY": 4,
                   "CellWall": 2,
                   "Wrap": false
@@ -3218,7 +3218,7 @@
                   "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "CellWidth": 10,
                   "CellHeight": 10,
-                  "CellX": 4,
+                  "CellX": 5,
                   "CellY": 4,
                   "CellWall": 2,
                   "Wrap": false
@@ -3878,7 +3878,7 @@
                   "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "CellWidth": 10,
                   "CellHeight": 10,
-                  "CellX": 4,
+                  "CellX": 5,
                   "CellY": 4,
                   "CellWall": 2,
                   "Wrap": false
@@ -4538,7 +4538,7 @@
                   "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "CellWidth": 10,
                   "CellHeight": 10,
-                  "CellX": 4,
+                  "CellX": 5,
                   "CellY": 4,
                   "CellWall": 2,
                   "Wrap": false

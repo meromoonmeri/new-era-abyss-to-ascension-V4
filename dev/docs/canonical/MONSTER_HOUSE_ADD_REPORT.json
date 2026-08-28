@@ -1,0 +1,590 @@
+{
+ "amp_plains": {
+  "chance": 5,
+  "range": [
+   0,
+   10
+  ]
+ },
+ "armaldos_shelter": {
+  "chance": 5,
+  "range": [
+   0,
+   3
+  ]
+ },
+ "blizzard_island": {
+  "chance": 6,
+  "range": [
+   0,
+   20
+  ]
+ },
+ "bottomless_sea": {
+  "chance": 5,
+  "range": [
+   0,
+   49
+  ]
+ },
+ "concealed_ruins_post": {
+  "chance": 5,
+  "range": [
+   0,
+   30
+  ]
+ },
+ "crevice_cave": {
+  "chance": 4,
+  "range": [
+   0,
+   10
+  ]
+ },
+ "crevice_cave_pit": {
+  "chance": 4,
+  "range": [
+   0,
+   1
+  ]
+ },
+ "crystal_cave": {
+  "chance": 5,
+  "range": [
+   2,
+   11
+  ]
+ },
+ "crystal_crossing": {
+  "chance": 5,
+  "range": [
+   2,
+   13
+  ]
+ },
+ "dark_crater": {
+  "chance": 5,
+  "range": [
+   2,
+   15
+  ]
+ },
+ "dark_ice_mountain": {
+  "chance": 6,
+  "range": [
+   5,
+   10
+  ]
+ },
+ "dark_ice_mountain_peak": {
+  "chance": 17,
+  "range": [
+   0,
+   4
+  ]
+ },
+ "deep_barren_valley": {
+  "chance": 5,
+  "range": [
+   0,
+   5
+  ]
+ },
+ "deep_boulder_quarry": {
+  "chance": 5,
+  "range": [
+   0,
+   5
+  ]
+ },
+ "deep_dark_crater": {
+  "chance": 5,
+  "range": [
+   0,
+   14
+  ]
+ },
+ "deep_limestone_cavern": {
+  "chance": 5,
+  "range": [
+   0,
+   5
+  ]
+ },
+ "deep_miracle_sea": {
+  "chance": 3,
+  "range": [
+   0,
+   4
+  ]
+ },
+ "deep_spacial_rift": {
+  "chance": 10,
+  "range": [
+   0,
+   9
+  ]
+ },
+ "destiny_tower": {
+  "chance": 8,
+  "range": [
+   5,
+   99
+  ]
+ },
+ "eastern_cave": {
+  "chance": 5,
+  "range": [
+   5,
+   10
+  ]
+ },
+ "eighth_station_pass": {
+  "chance": 5,
+  "range": [
+   0,
+   4
+  ]
+ },
+ "far_amp_plains": {
+  "chance": 5,
+  "range": [
+   0,
+   9
+  ]
+ },
+ "fifth_station_clearing": {
+  "chance": 6,
+  "range": [
+   0,
+   1
+  ]
+ },
+ "fifth_station_pass": {
+  "chance": 5,
+  "range": [
+   0,
+   4
+  ]
+ },
+ "fortune_ravine": {
+  "chance": 5,
+  "range": [
+   5,
+   8
+  ]
+ },
+ "fortune_ravine_depths": {
+  "chance": 7,
+  "range": [
+   0,
+   6
+  ]
+ },
+ "fourth_station_pass": {
+  "chance": 5,
+  "range": [
+   0,
+   3
+  ]
+ },
+ "giant_volcano": {
+  "chance": 5,
+  "range": [
+   0,
+   19
+  ]
+ },
+ "happy_outlook": {
+  "chance": 5,
+  "range": [
+   0,
+   20
+  ]
+ },
+ "hidden_highland": {
+  "chance": 3,
+  "range": [
+   0,
+   8
+  ]
+ },
+ "hidden_land": {
+  "chance": 3,
+  "range": [
+   0,
+   15
+  ]
+ },
+ "hot_spring_dungeon": {
+  "chance": 5,
+  "range": [
+   0,
+   6
+  ]
+ },
+ "inferno_cave": {
+  "chance": 9,
+  "range": [
+   2,
+   30
+  ]
+ },
+ "labyrinth_cave": {
+  "chance": 3,
+  "range": [
+   0,
+   10
+  ]
+ },
+ "lake_afar": {
+  "chance": 3,
+  "range": [
+   0,
+   25
+  ]
+ },
+ "landslide_cave": {
+  "chance": 5,
+  "range": [
+   0,
+   13
+  ]
+ },
+ "lost_wilderness": {
+  "chance": 4,
+  "range": [
+   0,
+   18
+  ]
+ },
+ "lower_crevice_cave": {
+  "chance": 4,
+  "range": [
+   0,
+   4
+  ]
+ },
+ "lower_spring_cave": {
+  "chance": 7,
+  "range": [
+   0,
+   4
+  ]
+ },
+ "luminous_spring_dungeon": {
+  "chance": 5,
+  "range": [
+   0,
+   3
+  ]
+ },
+ "marine_resort": {
+  "chance": 6,
+  "range": [
+   3,
+   19
+  ]
+ },
+ "miracle_sea": {
+  "chance": 3,
+  "range": [
+   0,
+   18
+  ]
+ },
+ "miracle_seabed": {
+  "chance": 3,
+  "range": [
+   0,
+   1
+  ]
+ },
+ "mt_avalanche": {
+  "chance": 5,
+  "range": [
+   0,
+   19
+  ]
+ },
+ "mt_mistral": {
+  "chance": 3,
+  "range": [
+   0,
+   20
+  ]
+ },
+ "mt_travail_post": {
+  "chance": 6,
+  "range": [
+   0,
+   19
+  ]
+ },
+ "murky_forest": {
+  "chance": 5,
+  "range": [
+   5,
+   7
+  ]
+ },
+ "mystery_jungle": {
+  "chance": 5,
+  "range": [
+   0,
+   29
+  ]
+ },
+ "mystifying_forest_post": {
+  "chance": 4,
+  "range": [
+   0,
+   13
+  ]
+ },
+ "ninth_station_pass": {
+  "chance": 5,
+  "range": [
+   0,
+   5
+  ]
+ },
+ "oblivion_forest": {
+  "chance": 7,
+  "range": [
+   0,
+   15
+  ]
+ },
+ "quicksand_cave": {
+  "chance": 8,
+  "range": [
+   7,
+   10
+  ]
+ },
+ "quicksand_pit": {
+  "chance": 8,
+  "range": [
+   0,
+   10
+  ]
+ },
+ "second_station_pass": {
+  "chance": 5,
+  "range": [
+   2,
+   3
+  ]
+ },
+ "serenity_river": {
+  "chance": 5,
+  "range": [
+   0,
+   8
+  ]
+ },
+ "seventh_station_pass": {
+  "chance": 5,
+  "range": [
+   0,
+   4
+  ]
+ },
+ "shaymin_village": {
+  "chance": 5,
+  "range": [
+   0,
+   3
+  ]
+ },
+ "shimmer_desert": {
+  "chance": 11,
+  "range": [
+   0,
+   9
+  ]
+ },
+ "shimmer_hill": {
+  "chance": 3,
+  "range": [
+   0,
+   18
+  ]
+ },
+ "sixth_station_pass": {
+  "chance": 5,
+  "range": [
+   0,
+   4
+  ]
+ },
+ "sky_peak_summit_pass": {
+  "chance": 15,
+  "range": [
+   0,
+   5
+  ]
+ },
+ "southeastern_islands": {
+  "chance": 9,
+  "range": [
+   2,
+   25
+  ]
+ },
+ "southern_jungle": {
+  "chance": 5,
+  "range": [
+   5,
+   10
+  ]
+ },
+ "spacial_cliffs": {
+  "chance": 5,
+  "range": [
+   5,
+   10
+  ]
+ },
+ "spacial_rift": {
+  "chance": 13,
+  "range": [
+   10,
+   15
+  ]
+ },
+ "spring_cave_depths": {
+  "chance": 17,
+  "range": [
+   0,
+   4
+  ]
+ },
+ "star_cave": {
+  "chance": 5,
+  "range": [
+   12,
+   16
+  ]
+ },
+ "star_cave_depths": {
+  "chance": 5,
+  "range": [
+   1,
+   4
+  ]
+ },
+ "surrounded_sea": {
+  "chance": 5,
+  "range": [
+   3,
+   20
+  ]
+ },
+ "temporal_spire": {
+  "chance": 5,
+  "range": [
+   0,
+   10
+  ]
+ },
+ "temporal_spire_se5": {
+  "chance": 5,
+  "range": [
+   0,
+   10
+  ]
+ },
+ "temporal_tower": {
+  "chance": 5,
+  "range": [
+   0,
+   13
+  ]
+ },
+ "temporal_tower_se5": {
+  "chance": 5,
+  "range": [
+   0,
+   10
+  ]
+ },
+ "the_nightmare": {
+  "chance": 6,
+  "range": [
+   2,
+   17
+  ]
+ },
+ "third_station_pass": {
+  "chance": 5,
+  "range": [
+   0,
+   3
+  ]
+ },
+ "treacherous_waters": {
+  "chance": 8,
+  "range": [
+   0,
+   20
+  ]
+ },
+ "treeshroud_forest": {
+  "chance": 5,
+  "range": [
+   0,
+   20
+  ]
+ },
+ "upper_spring_cave": {
+  "chance": 6,
+  "range": [
+   0,
+   4
+  ]
+ },
+ "vast_ice_mountain_peak": {
+  "chance": 5,
+  "range": [
+   0,
+   8
+  ]
+ },
+ "world_abyss": {
+  "chance": 7,
+  "range": [
+   0,
+   29
+  ]
+ },
+ "zero_isle_center": {
+  "chance": 11,
+  "range": [
+   0,
+   50
+  ]
+ },
+ "zero_isle_north": {
+  "chance": 7,
+  "range": [
+   5,
+   75
+  ]
+ },
+ "zero_isle_south": {
+  "chance": 8,
+  "range": [
+   5,
+   99
+  ]
+ },
+ "zero_isle_west": {
+  "chance": 9,
+  "range": [
+   13,
+   40
+  ]
+ }
+}

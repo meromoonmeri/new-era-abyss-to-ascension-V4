@@ -28,7 +28,7 @@
               "X": 4,
               "Y": 3
             },
-            "serializationDir": 2,
+            "serializationDir": 7,
             "ProxyName": "",
             "ProxySprite": {
               "Species": "",
@@ -268,7 +268,7 @@
               "X": 8,
               "Y": 3
             },
-            "serializationDir": 2,
+            "serializationDir": 0,
             "ProxyName": "",
             "ProxySprite": {
               "Species": "",
@@ -508,7 +508,7 @@
               "X": 6,
               "Y": 4
             },
-            "serializationDir": 2,
+            "serializationDir": 7,
             "ProxyName": "",
             "ProxySprite": {
               "Species": "",
@@ -748,7 +748,7 @@
               "X": 2,
               "Y": 5
             },
-            "serializationDir": 2,
+            "serializationDir": 6,
             "ProxyName": "",
             "ProxySprite": {
               "Species": "",
@@ -1228,7 +1228,7 @@
               "X": 3,
               "Y": 7
             },
-            "serializationDir": 2,
+            "serializationDir": 6,
             "ProxyName": "",
             "ProxySprite": {
               "Species": "",
@@ -1468,7 +1468,7 @@
               "X": 9,
               "Y": 7
             },
-            "serializationDir": 2,
+            "serializationDir": 3,
             "ProxyName": "",
             "ProxySprite": {
               "Species": "",
@@ -1708,7 +1708,7 @@
               "X": 5,
               "Y": 9
             },
-            "serializationDir": 2,
+            "serializationDir": 5,
             "ProxyName": "",
             "ProxySprite": {
               "Species": "",
@@ -1948,7 +1948,7 @@
               "X": 7,
               "Y": 9
             },
-            "serializationDir": 2,
+            "serializationDir": 4,
             "ProxyName": "",
             "ProxySprite": {
               "Species": "",
@@ -19198,7 +19198,7 @@
           "X": 7,
           "Y": 6
         },
-        "Dir": 0
+        "Dir": 3
       }
     ],
     "Items": []

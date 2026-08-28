@@ -25,7 +25,7 @@
             "dead": false,
             "serializationLoc": {
               "X": 5,
-              "Y": 1
+              "Y": 2
             },
             "serializationDir": 0,
             "ProxyName": "",
@@ -281,10 +281,10 @@
             "movementSpeed": 0,
             "dead": false,
             "serializationLoc": {
-              "X": 5,
-              "Y": 1
+              "X": 2,
+              "Y": 5
             },
-            "serializationDir": 0,
+            "serializationDir": 6,
             "ProxyName": "",
             "ProxySprite": {
               "Species": "",
@@ -538,10 +538,10 @@
             "movementSpeed": 0,
             "dead": false,
             "serializationLoc": {
-              "X": 5,
-              "Y": 1
+              "X": 8,
+              "Y": 5
             },
-            "serializationDir": 0,
+            "serializationDir": 2,
             "ProxyName": "",
             "ProxySprite": {
               "Species": "",
@@ -795,10 +795,10 @@
             "movementSpeed": 0,
             "dead": false,
             "serializationLoc": {
-              "X": 5,
-              "Y": 1
+              "X": 3,
+              "Y": 6
             },
-            "serializationDir": 0,
+            "serializationDir": 5,
             "ProxyName": "",
             "ProxySprite": {
               "Species": "",
@@ -1052,10 +1052,10 @@
             "movementSpeed": 0,
             "dead": false,
             "serializationLoc": {
-              "X": 5,
-              "Y": 1
+              "X": 7,
+              "Y": 6
             },
-            "serializationDir": 0,
+            "serializationDir": 3,
             "ProxyName": "",
             "ProxySprite": {
               "Species": "",
@@ -1309,10 +1309,10 @@
             "movementSpeed": 0,
             "dead": false,
             "serializationLoc": {
-              "X": 5,
-              "Y": 1
+              "X": 4,
+              "Y": 7
             },
-            "serializationDir": 0,
+            "serializationDir": 4,
             "ProxyName": "",
             "ProxySprite": {
               "Species": "",
@@ -1566,10 +1566,10 @@
             "movementSpeed": 0,
             "dead": false,
             "serializationLoc": {
-              "X": 5,
-              "Y": 1
+              "X": 6,
+              "Y": 7
             },
-            "serializationDir": 0,
+            "serializationDir": 4,
             "ProxyName": "",
             "ProxySprite": {
               "Species": "",

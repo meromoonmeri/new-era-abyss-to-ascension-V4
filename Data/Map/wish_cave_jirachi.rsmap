@@ -47,7 +47,8 @@
               "Y": 5
             },
             "ActionEvents": [],
-            "ScriptVars": null
+            "ScriptVars": null,
+            "serializationDir": 0
           }
         ],
         "Leader": null
