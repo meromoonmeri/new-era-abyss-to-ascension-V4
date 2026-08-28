@@ -14,6 +14,7 @@
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.RedCanonScene'
+local AnimAdapter = require 'halcyon.ground.d10p03.animation_callbacks'
 
 local d10p03 = {}
 
@@ -101,6 +102,7 @@ local EVENTS = {
 }
 
 function d10p03.Init(map)
+  AnimAdapter.Init(map)
   DEBUG.EnableDbgCoro()
   COMMON.RespawnAllies(true)
 end
@@ -116,7 +118,7 @@ function d10p03.Enter(map)
     'master_zone', -1, 1, 0, true, true)
 end
 
-function d10p03.Update(map) end
+function d10p03.Update(map) AnimAdapter.Update(map) end
 function d10p03.GameSave(map) end
 function d10p03.GameLoad(map)
   GAME:FadeIn(20)

@@ -15,6 +15,7 @@
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.RedCanonScene'
+local AnimAdapter = require 'halcyon.ground.d10p02.animation_callbacks'
 
 local d10p02 = {}
 
@@ -39,6 +40,7 @@ local EVENTS = {
 }
 
 function d10p02.Init(map)
+  AnimAdapter.Init(map)
   DEBUG.EnableDbgCoro()
   COMMON.RespawnAllies(true)
 end
@@ -53,7 +55,7 @@ function d10p02.Enter(map)
     RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
-function d10p02.Update(map) end
+function d10p02.Update(map) AnimAdapter.Update(map) end
 function d10p02.GameSave(map) end
 function d10p02.GameLoad(map)
   GAME:FadeIn(20)

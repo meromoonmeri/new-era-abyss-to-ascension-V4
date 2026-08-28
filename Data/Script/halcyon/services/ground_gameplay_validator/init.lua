@@ -271,9 +271,14 @@ function V:begin()
   local zsum=_DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get('sky_hub_zone')
   local gl=zsum.Grounds
   for gi=0,gl.Count-1 do zone_grounds[gl[gi]]=gi end
+  local mz={}
+  local msum=_DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get('master_zone')
+  local ml=msum.Grounds
+  for mi=0,ml.Count-1 do mz[ml[mi]]=mi end
   for _,nm in ipairs(names) do
    local gi=zone_grounds[nm]
    if gi~=nil then PILOT[#PILOT+1]={id=nm,zone='sky_hub_zone',idx=gi}
+   elseif mz[nm]~=nil then PILOT[#PILOT+1]={id=nm,zone='master_zone',idx=mz[nm]}
    else emit('{"event":"sky_pilot_missing","ground":"'..nm..'"}') end
   end
  end
