@@ -17014,6 +17014,8 @@
         "Comment": "R11 salles secretes (hidden stairs ROM d17)"
       }
     ],
-    "GroundMaps": []
+    "GroundMaps": [
+      "d12p21a"
+    ]
   }
 }

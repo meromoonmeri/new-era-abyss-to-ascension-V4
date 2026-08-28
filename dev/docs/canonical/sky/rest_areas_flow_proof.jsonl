@@ -1,0 +1,81 @@
+{"event":"restflow_begin","count":26}
+{"event":"restflow_seg1","zone":"steam_cave","floor":7}
+{"event":"restflow_ground","from":"steam_cave","ground":"d10p21a","expected":"d10p21a","statues":1,"match":true}
+{"event":"restflow_seg2","zone":"upper_steam_cave","floor":0,"verdict":"REST_FLOW_PASS","chain":"steam_cave -> d10p21a -> upper_steam_cave"}
+{"event":"restflow_seg1","zone":"amp_plains","floor":9}
+{"event":"restflow_ground","from":"amp_plains","ground":"d12p21a","expected":"d12p21a","statues":1,"match":true}
+{"event":"restflow_seg2","zone":"far_amp_plains","floor":0,"verdict":"REST_FLOW_PASS","chain":"amp_plains -> d12p21a -> far_amp_plains"}
+{"event":"restflow_seg1","zone":"quicksand_cave","floor":9}
+{"event":"restflow_ground","from":"quicksand_cave","ground":"d15p21a","expected":"d15p21a","statues":1,"match":true}
+{"event":"restflow_seg2","zone":"quicksand_pit","floor":0,"verdict":"REST_FLOW_PASS","chain":"quicksand_cave -> d15p21a -> quicksand_pit"}
+{"event":"restflow_seg1","zone":"brine_cave","floor":8}
+{"event":"restflow_ground","from":"brine_cave","ground":"d26p21a","expected":"d26p21a","statues":1,"match":true}
+{"event":"restflow_seg2","zone":"lower_brine_cave","floor":0,"verdict":"REST_FLOW_PASS","chain":"brine_cave -> d26p21a -> lower_brine_cave"}
+{"event":"restflow_seg1","zone":"hidden_land","floor":14}
+{"event":"restflow_ground","from":"hidden_land","ground":"d28p21a","expected":"d28p21a","statues":1,"match":true}
+{"event":"restflow_seg2","zone":"hidden_highland","floor":0,"verdict":"REST_FLOW_PASS","chain":"hidden_land -> d28p21a -> hidden_highland"}
+{"event":"restflow_seg1","zone":"temporal_tower","floor":12}
+{"event":"restflow_ground","from":"temporal_tower","ground":"d30p21a","expected":"d30p21a","statues":1,"match":true}
+{"event":"restflow_seg2","zone":"temporal_spire","floor":0,"verdict":"REST_FLOW_PASS","chain":"temporal_tower -> d30p21a -> temporal_spire"}
+{"event":"restflow_seg1","zone":"crevice_cave","floor":9}
+{"event":"restflow_ground","from":"crevice_cave","ground":"d79p21a","expected":"d79p21a","statues":1,"match":true}
+{"event":"restflow_seg2","zone":"lower_crevice_cave","floor":0,"verdict":"REST_FLOW_PASS","chain":"crevice_cave -> d79p21a -> lower_crevice_cave"}
+{"event":"restflow_seg1","zone":"miracle_sea","floor":17}
+{"event":"restflow_ground","from":"miracle_sea","ground":"d35p21a","expected":"d35p21a","statues":1,"match":true}
+{"event":"restflow_seg2","zone":"deep_miracle_sea","floor":0,"verdict":"REST_FLOW_PASS","chain":"miracle_sea -> d35p21a -> deep_miracle_sea"}
+{"event":"restflow_seg1","zone":"spacial_rift","floor":14}
+{"event":"restflow_ground","from":"spacial_rift","ground":"d39p21a","expected":"d39p21a","statues":1,"match":true}
+{"event":"restflow_seg2","zone":"deep_spacial_rift","floor":0,"verdict":"REST_FLOW_PASS","chain":"spacial_rift -> d39p21a -> deep_spacial_rift"}
+{"event":"restflow_seg1","zone":"dark_crater","floor":14}
+{"event":"restflow_ground","from":"dark_crater","ground":"d41p21a","expected":"d41p21a","statues":1,"match":true}
+{"event":"restflow_seg2","zone":"deep_dark_crater","floor":0,"verdict":"REST_FLOW_PASS","chain":"dark_crater -> d41p21a -> deep_dark_crater"}
+{"event":"restflow_seg1","zone":"star_cave_se1","floor":6}
+{"event":"restflow_ground","from":"star_cave_se1","ground":"d42p21a","expected":"d42p21a","statues":1,"match":true}
+{"event":"restflow_seg2","zone":"deep_star_cave_dungeon","floor":0,"verdict":"REST_FLOW_PASS","chain":"star_cave_se1 -> d42p21a -> deep_star_cave_dungeon"}
+{"event":"restflow_seg1","zone":"fortune_ravine","floor":7}
+{"event":"restflow_ground","from":"fortune_ravine","ground":"d45p21a","expected":"d45p21a","statues":1,"match":true}
+{"event":"restflow_seg2","zone":"fortune_ravine_depths","floor":0,"verdict":"REST_FLOW_PASS","chain":"fortune_ravine -> d45p21a -> fortune_ravine_depths"}
+{"event":"restflow_seg1","zone":"barren_valley","floor":4}
+{"event":"restflow_ground","from":"barren_valley","ground":"d46p21a","expected":"d46p21a","statues":1,"match":true}
+{"event":"restflow_seg2","zone":"deep_barren_valley","floor":0,"verdict":"REST_FLOW_PASS","chain":"barren_valley -> d46p21a -> deep_barren_valley"}
+{"event":"restflow_seg1","zone":"temporal_tower_se5","floor":9}
+{"event":"restflow_ground","from":"temporal_tower_se5","ground":"d48p21a","expected":"d48p21a","statues":1,"match":true}
+{"event":"restflow_seg2","zone":"temporal_spire_se5","floor":0,"verdict":"REST_FLOW_PASS","chain":"temporal_tower_se5 -> d48p21a -> temporal_spire_se5"}
+{"event":"restflow_seg1","zone":"dark_ice_mountain","floor":9}
+{"event":"restflow_ground","from":"dark_ice_mountain","ground":"d51p21a","expected":"d51p21a","statues":1,"match":true}
+{"event":"restflow_seg2","zone":"dark_ice_mountain_peak","floor":0,"verdict":"REST_FLOW_PASS","chain":"dark_ice_mountain -> d51p21a -> dark_ice_mountain_peak"}
+{"event":"restflow_seg1","zone":"vast_ice_mountain","floor":8}
+{"event":"restflow_ground","from":"vast_ice_mountain","ground":"d53p21a","expected":"d53p21a","statues":1,"match":true}
+{"event":"restflow_seg2","zone":"vast_ice_mountain_peak","floor":0,"verdict":"REST_FLOW_PASS","chain":"vast_ice_mountain -> d53p21a -> vast_ice_mountain_peak"}
+{"event":"restflow_seg1","zone":"boulder_quarry","floor":4}
+{"event":"restflow_ground","from":"boulder_quarry","ground":"d55p21a","expected":"d55p21a","statues":1,"match":true}
+{"event":"restflow_seg2","zone":"deep_boulder_quarry","floor":0,"verdict":"REST_FLOW_PASS","chain":"boulder_quarry -> d55p21a -> deep_boulder_quarry"}
+{"event":"restflow_seg1","zone":"limestone_cavern","floor":4}
+{"event":"restflow_ground","from":"limestone_cavern","ground":"d56p21a","expected":"d56p21a","statues":1,"match":true}
+{"event":"restflow_seg2","zone":"deep_limestone_cavern","floor":0,"verdict":"REST_FLOW_PASS","chain":"limestone_cavern -> d56p21a -> deep_limestone_cavern"}
+{"event":"restflow_seg1","zone":"lower_spring_cave","floor":3}
+{"event":"restflow_ground","from":"lower_spring_cave","ground":"d57p21a","expected":"d57p21a","statues":1,"match":true}
+{"event":"restflow_seg2","zone":"spring_cave_depths","floor":0,"verdict":"REST_FLOW_PASS","chain":"lower_spring_cave -> d57p21a -> spring_cave_depths"}
+{"event":"restflow_seg1","zone":"first_station_pass","floor":2}
+{"event":"restflow_ground","from":"first_station_pass","ground":"d73p21a","expected":"d73p21a","statues":1,"match":true}
+{"event":"restflow_seg2","zone":"second_station_pass","floor":0,"verdict":"REST_FLOW_PASS","chain":"first_station_pass -> d73p21a -> second_station_pass"}
+{"event":"restflow_seg1","zone":"second_station_pass","floor":2}
+{"event":"restflow_ground","from":"second_station_pass","ground":"d73p22a","expected":"d73p22a","statues":1,"match":true}
+{"event":"restflow_seg2","zone":"third_station_pass","floor":0,"verdict":"REST_FLOW_PASS","chain":"second_station_pass -> d73p22a -> third_station_pass"}
+{"event":"restflow_seg1","zone":"third_station_pass","floor":2}
+{"event":"restflow_ground","from":"third_station_pass","ground":"d73p23a","expected":"d73p23a","statues":1,"match":true}
+{"event":"restflow_seg2","zone":"fourth_station_pass","floor":0,"verdict":"REST_FLOW_PASS","chain":"third_station_pass -> d73p23a -> fourth_station_pass"}
+{"event":"restflow_seg1","zone":"fourth_station_pass","floor":2}
+{"event":"restflow_ground","from":"fourth_station_pass","ground":"d73p24a","expected":"d73p24a","statues":1,"match":true}
+{"event":"restflow_seg2","zone":"fifth_station_pass","floor":0,"verdict":"REST_FLOW_PASS","chain":"fourth_station_pass -> d73p24a -> fifth_station_pass"}
+{"event":"restflow_seg1","zone":"sixth_station_pass","floor":3}
+{"event":"restflow_ground","from":"sixth_station_pass","ground":"d73p26a","expected":"d73p26a","statues":1,"match":true}
+{"event":"restflow_seg2","zone":"seventh_station_pass","floor":0,"verdict":"REST_FLOW_PASS","chain":"sixth_station_pass -> d73p26a -> seventh_station_pass"}
+{"event":"restflow_seg1","zone":"seventh_station_pass","floor":3}
+{"event":"restflow_ground","from":"seventh_station_pass","ground":"d73p27a","expected":"d73p27a","statues":1,"match":true}
+{"event":"restflow_seg2","zone":"eighth_station_pass","floor":0,"verdict":"REST_FLOW_PASS","chain":"seventh_station_pass -> d73p27a -> eighth_station_pass"}
+{"event":"restflow_seg1","zone":"ninth_station_pass","floor":4}
+{"event":"restflow_ground","from":"ninth_station_pass","ground":"d73p29a","expected":"d73p29a","statues":1,"match":true}
+{"event":"restflow_seg2","zone":"sky_peak_summit_pass","floor":0,"verdict":"REST_FLOW_PASS","chain":"ninth_station_pass -> d73p29a -> sky_peak_summit_pass"}
+{"event":"restflow_end","verdict":"REST_FLOW_ALL_PASS","count":26}
+{"event":"end"}

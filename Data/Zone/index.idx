@@ -5672,7 +5672,9 @@
       "Rescues": 0,
       "CountedFloors": 8,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "d10p21a"
+      ],
       "Maps": [
         [
           0,
@@ -5747,7 +5749,9 @@
       "Rescues": 0,
       "CountedFloors": 10,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "d12p21a"
+      ],
       "Maps": [
         [
           0,
@@ -5929,7 +5933,9 @@
       "Rescues": 0,
       "CountedFloors": 10,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "d15p21a"
+      ],
       "Maps": [
         [
           0,
@@ -6510,7 +6516,9 @@
       "Rescues": 0,
       "CountedFloors": 9,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "d26p21a"
+      ],
       "Maps": [
         [
           0,
@@ -6584,7 +6592,9 @@
       "Rescues": 0,
       "CountedFloors": 15,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "d28p21a"
+      ],
       "Maps": [
         [
           0,
@@ -6667,7 +6677,9 @@
       "Rescues": 0,
       "CountedFloors": 13,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "d30p21a"
+      ],
       "Maps": [
         [
           0,
@@ -7075,7 +7087,9 @@
       "Rescues": 0,
       "CountedFloors": 18,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "d35p21a"
+      ],
       "Maps": [
         [
           0,
@@ -7466,7 +7480,9 @@
       "Rescues": 0,
       "CountedFloors": 10,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "d79p21a"
+      ],
       "Maps": [
         [
           0,
@@ -7688,7 +7704,10 @@
       "Rescues": 0,
       "CountedFloors": 15,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "d39p21a",
+        "d38p12a"
+      ],
       "Maps": [
         [
           0,
@@ -7772,7 +7791,9 @@
       "Rescues": 0,
       "CountedFloors": 15,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "d41p21a"
+      ],
       "Maps": [
         [
           0,
@@ -10327,7 +10348,9 @@
       "Rescues": 0,
       "CountedFloors": 3,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "d73p21a"
+      ],
       "Maps": [
         [
           0,
@@ -10365,7 +10388,9 @@
       "Rescues": 0,
       "CountedFloors": 3,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "d73p22a"
+      ],
       "Maps": [
         [
           0,
@@ -10403,7 +10428,9 @@
       "Rescues": 0,
       "CountedFloors": 3,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "d73p23a"
+      ],
       "Maps": [
         [
           0,
@@ -10441,7 +10468,9 @@
       "Rescues": 0,
       "CountedFloors": 3,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "d73p24a"
+      ],
       "Maps": [
         [
           0,
@@ -10519,7 +10548,9 @@
       "Rescues": 0,
       "CountedFloors": 4,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "d73p26a"
+      ],
       "Maps": [
         [
           0,
@@ -10559,7 +10590,9 @@
       "Rescues": 0,
       "CountedFloors": 4,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "d73p27a"
+      ],
       "Maps": [
         [
           0,
@@ -10639,7 +10672,9 @@
       "Rescues": 0,
       "CountedFloors": 5,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "d73p29a"
+      ],
       "Maps": [
         [
           0,
@@ -10757,7 +10792,9 @@
       "Rescues": 0,
       "CountedFloors": 7,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "d42p21a"
+      ],
       "Maps": [
         [
           0,
@@ -10939,7 +10976,9 @@
       "Rescues": 0,
       "CountedFloors": 8,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "d45p21a"
+      ],
       "Maps": [
         [
           0,
@@ -11013,7 +11052,9 @@
       "Rescues": 0,
       "CountedFloors": 5,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "d46p21a"
+      ],
       "Maps": [
         [
           0,
@@ -11117,7 +11158,9 @@
       "Rescues": 0,
       "CountedFloors": 10,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "d48p21a"
+      ],
       "Maps": [
         [
           0,
@@ -11274,7 +11317,9 @@
       "Rescues": 0,
       "CountedFloors": 10,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "d51p21a"
+      ],
       "Maps": [
         [
           0,
@@ -11388,7 +11433,9 @@
       "Rescues": 0,
       "CountedFloors": 9,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "d53p21a"
+      ],
       "Maps": [
         [
           0,
@@ -11505,7 +11552,9 @@
       "Rescues": 0,
       "CountedFloors": 5,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "d55p21a"
+      ],
       "Maps": [
         [
           0,
@@ -11645,7 +11694,9 @@
       "Rescues": 0,
       "CountedFloors": 5,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "d56p21a"
+      ],
       "Maps": [
         [
           0,
@@ -12102,7 +12153,9 @@
       "Rescues": 0,
       "CountedFloors": 4,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "d57p21a"
+      ],
       "Maps": [
         [
           0,

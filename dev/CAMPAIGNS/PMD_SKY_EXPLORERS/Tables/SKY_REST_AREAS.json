@@ -1,0 +1,275 @@
+{
+ "rule": "Câblage aires de repos : unionall GETOUT_* + mXX.ssb main_EnterDungeon (ROM EU)",
+ "apply": true,
+ "wired": [
+  {
+   "seg1": "amp_plains",
+   "rest": "d12p21a",
+   "seg2": "far_amp_plains",
+   "proof": "GETOUT case 17 LABEL_D017_CLEAR ; m12a0501.ssb -> EnterDungeon(18)"
+  },
+  {
+   "seg1": "barren_valley",
+   "rest": "d46p21a",
+   "seg2": "deep_barren_valley",
+   "proof": "GETOUT case 133 ; n08a0608.ssb -> EnterDungeon(134)"
+  },
+  {
+   "seg1": "boulder_quarry",
+   "rest": "d55p21a",
+   "seg2": "deep_boulder_quarry",
+   "proof": "GETOUT case 150 ; n06a1101.ssb -> EnterDungeon(151)"
+  },
+  {
+   "seg1": "brine_cave",
+   "rest": "d26p21a",
+   "seg2": "lower_brine_cave",
+   "proof": "GETOUT case 35 LABEL_D035_CLEAR ; m23a0402.ssb -> EnterDungeon(36)"
+  },
+  {
+   "seg1": "crevice_cave",
+   "rest": "d79p21a",
+   "seg2": "lower_crevice_cave",
+   "proof": "GETOUT case 47 LABEL_D047_CLEAR ; scripts -> EnterDungeon(48)"
+  },
+  {
+   "seg1": "dark_crater",
+   "rest": "d41p21a",
+   "seg2": "deep_dark_crater",
+   "proof": "GETOUT case 67 LABEL_D067_CLEAR ; s22p0901.ssb -> EnterDungeon(68)"
+  },
+  {
+   "seg1": "dark_ice_mountain",
+   "rest": "d51p21a",
+   "seg2": "dark_ice_mountain_peak",
+   "proof": "GETOUT case 142 ; n09a0301.ssb -> EnterDungeon(143)"
+  },
+  {
+   "seg1": "first_station_pass",
+   "rest": "d73p21a",
+   "seg2": "second_station_pass",
+   "proof": "GETOUT case 111 LABEL_SORANOITADAKI_1GOUME ; enter01.ssb -> 112"
+  },
+  {
+   "seg1": "fortune_ravine",
+   "rest": "d45p21a",
+   "seg2": "fortune_ravine_depths",
+   "proof": "GETOUT case 130 ; n03a1301.ssb -> EnterDungeon(131)"
+  },
+  {
+   "seg1": "fourth_station_pass",
+   "rest": "d73p24a",
+   "seg2": "fifth_station_pass",
+   "proof": "GETOUT case 114 ; enter01.ssb -> 115"
+  },
+  {
+   "seg1": "hidden_land",
+   "rest": "d28p21a",
+   "seg2": "hidden_highland",
+   "proof": "GETOUT case 38 LABEL_D038_CLEAR ; m24a0601.ssb -> EnterDungeon(39)"
+  },
+  {
+   "seg1": "limestone_cavern",
+   "rest": "d56p21a",
+   "seg2": "deep_limestone_cavern",
+   "proof": "GETOUT case 155 ; n06a3201.ssb -> EnterDungeon(156)"
+  },
+  {
+   "seg1": "lower_spring_cave",
+   "rest": "d57p21a",
+   "seg2": "spring_cave_depths",
+   "proof": "GETOUT case 162 ; n04a1701/n04a1901.ssb -> EnterDungeon(163)"
+  },
+  {
+   "seg1": "miracle_sea",
+   "rest": "d35p21a",
+   "seg2": "deep_miracle_sea",
+   "proof": "GETOUT case 51 LABEL_D051_CLEAR ; -> EnterDungeon(52)"
+  },
+  {
+   "seg1": "ninth_station_pass",
+   "rest": "d73p29a",
+   "seg2": "sky_peak_summit_pass",
+   "proof": "GETOUT case 119 ; enter01.ssb -> 120"
+  },
+  {
+   "seg1": "quicksand_cave",
+   "rest": "d15p21a",
+   "seg2": "quicksand_pit",
+   "proof": "GETOUT case 21 LABEL_D021_CLEAR ; m14a0501.ssb -> EnterDungeon(22)"
+  },
+  {
+   "seg1": "second_station_pass",
+   "rest": "d73p22a",
+   "seg2": "third_station_pass",
+   "proof": "GETOUT case 112 ; enter01.ssb -> 113"
+  },
+  {
+   "seg1": "seventh_station_pass",
+   "rest": "d73p27a",
+   "seg2": "eighth_station_pass",
+   "proof": "GETOUT case 117 ; enter01.ssb -> 118"
+  },
+  {
+   "seg1": "sixth_station_pass",
+   "rest": "d73p26a",
+   "seg2": "seventh_station_pass",
+   "proof": "GETOUT case 116 ; enter01.ssb -> 117"
+  },
+  {
+   "seg1": "spacial_rift",
+   "rest": "d39p21a",
+   "seg2": "deep_spacial_rift",
+   "proof": "GETOUT case 64 LABEL_D064_CLEAR ; s21p0901.ssb -> EnterDungeon(65)"
+  },
+  {
+   "seg1": "star_cave_se1",
+   "rest": "d42p21a",
+   "seg2": "deep_star_cave_dungeon",
+   "proof": "GETOUT case 123 ; n01a1601.ssb -> EnterDungeon(124 DEEP_STAR_CAVE)"
+  },
+  {
+   "seg1": "steam_cave",
+   "rest": "d10p21a",
+   "seg2": "upper_steam_cave",
+   "proof": "GETOUT case 14 LABEL_D014_CLEAR ; m10a0601/m10a0701.ssb -> EnterDungeon(15)"
+  },
+  {
+   "seg1": "temporal_tower",
+   "rest": "d30p21a",
+   "seg2": "temporal_spire",
+   "proof": "GETOUT case 41 LABEL_D041_CLEAR ; m25a0901.ssb -> EnterDungeon(42)"
+  },
+  {
+   "seg1": "temporal_tower_se5",
+   "rest": "d48p21a",
+   "seg2": "temporal_spire_se5",
+   "proof": "GETOUT case 137 ; n08a1808.ssb -> EnterDungeon(138)"
+  },
+  {
+   "seg1": "third_station_pass",
+   "rest": "d73p23a",
+   "seg2": "fourth_station_pass",
+   "proof": "GETOUT case 113 ; enter01.ssb -> 114"
+  },
+  {
+   "seg1": "vast_ice_mountain",
+   "rest": "d53p21a",
+   "seg2": "vast_ice_mountain_peak",
+   "proof": "GETOUT case 146 ; n09a1601.ssb -> EnterDungeon(147)"
+  }
+ ],
+ "entry_grounds": [
+  {
+   "ground": "d38p12a",
+   "next": "spacial_rift",
+   "proof": "ENTRANCE_SORANOSAKEME_RESUME ; s21p0701.ssb -> EnterDungeon(64)"
+  }
+ ],
+ "skipped": [
+  {
+   "ground": "d12p21a",
+   "reason": "init.lua existant"
+  },
+  {
+   "ground": "d46p21a",
+   "reason": "init.lua existant"
+  },
+  {
+   "ground": "d55p21a",
+   "reason": "init.lua existant"
+  },
+  {
+   "ground": "d26p21a",
+   "reason": "init.lua existant"
+  },
+  {
+   "ground": "d79p21a",
+   "reason": "init.lua existant"
+  },
+  {
+   "ground": "d41p21a",
+   "reason": "init.lua existant"
+  },
+  {
+   "ground": "d51p21a",
+   "reason": "init.lua existant"
+  },
+  {
+   "ground": "d73p21a",
+   "reason": "init.lua existant"
+  },
+  {
+   "ground": "d45p21a",
+   "reason": "init.lua existant"
+  },
+  {
+   "ground": "d73p24a",
+   "reason": "init.lua existant"
+  },
+  {
+   "ground": "d28p21a",
+   "reason": "init.lua existant"
+  },
+  {
+   "ground": "d56p21a",
+   "reason": "init.lua existant"
+  },
+  {
+   "ground": "d57p21a",
+   "reason": "init.lua existant"
+  },
+  {
+   "ground": "d35p21a",
+   "reason": "init.lua existant"
+  },
+  {
+   "ground": "d73p29a",
+   "reason": "init.lua existant"
+  },
+  {
+   "ground": "d15p21a",
+   "reason": "init.lua existant"
+  },
+  {
+   "ground": "d73p22a",
+   "reason": "init.lua existant"
+  },
+  {
+   "ground": "d73p27a",
+   "reason": "init.lua existant"
+  },
+  {
+   "ground": "d73p26a",
+   "reason": "init.lua existant"
+  },
+  {
+   "ground": "d39p21a",
+   "reason": "init.lua existant"
+  },
+  {
+   "ground": "d42p21a",
+   "reason": "init.lua existant"
+  },
+  {
+   "ground": "d10p21a",
+   "reason": "init.lua existant"
+  },
+  {
+   "ground": "d30p21a",
+   "reason": "init.lua existant"
+  },
+  {
+   "ground": "d48p21a",
+   "reason": "init.lua existant"
+  },
+  {
+   "ground": "d73p23a",
+   "reason": "init.lua existant"
+  },
+  {
+   "ground": "d53p21a",
+   "reason": "init.lua existant"
+  }
+ ]
+}

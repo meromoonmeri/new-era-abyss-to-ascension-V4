@@ -21236,6 +21236,9 @@
         "Comment": "Spacial Rift B1-B15"
       }
     ],
-    "GroundMaps": []
+    "GroundMaps": [
+      "d39p21a",
+      "d38p12a"
+    ]
   }
 }

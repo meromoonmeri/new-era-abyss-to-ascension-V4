@@ -20,7 +20,7 @@ local function emit(s)
  PrintInfo('[GROUND_VALIDATOR] '..s)
  local f=io.open('/tmp/ground_gameplay_validator.jsonl','a');if f then f:write(s..'\n');f:flush();f:close() end
 end
-function V:initialize() BaseService.initialize(self);self.mode=os.getenv('PMDO_GROUND_VALIDATOR');self.enabled=(self.mode=='1' or self.mode=='tornadus_battle' or string.sub(self.mode or '',1,6)=='arena:' or string.sub(self.mode or '',1,6)=='luluby' or string.sub(self.mode or '',1,4)=='sky:' or string.sub(self.mode or '',1,9)=='skyscene:' or self.mode=='skyprogress' or self.mode=='skyjourney' or string.sub(self.mode or '',1,9)=='skyresume' or self.mode=='redjourney' or string.sub(self.mode or '',1,9)=='redresume' or string.sub(self.mode or '',1,7)=='skyhub:' or string.sub(self.mode or '',1,7)=='dprobe:');self.idx=0;self.entered=false;self.busy=false
+function V:initialize() BaseService.initialize(self);self.mode=os.getenv('PMDO_GROUND_VALIDATOR');self.enabled=(self.mode=='1' or self.mode=='tornadus_battle' or string.sub(self.mode or '',1,6)=='arena:' or string.sub(self.mode or '',1,6)=='luluby' or string.sub(self.mode or '',1,4)=='sky:' or string.sub(self.mode or '',1,9)=='skyscene:' or self.mode=='skyprogress' or self.mode=='skyjourney' or string.sub(self.mode or '',1,9)=='skyresume' or self.mode=='redjourney' or string.sub(self.mode or '',1,9)=='redresume' or string.sub(self.mode or '',1,7)=='skyhub:' or string.sub(self.mode or '',1,7)=='dprobe:' or string.sub(self.mode or '',1,9)=='restflow:');self.idx=0;self.entered=false;self.busy=false
  -- mode 'skyscene:<scene>@<ground>' : rejoue une cinématique canonique Sky
  if string.sub(self.mode or '',1,9)=='skyscene:' then
   local spec=string.sub(self.mode,10)
@@ -45,6 +45,26 @@ function V:begin()
   local gi=141;if self.mode=='luluby_evening' then gi=142 elseif self.mode=='luluby_night' then gi=143 end
   emit('{"event":"luluby_runtime_begin","ground_index":'..tostring(gi)..'}')
   GAME:EnterZone('master_zone',-1,gi,0)
+  return
+ end
+ if string.sub(self.mode or '',1,9)=='restflow:' then
+  -- Test bout-en-bout des aires de repos Sky (SkyRestAreas) :
+  -- entrer au DERNIER étage du seg1, franchir la victoire (EndSegment
+  -- Cleared = même chemin moteur que l'escalier final), vérifier :
+  -- ExitSegment -> ground d'aire -> statue -> auto-continue -> seg2 fl0.
+  self.idx=-7;SV.RuntimeGroundAudit.Active=false
+  self.restflow={}
+  for z in string.gmatch(string.sub(self.mode,10),'([^,]+)') do self.restflow[#self.restflow+1]=z end
+  self.rf_i=1;self.rf_stage='enter_last'
+  local SkyRestAreas=require('halcyon.SkyRestAreas')
+  self.rf_map=SkyRestAreas.BY_DUNGEON
+  emit('{"event":"restflow_begin","count":'..#self.restflow..'}')
+  local z1=self.restflow[1]
+  local zsum=_DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get(z1)
+  local last=0
+  pcall(function() last=zsum.CountedFloors-1 end)
+  self.rf_last=last
+  GAME:EnterZone(z1,0,last,0)
   return
  end
  if string.sub(self.mode or '',1,7)=='dprobe:' then
@@ -298,6 +318,42 @@ function V:begin()
  self.idx=1;emit('{"event":"begin","count":'..#PILOT..'}');GAME:EnterZone(PILOT[self.idx].zone,-1,PILOT[self.idx].idx,0)
 end
 function V:OnDungeonFloorEnter()
+ if self.enabled and self.restflow then
+  local ok,err=xpcall(function()
+    local cz=tostring(_ZONE.CurrentZoneID)
+    local floor=_ZONE.CurrentMapID.ID
+    local z1=self.restflow[self.rf_i]
+    local entry=self.rf_map[z1]
+    if self.rf_stage=='enter_last' and cz==z1 then
+      emit('{"event":"restflow_seg1","zone":"'..cz..'","floor":'..floor..'}')
+      self.rf_stage='expect_ground'
+      -- victoire du segment 1 : même chemin moteur que l'escalier final
+      -- (pattern red_story_route_validator : synchrone + SetFade).
+      local manager=RogueEssence.GameManager.Instance
+      manager:SetFade(true,false)
+      local field=manager:GetType():GetField('SceneOutcome')
+      field:SetValue(manager,_GAME:EndSegment(RogueEssence.Data.GameProgress.ResultType.Cleared,true))
+      return
+    end
+    if self.rf_stage=='expect_seg2' and entry and cz==entry.next then
+      emit('{"event":"restflow_seg2","zone":"'..cz..'","floor":'..floor..',"verdict":"REST_FLOW_PASS","chain":"'..z1..' -> '..entry.rest..' -> '..entry.next..'"}')
+      self.rf_i=self.rf_i+1;self.rf_stage='enter_last'
+      local nz=self.restflow[self.rf_i]
+      if nz==nil then
+        emit('{"event":"restflow_end","verdict":"REST_FLOW_ALL_PASS","count":'..(self.rf_i-1)..'}');emit('{"event":"end"}')
+        self.restflow=nil
+        return
+      end
+      local zsum=_DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get(nz)
+      local last=0;pcall(function() last=zsum.CountedFloors-1 end)
+      GAME:EnterZone(nz,0,last,0)
+      return
+    end
+    emit('{"event":"restflow_unexpected","zone":"'..cz..'","floor":'..floor..',"stage":"'..tostring(self.rf_stage)..'"}')
+  end,debug.traceback)
+  if not ok then emit('{"event":"restflow_end","verdict":"FAIL","error":"'..tostring(err):gsub('"','\\"'):gsub('\n',' | ')..'"}');emit('{"event":"end"}');self.restflow=nil end
+  return
+ end
  if self.enabled and self.dprobe then
   local ok,err=xpcall(function()
     local cz=tostring(_ZONE.CurrentZoneID)
@@ -582,6 +638,44 @@ function V:OnDungeonFloorEnter()
  emit(ok and msg or ('{"event":"arena_battle_runtime","verdict":"RUNTIME_FAIL","error":"'..tostring(msg):gsub('"','\\"')..'"}'))
 end
 function V:OnGroundMapEnter()
+ if self.enabled and self.restflow and self.rf_stage=='expect_ground' then
+  local ok,err=xpcall(function()
+    local g=GAME:GetCurrentGround()
+    local gname=tostring(g.AssetName)
+    local z1=self.restflow[self.rf_i]
+    local entry=self.rf_map[z1]
+    local statue=0
+    pcall(function()
+      for li=0,g.Entities.Count-1 do
+        local lay=g.Entities[li]
+        for oi=0,lay.GroundObjects.Count-1 do
+          if tostring(lay.GroundObjects[oi].EntName)=='Kangaskhan_Rock' then statue=statue+1 end
+        end
+      end
+    end)
+    local expected=(entry and entry.rest) or '?'
+    local okg=(gname==expected)
+    emit('{"event":"restflow_ground","from":"'..z1..'","ground":"'..gname..'","expected":"'..expected..'","statues":'..statue..',"match":'..tostring(okg)..'}')
+    if not okg then
+      emit('{"event":"restflow_end","verdict":"FAIL","error":"mauvais ground"}');emit('{"event":"end"}');self.restflow=nil
+      return
+    end
+    self.rf_stage='expect_seg2'
+    -- Transition seg2 : même appel que SkyRestAreas.OnRestAreaEnter
+    -- (GAME:EnterDungeon), déclenchée hors du callback Enter pour ne pas
+    -- bloquer BeginGround en headless.
+    local nxt=entry.next
+    self.task=TASK:BranchCoroutine(function()
+      GAME:WaitFrames(30)
+      -- continuation d'expédition headless : EnterZone (même mécanisme que
+      -- skyjourney) — EnterDungeon (jeu réel) déclenche les menus de
+      -- restriction/record, impossibles sans input.
+      GAME:EnterZone(nxt,0,0,0)
+    end)
+  end,debug.traceback)
+  if not ok then emit('{"event":"restflow_end","verdict":"FAIL","error":"'..tostring(err):gsub('"','\\"'):gsub('\n',' | ')..'"}');emit('{"event":"end"}');self.restflow=nil end
+  return
+ end
  -- phase scène du journey global : jouer la cinématique du chapitre
  if self.enabled and self.jscene and not self.busy then
   self:journey_play_scene()

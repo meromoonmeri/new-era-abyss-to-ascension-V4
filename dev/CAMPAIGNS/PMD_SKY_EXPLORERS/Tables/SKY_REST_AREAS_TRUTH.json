@@ -1,0 +1,430 @@
+{
+ "schema": "sky-rest-areas-truth/1",
+ "authority": "unionall.ssb (GETOUT_SCENARIO_DUNGEON/GETOUT_REQUEST_CONQUEST/GETOUT_REQUEST_RETURN, switch $DUNGEON_ENTER_INDEX) + EVENT_DIVIDE_RESUME ($GROUND_ENTER) + scripts mXX/nXX/sXX des grounds (main_EnterDungeon)",
+ "definition": "aire de repos = ground fixe (mapty 10) charge par la ROM a la victoire du segment 1 d'un donjon multi-parties ; statue Kangourex = point de sauvegarde ; la sortie reprend le segment 2 etage 1",
+ "no_duplicates": "27 grounds distincts, 26 checkpoints + 1 entree (d38p12a), verification len(set)==27 dans wire_sky_rest_areas.py",
+ "entries": [
+  {
+   "dungeon_seg1": "amp_plains",
+   "trigger_floor": "10F (dernier étage, victoire du segment — jamais un étage intermédiaire)",
+   "rom_trigger": "GETOUT case 17 LABEL_D017_CLEAR ; m12a0501.ssb -> EnterDungeon(18)",
+   "rest_ground": "d12p21a",
+   "pmdo_ground": "Data/Ground/d12p21a.rsground",
+   "statues_ssa": [
+    {
+     "x": 228,
+     "y": 240
+    }
+   ],
+   "checkpoint": "statue Kangourex (sauvegarde native) + SV.SkyRestAreas.LastCheckpoint",
+   "transition_seg2": "far_amp_plains",
+   "resume": "seg2 étage 1 (0-based 0), conforme main_EnterDungeon ROM"
+  },
+  {
+   "dungeon_seg1": "barren_valley",
+   "trigger_floor": "5F (dernier étage, victoire du segment — jamais un étage intermédiaire)",
+   "rom_trigger": "GETOUT case 133 ; n08a0608.ssb -> EnterDungeon(134)",
+   "rest_ground": "d46p21a",
+   "pmdo_ground": "Data/Ground/d46p21a.rsground",
+   "statues_ssa": [
+    {
+     "x": 228,
+     "y": 240
+    }
+   ],
+   "checkpoint": "statue Kangourex (sauvegarde native) + SV.SkyRestAreas.LastCheckpoint",
+   "transition_seg2": "deep_barren_valley",
+   "resume": "seg2 étage 1 (0-based 0), conforme main_EnterDungeon ROM"
+  },
+  {
+   "dungeon_seg1": "boulder_quarry",
+   "trigger_floor": "5F (dernier étage, victoire du segment — jamais un étage intermédiaire)",
+   "rom_trigger": "GETOUT case 150 ; n06a1101.ssb -> EnterDungeon(151)",
+   "rest_ground": "d55p21a",
+   "pmdo_ground": "Data/Ground/d55p21a.rsground",
+   "statues_ssa": [
+    {
+     "x": 228,
+     "y": 240
+    }
+   ],
+   "checkpoint": "statue Kangourex (sauvegarde native) + SV.SkyRestAreas.LastCheckpoint",
+   "transition_seg2": "deep_boulder_quarry",
+   "resume": "seg2 étage 1 (0-based 0), conforme main_EnterDungeon ROM"
+  },
+  {
+   "dungeon_seg1": "brine_cave",
+   "trigger_floor": "9F (dernier étage, victoire du segment — jamais un étage intermédiaire)",
+   "rom_trigger": "GETOUT case 35 LABEL_D035_CLEAR ; m23a0402.ssb -> EnterDungeon(36)",
+   "rest_ground": "d26p21a",
+   "pmdo_ground": "Data/Ground/d26p21a.rsground",
+   "statues_ssa": [
+    {
+     "x": 228,
+     "y": 240
+    }
+   ],
+   "checkpoint": "statue Kangourex (sauvegarde native) + SV.SkyRestAreas.LastCheckpoint",
+   "transition_seg2": "lower_brine_cave",
+   "resume": "seg2 étage 1 (0-based 0), conforme main_EnterDungeon ROM"
+  },
+  {
+   "dungeon_seg1": "crevice_cave",
+   "trigger_floor": "10F (dernier étage, victoire du segment — jamais un étage intermédiaire)",
+   "rom_trigger": "GETOUT case 47 LABEL_D047_CLEAR ; scripts -> EnterDungeon(48)",
+   "rest_ground": "d79p21a",
+   "pmdo_ground": "Data/Ground/d79p21a.rsground",
+   "statues_ssa": [
+    {
+     "x": 228,
+     "y": 240
+    }
+   ],
+   "checkpoint": "statue Kangourex (sauvegarde native) + SV.SkyRestAreas.LastCheckpoint",
+   "transition_seg2": "lower_crevice_cave",
+   "resume": "seg2 étage 1 (0-based 0), conforme main_EnterDungeon ROM"
+  },
+  {
+   "dungeon_seg1": "dark_crater",
+   "trigger_floor": "15F (dernier étage, victoire du segment — jamais un étage intermédiaire)",
+   "rom_trigger": "GETOUT case 67 LABEL_D067_CLEAR ; s22p0901.ssb -> EnterDungeon(68)",
+   "rest_ground": "d41p21a",
+   "pmdo_ground": "Data/Ground/d41p21a.rsground",
+   "statues_ssa": [
+    {
+     "x": 228,
+     "y": 240
+    }
+   ],
+   "checkpoint": "statue Kangourex (sauvegarde native) + SV.SkyRestAreas.LastCheckpoint",
+   "transition_seg2": "deep_dark_crater",
+   "resume": "seg2 étage 1 (0-based 0), conforme main_EnterDungeon ROM"
+  },
+  {
+   "dungeon_seg1": "dark_ice_mountain",
+   "trigger_floor": "10F (dernier étage, victoire du segment — jamais un étage intermédiaire)",
+   "rom_trigger": "GETOUT case 142 ; n09a0301.ssb -> EnterDungeon(143)",
+   "rest_ground": "d51p21a",
+   "pmdo_ground": "Data/Ground/d51p21a.rsground",
+   "statues_ssa": [
+    {
+     "x": 228,
+     "y": 240
+    }
+   ],
+   "checkpoint": "statue Kangourex (sauvegarde native) + SV.SkyRestAreas.LastCheckpoint",
+   "transition_seg2": "dark_ice_mountain_peak",
+   "resume": "seg2 étage 1 (0-based 0), conforme main_EnterDungeon ROM"
+  },
+  {
+   "dungeon_seg1": "first_station_pass",
+   "trigger_floor": "3F (dernier étage, victoire du segment — jamais un étage intermédiaire)",
+   "rom_trigger": "GETOUT case 111 LABEL_SORANOITADAKI_1GOUME ; enter01.ssb -> 112",
+   "rest_ground": "d73p21a",
+   "pmdo_ground": "Data/Ground/d73p21a.rsground",
+   "statues_ssa": [
+    {
+     "x": 228,
+     "y": 240
+    }
+   ],
+   "checkpoint": "statue Kangourex (sauvegarde native) + SV.SkyRestAreas.LastCheckpoint",
+   "transition_seg2": "second_station_pass",
+   "resume": "seg2 étage 1 (0-based 0), conforme main_EnterDungeon ROM"
+  },
+  {
+   "dungeon_seg1": "fortune_ravine",
+   "trigger_floor": "8F (dernier étage, victoire du segment — jamais un étage intermédiaire)",
+   "rom_trigger": "GETOUT case 130 ; n03a1301.ssb -> EnterDungeon(131)",
+   "rest_ground": "d45p21a",
+   "pmdo_ground": "Data/Ground/d45p21a.rsground",
+   "statues_ssa": [
+    {
+     "x": 228,
+     "y": 240
+    }
+   ],
+   "checkpoint": "statue Kangourex (sauvegarde native) + SV.SkyRestAreas.LastCheckpoint",
+   "transition_seg2": "fortune_ravine_depths",
+   "resume": "seg2 étage 1 (0-based 0), conforme main_EnterDungeon ROM"
+  },
+  {
+   "dungeon_seg1": "fourth_station_pass",
+   "trigger_floor": "3F (dernier étage, victoire du segment — jamais un étage intermédiaire)",
+   "rom_trigger": "GETOUT case 114 ; enter01.ssb -> 115",
+   "rest_ground": "d73p24a",
+   "pmdo_ground": "Data/Ground/d73p24a.rsground",
+   "statues_ssa": [
+    {
+     "x": 288,
+     "y": 192
+    }
+   ],
+   "checkpoint": "statue Kangourex (sauvegarde native) + SV.SkyRestAreas.LastCheckpoint",
+   "transition_seg2": "fifth_station_pass",
+   "resume": "seg2 étage 1 (0-based 0), conforme main_EnterDungeon ROM"
+  },
+  {
+   "dungeon_seg1": "hidden_land",
+   "trigger_floor": "15F (dernier étage, victoire du segment — jamais un étage intermédiaire)",
+   "rom_trigger": "GETOUT case 38 LABEL_D038_CLEAR ; m24a0601.ssb -> EnterDungeon(39)",
+   "rest_ground": "d28p21a",
+   "pmdo_ground": "Data/Ground/d28p21a.rsground",
+   "statues_ssa": [
+    {
+     "x": 228,
+     "y": 240
+    }
+   ],
+   "checkpoint": "statue Kangourex (sauvegarde native) + SV.SkyRestAreas.LastCheckpoint",
+   "transition_seg2": "hidden_highland",
+   "resume": "seg2 étage 1 (0-based 0), conforme main_EnterDungeon ROM"
+  },
+  {
+   "dungeon_seg1": "limestone_cavern",
+   "trigger_floor": "5F (dernier étage, victoire du segment — jamais un étage intermédiaire)",
+   "rom_trigger": "GETOUT case 155 ; n06a3201.ssb -> EnterDungeon(156)",
+   "rest_ground": "d56p21a",
+   "pmdo_ground": "Data/Ground/d56p21a.rsground",
+   "statues_ssa": [
+    {
+     "x": 228,
+     "y": 240
+    }
+   ],
+   "checkpoint": "statue Kangourex (sauvegarde native) + SV.SkyRestAreas.LastCheckpoint",
+   "transition_seg2": "deep_limestone_cavern",
+   "resume": "seg2 étage 1 (0-based 0), conforme main_EnterDungeon ROM"
+  },
+  {
+   "dungeon_seg1": "lower_spring_cave",
+   "trigger_floor": "4F (dernier étage, victoire du segment — jamais un étage intermédiaire)",
+   "rom_trigger": "GETOUT case 162 ; n04a1701/n04a1901.ssb -> EnterDungeon(163)",
+   "rest_ground": "d57p21a",
+   "pmdo_ground": "Data/Ground/d57p21a.rsground",
+   "statues_ssa": [
+    {
+     "x": 228,
+     "y": 240
+    }
+   ],
+   "checkpoint": "statue Kangourex (sauvegarde native) + SV.SkyRestAreas.LastCheckpoint",
+   "transition_seg2": "spring_cave_depths",
+   "resume": "seg2 étage 1 (0-based 0), conforme main_EnterDungeon ROM"
+  },
+  {
+   "dungeon_seg1": "miracle_sea",
+   "trigger_floor": "18F (dernier étage, victoire du segment — jamais un étage intermédiaire)",
+   "rom_trigger": "GETOUT case 51 LABEL_D051_CLEAR ; -> EnterDungeon(52)",
+   "rest_ground": "d35p21a",
+   "pmdo_ground": "Data/Ground/d35p21a.rsground",
+   "statues_ssa": [
+    {
+     "x": 228,
+     "y": 240
+    }
+   ],
+   "checkpoint": "statue Kangourex (sauvegarde native) + SV.SkyRestAreas.LastCheckpoint",
+   "transition_seg2": "deep_miracle_sea",
+   "resume": "seg2 étage 1 (0-based 0), conforme main_EnterDungeon ROM"
+  },
+  {
+   "dungeon_seg1": "ninth_station_pass",
+   "trigger_floor": "5F (dernier étage, victoire du segment — jamais un étage intermédiaire)",
+   "rom_trigger": "GETOUT case 119 ; enter01.ssb -> 120",
+   "rest_ground": "d73p29a",
+   "pmdo_ground": "Data/Ground/d73p29a.rsground",
+   "statues_ssa": [
+    {
+     "x": 268,
+     "y": 200
+    }
+   ],
+   "checkpoint": "statue Kangourex (sauvegarde native) + SV.SkyRestAreas.LastCheckpoint",
+   "transition_seg2": "sky_peak_summit_pass",
+   "resume": "seg2 étage 1 (0-based 0), conforme main_EnterDungeon ROM"
+  },
+  {
+   "dungeon_seg1": "quicksand_cave",
+   "trigger_floor": "10F (dernier étage, victoire du segment — jamais un étage intermédiaire)",
+   "rom_trigger": "GETOUT case 21 LABEL_D021_CLEAR ; m14a0501.ssb -> EnterDungeon(22)",
+   "rest_ground": "d15p21a",
+   "pmdo_ground": "Data/Ground/d15p21a.rsground",
+   "statues_ssa": [
+    {
+     "x": 228,
+     "y": 240
+    }
+   ],
+   "checkpoint": "statue Kangourex (sauvegarde native) + SV.SkyRestAreas.LastCheckpoint",
+   "transition_seg2": "quicksand_pit",
+   "resume": "seg2 étage 1 (0-based 0), conforme main_EnterDungeon ROM"
+  },
+  {
+   "dungeon_seg1": "second_station_pass",
+   "trigger_floor": "3F (dernier étage, victoire du segment — jamais un étage intermédiaire)",
+   "rom_trigger": "GETOUT case 112 ; enter01.ssb -> 113",
+   "rest_ground": "d73p22a",
+   "pmdo_ground": "Data/Ground/d73p22a.rsground",
+   "statues_ssa": [
+    {
+     "x": 288,
+     "y": 192
+    }
+   ],
+   "checkpoint": "statue Kangourex (sauvegarde native) + SV.SkyRestAreas.LastCheckpoint",
+   "transition_seg2": "third_station_pass",
+   "resume": "seg2 étage 1 (0-based 0), conforme main_EnterDungeon ROM"
+  },
+  {
+   "dungeon_seg1": "seventh_station_pass",
+   "trigger_floor": "4F (dernier étage, victoire du segment — jamais un étage intermédiaire)",
+   "rom_trigger": "GETOUT case 117 ; enter01.ssb -> 118",
+   "rest_ground": "d73p27a",
+   "pmdo_ground": "Data/Ground/d73p27a.rsground",
+   "statues_ssa": [
+    {
+     "x": 276,
+     "y": 184
+    }
+   ],
+   "checkpoint": "statue Kangourex (sauvegarde native) + SV.SkyRestAreas.LastCheckpoint",
+   "transition_seg2": "eighth_station_pass",
+   "resume": "seg2 étage 1 (0-based 0), conforme main_EnterDungeon ROM"
+  },
+  {
+   "dungeon_seg1": "sixth_station_pass",
+   "trigger_floor": "4F (dernier étage, victoire du segment — jamais un étage intermédiaire)",
+   "rom_trigger": "GETOUT case 116 ; enter01.ssb -> 117",
+   "rest_ground": "d73p26a",
+   "pmdo_ground": "Data/Ground/d73p26a.rsground",
+   "statues_ssa": [
+    {
+     "x": 288,
+     "y": 192
+    }
+   ],
+   "checkpoint": "statue Kangourex (sauvegarde native) + SV.SkyRestAreas.LastCheckpoint",
+   "transition_seg2": "seventh_station_pass",
+   "resume": "seg2 étage 1 (0-based 0), conforme main_EnterDungeon ROM"
+  },
+  {
+   "dungeon_seg1": "spacial_rift",
+   "trigger_floor": "15F (dernier étage, victoire du segment — jamais un étage intermédiaire)",
+   "rom_trigger": "GETOUT case 64 LABEL_D064_CLEAR ; s21p0901.ssb -> EnterDungeon(65)",
+   "rest_ground": "d39p21a",
+   "pmdo_ground": "Data/Ground/d39p21a.rsground",
+   "statues_ssa": [
+    {
+     "x": 228,
+     "y": 240
+    }
+   ],
+   "checkpoint": "statue Kangourex (sauvegarde native) + SV.SkyRestAreas.LastCheckpoint",
+   "transition_seg2": "deep_spacial_rift",
+   "resume": "seg2 étage 1 (0-based 0), conforme main_EnterDungeon ROM"
+  },
+  {
+   "dungeon_seg1": "star_cave_se1",
+   "trigger_floor": "7F (dernier étage, victoire du segment — jamais un étage intermédiaire)",
+   "rom_trigger": "GETOUT case 123 ; n01a1601.ssb -> EnterDungeon(124 DEEP_STAR_CAVE)",
+   "rest_ground": "d42p21a",
+   "pmdo_ground": "Data/Ground/d42p21a.rsground",
+   "statues_ssa": [
+    {
+     "x": 228,
+     "y": 240
+    }
+   ],
+   "checkpoint": "statue Kangourex (sauvegarde native) + SV.SkyRestAreas.LastCheckpoint",
+   "transition_seg2": "deep_star_cave_dungeon",
+   "resume": "seg2 étage 1 (0-based 0), conforme main_EnterDungeon ROM"
+  },
+  {
+   "dungeon_seg1": "steam_cave",
+   "trigger_floor": "8F (dernier étage, victoire du segment — jamais un étage intermédiaire)",
+   "rom_trigger": "GETOUT case 14 LABEL_D014_CLEAR ; m10a0601/m10a0701.ssb -> EnterDungeon(15)",
+   "rest_ground": "d10p21a",
+   "pmdo_ground": "Data/Ground/d10p21a.rsground",
+   "statues_ssa": [
+    {
+     "x": 228,
+     "y": 240
+    }
+   ],
+   "checkpoint": "statue Kangourex (sauvegarde native) + SV.SkyRestAreas.LastCheckpoint",
+   "transition_seg2": "upper_steam_cave",
+   "resume": "seg2 étage 1 (0-based 0), conforme main_EnterDungeon ROM"
+  },
+  {
+   "dungeon_seg1": "temporal_tower",
+   "trigger_floor": "13F (dernier étage, victoire du segment — jamais un étage intermédiaire)",
+   "rom_trigger": "GETOUT case 41 LABEL_D041_CLEAR ; m25a0901.ssb -> EnterDungeon(42)",
+   "rest_ground": "d30p21a",
+   "pmdo_ground": "Data/Ground/d30p21a.rsground",
+   "statues_ssa": [
+    {
+     "x": 228,
+     "y": 240
+    }
+   ],
+   "checkpoint": "statue Kangourex (sauvegarde native) + SV.SkyRestAreas.LastCheckpoint",
+   "transition_seg2": "temporal_spire",
+   "resume": "seg2 étage 1 (0-based 0), conforme main_EnterDungeon ROM"
+  },
+  {
+   "dungeon_seg1": "temporal_tower_se5",
+   "trigger_floor": "10F (dernier étage, victoire du segment — jamais un étage intermédiaire)",
+   "rom_trigger": "GETOUT case 137 ; n08a1808.ssb -> EnterDungeon(138)",
+   "rest_ground": "d48p21a",
+   "pmdo_ground": "Data/Ground/d48p21a.rsground",
+   "statues_ssa": [
+    {
+     "x": 228,
+     "y": 240
+    }
+   ],
+   "checkpoint": "statue Kangourex (sauvegarde native) + SV.SkyRestAreas.LastCheckpoint",
+   "transition_seg2": "temporal_spire_se5",
+   "resume": "seg2 étage 1 (0-based 0), conforme main_EnterDungeon ROM"
+  },
+  {
+   "dungeon_seg1": "third_station_pass",
+   "trigger_floor": "3F (dernier étage, victoire du segment — jamais un étage intermédiaire)",
+   "rom_trigger": "GETOUT case 113 ; enter01.ssb -> 114",
+   "rest_ground": "d73p23a",
+   "pmdo_ground": "Data/Ground/d73p23a.rsground",
+   "statues_ssa": [
+    {
+     "x": 228,
+     "y": 240
+    }
+   ],
+   "checkpoint": "statue Kangourex (sauvegarde native) + SV.SkyRestAreas.LastCheckpoint",
+   "transition_seg2": "fourth_station_pass",
+   "resume": "seg2 étage 1 (0-based 0), conforme main_EnterDungeon ROM"
+  },
+  {
+   "dungeon_seg1": "vast_ice_mountain",
+   "trigger_floor": "9F (dernier étage, victoire du segment — jamais un étage intermédiaire)",
+   "rom_trigger": "GETOUT case 146 ; n09a1601.ssb -> EnterDungeon(147)",
+   "rest_ground": "d53p21a",
+   "pmdo_ground": "Data/Ground/d53p21a.rsground",
+   "statues_ssa": [
+    {
+     "x": 228,
+     "y": 240
+    }
+   ],
+   "checkpoint": "statue Kangourex (sauvegarde native) + SV.SkyRestAreas.LastCheckpoint",
+   "transition_seg2": "vast_ice_mountain_peak",
+   "resume": "seg2 étage 1 (0-based 0), conforme main_EnterDungeon ROM"
+  },
+  {
+   "entry_ground": "d38p12a",
+   "rom_trigger": "ENTRANCE_SORANOSAKEME_RESUME ; s21p0701.ssb -> EnterDungeon(64)",
+   "transition": "spacial_rift",
+   "role": "ground d'ENTREE (pas un checkpoint mi-donjon)"
+  }
+ ]
+}

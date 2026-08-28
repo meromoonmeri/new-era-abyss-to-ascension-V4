@@ -9669,6 +9669,8 @@
         "Comment": "R11 salles secretes (hidden stairs ROM d117)"
       }
     ],
-    "GroundMaps": []
+    "GroundMaps": [
+      "d73p27a"
+    ]
   }
 }
