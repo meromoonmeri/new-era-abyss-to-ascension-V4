@@ -6186,15 +6186,339 @@
                 "Rate": 10
               }
             ],
-            "Items": [],
+            "Items": [
+              {
+                "Spawn": {
+                  "IsMoney": false,
+                  "Cursed": false,
+                  "Value": "gummi_white",
+                  "HiddenValue": "",
+                  "Amount": 0,
+                  "Price": 0,
+                  "TileLoc": {
+                    "X": 0,
+                    "Y": 0
+                  }
+                },
+                "Rate": 588,
+                "Range": {
+                  "Min": 0,
+                  "Max": 20
+                }
+              },
+              {
+                "Spawn": {
+                  "IsMoney": false,
+                  "Cursed": false,
+                  "Value": "gummi_red",
+                  "HiddenValue": "",
+                  "Amount": 0,
+                  "Price": 0,
+                  "TileLoc": {
+                    "X": 0,
+                    "Y": 0
+                  }
+                },
+                "Rate": 588,
+                "Range": {
+                  "Min": 0,
+                  "Max": 20
+                }
+              },
+              {
+                "Spawn": {
+                  "IsMoney": false,
+                  "Cursed": false,
+                  "Value": "gummi_blue",
+                  "HiddenValue": "",
+                  "Amount": 0,
+                  "Price": 0,
+                  "TileLoc": {
+                    "X": 0,
+                    "Y": 0
+                  }
+                },
+                "Rate": 589,
+                "Range": {
+                  "Min": 0,
+                  "Max": 20
+                }
+              },
+              {
+                "Spawn": {
+                  "IsMoney": false,
+                  "Cursed": false,
+                  "Value": "gummi_grass",
+                  "HiddenValue": "",
+                  "Amount": 0,
+                  "Price": 0,
+                  "TileLoc": {
+                    "X": 0,
+                    "Y": 0
+                  }
+                },
+                "Rate": 588,
+                "Range": {
+                  "Min": 0,
+                  "Max": 20
+                }
+              },
+              {
+                "Spawn": {
+                  "IsMoney": false,
+                  "Cursed": false,
+                  "Value": "gummi_yellow",
+                  "HiddenValue": "",
+                  "Amount": 0,
+                  "Price": 0,
+                  "TileLoc": {
+                    "X": 0,
+                    "Y": 0
+                  }
+                },
+                "Rate": 588,
+                "Range": {
+                  "Min": 0,
+                  "Max": 20
+                }
+              },
+              {
+                "Spawn": {
+                  "IsMoney": false,
+                  "Cursed": false,
+                  "Value": "gummi_clear",
+                  "HiddenValue": "",
+                  "Amount": 0,
+                  "Price": 0,
+                  "TileLoc": {
+                    "X": 0,
+                    "Y": 0
+                  }
+                },
+                "Rate": 588,
+                "Range": {
+                  "Min": 0,
+                  "Max": 20
+                }
+              },
+              {
+                "Spawn": {
+                  "IsMoney": false,
+                  "Cursed": false,
+                  "Value": "gummi_orange",
+                  "HiddenValue": "",
+                  "Amount": 0,
+                  "Price": 0,
+                  "TileLoc": {
+                    "X": 0,
+                    "Y": 0
+                  }
+                },
+                "Rate": 589,
+                "Range": {
+                  "Min": 0,
+                  "Max": 20
+                }
+              },
+              {
+                "Spawn": {
+                  "IsMoney": false,
+                  "Cursed": false,
+                  "Value": "gummi_pink",
+                  "HiddenValue": "",
+                  "Amount": 0,
+                  "Price": 0,
+                  "TileLoc": {
+                    "X": 0,
+                    "Y": 0
+                  }
+                },
+                "Rate": 588,
+                "Range": {
+                  "Min": 0,
+                  "Max": 20
+                }
+              },
+              {
+                "Spawn": {
+                  "IsMoney": false,
+                  "Cursed": false,
+                  "Value": "gummi_brown",
+                  "HiddenValue": "",
+                  "Amount": 0,
+                  "Price": 0,
+                  "TileLoc": {
+                    "X": 0,
+                    "Y": 0
+                  }
+                },
+                "Rate": 588,
+                "Range": {
+                  "Min": 0,
+                  "Max": 20
+                }
+              },
+              {
+                "Spawn": {
+                  "IsMoney": false,
+                  "Cursed": false,
+                  "Value": "gummi_sky",
+                  "HiddenValue": "",
+                  "Amount": 0,
+                  "Price": 0,
+                  "TileLoc": {
+                    "X": 0,
+                    "Y": 0
+                  }
+                },
+                "Rate": 588,
+                "Range": {
+                  "Min": 0,
+                  "Max": 20
+                }
+              },
+              {
+                "Spawn": {
+                  "IsMoney": false,
+                  "Cursed": false,
+                  "Value": "gummi_gold",
+                  "HiddenValue": "",
+                  "Amount": 0,
+                  "Price": 0,
+                  "TileLoc": {
+                    "X": 0,
+                    "Y": 0
+                  }
+                },
+                "Rate": 589,
+                "Range": {
+                  "Min": 0,
+                  "Max": 20
+                }
+              },
+              {
+                "Spawn": {
+                  "IsMoney": false,
+                  "Cursed": false,
+                  "Value": "gummi_green",
+                  "HiddenValue": "",
+                  "Amount": 0,
+                  "Price": 0,
+                  "TileLoc": {
+                    "X": 0,
+                    "Y": 0
+                  }
+                },
+                "Rate": 588,
+                "Range": {
+                  "Min": 0,
+                  "Max": 20
+                }
+              },
+              {
+                "Spawn": {
+                  "IsMoney": false,
+                  "Cursed": false,
+                  "Value": "gummi_gray",
+                  "HiddenValue": "",
+                  "Amount": 0,
+                  "Price": 0,
+                  "TileLoc": {
+                    "X": 0,
+                    "Y": 0
+                  }
+                },
+                "Rate": 588,
+                "Range": {
+                  "Min": 0,
+                  "Max": 20
+                }
+              },
+              {
+                "Spawn": {
+                  "IsMoney": false,
+                  "Cursed": false,
+                  "Value": "gummi_purple",
+                  "HiddenValue": "",
+                  "Amount": 0,
+                  "Price": 0,
+                  "TileLoc": {
+                    "X": 0,
+                    "Y": 0
+                  }
+                },
+                "Rate": 588,
+                "Range": {
+                  "Min": 0,
+                  "Max": 20
+                }
+              },
+              {
+                "Spawn": {
+                  "IsMoney": false,
+                  "Cursed": false,
+                  "Value": "gummi_royal",
+                  "HiddenValue": "",
+                  "Amount": 0,
+                  "Price": 0,
+                  "TileLoc": {
+                    "X": 0,
+                    "Y": 0
+                  }
+                },
+                "Rate": 589,
+                "Range": {
+                  "Min": 0,
+                  "Max": 20
+                }
+              },
+              {
+                "Spawn": {
+                  "IsMoney": false,
+                  "Cursed": false,
+                  "Value": "gummi_black",
+                  "HiddenValue": "",
+                  "Amount": 0,
+                  "Price": 0,
+                  "TileLoc": {
+                    "X": 0,
+                    "Y": 0
+                  }
+                },
+                "Rate": 588,
+                "Range": {
+                  "Min": 0,
+                  "Max": 20
+                }
+              },
+              {
+                "Spawn": {
+                  "IsMoney": false,
+                  "Cursed": false,
+                  "Value": "gummi_silver",
+                  "HiddenValue": "",
+                  "Amount": 0,
+                  "Price": 0,
+                  "TileLoc": {
+                    "X": 0,
+                    "Y": 0
+                  }
+                },
+                "Rate": 588,
+                "Range": {
+                  "Min": 0,
+                  "Max": 20
+                }
+              }
+            ],
             "ItemThemes": [
               {
                 "Spawn": {
                   "$type": "PMDC.LevelGen.ItemThemeNone, PMDC",
-                  "SpecialRatio": 40,
+                  "SpecialRatio": 100,
                   "Amount": {
-                    "Min": 2,
-                    "Max": 4
+                    "Min": 6,
+                    "Max": 7
                   }
                 },
                 "Rate": 30,

@@ -1,0 +1,476 @@
+{
+ "rule": "R4.5 items MH : table monster_house mappa_s (SpecialRatio 100) + Amount 6-7 (min 6/cap 7 ROM)",
+ "apply": true,
+ "zones": [
+  {
+   "zone": "amp_clearing",
+   "dungeon": "d19",
+   "housesteps": 1
+  },
+  {
+   "zone": "amp_plains",
+   "dungeon": "d17",
+   "housesteps": 1
+  },
+  {
+   "zone": "armaldos_shelter",
+   "dungeon": "d176",
+   "housesteps": 1
+  },
+  {
+   "zone": "blizzard_island",
+   "dungeon": "d46",
+   "housesteps": 1
+  },
+  {
+   "zone": "bottomless_sea",
+   "dungeon": "d73",
+   "housesteps": 1
+  },
+  {
+   "zone": "concealed_ruins_post",
+   "dungeon": "d70",
+   "housesteps": 1
+  },
+  {
+   "zone": "crevice_cave",
+   "dungeon": "d47",
+   "housesteps": 1
+  },
+  {
+   "zone": "crevice_cave_pit",
+   "dungeon": "d49",
+   "housesteps": 1
+  },
+  {
+   "zone": "crystal_cave",
+   "dungeon": "d24",
+   "housesteps": 1
+  },
+  {
+   "zone": "crystal_crossing",
+   "dungeon": "d25",
+   "housesteps": 1
+  },
+  {
+   "zone": "crystal_lake",
+   "dungeon": "d26",
+   "housesteps": 1
+  },
+  {
+   "zone": "dark_crater",
+   "dungeon": "d67",
+   "housesteps": 1
+  },
+  {
+   "zone": "dark_ice_mountain",
+   "dungeon": "d142",
+   "housesteps": 1
+  },
+  {
+   "zone": "dark_ice_mountain_peak",
+   "dungeon": "d143",
+   "housesteps": 2
+  },
+  {
+   "zone": "deep_barren_valley",
+   "dungeon": "d134",
+   "housesteps": 1
+  },
+  {
+   "zone": "deep_boulder_quarry",
+   "dungeon": "d151",
+   "housesteps": 1
+  },
+  {
+   "zone": "deep_dark_crater",
+   "dungeon": "d68",
+   "housesteps": 1
+  },
+  {
+   "zone": "deep_limestone_cavern",
+   "dungeon": "d156",
+   "housesteps": 1
+  },
+  {
+   "zone": "deep_miracle_sea",
+   "dungeon": "d52",
+   "housesteps": 1
+  },
+  {
+   "zone": "deep_spacial_rift",
+   "dungeon": "d65",
+   "housesteps": 3
+  },
+  {
+   "zone": "destiny_tower",
+   "dungeon": "d104",
+   "housesteps": 11
+  },
+  {
+   "zone": "eastern_cave",
+   "dungeon": "d129",
+   "housesteps": 1
+  },
+  {
+   "zone": "eighth_station_pass",
+   "dungeon": "d118",
+   "housesteps": 1
+  },
+  {
+   "zone": "far_amp_plains",
+   "dungeon": "d18",
+   "housesteps": 1
+  },
+  {
+   "zone": "fifth_station_clearing",
+   "dungeon": "d121",
+   "housesteps": 1
+  },
+  {
+   "zone": "fifth_station_pass",
+   "dungeon": "d115",
+   "housesteps": 1
+  },
+  {
+   "zone": "fortune_ravine",
+   "dungeon": "d130",
+   "housesteps": 1
+  },
+  {
+   "zone": "fortune_ravine_depths",
+   "dungeon": "d131",
+   "housesteps": 1
+  },
+  {
+   "zone": "fourth_station_pass",
+   "dungeon": "d114",
+   "housesteps": 1
+  },
+  {
+   "zone": "giant_volcano",
+   "dungeon": "d79",
+   "housesteps": 1
+  },
+  {
+   "zone": "happy_outlook",
+   "dungeon": "d94",
+   "housesteps": 1
+  },
+  {
+   "zone": "hidden_highland",
+   "dungeon": "d39",
+   "housesteps": 1
+  },
+  {
+   "zone": "hidden_land",
+   "dungeon": "d38",
+   "housesteps": 1
+  },
+  {
+   "zone": "hot_spring_dungeon",
+   "dungeon": "d178",
+   "housesteps": 1
+  },
+  {
+   "zone": "inferno_cave",
+   "dungeon": "d110",
+   "housesteps": 5
+  },
+  {
+   "zone": "labyrinth_cave",
+   "dungeon": "d91",
+   "housesteps": 1
+  },
+  {
+   "zone": "lake_afar",
+   "dungeon": "d93",
+   "housesteps": 1
+  },
+  {
+   "zone": "landslide_cave",
+   "dungeon": "d88",
+   "housesteps": 1
+  },
+  {
+   "zone": "lost_wilderness",
+   "dungeon": "d97",
+   "housesteps": 1
+  },
+  {
+   "zone": "lower_crevice_cave",
+   "dungeon": "d48",
+   "housesteps": 1
+  },
+  {
+   "zone": "lower_spring_cave",
+   "dungeon": "d162",
+   "housesteps": 4
+  },
+  {
+   "zone": "luminous_spring_dungeon",
+   "dungeon": "d177",
+   "housesteps": 1
+  },
+  {
+   "zone": "marine_resort",
+   "dungeon": "d72",
+   "housesteps": 1
+  },
+  {
+   "zone": "miracle_sea",
+   "dungeon": "d51",
+   "housesteps": 1
+  },
+  {
+   "zone": "miracle_seabed",
+   "dungeon": "d53",
+   "housesteps": 1
+  },
+  {
+   "zone": "mt_avalanche",
+   "dungeon": "d77",
+   "housesteps": 1
+  },
+  {
+   "zone": "mt_mistral",
+   "dungeon": "d95",
+   "housesteps": 1
+  },
+  {
+   "zone": "mt_travail_post",
+   "dungeon": "d62",
+   "housesteps": 1
+  },
+  {
+   "zone": "murky_forest",
+   "dungeon": "d128",
+   "housesteps": 1
+  },
+  {
+   "zone": "mystery_jungle",
+   "dungeon": "d85",
+   "housesteps": 1
+  },
+  {
+   "zone": "mystifying_forest_post",
+   "dungeon": "d44",
+   "housesteps": 1
+  },
+  {
+   "zone": "ninth_station_pass",
+   "dungeon": "d119",
+   "housesteps": 1
+  },
+  {
+   "zone": "oblivion_forest",
+   "dungeon": "d107",
+   "housesteps": 2
+  },
+  {
+   "zone": "old_ruins",
+   "dungeon": "d40",
+   "housesteps": 1
+  },
+  {
+   "zone": "quicksand_cave",
+   "dungeon": "d21",
+   "housesteps": 1
+  },
+  {
+   "zone": "quicksand_pit",
+   "dungeon": "d22",
+   "housesteps": 1
+  },
+  {
+   "zone": "sealed_ruin",
+   "dungeon": "d29",
+   "housesteps": 1
+  },
+  {
+   "zone": "sealed_ruin_pit",
+   "dungeon": "d30",
+   "housesteps": 1
+  },
+  {
+   "zone": "second_station_pass",
+   "dungeon": "d112",
+   "housesteps": 1
+  },
+  {
+   "zone": "serenity_river",
+   "dungeon": "d87",
+   "housesteps": 1
+  },
+  {
+   "zone": "seventh_station_pass",
+   "dungeon": "d117",
+   "housesteps": 1
+  },
+  {
+   "zone": "shaymin_village",
+   "dungeon": "d175",
+   "housesteps": 1
+  },
+  {
+   "zone": "shimmer_desert",
+   "dungeon": "d75",
+   "housesteps": 3
+  },
+  {
+   "zone": "shimmer_hill",
+   "dungeon": "d96",
+   "housesteps": 1
+  },
+  {
+   "zone": "sixth_station_pass",
+   "dungeon": "d116",
+   "housesteps": 1
+  },
+  {
+   "zone": "sky_peak_summit_pass",
+   "dungeon": "d120",
+   "housesteps": 2
+  },
+  {
+   "zone": "southeastern_islands",
+   "dungeon": "d109",
+   "housesteps": 5
+  },
+  {
+   "zone": "southern_jungle",
+   "dungeon": "d149",
+   "housesteps": 1
+  },
+  {
+   "zone": "spacial_cliffs",
+   "dungeon": "d141",
+   "housesteps": 1
+  },
+  {
+   "zone": "spacial_rift",
+   "dungeon": "d64",
+   "housesteps": 2
+  },
+  {
+   "zone": "spiritomb_room",
+   "dungeon": "d31",
+   "housesteps": 1
+  },
+  {
+   "zone": "spring_cave_depths",
+   "dungeon": "d163",
+   "housesteps": 2
+  },
+  {
+   "zone": "star_cave",
+   "dungeon": "d174",
+   "housesteps": 1
+  },
+  {
+   "zone": "star_cave_depths",
+   "dungeon": "d126",
+   "housesteps": 1
+  },
+  {
+   "zone": "surrounded_sea",
+   "dungeon": "d50",
+   "housesteps": 1
+  },
+  {
+   "zone": "temporal_pinnacle",
+   "dungeon": "d43",
+   "housesteps": 1
+  },
+  {
+   "zone": "temporal_spire",
+   "dungeon": "d42",
+   "housesteps": 1
+  },
+  {
+   "zone": "temporal_spire_se5",
+   "dungeon": "d138",
+   "housesteps": 1
+  },
+  {
+   "zone": "temporal_tower",
+   "dungeon": "d41",
+   "housesteps": 1
+  },
+  {
+   "zone": "temporal_tower_se5",
+   "dungeon": "d137",
+   "housesteps": 1
+  },
+  {
+   "zone": "the_nightmare",
+   "dungeon": "d63",
+   "housesteps": 1
+  },
+  {
+   "zone": "third_station_pass",
+   "dungeon": "d113",
+   "housesteps": 1
+  },
+  {
+   "zone": "treacherous_waters",
+   "dungeon": "d108",
+   "housesteps": 2
+  },
+  {
+   "zone": "treeshroud_forest",
+   "dungeon": "d34",
+   "housesteps": 1
+  },
+  {
+   "zone": "upper_spring_cave",
+   "dungeon": "d160",
+   "housesteps": 1
+  },
+  {
+   "zone": "vast_ice_mountain_peak",
+   "dungeon": "d147",
+   "housesteps": 1
+  },
+  {
+   "zone": "world_abyss",
+   "dungeon": "d81",
+   "housesteps": 5
+  },
+  {
+   "zone": "zero_isle_north",
+   "dungeon": "d99",
+   "housesteps": 9
+  },
+  {
+   "zone": "zero_isle_south",
+   "dungeon": "d102",
+   "housesteps": 11
+  },
+  {
+   "zone": "zero_isle_west",
+   "dungeon": "d101",
+   "housesteps": 4
+  }
+ ],
+ "items_skipped_requires_mod": {
+  "[M:I0]SolarBeam": 10165,
+  "[M:I0]Wide Slash": 20437,
+  "[M:I0]Vacuum-Cut": 30602,
+  "[M:I0]Stealth Rock": 20437,
+  "[M:I1]Snatch Orb": 28863,
+  "[M:I1]See-Trap Orb": 28137,
+  "[M:I1]Switcher Orb": 28863,
+  "[M:I1]Blowback Orb": 28865,
+  "[M:I1]Warp Orb": 14474,
+  "[M:I1]Transfer Orb": 28863,
+  "[M:I1]Pounce Orb": 28863,
+  "[M:I1]Decoy Orb": 28863,
+  "[M:I1]Silence Orb": 28863,
+  "[M:I1]Radar Orb": 28863,
+  "[M:I1]Hurl Orb": 14391,
+  "[M:I1]All-Mach Orb": 28865,
+  "[M:I1]Foe-Fear Orb": 28865,
+  "Poké": 70000
+ }
+}
