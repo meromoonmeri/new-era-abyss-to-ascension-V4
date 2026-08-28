@@ -9,180 +9,68 @@
   "SNOW": "snow",
   "HAIL": "hail"
  },
- "random_floors_unimplemented": 81,
+ "random_floors_unimplemented": 0,
  "apply": true,
  "zones": [
   {
-   "zone": "blizzard_island",
-   "dungeon": "d46",
+   "zone": "destiny_tower",
+   "dungeon": "d104",
    "floors": [
     {
-     "floor": 4,
-     "weather": "snow"
+     "floor": 15,
+     "weather": "RANDOM(8)"
     },
     {
-     "floor": 8,
-     "weather": "snow"
-    }
-   ]
-  },
-  {
-   "zone": "crevice_cave",
-   "dungeon": "d47",
-   "floors": [
-    {
-     "floor": 3,
-     "weather": "fog"
+     "floor": 21,
+     "weather": "RANDOM(8)"
     },
     {
-     "floor": 6,
-     "weather": "fog"
+     "floor": 24,
+     "weather": "RANDOM(8)"
     },
     {
-     "floor": 10,
-     "weather": "fog"
-    }
-   ]
-  },
-  {
-   "zone": "deep_spacial_rift",
-   "dungeon": "d65",
-   "floors": [
-    {
-     "floor": 1,
-     "weather": "fog"
+     "floor": 28,
+     "weather": "RANDOM(8)"
     },
     {
-     "floor": 2,
-     "weather": "fog"
+     "floor": 32,
+     "weather": "RANDOM(8)"
     },
     {
-     "floor": 5,
-     "weather": "sunny"
+     "floor": 38,
+     "weather": "RANDOM(8)"
     },
     {
-     "floor": 9,
-     "weather": "rain"
-    }
-   ]
-  },
-  {
-   "zone": "foggy_forest",
-   "dungeon": "d12",
-   "floors": [
-    {
-     "floor": 1,
-     "weather": "fog"
+     "floor": 43,
+     "weather": "RANDOM(8)"
     },
     {
-     "floor": 2,
-     "weather": "fog"
+     "floor": 48,
+     "weather": "RANDOM(8)"
     },
     {
-     "floor": 3,
-     "weather": "fog"
+     "floor": 52,
+     "weather": "RANDOM(8)"
     },
     {
-     "floor": 4,
-     "weather": "fog"
+     "floor": 57,
+     "weather": "RANDOM(8)"
     },
     {
-     "floor": 5,
-     "weather": "fog"
+     "floor": 61,
+     "weather": "RANDOM(8)"
     },
     {
-     "floor": 6,
-     "weather": "fog"
+     "floor": 67,
+     "weather": "RANDOM(8)"
     },
     {
-     "floor": 7,
-     "weather": "fog"
+     "floor": 81,
+     "weather": "RANDOM(8)"
     },
     {
-     "floor": 8,
-     "weather": "fog"
-    },
-    {
-     "floor": 9,
-     "weather": "fog"
-    },
-    {
-     "floor": 10,
-     "weather": "fog"
-    },
-    {
-     "floor": 11,
-     "weather": "fog"
-    }
-   ]
-  },
-  {
-   "zone": "giant_volcano",
-   "dungeon": "d79",
-   "floors": [
-    {
-     "floor": 3,
-     "weather": "sunny"
-    },
-    {
-     "floor": 5,
-     "weather": "sunny"
-    },
-    {
-     "floor": 6,
-     "weather": "cloudy"
-    },
-    {
-     "floor": 8,
-     "weather": "cloudy"
-    },
-    {
-     "floor": 10,
-     "weather": "cloudy"
-    }
-   ]
-  },
-  {
-   "zone": "happy_outlook",
-   "dungeon": "d94",
-   "floors": [
-    {
-     "floor": 4,
-     "weather": "cloudy"
-    },
-    {
-     "floor": 5,
-     "weather": "cloudy"
-    },
-    {
-     "floor": 7,
-     "weather": "cloudy"
-    },
-    {
-     "floor": 10,
-     "weather": "cloudy"
-    },
-    {
-     "floor": 14,
-     "weather": "cloudy"
-    },
-    {
-     "floor": 18,
-     "weather": "cloudy"
-    }
-   ]
-  },
-  {
-   "zone": "hidden_land",
-   "dungeon": "d38",
-   "floors": [
-    {
-     "floor": 6,
-     "weather": "sunny"
-    },
-    {
-     "floor": 10,
-     "weather": "sunny"
+     "floor": 89,
+     "weather": "RANDOM(8)"
     }
    ]
   },
@@ -191,204 +79,24 @@
    "dungeon": "d110",
    "floors": [
     {
-     "floor": 5,
-     "weather": "sunny"
-    },
-    {
-     "floor": 11,
-     "weather": "sunny"
-    },
-    {
-     "floor": 21,
-     "weather": "sunny"
-    }
-   ]
-  },
-  {
-   "zone": "lake_afar",
-   "dungeon": "d93",
-   "floors": [
-    {
-     "floor": 4,
-     "weather": "fog"
-    },
-    {
-     "floor": 6,
-     "weather": "fog"
-    },
-    {
-     "floor": 9,
-     "weather": "cloudy"
-    },
-    {
-     "floor": 11,
-     "weather": "cloudy"
-    }
-   ]
-  },
-  {
-   "zone": "lost_wilderness",
-   "dungeon": "d97",
-   "floors": [
-    {
-     "floor": 2,
-     "weather": "cloudy"
-    },
-    {
-     "floor": 4,
-     "weather": "sandstorm"
-    },
-    {
-     "floor": 6,
-     "weather": "fog"
-    },
-    {
-     "floor": 8,
-     "weather": "rain"
-    },
-    {
-     "floor": 10,
-     "weather": "fog"
-    },
-    {
-     "floor": 12,
-     "weather": "cloudy"
-    }
-   ]
-  },
-  {
-   "zone": "lush_prairie_post",
-   "dungeon": "d89",
-   "floors": [
-    {
-     "floor": 3,
-     "weather": "cloudy"
-    }
-   ]
-  },
-  {
-   "zone": "marine_resort",
-   "dungeon": "d72",
-   "floors": [
-    {
-     "floor": 3,
-     "weather": "cloudy"
-    },
-    {
-     "floor": 4,
-     "weather": "sunny"
-    },
-    {
-     "floor": 5,
-     "weather": "fog"
-    },
-    {
-     "floor": 8,
-     "weather": "sunny"
-    },
-    {
-     "floor": 9,
-     "weather": "cloudy"
-    }
-   ]
-  },
-  {
-   "zone": "midnight_forest",
-   "dungeon": "d98",
-   "floors": [
-    {
-     "floor": 4,
-     "weather": "rain"
-    },
-    {
      "floor": 7,
-     "weather": "fog"
-    }
-   ]
-  },
-  {
-   "zone": "mt_avalanche",
-   "dungeon": "d77",
-   "floors": [
-    {
-     "floor": 2,
-     "weather": "snow"
+     "weather": "RANDOM(8)"
     },
     {
-     "floor": 3,
-     "weather": "cloudy"
+     "floor": 15,
+     "weather": "RANDOM(8)"
     },
     {
-     "floor": 4,
-     "weather": "snow"
+     "floor": 17,
+     "weather": "RANDOM(8)"
     },
     {
-     "floor": 5,
-     "weather": "cloudy"
+     "floor": 24,
+     "weather": "RANDOM(8)"
     },
     {
-     "floor": 6,
-     "weather": "snow"
-    },
-    {
-     "floor": 9,
-     "weather": "cloudy"
-    }
-   ]
-  },
-  {
-   "zone": "mt_mistral",
-   "dungeon": "d95",
-   "floors": [
-    {
-     "floor": 3,
-     "weather": "rain"
-    },
-    {
-     "floor": 5,
-     "weather": "fog"
-    },
-    {
-     "floor": 6,
-     "weather": "rain"
-    },
-    {
-     "floor": 8,
-     "weather": "fog"
-    }
-   ]
-  },
-  {
-   "zone": "mt_travail_post",
-   "dungeon": "d62",
-   "floors": [
-    {
-     "floor": 2,
-     "weather": "rain"
-    },
-    {
-     "floor": 3,
-     "weather": "fog"
-    },
-    {
-     "floor": 5,
-     "weather": "cloudy"
-    },
-    {
-     "floor": 6,
-     "weather": "cloudy"
-    },
-    {
-     "floor": 8,
-     "weather": "sunny"
-    },
-    {
-     "floor": 9,
-     "weather": "sunny"
-    },
-    {
-     "floor": 11,
-     "weather": "fog"
+     "floor": 28,
+     "weather": "RANDOM(8)"
     }
    ]
   },
@@ -397,316 +105,120 @@
    "dungeon": "d85",
    "floors": [
     {
-     "floor": 7,
-     "weather": "fog"
-    },
-    {
-     "floor": 8,
-     "weather": "fog"
-    },
-    {
-     "floor": 17,
-     "weather": "fog"
-    },
-    {
-     "floor": 18,
-     "weather": "fog"
-    }
-   ]
-  },
-  {
-   "zone": "mystifying_forest_post",
-   "dungeon": "d44",
-   "floors": [
-    {
-     "floor": 3,
-     "weather": "fog"
-    },
-    {
      "floor": 5,
-     "weather": "fog"
-    },
-    {
-     "floor": 8,
-     "weather": "cloudy"
-    },
-    {
-     "floor": 9,
-     "weather": "cloudy"
-    }
-   ]
-  },
-  {
-   "zone": "northern_desert",
-   "dungeon": "d20",
-   "floors": [
-    {
-     "floor": 6,
-     "weather": "sandstorm"
+     "weather": "RANDOM(8)"
     },
     {
      "floor": 10,
-     "weather": "sandstorm"
+     "weather": "RANDOM(8)"
     },
     {
-     "floor": 11,
-     "weather": "sandstorm"
-    }
-   ]
-  },
-  {
-   "zone": "oblivion_forest",
-   "dungeon": "d107",
-   "floors": [
-    {
-     "floor": 3,
-     "weather": "fog"
-    },
-    {
-     "floor": 5,
-     "weather": "fog"
-    },
-    {
-     "floor": 8,
-     "weather": "cloudy"
-    },
-    {
-     "floor": 9,
-     "weather": "cloudy"
-    }
-   ]
-  },
-  {
-   "zone": "oran_forest",
-   "dungeon": "d92",
-   "floors": [
-    {
-     "floor": 2,
-     "weather": "fog"
-    },
-    {
-     "floor": 3,
-     "weather": "fog"
-    }
-   ]
-  },
-  {
-   "zone": "serenity_river",
-   "dungeon": "d87",
-   "floors": [
-    {
-     "floor": 3,
-     "weather": "rain"
-    },
-    {
-     "floor": 4,
-     "weather": "cloudy"
-    },
-    {
-     "floor": 5,
-     "weather": "cloudy"
-    },
-    {
-     "floor": 6,
-     "weather": "fog"
-    },
-    {
-     "floor": 7,
-     "weather": "fog"
-    }
-   ]
-  },
-  {
-   "zone": "shimmer_desert",
-   "dungeon": "d75",
-   "floors": [
-    {
-     "floor": 1,
-     "weather": "sunny"
-    },
-    {
-     "floor": 3,
-     "weather": "sandstorm"
-    },
-    {
-     "floor": 6,
-     "weather": "sunny"
-    },
-    {
-     "floor": 9,
-     "weather": "sandstorm"
-    }
-   ]
-  },
-  {
-   "zone": "shimmer_hill",
-   "dungeon": "d96",
-   "floors": [
-    {
-     "floor": 6,
-     "weather": "rain"
-    },
-    {
-     "floor": 7,
-     "weather": "cloudy"
-    },
-    {
-     "floor": 8,
-     "weather": "fog"
-    },
-    {
-     "floor": 10,
-     "weather": "rain"
-    }
-   ]
-  },
-  {
-   "zone": "sky_stairway",
-   "dungeon": "d83",
-   "floors": [
-    {
-     "floor": 1,
-     "weather": "cloudy"
-    },
-    {
-     "floor": 4,
-     "weather": "cloudy"
-    },
-    {
-     "floor": 6,
-     "weather": "fog"
-    },
-    {
-     "floor": 7,
-     "weather": "fog"
-    },
-    {
-     "floor": 9,
-     "weather": "sunny"
-    },
-    {
-     "floor": 11,
-     "weather": "fog"
-    },
-    {
-     "floor": 13,
-     "weather": "cloudy"
-    },
-    {
-     "floor": 14,
-     "weather": "cloudy"
-    },
-    {
-     "floor": 16,
-     "weather": "sunny"
-    },
-    {
-     "floor": 18,
-     "weather": "cloudy"
+     "floor": 15,
+     "weather": "RANDOM(8)"
     },
     {
      "floor": 20,
-     "weather": "sunny"
+     "weather": "RANDOM(8)"
     },
     {
-     "floor": 24,
-     "weather": "sunny"
-    },
-    {
-     "floor": 30,
-     "weather": "sunny"
-    },
-    {
-     "floor": 37,
-     "weather": "sunny"
-    },
-    {
-     "floor": 42,
-     "weather": "sunny"
-    },
-    {
-     "floor": 48,
-     "weather": "sunny"
+     "floor": 25,
+     "weather": "RANDOM(8)"
     }
    ]
   },
   {
-   "zone": "spacial_rift",
-   "dungeon": "d64",
+   "zone": "sky_peak_summit_pass",
+   "dungeon": "d120",
    "floors": [
     {
-     "floor": 3,
-     "weather": "cloudy"
-    },
+     "floor": 2,
+     "weather": "RANDOM(8)"
+    }
+   ]
+  },
+  {
+   "zone": "southeastern_islands",
+   "dungeon": "d109",
+   "floors": [
     {
      "floor": 4,
-     "weather": "cloudy"
+     "weather": "RANDOM(8)"
     },
     {
      "floor": 8,
-     "weather": "sunny"
-    },
-    {
-     "floor": 10,
-     "weather": "cloudy"
+     "weather": "RANDOM(8)"
     },
     {
      "floor": 12,
-     "weather": "fog"
+     "weather": "RANDOM(8)"
     },
     {
-     "floor": 14,
-     "weather": "sunny"
+     "floor": 15,
+     "weather": "RANDOM(8)"
+    },
+    {
+     "floor": 24,
+     "weather": "RANDOM(8)"
     }
    ]
   },
   {
-   "zone": "temporal_tower",
-   "dungeon": "d41",
+   "zone": "southern_jungle",
+   "dungeon": "d149",
    "floors": [
     {
      "floor": 4,
-     "weather": "sunny"
-    },
-    {
-     "floor": 9,
-     "weather": "sunny"
-    }
-   ]
-  },
-  {
-   "zone": "tiny_meadow_post",
-   "dungeon": "d90",
-   "floors": [
-    {
-     "floor": 3,
-     "weather": "fog"
-    }
-   ]
-  },
-  {
-   "zone": "treacherous_waters",
-   "dungeon": "d108",
-   "floors": [
-    {
-     "floor": 5,
-     "weather": "rain"
+     "weather": "RANDOM(8)"
     },
     {
      "floor": 7,
-     "weather": "rain"
+     "weather": "RANDOM(8)"
     },
     {
      "floor": 10,
-     "weather": "rain"
+     "weather": "RANDOM(8)"
+    }
+   ]
+  },
+  {
+   "zone": "star_cave",
+   "dungeon": "d174",
+   "floors": [
+    {
+     "floor": 14,
+     "weather": "RANDOM(8)"
+    }
+   ]
+  },
+  {
+   "zone": "star_cave_depths",
+   "dungeon": "d126",
+   "floors": [
+    {
+     "floor": 3,
+     "weather": "RANDOM(8)"
+    }
+   ]
+  },
+  {
+   "zone": "zero_isle_center",
+   "dungeon": "d103",
+   "floors": [
+    {
+     "floor": 15,
+     "weather": "RANDOM(8)"
     },
     {
-     "floor": 12,
-     "weather": "rain"
+     "floor": 21,
+     "weather": "RANDOM(8)"
     },
     {
-     "floor": 16,
-     "weather": "rain"
+     "floor": 24,
+     "weather": "RANDOM(8)"
+    },
+    {
+     "floor": 28,
+     "weather": "RANDOM(8)"
     }
    ]
   },
@@ -715,20 +227,152 @@
    "dungeon": "d100",
    "floors": [
     {
-     "floor": 4,
-     "weather": "cloudy"
+     "floor": 10,
+     "weather": "RANDOM(8)"
     },
+    {
+     "floor": 17,
+     "weather": "RANDOM(8)"
+    },
+    {
+     "floor": 26,
+     "weather": "RANDOM(8)"
+    },
+    {
+     "floor": 28,
+     "weather": "RANDOM(8)"
+    },
+    {
+     "floor": 36,
+     "weather": "RANDOM(8)"
+    }
+   ]
+  },
+  {
+   "zone": "zero_isle_north",
+   "dungeon": "d99",
+   "floors": [
     {
      "floor": 5,
-     "weather": "cloudy"
+     "weather": "RANDOM(8)"
     },
     {
-     "floor": 12,
-     "weather": "fog"
+     "floor": 10,
+     "weather": "RANDOM(8)"
+    },
+    {
+     "floor": 15,
+     "weather": "RANDOM(8)"
     },
     {
      "floor": 20,
-     "weather": "fog"
+     "weather": "RANDOM(8)"
+    },
+    {
+     "floor": 25,
+     "weather": "RANDOM(8)"
+    },
+    {
+     "floor": 30,
+     "weather": "RANDOM(8)"
+    },
+    {
+     "floor": 35,
+     "weather": "RANDOM(8)"
+    },
+    {
+     "floor": 40,
+     "weather": "RANDOM(8)"
+    },
+    {
+     "floor": 45,
+     "weather": "RANDOM(8)"
+    },
+    {
+     "floor": 50,
+     "weather": "RANDOM(8)"
+    },
+    {
+     "floor": 55,
+     "weather": "RANDOM(8)"
+    },
+    {
+     "floor": 60,
+     "weather": "RANDOM(8)"
+    },
+    {
+     "floor": 65,
+     "weather": "RANDOM(8)"
+    },
+    {
+     "floor": 70,
+     "weather": "RANDOM(8)"
+    },
+    {
+     "floor": 74,
+     "weather": "RANDOM(8)"
+    }
+   ]
+  },
+  {
+   "zone": "zero_isle_south",
+   "dungeon": "d102",
+   "floors": [
+    {
+     "floor": 15,
+     "weather": "RANDOM(8)"
+    },
+    {
+     "floor": 21,
+     "weather": "RANDOM(8)"
+    },
+    {
+     "floor": 24,
+     "weather": "RANDOM(8)"
+    },
+    {
+     "floor": 28,
+     "weather": "RANDOM(8)"
+    },
+    {
+     "floor": 32,
+     "weather": "RANDOM(8)"
+    },
+    {
+     "floor": 38,
+     "weather": "RANDOM(8)"
+    },
+    {
+     "floor": 43,
+     "weather": "RANDOM(8)"
+    },
+    {
+     "floor": 48,
+     "weather": "RANDOM(8)"
+    },
+    {
+     "floor": 52,
+     "weather": "RANDOM(8)"
+    },
+    {
+     "floor": 57,
+     "weather": "RANDOM(8)"
+    },
+    {
+     "floor": 61,
+     "weather": "RANDOM(8)"
+    },
+    {
+     "floor": 67,
+     "weather": "RANDOM(8)"
+    },
+    {
+     "floor": 81,
+     "weather": "RANDOM(8)"
+    },
+    {
+     "floor": 89,
+     "weather": "RANDOM(8)"
     }
    ]
   },
@@ -737,22 +381,39 @@
    "dungeon": "d101",
    "floors": [
     {
-     "floor": 3,
-     "weather": "cloudy"
+     "floor": 9,
+     "weather": "RANDOM(8)"
     },
     {
-     "floor": 5,
-     "weather": "fog"
+     "floor": 10,
+     "weather": "RANDOM(8)"
     },
     {
-     "floor": 13,
-     "weather": "cloudy"
+     "floor": 17,
+     "weather": "RANDOM(8)"
     },
     {
-     "floor": 14,
-     "weather": "fog"
+     "floor": 18,
+     "weather": "RANDOM(8)"
+    },
+    {
+     "floor": 26,
+     "weather": "RANDOM(8)"
+    },
+    {
+     "floor": 27,
+     "weather": "RANDOM(8)"
+    },
+    {
+     "floor": 35,
+     "weather": "RANDOM(8)"
+    },
+    {
+     "floor": 36,
+     "weather": "RANDOM(8)"
     }
    ]
   }
- ]
+ ],
+ "random_floors_wired": 81
 }

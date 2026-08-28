@@ -11,8 +11,10 @@ DefaultMapStatus=[id])` par étage concerné.
 Mapping ROM->PMDO (MapStatus vanilla, hérités par le quest) :
   FOG->fog  CLOUDY->cloudy  SUNNY->sunny  RAINY->rain
   SANDSTORM->sandstorm  SNOW->snow
-RANDOM : non traité ici (mécanique EoS de tirage météo par étage —
-documenté UNIMPLEMENTED_DATA, nécessite un step de tirage, cycle suivant).
+RANDOM : DefaultMapStatusStep tire UNIFORMÉMENT dans DefaultMapStatus[]
+(PMDC MapDataStep.cs l.190, map.Rand seedé) — on passe la liste des 8
+météos EoS (enum weather_id 0-7 : CLEAR SUNNY SANDSTORM CLOUDY RAIN HAIL
+FOG SNOW) : tirage par étage natif, déterministe par seed.
 CLEAR : rien (défaut).
 Zones verrouillées / segments LoadGen exclus. Idempotent (saute l'étage
 si un DefaultMapStatusStep default_weather y existe déjà).
@@ -26,6 +28,8 @@ from ch1_5_lockfile import LOCKED_PATHS
 
 WX = {'FOG': 'fog', 'CLOUDY': 'cloudy', 'SUNNY': 'sunny', 'RAINY': 'rain',
       'SANDSTORM': 'sandstorm', 'SNOW': 'snow', 'HAIL': 'hail'}
+# enum weather_id EoS 0-7 (pmdsky-debug enums.h l.843-850) — RANDOM=8 tire parmi eux
+RANDOM_POOL = ['clear', 'sunny', 'sandstorm', 'cloudy', 'rain', 'hail', 'fog', 'snow']
 
 
 def pools(fl):
@@ -37,11 +41,13 @@ def pools(fl):
             yield g['GenSteps'], 'MapGenContext'
 
 
-def weather_step(status, ctx):
+def weather_step(statuses, ctx):
+    if isinstance(statuses, str):
+        statuses = [statuses]
     return {'Key': {'str': [-6]}, 'Value': {
         '$type': f'PMDC.LevelGen.DefaultMapStatusStep`1[[RogueEssence.LevelGen.{ctx}, RogueEssence]], PMDC',
         'SetterID': 'default_weather',
-        'DefaultMapStatus': [status]}}
+        'DefaultMapStatus': list(statuses)}}
 
 
 def main():
@@ -63,8 +69,9 @@ def main():
             continue
         rom = json.load(gzip.open(fp))
         wxf = [(i, f['layout']['weather']) for i, f in enumerate(rom['floors'])]
-        fixed = [(i, w) for i, w in wxf if w in WX]
-        report['random_floors_unimplemented'] += sum(1 for _, w in wxf if w == 'RANDOM')
+        fixed = [(i, w) for i, w in wxf if w in WX or w == 'RANDOM']
+        report['random_floors_unimplemented'] += 0
+        report.setdefault('random_floors_wired', 0)
         if not fixed:
             continue
         rel = f'Data/Zone/{zone}.json'
@@ -91,13 +98,18 @@ def main():
         changed = []
         for fi, w in fixed:
             fl = seg['Floors'][fi]
+            payload = RANDOM_POOL if w == 'RANDOM' else WX[w]
             for gensteps, ctx in pools(fl):
                 if any('DefaultMapStatusStep' in g['Value'].get('$type', '')
                        and g['Value'].get('SetterID') == 'default_weather'
                        for g in gensteps):
                     continue
-                gensteps.insert(1, weather_step(WX[w], ctx))
-                changed.append({'floor': fi + 1, 'weather': WX[w]})
+                gensteps.insert(1, weather_step(payload, ctx))
+                if w == 'RANDOM':
+                    report['random_floors_wired'] += 1
+                    changed.append({'floor': fi + 1, 'weather': 'RANDOM(8)'})
+                else:
+                    changed.append({'floor': fi + 1, 'weather': WX[w]})
         if changed:
             tot += len(changed)
             report['zones'].append({'zone': zone, 'dungeon': info['dungeon'],
