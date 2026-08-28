@@ -1,0 +1,1833 @@
+{
+ "rule": "R5 kecleon_shop_chance mappa_s -> ShopStep natif par plages",
+ "apply": true,
+ "zones": [
+  {
+   "zone": "amp_clearing",
+   "dungeon": "d19",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      1
+     ],
+     "chance": 9,
+     "items": 26
+    }
+   ]
+  },
+  {
+   "zone": "amp_plains",
+   "dungeon": "d17",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      10
+     ],
+     "chance": 9,
+     "items": 26
+    }
+   ]
+  },
+  {
+   "zone": "apple_woods",
+   "dungeon": "d07",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      2
+     ],
+     "chance": 8,
+     "items": 20
+    },
+    {
+     "floors_rom": [
+      3,
+      6
+     ],
+     "chance": 9,
+     "items": 20
+    },
+    {
+     "floors_rom": [
+      7,
+      12
+     ],
+     "chance": 10,
+     "items": 20
+    }
+   ]
+  },
+  {
+   "zone": "boulder_quarry",
+   "dungeon": "d150",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      5
+     ],
+     "chance": 8,
+     "items": 59
+    }
+   ]
+  },
+  {
+   "zone": "concealed_ruins_post",
+   "dungeon": "d70",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      30
+     ],
+     "chance": 8,
+     "items": 116
+    }
+   ]
+  },
+  {
+   "zone": "craggy_coast",
+   "dungeon": "d08",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      9
+     ],
+     "chance": 8,
+     "items": 20
+    }
+   ]
+  },
+  {
+   "zone": "crystal_cave",
+   "dungeon": "d24",
+   "ranges": [
+    {
+     "floors_rom": [
+      3,
+      11
+     ],
+     "chance": 9,
+     "items": 39
+    }
+   ]
+  },
+  {
+   "zone": "crystal_crossing",
+   "dungeon": "d25",
+   "ranges": [
+    {
+     "floors_rom": [
+      3,
+      13
+     ],
+     "chance": 9,
+     "items": 39
+    }
+   ]
+  },
+  {
+   "zone": "crystal_lake",
+   "dungeon": "d26",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      1
+     ],
+     "chance": 9,
+     "items": 39
+    }
+   ]
+  },
+  {
+   "zone": "deep_boulder_quarry",
+   "dungeon": "d151",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      1
+     ],
+     "chance": 8,
+     "items": 59
+    },
+    {
+     "floors_rom": [
+      2,
+      2
+     ],
+     "chance": 50,
+     "items": 59
+    },
+    {
+     "floors_rom": [
+      3,
+      5
+     ],
+     "chance": 8,
+     "items": 59
+    }
+   ]
+  },
+  {
+   "zone": "deep_limestone_cavern",
+   "dungeon": "d156",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      1
+     ],
+     "chance": 8,
+     "items": 59
+    },
+    {
+     "floors_rom": [
+      2,
+      2
+     ],
+     "chance": 50,
+     "items": 59
+    },
+    {
+     "floors_rom": [
+      3,
+      5
+     ],
+     "chance": 8,
+     "items": 59
+    }
+   ]
+  },
+  {
+   "zone": "deep_star_cave_dungeon",
+   "dungeon": "d124",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      1
+     ],
+     "chance": 100,
+     "items": 8
+    },
+    {
+     "floors_rom": [
+      2,
+      4
+     ],
+     "chance": 8,
+     "items": 58
+    }
+   ]
+  },
+  {
+   "zone": "destiny_tower",
+   "dungeon": "d104",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      6
+     ],
+     "chance": 11,
+     "items": 134
+    },
+    {
+     "floors_rom": [
+      7,
+      7
+     ],
+     "chance": 50,
+     "items": 134
+    },
+    {
+     "floors_rom": [
+      8,
+      22
+     ],
+     "chance": 11,
+     "items": 134
+    },
+    {
+     "floors_rom": [
+      23,
+      23
+     ],
+     "chance": 50,
+     "items": 134
+    },
+    {
+     "floors_rom": [
+      24,
+      37
+     ],
+     "chance": 11,
+     "items": 134
+    },
+    {
+     "floors_rom": [
+      38,
+      38
+     ],
+     "chance": 50,
+     "items": 134
+    },
+    {
+     "floors_rom": [
+      39,
+      54
+     ],
+     "chance": 11,
+     "items": 134
+    },
+    {
+     "floors_rom": [
+      55,
+      55
+     ],
+     "chance": 50,
+     "items": 134
+    },
+    {
+     "floors_rom": [
+      56,
+      74
+     ],
+     "chance": 11,
+     "items": 134
+    },
+    {
+     "floors_rom": [
+      75,
+      75
+     ],
+     "chance": 50,
+     "items": 134
+    },
+    {
+     "floors_rom": [
+      76,
+      94
+     ],
+     "chance": 11,
+     "items": 134
+    },
+    {
+     "floors_rom": [
+      95,
+      95
+     ],
+     "chance": 50,
+     "items": 134
+    },
+    {
+     "floors_rom": [
+      96,
+      99
+     ],
+     "chance": 11,
+     "items": 134
+    }
+   ]
+  },
+  {
+   "zone": "eastern_cave",
+   "dungeon": "d129",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      6
+     ],
+     "chance": 8,
+     "items": 59
+    },
+    {
+     "floors_rom": [
+      7,
+      7
+     ],
+     "chance": 50,
+     "items": 59
+    },
+    {
+     "floors_rom": [
+      8,
+      10
+     ],
+     "chance": 8,
+     "items": 59
+    }
+   ]
+  },
+  {
+   "zone": "eighth_station_pass",
+   "dungeon": "d118",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      2
+     ],
+     "chance": 8,
+     "items": 43
+    },
+    {
+     "floors_rom": [
+      3,
+      3
+     ],
+     "chance": 50,
+     "items": 43
+    },
+    {
+     "floors_rom": [
+      4,
+      4
+     ],
+     "chance": 8,
+     "items": 43
+    }
+   ]
+  },
+  {
+   "zone": "far_amp_plains",
+   "dungeon": "d18",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      9
+     ],
+     "chance": 9,
+     "items": 26
+    }
+   ]
+  },
+  {
+   "zone": "fifth_station_clearing",
+   "dungeon": "d121",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      1
+     ],
+     "chance": 8,
+     "items": 43
+    }
+   ]
+  },
+  {
+   "zone": "fifth_station_pass",
+   "dungeon": "d115",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      4
+     ],
+     "chance": 8,
+     "items": 43
+    }
+   ]
+  },
+  {
+   "zone": "first_station_pass",
+   "dungeon": "d111",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      3
+     ],
+     "chance": 8,
+     "items": 43
+    }
+   ]
+  },
+  {
+   "zone": "fortune_ravine",
+   "dungeon": "d130",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      8
+     ],
+     "chance": 8,
+     "items": 59
+    }
+   ]
+  },
+  {
+   "zone": "fortune_ravine_depths",
+   "dungeon": "d131",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      6
+     ],
+     "chance": 8,
+     "items": 59
+    }
+   ]
+  },
+  {
+   "zone": "fourth_station_pass",
+   "dungeon": "d114",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      3
+     ],
+     "chance": 8,
+     "items": 43
+    }
+   ]
+  },
+  {
+   "zone": "happy_outlook",
+   "dungeon": "d94",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      20
+     ],
+     "chance": 8,
+     "items": 43
+    }
+   ]
+  },
+  {
+   "zone": "hidden_shopkeeper_village",
+   "dungeon": "d170",
+   "ranges": [
+    {
+     "floors_rom": [
+      2,
+      2
+     ],
+     "chance": 30,
+     "items": 29
+    },
+    {
+     "floors_rom": [
+      3,
+      3
+     ],
+     "chance": 60,
+     "items": 29
+    },
+    {
+     "floors_rom": [
+      4,
+      4
+     ],
+     "chance": 100,
+     "items": 29
+    }
+   ]
+  },
+  {
+   "zone": "inferno_cave",
+   "dungeon": "d110",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      7
+     ],
+     "chance": 8,
+     "items": 93
+    },
+    {
+     "floors_rom": [
+      8,
+      8
+     ],
+     "chance": 25,
+     "items": 93
+    },
+    {
+     "floors_rom": [
+      9,
+      13
+     ],
+     "chance": 8,
+     "items": 93
+    },
+    {
+     "floors_rom": [
+      14,
+      14
+     ],
+     "chance": 30,
+     "items": 93
+    },
+    {
+     "floors_rom": [
+      15,
+      18
+     ],
+     "chance": 8,
+     "items": 93
+    },
+    {
+     "floors_rom": [
+      19,
+      19
+     ],
+     "chance": 15,
+     "items": 93
+    },
+    {
+     "floors_rom": [
+      20,
+      20
+     ],
+     "chance": 8,
+     "items": 93
+    },
+    {
+     "floors_rom": [
+      21,
+      21
+     ],
+     "chance": 10,
+     "items": 93
+    },
+    {
+     "floors_rom": [
+      22,
+      25
+     ],
+     "chance": 8,
+     "items": 93
+    },
+    {
+     "floors_rom": [
+      26,
+      26
+     ],
+     "chance": 40,
+     "items": 93
+    },
+    {
+     "floors_rom": [
+      27,
+      27
+     ],
+     "chance": 8,
+     "items": 93
+    },
+    {
+     "floors_rom": [
+      28,
+      28
+     ],
+     "chance": 30,
+     "items": 93
+    },
+    {
+     "floors_rom": [
+      29,
+      30
+     ],
+     "chance": 8,
+     "items": 93
+    }
+   ]
+  },
+  {
+   "zone": "lake_afar",
+   "dungeon": "d93",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      25
+     ],
+     "chance": 9,
+     "items": 9
+    }
+   ]
+  },
+  {
+   "zone": "landslide_cave",
+   "dungeon": "d88",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      13
+     ],
+     "chance": 8,
+     "items": 20
+    }
+   ]
+  },
+  {
+   "zone": "left_cave_path",
+   "dungeon": "d154",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      5
+     ],
+     "chance": 8,
+     "items": 59
+    }
+   ]
+  },
+  {
+   "zone": "limestone_cavern",
+   "dungeon": "d155",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      5
+     ],
+     "chance": 8,
+     "items": 59
+    }
+   ]
+  },
+  {
+   "zone": "lost_wilderness",
+   "dungeon": "d97",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      18
+     ],
+     "chance": 8,
+     "items": 15
+    }
+   ]
+  },
+  {
+   "zone": "lush_prairie_post",
+   "dungeon": "d89",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      6
+     ],
+     "chance": 7,
+     "items": 20
+    }
+   ]
+  },
+  {
+   "zone": "marine_resort",
+   "dungeon": "d72",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      19
+     ],
+     "chance": 9,
+     "items": 38
+    }
+   ]
+  },
+  {
+   "zone": "midnight_forest",
+   "dungeon": "d98",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      25
+     ],
+     "chance": 9,
+     "items": 9
+    }
+   ]
+  },
+  {
+   "zone": "mt_horn",
+   "dungeon": "d10",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      3
+     ],
+     "chance": 8,
+     "items": 20
+    },
+    {
+     "floors_rom": [
+      4,
+      7
+     ],
+     "chance": 9,
+     "items": 20
+    },
+    {
+     "floors_rom": [
+      8,
+      14
+     ],
+     "chance": 10,
+     "items": 20
+    }
+   ]
+  },
+  {
+   "zone": "mt_mistral",
+   "dungeon": "d95",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      20
+     ],
+     "chance": 9,
+     "items": 43
+    }
+   ]
+  },
+  {
+   "zone": "mt_travail_post",
+   "dungeon": "d62",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      4
+     ],
+     "chance": 6,
+     "items": 43
+    },
+    {
+     "floors_rom": [
+      5,
+      19
+     ],
+     "chance": 7,
+     "items": 43
+    }
+   ]
+  },
+  {
+   "zone": "murky_forest",
+   "dungeon": "d128",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      6
+     ],
+     "chance": 8,
+     "items": 59
+    },
+    {
+     "floors_rom": [
+      7,
+      7
+     ],
+     "chance": 50,
+     "items": 59
+    }
+   ]
+  },
+  {
+   "zone": "mystery_jungle",
+   "dungeon": "d85",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      29
+     ],
+     "chance": 8,
+     "items": 135
+    }
+   ]
+  },
+  {
+   "zone": "mystifying_forest_post",
+   "dungeon": "d44",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      13
+     ],
+     "chance": 9,
+     "items": 9
+    }
+   ]
+  },
+  {
+   "zone": "ninth_station_pass",
+   "dungeon": "d119",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      5
+     ],
+     "chance": 8,
+     "items": 43
+    }
+   ]
+  },
+  {
+   "zone": "oblivion_forest",
+   "dungeon": "d107",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      15
+     ],
+     "chance": 9,
+     "items": 93
+    }
+   ]
+  },
+  {
+   "zone": "right_cave_path",
+   "dungeon": "d153",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      5
+     ],
+     "chance": 8,
+     "items": 59
+    }
+   ]
+  },
+  {
+   "zone": "second_station_pass",
+   "dungeon": "d112",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      3
+     ],
+     "chance": 8,
+     "items": 43
+    }
+   ]
+  },
+  {
+   "zone": "serenity_river",
+   "dungeon": "d87",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      8
+     ],
+     "chance": 8,
+     "items": 20
+    }
+   ]
+  },
+  {
+   "zone": "seventh_station_pass",
+   "dungeon": "d117",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      4
+     ],
+     "chance": 8,
+     "items": 43
+    }
+   ]
+  },
+  {
+   "zone": "shimmer_hill",
+   "dungeon": "d96",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      18
+     ],
+     "chance": 9,
+     "items": 43
+    }
+   ]
+  },
+  {
+   "zone": "sixth_station_pass",
+   "dungeon": "d116",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      4
+     ],
+     "chance": 8,
+     "items": 43
+    }
+   ]
+  },
+  {
+   "zone": "sky_peak_summit_pass",
+   "dungeon": "d120",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      5
+     ],
+     "chance": 8,
+     "items": 43
+    }
+   ]
+  },
+  {
+   "zone": "southeastern_islands",
+   "dungeon": "d109",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      2
+     ],
+     "chance": 8,
+     "items": 93
+    },
+    {
+     "floors_rom": [
+      3,
+      3
+     ],
+     "chance": 35,
+     "items": 93
+    },
+    {
+     "floors_rom": [
+      4,
+      6
+     ],
+     "chance": 8,
+     "items": 93
+    },
+    {
+     "floors_rom": [
+      7,
+      7
+     ],
+     "chance": 20,
+     "items": 93
+    },
+    {
+     "floors_rom": [
+      8,
+      10
+     ],
+     "chance": 8,
+     "items": 93
+    },
+    {
+     "floors_rom": [
+      11,
+      11
+     ],
+     "chance": 25,
+     "items": 93
+    },
+    {
+     "floors_rom": [
+      12,
+      13
+     ],
+     "chance": 8,
+     "items": 93
+    },
+    {
+     "floors_rom": [
+      14,
+      14
+     ],
+     "chance": 30,
+     "items": 93
+    },
+    {
+     "floors_rom": [
+      15,
+      20
+     ],
+     "chance": 8,
+     "items": 93
+    },
+    {
+     "floors_rom": [
+      21,
+      21
+     ],
+     "chance": 40,
+     "items": 93
+    },
+    {
+     "floors_rom": [
+      22,
+      25
+     ],
+     "chance": 8,
+     "items": 93
+    }
+   ]
+  },
+  {
+   "zone": "southern_jungle",
+   "dungeon": "d149",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      6
+     ],
+     "chance": 8,
+     "items": 59
+    },
+    {
+     "floors_rom": [
+      7,
+      7
+     ],
+     "chance": 50,
+     "items": 59
+    },
+    {
+     "floors_rom": [
+      8,
+      10
+     ],
+     "chance": 8,
+     "items": 59
+    }
+   ]
+  },
+  {
+   "zone": "spring_cave",
+   "dungeon": "d158",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      1
+     ],
+     "chance": 30,
+     "items": 8
+    },
+    {
+     "floors_rom": [
+      2,
+      3
+     ],
+     "chance": 50,
+     "items": 8
+    },
+    {
+     "floors_rom": [
+      4,
+      4
+     ],
+     "chance": 30,
+     "items": 59
+    }
+   ]
+  },
+  {
+   "zone": "star_cave",
+   "dungeon": "d174",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      2
+     ],
+     "chance": 50,
+     "items": 8
+    },
+    {
+     "floors_rom": [
+      3,
+      4
+     ],
+     "chance": 100,
+     "items": 8
+    },
+    {
+     "floors_rom": [
+      5,
+      5
+     ],
+     "chance": 50,
+     "items": 8
+    },
+    {
+     "floors_rom": [
+      6,
+      6
+     ],
+     "chance": 100,
+     "items": 8
+    },
+    {
+     "floors_rom": [
+      7,
+      7
+     ],
+     "chance": 50,
+     "items": 8
+    },
+    {
+     "floors_rom": [
+      8,
+      8
+     ],
+     "chance": 100,
+     "items": 8
+    },
+    {
+     "floors_rom": [
+      9,
+      16
+     ],
+     "chance": 8,
+     "items": 58
+    }
+   ]
+  },
+  {
+   "zone": "star_cave_depths",
+   "dungeon": "d126",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      4
+     ],
+     "chance": 8,
+     "items": 58
+    }
+   ]
+  },
+  {
+   "zone": "star_cave_se1",
+   "dungeon": "d123",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      2
+     ],
+     "chance": 50,
+     "items": 8
+    },
+    {
+     "floors_rom": [
+      3,
+      4
+     ],
+     "chance": 100,
+     "items": 8
+    },
+    {
+     "floors_rom": [
+      5,
+      5
+     ],
+     "chance": 50,
+     "items": 8
+    },
+    {
+     "floors_rom": [
+      6,
+      6
+     ],
+     "chance": 100,
+     "items": 8
+    },
+    {
+     "floors_rom": [
+      7,
+      7
+     ],
+     "chance": 50,
+     "items": 8
+    }
+   ]
+  },
+  {
+   "zone": "third_station_pass",
+   "dungeon": "d113",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      3
+     ],
+     "chance": 8,
+     "items": 43
+    }
+   ]
+  },
+  {
+   "zone": "tiny_meadow_post",
+   "dungeon": "d90",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      5
+     ],
+     "chance": 7,
+     "items": 20
+    }
+   ]
+  },
+  {
+   "zone": "treacherous_waters",
+   "dungeon": "d108",
+   "ranges": [
+    {
+     "floors_rom": [
+      16,
+      20
+     ],
+     "chance": 13,
+     "items": 93
+    }
+   ]
+  },
+  {
+   "zone": "treeshroud_forest",
+   "dungeon": "d34",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      20
+     ],
+     "chance": 9,
+     "items": 39
+    }
+   ]
+  },
+  {
+   "zone": "upper_spring_cave",
+   "dungeon": "d160",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      1
+     ],
+     "chance": 50,
+     "items": 8
+    },
+    {
+     "floors_rom": [
+      2,
+      2
+     ],
+     "chance": 30,
+     "items": 59
+    },
+    {
+     "floors_rom": [
+      3,
+      4
+     ],
+     "chance": 10,
+     "items": 59
+    }
+   ]
+  },
+  {
+   "zone": "waterfall_cave",
+   "dungeon": "d06",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      2
+     ],
+     "chance": 8,
+     "items": 20
+    },
+    {
+     "floors_rom": [
+      3,
+      6
+     ],
+     "chance": 9,
+     "items": 20
+    },
+    {
+     "floors_rom": [
+      7,
+      8
+     ],
+     "chance": 10,
+     "items": 20
+    }
+   ]
+  },
+  {
+   "zone": "zero_isle_center",
+   "dungeon": "d103",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      50
+     ],
+     "chance": 8,
+     "items": 25
+    }
+   ]
+  },
+  {
+   "zone": "zero_isle_east",
+   "dungeon": "d100",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      40
+     ],
+     "chance": 7,
+     "items": 104
+    }
+   ]
+  },
+  {
+   "zone": "zero_isle_north",
+   "dungeon": "d99",
+   "ranges": [
+    {
+     "floors_rom": [
+      6,
+      6
+     ],
+     "chance": 25,
+     "items": 25
+    },
+    {
+     "floors_rom": [
+      9,
+      9
+     ],
+     "chance": 25,
+     "items": 25
+    },
+    {
+     "floors_rom": [
+      12,
+      12
+     ],
+     "chance": 25,
+     "items": 25
+    },
+    {
+     "floors_rom": [
+      15,
+      15
+     ],
+     "chance": 25,
+     "items": 25
+    },
+    {
+     "floors_rom": [
+      18,
+      18
+     ],
+     "chance": 25,
+     "items": 25
+    },
+    {
+     "floors_rom": [
+      21,
+      21
+     ],
+     "chance": 25,
+     "items": 25
+    },
+    {
+     "floors_rom": [
+      24,
+      24
+     ],
+     "chance": 25,
+     "items": 25
+    },
+    {
+     "floors_rom": [
+      27,
+      27
+     ],
+     "chance": 25,
+     "items": 25
+    },
+    {
+     "floors_rom": [
+      30,
+      30
+     ],
+     "chance": 25,
+     "items": 25
+    },
+    {
+     "floors_rom": [
+      33,
+      33
+     ],
+     "chance": 25,
+     "items": 25
+    },
+    {
+     "floors_rom": [
+      36,
+      36
+     ],
+     "chance": 25,
+     "items": 25
+    },
+    {
+     "floors_rom": [
+      39,
+      39
+     ],
+     "chance": 25,
+     "items": 25
+    },
+    {
+     "floors_rom": [
+      42,
+      42
+     ],
+     "chance": 25,
+     "items": 25
+    },
+    {
+     "floors_rom": [
+      45,
+      45
+     ],
+     "chance": 25,
+     "items": 25
+    },
+    {
+     "floors_rom": [
+      48,
+      48
+     ],
+     "chance": 25,
+     "items": 25
+    },
+    {
+     "floors_rom": [
+      51,
+      51
+     ],
+     "chance": 25,
+     "items": 25
+    },
+    {
+     "floors_rom": [
+      54,
+      54
+     ],
+     "chance": 25,
+     "items": 25
+    },
+    {
+     "floors_rom": [
+      57,
+      57
+     ],
+     "chance": 25,
+     "items": 25
+    },
+    {
+     "floors_rom": [
+      60,
+      60
+     ],
+     "chance": 25,
+     "items": 18
+    },
+    {
+     "floors_rom": [
+      63,
+      63
+     ],
+     "chance": 25,
+     "items": 18
+    },
+    {
+     "floors_rom": [
+      66,
+      66
+     ],
+     "chance": 25,
+     "items": 18
+    },
+    {
+     "floors_rom": [
+      69,
+      69
+     ],
+     "chance": 25,
+     "items": 18
+    },
+    {
+     "floors_rom": [
+      72,
+      72
+     ],
+     "chance": 25,
+     "items": 18
+    },
+    {
+     "floors_rom": [
+      75,
+      75
+     ],
+     "chance": 25,
+     "items": 18
+    }
+   ]
+  },
+  {
+   "zone": "zero_isle_south",
+   "dungeon": "d102",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      6
+     ],
+     "chance": 8,
+     "items": 101
+    },
+    {
+     "floors_rom": [
+      7,
+      7
+     ],
+     "chance": 50,
+     "items": 101
+    },
+    {
+     "floors_rom": [
+      8,
+      22
+     ],
+     "chance": 8,
+     "items": 101
+    },
+    {
+     "floors_rom": [
+      23,
+      23
+     ],
+     "chance": 50,
+     "items": 101
+    },
+    {
+     "floors_rom": [
+      24,
+      37
+     ],
+     "chance": 8,
+     "items": 101
+    },
+    {
+     "floors_rom": [
+      38,
+      38
+     ],
+     "chance": 50,
+     "items": 101
+    },
+    {
+     "floors_rom": [
+      39,
+      54
+     ],
+     "chance": 8,
+     "items": 101
+    },
+    {
+     "floors_rom": [
+      55,
+      55
+     ],
+     "chance": 50,
+     "items": 101
+    },
+    {
+     "floors_rom": [
+      56,
+      74
+     ],
+     "chance": 8,
+     "items": 101
+    },
+    {
+     "floors_rom": [
+      75,
+      75
+     ],
+     "chance": 50,
+     "items": 101
+    },
+    {
+     "floors_rom": [
+      76,
+      94
+     ],
+     "chance": 8,
+     "items": 101
+    },
+    {
+     "floors_rom": [
+      95,
+      95
+     ],
+     "chance": 50,
+     "items": 4
+    },
+    {
+     "floors_rom": [
+      96,
+      99
+     ],
+     "chance": 8,
+     "items": 4
+    }
+   ]
+  },
+  {
+   "zone": "zero_isle_west",
+   "dungeon": "d101",
+   "ranges": [
+    {
+     "floors_rom": [
+      1,
+      13
+     ],
+     "chance": 7,
+     "items": 101
+    },
+    {
+     "floors_rom": [
+      15,
+      28
+     ],
+     "chance": 7,
+     "items": 101
+    },
+    {
+     "floors_rom": [
+      30,
+      40
+     ],
+     "chance": 7,
+     "items": 101
+    }
+   ]
+  }
+ ],
+ "items_skipped_requires_mod": {
+  "Pecha Scarf": 25405,
+  "Insomniscope": 25380,
+  "Gold Ribbon": 23335,
+  "Violent Seed": 40708,
+  "[M:I1]Blowback Orb": 16741,
+  "[M:I1]Warp Orb": 51729,
+  "[M:I1]Drought Orb": 71486,
+  "[M:I1]Hurl Orb": 82632,
+  "[M:I1]Foe-Fear Orb": 37514,
+  "Heal Seed": 30599,
+  "Patsy Band": 40334,
+  "Persim Band": 43662,
+  "Eyedrop Seed": 46679,
+  "Life Seed": 49794,
+  "Totter Seed": 42950,
+  "Stun Seed": 60232,
+  "[M:I0]SolarBeam": 11923,
+  "[M:I0]Wide Slash": 20100,
+  "[M:I0]Vacuum-Cut": 30216,
+  "[M:I0]Stealth Rock": 19528,
+  "[M:I1]Pounce Orb": 41877,
+  "[M:I1]Decoy Orb": 49421,
+  "[M:I1]Silence Orb": 19522,
+  "[M:I1]Radar Orb": 19498,
+  "[M:I1]Shocker Orb": 14014,
+  "[M:I1]Stairs Orb": 39045,
+  "[M:I1]All-Mach Orb": 43735,
+  "Quick Seed": 25900,
+  "[M:I0]Toxic": 6667,
+  "[M:I0]Skill Swap": 787,
+  "[M:I0]Sleep Talk": 10931,
+  "[M:I0]Trick Room": 742,
+  "[M:I1]Sunny Orb": 36815,
+  "[M:I1]Rainy Orb": 36844,
+  "[M:I1]Evasion Orb": 5807,
+  "[M:I1]Sandy Orb": 5782,
+  "[M:I1]Rocky Orb": 5807,
+  "[M:I1]Snatch Orb": 5809,
+  "[M:I1]See-Trap Orb": 5783,
+  "[M:I1]Lob Orb": 5779,
+  "[M:I1]Switcher Orb": 13863,
+  "[M:I1]Transfer Orb": 17582,
+  "[M:I1]Quick Orb": 16522,
+  "[M:I1]Identify Orb": 5806,
+  "[M:I1]Sizebust Orb": 5779,
+  "[M:I1]Trapper Orb": 537,
+  "[M:I1]Longtoss Orb": 11321,
+  "Stamina Band": 14750,
+  "No-Stick Cap": 11418,
+  "Sneak Scarf": 10017,
+  "Diet Ribbon": 9990,
+  "Racket Band": 12070,
+  "Dodge Scarf": 13324,
+  "Bounce Band": 11418,
+  "Curve Band": 11445,
+  "Whiff Specs": 11418,
+  "No-Aim Scope": 11445,
+  "Lockon Specs": 11421,
+  "Munch Belt": 10615,
+  "Weather Band": 11418,
+  "Ginseng": 20012,
+  "Coronet Rock": 556,
+  "Mossy Rock": 555,
+  "Frozen Rock": 556,
+  "Joy Ribbon": 2500,
+  "Tight Belt": 3332,
+  "Detect Band": 3332
+ }
+}

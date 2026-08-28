@@ -2029,6 +2029,1934 @@
               }
             },
             "ModStates": []
+          },
+          {
+            "$type": "RogueEssence.LevelGen.SpreadStepRangeZoneStep, RogueEssence",
+            "StepPriority": {
+              "str": [
+                4,
+                2
+              ]
+            },
+            "Spawns": [
+              {
+                "Spawn": {
+                  "$type": "PMDC.LevelGen.ShopStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
+                  "Items": [
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "ammo_stick",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 5814
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "ammo_iron_thorn",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 3488
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "ammo_silver_spike",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 698
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "ammo_geo_pebble",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 7000
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "berry_oran",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 454
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "berry_sitrus",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 455
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "seed_reviver",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 455
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "seed_blinker",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 454
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "seed_blinker",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 455
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "berry_rawst",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 455
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "berry_pecha",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 455
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "berry_cheri",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 455
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "seed_sleep",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 455
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "seed_plain",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 454
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "seed_warp",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 455
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "seed_blast",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 454
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "berry_chesto",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 455
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "seed_vile",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 455
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "medicine_max_elixir",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 455
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_dragon_claw",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 117
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_water_pulse",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 235
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_calm_mind",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 117
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_roar",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 118
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_bulk_up",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 117
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_bullet_seed",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 30
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_hidden_power",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 117
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_taunt",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 29
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_ice_beam",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 118
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_blizzard",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 117
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_hyper_beam",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 88
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_light_screen",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 235
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_protect",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 117
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_giga_drain",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 118
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_safeguard",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 117
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_frustration",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 117
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_iron_tail",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 29
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_thunderbolt",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 59
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_thunder",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 117
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_earthquake",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 59
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_return",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 53
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_dig",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 59
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_psychic",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 117
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_shadow_ball",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 59
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_brick_break",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 234
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_reflect",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 235
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_shock_wave",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 147
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_flamethrower",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 235
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_sludge_bomb",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 146
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_fire_blast",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 235
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_aerial_ace",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 117
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_torment",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 118
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_facade",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 59
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_secret_power",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 58
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_rest",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 235
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_attract",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 117
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_thief",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 59
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_steel_wing",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 88
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_overheat",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 88
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_roost",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 117
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_focus_blast",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 118
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_energy_ball",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 235
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_false_swipe",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 117
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_brine",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 117
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_fling",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 59
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_charge_beam",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 59
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_endure",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 58
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_dragon_pulse",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 59
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_drain_punch",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 59
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_will_o_wisp",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 58
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_silver_wind",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 59
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_embargo",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 235
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_explosion",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 117
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_shadow_claw",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 30
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_payback",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 117
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_recycle",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 235
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_giga_impact",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 29
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_rock_polish",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 29
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_dive",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 117
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_flash",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 176
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_stone_edge",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 118
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_avalanche",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 176
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_thunder_wave",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 234
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_gyro_ball",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 118
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_swords_dance",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 235
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_psych_up",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 117
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_captivate",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 118
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_dark_pulse",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 117
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_rock_slide",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 117
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_x_scissor",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 118
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_natural_gift",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 117
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_poison_jab",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 118
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_grass_knot",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 29
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_swagger",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 59
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_pluck",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 58
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_u_turn",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 59
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_substitute",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 59
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "tm_flash_cannon",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 58
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "orb_mug",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 178
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "orb_rebound",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 179
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "orb_slow",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 178
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "orb_luminous",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 357
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "orb_petrify",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 178
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "orb_stayaway",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 179
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "orb_cleanse",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 357
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "orb_slumber",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 358
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "orb_totter",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 357
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "orb_scanner",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 179
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "orb_trapbust",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 179
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "orb_rollcall",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 178
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "orb_one_shot",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 179
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "orb_fill_in",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 179
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "orb_itemizer",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 178
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "orb_mobile",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 178
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "orb_pierce",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 179
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "orb_all_hit",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 357
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "orb_foe_seal",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 357
+                    }
+                  ],
+                  "ItemThemes": [],
+                  "Mobs": [
+                    {
+                      "Spawn": {
+                        "BaseForm": {
+                          "Species": "kecleon",
+                          "Form": 0,
+                          "Skin": "normal",
+                          "Gender": -1
+                        },
+                        "Level": {
+                          "Min": 55,
+                          "Max": 55
+                        },
+                        "SpecifiedSkills": [
+                          "synchronoise",
+                          "bind",
+                          "screech",
+                          "thunder_wave"
+                        ],
+                        "Intrinsic": "color_change",
+                        "Tactic": "shopkeeper",
+                        "SpawnConditions": [],
+                        "SpawnFeatures": [
+                          {
+                            "$type": "PMDC.LevelGen.MobSpawnBoost, PMDC",
+                            "MaxHPBonus": 256,
+                            "AtkBonus": 256,
+                            "DefBonus": 256,
+                            "SpAtkBonus": 256,
+                            "SpDefBonus": 256,
+                            "SpeedBonus": 256
+                          },
+                          {
+                            "$type": "PMDC.LevelGen.MobSpawnInv, PMDC",
+                            "Items": [
+                              {
+                                "ID": "xcl_family_kecleon_00",
+                                "Cursed": false,
+                                "HiddenValue": "",
+                                "Amount": 0,
+                                "Price": 0
+                              },
+                              {
+                                "ID": "xcl_family_kecleon_01",
+                                "Cursed": false,
+                                "HiddenValue": "",
+                                "Amount": 0,
+                                "Price": 0
+                              },
+                              {
+                                "ID": "xcl_family_kecleon_04",
+                                "Cursed": false,
+                                "HiddenValue": "",
+                                "Amount": 0,
+                                "Price": 0
+                              }
+                            ],
+                            "MapStartOnly": false
+                          },
+                          {
+                            "$type": "PMDC.LevelGen.MobSpawnDiscriminator, PMDC",
+                            "Discriminator": 0
+                          },
+                          {
+                            "$type": "PMDC.LevelGen.MobSpawnInteractable, PMDC",
+                            "CheckEvents": []
+                          },
+                          {
+                            "$type": "PMDC.LevelGen.MobSpawnLuaTable, PMDC",
+                            "LuaTable": "{ Role = \"Shopkeeper\" }"
+                          }
+                        ]
+                      },
+                      "Rate": 10
+                    }
+                  ],
+                  "StartMob": {
+                    "BaseForm": {
+                      "Species": "kecleon",
+                      "Form": 0,
+                      "Skin": "normal",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 55,
+                      "Max": 55
+                    },
+                    "SpecifiedSkills": [
+                      "synchronoise",
+                      "bind",
+                      "screech",
+                      "thunder_wave"
+                    ],
+                    "Intrinsic": "color_change",
+                    "Tactic": "shopkeeper",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnBoost, PMDC",
+                        "MaxHPBonus": 256,
+                        "AtkBonus": 256,
+                        "DefBonus": 256,
+                        "SpAtkBonus": 256,
+                        "SpDefBonus": 256,
+                        "SpeedBonus": 256
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnInv, PMDC",
+                        "Items": [
+                          {
+                            "ID": "xcl_family_kecleon_00",
+                            "Cursed": false,
+                            "HiddenValue": "",
+                            "Amount": 0,
+                            "Price": 0
+                          },
+                          {
+                            "ID": "xcl_family_kecleon_01",
+                            "Cursed": false,
+                            "HiddenValue": "",
+                            "Amount": 0,
+                            "Price": 0
+                          },
+                          {
+                            "ID": "xcl_family_kecleon_04",
+                            "Cursed": false,
+                            "HiddenValue": "",
+                            "Amount": 0,
+                            "Price": 0
+                          }
+                        ],
+                        "MapStartOnly": false
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnDiscriminator, PMDC",
+                        "Discriminator": 0
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnInteractable, PMDC",
+                        "CheckEvents": []
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnLuaTable, PMDC",
+                        "LuaTable": "{ Role = \"Shopkeeper\" }"
+                      }
+                    ]
+                  },
+                  "Filters": [
+                    {
+                      "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
+                      "Connection": 1
+                    }
+                  ],
+                  "SecurityStatus": "shop_security",
+                  "Personality": 0
+                },
+                "Rate": 10,
+                "Range": {
+                  "Min": 0,
+                  "Max": 30
+                }
+              }
+            ],
+            "SpreadPlan": {
+              "$type": "RogueEssence.LevelGen.SpreadPlanChance, RogueEssence",
+              "Chance": 8,
+              "FloorRange": {
+                "Min": 0,
+                "Max": 30
+              }
+            },
+            "ModStates": []
           }
         ],
         "Floors": [

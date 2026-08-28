@@ -7110,6 +7110,419 @@
               }
             },
             "ModStates": []
+          },
+          {
+            "$type": "RogueEssence.LevelGen.SpreadStepRangeZoneStep, RogueEssence",
+            "StepPriority": {
+              "str": [
+                4,
+                2
+              ]
+            },
+            "Spawns": [
+              {
+                "Spawn": {
+                  "$type": "PMDC.LevelGen.ShopStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
+                  "Items": [
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "evo_up_grade",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 556
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "evo_deep_sea_scale",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 555
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "evo_deep_sea_tooth",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 556
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "held_dragon_scale",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 555
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "evo_dubious_disc",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 556
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "evo_protector",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 555
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "evo_reaper_cloth",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 556
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "evo_razor_fang",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 555
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "evo_razor_claw",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 556
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "evo_electirizer",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 556
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "evo_magmarizer",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 555
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "evo_oval_stone",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 556
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "evo_dawn_stone",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 555
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "evo_shiny_stone",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 556
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "evo_dusk_stone",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 555
+                    }
+                  ],
+                  "ItemThemes": [],
+                  "Mobs": [
+                    {
+                      "Spawn": {
+                        "BaseForm": {
+                          "Species": "kecleon",
+                          "Form": 0,
+                          "Skin": "normal",
+                          "Gender": -1
+                        },
+                        "Level": {
+                          "Min": 55,
+                          "Max": 55
+                        },
+                        "SpecifiedSkills": [
+                          "synchronoise",
+                          "bind",
+                          "screech",
+                          "thunder_wave"
+                        ],
+                        "Intrinsic": "color_change",
+                        "Tactic": "shopkeeper",
+                        "SpawnConditions": [],
+                        "SpawnFeatures": [
+                          {
+                            "$type": "PMDC.LevelGen.MobSpawnBoost, PMDC",
+                            "MaxHPBonus": 256,
+                            "AtkBonus": 256,
+                            "DefBonus": 256,
+                            "SpAtkBonus": 256,
+                            "SpDefBonus": 256,
+                            "SpeedBonus": 256
+                          },
+                          {
+                            "$type": "PMDC.LevelGen.MobSpawnInv, PMDC",
+                            "Items": [
+                              {
+                                "ID": "xcl_family_kecleon_00",
+                                "Cursed": false,
+                                "HiddenValue": "",
+                                "Amount": 0,
+                                "Price": 0
+                              },
+                              {
+                                "ID": "xcl_family_kecleon_01",
+                                "Cursed": false,
+                                "HiddenValue": "",
+                                "Amount": 0,
+                                "Price": 0
+                              },
+                              {
+                                "ID": "xcl_family_kecleon_04",
+                                "Cursed": false,
+                                "HiddenValue": "",
+                                "Amount": 0,
+                                "Price": 0
+                              }
+                            ],
+                            "MapStartOnly": false
+                          },
+                          {
+                            "$type": "PMDC.LevelGen.MobSpawnDiscriminator, PMDC",
+                            "Discriminator": 0
+                          },
+                          {
+                            "$type": "PMDC.LevelGen.MobSpawnInteractable, PMDC",
+                            "CheckEvents": []
+                          },
+                          {
+                            "$type": "PMDC.LevelGen.MobSpawnLuaTable, PMDC",
+                            "LuaTable": "{ Role = \"Shopkeeper\" }"
+                          }
+                        ]
+                      },
+                      "Rate": 10
+                    }
+                  ],
+                  "StartMob": {
+                    "BaseForm": {
+                      "Species": "kecleon",
+                      "Form": 0,
+                      "Skin": "normal",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 55,
+                      "Max": 55
+                    },
+                    "SpecifiedSkills": [
+                      "synchronoise",
+                      "bind",
+                      "screech",
+                      "thunder_wave"
+                    ],
+                    "Intrinsic": "color_change",
+                    "Tactic": "shopkeeper",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnBoost, PMDC",
+                        "MaxHPBonus": 256,
+                        "AtkBonus": 256,
+                        "DefBonus": 256,
+                        "SpAtkBonus": 256,
+                        "SpDefBonus": 256,
+                        "SpeedBonus": 256
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnInv, PMDC",
+                        "Items": [
+                          {
+                            "ID": "xcl_family_kecleon_00",
+                            "Cursed": false,
+                            "HiddenValue": "",
+                            "Amount": 0,
+                            "Price": 0
+                          },
+                          {
+                            "ID": "xcl_family_kecleon_01",
+                            "Cursed": false,
+                            "HiddenValue": "",
+                            "Amount": 0,
+                            "Price": 0
+                          },
+                          {
+                            "ID": "xcl_family_kecleon_04",
+                            "Cursed": false,
+                            "HiddenValue": "",
+                            "Amount": 0,
+                            "Price": 0
+                          }
+                        ],
+                        "MapStartOnly": false
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnDiscriminator, PMDC",
+                        "Discriminator": 0
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnInteractable, PMDC",
+                        "CheckEvents": []
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnLuaTable, PMDC",
+                        "LuaTable": "{ Role = \"Shopkeeper\" }"
+                      }
+                    ]
+                  },
+                  "Filters": [
+                    {
+                      "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
+                      "Connection": 1
+                    }
+                  ],
+                  "SecurityStatus": "shop_security",
+                  "Personality": 0
+                },
+                "Rate": 10,
+                "Range": {
+                  "Min": 0,
+                  "Max": 18
+                }
+              }
+            ],
+            "SpreadPlan": {
+              "$type": "RogueEssence.LevelGen.SpreadPlanChance, RogueEssence",
+              "Chance": 8,
+              "FloorRange": {
+                "Min": 0,
+                "Max": 18
+              }
+            },
+            "ModStates": []
           }
         ],
         "Floors": [

@@ -1,0 +1,248 @@
+{"event":"dprobe_begin","count":2,"reps":6}
+{"event":"dprobe_floor","zone":"apple_woods","floor":0,"mobs":2,"items":5,"traps":3,"species":"paras,butterfree"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",39,17,Down: 0],"ally1":["piplup",39,18,Down: 0],"ally2":["growlithe",38,17,Down: 0],"ally3":["zigzagoon",40,17,Down: 0],"foe0_0":["paras",9,15,Down: 0],"foe1_0":["butterfree",18,5,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":1,"mobs":3,"items":5,"traps":15,"species":"hoppip,paras,caterpie","neutrals":"kecleon"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",5,17,Down: 0],"ally1":["piplup",5,18,Down: 0],"ally2":["growlithe",4,17,Down: 0],"ally3":["zigzagoon",5,16,Down: 0],"foe0_0":["hoppip",16,15,Down: 0],"foe1_0":["paras",45,13,Down: 0],"foe2_0":["caterpie",37,8,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":2,"mobs":2,"items":7,"traps":3,"species":"hoppip,butterfree"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",55,38,Down: 0],"ally1":["piplup",55,39,Down: 0],"ally2":["growlithe",54,38,Down: 0],"ally3":["zigzagoon",55,37,Down: 0],"foe0_0":["hoppip",7,17,Down: 0],"foe1_0":["butterfree",42,20,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":3,"mobs":2,"items":7,"traps":4,"species":"oddish,paras"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",53,6,Down: 0],"ally1":["piplup",53,7,Down: 0],"ally2":["growlithe",52,6,Down: 0],"ally3":["zigzagoon",53,5,Down: 0],"foe0_0":["oddish",17,3,Down: 0],"foe1_0":["paras",54,15,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":4,"mobs":3,"items":7,"traps":4,"species":"butterfree,budew,paras"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",39,43,Down: 0],"ally1":["piplup",38,43,Down: 0],"ally2":["growlithe",39,42,Down: 0],"ally3":["zigzagoon",40,43,Down: 0],"foe0_0":["butterfree",2,30,Down: 0],"foe1_0":["budew",51,20,Down: 0],"foe2_0":["paras",18,28,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":5,"mobs":2,"items":7,"traps":3,"species":"butterfree,paras"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",41,4,Down: 0],"ally1":["piplup",41,5,Down: 0],"ally2":["growlithe",41,3,Down: 0],"ally3":["zigzagoon",42,4,Down: 0],"foe0_0":["butterfree",30,42,Down: 0],"foe1_0":["paras",57,30,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":6,"mobs":4,"items":8,"traps":4,"species":"exeggutor,combee,weedle,exeggutor"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",52,8,Down: 0],"ally1":["piplup",52,7,Down: 0],"ally2":["growlithe",53,8,Down: 0],"ally3":["zigzagoon",53,7,Down: 0],"foe0_0":["exeggutor",55,28,Down: 0],"foe1_0":["combee",21,2,Down: 0],"foe2_0":["weedle",29,38,Down: 0],"foe3_0":["exeggutor",40,30,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":7,"mobs":3,"items":8,"traps":3,"species":"gloom,gloom,weedle"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",34,6,Down: 0],"ally1":["piplup",33,6,Down: 0],"ally2":["growlithe",34,5,Down: 0],"ally3":["zigzagoon",33,5,Down: 0],"foe0_0":["gloom",43,28,Down: 0],"foe1_0":["gloom",28,27,Down: 0],"foe2_0":["weedle",53,29,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":8,"mobs":4,"items":7,"traps":3,"species":"combee,combee,kakuna,combee"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",7,32,Down: 0],"ally1":["piplup",6,32,Down: 0],"ally2":["growlithe",7,31,Down: 0],"ally3":["zigzagoon",8,32,Down: 0],"foe0_0":["combee",19,18,Down: 0],"foe1_0":["combee",4,7,Down: 0],"foe2_0":["kakuna",33,18,Down: 0],"foe3_0":["combee",17,7,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":9,"mobs":3,"items":9,"traps":4,"species":"gloom,exeggutor,beedrill"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",30,13,Down: 0],"ally1":["piplup",30,14,Down: 0],"ally2":["growlithe",29,13,Down: 0],"ally3":["zigzagoon",31,13,Down: 0],"foe0_0":["gloom",17,3,Down: 0],"foe1_0":["exeggutor",32,4,Down: 0],"foe2_0":["beedrill",19,27,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":10,"mobs":3,"items":9,"traps":24,"species":"combee,gloom,paras","neutrals":"kecleon"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",6,32,Down: 0],"ally1":["piplup",6,33,Down: 0],"ally2":["growlithe",5,32,Down: 0],"ally3":["zigzagoon",6,31,Down: 0],"foe0_0":["combee",44,28,Down: 0],"foe1_0":["gloom",17,16,Down: 0],"foe2_0":["paras",51,17,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":11,"mobs":3,"items":6,"traps":4,"species":"paras,exeggutor,beedrill"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",57,44,Down: 0],"ally1":["piplup",57,45,Down: 0],"ally2":["growlithe",56,44,Down: 0],"ally3":["zigzagoon",57,43,Down: 0],"foe0_0":["paras",44,43,Down: 0],"foe1_0":["exeggutor",29,44,Down: 0],"foe2_0":["beedrill",9,13,Down: 0]}
+{"event":"dprobe_floor","zone":"waterfall_cave","floor":0,"mobs":2,"items":4,"traps":3,"species":"lotad,surskit"}
+{"event":"dprobe_formation","zone":"waterfall_cave","ally0":["turtwig",14,21,Down: 0],"ally1":["piplup",14,22,Down: 0],"ally2":["growlithe",13,21,Down: 0],"ally3":["zigzagoon",14,20,Down: 0],"foe0_0":["lotad",17,30,Down: 0],"foe1_0":["surskit",43,18,Down: 0]}
+{"event":"dprobe_floor","zone":"waterfall_cave","floor":1,"mobs":2,"items":4,"traps":3,"species":"barboach,psyduck"}
+{"event":"dprobe_formation","zone":"waterfall_cave","ally0":["turtwig",37,29,Down: 0],"ally1":["piplup",37,30,Down: 0],"ally2":["growlithe",37,28,Down: 0],"ally3":["zigzagoon",38,29,Down: 0],"foe0_0":["barboach",56,15,Down: 0],"foe1_0":["psyduck",3,14,Down: 0]}
+{"event":"dprobe_floor","zone":"waterfall_cave","floor":2,"mobs":2,"items":5,"traps":4,"species":"tangela,wooper"}
+{"event":"dprobe_formation","zone":"waterfall_cave","ally0":["turtwig",41,42,Down: 0],"ally1":["piplup",41,43,Down: 0],"ally2":["growlithe",41,41,Down: 0],"ally3":["zigzagoon",42,42,Down: 0],"foe0_0":["tangela",26,41,Down: 0],"foe1_0":["wooper",25,3,Down: 0]}
+{"event":"dprobe_floor","zone":"waterfall_cave","floor":3,"mobs":2,"items":8,"traps":3,"species":"tangela,psyduck"}
+{"event":"dprobe_formation","zone":"waterfall_cave","ally0":["turtwig",6,41,Down: 0],"ally1":["piplup",6,42,Down: 0],"ally2":["growlithe",5,41,Down: 0],"ally3":["zigzagoon",6,40,Down: 0],"foe0_0":["tangela",13,28,Down: 0],"foe1_0":["psyduck",16,17,Down: 0]}
+{"event":"dprobe_floor","zone":"waterfall_cave","floor":4,"mobs":3,"items":7,"traps":3,"species":"wooper,poliwag,psyduck"}
+{"event":"dprobe_formation","zone":"waterfall_cave","ally0":["turtwig",20,5,Down: 0],"ally1":["piplup",20,6,Down: 0],"ally2":["growlithe",19,5,Down: 0],"ally3":["zigzagoon",20,4,Down: 0],"foe0_0":["wooper",44,34,Down: 0],"foe1_0":["poliwag",9,44,Down: 0],"foe2_0":["psyduck",30,33,Down: 0]}
+{"event":"dprobe_floor","zone":"waterfall_cave","floor":5,"mobs":4,"items":8,"traps":3,"species":"whiscash,wooper,wooper,whiscash"}
+{"event":"dprobe_formation","zone":"waterfall_cave","ally0":["turtwig",56,39,Down: 0],"ally1":["piplup",56,40,Down: 0],"ally2":["growlithe",55,39,Down: 0],"ally3":["zigzagoon",56,38,Down: 0],"foe0_0":["whiscash",51,2,Down: 0],"foe1_0":["wooper",43,40,Down: 0],"foe2_0":["wooper",31,29,Down: 0],"foe3_0":["whiscash",42,29,Down: 0]}
+{"event":"dprobe_floor","zone":"waterfall_cave","floor":6,"mobs":3,"items":8,"traps":4,"species":"wooper,poliwag,surskit"}
+{"event":"dprobe_formation","zone":"waterfall_cave","ally0":["turtwig",40,14,Down: 0],"ally1":["piplup",40,15,Down: 0],"ally2":["growlithe",41,14,Down: 0],"ally3":["zigzagoon",41,13,Down: 0],"foe0_0":["wooper",19,19,Down: 0],"foe1_0":["poliwag",46,18,Down: 0],"foe2_0":["surskit",50,18,Down: 0]}
+{"event":"dprobe_floor","zone":"waterfall_cave","floor":7,"mobs":2,"items":8,"traps":4,"species":"poliwag,wooper"}
+{"event":"dprobe_formation","zone":"waterfall_cave","ally0":["turtwig",39,32,Down: 0],"ally1":["piplup",39,33,Down: 0],"ally2":["growlithe",38,32,Down: 0],"ally3":["zigzagoon",39,31,Down: 0],"foe0_0":["poliwag",4,30,Down: 0],"foe1_0":["wooper",55,27,Down: 0]}
+{"event":"dprobe_rep","rep":2}
+{"event":"dprobe_floor","zone":"apple_woods","floor":0,"mobs":3,"items":3,"traps":3,"species":"hoppip,paras,caterpie"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",19,2,Down: 0],"ally1":["piplup",19,3,Down: 0],"ally2":["growlithe",18,2,Down: 0],"ally3":["zigzagoon",20,2,Down: 0],"foe0_0":["hoppip",28,19,Down: 0],"foe1_0":["paras",17,20,Down: 0],"foe2_0":["caterpie",21,8,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":1,"mobs":2,"items":6,"traps":4,"species":"oddish,paras"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",30,30,Down: 0],"ally1":["piplup",29,30,Down: 0],"ally2":["growlithe",30,29,Down: 0],"ally3":["zigzagoon",31,30,Down: 0],"foe0_0":["oddish",32,4,Down: 0],"foe1_0":["paras",44,5,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":2,"mobs":3,"items":8,"traps":4,"species":"caterpie,butterfree,oddish"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",6,8,Down: 0],"ally1":["piplup",6,9,Down: 0],"ally2":["growlithe",5,8,Down: 0],"ally3":["zigzagoon",6,7,Down: 0],"foe0_0":["caterpie",41,15,Down: 0],"foe1_0":["butterfree",58,30,Down: 0],"foe2_0":["oddish",16,31,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":3,"mobs":3,"items":6,"traps":4,"species":"exeggutor,oddish,oddish"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",8,26,Down: 0],"ally1":["piplup",8,27,Down: 0],"ally2":["growlithe",7,26,Down: 0],"ally3":["zigzagoon",8,25,Down: 0],"foe0_0":["exeggutor",16,32,Down: 0],"foe1_0":["oddish",26,33,Down: 0],"foe2_0":["oddish",18,15,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":4,"mobs":3,"items":7,"traps":4,"species":"budew,oddish,butterfree"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",7,22,Down: 0],"ally1":["piplup",6,22,Down: 0],"ally2":["growlithe",7,21,Down: 0],"ally3":["zigzagoon",6,23,Down: 0],"foe0_0":["budew",20,8,Down: 0],"foe1_0":["oddish",16,38,Down: 0],"foe2_0":["butterfree",54,30,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":5,"mobs":4,"items":7,"traps":3,"species":"combee,combee,paras,combee"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",15,2,Down: 0],"ally1":["piplup",15,3,Down: 0],"ally2":["growlithe",14,2,Down: 0],"ally3":["zigzagoon",15,1,Down: 0],"foe0_0":["combee",57,4,Down: 0],"foe1_0":["combee",17,29,Down: 0],"foe2_0":["paras",29,8,Down: 0],"foe3_0":["combee",52,32,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":6,"mobs":2,"items":8,"traps":3,"species":"gloom,paras"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",6,40,Down: 0],"ally1":["piplup",6,41,Down: 0],"ally2":["growlithe",5,40,Down: 0],"ally3":["zigzagoon",6,39,Down: 0],"foe0_0":["gloom",19,8,Down: 0],"foe1_0":["paras",61,6,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":7,"mobs":4,"items":8,"traps":3,"species":"beedrill,gloom,exeggutor,exeggutor"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",30,16,Down: 0],"ally1":["piplup",30,17,Down: 0],"ally2":["growlithe",30,15,Down: 0],"ally3":["zigzagoon",31,16,Down: 0],"foe0_0":["beedrill",27,39,Down: 0],"foe1_0":["gloom",52,33,Down: 0],"foe2_0":["exeggutor",30,9,Down: 0],"foe3_0":["exeggutor",15,29,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":8,"mobs":4,"items":8,"traps":3,"species":"exeggutor,paras,beedrill,kakuna"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",5,19,Down: 0],"ally1":["piplup",4,19,Down: 0],"ally2":["growlithe",5,18,Down: 0],"ally3":["zigzagoon",6,19,Down: 0],"foe0_0":["exeggutor",21,30,Down: 0],"foe1_0":["paras",31,30,Down: 0],"foe2_0":["beedrill",26,7,Down: 0],"foe3_0":["kakuna",6,7,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":9,"mobs":3,"items":7,"traps":3,"species":"exeggutor,exeggutor,gloom"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",29,30,Down: 0],"ally1":["piplup",29,31,Down: 0],"ally2":["growlithe",28,30,Down: 0],"ally3":["zigzagoon",29,29,Down: 0],"foe0_0":["exeggutor",39,31,Down: 0],"foe1_0":["exeggutor",27,22,Down: 0],"foe2_0":["gloom",41,18,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":10,"mobs":3,"items":8,"traps":4,"species":"paras,paras,exeggutor"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",16,46,Down: 0],"ally1":["piplup",15,46,Down: 0],"ally2":["growlithe",16,45,Down: 0],"ally3":["zigzagoon",17,46,Down: 0],"foe0_0":["paras",18,19,Down: 0],"foe1_0":["paras",41,5,Down: 0],"foe2_0":["exeggutor",43,19,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":11,"mobs":2,"items":7,"traps":4,"species":"kakuna,combee"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",26,44,Down: 0],"ally1":["piplup",26,45,Down: 0],"ally2":["growlithe",26,43,Down: 0],"ally3":["zigzagoon",27,44,Down: 0],"foe0_0":["kakuna",1,29,Down: 0],"foe1_0":["combee",28,28,Down: 0]}
+{"event":"dprobe_floor","zone":"waterfall_cave","floor":0,"mobs":3,"items":4,"traps":3,"species":"lotad,grimer,lotad"}
+{"event":"dprobe_formation","zone":"waterfall_cave","ally0":["turtwig",40,19,Down: 0],"ally1":["piplup",40,20,Down: 0],"ally2":["growlithe",39,19,Down: 0],"ally3":["zigzagoon",40,18,Down: 0],"foe0_0":["lotad",29,27,Down: 0],"foe1_0":["grimer",26,20,Down: 0],"foe2_0":["lotad",54,15,Down: 0]}
+{"event":"dprobe_floor","zone":"waterfall_cave","floor":1,"mobs":2,"items":4,"traps":3,"species":"barboach,psyduck"}
+{"event":"dprobe_formation","zone":"waterfall_cave","ally0":["turtwig",18,30,Down: 0],"ally1":["piplup",18,31,Down: 0],"ally2":["growlithe",18,29,Down: 0],"ally3":["zigzagoon",19,30,Down: 0],"foe0_0":["barboach",30,30,Down: 0],"foe1_0":["psyduck",4,40,Down: 0]}
+{"event":"dprobe_floor","zone":"waterfall_cave","floor":2,"mobs":2,"items":6,"traps":3,"species":"wooper,barboach"}
+{"event":"dprobe_formation","zone":"waterfall_cave","ally0":["turtwig",3,20,Down: 0],"ally1":["piplup",3,21,Down: 0],"ally2":["growlithe",2,20,Down: 0],"ally3":["zigzagoon",3,19,Down: 0],"foe0_0":["wooper",30,3,Down: 0],"foe1_0":["barboach",52,45,Down: 0]}
+{"event":"dprobe_floor","zone":"waterfall_cave","floor":3,"mobs":2,"items":8,"traps":3,"species":"poliwag,wooper"}
+{"event":"dprobe_formation","zone":"waterfall_cave","ally0":["turtwig",52,19,Down: 0],"ally1":["piplup",52,20,Down: 0],"ally2":["growlithe",51,19,Down: 0],"ally3":["zigzagoon",52,18,Down: 0],"foe0_0":["poliwag",39,42,Down: 0],"foe1_0":["wooper",28,5,Down: 0]}
+{"event":"dprobe_floor","zone":"waterfall_cave","floor":4,"mobs":3,"items":9,"traps":4,"species":"lotad,poliwag,tangela"}
+{"event":"dprobe_formation","zone":"waterfall_cave","ally0":["turtwig",41,39,Down: 0],"ally1":["piplup",41,40,Down: 0],"ally2":["growlithe",40,39,Down: 0],"ally3":["zigzagoon",41,38,Down: 0],"foe0_0":["lotad",27,26,Down: 0],"foe1_0":["poliwag",13,19,Down: 0],"foe2_0":["tangela",16,5,Down: 0]}
+{"event":"dprobe_floor","zone":"waterfall_cave","floor":5,"mobs":4,"items":6,"traps":4,"species":"surskit,wooper,surskit,wooper"}
+{"event":"dprobe_formation","zone":"waterfall_cave","ally0":["turtwig",4,4,Down: 0],"ally1":["piplup",4,5,Down: 0],"ally2":["growlithe",3,4,Down: 0],"ally3":["zigzagoon",4,3,Down: 0],"foe0_0":["surskit",55,27,Down: 0],"foe1_0":["wooper",1,31,Down: 0],"foe2_0":["surskit",31,32,Down: 0],"foe3_0":["wooper",13,4,Down: 0]}
+{"event":"dprobe_floor","zone":"waterfall_cave","floor":6,"mobs":2,"items":8,"traps":4,"species":"lotad,barboach"}
+{"event":"dprobe_formation","zone":"waterfall_cave","ally0":["turtwig",33,25,Down: 0],"ally1":["piplup",33,26,Down: 0],"ally2":["growlithe",32,25,Down: 0],"ally3":["zigzagoon",32,26,Down: 0],"foe0_0":["lotad",8,4,Down: 0],"foe1_0":["barboach",40,10,Down: 0]}
+{"event":"dprobe_floor","zone":"waterfall_cave","floor":7,"mobs":2,"items":7,"traps":3,"species":"grimer,poliwag"}
+{"event":"dprobe_formation","zone":"waterfall_cave","ally0":["turtwig",44,19,Down: 0],"ally1":["piplup",43,19,Down: 0],"ally2":["growlithe",44,18,Down: 0],"ally3":["zigzagoon",43,20,Down: 0],"foe0_0":["grimer",51,16,Down: 0],"foe1_0":["poliwag",20,44,Down: 0]}
+{"event":"dprobe_rep","rep":3}
+{"event":"dprobe_floor","zone":"apple_woods","floor":0,"mobs":3,"items":3,"traps":4,"species":"burmy,budew,paras"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",16,20,Down: 0],"ally1":["piplup",16,21,Down: 0],"ally2":["growlithe",15,20,Down: 0],"ally3":["zigzagoon",16,19,Down: 0],"foe0_0":["burmy",2,32,Down: 0],"foe1_0":["budew",4,19,Down: 0],"foe2_0":["paras",39,26,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":1,"mobs":2,"items":5,"traps":3,"species":"butterfree,paras"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",30,16,Down: 0],"ally1":["piplup",30,17,Down: 0],"ally2":["growlithe",29,16,Down: 0],"ally3":["zigzagoon",30,15,Down: 0],"foe0_0":["butterfree",39,3,Down: 0],"foe1_0":["paras",13,9,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":2,"mobs":3,"items":8,"traps":3,"species":"oddish,budew,burmy"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",51,2,Down: 0],"ally1":["piplup",51,3,Down: 0],"ally2":["growlithe",50,2,Down: 0],"ally3":["zigzagoon",51,1,Down: 0],"foe0_0":["oddish",4,30,Down: 0],"foe1_0":["budew",27,3,Down: 0],"foe2_0":["burmy",7,19,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":3,"mobs":2,"items":7,"traps":29,"species":"oddish,caterpie","neutrals":"kecleon"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",27,7,Down: 0],"ally1":["piplup",27,8,Down: 0],"ally2":["growlithe",26,7,Down: 0],"ally3":["zigzagoon",27,6,Down: 0],"foe0_0":["oddish",17,41,Down: 0],"foe1_0":["caterpie",5,30,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":4,"mobs":2,"items":8,"traps":4,"species":"oddish,burmy"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",15,4,Down: 0],"ally1":["piplup",15,5,Down: 0],"ally2":["growlithe",15,3,Down: 0],"ally3":["zigzagoon",16,4,Down: 0],"foe0_0":["oddish",30,44,Down: 0],"foe1_0":["burmy",6,41,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":5,"mobs":3,"items":6,"traps":4,"species":"paras,combee,exeggutor"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",20,43,Down: 0],"ally1":["piplup",19,43,Down: 0],"ally2":["growlithe",20,42,Down: 0],"ally3":["zigzagoon",21,43,Down: 0],"foe0_0":["paras",46,21,Down: 0],"foe1_0":["combee",7,18,Down: 0],"foe2_0":["exeggutor",52,33,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":6,"mobs":2,"items":9,"traps":4,"species":"paras,combee"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",66,29,Down: 0],"ally1":["piplup",66,30,Down: 0],"ally2":["growlithe",65,29,Down: 0],"ally3":["zigzagoon",66,28,Down: 0],"foe0_0":["paras",5,42,Down: 0],"foe1_0":["combee",28,6,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":7,"mobs":2,"items":7,"traps":24,"species":"kakuna,beedrill","neutrals":"kecleon"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",50,29,Down: 0],"ally1":["piplup",50,30,Down: 0],"ally2":["growlithe",50,28,Down: 0],"ally3":["zigzagoon",51,29,Down: 0],"foe0_0":["kakuna",32,21,Down: 0],"foe1_0":["beedrill",33,40,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":8,"mobs":4,"items":7,"traps":4,"species":"gloom,kakuna,paras,combee"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",7,22,Down: 0],"ally1":["piplup",6,22,Down: 0],"ally2":["growlithe",7,21,Down: 0],"ally3":["zigzagoon",8,22,Down: 0],"foe0_0":["gloom",30,19,Down: 0],"foe1_0":["kakuna",10,6,Down: 0],"foe2_0":["paras",42,18,Down: 0],"foe3_0":["combee",17,19,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":9,"mobs":3,"items":9,"traps":3,"species":"kakuna,combee,kakuna"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",31,28,Down: 0],"ally1":["piplup",31,29,Down: 0],"ally2":["growlithe",30,28,Down: 0],"ally3":["zigzagoon",31,27,Down: 0],"foe0_0":["kakuna",4,33,Down: 0],"foe1_0":["combee",41,16,Down: 0],"foe2_0":["kakuna",4,16,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":10,"mobs":4,"items":8,"traps":4,"species":"gloom,gloom,gloom,paras"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",6,7,Down: 0],"ally1":["piplup",6,8,Down: 0],"ally2":["growlithe",5,7,Down: 0],"ally3":["zigzagoon",6,6,Down: 0],"foe0_0":["gloom",15,27,Down: 0],"foe1_0":["gloom",7,13,Down: 0],"foe2_0":["gloom",38,17,Down: 0],"foe3_0":["paras",6,40,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":11,"mobs":4,"items":8,"traps":4,"species":"combee,kakuna,combee,paras"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",17,8,Down: 0],"ally1":["piplup",16,8,Down: 0],"ally2":["growlithe",17,7,Down: 0],"ally3":["zigzagoon",18,8,Down: 0],"foe0_0":["combee",28,14,Down: 0],"foe1_0":["kakuna",19,20,Down: 0],"foe2_0":["combee",44,7,Down: 0],"foe3_0":["paras",33,8,Down: 0]}
+{"event":"dprobe_floor","zone":"waterfall_cave","floor":0,"mobs":2,"items":4,"traps":3,"species":"tangela,barboach"}
+{"event":"dprobe_formation","zone":"waterfall_cave","ally0":["turtwig",9,42,Down: 0],"ally1":["piplup",9,43,Down: 0],"ally2":["growlithe",8,42,Down: 0],"ally3":["zigzagoon",9,41,Down: 0],"foe0_0":["tangela",16,42,Down: 0],"foe1_0":["barboach",39,18,Down: 0]}
+{"event":"dprobe_floor","zone":"waterfall_cave","floor":1,"mobs":3,"items":5,"traps":3,"species":"barboach,lotad,wooper"}
+{"event":"dprobe_formation","zone":"waterfall_cave","ally0":["turtwig",7,30,Down: 0],"ally1":["piplup",7,31,Down: 0],"ally2":["growlithe",6,30,Down: 0],"ally3":["zigzagoon",7,29,Down: 0],"foe0_0":["barboach",37,33,Down: 0],"foe1_0":["lotad",5,2,Down: 0],"foe2_0":["wooper",53,29,Down: 0]}
+{"event":"dprobe_floor","zone":"waterfall_cave","floor":2,"mobs":3,"items":6,"traps":4,"species":"surskit,poliwag,lotad"}
+{"event":"dprobe_formation","zone":"waterfall_cave","ally0":["turtwig",22,40,Down: 0],"ally1":["piplup",22,41,Down: 0],"ally2":["growlithe",21,40,Down: 0],"ally3":["zigzagoon",22,39,Down: 0],"foe0_0":["surskit",51,21,Down: 0],"foe1_0":["poliwag",56,40,Down: 0],"foe2_0":["lotad",8,31,Down: 0]}
+{"event":"dprobe_floor","zone":"waterfall_cave","floor":3,"mobs":3,"items":6,"traps":3,"species":"tangela,poliwag,lotad"}
+{"event":"dprobe_formation","zone":"waterfall_cave","ally0":["turtwig",18,19,Down: 0],"ally1":["piplup",18,20,Down: 0],"ally2":["growlithe",17,19,Down: 0],"ally3":["zigzagoon",18,18,Down: 0],"foe0_0":["tangela",29,16,Down: 0],"foe1_0":["poliwag",19,42,Down: 0],"foe2_0":["lotad",18,33,Down: 0]}
+{"event":"dprobe_floor","zone":"waterfall_cave","floor":4,"mobs":3,"items":9,"traps":4,"species":"tangela,psyduck,tangela"}
+{"event":"dprobe_formation","zone":"waterfall_cave","ally0":["turtwig",29,9,Down: 0],"ally1":["piplup",29,10,Down: 0],"ally2":["growlithe",29,8,Down: 0],"ally3":["zigzagoon",30,9,Down: 0],"foe0_0":["tangela",54,42,Down: 0],"foe1_0":["psyduck",16,38,Down: 0],"foe2_0":["tangela",18,16,Down: 0]}
+{"event":"dprobe_floor","zone":"waterfall_cave","floor":5,"mobs":3,"items":7,"traps":4,"species":"grimer,lotad,grimer"}
+{"event":"dprobe_formation","zone":"waterfall_cave","ally0":["turtwig",44,20,Down: 0],"ally1":["piplup",44,21,Down: 0],"ally2":["growlithe",43,20,Down: 0],"ally3":["zigzagoon",44,19,Down: 0],"foe0_0":["grimer",56,39,Down: 0],"foe1_0":["lotad",41,26,Down: 0],"foe2_0":["grimer",53,31,Down: 0]}
+{"event":"dprobe_floor","zone":"waterfall_cave","floor":6,"mobs":2,"items":9,"traps":3,"species":"barboach,lotad"}
+{"event":"dprobe_formation","zone":"waterfall_cave","ally0":["turtwig",42,42,Down: 0],"ally1":["piplup",42,43,Down: 0],"ally2":["growlithe",41,42,Down: 0],"ally3":["zigzagoon",42,41,Down: 0],"foe0_0":["barboach",56,3,Down: 0],"foe1_0":["lotad",30,32,Down: 0]}
+{"event":"dprobe_floor","zone":"waterfall_cave","floor":7,"mobs":4,"items":8,"traps":4,"species":"whiscash,barboach,grimer,wooper"}
+{"event":"dprobe_formation","zone":"waterfall_cave","ally0":["turtwig",33,1,Down: 0],"ally1":["piplup",33,2,Down: 0],"ally2":["growlithe",32,1,Down: 0],"ally3":["zigzagoon",34,1,Down: 0],"foe0_0":["whiscash",44,18,Down: 0],"foe1_0":["barboach",15,17,Down: 0],"foe2_0":["grimer",31,19,Down: 0],"foe3_0":["wooper",42,30,Down: 0]}
+{"event":"dprobe_rep","rep":4}
+{"event":"dprobe_floor","zone":"apple_woods","floor":0,"mobs":2,"items":4,"traps":3,"species":"paras,oddish"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",42,27,Down: 0],"ally1":["piplup",42,28,Down: 0],"ally2":["growlithe",41,27,Down: 0],"ally3":["zigzagoon",43,27,Down: 0],"foe0_0":["paras",17,16,Down: 0],"foe1_0":["oddish",20,9,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":1,"mobs":3,"items":6,"traps":4,"species":"oddish,burmy,budew"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",16,31,Down: 0],"ally1":["piplup",16,32,Down: 0],"ally2":["growlithe",15,31,Down: 0],"ally3":["zigzagoon",16,30,Down: 0],"foe0_0":["oddish",44,8,Down: 0],"foe1_0":["burmy",3,29,Down: 0],"foe2_0":["budew",32,16,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":2,"mobs":3,"items":8,"traps":3,"species":"butterfree,oddish,budew"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",57,19,Down: 0],"ally1":["piplup",57,20,Down: 0],"ally2":["growlithe",56,19,Down: 0],"ally3":["zigzagoon",57,18,Down: 0],"foe0_0":["butterfree",5,14,Down: 0],"foe1_0":["oddish",51,46,Down: 0],"foe2_0":["budew",27,8,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":3,"mobs":3,"items":5,"traps":3,"species":"hoppip,oddish,caterpie"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",52,30,Down: 0],"ally1":["piplup",52,31,Down: 0],"ally2":["growlithe",51,30,Down: 0],"ally3":["zigzagoon",53,30,Down: 0],"foe0_0":["hoppip",34,4,Down: 0],"foe1_0":["oddish",31,2,Down: 0],"foe2_0":["caterpie",41,4,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":4,"mobs":2,"items":8,"traps":4,"species":"hoppip,hoppip"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",16,5,Down: 0],"ally1":["piplup",16,6,Down: 0],"ally2":["growlithe",15,5,Down: 0],"ally3":["zigzagoon",16,4,Down: 0],"foe0_0":["hoppip",29,13,Down: 0],"foe1_0":["hoppip",41,6,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":5,"mobs":4,"items":7,"traps":3,"species":"weedle,combee,oddish,oddish"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",18,31,Down: 0],"ally1":["piplup",18,32,Down: 0],"ally2":["growlithe",17,31,Down: 0],"ally3":["zigzagoon",18,30,Down: 0],"foe0_0":["weedle",28,31,Down: 0],"foe1_0":["combee",45,45,Down: 0],"foe2_0":["oddish",40,27,Down: 0],"foe3_0":["oddish",2,20,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":6,"mobs":2,"items":7,"traps":3,"species":"exeggutor,butterfree"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",68,17,Down: 0],"ally1":["piplup",67,17,Down: 0],"ally2":["growlithe",68,16,Down: 0],"ally3":["zigzagoon",69,17,Down: 0],"foe0_0":["exeggutor",66,31,Down: 0],"foe1_0":["butterfree",45,14,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":7,"mobs":3,"items":8,"traps":4,"species":"beedrill,kakuna,paras"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",29,38,Down: 0],"ally1":["piplup",29,39,Down: 0],"ally2":["growlithe",29,37,Down: 0],"ally3":["zigzagoon",30,38,Down: 0],"foe0_0":["beedrill",27,18,Down: 0],"foe1_0":["kakuna",52,32,Down: 0],"foe2_0":["paras",19,29,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":8,"mobs":2,"items":7,"traps":3,"species":"kakuna,weedle"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",22,32,Down: 0],"ally1":["piplup",22,33,Down: 0],"ally2":["growlithe",21,32,Down: 0],"ally3":["zigzagoon",22,31,Down: 0],"foe0_0":["kakuna",21,7,Down: 0],"foe1_0":["weedle",39,20,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":9,"mobs":4,"items":9,"traps":28,"species":"combee,kakuna,combee,beedrill","neutrals":"kecleon"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",8,26,Down: 0],"ally1":["piplup",8,27,Down: 0],"ally2":["growlithe",7,26,Down: 0],"ally3":["zigzagoon",8,25,Down: 0],"foe0_0":["combee",20,22,Down: 0],"foe1_0":["kakuna",30,7,Down: 0],"foe2_0":["combee",44,29,Down: 0],"foe3_0":["beedrill",30,33,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":10,"mobs":4,"items":8,"traps":4,"species":"exeggutor,paras,beedrill,beedrill"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",3,31,Down: 0],"ally1":["piplup",2,31,Down: 0],"ally2":["growlithe",3,30,Down: 0],"ally3":["zigzagoon",4,31,Down: 0],"foe0_0":["exeggutor",41,40,Down: 0],"foe1_0":["paras",33,16,Down: 0],"foe2_0":["beedrill",32,27,Down: 0],"foe3_0":["beedrill",17,30,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":11,"mobs":3,"items":9,"traps":4,"species":"gloom,gloom,kakuna"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",38,21,Down: 0],"ally1":["piplup",38,22,Down: 0],"ally2":["growlithe",38,20,Down: 0],"ally3":["zigzagoon",39,21,Down: 0],"foe0_0":["gloom",18,3,Down: 0],"foe1_0":["gloom",3,30,Down: 0],"foe2_0":["kakuna",28,6,Down: 0]}
+{"event":"dprobe_floor","zone":"waterfall_cave","floor":0,"mobs":2,"items":4,"traps":27,"species":"psyduck,wooper","neutrals":"kecleon"}
+{"event":"dprobe_formation","zone":"waterfall_cave","ally0":["turtwig",40,40,Down: 0],"ally1":["piplup",40,41,Down: 0],"ally2":["growlithe",39,40,Down: 0],"ally3":["zigzagoon",40,39,Down: 0],"foe0_0":["psyduck",39,6,Down: 0],"foe1_0":["wooper",43,31,Down: 0]}
+{"event":"dprobe_floor","zone":"waterfall_cave","floor":1,"mobs":3,"items":4,"traps":4,"species":"tangela,wooper,psyduck"}
+{"event":"dprobe_formation","zone":"waterfall_cave","ally0":["turtwig",16,8,Down: 0],"ally1":["piplup",16,9,Down: 0],"ally2":["growlithe",15,8,Down: 0],"ally3":["zigzagoon",16,7,Down: 0],"foe0_0":["tangela",28,17,Down: 0],"foe1_0":["wooper",52,18,Down: 0],"foe2_0":["psyduck",9,4,Down: 0]}
+{"event":"dprobe_floor","zone":"waterfall_cave","floor":2,"mobs":3,"items":7,"traps":3,"species":"poliwag,lotad,wooper"}
+{"event":"dprobe_formation","zone":"waterfall_cave","ally0":["turtwig",55,19,Down: 0],"ally1":["piplup",54,19,Down: 0],"ally2":["growlithe",55,18,Down: 0],"ally3":["zigzagoon",54,18,Down: 0],"foe0_0":["poliwag",42,18,Down: 0],"foe1_0":["lotad",46,4,Down: 0],"foe2_0":["wooper",29,19,Down: 0]}
+{"event":"dprobe_floor","zone":"waterfall_cave","floor":3,"mobs":2,"items":6,"traps":3,"species":"tangela,psyduck"}
+{"event":"dprobe_formation","zone":"waterfall_cave","ally0":["turtwig",28,21,Down: 0],"ally1":["piplup",28,20,Down: 0],"ally2":["growlithe",29,21,Down: 0],"ally3":["zigzagoon",29,20,Down: 0],"foe0_0":["tangela",18,30,Down: 0],"foe1_0":["psyduck",29,15,Down: 0]}
+{"event":"dprobe_floor","zone":"waterfall_cave","floor":4,"mobs":3,"items":7,"traps":4,"species":"grimer,wooper,wooper"}
+{"event":"dprobe_formation","zone":"waterfall_cave","ally0":["turtwig",25,28,Down: 0],"ally1":["piplup",25,29,Down: 0],"ally2":["growlithe",25,27,Down: 0],"ally3":["zigzagoon",26,28,Down: 0],"foe0_0":["grimer",31,28,Down: 0],"foe1_0":["wooper",38,27,Down: 0],"foe2_0":["wooper",27,42,Down: 0]}
+{"event":"dprobe_floor","zone":"waterfall_cave","floor":5,"mobs":2,"items":9,"traps":3,"species":"wooper,lotad"}
+{"event":"dprobe_formation","zone":"waterfall_cave","ally0":["turtwig",30,31,Down: 0],"ally1":["piplup",30,32,Down: 0],"ally2":["growlithe",30,30,Down: 0],"ally3":["zigzagoon",31,31,Down: 0],"foe0_0":["wooper",38,33,Down: 0],"foe1_0":["lotad",3,32,Down: 0]}
+{"event":"dprobe_floor","zone":"waterfall_cave","floor":6,"mobs":4,"items":9,"traps":3,"species":"barboach,barboach,tangela,poliwag"}
+{"event":"dprobe_formation","zone":"waterfall_cave","ally0":["turtwig",49,20,Down: 0],"ally1":["piplup",49,21,Down: 0],"ally2":["growlithe",49,19,Down: 0],"ally3":["zigzagoon",50,20,Down: 0],"foe0_0":["barboach",43,6,Down: 0],"foe1_0":["barboach",8,8,Down: 0],"foe2_0":["tangela",17,9,Down: 0],"foe3_0":["poliwag",52,1,Down: 0]}
+{"event":"dprobe_floor","zone":"waterfall_cave","floor":7,"mobs":3,"items":5,"traps":4,"species":"tangela,grimer,surskit"}
+{"event":"dprobe_formation","zone":"waterfall_cave","ally0":["turtwig",6,19,Down: 0],"ally1":["piplup",6,20,Down: 0],"ally2":["growlithe",5,19,Down: 0],"ally3":["zigzagoon",6,18,Down: 0],"foe0_0":["tangela",19,39,Down: 0],"foe1_0":["grimer",51,25,Down: 0],"foe2_0":["surskit",40,16,Down: 0]}
+{"event":"dprobe_rep","rep":5}
+{"event":"dprobe_floor","zone":"apple_woods","floor":0,"mobs":3,"items":3,"traps":3,"species":"budew,paras,caterpie"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",16,20,Down: 0],"ally1":["piplup",16,21,Down: 0],"ally2":["growlithe",15,20,Down: 0],"ally3":["zigzagoon",16,19,Down: 0],"foe0_0":["budew",30,26,Down: 0],"foe1_0":["paras",15,30,Down: 0],"foe2_0":["caterpie",6,8,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":1,"mobs":2,"items":6,"traps":3,"species":"oddish,caterpie"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",37,8,Down: 0],"ally1":["piplup",37,9,Down: 0],"ally2":["growlithe",37,7,Down: 0],"ally3":["zigzagoon",38,8,Down: 0],"foe0_0":["oddish",16,33,Down: 0],"foe1_0":["caterpie",41,29,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":2,"mobs":2,"items":7,"traps":15,"species":"caterpie,oddish","neutrals":"kecleon"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",54,26,Down: 0],"ally1":["piplup",54,27,Down: 0],"ally2":["growlithe",53,26,Down: 0],"ally3":["zigzagoon",54,25,Down: 0],"foe0_0":["caterpie",19,18,Down: 0],"foe1_0":["oddish",27,21,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":3,"mobs":2,"items":7,"traps":4,"species":"oddish,weedle"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",15,17,Down: 0],"ally1":["piplup",15,18,Down: 0],"ally2":["growlithe",14,17,Down: 0],"ally3":["zigzagoon",15,16,Down: 0],"foe0_0":["oddish",31,29,Down: 0],"foe1_0":["weedle",29,4,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":4,"mobs":2,"items":6,"traps":3,"species":"budew,exeggutor"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",3,20,Down: 0],"ally1":["piplup",2,20,Down: 0],"ally2":["growlithe",3,19,Down: 0],"ally3":["zigzagoon",4,20,Down: 0],"foe0_0":["budew",3,40,Down: 0],"foe1_0":["exeggutor",56,18,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":5,"mobs":3,"items":7,"traps":4,"species":"paras,exeggutor,oddish"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",4,16,Down: 0],"ally1":["piplup",4,17,Down: 0],"ally2":["growlithe",3,16,Down: 0],"ally3":["zigzagoon",5,16,Down: 0],"foe0_0":["paras",39,33,Down: 0],"foe1_0":["exeggutor",45,43,Down: 0],"foe2_0":["oddish",43,33,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":6,"mobs":3,"items":9,"traps":33,"species":"butterfree,weedle,combee","neutrals":"kecleon"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",19,44,Down: 0],"ally1":["piplup",19,45,Down: 0],"ally2":["growlithe",18,44,Down: 0],"ally3":["zigzagoon",19,43,Down: 0],"foe0_0":["butterfree",66,6,Down: 0],"foe1_0":["weedle",7,8,Down: 0],"foe2_0":["combee",8,28,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":7,"mobs":2,"items":8,"traps":3,"species":"gloom,gloom"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",34,18,Down: 0],"ally1":["piplup",34,19,Down: 0],"ally2":["growlithe",33,18,Down: 0],"ally3":["zigzagoon",34,17,Down: 0],"foe0_0":["gloom",49,33,Down: 0],"foe1_0":["gloom",16,28,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":8,"mobs":4,"items":7,"traps":4,"species":"weedle,gloom,combee,exeggutor"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",26,29,Down: 0],"ally1":["piplup",26,30,Down: 0],"ally2":["growlithe",25,29,Down: 0],"ally3":["zigzagoon",26,28,Down: 0],"foe0_0":["weedle",17,10,Down: 0],"foe1_0":["gloom",37,16,Down: 0],"foe2_0":["combee",18,15,Down: 0],"foe3_0":["exeggutor",42,16,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":9,"mobs":3,"items":7,"traps":3,"species":"kakuna,paras,kakuna"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",6,27,Down: 0],"ally1":["piplup",6,28,Down: 0],"ally2":["growlithe",5,27,Down: 0],"ally3":["zigzagoon",6,26,Down: 0],"foe0_0":["kakuna",4,8,Down: 0],"foe1_0":["paras",3,8,Down: 0],"foe2_0":["kakuna",33,14,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":10,"mobs":3,"items":9,"traps":3,"species":"combee,beedrill,exeggutor"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",55,17,Down: 0],"ally1":["piplup",55,18,Down: 0],"ally2":["growlithe",54,17,Down: 0],"ally3":["zigzagoon",55,16,Down: 0],"foe0_0":["combee",54,42,Down: 0],"foe1_0":["beedrill",42,41,Down: 0],"foe2_0":["exeggutor",18,25,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":11,"mobs":3,"items":9,"traps":4,"species":"beedrill,beedrill,paras"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",41,28,Down: 0],"ally1":["piplup",41,29,Down: 0],"ally2":["growlithe",40,28,Down: 0],"ally3":["zigzagoon",41,27,Down: 0],"foe0_0":["beedrill",29,6,Down: 0],"foe1_0":["beedrill",5,19,Down: 0],"foe2_0":["paras",29,44,Down: 0]}
+{"event":"dprobe_floor","zone":"waterfall_cave","floor":0,"mobs":2,"items":4,"traps":4,"species":"surskit,wooper"}
+{"event":"dprobe_formation","zone":"waterfall_cave","ally0":["turtwig",28,31,Down: 0],"ally1":["piplup",28,32,Down: 0],"ally2":["growlithe",27,31,Down: 0],"ally3":["zigzagoon",28,30,Down: 0],"foe0_0":["surskit",18,5,Down: 0],"foe1_0":["wooper",3,41,Down: 0]}
+{"event":"dprobe_floor","zone":"waterfall_cave","floor":1,"mobs":2,"items":6,"traps":3,"species":"tangela,psyduck"}
+{"event":"dprobe_formation","zone":"waterfall_cave","ally0":["turtwig",27,45,Down: 0],"ally1":["piplup",26,45,Down: 0],"ally2":["growlithe",27,44,Down: 0],"ally3":["zigzagoon",28,45,Down: 0],"foe0_0":["tangela",43,30,Down: 0],"foe1_0":["psyduck",17,46,Down: 0]}
+{"event":"dprobe_floor","zone":"waterfall_cave","floor":2,"mobs":2,"items":7,"traps":4,"species":"surskit,lotad"}
+{"event":"dprobe_formation","zone":"waterfall_cave","ally0":["turtwig",18,40,Down: 0],"ally1":["piplup",18,41,Down: 0],"ally2":["growlithe",17,40,Down: 0],"ally3":["zigzagoon",19,40,Down: 0],"foe0_0":["surskit",8,17,Down: 0],"foe1_0":["lotad",15,14,Down: 0]}
+{"event":"dprobe_floor","zone":"waterfall_cave","floor":3,"mobs":3,"items":6,"traps":3,"species":"surskit,psyduck,poliwag"}
+{"event":"dprobe_formation","zone":"waterfall_cave","ally0":["turtwig",17,26,Down: 0],"ally1":["piplup",17,27,Down: 0],"ally2":["growlithe",16,26,Down: 0],"ally3":["zigzagoon",16,27,Down: 0],"foe0_0":["surskit",27,42,Down: 0],"foe1_0":["psyduck",42,42,Down: 0],"foe2_0":["poliwag",42,19,Down: 0]}
+{"event":"dprobe_floor","zone":"waterfall_cave","floor":4,"mobs":2,"items":6,"traps":4,"species":"barboach,barboach"}
+{"event":"dprobe_formation","zone":"waterfall_cave","ally0":["turtwig",2,8,Down: 0],"ally1":["piplup",2,9,Down: 0],"ally2":["growlithe",1,8,Down: 0],"ally3":["zigzagoon",2,7,Down: 0],"foe0_0":["barboach",29,7,Down: 0],"foe1_0":["barboach",51,17,Down: 0]}
+{"event":"dprobe_floor","zone":"waterfall_cave","floor":5,"mobs":3,"items":9,"traps":4,"species":"psyduck,psyduck,poliwag"}
+{"event":"dprobe_formation","zone":"waterfall_cave","ally0":["turtwig",6,42,Down: 0],"ally1":["piplup",5,42,Down: 0],"ally2":["growlithe",6,41,Down: 0],"ally3":["zigzagoon",5,41,Down: 0],"foe0_0":["psyduck",45,43,Down: 0],"foe1_0":["psyduck",54,19,Down: 0],"foe2_0":["poliwag",25,28,Down: 0]}
+{"event":"dprobe_floor","zone":"waterfall_cave","floor":6,"mobs":2,"items":8,"traps":3,"species":"barboach,wooper"}
+{"event":"dprobe_formation","zone":"waterfall_cave","ally0":["turtwig",8,2,Down: 0],"ally1":["piplup",8,3,Down: 0],"ally2":["growlithe",7,2,Down: 0],"ally3":["zigzagoon",7,3,Down: 0],"foe0_0":["barboach",32,20,Down: 0],"foe1_0":["wooper",30,2,Down: 0]}
+{"event":"dprobe_floor","zone":"waterfall_cave","floor":7,"mobs":2,"items":7,"traps":4,"species":"tangela,poliwag"}
+{"event":"dprobe_formation","zone":"waterfall_cave","ally0":["turtwig",52,22,Down: 0],"ally1":["piplup",51,22,Down: 0],"ally2":["growlithe",52,21,Down: 0],"ally3":["zigzagoon",53,22,Down: 0],"foe0_0":["tangela",19,19,Down: 0],"foe1_0":["poliwag",28,18,Down: 0]}
+{"event":"dprobe_rep","rep":6}
+{"event":"dprobe_floor","zone":"apple_woods","floor":0,"mobs":3,"items":4,"traps":3,"species":"butterfree,budew,paras"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",7,7,Down: 0],"ally1":["piplup",7,8,Down: 0],"ally2":["growlithe",6,7,Down: 0],"ally3":["zigzagoon",7,6,Down: 0],"foe0_0":["butterfree",38,25,Down: 0],"foe1_0":["budew",1,9,Down: 0],"foe2_0":["paras",17,28,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":1,"mobs":3,"items":5,"traps":3,"species":"paras,burmy,hoppip"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",5,31,Down: 0],"ally1":["piplup",4,31,Down: 0],"ally2":["growlithe",5,30,Down: 0],"ally3":["zigzagoon",6,31,Down: 0],"foe0_0":["paras",17,29,Down: 0],"foe1_0":["burmy",32,30,Down: 0],"foe2_0":["hoppip",43,33,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":2,"mobs":3,"items":6,"traps":3,"species":"hoppip,oddish,paras"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",2,17,Down: 0],"ally1":["piplup",2,18,Down: 0],"ally2":["growlithe",2,16,Down: 0],"ally3":["zigzagoon",3,17,Down: 0],"foe0_0":["hoppip",8,17,Down: 0],"foe1_0":["oddish",53,32,Down: 0],"foe2_0":["paras",28,27,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":3,"mobs":2,"items":8,"traps":3,"species":"exeggutor,butterfree"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",28,38,Down: 0],"ally1":["piplup",28,39,Down: 0],"ally2":["growlithe",28,37,Down: 0],"ally3":["zigzagoon",29,38,Down: 0],"foe0_0":["exeggutor",29,6,Down: 0],"foe1_0":["butterfree",54,17,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":4,"mobs":2,"items":7,"traps":4,"species":"oddish,oddish"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",19,32,Down: 0],"ally1":["piplup",19,33,Down: 0],"ally2":["growlithe",18,32,Down: 0],"ally3":["zigzagoon",19,31,Down: 0],"foe0_0":["oddish",44,17,Down: 0],"foe1_0":["oddish",7,20,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":5,"mobs":3,"items":7,"traps":4,"species":"paras,exeggutor,combee"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",2,7,Down: 0],"ally1":["piplup",2,8,Down: 0],"ally2":["growlithe",1,7,Down: 0],"ally3":["zigzagoon",2,6,Down: 0],"foe0_0":["paras",19,31,Down: 0],"foe1_0":["exeggutor",31,28,Down: 0],"foe2_0":["combee",14,43,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":6,"mobs":2,"items":8,"traps":4,"species":"gloom,gloom"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",57,7,Down: 0],"ally1":["piplup",57,8,Down: 0],"ally2":["growlithe",56,7,Down: 0],"ally3":["zigzagoon",57,6,Down: 0],"foe0_0":["gloom",64,6,Down: 0],"foe1_0":["gloom",66,30,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":7,"mobs":2,"items":7,"traps":4,"species":"beedrill,combee"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",16,28,Down: 0],"ally1":["piplup",16,29,Down: 0],"ally2":["growlithe",15,28,Down: 0],"ally3":["zigzagoon",16,27,Down: 0],"foe0_0":["beedrill",26,18,Down: 0],"foe1_0":["combee",31,2,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":8,"mobs":4,"items":8,"traps":4,"species":"paras,combee,paras,kakuna"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",19,6,Down: 0],"ally1":["piplup",19,7,Down: 0],"ally2":["growlithe",18,6,Down: 0],"ally3":["zigzagoon",19,5,Down: 0],"foe0_0":["paras",30,29,Down: 0],"foe1_0":["combee",29,5,Down: 0],"foe2_0":["paras",31,26,Down: 0],"foe3_0":["kakuna",29,17,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":9,"mobs":4,"items":8,"traps":32,"species":"exeggutor,exeggutor,kakuna,combee","neutrals":"kecleon"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",44,6,Down: 0],"ally1":["piplup",43,6,Down: 0],"ally2":["growlithe",44,5,Down: 0],"ally3":["zigzagoon",43,5,Down: 0],"foe0_0":["exeggutor",16,15,Down: 0],"foe1_0":["exeggutor",27,17,Down: 0],"foe2_0":["kakuna",28,5,Down: 0],"foe3_0":["combee",19,5,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":10,"mobs":2,"items":9,"traps":4,"species":"combee,combee"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",8,3,Down: 0],"ally1":["piplup",8,4,Down: 0],"ally2":["growlithe",7,3,Down: 0],"ally3":["zigzagoon",7,4,Down: 0],"foe0_0":["combee",6,15,Down: 0],"foe1_0":["combee",29,40,Down: 0]}
+{"event":"dprobe_floor","zone":"apple_woods","floor":11,"mobs":2,"items":7,"traps":4,"species":"paras,beedrill"}
+{"event":"dprobe_formation","zone":"apple_woods","ally0":["turtwig",39,44,Down: 0],"ally1":["piplup",39,45,Down: 0],"ally2":["growlithe",39,43,Down: 0],"ally3":["zigzagoon",40,44,Down: 0],"foe0_0":["paras",30,6,Down: 0],"foe1_0":["beedrill",56,31,Down: 0]}
+{"event":"dprobe_floor","zone":"waterfall_cave","floor":0,"mobs":2,"items":5,"traps":3,"species":"barboach,tangela"}
+{"event":"dprobe_formation","zone":"waterfall_cave","ally0":["turtwig",41,44,Down: 0],"ally1":["piplup",41,45,Down: 0],"ally2":["growlithe",41,43,Down: 0],"ally3":["zigzagoon",40,44,Down: 0],"foe0_0":["barboach",30,44,Down: 0],"foe1_0":["tangela",42,14,Down: 0]}
+{"event":"dprobe_floor","zone":"waterfall_cave","floor":1,"mobs":3,"items":4,"traps":4,"species":"barboach,lotad,poliwag"}
+{"event":"dprobe_formation","zone":"waterfall_cave","ally0":["turtwig",20,31,Down: 0],"ally1":["piplup",20,32,Down: 0],"ally2":["growlithe",19,31,Down: 0],"ally3":["zigzagoon",20,30,Down: 0],"foe0_0":["barboach",41,20,Down: 0],"foe1_0":["lotad",6,4,Down: 0],"foe2_0":["poliwag",41,44,Down: 0]}
+{"event":"dprobe_floor","zone":"waterfall_cave","floor":2,"mobs":2,"items":5,"traps":3,"species":"psyduck,grimer"}
+{"event":"dprobe_formation","zone":"waterfall_cave","ally0":["turtwig",6,42,Down: 0],"ally1":["piplup",6,43,Down: 0],"ally2":["growlithe",5,42,Down: 0],"ally3":["zigzagoon",6,41,Down: 0],"foe0_0":["psyduck",18,7,Down: 0],"foe1_0":["grimer",39,40,Down: 0]}
+{"event":"dprobe_floor","zone":"waterfall_cave","floor":3,"mobs":2,"items":6,"traps":3,"species":"psyduck,poliwag"}
+{"event":"dprobe_formation","zone":"waterfall_cave","ally0":["turtwig",29,14,Down: 0],"ally1":["piplup",29,15,Down: 0],"ally2":["growlithe",28,14,Down: 0],"ally3":["zigzagoon",29,13,Down: 0],"foe0_0":["psyduck",19,8,Down: 0],"foe1_0":["poliwag",19,30,Down: 0]}
+{"event":"dprobe_floor","zone":"waterfall_cave","floor":4,"mobs":3,"items":6,"traps":3,"species":"barboach,lotad,wooper"}
+{"event":"dprobe_formation","zone":"waterfall_cave","ally0":["turtwig",17,44,Down: 0],"ally1":["piplup",16,44,Down: 0],"ally2":["growlithe",17,43,Down: 0],"ally3":["zigzagoon",18,44,Down: 0],"foe0_0":["barboach",4,31,Down: 0],"foe1_0":["lotad",30,3,Down: 0],"foe2_0":["wooper",25,42,Down: 0]}
+{"event":"dprobe_floor","zone":"waterfall_cave","floor":5,"mobs":4,"items":8,"traps":4,"species":"barboach,barboach,surskit,wooper"}
+{"event":"dprobe_formation","zone":"waterfall_cave","ally0":["turtwig",50,17,Down: 0],"ally1":["piplup",50,18,Down: 0],"ally2":["growlithe",50,16,Down: 0],"ally3":["zigzagoon",51,17,Down: 0],"foe0_0":["barboach",55,27,Down: 0],"foe1_0":["barboach",27,42,Down: 0],"foe2_0":["surskit",17,5,Down: 0],"foe3_0":["wooper",42,33,Down: 0]}
+{"event":"dprobe_floor","zone":"waterfall_cave","floor":6,"mobs":3,"items":9,"traps":4,"species":"surskit,wooper,grimer"}
+{"event":"dprobe_formation","zone":"waterfall_cave","ally0":["turtwig",25,19,Down: 0],"ally1":["piplup",25,18,Down: 0],"ally2":["growlithe",26,19,Down: 0],"ally3":["zigzagoon",26,18,Down: 0],"foe0_0":["surskit",17,44,Down: 0],"foe1_0":["wooper",51,28,Down: 0],"foe2_0":["grimer",29,6,Down: 0]}
+{"event":"dprobe_floor","zone":"waterfall_cave","floor":7,"mobs":2,"items":6,"traps":3,"species":"lotad,surskit"}
+{"event":"dprobe_formation","zone":"waterfall_cave","ally0":["turtwig",55,21,Down: 0],"ally1":["piplup",55,22,Down: 0],"ally2":["growlithe",54,21,Down: 0],"ally3":["zigzagoon",55,20,Down: 0],"foe0_0":["lotad",17,10,Down: 0],"foe1_0":["surskit",30,17,Down: 0]}
+{"event":"dprobe_end","verdict":"DPROBE_DONE"}
+{"event":"end"}

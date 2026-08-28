@@ -306,6 +306,16 @@ function V:OnDungeonFloorEnter()
         if ok2 and sp then species[#species+1]=sp end
       end
     end
+    -- shopkeepers/neutres (ShopStep place le Kecleon en AllyTeams)
+    local neutrals={}
+    pcall(function()
+      for ti=0,map.AllyTeams.Count-1 do
+        local t2=map.AllyTeams[ti]
+        for pi=0,t2.Players.Count-1 do
+          neutrals[#neutrals+1]=tostring(t2.Players[pi].BaseForm.Species)
+        end
+      end
+    end)
     local items=map.Items.Count
     local traps=0
     pcall(function()
@@ -339,6 +349,7 @@ function V:OnDungeonFloorEnter()
     end)
     local mhs=''
     if #mh_counts>0 then mhs=',"mh_mobs":['..table.concat(mh_counts,',')..']' end
+    if #neutrals>0 then mhs=mhs..',"neutrals":"'..table.concat(neutrals,',')..'"' end
     emit('{"event":"dprobe_floor","zone":"'..cz..'","floor":'..floor..',"mobs":'..mobs..',"items":'..items..',"traps":'..traps..',"species":"'..table.concat(species,',')..'"'..mhs..'}')
     -- dump ASCII du layout (murs/sol/eau/escaliers/pièges/items/mobs) pour
     -- analyse statistique hors-ligne (variété §17/§19, stats §36).
