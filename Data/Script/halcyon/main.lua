@@ -55,7 +55,6 @@ end
 --------------------------------------------------------------------------------------------------------------
 -- Service Packages
 --------------------------------------------------------------------------------------------------------------
-require 'halcyon.services.engine_loader'--NewEra.Engine : primitives C# ROM-exactes (Roslyn in-process, cache .runtime-cache/enginelab)
 require 'halcyon.services.debug_tools'
 require 'halcyon.services.menu_tools'
 require 'halcyon.services.upgrade_tools'

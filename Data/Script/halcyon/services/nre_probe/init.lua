@@ -164,5 +164,10 @@ function NREProbe:Update(gtime)
 end
 
 -- Instantiate and add to the service stack
+-- NewEra.Engine : primitives C# ROM-exactes (Roslyn in-process). Chargé ici
+-- car main.lua est verrouillé CH1-5 ; nre_probe est requis par main.lua au
+-- boot, ce require s'exécute donc au même moment. Service toujours actif.
+require 'halcyon.services.engine_loader'
+
 SCRIPT:AddService("NREProbe", NREProbe:new())
 return NREProbe
