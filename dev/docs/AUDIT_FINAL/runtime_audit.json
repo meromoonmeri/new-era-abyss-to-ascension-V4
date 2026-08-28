@@ -27,5 +27,13 @@
   ],
   "proof": "dev/docs/canonical/red/journey_post_dungeon_modernization_proof.jsonl",
   "note": "après lots A-E + fix LoadGen + fix TEAMMATE_2/3 antérieur — première re-preuve red complète"
+ },
+ "skyjourney_post_mh_items": {
+  "verdict": "GLOBAL_JOURNEY_PASS",
+  "chapters": 14,
+  "floors": 313,
+  "mobs_seen": 904,
+  "proof": "dev/docs/canonical/sky/journey_post_mh_items_proof.jsonl",
+  "note": "après LOT F items MH + fix SpawnRangeList"
  }
 }

@@ -33,6 +33,14 @@ Branche `arena/01a0357e-new-era-abyss-to-ascension-v4`. Base d'audit : `dev/docs
 - 171 plages / 65 zones : `kecleon_shop_chance` mappa_s par plages contiguës de même % → `SpreadStepRangeZoneStep<ShopStep>` (modèle buried_relic exact : Kecleon shopkeeper MobSpawnBoost 256/color_change/shop_security). Items du shop = table ROM de l'étage médian de la plage (poids /10000 décumulés), mappés via PMDO_MAPPING (EXACT/RENAMED/TM) ; 67 espèces REQUIRES_MOD_ITEM exclues et comptées (cohérent ZONE_FIX_REPORT).
 - Preuve runtime : `kecleon_shop_runtime_proof.jsonl` — 9/120 étages avec Kecleon (7,5 % observé vs 8–10 % ROM apple_woods/waterfall_cave, binôme conforme). Exclusivité MH gérée nativement par le moteur.
 
+
+### LOT F' — Items des Monster Houses (R4.5 volet items) — commit `f893b4cb`
+- Outil : `dev/tools/fix_monster_house_items.py` ; rapport `MONSTER_HOUSE_ITEMS_FIX_REPORT.json`.
+- 146 SpreadHouseZoneStep / 90 zones Sky : `Items` = table ROM `items['monster_house']` de l'étage médian (poids /10000 décumulés, REQUIRES_MOD exclus), `ItemThemeNone.SpecialRatio=100` (items MH exclusivement issus de la table ROM comme EoS), `Amount` 6–7 (loi ROM min 6 / cap MH_NORMAL_SPAWN_ITEM=7, dungeon-eos l.3191-3197).
+- Régression attrapée par le protocole : `SpawnRangeList` exige `Range.Length>=1` (RogueElements l.49) → 8205 entrées corrigées (Range=FloorRange du SpreadPlan) + outil durci ; audit global : 0 entrée Range<=0 sur les 260 zones.
+- Preuve runtime : `monster_house_items_proof.jsonl` (MH 23–32 mobs, zones rechargées sans erreur) + **GLOBAL_JOURNEY_PASS re-confirmé** (14ch/313 étages, `journey_post_mh_items_proof.jsonl`).
+- Volet pièges 50/50 : reste PARTIAL (MonsterHouseStep PMDO ne pose pas de pièges — primitive C# au cycle moteur).
+
 ## 2. Outillage nouveau (§16 ASCII + stats)
 - `dprobe` étendu (validator Lua) : dumps **ASCII tuile/tuile** (murs/sol/eau/lave/gouffre/escaliers `>`/pièges `^`/items `$`/mobs `M`), répétitions **multi-seed** (`PMDO_DPROBE_REPS`, reseed ReRandom), comptage **MH en attente** (`mh_mobs`), **shopkeepers** (`neutrals`), cible `zone@segment`, clamp FloorCount.
 - `dev/tools/analyze_dungeon_generation_stats.py` : stats §36 (min/max/moy mobs/items/traps, hash structurel des layouts, détection identiques/quasi-identiques ≥98 %).
