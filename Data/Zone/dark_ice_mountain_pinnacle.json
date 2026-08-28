@@ -1222,10 +1222,10 @@
             ],
             "SpreadPlan": {
               "$type": "RogueEssence.LevelGen.SpreadPlanChance, RogueEssence",
-              "Chance": 5,
+              "Chance": 6,
               "FloorRange": {
                 "Min": 0,
-                "Max": 0
+                "Max": 1
               }
             },
             "ModStates": []

@@ -14027,9 +14027,809 @@
             ],
             "SpreadPlan": {
               "$type": "RogueEssence.LevelGen.SpreadPlanChance, RogueEssence",
-              "Chance": 8,
+              "Chance": 5,
               "FloorRange": {
                 "Min": 5,
+                "Max": 13
+              }
+            },
+            "ModStates": []
+          },
+          {
+            "$type": "PMDC.LevelGen.SpreadHouseZoneStep, PMDC",
+            "Priority": {
+              "str": [
+                4,
+                1
+              ]
+            },
+            "HouseStepSpawns": [
+              {
+                "Spawn": {
+                  "$type": "PMDC.LevelGen.MonsterHouseStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], PMDC",
+                  "Filters": [
+                    {
+                      "$type": "RogueElements.RoomFilterComponent, RogueElements",
+                      "Negate": true,
+                      "Components": [
+                        {
+                          "$type": "RogueEssence.LevelGen.ImmutableRoom, RogueEssence"
+                        },
+                        {
+                          "$type": "PMDC.LevelGen.NoEventRoom, PMDC"
+                        }
+                      ]
+                    }
+                  ],
+                  "Items": [],
+                  "ItemThemes": [],
+                  "Mobs": [],
+                  "MobThemes": []
+                },
+                "Rate": 10
+              }
+            ],
+            "Items": [],
+            "ItemThemes": [
+              {
+                "Spawn": {
+                  "$type": "PMDC.LevelGen.ItemThemeNone, PMDC",
+                  "SpecialRatio": 40,
+                  "Amount": {
+                    "Min": 2,
+                    "Max": 4
+                  }
+                },
+                "Rate": 30,
+                "Range": {
+                  "Min": 5,
+                  "Max": 99
+                }
+              }
+            ],
+            "Mobs": [],
+            "MobThemes": [
+              {
+                "Spawn": {
+                  "$type": "PMDC.LevelGen.MobThemeNone, PMDC",
+                  "SpecialRatio": 40,
+                  "Amount": {
+                    "Min": 7,
+                    "Max": 13
+                  }
+                },
+                "Rate": 10,
+                "Range": {
+                  "Min": 5,
+                  "Max": 99
+                }
+              }
+            ],
+            "SpreadPlan": {
+              "$type": "RogueEssence.LevelGen.SpreadPlanChance, RogueEssence",
+              "Chance": 50,
+              "FloorRange": {
+                "Min": 13,
+                "Max": 14
+              }
+            },
+            "ModStates": []
+          },
+          {
+            "$type": "PMDC.LevelGen.SpreadHouseZoneStep, PMDC",
+            "Priority": {
+              "str": [
+                4,
+                1
+              ]
+            },
+            "HouseStepSpawns": [
+              {
+                "Spawn": {
+                  "$type": "PMDC.LevelGen.MonsterHouseStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], PMDC",
+                  "Filters": [
+                    {
+                      "$type": "RogueElements.RoomFilterComponent, RogueElements",
+                      "Negate": true,
+                      "Components": [
+                        {
+                          "$type": "RogueEssence.LevelGen.ImmutableRoom, RogueEssence"
+                        },
+                        {
+                          "$type": "PMDC.LevelGen.NoEventRoom, PMDC"
+                        }
+                      ]
+                    }
+                  ],
+                  "Items": [],
+                  "ItemThemes": [],
+                  "Mobs": [],
+                  "MobThemes": []
+                },
+                "Rate": 10
+              }
+            ],
+            "Items": [],
+            "ItemThemes": [
+              {
+                "Spawn": {
+                  "$type": "PMDC.LevelGen.ItemThemeNone, PMDC",
+                  "SpecialRatio": 40,
+                  "Amount": {
+                    "Min": 2,
+                    "Max": 4
+                  }
+                },
+                "Rate": 30,
+                "Range": {
+                  "Min": 5,
+                  "Max": 99
+                }
+              }
+            ],
+            "Mobs": [],
+            "MobThemes": [
+              {
+                "Spawn": {
+                  "$type": "PMDC.LevelGen.MobThemeNone, PMDC",
+                  "SpecialRatio": 40,
+                  "Amount": {
+                    "Min": 7,
+                    "Max": 13
+                  }
+                },
+                "Rate": 10,
+                "Range": {
+                  "Min": 5,
+                  "Max": 99
+                }
+              }
+            ],
+            "SpreadPlan": {
+              "$type": "RogueEssence.LevelGen.SpreadPlanChance, RogueEssence",
+              "Chance": 6,
+              "FloorRange": {
+                "Min": 14,
+                "Max": 28
+              }
+            },
+            "ModStates": []
+          },
+          {
+            "$type": "PMDC.LevelGen.SpreadHouseZoneStep, PMDC",
+            "Priority": {
+              "str": [
+                4,
+                1
+              ]
+            },
+            "HouseStepSpawns": [
+              {
+                "Spawn": {
+                  "$type": "PMDC.LevelGen.MonsterHouseStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], PMDC",
+                  "Filters": [
+                    {
+                      "$type": "RogueElements.RoomFilterComponent, RogueElements",
+                      "Negate": true,
+                      "Components": [
+                        {
+                          "$type": "RogueEssence.LevelGen.ImmutableRoom, RogueEssence"
+                        },
+                        {
+                          "$type": "PMDC.LevelGen.NoEventRoom, PMDC"
+                        }
+                      ]
+                    }
+                  ],
+                  "Items": [],
+                  "ItemThemes": [],
+                  "Mobs": [],
+                  "MobThemes": []
+                },
+                "Rate": 10
+              }
+            ],
+            "Items": [],
+            "ItemThemes": [
+              {
+                "Spawn": {
+                  "$type": "PMDC.LevelGen.ItemThemeNone, PMDC",
+                  "SpecialRatio": 40,
+                  "Amount": {
+                    "Min": 2,
+                    "Max": 4
+                  }
+                },
+                "Rate": 30,
+                "Range": {
+                  "Min": 5,
+                  "Max": 99
+                }
+              }
+            ],
+            "Mobs": [],
+            "MobThemes": [
+              {
+                "Spawn": {
+                  "$type": "PMDC.LevelGen.MobThemeNone, PMDC",
+                  "SpecialRatio": 40,
+                  "Amount": {
+                    "Min": 7,
+                    "Max": 13
+                  }
+                },
+                "Rate": 10,
+                "Range": {
+                  "Min": 5,
+                  "Max": 99
+                }
+              }
+            ],
+            "SpreadPlan": {
+              "$type": "RogueEssence.LevelGen.SpreadPlanChance, RogueEssence",
+              "Chance": 50,
+              "FloorRange": {
+                "Min": 28,
+                "Max": 29
+              }
+            },
+            "ModStates": []
+          },
+          {
+            "$type": "PMDC.LevelGen.SpreadHouseZoneStep, PMDC",
+            "Priority": {
+              "str": [
+                4,
+                1
+              ]
+            },
+            "HouseStepSpawns": [
+              {
+                "Spawn": {
+                  "$type": "PMDC.LevelGen.MonsterHouseStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], PMDC",
+                  "Filters": [
+                    {
+                      "$type": "RogueElements.RoomFilterComponent, RogueElements",
+                      "Negate": true,
+                      "Components": [
+                        {
+                          "$type": "RogueEssence.LevelGen.ImmutableRoom, RogueEssence"
+                        },
+                        {
+                          "$type": "PMDC.LevelGen.NoEventRoom, PMDC"
+                        }
+                      ]
+                    }
+                  ],
+                  "Items": [],
+                  "ItemThemes": [],
+                  "Mobs": [],
+                  "MobThemes": []
+                },
+                "Rate": 10
+              }
+            ],
+            "Items": [],
+            "ItemThemes": [
+              {
+                "Spawn": {
+                  "$type": "PMDC.LevelGen.ItemThemeNone, PMDC",
+                  "SpecialRatio": 40,
+                  "Amount": {
+                    "Min": 2,
+                    "Max": 4
+                  }
+                },
+                "Rate": 30,
+                "Range": {
+                  "Min": 5,
+                  "Max": 99
+                }
+              }
+            ],
+            "Mobs": [],
+            "MobThemes": [
+              {
+                "Spawn": {
+                  "$type": "PMDC.LevelGen.MobThemeNone, PMDC",
+                  "SpecialRatio": 40,
+                  "Amount": {
+                    "Min": 7,
+                    "Max": 13
+                  }
+                },
+                "Rate": 10,
+                "Range": {
+                  "Min": 5,
+                  "Max": 99
+                }
+              }
+            ],
+            "SpreadPlan": {
+              "$type": "RogueEssence.LevelGen.SpreadPlanChance, RogueEssence",
+              "Chance": 6,
+              "FloorRange": {
+                "Min": 29,
+                "Max": 45
+              }
+            },
+            "ModStates": []
+          },
+          {
+            "$type": "PMDC.LevelGen.SpreadHouseZoneStep, PMDC",
+            "Priority": {
+              "str": [
+                4,
+                1
+              ]
+            },
+            "HouseStepSpawns": [
+              {
+                "Spawn": {
+                  "$type": "PMDC.LevelGen.MonsterHouseStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], PMDC",
+                  "Filters": [
+                    {
+                      "$type": "RogueElements.RoomFilterComponent, RogueElements",
+                      "Negate": true,
+                      "Components": [
+                        {
+                          "$type": "RogueEssence.LevelGen.ImmutableRoom, RogueEssence"
+                        },
+                        {
+                          "$type": "PMDC.LevelGen.NoEventRoom, PMDC"
+                        }
+                      ]
+                    }
+                  ],
+                  "Items": [],
+                  "ItemThemes": [],
+                  "Mobs": [],
+                  "MobThemes": []
+                },
+                "Rate": 10
+              }
+            ],
+            "Items": [],
+            "ItemThemes": [
+              {
+                "Spawn": {
+                  "$type": "PMDC.LevelGen.ItemThemeNone, PMDC",
+                  "SpecialRatio": 40,
+                  "Amount": {
+                    "Min": 2,
+                    "Max": 4
+                  }
+                },
+                "Rate": 30,
+                "Range": {
+                  "Min": 5,
+                  "Max": 99
+                }
+              }
+            ],
+            "Mobs": [],
+            "MobThemes": [
+              {
+                "Spawn": {
+                  "$type": "PMDC.LevelGen.MobThemeNone, PMDC",
+                  "SpecialRatio": 40,
+                  "Amount": {
+                    "Min": 7,
+                    "Max": 13
+                  }
+                },
+                "Rate": 10,
+                "Range": {
+                  "Min": 5,
+                  "Max": 99
+                }
+              }
+            ],
+            "SpreadPlan": {
+              "$type": "RogueEssence.LevelGen.SpreadPlanChance, RogueEssence",
+              "Chance": 50,
+              "FloorRange": {
+                "Min": 45,
+                "Max": 46
+              }
+            },
+            "ModStates": []
+          },
+          {
+            "$type": "PMDC.LevelGen.SpreadHouseZoneStep, PMDC",
+            "Priority": {
+              "str": [
+                4,
+                1
+              ]
+            },
+            "HouseStepSpawns": [
+              {
+                "Spawn": {
+                  "$type": "PMDC.LevelGen.MonsterHouseStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], PMDC",
+                  "Filters": [
+                    {
+                      "$type": "RogueElements.RoomFilterComponent, RogueElements",
+                      "Negate": true,
+                      "Components": [
+                        {
+                          "$type": "RogueEssence.LevelGen.ImmutableRoom, RogueEssence"
+                        },
+                        {
+                          "$type": "PMDC.LevelGen.NoEventRoom, PMDC"
+                        }
+                      ]
+                    }
+                  ],
+                  "Items": [],
+                  "ItemThemes": [],
+                  "Mobs": [],
+                  "MobThemes": []
+                },
+                "Rate": 10
+              }
+            ],
+            "Items": [],
+            "ItemThemes": [
+              {
+                "Spawn": {
+                  "$type": "PMDC.LevelGen.ItemThemeNone, PMDC",
+                  "SpecialRatio": 40,
+                  "Amount": {
+                    "Min": 2,
+                    "Max": 4
+                  }
+                },
+                "Rate": 30,
+                "Range": {
+                  "Min": 5,
+                  "Max": 99
+                }
+              }
+            ],
+            "Mobs": [],
+            "MobThemes": [
+              {
+                "Spawn": {
+                  "$type": "PMDC.LevelGen.MobThemeNone, PMDC",
+                  "SpecialRatio": 40,
+                  "Amount": {
+                    "Min": 7,
+                    "Max": 13
+                  }
+                },
+                "Rate": 10,
+                "Range": {
+                  "Min": 5,
+                  "Max": 99
+                }
+              }
+            ],
+            "SpreadPlan": {
+              "$type": "RogueEssence.LevelGen.SpreadPlanChance, RogueEssence",
+              "Chance": 6,
+              "FloorRange": {
+                "Min": 46,
+                "Max": 63
+              }
+            },
+            "ModStates": []
+          },
+          {
+            "$type": "PMDC.LevelGen.SpreadHouseZoneStep, PMDC",
+            "Priority": {
+              "str": [
+                4,
+                1
+              ]
+            },
+            "HouseStepSpawns": [
+              {
+                "Spawn": {
+                  "$type": "PMDC.LevelGen.MonsterHouseStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], PMDC",
+                  "Filters": [
+                    {
+                      "$type": "RogueElements.RoomFilterComponent, RogueElements",
+                      "Negate": true,
+                      "Components": [
+                        {
+                          "$type": "RogueEssence.LevelGen.ImmutableRoom, RogueEssence"
+                        },
+                        {
+                          "$type": "PMDC.LevelGen.NoEventRoom, PMDC"
+                        }
+                      ]
+                    }
+                  ],
+                  "Items": [],
+                  "ItemThemes": [],
+                  "Mobs": [],
+                  "MobThemes": []
+                },
+                "Rate": 10
+              }
+            ],
+            "Items": [],
+            "ItemThemes": [
+              {
+                "Spawn": {
+                  "$type": "PMDC.LevelGen.ItemThemeNone, PMDC",
+                  "SpecialRatio": 40,
+                  "Amount": {
+                    "Min": 2,
+                    "Max": 4
+                  }
+                },
+                "Rate": 30,
+                "Range": {
+                  "Min": 5,
+                  "Max": 99
+                }
+              }
+            ],
+            "Mobs": [],
+            "MobThemes": [
+              {
+                "Spawn": {
+                  "$type": "PMDC.LevelGen.MobThemeNone, PMDC",
+                  "SpecialRatio": 40,
+                  "Amount": {
+                    "Min": 7,
+                    "Max": 13
+                  }
+                },
+                "Rate": 10,
+                "Range": {
+                  "Min": 5,
+                  "Max": 99
+                }
+              }
+            ],
+            "SpreadPlan": {
+              "$type": "RogueEssence.LevelGen.SpreadPlanChance, RogueEssence",
+              "Chance": 50,
+              "FloorRange": {
+                "Min": 63,
+                "Max": 64
+              }
+            },
+            "ModStates": []
+          },
+          {
+            "$type": "PMDC.LevelGen.SpreadHouseZoneStep, PMDC",
+            "Priority": {
+              "str": [
+                4,
+                1
+              ]
+            },
+            "HouseStepSpawns": [
+              {
+                "Spawn": {
+                  "$type": "PMDC.LevelGen.MonsterHouseStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], PMDC",
+                  "Filters": [
+                    {
+                      "$type": "RogueElements.RoomFilterComponent, RogueElements",
+                      "Negate": true,
+                      "Components": [
+                        {
+                          "$type": "RogueEssence.LevelGen.ImmutableRoom, RogueEssence"
+                        },
+                        {
+                          "$type": "PMDC.LevelGen.NoEventRoom, PMDC"
+                        }
+                      ]
+                    }
+                  ],
+                  "Items": [],
+                  "ItemThemes": [],
+                  "Mobs": [],
+                  "MobThemes": []
+                },
+                "Rate": 10
+              }
+            ],
+            "Items": [],
+            "ItemThemes": [
+              {
+                "Spawn": {
+                  "$type": "PMDC.LevelGen.ItemThemeNone, PMDC",
+                  "SpecialRatio": 40,
+                  "Amount": {
+                    "Min": 2,
+                    "Max": 4
+                  }
+                },
+                "Rate": 30,
+                "Range": {
+                  "Min": 5,
+                  "Max": 99
+                }
+              }
+            ],
+            "Mobs": [],
+            "MobThemes": [
+              {
+                "Spawn": {
+                  "$type": "PMDC.LevelGen.MobThemeNone, PMDC",
+                  "SpecialRatio": 40,
+                  "Amount": {
+                    "Min": 7,
+                    "Max": 13
+                  }
+                },
+                "Rate": 10,
+                "Range": {
+                  "Min": 5,
+                  "Max": 99
+                }
+              }
+            ],
+            "SpreadPlan": {
+              "$type": "RogueEssence.LevelGen.SpreadPlanChance, RogueEssence",
+              "Chance": 6,
+              "FloorRange": {
+                "Min": 64,
+                "Max": 85
+              }
+            },
+            "ModStates": []
+          },
+          {
+            "$type": "PMDC.LevelGen.SpreadHouseZoneStep, PMDC",
+            "Priority": {
+              "str": [
+                4,
+                1
+              ]
+            },
+            "HouseStepSpawns": [
+              {
+                "Spawn": {
+                  "$type": "PMDC.LevelGen.MonsterHouseStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], PMDC",
+                  "Filters": [
+                    {
+                      "$type": "RogueElements.RoomFilterComponent, RogueElements",
+                      "Negate": true,
+                      "Components": [
+                        {
+                          "$type": "RogueEssence.LevelGen.ImmutableRoom, RogueEssence"
+                        },
+                        {
+                          "$type": "PMDC.LevelGen.NoEventRoom, PMDC"
+                        }
+                      ]
+                    }
+                  ],
+                  "Items": [],
+                  "ItemThemes": [],
+                  "Mobs": [],
+                  "MobThemes": []
+                },
+                "Rate": 10
+              }
+            ],
+            "Items": [],
+            "ItemThemes": [
+              {
+                "Spawn": {
+                  "$type": "PMDC.LevelGen.ItemThemeNone, PMDC",
+                  "SpecialRatio": 40,
+                  "Amount": {
+                    "Min": 2,
+                    "Max": 4
+                  }
+                },
+                "Rate": 30,
+                "Range": {
+                  "Min": 5,
+                  "Max": 99
+                }
+              }
+            ],
+            "Mobs": [],
+            "MobThemes": [
+              {
+                "Spawn": {
+                  "$type": "PMDC.LevelGen.MobThemeNone, PMDC",
+                  "SpecialRatio": 40,
+                  "Amount": {
+                    "Min": 7,
+                    "Max": 13
+                  }
+                },
+                "Rate": 10,
+                "Range": {
+                  "Min": 5,
+                  "Max": 99
+                }
+              }
+            ],
+            "SpreadPlan": {
+              "$type": "RogueEssence.LevelGen.SpreadPlanChance, RogueEssence",
+              "Chance": 50,
+              "FloorRange": {
+                "Min": 85,
+                "Max": 86
+              }
+            },
+            "ModStates": []
+          },
+          {
+            "$type": "PMDC.LevelGen.SpreadHouseZoneStep, PMDC",
+            "Priority": {
+              "str": [
+                4,
+                1
+              ]
+            },
+            "HouseStepSpawns": [
+              {
+                "Spawn": {
+                  "$type": "PMDC.LevelGen.MonsterHouseStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], PMDC",
+                  "Filters": [
+                    {
+                      "$type": "RogueElements.RoomFilterComponent, RogueElements",
+                      "Negate": true,
+                      "Components": [
+                        {
+                          "$type": "RogueEssence.LevelGen.ImmutableRoom, RogueEssence"
+                        },
+                        {
+                          "$type": "PMDC.LevelGen.NoEventRoom, PMDC"
+                        }
+                      ]
+                    }
+                  ],
+                  "Items": [],
+                  "ItemThemes": [],
+                  "Mobs": [],
+                  "MobThemes": []
+                },
+                "Rate": 10
+              }
+            ],
+            "Items": [],
+            "ItemThemes": [
+              {
+                "Spawn": {
+                  "$type": "PMDC.LevelGen.ItemThemeNone, PMDC",
+                  "SpecialRatio": 40,
+                  "Amount": {
+                    "Min": 2,
+                    "Max": 4
+                  }
+                },
+                "Rate": 30,
+                "Range": {
+                  "Min": 5,
+                  "Max": 99
+                }
+              }
+            ],
+            "Mobs": [],
+            "MobThemes": [
+              {
+                "Spawn": {
+                  "$type": "PMDC.LevelGen.MobThemeNone, PMDC",
+                  "SpecialRatio": 40,
+                  "Amount": {
+                    "Min": 7,
+                    "Max": 13
+                  }
+                },
+                "Rate": 10,
+                "Range": {
+                  "Min": 5,
+                  "Max": 99
+                }
+              }
+            ],
+            "SpreadPlan": {
+              "$type": "RogueEssence.LevelGen.SpreadPlanChance, RogueEssence",
+              "Chance": 6,
+              "FloorRange": {
+                "Min": 86,
                 "Max": 99
               }
             },

@@ -1440,7 +1440,7 @@
               "Chance": 5,
               "FloorRange": {
                 "Min": 0,
-                "Max": 7
+                "Max": 8
               }
             },
             "ModStates": []
