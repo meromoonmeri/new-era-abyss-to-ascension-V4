@@ -1,0 +1,2394 @@
+{
+ "rule": "R11 hidden_stairs_spawn_chance mappa_s -> stairs_secret_down natif + segment salle secrete",
+ "apply": true,
+ "zones": [
+  {
+   "zone": "amp_clearing",
+   "dungeon": "d19",
+   "treasure_segment": 1,
+   "floors": [
+    {
+     "floor_rom": 1,
+     "chance": 25,
+     "treasure_idx": 0
+    }
+   ]
+  },
+  {
+   "zone": "amp_plains",
+   "dungeon": "d17",
+   "treasure_segment": 1,
+   "floors": [
+    {
+     "floor_rom": 1,
+     "chance": 25,
+     "treasure_idx": 0
+    },
+    {
+     "floor_rom": 2,
+     "chance": 25,
+     "treasure_idx": 1
+    },
+    {
+     "floor_rom": 3,
+     "chance": 25,
+     "treasure_idx": 2
+    },
+    {
+     "floor_rom": 4,
+     "chance": 25,
+     "treasure_idx": 3
+    },
+    {
+     "floor_rom": 5,
+     "chance": 25,
+     "treasure_idx": 4
+    },
+    {
+     "floor_rom": 6,
+     "chance": 25,
+     "treasure_idx": 5
+    },
+    {
+     "floor_rom": 7,
+     "chance": 25,
+     "treasure_idx": 6
+    },
+    {
+     "floor_rom": 8,
+     "chance": 25,
+     "treasure_idx": 7
+    },
+    {
+     "floor_rom": 9,
+     "chance": 25,
+     "treasure_idx": 8
+    },
+    {
+     "floor_rom": 10,
+     "chance": 25,
+     "treasure_idx": 9
+    }
+   ]
+  },
+  {
+   "zone": "craggy_coast",
+   "dungeon": "d08",
+   "treasure_segment": 1,
+   "floors": [
+    {
+     "floor_rom": 1,
+     "chance": 25,
+     "treasure_idx": 0
+    },
+    {
+     "floor_rom": 2,
+     "chance": 25,
+     "treasure_idx": 1
+    },
+    {
+     "floor_rom": 3,
+     "chance": 25,
+     "treasure_idx": 2
+    },
+    {
+     "floor_rom": 4,
+     "chance": 25,
+     "treasure_idx": 3
+    },
+    {
+     "floor_rom": 5,
+     "chance": 25,
+     "treasure_idx": 4
+    },
+    {
+     "floor_rom": 6,
+     "chance": 25,
+     "treasure_idx": 5
+    },
+    {
+     "floor_rom": 7,
+     "chance": 25,
+     "treasure_idx": 6
+    },
+    {
+     "floor_rom": 8,
+     "chance": 25,
+     "treasure_idx": 7
+    },
+    {
+     "floor_rom": 9,
+     "chance": 25,
+     "treasure_idx": 8
+    }
+   ]
+  },
+  {
+   "zone": "crystal_cave",
+   "dungeon": "d24",
+   "treasure_segment": 1,
+   "floors": [
+    {
+     "floor_rom": 3,
+     "chance": 25,
+     "treasure_idx": 0
+    },
+    {
+     "floor_rom": 4,
+     "chance": 25,
+     "treasure_idx": 1
+    },
+    {
+     "floor_rom": 5,
+     "chance": 25,
+     "treasure_idx": 2
+    },
+    {
+     "floor_rom": 6,
+     "chance": 25,
+     "treasure_idx": 3
+    },
+    {
+     "floor_rom": 7,
+     "chance": 25,
+     "treasure_idx": 4
+    },
+    {
+     "floor_rom": 8,
+     "chance": 25,
+     "treasure_idx": 5
+    },
+    {
+     "floor_rom": 9,
+     "chance": 25,
+     "treasure_idx": 6
+    },
+    {
+     "floor_rom": 10,
+     "chance": 25,
+     "treasure_idx": 7
+    },
+    {
+     "floor_rom": 11,
+     "chance": 25,
+     "treasure_idx": 8
+    }
+   ]
+  },
+  {
+   "zone": "crystal_crossing",
+   "dungeon": "d25",
+   "treasure_segment": 1,
+   "floors": [
+    {
+     "floor_rom": 3,
+     "chance": 25,
+     "treasure_idx": 0
+    },
+    {
+     "floor_rom": 4,
+     "chance": 25,
+     "treasure_idx": 1
+    },
+    {
+     "floor_rom": 5,
+     "chance": 25,
+     "treasure_idx": 2
+    },
+    {
+     "floor_rom": 6,
+     "chance": 25,
+     "treasure_idx": 3
+    },
+    {
+     "floor_rom": 7,
+     "chance": 25,
+     "treasure_idx": 4
+    },
+    {
+     "floor_rom": 8,
+     "chance": 25,
+     "treasure_idx": 5
+    },
+    {
+     "floor_rom": 9,
+     "chance": 25,
+     "treasure_idx": 6
+    },
+    {
+     "floor_rom": 10,
+     "chance": 25,
+     "treasure_idx": 7
+    },
+    {
+     "floor_rom": 11,
+     "chance": 25,
+     "treasure_idx": 8
+    },
+    {
+     "floor_rom": 12,
+     "chance": 25,
+     "treasure_idx": 9
+    },
+    {
+     "floor_rom": 13,
+     "chance": 25,
+     "treasure_idx": 10
+    }
+   ]
+  },
+  {
+   "zone": "crystal_lake",
+   "dungeon": "d26",
+   "treasure_segment": 1,
+   "floors": [
+    {
+     "floor_rom": 1,
+     "chance": 25,
+     "treasure_idx": 0
+    }
+   ]
+  },
+  {
+   "zone": "eighth_station_pass",
+   "dungeon": "d118",
+   "treasure_segment": 1,
+   "floors": [
+    {
+     "floor_rom": 1,
+     "chance": 15,
+     "treasure_idx": 0
+    },
+    {
+     "floor_rom": 2,
+     "chance": 15,
+     "treasure_idx": 1
+    },
+    {
+     "floor_rom": 3,
+     "chance": 15,
+     "treasure_idx": 2
+    },
+    {
+     "floor_rom": 4,
+     "chance": 15,
+     "treasure_idx": 3
+    }
+   ]
+  },
+  {
+   "zone": "far_amp_plains",
+   "dungeon": "d18",
+   "treasure_segment": 1,
+   "floors": [
+    {
+     "floor_rom": 1,
+     "chance": 25,
+     "treasure_idx": 0
+    },
+    {
+     "floor_rom": 2,
+     "chance": 25,
+     "treasure_idx": 1
+    },
+    {
+     "floor_rom": 3,
+     "chance": 25,
+     "treasure_idx": 2
+    },
+    {
+     "floor_rom": 4,
+     "chance": 25,
+     "treasure_idx": 3
+    },
+    {
+     "floor_rom": 5,
+     "chance": 25,
+     "treasure_idx": 4
+    },
+    {
+     "floor_rom": 6,
+     "chance": 25,
+     "treasure_idx": 5
+    },
+    {
+     "floor_rom": 7,
+     "chance": 25,
+     "treasure_idx": 6
+    },
+    {
+     "floor_rom": 8,
+     "chance": 25,
+     "treasure_idx": 7
+    },
+    {
+     "floor_rom": 9,
+     "chance": 25,
+     "treasure_idx": 8
+    }
+   ]
+  },
+  {
+   "zone": "fifth_station_clearing",
+   "dungeon": "d121",
+   "treasure_segment": 1,
+   "floors": [
+    {
+     "floor_rom": 1,
+     "chance": 15,
+     "treasure_idx": 0
+    }
+   ]
+  },
+  {
+   "zone": "fifth_station_pass",
+   "dungeon": "d115",
+   "treasure_segment": 1,
+   "floors": [
+    {
+     "floor_rom": 1,
+     "chance": 15,
+     "treasure_idx": 0
+    },
+    {
+     "floor_rom": 2,
+     "chance": 15,
+     "treasure_idx": 1
+    },
+    {
+     "floor_rom": 3,
+     "chance": 15,
+     "treasure_idx": 2
+    },
+    {
+     "floor_rom": 4,
+     "chance": 15,
+     "treasure_idx": 3
+    }
+   ]
+  },
+  {
+   "zone": "first_station_pass",
+   "dungeon": "d111",
+   "treasure_segment": 1,
+   "floors": [
+    {
+     "floor_rom": 1,
+     "chance": 15,
+     "treasure_idx": 0
+    },
+    {
+     "floor_rom": 2,
+     "chance": 15,
+     "treasure_idx": 1
+    },
+    {
+     "floor_rom": 3,
+     "chance": 15,
+     "treasure_idx": 2
+    }
+   ]
+  },
+  {
+   "zone": "fourth_station_pass",
+   "dungeon": "d114",
+   "treasure_segment": 1,
+   "floors": [
+    {
+     "floor_rom": 1,
+     "chance": 15,
+     "treasure_idx": 0
+    },
+    {
+     "floor_rom": 2,
+     "chance": 15,
+     "treasure_idx": 1
+    },
+    {
+     "floor_rom": 3,
+     "chance": 15,
+     "treasure_idx": 2
+    }
+   ]
+  },
+  {
+   "zone": "happy_outlook",
+   "dungeon": "d94",
+   "treasure_segment": 1,
+   "floors": [
+    {
+     "floor_rom": 1,
+     "chance": 15,
+     "treasure_idx": 0
+    },
+    {
+     "floor_rom": 2,
+     "chance": 15,
+     "treasure_idx": 1
+    },
+    {
+     "floor_rom": 3,
+     "chance": 15,
+     "treasure_idx": 2
+    },
+    {
+     "floor_rom": 4,
+     "chance": 15,
+     "treasure_idx": 3
+    },
+    {
+     "floor_rom": 5,
+     "chance": 15,
+     "treasure_idx": 4
+    },
+    {
+     "floor_rom": 6,
+     "chance": 15,
+     "treasure_idx": 5
+    },
+    {
+     "floor_rom": 7,
+     "chance": 15,
+     "treasure_idx": 6
+    },
+    {
+     "floor_rom": 8,
+     "chance": 15,
+     "treasure_idx": 7
+    },
+    {
+     "floor_rom": 9,
+     "chance": 15,
+     "treasure_idx": 8
+    },
+    {
+     "floor_rom": 10,
+     "chance": 15,
+     "treasure_idx": 9
+    },
+    {
+     "floor_rom": 11,
+     "chance": 15,
+     "treasure_idx": 10
+    },
+    {
+     "floor_rom": 12,
+     "chance": 15,
+     "treasure_idx": 11
+    },
+    {
+     "floor_rom": 13,
+     "chance": 15,
+     "treasure_idx": 12
+    },
+    {
+     "floor_rom": 14,
+     "chance": 15,
+     "treasure_idx": 13
+    },
+    {
+     "floor_rom": 15,
+     "chance": 15,
+     "treasure_idx": 14
+    },
+    {
+     "floor_rom": 16,
+     "chance": 15,
+     "treasure_idx": 15
+    },
+    {
+     "floor_rom": 17,
+     "chance": 15,
+     "treasure_idx": 16
+    },
+    {
+     "floor_rom": 18,
+     "chance": 15,
+     "treasure_idx": 17
+    },
+    {
+     "floor_rom": 19,
+     "chance": 15,
+     "treasure_idx": 18
+    },
+    {
+     "floor_rom": 20,
+     "chance": 15,
+     "treasure_idx": 19
+    }
+   ]
+  },
+  {
+   "zone": "inferno_cave",
+   "dungeon": "d110",
+   "treasure_segment": 1,
+   "floors": [
+    {
+     "floor_rom": 1,
+     "chance": 15,
+     "treasure_idx": 0
+    },
+    {
+     "floor_rom": 2,
+     "chance": 15,
+     "treasure_idx": 1
+    },
+    {
+     "floor_rom": 3,
+     "chance": 15,
+     "treasure_idx": 2
+    },
+    {
+     "floor_rom": 4,
+     "chance": 15,
+     "treasure_idx": 3
+    },
+    {
+     "floor_rom": 5,
+     "chance": 15,
+     "treasure_idx": 4
+    },
+    {
+     "floor_rom": 6,
+     "chance": 15,
+     "treasure_idx": 5
+    },
+    {
+     "floor_rom": 7,
+     "chance": 15,
+     "treasure_idx": 6
+    },
+    {
+     "floor_rom": 8,
+     "chance": 15,
+     "treasure_idx": 7
+    },
+    {
+     "floor_rom": 9,
+     "chance": 15,
+     "treasure_idx": 8
+    },
+    {
+     "floor_rom": 10,
+     "chance": 15,
+     "treasure_idx": 9
+    },
+    {
+     "floor_rom": 11,
+     "chance": 15,
+     "treasure_idx": 10
+    },
+    {
+     "floor_rom": 12,
+     "chance": 15,
+     "treasure_idx": 11
+    },
+    {
+     "floor_rom": 13,
+     "chance": 15,
+     "treasure_idx": 12
+    },
+    {
+     "floor_rom": 14,
+     "chance": 15,
+     "treasure_idx": 13
+    },
+    {
+     "floor_rom": 15,
+     "chance": 15,
+     "treasure_idx": 14
+    },
+    {
+     "floor_rom": 16,
+     "chance": 15,
+     "treasure_idx": 15
+    },
+    {
+     "floor_rom": 17,
+     "chance": 15,
+     "treasure_idx": 16
+    },
+    {
+     "floor_rom": 18,
+     "chance": 15,
+     "treasure_idx": 17
+    },
+    {
+     "floor_rom": 19,
+     "chance": 15,
+     "treasure_idx": 18
+    },
+    {
+     "floor_rom": 20,
+     "chance": 15,
+     "treasure_idx": 19
+    },
+    {
+     "floor_rom": 21,
+     "chance": 15,
+     "treasure_idx": 20
+    },
+    {
+     "floor_rom": 22,
+     "chance": 15,
+     "treasure_idx": 21
+    },
+    {
+     "floor_rom": 23,
+     "chance": 15,
+     "treasure_idx": 22
+    },
+    {
+     "floor_rom": 24,
+     "chance": 15,
+     "treasure_idx": 23
+    },
+    {
+     "floor_rom": 25,
+     "chance": 15,
+     "treasure_idx": 24
+    },
+    {
+     "floor_rom": 26,
+     "chance": 15,
+     "treasure_idx": 25
+    },
+    {
+     "floor_rom": 27,
+     "chance": 15,
+     "treasure_idx": 26
+    },
+    {
+     "floor_rom": 28,
+     "chance": 15,
+     "treasure_idx": 27
+    },
+    {
+     "floor_rom": 29,
+     "chance": 15,
+     "treasure_idx": 28
+    },
+    {
+     "floor_rom": 30,
+     "chance": 15,
+     "treasure_idx": 29
+    }
+   ]
+  },
+  {
+   "zone": "lake_afar",
+   "dungeon": "d93",
+   "treasure_segment": 1,
+   "floors": [
+    {
+     "floor_rom": 1,
+     "chance": 15,
+     "treasure_idx": 0
+    },
+    {
+     "floor_rom": 2,
+     "chance": 15,
+     "treasure_idx": 1
+    },
+    {
+     "floor_rom": 3,
+     "chance": 15,
+     "treasure_idx": 2
+    },
+    {
+     "floor_rom": 4,
+     "chance": 15,
+     "treasure_idx": 3
+    },
+    {
+     "floor_rom": 5,
+     "chance": 15,
+     "treasure_idx": 4
+    },
+    {
+     "floor_rom": 6,
+     "chance": 15,
+     "treasure_idx": 5
+    },
+    {
+     "floor_rom": 7,
+     "chance": 15,
+     "treasure_idx": 6
+    },
+    {
+     "floor_rom": 8,
+     "chance": 15,
+     "treasure_idx": 7
+    },
+    {
+     "floor_rom": 9,
+     "chance": 15,
+     "treasure_idx": 8
+    },
+    {
+     "floor_rom": 10,
+     "chance": 15,
+     "treasure_idx": 9
+    },
+    {
+     "floor_rom": 11,
+     "chance": 15,
+     "treasure_idx": 10
+    },
+    {
+     "floor_rom": 12,
+     "chance": 15,
+     "treasure_idx": 11
+    },
+    {
+     "floor_rom": 13,
+     "chance": 15,
+     "treasure_idx": 12
+    },
+    {
+     "floor_rom": 14,
+     "chance": 15,
+     "treasure_idx": 13
+    },
+    {
+     "floor_rom": 15,
+     "chance": 15,
+     "treasure_idx": 14
+    },
+    {
+     "floor_rom": 16,
+     "chance": 15,
+     "treasure_idx": 15
+    },
+    {
+     "floor_rom": 17,
+     "chance": 15,
+     "treasure_idx": 16
+    },
+    {
+     "floor_rom": 18,
+     "chance": 15,
+     "treasure_idx": 17
+    },
+    {
+     "floor_rom": 19,
+     "chance": 15,
+     "treasure_idx": 18
+    },
+    {
+     "floor_rom": 20,
+     "chance": 15,
+     "treasure_idx": 19
+    },
+    {
+     "floor_rom": 21,
+     "chance": 15,
+     "treasure_idx": 20
+    },
+    {
+     "floor_rom": 22,
+     "chance": 15,
+     "treasure_idx": 21
+    },
+    {
+     "floor_rom": 23,
+     "chance": 15,
+     "treasure_idx": 22
+    },
+    {
+     "floor_rom": 24,
+     "chance": 15,
+     "treasure_idx": 23
+    },
+    {
+     "floor_rom": 25,
+     "chance": 15,
+     "treasure_idx": 24
+    }
+   ]
+  },
+  {
+   "zone": "lost_wilderness",
+   "dungeon": "d97",
+   "treasure_segment": 1,
+   "floors": [
+    {
+     "floor_rom": 1,
+     "chance": 10,
+     "treasure_idx": 0
+    },
+    {
+     "floor_rom": 2,
+     "chance": 10,
+     "treasure_idx": 1
+    },
+    {
+     "floor_rom": 3,
+     "chance": 10,
+     "treasure_idx": 2
+    },
+    {
+     "floor_rom": 4,
+     "chance": 10,
+     "treasure_idx": 3
+    },
+    {
+     "floor_rom": 5,
+     "chance": 10,
+     "treasure_idx": 4
+    },
+    {
+     "floor_rom": 6,
+     "chance": 10,
+     "treasure_idx": 5
+    },
+    {
+     "floor_rom": 7,
+     "chance": 10,
+     "treasure_idx": 6
+    },
+    {
+     "floor_rom": 8,
+     "chance": 10,
+     "treasure_idx": 7
+    },
+    {
+     "floor_rom": 9,
+     "chance": 10,
+     "treasure_idx": 8
+    },
+    {
+     "floor_rom": 10,
+     "chance": 10,
+     "treasure_idx": 9
+    },
+    {
+     "floor_rom": 11,
+     "chance": 10,
+     "treasure_idx": 10
+    },
+    {
+     "floor_rom": 12,
+     "chance": 10,
+     "treasure_idx": 11
+    },
+    {
+     "floor_rom": 13,
+     "chance": 10,
+     "treasure_idx": 12
+    },
+    {
+     "floor_rom": 14,
+     "chance": 10,
+     "treasure_idx": 13
+    },
+    {
+     "floor_rom": 15,
+     "chance": 10,
+     "treasure_idx": 14
+    },
+    {
+     "floor_rom": 16,
+     "chance": 10,
+     "treasure_idx": 15
+    },
+    {
+     "floor_rom": 17,
+     "chance": 10,
+     "treasure_idx": 16
+    },
+    {
+     "floor_rom": 18,
+     "chance": 10,
+     "treasure_idx": 17
+    }
+   ]
+  },
+  {
+   "zone": "marine_resort",
+   "dungeon": "d72",
+   "treasure_segment": 1,
+   "floors": [
+    {
+     "floor_rom": 1,
+     "chance": 15,
+     "treasure_idx": 0
+    },
+    {
+     "floor_rom": 2,
+     "chance": 15,
+     "treasure_idx": 1
+    },
+    {
+     "floor_rom": 3,
+     "chance": 15,
+     "treasure_idx": 2
+    },
+    {
+     "floor_rom": 4,
+     "chance": 15,
+     "treasure_idx": 3
+    },
+    {
+     "floor_rom": 5,
+     "chance": 15,
+     "treasure_idx": 4
+    },
+    {
+     "floor_rom": 6,
+     "chance": 15,
+     "treasure_idx": 5
+    },
+    {
+     "floor_rom": 7,
+     "chance": 15,
+     "treasure_idx": 6
+    },
+    {
+     "floor_rom": 8,
+     "chance": 15,
+     "treasure_idx": 7
+    },
+    {
+     "floor_rom": 9,
+     "chance": 15,
+     "treasure_idx": 8
+    },
+    {
+     "floor_rom": 10,
+     "chance": 15,
+     "treasure_idx": 9
+    },
+    {
+     "floor_rom": 11,
+     "chance": 15,
+     "treasure_idx": 10
+    },
+    {
+     "floor_rom": 12,
+     "chance": 15,
+     "treasure_idx": 11
+    },
+    {
+     "floor_rom": 13,
+     "chance": 15,
+     "treasure_idx": 12
+    },
+    {
+     "floor_rom": 14,
+     "chance": 15,
+     "treasure_idx": 13
+    },
+    {
+     "floor_rom": 15,
+     "chance": 15,
+     "treasure_idx": 14
+    },
+    {
+     "floor_rom": 16,
+     "chance": 15,
+     "treasure_idx": 15
+    },
+    {
+     "floor_rom": 17,
+     "chance": 15,
+     "treasure_idx": 16
+    },
+    {
+     "floor_rom": 18,
+     "chance": 15,
+     "treasure_idx": 17
+    },
+    {
+     "floor_rom": 19,
+     "chance": 15,
+     "treasure_idx": 18
+    }
+   ]
+  },
+  {
+   "zone": "midnight_forest",
+   "dungeon": "d98",
+   "treasure_segment": 1,
+   "floors": [
+    {
+     "floor_rom": 1,
+     "chance": 15,
+     "treasure_idx": 0
+    },
+    {
+     "floor_rom": 2,
+     "chance": 15,
+     "treasure_idx": 1
+    },
+    {
+     "floor_rom": 3,
+     "chance": 15,
+     "treasure_idx": 2
+    },
+    {
+     "floor_rom": 4,
+     "chance": 15,
+     "treasure_idx": 3
+    },
+    {
+     "floor_rom": 5,
+     "chance": 15,
+     "treasure_idx": 4
+    },
+    {
+     "floor_rom": 6,
+     "chance": 15,
+     "treasure_idx": 5
+    },
+    {
+     "floor_rom": 7,
+     "chance": 15,
+     "treasure_idx": 6
+    },
+    {
+     "floor_rom": 8,
+     "chance": 15,
+     "treasure_idx": 7
+    },
+    {
+     "floor_rom": 9,
+     "chance": 15,
+     "treasure_idx": 8
+    },
+    {
+     "floor_rom": 10,
+     "chance": 15,
+     "treasure_idx": 9
+    },
+    {
+     "floor_rom": 11,
+     "chance": 15,
+     "treasure_idx": 10
+    },
+    {
+     "floor_rom": 12,
+     "chance": 15,
+     "treasure_idx": 11
+    },
+    {
+     "floor_rom": 13,
+     "chance": 15,
+     "treasure_idx": 12
+    },
+    {
+     "floor_rom": 14,
+     "chance": 15,
+     "treasure_idx": 13
+    },
+    {
+     "floor_rom": 15,
+     "chance": 15,
+     "treasure_idx": 14
+    },
+    {
+     "floor_rom": 16,
+     "chance": 15,
+     "treasure_idx": 15
+    },
+    {
+     "floor_rom": 17,
+     "chance": 15,
+     "treasure_idx": 16
+    },
+    {
+     "floor_rom": 18,
+     "chance": 15,
+     "treasure_idx": 17
+    },
+    {
+     "floor_rom": 19,
+     "chance": 15,
+     "treasure_idx": 18
+    },
+    {
+     "floor_rom": 20,
+     "chance": 15,
+     "treasure_idx": 19
+    },
+    {
+     "floor_rom": 21,
+     "chance": 15,
+     "treasure_idx": 20
+    },
+    {
+     "floor_rom": 22,
+     "chance": 15,
+     "treasure_idx": 21
+    },
+    {
+     "floor_rom": 23,
+     "chance": 15,
+     "treasure_idx": 22
+    },
+    {
+     "floor_rom": 24,
+     "chance": 15,
+     "treasure_idx": 23
+    },
+    {
+     "floor_rom": 25,
+     "chance": 15,
+     "treasure_idx": 24
+    }
+   ]
+  },
+  {
+   "zone": "mt_horn",
+   "dungeon": "d10",
+   "treasure_segment": 1,
+   "floors": [
+    {
+     "floor_rom": 1,
+     "chance": 25,
+     "treasure_idx": 0
+    },
+    {
+     "floor_rom": 2,
+     "chance": 25,
+     "treasure_idx": 1
+    },
+    {
+     "floor_rom": 3,
+     "chance": 25,
+     "treasure_idx": 2
+    },
+    {
+     "floor_rom": 4,
+     "chance": 25,
+     "treasure_idx": 3
+    },
+    {
+     "floor_rom": 5,
+     "chance": 25,
+     "treasure_idx": 4
+    },
+    {
+     "floor_rom": 6,
+     "chance": 25,
+     "treasure_idx": 5
+    },
+    {
+     "floor_rom": 7,
+     "chance": 25,
+     "treasure_idx": 6
+    },
+    {
+     "floor_rom": 8,
+     "chance": 25,
+     "treasure_idx": 7
+    },
+    {
+     "floor_rom": 9,
+     "chance": 25,
+     "treasure_idx": 8
+    },
+    {
+     "floor_rom": 10,
+     "chance": 25,
+     "treasure_idx": 9
+    },
+    {
+     "floor_rom": 11,
+     "chance": 25,
+     "treasure_idx": 10
+    },
+    {
+     "floor_rom": 12,
+     "chance": 25,
+     "treasure_idx": 11
+    },
+    {
+     "floor_rom": 13,
+     "chance": 25,
+     "treasure_idx": 12
+    },
+    {
+     "floor_rom": 14,
+     "chance": 25,
+     "treasure_idx": 13
+    }
+   ]
+  },
+  {
+   "zone": "mt_mistral",
+   "dungeon": "d95",
+   "treasure_segment": 1,
+   "floors": [
+    {
+     "floor_rom": 1,
+     "chance": 15,
+     "treasure_idx": 0
+    },
+    {
+     "floor_rom": 2,
+     "chance": 15,
+     "treasure_idx": 1
+    },
+    {
+     "floor_rom": 3,
+     "chance": 15,
+     "treasure_idx": 2
+    },
+    {
+     "floor_rom": 4,
+     "chance": 15,
+     "treasure_idx": 3
+    },
+    {
+     "floor_rom": 5,
+     "chance": 15,
+     "treasure_idx": 4
+    },
+    {
+     "floor_rom": 6,
+     "chance": 15,
+     "treasure_idx": 5
+    },
+    {
+     "floor_rom": 7,
+     "chance": 15,
+     "treasure_idx": 6
+    },
+    {
+     "floor_rom": 8,
+     "chance": 15,
+     "treasure_idx": 7
+    },
+    {
+     "floor_rom": 9,
+     "chance": 15,
+     "treasure_idx": 8
+    },
+    {
+     "floor_rom": 10,
+     "chance": 15,
+     "treasure_idx": 9
+    },
+    {
+     "floor_rom": 11,
+     "chance": 15,
+     "treasure_idx": 10
+    },
+    {
+     "floor_rom": 12,
+     "chance": 15,
+     "treasure_idx": 11
+    },
+    {
+     "floor_rom": 13,
+     "chance": 15,
+     "treasure_idx": 12
+    },
+    {
+     "floor_rom": 14,
+     "chance": 15,
+     "treasure_idx": 13
+    },
+    {
+     "floor_rom": 15,
+     "chance": 15,
+     "treasure_idx": 14
+    },
+    {
+     "floor_rom": 16,
+     "chance": 15,
+     "treasure_idx": 15
+    },
+    {
+     "floor_rom": 17,
+     "chance": 15,
+     "treasure_idx": 16
+    },
+    {
+     "floor_rom": 18,
+     "chance": 15,
+     "treasure_idx": 17
+    },
+    {
+     "floor_rom": 19,
+     "chance": 15,
+     "treasure_idx": 18
+    },
+    {
+     "floor_rom": 20,
+     "chance": 15,
+     "treasure_idx": 19
+    }
+   ]
+  },
+  {
+   "zone": "mt_travail_post",
+   "dungeon": "d62",
+   "treasure_segment": 1,
+   "floors": [
+    {
+     "floor_rom": 1,
+     "chance": 15,
+     "treasure_idx": 0
+    },
+    {
+     "floor_rom": 2,
+     "chance": 15,
+     "treasure_idx": 1
+    },
+    {
+     "floor_rom": 3,
+     "chance": 15,
+     "treasure_idx": 2
+    },
+    {
+     "floor_rom": 4,
+     "chance": 15,
+     "treasure_idx": 3
+    },
+    {
+     "floor_rom": 5,
+     "chance": 15,
+     "treasure_idx": 4
+    },
+    {
+     "floor_rom": 6,
+     "chance": 15,
+     "treasure_idx": 5
+    },
+    {
+     "floor_rom": 7,
+     "chance": 15,
+     "treasure_idx": 6
+    },
+    {
+     "floor_rom": 8,
+     "chance": 15,
+     "treasure_idx": 7
+    },
+    {
+     "floor_rom": 9,
+     "chance": 15,
+     "treasure_idx": 8
+    },
+    {
+     "floor_rom": 10,
+     "chance": 15,
+     "treasure_idx": 9
+    },
+    {
+     "floor_rom": 11,
+     "chance": 15,
+     "treasure_idx": 10
+    },
+    {
+     "floor_rom": 12,
+     "chance": 15,
+     "treasure_idx": 11
+    },
+    {
+     "floor_rom": 13,
+     "chance": 15,
+     "treasure_idx": 12
+    },
+    {
+     "floor_rom": 14,
+     "chance": 15,
+     "treasure_idx": 13
+    },
+    {
+     "floor_rom": 15,
+     "chance": 15,
+     "treasure_idx": 14
+    },
+    {
+     "floor_rom": 16,
+     "chance": 15,
+     "treasure_idx": 15
+    },
+    {
+     "floor_rom": 17,
+     "chance": 15,
+     "treasure_idx": 16
+    },
+    {
+     "floor_rom": 18,
+     "chance": 15,
+     "treasure_idx": 17
+    },
+    {
+     "floor_rom": 19,
+     "chance": 15,
+     "treasure_idx": 18
+    }
+   ]
+  },
+  {
+   "zone": "mystifying_forest_post",
+   "dungeon": "d44",
+   "treasure_segment": 1,
+   "floors": [
+    {
+     "floor_rom": 1,
+     "chance": 15,
+     "treasure_idx": 0
+    },
+    {
+     "floor_rom": 2,
+     "chance": 15,
+     "treasure_idx": 1
+    },
+    {
+     "floor_rom": 3,
+     "chance": 15,
+     "treasure_idx": 2
+    },
+    {
+     "floor_rom": 4,
+     "chance": 15,
+     "treasure_idx": 3
+    },
+    {
+     "floor_rom": 5,
+     "chance": 15,
+     "treasure_idx": 4
+    },
+    {
+     "floor_rom": 6,
+     "chance": 15,
+     "treasure_idx": 5
+    },
+    {
+     "floor_rom": 7,
+     "chance": 15,
+     "treasure_idx": 6
+    },
+    {
+     "floor_rom": 8,
+     "chance": 15,
+     "treasure_idx": 7
+    },
+    {
+     "floor_rom": 9,
+     "chance": 15,
+     "treasure_idx": 8
+    },
+    {
+     "floor_rom": 10,
+     "chance": 15,
+     "treasure_idx": 9
+    },
+    {
+     "floor_rom": 11,
+     "chance": 15,
+     "treasure_idx": 10
+    },
+    {
+     "floor_rom": 12,
+     "chance": 15,
+     "treasure_idx": 11
+    },
+    {
+     "floor_rom": 13,
+     "chance": 15,
+     "treasure_idx": 12
+    }
+   ]
+  },
+  {
+   "zone": "ninth_station_pass",
+   "dungeon": "d119",
+   "treasure_segment": 1,
+   "floors": [
+    {
+     "floor_rom": 1,
+     "chance": 15,
+     "treasure_idx": 0
+    },
+    {
+     "floor_rom": 2,
+     "chance": 15,
+     "treasure_idx": 1
+    },
+    {
+     "floor_rom": 3,
+     "chance": 15,
+     "treasure_idx": 2
+    },
+    {
+     "floor_rom": 4,
+     "chance": 15,
+     "treasure_idx": 3
+    },
+    {
+     "floor_rom": 5,
+     "chance": 15,
+     "treasure_idx": 4
+    }
+   ]
+  },
+  {
+   "zone": "oblivion_forest",
+   "dungeon": "d107",
+   "treasure_segment": 1,
+   "floors": [
+    {
+     "floor_rom": 1,
+     "chance": 15,
+     "treasure_idx": 0
+    },
+    {
+     "floor_rom": 2,
+     "chance": 15,
+     "treasure_idx": 1
+    },
+    {
+     "floor_rom": 3,
+     "chance": 15,
+     "treasure_idx": 2
+    },
+    {
+     "floor_rom": 4,
+     "chance": 15,
+     "treasure_idx": 3
+    },
+    {
+     "floor_rom": 5,
+     "chance": 15,
+     "treasure_idx": 4
+    },
+    {
+     "floor_rom": 6,
+     "chance": 15,
+     "treasure_idx": 5
+    },
+    {
+     "floor_rom": 7,
+     "chance": 15,
+     "treasure_idx": 6
+    },
+    {
+     "floor_rom": 8,
+     "chance": 15,
+     "treasure_idx": 7
+    },
+    {
+     "floor_rom": 9,
+     "chance": 15,
+     "treasure_idx": 8
+    },
+    {
+     "floor_rom": 10,
+     "chance": 15,
+     "treasure_idx": 9
+    },
+    {
+     "floor_rom": 11,
+     "chance": 15,
+     "treasure_idx": 10
+    },
+    {
+     "floor_rom": 12,
+     "chance": 15,
+     "treasure_idx": 11
+    },
+    {
+     "floor_rom": 13,
+     "chance": 15,
+     "treasure_idx": 12
+    },
+    {
+     "floor_rom": 14,
+     "chance": 15,
+     "treasure_idx": 13
+    },
+    {
+     "floor_rom": 15,
+     "chance": 15,
+     "treasure_idx": 14
+    }
+   ]
+  },
+  {
+   "zone": "second_station_pass",
+   "dungeon": "d112",
+   "treasure_segment": 1,
+   "floors": [
+    {
+     "floor_rom": 1,
+     "chance": 15,
+     "treasure_idx": 0
+    },
+    {
+     "floor_rom": 2,
+     "chance": 15,
+     "treasure_idx": 1
+    },
+    {
+     "floor_rom": 3,
+     "chance": 15,
+     "treasure_idx": 2
+    }
+   ]
+  },
+  {
+   "zone": "seventh_station_pass",
+   "dungeon": "d117",
+   "treasure_segment": 1,
+   "floors": [
+    {
+     "floor_rom": 1,
+     "chance": 15,
+     "treasure_idx": 0
+    },
+    {
+     "floor_rom": 2,
+     "chance": 15,
+     "treasure_idx": 1
+    },
+    {
+     "floor_rom": 3,
+     "chance": 15,
+     "treasure_idx": 2
+    },
+    {
+     "floor_rom": 4,
+     "chance": 15,
+     "treasure_idx": 3
+    }
+   ]
+  },
+  {
+   "zone": "shimmer_hill",
+   "dungeon": "d96",
+   "treasure_segment": 1,
+   "floors": [
+    {
+     "floor_rom": 1,
+     "chance": 15,
+     "treasure_idx": 0
+    },
+    {
+     "floor_rom": 2,
+     "chance": 15,
+     "treasure_idx": 1
+    },
+    {
+     "floor_rom": 3,
+     "chance": 15,
+     "treasure_idx": 2
+    },
+    {
+     "floor_rom": 4,
+     "chance": 15,
+     "treasure_idx": 3
+    },
+    {
+     "floor_rom": 5,
+     "chance": 15,
+     "treasure_idx": 4
+    },
+    {
+     "floor_rom": 6,
+     "chance": 15,
+     "treasure_idx": 5
+    },
+    {
+     "floor_rom": 7,
+     "chance": 15,
+     "treasure_idx": 6
+    },
+    {
+     "floor_rom": 8,
+     "chance": 15,
+     "treasure_idx": 7
+    },
+    {
+     "floor_rom": 9,
+     "chance": 15,
+     "treasure_idx": 8
+    },
+    {
+     "floor_rom": 10,
+     "chance": 15,
+     "treasure_idx": 9
+    },
+    {
+     "floor_rom": 11,
+     "chance": 15,
+     "treasure_idx": 10
+    },
+    {
+     "floor_rom": 12,
+     "chance": 15,
+     "treasure_idx": 11
+    },
+    {
+     "floor_rom": 13,
+     "chance": 15,
+     "treasure_idx": 12
+    },
+    {
+     "floor_rom": 14,
+     "chance": 15,
+     "treasure_idx": 13
+    },
+    {
+     "floor_rom": 15,
+     "chance": 15,
+     "treasure_idx": 14
+    },
+    {
+     "floor_rom": 16,
+     "chance": 15,
+     "treasure_idx": 15
+    },
+    {
+     "floor_rom": 17,
+     "chance": 15,
+     "treasure_idx": 16
+    },
+    {
+     "floor_rom": 18,
+     "chance": 15,
+     "treasure_idx": 17
+    }
+   ]
+  },
+  {
+   "zone": "sixth_station_pass",
+   "dungeon": "d116",
+   "treasure_segment": 1,
+   "floors": [
+    {
+     "floor_rom": 1,
+     "chance": 15,
+     "treasure_idx": 0
+    },
+    {
+     "floor_rom": 2,
+     "chance": 15,
+     "treasure_idx": 1
+    },
+    {
+     "floor_rom": 3,
+     "chance": 15,
+     "treasure_idx": 2
+    },
+    {
+     "floor_rom": 4,
+     "chance": 15,
+     "treasure_idx": 3
+    }
+   ]
+  },
+  {
+   "zone": "sky_peak_summit_pass",
+   "dungeon": "d120",
+   "treasure_segment": 1,
+   "floors": [
+    {
+     "floor_rom": 1,
+     "chance": 15,
+     "treasure_idx": 0
+    },
+    {
+     "floor_rom": 2,
+     "chance": 15,
+     "treasure_idx": 1
+    },
+    {
+     "floor_rom": 3,
+     "chance": 15,
+     "treasure_idx": 2
+    },
+    {
+     "floor_rom": 4,
+     "chance": 15,
+     "treasure_idx": 3
+    },
+    {
+     "floor_rom": 5,
+     "chance": 15,
+     "treasure_idx": 4
+    }
+   ]
+  },
+  {
+   "zone": "southeastern_islands",
+   "dungeon": "d109",
+   "treasure_segment": 1,
+   "floors": [
+    {
+     "floor_rom": 1,
+     "chance": 15,
+     "treasure_idx": 0
+    },
+    {
+     "floor_rom": 2,
+     "chance": 15,
+     "treasure_idx": 1
+    },
+    {
+     "floor_rom": 3,
+     "chance": 15,
+     "treasure_idx": 2
+    },
+    {
+     "floor_rom": 4,
+     "chance": 15,
+     "treasure_idx": 3
+    },
+    {
+     "floor_rom": 5,
+     "chance": 15,
+     "treasure_idx": 4
+    },
+    {
+     "floor_rom": 6,
+     "chance": 15,
+     "treasure_idx": 5
+    },
+    {
+     "floor_rom": 7,
+     "chance": 15,
+     "treasure_idx": 6
+    },
+    {
+     "floor_rom": 8,
+     "chance": 15,
+     "treasure_idx": 7
+    },
+    {
+     "floor_rom": 9,
+     "chance": 15,
+     "treasure_idx": 8
+    },
+    {
+     "floor_rom": 10,
+     "chance": 15,
+     "treasure_idx": 9
+    },
+    {
+     "floor_rom": 11,
+     "chance": 15,
+     "treasure_idx": 10
+    },
+    {
+     "floor_rom": 12,
+     "chance": 15,
+     "treasure_idx": 11
+    },
+    {
+     "floor_rom": 13,
+     "chance": 15,
+     "treasure_idx": 12
+    },
+    {
+     "floor_rom": 14,
+     "chance": 15,
+     "treasure_idx": 13
+    },
+    {
+     "floor_rom": 15,
+     "chance": 15,
+     "treasure_idx": 14
+    },
+    {
+     "floor_rom": 16,
+     "chance": 15,
+     "treasure_idx": 15
+    },
+    {
+     "floor_rom": 17,
+     "chance": 15,
+     "treasure_idx": 16
+    },
+    {
+     "floor_rom": 18,
+     "chance": 15,
+     "treasure_idx": 17
+    },
+    {
+     "floor_rom": 19,
+     "chance": 15,
+     "treasure_idx": 18
+    },
+    {
+     "floor_rom": 20,
+     "chance": 15,
+     "treasure_idx": 19
+    },
+    {
+     "floor_rom": 21,
+     "chance": 15,
+     "treasure_idx": 20
+    },
+    {
+     "floor_rom": 22,
+     "chance": 15,
+     "treasure_idx": 21
+    },
+    {
+     "floor_rom": 23,
+     "chance": 15,
+     "treasure_idx": 22
+    },
+    {
+     "floor_rom": 24,
+     "chance": 15,
+     "treasure_idx": 23
+    },
+    {
+     "floor_rom": 25,
+     "chance": 15,
+     "treasure_idx": 24
+    }
+   ]
+  },
+  {
+   "zone": "third_station_pass",
+   "dungeon": "d113",
+   "treasure_segment": 1,
+   "floors": [
+    {
+     "floor_rom": 1,
+     "chance": 15,
+     "treasure_idx": 0
+    },
+    {
+     "floor_rom": 2,
+     "chance": 15,
+     "treasure_idx": 1
+    },
+    {
+     "floor_rom": 3,
+     "chance": 15,
+     "treasure_idx": 2
+    }
+   ]
+  },
+  {
+   "zone": "treacherous_waters",
+   "dungeon": "d108",
+   "treasure_segment": 1,
+   "floors": [
+    {
+     "floor_rom": 1,
+     "chance": 15,
+     "treasure_idx": 0
+    },
+    {
+     "floor_rom": 2,
+     "chance": 15,
+     "treasure_idx": 1
+    },
+    {
+     "floor_rom": 3,
+     "chance": 15,
+     "treasure_idx": 2
+    },
+    {
+     "floor_rom": 4,
+     "chance": 15,
+     "treasure_idx": 3
+    },
+    {
+     "floor_rom": 5,
+     "chance": 15,
+     "treasure_idx": 4
+    },
+    {
+     "floor_rom": 6,
+     "chance": 15,
+     "treasure_idx": 5
+    },
+    {
+     "floor_rom": 7,
+     "chance": 15,
+     "treasure_idx": 6
+    },
+    {
+     "floor_rom": 8,
+     "chance": 15,
+     "treasure_idx": 7
+    },
+    {
+     "floor_rom": 9,
+     "chance": 15,
+     "treasure_idx": 8
+    },
+    {
+     "floor_rom": 10,
+     "chance": 15,
+     "treasure_idx": 9
+    },
+    {
+     "floor_rom": 11,
+     "chance": 15,
+     "treasure_idx": 10
+    },
+    {
+     "floor_rom": 12,
+     "chance": 15,
+     "treasure_idx": 11
+    },
+    {
+     "floor_rom": 13,
+     "chance": 15,
+     "treasure_idx": 12
+    },
+    {
+     "floor_rom": 14,
+     "chance": 15,
+     "treasure_idx": 13
+    },
+    {
+     "floor_rom": 15,
+     "chance": 15,
+     "treasure_idx": 14
+    },
+    {
+     "floor_rom": 16,
+     "chance": 15,
+     "treasure_idx": 15
+    },
+    {
+     "floor_rom": 17,
+     "chance": 15,
+     "treasure_idx": 16
+    },
+    {
+     "floor_rom": 18,
+     "chance": 15,
+     "treasure_idx": 17
+    },
+    {
+     "floor_rom": 19,
+     "chance": 15,
+     "treasure_idx": 18
+    },
+    {
+     "floor_rom": 20,
+     "chance": 15,
+     "treasure_idx": 19
+    }
+   ]
+  },
+  {
+   "zone": "treeshroud_forest",
+   "dungeon": "d34",
+   "treasure_segment": 1,
+   "floors": [
+    {
+     "floor_rom": 1,
+     "chance": 25,
+     "treasure_idx": 0
+    },
+    {
+     "floor_rom": 2,
+     "chance": 25,
+     "treasure_idx": 1
+    },
+    {
+     "floor_rom": 3,
+     "chance": 25,
+     "treasure_idx": 2
+    },
+    {
+     "floor_rom": 4,
+     "chance": 25,
+     "treasure_idx": 3
+    },
+    {
+     "floor_rom": 5,
+     "chance": 25,
+     "treasure_idx": 4
+    },
+    {
+     "floor_rom": 6,
+     "chance": 25,
+     "treasure_idx": 5
+    },
+    {
+     "floor_rom": 7,
+     "chance": 25,
+     "treasure_idx": 6
+    },
+    {
+     "floor_rom": 8,
+     "chance": 25,
+     "treasure_idx": 7
+    },
+    {
+     "floor_rom": 9,
+     "chance": 25,
+     "treasure_idx": 8
+    },
+    {
+     "floor_rom": 10,
+     "chance": 25,
+     "treasure_idx": 9
+    },
+    {
+     "floor_rom": 11,
+     "chance": 25,
+     "treasure_idx": 10
+    },
+    {
+     "floor_rom": 12,
+     "chance": 25,
+     "treasure_idx": 11
+    },
+    {
+     "floor_rom": 13,
+     "chance": 25,
+     "treasure_idx": 12
+    },
+    {
+     "floor_rom": 14,
+     "chance": 25,
+     "treasure_idx": 13
+    },
+    {
+     "floor_rom": 15,
+     "chance": 25,
+     "treasure_idx": 14
+    },
+    {
+     "floor_rom": 16,
+     "chance": 25,
+     "treasure_idx": 15
+    },
+    {
+     "floor_rom": 17,
+     "chance": 25,
+     "treasure_idx": 16
+    },
+    {
+     "floor_rom": 18,
+     "chance": 25,
+     "treasure_idx": 17
+    },
+    {
+     "floor_rom": 19,
+     "chance": 25,
+     "treasure_idx": 18
+    },
+    {
+     "floor_rom": 20,
+     "chance": 25,
+     "treasure_idx": 19
+    }
+   ]
+  },
+  {
+   "zone": "zero_isle_east",
+   "dungeon": "d100",
+   "treasure_segment": 1,
+   "floors": [
+    {
+     "floor_rom": 1,
+     "chance": 15,
+     "treasure_idx": 0
+    },
+    {
+     "floor_rom": 2,
+     "chance": 15,
+     "treasure_idx": 1
+    },
+    {
+     "floor_rom": 3,
+     "chance": 15,
+     "treasure_idx": 2
+    },
+    {
+     "floor_rom": 4,
+     "chance": 15,
+     "treasure_idx": 3
+    },
+    {
+     "floor_rom": 5,
+     "chance": 15,
+     "treasure_idx": 4
+    },
+    {
+     "floor_rom": 6,
+     "chance": 15,
+     "treasure_idx": 5
+    },
+    {
+     "floor_rom": 7,
+     "chance": 15,
+     "treasure_idx": 6
+    },
+    {
+     "floor_rom": 8,
+     "chance": 15,
+     "treasure_idx": 7
+    },
+    {
+     "floor_rom": 9,
+     "chance": 15,
+     "treasure_idx": 8
+    },
+    {
+     "floor_rom": 10,
+     "chance": 15,
+     "treasure_idx": 9
+    },
+    {
+     "floor_rom": 11,
+     "chance": 15,
+     "treasure_idx": 10
+    },
+    {
+     "floor_rom": 12,
+     "chance": 15,
+     "treasure_idx": 11
+    },
+    {
+     "floor_rom": 13,
+     "chance": 15,
+     "treasure_idx": 12
+    },
+    {
+     "floor_rom": 14,
+     "chance": 15,
+     "treasure_idx": 13
+    },
+    {
+     "floor_rom": 15,
+     "chance": 15,
+     "treasure_idx": 14
+    },
+    {
+     "floor_rom": 16,
+     "chance": 15,
+     "treasure_idx": 15
+    },
+    {
+     "floor_rom": 17,
+     "chance": 15,
+     "treasure_idx": 16
+    },
+    {
+     "floor_rom": 18,
+     "chance": 15,
+     "treasure_idx": 17
+    },
+    {
+     "floor_rom": 19,
+     "chance": 15,
+     "treasure_idx": 18
+    },
+    {
+     "floor_rom": 20,
+     "chance": 15,
+     "treasure_idx": 19
+    },
+    {
+     "floor_rom": 21,
+     "chance": 15,
+     "treasure_idx": 20
+    },
+    {
+     "floor_rom": 22,
+     "chance": 15,
+     "treasure_idx": 21
+    },
+    {
+     "floor_rom": 23,
+     "chance": 15,
+     "treasure_idx": 22
+    },
+    {
+     "floor_rom": 24,
+     "chance": 15,
+     "treasure_idx": 23
+    },
+    {
+     "floor_rom": 25,
+     "chance": 15,
+     "treasure_idx": 24
+    },
+    {
+     "floor_rom": 26,
+     "chance": 15,
+     "treasure_idx": 25
+    },
+    {
+     "floor_rom": 27,
+     "chance": 15,
+     "treasure_idx": 26
+    },
+    {
+     "floor_rom": 28,
+     "chance": 15,
+     "treasure_idx": 27
+    },
+    {
+     "floor_rom": 29,
+     "chance": 15,
+     "treasure_idx": 28
+    },
+    {
+     "floor_rom": 30,
+     "chance": 15,
+     "treasure_idx": 29
+    },
+    {
+     "floor_rom": 31,
+     "chance": 15,
+     "treasure_idx": 30
+    },
+    {
+     "floor_rom": 32,
+     "chance": 15,
+     "treasure_idx": 31
+    },
+    {
+     "floor_rom": 33,
+     "chance": 15,
+     "treasure_idx": 32
+    },
+    {
+     "floor_rom": 34,
+     "chance": 15,
+     "treasure_idx": 33
+    },
+    {
+     "floor_rom": 35,
+     "chance": 15,
+     "treasure_idx": 34
+    },
+    {
+     "floor_rom": 36,
+     "chance": 15,
+     "treasure_idx": 35
+    },
+    {
+     "floor_rom": 37,
+     "chance": 15,
+     "treasure_idx": 36
+    },
+    {
+     "floor_rom": 38,
+     "chance": 15,
+     "treasure_idx": 37
+    },
+    {
+     "floor_rom": 39,
+     "chance": 15,
+     "treasure_idx": 38
+    },
+    {
+     "floor_rom": 40,
+     "chance": 15,
+     "treasure_idx": 39
+    }
+   ]
+  }
+ ]
+}

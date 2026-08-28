@@ -10,6 +10,12 @@ local PILOT={
  {id='champ_vent_boreal',zone='master_zone',idx=80},
 }
 local function safe(f,d)local ok,v=pcall(f);if ok then return v end;return d end
+
+local function dprobe_target(spec)
+  local z,seg=string.match(spec,'([^@]+)@(%d+)')
+  if z then return z,tonumber(seg) end
+  return spec,0
+end
 local function emit(s)
  PrintInfo('[GROUND_VALIDATOR] '..s)
  local f=io.open('/tmp/ground_gameplay_validator.jsonl','a');if f then f:write(s..'\n');f:flush();f:close() end
@@ -56,7 +62,7 @@ function V:begin()
   self.dprobe_rep=1
   for z in string.gmatch(string.sub(self.mode,8),'([^,]+)') do self.dprobe[#self.dprobe+1]=z end
   emit('{"event":"dprobe_begin","count":'..#self.dprobe..',"reps":'..self.dprobe_reps..'}')
-  GAME:EnterZone(self.dprobe[1],0,0,0)
+  local dz,dseg=dprobe_target(self.dprobe[1]);GAME:EnterZone(dz,dseg,0,0)
   return
  end
  if self.mode=='tornadus_battle' or string.sub(self.mode or '',1,6)=='arena:' then
@@ -415,16 +421,17 @@ function V:OnDungeonFloorEnter()
     -- clamp au nombre d'étages réel du segment 0 (évite un EnterZone invalide)
     local maxfl=self.dprobe_floors
     pcall(function()
+      local curseg=_ZONE.CurrentMapID.Segment
       local segs=_ZONE.CurrentZone.Segments
-      local fc=segs[0].FloorCount
+      local fc=segs[curseg].FloorCount
       if fc and fc<maxfl then maxfl=fc end
     end)
     if floor+1<maxfl then
-      GAME:EnterZone(cz,0,floor+1,0)
+      GAME:EnterZone(cz,_ZONE.CurrentMapID.Segment,floor+1,0)
     else
       self.dprobe_i=self.dprobe_i+1
       if self.dprobe[self.dprobe_i] then
-        GAME:EnterZone(self.dprobe[self.dprobe_i],0,0,0)
+        local dz,dseg=dprobe_target(self.dprobe[self.dprobe_i]);GAME:EnterZone(dz,dseg,0,0)
       elseif self.dprobe_rep<self.dprobe_reps then
         -- nouvelle passe multi-seed : reseed du Save.Rand puis retour zone 1
         self.dprobe_rep=self.dprobe_rep+1
@@ -435,7 +442,7 @@ function V:OnDungeonFloorEnter()
           _DATA.Save.Rand=ReRandom(seed)
         end)
         emit('{"event":"dprobe_rep","rep":'..self.dprobe_rep..'}')
-        GAME:EnterZone(self.dprobe[1],0,0,0)
+        local dz,dseg=dprobe_target(self.dprobe[1]);GAME:EnterZone(dz,dseg,0,0)
       else
         emit('{"event":"dprobe_end","verdict":"DPROBE_DONE"}');emit('{"event":"end"}')
         self.dprobe=nil
