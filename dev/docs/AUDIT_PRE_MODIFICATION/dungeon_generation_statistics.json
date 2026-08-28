@@ -1,0 +1,106 @@
+{
+ "zones": {
+  "amp_plains": {
+   "samples": 100,
+   "mobs": {
+    "min": 2,
+    "max": 12,
+    "avg": 2.64
+   },
+   "items": {
+    "min": 3,
+    "max": 9,
+    "avg": 5.66
+   },
+   "traps": {
+    "min": 5,
+    "max": 8,
+    "avg": 6.63
+   },
+   "layouts": 100,
+   "identical_layouts": 0,
+   "near_identical_layouts": 0,
+   "open_ratio_avg": 0.277,
+   "verdict": "PASS",
+   "reasons": []
+  },
+  "apple_woods": {
+   "samples": 100,
+   "mobs": {
+    "min": 2,
+    "max": 3,
+    "avg": 2.55
+   },
+   "items": {
+    "min": 3,
+    "max": 8,
+    "avg": 5.64
+   },
+   "traps": {
+    "min": 3,
+    "max": 4,
+    "avg": 3.48
+   },
+   "layouts": 100,
+   "identical_layouts": 0,
+   "near_identical_layouts": 0,
+   "open_ratio_avg": 0.284,
+   "verdict": "PASS",
+   "reasons": []
+  },
+  "beach_cave": {
+   "samples": 100,
+   "mobs": {
+    "min": 2,
+    "max": 3,
+    "avg": 2.42
+   },
+   "items": {
+    "min": 1,
+    "max": 6,
+    "avg": 3.71
+   },
+   "traps": {
+    "min": 3,
+    "max": 4,
+    "avg": 3.55
+   },
+   "layouts": 100,
+   "identical_layouts": 0,
+   "near_identical_layouts": 0,
+   "open_ratio_avg": 0.271,
+   "verdict": "PASS",
+   "reasons": []
+  },
+  "dusk_forest": {
+   "samples": 100,
+   "mobs": {
+    "min": 2,
+    "max": 3,
+    "avg": 2.54
+   },
+   "items": {
+    "min": 3,
+    "max": 8,
+    "avg": 5.38
+   },
+   "traps": {
+    "min": 6,
+    "max": 9,
+    "avg": 7.42
+   },
+   "layouts": 100,
+   "identical_layouts": 0,
+   "near_identical_layouts": 0,
+   "open_ratio_avg": 0.283,
+   "verdict": "PASS",
+   "reasons": []
+  }
+ },
+ "global": {
+  "total_layouts": 400,
+  "identical": 0,
+  "near_identical_pairs": 0,
+  "verdict": "PASS"
+ }
+}
