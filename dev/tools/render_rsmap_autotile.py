@@ -172,6 +172,36 @@ def render(path, out, tiledirs, autodirs):
                     img.alpha_composite(src, (x * TILE, y * TILE))
     img.save(out)
     print(out, img.size)
+    return img, obj
+
+
+def camera_view(img, obj, out, vw=320, vh=240):
+    """Vue caméra moteur: viewport vw x vh centré sur l'EntryPoint (leader),
+    clamp aux bords carte comme BaseDungeonScene (Clamp) / centrage si carte
+    plus petite. Transform caméra uniquement — aucune donnée modifiée."""
+    eps = obj.get('EntryPoints') or []
+    W, H = img.size
+    if eps:
+        loc = eps[0].get('Loc', {})
+        cx = loc.get('X', 0) * TILE + TILE // 2
+        cy = loc.get('Y', 0) * TILE + TILE // 2
+    else:
+        cx, cy = W // 2, H // 2
+    if W < vw:
+        x0 = (W - vw) // 2
+    else:
+        x0 = max(0, min(cx - vw // 2, W - vw))
+    if H < vh:
+        y0 = (H - vh) // 2
+    else:
+        y0 = max(0, min(cy - vh // 2, H - vh))
+    canvas = Image.new('RGBA', (vw, vh), (0, 0, 0, 255))
+    sx0, sy0 = max(0, x0), max(0, y0)
+    sx1, sy1 = min(W, x0 + vw), min(H, y0 + vh)
+    region = img.crop((sx0, sy0, sx1, sy1))
+    canvas.alpha_composite(region, (sx0 - x0, sy0 - y0))
+    canvas.save(out)
+    print(out, canvas.size, 'camera@(%d,%d)' % (cx, cy))
 
 
 if __name__ == '__main__':
@@ -180,6 +210,7 @@ if __name__ == '__main__':
     ap.add_argument('out')
     ap.add_argument('--tile-dir', action='append', default=[])
     ap.add_argument('--autotile-dir', action='append', default=[])
+    ap.add_argument('--camera-view', help='PNG vue caméra 320x240 centrée EntryPoint')
     a = ap.parse_args()
     tiledirs = a.tile_dir or [
         os.path.join(ROOT, 'Content', 'Tile'),
@@ -187,4 +218,6 @@ if __name__ == '__main__':
     autodirs = a.autotile_dir or [
         os.path.join(ROOT, 'Data', 'AutoTile'),
         os.path.join(ROOT, '.runtime-cache', 'DumpAsset', 'Data', 'AutoTile')]
-    render(a.rsmap, a.out, tiledirs, autodirs)
+    img, obj = render(a.rsmap, a.out, tiledirs, autodirs)
+    if a.camera_view:
+        camera_view(img, obj, a.camera_view)
