@@ -197,6 +197,12 @@ def main():
         if seg is None:
             report['zones'].append({'zone': zone, 'status': 'SEGMENT_NON_ALIGNE'})
             continue
+        # GARDE-FOU : ne jamais toucher un segment contenant des étages
+        # LoadGen (arènes boss rsmap fixes : amp_clearing, crystal_lake...)
+        if any(isinstance(f, dict) and 'LoadGen' in f.get('$type', '')
+               for f in (seg.get('Floors', []) if isinstance(seg.get('Floors', []), list) else [])):
+            report['zones'].append({'zone': zone, 'status': 'SKIP_LOADGEN_BOSS'})
+            continue
         added = []
         for lo, hi, chance in ranges:
             items = shop_items_for(rom, lo, hi, item_map, skipped)

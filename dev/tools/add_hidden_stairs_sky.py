@@ -164,6 +164,12 @@ def main():
             report['zones'].append({'zone': zone, 'status': 'SEGMENT_NON_ALIGNE'})
             continue
         main_seg = segs[main_i]
+        # GARDE-FOU : ne jamais toucher un segment contenant des étages
+        # LoadGen (arènes boss rsmap fixes : amp_clearing, crystal_lake...)
+        if any(isinstance(f, dict) and 'LoadGen' in f.get('$type', '')
+               for f in (main_seg.get('Floors', []) if isinstance(main_seg.get('Floors', []), list) else [])):
+            report['zones'].append({'zone': zone, 'status': 'SKIP_LOADGEN_BOSS'})
+            continue
         tseg_idx = len(segs)
         nfl = len(rom['floors'])
 

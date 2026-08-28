@@ -5,14 +5,8 @@
   {
    "zone": "amp_clearing",
    "dungeon": "d19",
-   "treasure_segment": 1,
-   "floors": [
-    {
-     "floor_rom": 1,
-     "chance": 25,
-     "treasure_idx": 0
-    }
-   ]
+   "status": "REVERTED_LOADGEN_BOSS",
+   "note": "segment LoadGen (arène boss rsmap) — modification annulée, garde-fou ajouté aux outils"
   },
   {
    "zone": "amp_plains",
@@ -240,14 +234,8 @@
   {
    "zone": "crystal_lake",
    "dungeon": "d26",
-   "treasure_segment": 1,
-   "floors": [
-    {
-     "floor_rom": 1,
-     "chance": 25,
-     "treasure_idx": 0
-    }
-   ]
+   "status": "REVERTED_LOADGEN_BOSS",
+   "note": "segment LoadGen (arène boss rsmap) — modification annulée, garde-fou ajouté aux outils"
   },
   {
    "zone": "eighth_station_pass",
@@ -2390,5 +2378,6 @@
     }
    ]
   }
- ]
+ ],
+ "regression_fix": "amp_clearing/crystal_lake : boss LoadGen préservés (regression skyjourney manectric détectée puis corrigée)"
 }

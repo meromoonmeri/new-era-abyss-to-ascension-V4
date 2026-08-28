@@ -5,16 +5,8 @@
   {
    "zone": "amp_clearing",
    "dungeon": "d19",
-   "ranges": [
-    {
-     "floors_rom": [
-      1,
-      1
-     ],
-     "chance": 9,
-     "items": 26
-    }
-   ]
+   "status": "REVERTED_LOADGEN_BOSS",
+   "note": "segment LoadGen (arène boss rsmap) — modification annulée, garde-fou ajouté aux outils"
   },
   {
    "zone": "amp_plains",
@@ -133,16 +125,8 @@
   {
    "zone": "crystal_lake",
    "dungeon": "d26",
-   "ranges": [
-    {
-     "floors_rom": [
-      1,
-      1
-     ],
-     "chance": 9,
-     "items": 39
-    }
-   ]
+   "status": "REVERTED_LOADGEN_BOSS",
+   "note": "segment LoadGen (arène boss rsmap) — modification annulée, garde-fou ajouté aux outils"
   },
   {
    "zone": "deep_boulder_quarry",
@@ -1829,5 +1813,6 @@
   "Joy Ribbon": 2500,
   "Tight Belt": 3332,
   "Detect Band": 3332
- }
+ },
+ "regression_fix": "amp_clearing/crystal_lake : boss LoadGen préservés (regression skyjourney manectric détectée puis corrigée)"
 }
