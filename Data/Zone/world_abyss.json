@@ -2174,8 +2174,8 @@
                   "$type": "PMDC.LevelGen.ItemThemeNone, PMDC",
                   "SpecialRatio": 100,
                   "Amount": {
-                    "Min": 6,
-                    "Max": 7
+                    "Min": 3,
+                    "Max": 4
                   }
                 },
                 "Rate": 30,
@@ -3661,8 +3661,8 @@
                   "$type": "PMDC.LevelGen.ItemThemeNone, PMDC",
                   "SpecialRatio": 100,
                   "Amount": {
-                    "Min": 6,
-                    "Max": 7
+                    "Min": 3,
+                    "Max": 4
                   }
                 },
                 "Rate": 30,
@@ -5148,8 +5148,8 @@
                   "$type": "PMDC.LevelGen.ItemThemeNone, PMDC",
                   "SpecialRatio": 100,
                   "Amount": {
-                    "Min": 6,
-                    "Max": 7
+                    "Min": 3,
+                    "Max": 4
                   }
                 },
                 "Rate": 30,
@@ -6635,8 +6635,8 @@
                   "$type": "PMDC.LevelGen.ItemThemeNone, PMDC",
                   "SpecialRatio": 100,
                   "Amount": {
-                    "Min": 6,
-                    "Max": 7
+                    "Min": 3,
+                    "Max": 4
                   }
                 },
                 "Rate": 30,
@@ -8122,8 +8122,8 @@
                   "$type": "PMDC.LevelGen.ItemThemeNone, PMDC",
                   "SpecialRatio": 100,
                   "Amount": {
-                    "Min": 6,
-                    "Max": 7
+                    "Min": 3,
+                    "Max": 4
                   }
                 },
                 "Rate": 30,

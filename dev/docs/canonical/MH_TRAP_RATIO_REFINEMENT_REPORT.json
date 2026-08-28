@@ -1,0 +1,390 @@
+{
+ "rule": "R4.5 raffinement : dungeon_id>=28 (MH_MIN_TRAP_DUNGEON, dungeon-eos l.66/3215) -> moitié des 6-7 spawns MH sont des pièges -> Amount items 3-4 ; <28 -> 6-7 items (déjà en place). Pièges MH dédiés = PARTIAL C# (MonsterHouseStep ne pose pas de pièges).",
+ "zones": [
+  {
+   "zone": "armaldos_shelter",
+   "dungeon_id": 176,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "blizzard_island",
+   "dungeon_id": 46,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "bottomless_sea",
+   "dungeon_id": 73,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "concealed_ruins_post",
+   "dungeon_id": 70,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "crevice_cave",
+   "dungeon_id": 47,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "crevice_cave_pit",
+   "dungeon_id": 49,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "dark_crater",
+   "dungeon_id": 67,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "dark_ice_mountain",
+   "dungeon_id": 142,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "dark_ice_mountain_peak",
+   "dungeon_id": 143,
+   "themes_adjusted": 2
+  },
+  {
+   "zone": "deep_barren_valley",
+   "dungeon_id": 134,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "deep_boulder_quarry",
+   "dungeon_id": 151,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "deep_dark_crater",
+   "dungeon_id": 68,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "deep_limestone_cavern",
+   "dungeon_id": 156,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "deep_miracle_sea",
+   "dungeon_id": 52,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "deep_spacial_rift",
+   "dungeon_id": 65,
+   "themes_adjusted": 3
+  },
+  {
+   "zone": "destiny_tower",
+   "dungeon_id": 104,
+   "themes_adjusted": 11
+  },
+  {
+   "zone": "eastern_cave",
+   "dungeon_id": 129,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "eighth_station_pass",
+   "dungeon_id": 118,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "fifth_station_clearing",
+   "dungeon_id": 121,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "fifth_station_pass",
+   "dungeon_id": 115,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "fortune_ravine",
+   "dungeon_id": 130,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "fortune_ravine_depths",
+   "dungeon_id": 131,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "fourth_station_pass",
+   "dungeon_id": 114,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "giant_volcano",
+   "dungeon_id": 79,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "happy_outlook",
+   "dungeon_id": 94,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "hidden_highland",
+   "dungeon_id": 39,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "hidden_land",
+   "dungeon_id": 38,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "hot_spring_dungeon",
+   "dungeon_id": 178,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "inferno_cave",
+   "dungeon_id": 110,
+   "themes_adjusted": 5
+  },
+  {
+   "zone": "labyrinth_cave",
+   "dungeon_id": 91,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "lake_afar",
+   "dungeon_id": 93,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "landslide_cave",
+   "dungeon_id": 88,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "lost_wilderness",
+   "dungeon_id": 97,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "lower_crevice_cave",
+   "dungeon_id": 48,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "lower_spring_cave",
+   "dungeon_id": 162,
+   "themes_adjusted": 4
+  },
+  {
+   "zone": "luminous_spring_dungeon",
+   "dungeon_id": 177,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "marine_resort",
+   "dungeon_id": 72,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "miracle_sea",
+   "dungeon_id": 51,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "miracle_seabed",
+   "dungeon_id": 53,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "mt_avalanche",
+   "dungeon_id": 77,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "mt_mistral",
+   "dungeon_id": 95,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "mt_travail_post",
+   "dungeon_id": 62,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "murky_forest",
+   "dungeon_id": 128,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "mystery_jungle",
+   "dungeon_id": 85,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "mystifying_forest_post",
+   "dungeon_id": 44,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "ninth_station_pass",
+   "dungeon_id": 119,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "oblivion_forest",
+   "dungeon_id": 107,
+   "themes_adjusted": 2
+  },
+  {
+   "zone": "second_station_pass",
+   "dungeon_id": 112,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "serenity_river",
+   "dungeon_id": 87,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "seventh_station_pass",
+   "dungeon_id": 117,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "shaymin_village",
+   "dungeon_id": 175,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "shimmer_desert",
+   "dungeon_id": 75,
+   "themes_adjusted": 3
+  },
+  {
+   "zone": "shimmer_hill",
+   "dungeon_id": 96,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "sixth_station_pass",
+   "dungeon_id": 116,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "sky_peak_summit_pass",
+   "dungeon_id": 120,
+   "themes_adjusted": 2
+  },
+  {
+   "zone": "southeastern_islands",
+   "dungeon_id": 109,
+   "themes_adjusted": 5
+  },
+  {
+   "zone": "southern_jungle",
+   "dungeon_id": 149,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "spacial_cliffs",
+   "dungeon_id": 141,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "spacial_rift",
+   "dungeon_id": 64,
+   "themes_adjusted": 2
+  },
+  {
+   "zone": "spring_cave_depths",
+   "dungeon_id": 163,
+   "themes_adjusted": 2
+  },
+  {
+   "zone": "star_cave",
+   "dungeon_id": 174,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "star_cave_depths",
+   "dungeon_id": 126,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "surrounded_sea",
+   "dungeon_id": 50,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "temporal_spire",
+   "dungeon_id": 42,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "temporal_spire_se5",
+   "dungeon_id": 138,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "temporal_tower",
+   "dungeon_id": 41,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "temporal_tower_se5",
+   "dungeon_id": 137,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "the_nightmare",
+   "dungeon_id": 63,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "third_station_pass",
+   "dungeon_id": 113,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "treacherous_waters",
+   "dungeon_id": 108,
+   "themes_adjusted": 2
+  },
+  {
+   "zone": "treeshroud_forest",
+   "dungeon_id": 34,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "upper_spring_cave",
+   "dungeon_id": 160,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "vast_ice_mountain_peak",
+   "dungeon_id": 147,
+   "themes_adjusted": 1
+  },
+  {
+   "zone": "world_abyss",
+   "dungeon_id": 81,
+   "themes_adjusted": 5
+  },
+  {
+   "zone": "zero_isle_north",
+   "dungeon_id": 99,
+   "themes_adjusted": 9
+  },
+  {
+   "zone": "zero_isle_south",
+   "dungeon_id": 102,
+   "themes_adjusted": 11
+  },
+  {
+   "zone": "zero_isle_west",
+   "dungeon_id": 101,
+   "themes_adjusted": 4
+  }
+ ]
+}
