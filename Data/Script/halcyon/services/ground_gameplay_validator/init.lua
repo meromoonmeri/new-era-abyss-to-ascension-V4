@@ -47,8 +47,15 @@ function V:begin()
   -- générés par le moteur (preuve runtime, pas JSON statique).
   self.idx=-5;SV.RuntimeGroundAudit.Active=false
   self.dprobe={};self.dprobe_i=1;self.dprobe_floors=tonumber(os.getenv('PMDO_DPROBE_FLOORS') or '2')
+  -- Répétitions multi-seed pour statistiques de génération (§36) :
+  -- à chaque rep, Save.Rand est reseedé => la zone est régénérée avec un
+  -- FirstSeed différent (MoveToZone seed = FirstSeed + hash(zoneID)).
+  -- NOTE: nécessite >= 2 zones dans la liste (une zone quittée est détruite
+  -- puis reconstruite au retour ; la même zone re-entrée n'est pas régénérée).
+  self.dprobe_reps=tonumber(os.getenv('PMDO_DPROBE_REPS') or '1')
+  self.dprobe_rep=1
   for z in string.gmatch(string.sub(self.mode,8),'([^,]+)') do self.dprobe[#self.dprobe+1]=z end
-  emit('{"event":"dprobe_begin","count":'..#self.dprobe..'}')
+  emit('{"event":"dprobe_begin","count":'..#self.dprobe..',"reps":'..self.dprobe_reps..'}')
   GAME:EnterZone(self.dprobe[1],0,0,0)
   return
  end
@@ -309,6 +316,50 @@ function V:OnDungeonFloorEnter()
       end end
     end)
     emit('{"event":"dprobe_floor","zone":"'..cz..'","floor":'..floor..',"mobs":'..mobs..',"items":'..items..',"traps":'..traps..',"species":"'..table.concat(species,',')..'"}')
+    -- dump ASCII du layout (murs/sol/eau/escaliers/pièges/items/mobs) pour
+    -- analyse statistique hors-ligne (variété §17/§19, stats §36).
+    if os.getenv('PMDO_DPROBE_ASCII')=='1' then pcall(function()
+      local w=map.Width;local h=map.Height
+      local grid={}
+      for y=0,h-1 do
+        local row={}
+        for x=0,w-1 do
+          local t=map.Tiles[x][y]
+          local id=tostring(t.Data.ID)
+          local ch='#'
+          if id=='floor' or id=='grass' or id=='sand' or id=='path' then ch='.'
+          elseif id=='water' or id=='water_poison' then ch='~'
+          elseif id=='lava' then ch='%'
+          elseif id=='abyss' or id=='pit' then ch='O'
+          elseif id=='wall' then ch='#'
+          elseif id=='unbreakable' then ch='X'
+          else ch='?' end
+          local eff=t.Effect
+          if eff and eff.ID~=nil and tostring(eff.ID)~='' then
+            local eid=tostring(eff.ID)
+            if string.find(eid,'stairs') then ch='>' else ch='^' end
+          end
+          row[x+1]=ch
+        end
+        grid[y+1]=table.concat(row)
+      end
+      for i=0,map.Items.Count-1 do
+        local it=map.Items[i]
+        local lx=it.TileLoc.X+1;local ly=it.TileLoc.Y+1
+        if grid[ly] then grid[ly]=string.sub(grid[ly],1,lx-1)..'$'..string.sub(grid[ly],lx+1) end
+      end
+      for ti=0,map.MapTeams.Count-1 do
+        local t2=map.MapTeams[ti]
+        for pi=0,t2.Players.Count-1 do
+          local c=t2.Players[pi]
+          local lx=c.CharLoc.X+1;local ly=c.CharLoc.Y+1
+          if grid[ly] then grid[ly]=string.sub(grid[ly],1,lx-1)..'M'..string.sub(grid[ly],lx+1) end
+        end
+      end
+      local rows={}
+      for y=1,#grid do rows[#rows+1]='"'..grid[y]..'"' end
+      emit('{"event":"dprobe_ascii","zone":"'..cz..'","floor":'..floor..',"w":'..w..',"h":'..h..',"rows":['..table.concat(rows,',')..']}')
+    end) end
     -- preuve formation: positions/directions réelles équipe + ennemis
     pcall(function()
       local parts={}
@@ -332,6 +383,17 @@ function V:OnDungeonFloorEnter()
       self.dprobe_i=self.dprobe_i+1
       if self.dprobe[self.dprobe_i] then
         GAME:EnterZone(self.dprobe[self.dprobe_i],0,0,0)
+      elseif self.dprobe_rep<self.dprobe_reps then
+        -- nouvelle passe multi-seed : reseed du Save.Rand puis retour zone 1
+        self.dprobe_rep=self.dprobe_rep+1
+        self.dprobe_i=1
+        pcall(function()
+          local ReRandom=luanet.import_type('RogueElements.ReRandom')
+          local seed=1000003*self.dprobe_rep
+          _DATA.Save.Rand=ReRandom(seed)
+        end)
+        emit('{"event":"dprobe_rep","rep":'..self.dprobe_rep..'}')
+        GAME:EnterZone(self.dprobe[1],0,0,0)
       else
         emit('{"event":"dprobe_end","verdict":"DPROBE_DONE"}');emit('{"event":"end"}')
         self.dprobe=nil
