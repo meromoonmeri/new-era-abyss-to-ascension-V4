@@ -541,7 +541,7 @@
               "X": 8,
               "Y": 2
             },
-            "serializationDir": 2,
+            "serializationDir": 1,
             "ProxyName": "",
             "ProxySprite": {
               "Species": "",
@@ -1055,7 +1055,7 @@
               "X": 8,
               "Y": 4
             },
-            "serializationDir": 2,
+            "serializationDir": 3,
             "ProxyName": "",
             "ProxySprite": {
               "Species": "",
@@ -1356,31 +1356,17 @@
             "StartLocs": [
               {
                 "Loc": {
-                  "X": 5,
-                  "Y": 4
+                  "X": 0,
+                  "Y": 0
                 },
-                "Dir": 0
+                "Dir": 5
               },
               {
                 "Loc": {
-                  "X": 5,
-                  "Y": 5
+                  "X": 2,
+                  "Y": 0
                 },
-                "Dir": 0
-              },
-              {
-                "Loc": {
-                  "X": 4,
-                  "Y": 5
-                },
-                "Dir": 0
-              },
-              {
-                "Loc": {
-                  "X": 5,
-                  "Y": 6
-                },
-                "Dir": 0
+                "Dir": 3
               }
             ],
             "Positions": null

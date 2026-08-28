@@ -1,0 +1,784 @@
+{
+ "amp_clearing_arena": {
+  "leader": [
+   7,
+   6
+  ],
+  "slots": [
+   [
+    0,
+    0,
+    3
+   ],
+   [
+    -2,
+    0,
+    5
+   ],
+   [
+    0,
+    1,
+    6
+   ],
+   [
+    -2,
+    1,
+    2
+   ]
+  ]
+ },
+ "barren_valley_clearing_map": {
+  "leader": [
+   4,
+   5
+  ],
+  "slots": [
+   [
+    0,
+    0,
+    3
+   ],
+   [
+    0,
+    1,
+    1
+   ]
+  ]
+ },
+ "beach_cave_pit_arena": {
+  "leader": [
+   5,
+   3
+  ],
+  "slots": [
+   [
+    0,
+    0,
+    4
+   ],
+   [
+    -2,
+    0,
+    4
+   ]
+  ]
+ },
+ "black_swamp_map": {
+  "leader": [
+   4,
+   3
+  ],
+  "slots": [
+   [
+    0,
+    0,
+    4
+   ],
+   [
+    0,
+    1,
+    0
+   ]
+  ]
+ },
+ "bottomless_sea_depths_map": {
+  "leader": [
+   7,
+   5
+  ],
+  "slots": [
+   [
+    0,
+    0,
+    4
+   ],
+   [
+    1,
+    1,
+    3
+   ],
+   [
+    -1,
+    1,
+    5
+   ],
+   [
+    0,
+    2,
+    4
+   ]
+  ]
+ },
+ "boulder_quarry_clearing_map": {
+  "leader": [
+   5,
+   4
+  ],
+  "slots": [
+   [
+    0,
+    0,
+    4
+   ],
+   [
+    1,
+    1,
+    7
+   ],
+   [
+    -1,
+    1,
+    1
+   ]
+  ]
+ },
+ "brine_cave_pit_arena": {
+  "leader": [
+   7,
+   8
+  ],
+  "slots": [
+   [
+    0,
+    0,
+    3
+   ],
+   [
+    -2,
+    0,
+    3
+   ],
+   [
+    0,
+    1,
+    3
+   ],
+   [
+    -2,
+    1,
+    3
+   ]
+  ]
+ },
+ "crystal_lake_arena": {
+  "leader": [
+   10,
+   2
+  ],
+  "slots": [
+   [
+    0,
+    0,
+    3
+   ],
+   [
+    -2,
+    0,
+    5
+   ],
+   [
+    0,
+    1,
+    3
+   ],
+   [
+    -2,
+    1,
+    5
+   ]
+  ]
+ },
+ "dark_crater_pit_map": {
+  "leader": [
+   6,
+   4
+  ],
+  "slots": [
+   [
+    0,
+    0,
+    4
+   ],
+   [
+    -1,
+    1,
+    2
+   ],
+   [
+    1,
+    1,
+    6
+   ]
+  ]
+ },
+ "dark_ice_mountain_pinnacle_map": {
+  "leader": [
+   4,
+   3
+  ],
+  "slots": [
+   [
+    0,
+    0,
+    5
+   ],
+   [
+    2,
+    0,
+    3
+   ]
+  ]
+ },
+ "deep_mystery_jungle_map": {
+  "leader": [
+   11,
+   9
+  ],
+  "slots": [
+   [
+    0,
+    0,
+    4
+   ],
+   [
+    1,
+    1,
+    3
+   ],
+   [
+    -1,
+    1,
+    5
+   ],
+   [
+    0,
+    2,
+    4
+   ]
+  ]
+ },
+ "deep_star_cave_team_rogue_map": {
+  "leader": [
+   5,
+   4
+  ],
+  "slots": [
+   [
+    0,
+    0,
+    0
+   ]
+  ]
+ },
+ "fortune_ravine_pit_map": {
+  "leader": [
+   5,
+   5
+  ],
+  "slots": [
+   [
+    0,
+    0,
+    2
+   ],
+   [
+    1,
+    0,
+    6
+   ]
+  ]
+ },
+ "giant_volcano_peak_map": {
+  "leader": [
+   7,
+   5
+  ],
+  "slots": [
+   [
+    0,
+    0,
+    4
+   ],
+   [
+    1,
+    1,
+    3
+   ],
+   [
+    -1,
+    1,
+    5
+   ],
+   [
+    0,
+    2,
+    4
+   ]
+  ]
+ },
+ "limestone_cavern_depths_map": {
+  "leader": [
+   4,
+   5
+  ],
+  "slots": [
+   [
+    0,
+    0,
+    0
+   ],
+   [
+    1,
+    -1,
+    1
+   ],
+   [
+    -1,
+    -1,
+    7
+   ]
+  ]
+ },
+ "middle_spring_cave_map": {
+  "leader": [
+   4,
+   6
+  ],
+  "slots": [
+   [
+    0,
+    0,
+    4
+   ]
+  ]
+ },
+ "mt_avalanche_peak_map": {
+  "leader": [
+   7,
+   5
+  ],
+  "slots": [
+   [
+    0,
+    0,
+    4
+   ],
+   [
+    1,
+    1,
+    3
+   ],
+   [
+    -1,
+    1,
+    5
+   ],
+   [
+    0,
+    2,
+    4
+   ]
+  ]
+ },
+ "mt_bristle_peak_arena": {
+  "leader": [
+   10,
+   7
+  ],
+  "slots": [
+   [
+    0,
+    0,
+    3
+   ],
+   [
+    -2,
+    0,
+    5
+   ]
+  ]
+ },
+ "mystifying_clearing_d45": {
+  "leader": [
+   7,
+   5
+  ],
+  "slots": [
+   [
+    0,
+    0,
+    0
+   ],
+   [
+    -2,
+    0,
+    0
+   ]
+  ]
+ },
+ "old_ruins_arena": {
+  "leader": [
+   5,
+   5
+  ],
+  "slots": [
+   [
+    0,
+    0,
+    4
+   ],
+   [
+    1,
+    0,
+    6
+   ],
+   [
+    -1,
+    0,
+    2
+   ]
+  ]
+ },
+ "regigigas_chamber_boss_map": {
+  "leader": [
+   7,
+   7
+  ],
+  "slots": [
+   [
+    0,
+    0,
+    3
+   ],
+   [
+    1,
+    1,
+    3
+   ],
+   [
+    -1,
+    1,
+    4
+   ],
+   [
+    0,
+    2,
+    3
+   ]
+  ]
+ },
+ "shimmer_desert_pit_map": {
+  "leader": [
+   7,
+   5
+  ],
+  "slots": [
+   [
+    0,
+    0,
+    4
+   ],
+   [
+    1,
+    1,
+    3
+   ],
+   [
+    -1,
+    1,
+    5
+   ],
+   [
+    0,
+    2,
+    4
+   ]
+  ]
+ },
+ "sky_peak_summit_map": {
+  "leader": [
+   5,
+   5
+  ],
+  "slots": [
+   [
+    0,
+    0,
+    3
+   ],
+   [
+    1,
+    0,
+    4
+   ],
+   [
+    -1,
+    0,
+    4
+   ],
+   [
+    0,
+    -1,
+    3
+   ]
+  ]
+ },
+ "sky_stairway_apex_map": {
+  "leader": [
+   11,
+   9
+  ],
+  "slots": [
+   [
+    0,
+    0,
+    4
+   ],
+   [
+    1,
+    1,
+    3
+   ],
+   [
+    -1,
+    1,
+    5
+   ],
+   [
+    0,
+    2,
+    4
+   ]
+  ]
+ },
+ "spacial_rift_bottom_map": {
+  "leader": [
+   11,
+   9
+  ],
+  "slots": [
+   [
+    0,
+    0,
+    3
+   ],
+   [
+    -2,
+    0,
+    5
+   ]
+  ]
+ },
+ "spiritomb_arena": "UpRight/Up ROM",
+ "spring_cave_pit_map": {
+  "leader": [
+   4,
+   6
+  ],
+  "slots": [
+   [
+    0,
+    0,
+    4
+   ],
+   [
+    0,
+    -1,
+    4
+   ]
+  ]
+ },
+ "star_cave_pit_map": {
+  "leader": [
+   5,
+   5
+  ],
+  "slots": [
+   [
+    0,
+    0,
+    4
+   ]
+  ]
+ },
+ "steam_cave_peak_arena": {
+  "leader": [
+   9,
+   4
+  ],
+  "slots": [
+   [
+    0,
+    0,
+    3
+   ],
+   [
+    -2,
+    0,
+    5
+   ],
+   [
+    0,
+    1,
+    3
+   ],
+   [
+    -2,
+    1,
+    5
+   ]
+  ]
+ },
+ "temporal_pinnacle_arena": {
+  "leader": [
+   7,
+   7
+  ],
+  "slots": [
+   [
+    0,
+    0,
+    3
+   ],
+   [
+    -2,
+    0,
+    5
+   ]
+  ]
+ },
+ "underground_lake_arena": {
+  "leader": [
+   8,
+   4
+  ],
+  "slots": [
+   [
+    0,
+    0,
+    3
+   ],
+   [
+    -2,
+    0,
+    5
+   ],
+   [
+    0,
+    1,
+    3
+   ],
+   [
+    -2,
+    1,
+    5
+   ]
+  ]
+ },
+ "upper_spring_cave_haunter_map": {
+  "leader": [
+   4,
+   5
+  ],
+  "slots": [
+   [
+    0,
+    0,
+    4
+   ]
+  ]
+ },
+ "vast_ice_mountain_pinnacle_map": {
+  "leader": [
+   5,
+   5
+  ],
+  "slots": [
+   [
+    0,
+    0,
+    4
+   ],
+   [
+    -1,
+    0,
+    5
+   ],
+   [
+    1,
+    0,
+    3
+   ]
+  ]
+ },
+ "world_abyss_pit_map": {
+  "leader": [
+   7,
+   5
+  ],
+  "slots": [
+   [
+    0,
+    0,
+    4
+   ],
+   [
+    1,
+    1,
+    3
+   ],
+   [
+    -1,
+    1,
+    5
+   ],
+   [
+    0,
+    2,
+    4
+   ]
+  ]
+ },
+ "mt_steel_boss": {
+  "slots": [
+   [
+    0,
+    0
+   ],
+   [
+    -1,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    0,
+    1
+   ]
+  ],
+  "dir": 4
+ },
+ "sanctuaire_voeu": {
+  "slots": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    2,
+    0
+   ],
+   [
+    1,
+    1
+   ]
+  ],
+  "dir": 4
+ }
+}

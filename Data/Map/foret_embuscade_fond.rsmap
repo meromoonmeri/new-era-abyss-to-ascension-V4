@@ -273,7 +273,7 @@
               "X": 7,
               "Y": 8
             },
-            "serializationDir": 0,
+            "serializationDir": 7,
             "ProxyName": "",
             "ProxySprite": {
               "Species": "",
@@ -516,7 +516,7 @@
               "X": 9,
               "Y": 8
             },
-            "serializationDir": 0,
+            "serializationDir": 1,
             "ProxyName": "",
             "ProxySprite": {
               "Species": "",
@@ -759,7 +759,7 @@
               "X": 4,
               "Y": 16
             },
-            "serializationDir": 4,
+            "serializationDir": 5,
             "ProxyName": "",
             "ProxySprite": {
               "Species": "",
@@ -1002,7 +1002,7 @@
               "X": 12,
               "Y": 16
             },
-            "serializationDir": 4,
+            "serializationDir": 3,
             "ProxyName": "",
             "ProxySprite": {
               "Species": "",
@@ -1245,7 +1245,7 @@
               "X": 12,
               "Y": 11
             },
-            "serializationDir": 0,
+            "serializationDir": 3,
             "ProxyName": "",
             "ProxySprite": {
               "Species": "",
@@ -1488,7 +1488,7 @@
               "X": 4,
               "Y": 10
             },
-            "serializationDir": 0,
+            "serializationDir": 6,
             "ProxyName": "",
             "ProxySprite": {
               "Species": "",

@@ -268,7 +268,7 @@
               "X": 10,
               "Y": 10
             },
-            "serializationDir": 0,
+            "serializationDir": 7,
             "ProxyName": "",
             "ProxySprite": {
               "Species": "",
@@ -508,7 +508,7 @@
               "X": 16,
               "Y": 10
             },
-            "serializationDir": 0,
+            "serializationDir": 1,
             "ProxyName": "",
             "ProxySprite": {
               "Species": "",
