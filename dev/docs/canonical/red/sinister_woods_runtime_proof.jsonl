@@ -1,0 +1,21 @@
+{"event":"dprobe_begin","count":3}
+{"event":"dprobe_floor","zone":"gloomy_forest","floor":0,"mobs":4,"items":8,"traps":4,"species":"sudowoodo,swinub,sudowoodo,sudowoodo"}
+{"event":"dprobe_formation","zone":"gloomy_forest","ally0":["turtwig",30,3,Down: 0],"ally1":["piplup",30,4,Down: 0],"ally2":["growlithe",29,3,Down: 0],"ally3":["zigzagoon",29,4,Down: 0],"foe0_0":["sudowoodo",18,8,Down: 0],"foe1_0":["swinub",14,19,Down: 0],"foe1_1":["sudowoodo",18,16,Down: 0],"foe2_0":["sudowoodo",7,30,Down: 0]}
+{"event":"dprobe_floor","zone":"gloomy_forest","floor":1,"mobs":4,"items":7,"traps":4,"species":"swinub,swinub,sudowoodo,swinub"}
+{"event":"dprobe_formation","zone":"gloomy_forest","ally0":["turtwig",16,15,Down: 0],"ally1":["piplup",16,16,Down: 0],"ally2":["growlithe",15,15,Down: 0],"ally3":["zigzagoon",16,14,Down: 0],"foe0_0":["swinub",36,6,Down: 0],"foe1_0":["swinub",3,16,Down: 0],"foe1_1":["sudowoodo",5,16,Down: 0],"foe2_0":["swinub",28,28,Down: 0]}
+{"event":"dprobe_floor","zone":"gloomy_forest","floor":2,"mobs":4,"items":8,"traps":4,"species":"sentret,swinub,sudowoodo,swinub"}
+{"event":"dprobe_formation","zone":"gloomy_forest","ally0":["turtwig",39,41,Down: 0],"ally1":["piplup",39,42,Down: 0],"ally2":["growlithe",38,41,Down: 0],"ally3":["zigzagoon",39,40,Down: 0],"foe0_0":["sentret",46,25,Down: 0],"foe0_1":["swinub",50,28,Down: 0],"foe1_0":["sudowoodo",10,29,Down: 0],"foe2_0":["swinub",40,20,Down: 0]}
+{"event":"dprobe_floor","zone":"tiny_woods","floor":0,"mobs":4,"items":2,"traps":1,"species":"pidgey,sunkern,pidgey,wurmple"}
+{"event":"dprobe_formation","zone":"tiny_woods","ally0":["turtwig",15,20,Down: 0],"ally1":["piplup",15,21,Down: 0],"ally2":["growlithe",14,20,Down: 0],"ally3":["zigzagoon",15,19,Down: 0],"foe0_0":["pidgey",5,28,Down: 0],"foe1_0":["sunkern",14,28,Down: 0],"foe1_1":["pidgey",17,30,Down: 0],"foe2_0":["wurmple",18,6,Down: 0]}
+{"event":"dprobe_floor","zone":"tiny_woods","floor":1,"mobs":2,"items":3,"traps":1,"species":"sunkern,sunkern"}
+{"event":"dprobe_formation","zone":"tiny_woods","ally0":["turtwig",8,7,Down: 0],"ally1":["piplup",8,8,Down: 0],"ally2":["growlithe",7,7,Down: 0],"ally3":["zigzagoon",8,6,Down: 0],"foe0_0":["sunkern",23,23,Down: 0],"foe0_1":["sunkern",25,24,Down: 0]}
+{"event":"dprobe_floor","zone":"tiny_woods","floor":2,"mobs":3,"items":4,"traps":1,"species":"sunkern,pidgey,pidgey"}
+{"event":"dprobe_formation","zone":"tiny_woods","ally0":["turtwig",5,28,Down: 0],"ally1":["piplup",5,29,Down: 0],"ally2":["growlithe",4,28,Down: 0],"ally3":["zigzagoon",5,27,Down: 0],"foe0_0":["sunkern",25,17,Down: 0],"foe1_0":["pidgey",5,17,Down: 0],"foe2_0":["pidgey",24,27,Down: 0]}
+{"event":"dprobe_floor","zone":"beach_cave","floor":0,"mobs":3,"items":1,"traps":3,"species":"corsola,kabuto,corsola"}
+{"event":"dprobe_formation","zone":"beach_cave","ally0":["turtwig",26,16,Down: 0],"ally1":["piplup",26,17,Down: 0],"ally2":["growlithe",25,16,Down: 0],"ally3":["zigzagoon",26,15,Down: 0],"foe0_0":["corsola",7,30,Down: 0],"foe1_0":["kabuto",18,31,Down: 0],"foe2_0":["corsola",29,1,Down: 0]}
+{"event":"dprobe_floor","zone":"beach_cave","floor":1,"mobs":3,"items":4,"traps":3,"species":"shellos,shellder,kabuto"}
+{"event":"dprobe_formation","zone":"beach_cave","ally0":["turtwig",6,26,Down: 0],"ally1":["piplup",6,27,Down: 0],"ally2":["growlithe",5,26,Down: 0],"ally3":["zigzagoon",7,26,Down: 0],"foe0_0":["shellos",21,2,Down: 0],"foe1_0":["shellder",29,32,Down: 0],"foe2_0":["kabuto",20,31,Down: 0]}
+{"event":"dprobe_floor","zone":"beach_cave","floor":2,"mobs":3,"items":5,"traps":4,"species":"shellos,shellos,shellder"}
+{"event":"dprobe_formation","zone":"beach_cave","ally0":["turtwig",4,5,Down: 0],"ally1":["piplup",4,6,Down: 0],"ally2":["growlithe",3,5,Down: 0],"ally3":["zigzagoon",4,4,Down: 0],"foe0_0":["shellos",30,30,Down: 0],"foe1_0":["shellos",18,28,Down: 0],"foe2_0":["shellder",17,18,Down: 0]}
+{"event":"dprobe_end","verdict":"DPROBE_DONE"}
+{"event":"end"}
