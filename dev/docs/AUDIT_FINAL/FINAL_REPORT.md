@@ -54,6 +54,13 @@ Branche `arena/01a0357e-new-era-abyss-to-ascension-v4`. Base d'audit : `dev/docs
 - 139 étages / 31 zones : `weather` mappa_s → `DefaultMapStatusStep(default_weather,[fog/cloudy/sunny/rain/sandstorm/snow])` (pattern vanilla barren_tundra). Preuve runtime : `weather_per_floor_proof.jsonl` — blizzard_island : `map_status=default_weather,snow` EXACTEMENT aux étages 4 et 8 (= mappa_s), les autres étages restent clear. RANDOM (81 étages) : UNIMPLEMENTED_DATA documenté (tirage météo EoS = step à créer au cycle moteur).
 - GLOBAL_JOURNEY_PASS re-confirmé après G'+H' (14ch/313 étages/870 mobs).
 
+
+### LOT I — Aires de repos NDS dXXp21a + statues Kangourex — commit `d686fc71`
+- 27 grounds convertis pixel-perfect (convert_sky_all : BMA/BPC/BPL skytemple, collision source) puis promus (`promote_sky_rest_grounds.py` : AssetName, sheets D*_Base, EdgeView 1, noms FR canoniques GROUP_NAMES, marker entrée).
+- **27 statues Kangourex posées** (placements SSA enter.sse 1:1 pixels, modèle GroundObject d06p11a exact) → **57/57 statues ROM posées au total**.
+- Enregistrés dans sky_hub_zone.GroundMaps + index. Preuve runtime : `rest_grounds_runtime_proof.jsonl` — **27/27 LOAD+MOVEMENT_PASS**.
+- Suite documentée : câblage des aires dans la progression des zones donjon (checkpoint mi-parcours type Mt Horn 6F) — nécessite le mapping étage→ground par donjon (scripts ROM), étape séparée.
+
 ## 2. Outillage nouveau (§16 ASCII + stats)
 - `dprobe` étendu (validator Lua) : dumps **ASCII tuile/tuile** (murs/sol/eau/lave/gouffre/escaliers `>`/pièges `^`/items `$`/mobs `M`), répétitions **multi-seed** (`PMDO_DPROBE_REPS`, reseed ReRandom), comptage **MH en attente** (`mh_mobs`), **shopkeepers** (`neutrals`), cible `zone@segment`, clamp FloorCount.
 - `dev/tools/analyze_dungeon_generation_stats.py` : stats §36 (min/max/moy mobs/items/traps, hash structurel des layouts, détection identiques/quasi-identiques ≥98 %).
