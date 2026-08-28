@@ -1,0 +1,8 @@
+{"event":"begin","count":3}
+{"event":"ground_entered","ground":"t01p01a","scheduler":"TASK_BRANCH"}
+{"ground":"t01p01a","load":"LOAD_PASS","spawn":{"x":336,"y":248},"move_dirs":[1,1,1,1],"move_deltas":["0,-16","16,0","0,16","-16,0"],"movement_probe":"MOVEMENT_PASS","verdict":"SAFE"}
+{"event":"ground_entered","ground":"d15p01","scheduler":"TASK_BRANCH"}
+{"ground":"d15p01","load":"LOAD_PASS","spawn":{"x":272,"y":296},"move_dirs":[1,1,1,1],"move_deltas":["0,-16","16,0","0,16","-16,0"],"movement_probe":"MOVEMENT_PASS","verdict":"SAFE"}
+{"event":"ground_entered","ground":"g01p01b","scheduler":"TASK_BRANCH"}
+{"ground":"g01p01b","load":"LOAD_PASS","spawn":{"x":240,"y":200},"move_dirs":[1,1,1,1],"move_deltas":["0,-16","16,0","0,16","-16,0"],"movement_probe":"MOVEMENT_PASS","verdict":"SAFE"}
+{"event":"end"}

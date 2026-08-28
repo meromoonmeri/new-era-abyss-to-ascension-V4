@@ -1,0 +1,44 @@
+{
+ "schema": "canonical-viewport-test/1",
+ "verdict": "CANONICAL_VIEW_PASS",
+ "gba_case_d09p03": {
+  "map_dims_px": [
+   552,
+   552
+  ],
+  "map_coordinates_unchanged": true,
+  "object_coordinates_unchanged": true,
+  "camera_gba_origin": [
+   176,
+   128
+  ],
+  "camera_pmdo_origin": [
+   136,
+   88
+  ],
+  "camera_adapted": true,
+  "geometry_unchanged": true
+ },
+ "nds_case_temporal_pinnacle": {
+  "map_dims_px": [
+   432,
+   456
+  ],
+  "leader_px": [
+   180,
+   180
+  ],
+  "camera_nds_origin": [
+   52,
+   84
+  ],
+  "camera_pmdo_origin": [
+   20,
+   60
+  ],
+  "camera_adapted": true,
+  "tile_positions_unchanged": true,
+  "entrypoint_equals_rom_leader_spawn": true
+ },
+ "rule": "viewport ROM != viewport PMDO: monde inchangé, caméra seule adapte (mêmes maths que BaseGroundScene/BaseDungeonScene UpdateCam)"
+}

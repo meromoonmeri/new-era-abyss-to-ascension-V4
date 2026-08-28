@@ -1,0 +1,4199 @@
+{
+ "schema": "content-registry/1",
+ "rule": "Résolution: 1.PMDO canonical 2.ROM data 3.ROM->PMDO adapter. Provenance par ressource (§4/§48). Registre généré depuis les manifests existants, régénérable.",
+ "roms": {
+  "GBA": {
+   "title": "Pokémon Mystery Dungeon Red Rescue Team EU",
+   "sha256": "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd"
+  },
+  "NDS": {
+   "title": "Pokémon Mystery Dungeon Explorers of Sky EU",
+   "sha256": "1fa39d35873b58e02f3623438414c334ad93b840651a8a9ac13ee3c789f170c1"
+  }
+ },
+ "summary": {
+  "AutoTile:PMDO": 11,
+  "AutoTile:ROM:GBA": 3,
+  "AutoTile:ROM:NDS": 189,
+  "Ground:PMDO": 240,
+  "Ground:ROM:GBA": 246,
+  "Ground:ROM:NDS": 118,
+  "Map:PMDO": 69,
+  "Map:ROM:GBA": 6,
+  "Map:ROM:NDS": 34,
+  "Music:PMDO": 61,
+  "Music:ROM:NDS": 152,
+  "Zone:PMDO": 58,
+  "Zone:ROM:GBA": 53,
+  "Zone:ROM:NDS": 149
+ },
+ "resources": {
+  "Ground/a01p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/a01p02": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/a02p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/a02p02": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/a02p03": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/a02p04": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/a03p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/a03p02": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/a03p03": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/a04p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/a04p02": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/a04p03": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/a04p04": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/a05p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/a05p02": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/a05p03": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/a05p03f": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/a05p03g": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/a05p03i": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/a05p03s": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/abime_tempetes": {
+   "provider": "PMDO"
+  },
+  "Ground/altere_pond": {
+   "provider": "PMDO"
+  },
+  "Ground/antre_occident": {
+   "provider": "PMDO"
+  },
+  "Ground/apricorn_glade": {
+   "provider": "PMDO"
+  },
+  "Ground/apricorn_grove_entrance": {
+   "provider": "PMDO"
+  },
+  "Ground/arc_palier_celeste": {
+   "provider": "PMDO"
+  },
+  "Ground/arc_parvis_celeste": {
+   "provider": "PMDO"
+  },
+  "Ground/arc_tour_ciel_sommet": {
+   "provider": "PMDO"
+  },
+  "Ground/arene_clairiere_secrete": {
+   "provider": "PMDO"
+  },
+  "Ground/arene_hautes_plaines": {
+   "provider": "PMDO"
+  },
+  "Ground/arene_trone_magma": {
+   "provider": "PMDO"
+  },
+  "Ground/b01p00a": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b01p01a": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b01p01b": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b01p01c": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b01p02a": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b01p02b": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b01p02c": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b02p01a": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b02p01b": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b02p01c": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b02p02a": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b02p02b": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b02p02c": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b03p01a": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b03p01b": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b03p01c": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b03p02a": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b03p02b": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b03p02c": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b04p01a": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b04p01b": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b04p01c": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b04p02a": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b04p02b": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b04p02c": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b05p01a": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b05p01b": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b05p01c": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b05p02a": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b05p02b": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b05p02c": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b06p01a": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b06p01b": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b06p01c": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b06p02a": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b06p02b": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b06p02c": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b07p01a": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b07p01b": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b07p01c": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b07p02a": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b07p02b": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b07p02c": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b08p01a": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b08p01b": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b08p01c": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b08p02a": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b08p02b": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b08p02c": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b09p01a": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b09p01b": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b09p01c": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b09p02a": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b09p02b": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b09p02c": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b10p01a": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b10p01b": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b10p01c": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b10p02a": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b10p02b": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b10p02c": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b11p01a": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b11p01b": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b11p01c": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b11p02a": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b11p02b": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b11p02c": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b12p01a": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b12p01b": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b12p01c": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b12p02a": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b12p02b": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b12p02c": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b13p01a": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b13p01b": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b13p01c": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b13p02a": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b13p02b": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b13p02c": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b14p01a": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b14p01b": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b14p01c": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b14p02a": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b14p02b": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b14p02c": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b15p01a": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b15p01b": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b15p01c": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b15p02a": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b15p02b": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b15p02c": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b16p01a": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b16p01b": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b16p01c": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b16p02a": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b16p02b": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/b16p02c": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/base_camp": {
+   "provider": "PMDO"
+  },
+  "Ground/base_camp_2": {
+   "provider": "PMDO"
+  },
+  "Ground/bois_des_plaintes": {
+   "provider": "PMDO"
+  },
+  "Ground/bois_sombres_oree": {
+   "provider": "PMDO"
+  },
+  "Ground/bourg_comptoir": {
+   "provider": "PMDO"
+  },
+  "Ground/canyon_camp": {
+   "provider": "PMDO"
+  },
+  "Ground/cap_dents_mer": {
+   "provider": "PMDO"
+  },
+  "Ground/carrefour_assemblee": {
+   "provider": "PMDO"
+  },
+  "Ground/carrefour_nord": {
+   "provider": "PMDO"
+  },
+  "Ground/carrefour_sud": {
+   "provider": "PMDO"
+  },
+  "Ground/carriere_magnetique": {
+   "provider": "PMDO"
+  },
+  "Ground/carte_chapitre_v2": {
+   "provider": "PMDO"
+  },
+  "Ground/caverne_trouble_autel": {
+   "provider": "PMDO"
+  },
+  "Ground/caverne_trouble_fond": {
+   "provider": "PMDO"
+  },
+  "Ground/chambre_agee_o": {
+   "provider": "PMDO"
+  },
+  "Ground/champ_braises": {
+   "provider": "PMDO"
+  },
+  "Ground/champ_foudre": {
+   "provider": "PMDO"
+  },
+  "Ground/champ_sacre": {
+   "provider": "PMDO"
+  },
+  "Ground/champ_vent_boreal": {
+   "provider": "PMDO"
+  },
+  "Ground/cliff_camp": {
+   "provider": "PMDO"
+  },
+  "Ground/cloven_ruin_regice_chamber_sky": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/cloven_ruin_regigigas_chamber_sky": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/cloven_ruin_regirock_chamber_sky": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/cloven_ruin_registeel_chamber_sky": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/cloven_ruins_entrance": {
+   "provider": "PMDO"
+  },
+  "Ground/cloven_ruins_midpoint": {
+   "provider": "PMDO"
+  },
+  "Ground/cloven_ruins_miniboss": {
+   "provider": "PMDO"
+  },
+  "Ground/colline_anciens": {
+   "provider": "PMDO"
+  },
+  "Ground/colline_sans_lumiere": {
+   "provider": "PMDO"
+  },
+  "Ground/couloir_legendes": {
+   "provider": "PMDO"
+  },
+  "Ground/cretes_boreales": {
+   "provider": "PMDO"
+  },
+  "Ground/creux_ombres_scelle": {
+   "provider": "PMDO"
+  },
+  "Ground/crooked_cavern_entrance": {
+   "provider": "PMDO"
+  },
+  "Ground/crooked_cavern_midpoint": {
+   "provider": "PMDO"
+  },
+  "Ground/crooked_den": {
+   "provider": "PMDO"
+  },
+  "Ground/d01p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/d01p02": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/d01p11a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d01p11b": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d01p41a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d02p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/d02p02": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/d02p11a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d03p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/d03p02": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/d03p11a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d03p41a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d04p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/d04p02": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/d04p12a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d05p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/d05p02": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/d05p11a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d05p31a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d06p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/d06p02": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/d06p03": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/d06p11a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d07p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/d07p02": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/d07p11a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d08p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/d08p02": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/d08p11a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d09p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/d09p02": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/d09p03": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/d09p11a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d10p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/d10p02": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/d10p03": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/d10p41a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d11p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/d11p02": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/d11p03": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/d11p11a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d12p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/d12p02": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/d12p04": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/d12p41a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d13p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/d13p02": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/d13p03": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/d13p11a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d14p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/d14p11a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d15p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/d15p41a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d16p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/d16p11a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d16p31a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d17p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/d17p11a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d17p45a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d18p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/d18p11a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d19p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/d19p11a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d20p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/d20p11a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d21p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/d21p21a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d21p41a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d22p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/d22p11a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d23p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/d23p11a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d24p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/d24p02": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/d24p11a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d24p31a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d25p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/d25p11a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d26p31a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d26p43a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d27p11a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d28p31a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d28p33a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d28p44a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d29p11a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d30p32a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d30p41a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d31p11a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d41p41a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d46p11a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d47p11a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d48p11a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d50p11a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d51p11a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d52p11a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d53p11a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d54p11a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d55p11a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d56p11a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d73p11a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d73p28a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d73p31a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/d79p11a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/dojo_ossatueur": {
+   "provider": "PMDO"
+  },
+  "Ground/ecran_titre_v2": {
+   "provider": "PMDO"
+  },
+  "Ground/escalier_origine": {
+   "provider": "PMDO"
+  },
+  "Ground/final_stop": {
+   "provider": "PMDO"
+  },
+  "Ground/first_core_location": {
+   "provider": "PMDO"
+  },
+  "Ground/fleche_reliques_courroux": {
+   "provider": "PMDO"
+  },
+  "Ground/forest_camp": {
+   "provider": "PMDO"
+  },
+  "Ground/foret_givree_oree": {
+   "provider": "PMDO"
+  },
+  "Ground/foret_guerison": {
+   "provider": "PMDO"
+  },
+  "Ground/foret_tendre_oree": {
+   "provider": "PMDO"
+  },
+  "Ground/fosse_ardente": {
+   "provider": "PMDO"
+  },
+  "Ground/fosse_argentee": {
+   "provider": "PMDO"
+  },
+  "Ground/fosse_volcanique": {
+   "provider": "PMDO"
+  },
+  "Ground/frosty_forest_midpoint": {
+   "provider": "PMDO"
+  },
+  "Ground/g01p01a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/g01p01b": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/g01p01c": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/g01p02a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/g01p03a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/g01p04a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/g01p04c": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/g01p05a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/g01p05c": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/g01p06a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/g01p06b": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/g01p07a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/g01p07c": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/g01p08a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/g01p09a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/g01p10a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/genesis_vision": {
+   "provider": "PMDO"
+  },
+  "Ground/gloomy_forest_midpoint": {
+   "provider": "PMDO"
+  },
+  "Ground/gorge_ardente_coeur": {
+   "provider": "PMDO"
+  },
+  "Ground/gorge_ardente_porte": {
+   "provider": "PMDO"
+  },
+  "Ground/gouffre_muet_bord": {
+   "provider": "PMDO"
+  },
+  "Ground/grand_canyon_porte": {
+   "provider": "PMDO"
+  },
+  "Ground/grotte_cryptique": {
+   "provider": "PMDO"
+  },
+  "Ground/grotte_echos": {
+   "provider": "PMDO"
+  },
+  "Ground/grotte_lazuli_fond": {
+   "provider": "PMDO"
+  },
+  "Ground/grotte_lazuli_seuil": {
+   "provider": "PMDO"
+  },
+  "Ground/grotte_rocheuse": {
+   "provider": "PMDO"
+  },
+  "Ground/grotte_statique_seuil": {
+   "provider": "PMDO"
+  },
+  "Ground/gue_poulain_autel": {
+   "provider": "PMDO"
+  },
+  "Ground/guild_bedroom_hallway": {
+   "provider": "PMDO"
+  },
+  "Ground/guild_bottom_left_bedroom": {
+   "provider": "PMDO"
+  },
+  "Ground/guild_bottom_right_bedroom": {
+   "provider": "PMDO"
+  },
+  "Ground/guild_dining_room": {
+   "provider": "PMDO"
+  },
+  "Ground/guild_first_floor": {
+   "provider": "PMDO"
+  },
+  "Ground/guild_guildmasters_bedroom": {
+   "provider": "PMDO"
+  },
+  "Ground/guild_guildmasters_room": {
+   "provider": "PMDO"
+  },
+  "Ground/guild_heros_room": {
+   "provider": "PMDO"
+  },
+  "Ground/guild_hut": {
+   "provider": "PMDO"
+  },
+  "Ground/guild_path": {
+   "provider": "PMDO"
+  },
+  "Ground/guild_second_floor": {
+   "provider": "PMDO"
+  },
+  "Ground/guild_storage_hallway": {
+   "provider": "PMDO"
+  },
+  "Ground/guild_storage_room": {
+   "provider": "PMDO"
+  },
+  "Ground/guild_third_floor_lobby": {
+   "provider": "PMDO"
+  },
+  "Ground/guild_top_left_bedroom": {
+   "provider": "PMDO"
+  },
+  "Ground/guild_top_right_bedroom": {
+   "provider": "PMDO"
+  },
+  "Ground/guilde_parvis": {
+   "provider": "PMDO"
+  },
+  "Ground/guildmaster_summit": {
+   "provider": "PMDO"
+  },
+  "Ground/h01p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h01p02": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h01p03": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h01p99a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/h01p99c": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/h01p99d": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/h02p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h02p02": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h02p03": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h02p99a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/h02p99c": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/h03p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h04p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h04p02": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h05p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h05p02": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h06p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h06p02": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h06p03": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h06p04": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h06p05": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h06p06": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h07p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h07p02": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h07p03": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h07p04": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h07p05": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h07p06": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h07p07": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h07p08": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h08p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h09p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h09p02": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h10p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h10p02": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h11p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h12p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h13p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h13p02": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h13p03": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h13p04": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h14p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h15p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h16p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h17p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h18p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h19p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h20p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h21p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h21p02": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h22p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h23p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h24p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h25p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h26p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h27p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h28p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h28p02": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h29p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h29p02": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h29p03": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/h29p04": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/hero_dream": {
+   "provider": "PMDO"
+  },
+  "Ground/ile_australe": {
+   "provider": "PMDO"
+  },
+  "Ground/ile_close": {
+   "provider": "PMDO"
+  },
+  "Ground/ile_legendaire": {
+   "provider": "PMDO"
+  },
+  "Ground/illuminant_riverbed_entrance": {
+   "provider": "PMDO"
+  },
+  "Ground/labo_decrepit": {
+   "provider": "PMDO"
+  },
+  "Ground/lac_courage": {
+   "provider": "PMDO"
+  },
+  "Ground/lac_espoir": {
+   "provider": "PMDO"
+  },
+  "Ground/lac_savoir": {
+   "provider": "PMDO"
+  },
+  "Ground/ledian_dojo": {
+   "provider": "PMDO"
+  },
+  "Ground/luluby_town_evening": {
+   "provider": "PMDO"
+  },
+  "Ground/luluby_town_morning": {
+   "provider": "PMDO"
+  },
+  "Ground/luluby_town_night": {
+   "provider": "PMDO"
+  },
+  "Ground/luminous_spring": {
+   "provider": "PMDO"
+  },
+  "Ground/metano_altere_transition": {
+   "provider": "PMDO"
+  },
+  "Ground/metano_cafe": {
+   "provider": "PMDO"
+  },
+  "Ground/metano_cave": {
+   "provider": "PMDO"
+  },
+  "Ground/metano_electric_home": {
+   "provider": "PMDO"
+  },
+  "Ground/metano_fire_home": {
+   "provider": "PMDO"
+  },
+  "Ground/metano_grass_home": {
+   "provider": "PMDO"
+  },
+  "Ground/metano_inn": {
+   "provider": "PMDO"
+  },
+  "Ground/metano_normal_home": {
+   "provider": "PMDO"
+  },
+  "Ground/metano_rock_home": {
+   "provider": "PMDO"
+  },
+  "Ground/metano_town": {
+   "provider": "PMDO"
+  },
+  "Ground/metano_town_nuit": {
+   "provider": "PMDO"
+  },
+  "Ground/metano_water_home": {
+   "provider": "PMDO"
+  },
+  "Ground/mont_cendre_pied": {
+   "provider": "PMDO"
+  },
+  "Ground/mont_gele_pied": {
+   "provider": "PMDO"
+  },
+  "Ground/mont_grondant_pied": {
+   "provider": "PMDO"
+  },
+  "Ground/mont_lune_vue": {
+   "provider": "PMDO"
+  },
+  "Ground/mount_windswept_entrance": {
+   "provider": "PMDO"
+  },
+  "Ground/mount_windswept_guardian": {
+   "provider": "PMDO"
+  },
+  "Ground/mount_windswept_midpoint": {
+   "provider": "PMDO"
+  },
+  "Ground/mount_windswept_miniboss": {
+   "provider": "PMDO"
+  },
+  "Ground/nef_prisme_est": {
+   "provider": "PMDO"
+  },
+  "Ground/p01p01a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/p01p02a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/p01p04a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/p02p01a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/p05p01a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/p05p02a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/p05p03a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/p05p04a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/p06p01a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/p07p01a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/p08p01a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/p09p01a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/p16p01a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/p17p02a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/p19p01a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/p19p02a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/personality_test": {
+   "provider": "PMDO"
+  },
+  "Ground/pic_ferreux_pied": {
+   "provider": "PMDO"
+  },
+  "Ground/plage_lucioles": {
+   "provider": "PMDO"
+  },
+  "Ground/plaines_brulees": {
+   "provider": "PMDO"
+  },
+  "Ground/porte_plaines_foudre": {
+   "provider": "PMDO"
+  },
+  "Ground/post_office": {
+   "provider": "PMDO"
+  },
+  "Ground/pre_tonnerre": {
+   "provider": "PMDO"
+  },
+  "Ground/recif_genereux": {
+   "provider": "PMDO"
+  },
+  "Ground/relic_forest": {
+   "provider": "PMDO"
+  },
+  "Ground/rest_stop": {
+   "provider": "PMDO"
+  },
+  "Ground/s01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/s01p02a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/s02": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/s02_fre": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/s02_ger": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/s02_ita": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/s02_spa": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/s03": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/s04": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/s04p01a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/s05": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/s05_fre": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/s05_ger": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/s05_ita": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/s05_spa": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/s06": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/s06_fre": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/s06_ger": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/s06_ita": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/s06_spa": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/s13p05a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/s13p06a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/s21p01a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/sanctuaire_voeu": {
+   "provider": "PMDO"
+  },
+  "Ground/searing_crucible": {
+   "provider": "PMDO"
+  },
+  "Ground/searing_tunnel_entrance": {
+   "provider": "PMDO"
+  },
+  "Ground/searing_tunnel_midpoint": {
+   "provider": "PMDO"
+  },
+  "Ground/searing_tunnel_miniboss": {
+   "provider": "PMDO"
+  },
+  "Ground/sinister_woods_clearing": {
+   "provider": "PMDO"
+  },
+  "Ground/sky_eos_g01p01b": {
+   "provider": "PMDO"
+  },
+  "Ground/sky_eos_g01p01c": {
+   "provider": "PMDO"
+  },
+  "Ground/sky_eos_g01p02a": {
+   "provider": "PMDO"
+  },
+  "Ground/sky_eos_g01p04c": {
+   "provider": "PMDO"
+  },
+  "Ground/sky_eos_g01p05a": {
+   "provider": "PMDO"
+  },
+  "Ground/sky_eos_g01p05c": {
+   "provider": "PMDO"
+  },
+  "Ground/sky_eos_g01p06a": {
+   "provider": "PMDO"
+  },
+  "Ground/sky_eos_g01p06b": {
+   "provider": "PMDO"
+  },
+  "Ground/sky_eos_g01p07a": {
+   "provider": "PMDO"
+  },
+  "Ground/sky_eos_g01p07c": {
+   "provider": "PMDO"
+  },
+  "Ground/sky_eos_g01p08a": {
+   "provider": "PMDO"
+  },
+  "Ground/sky_eos_g01p09a": {
+   "provider": "PMDO"
+  },
+  "Ground/sky_eos_g01p09c": {
+   "provider": "PMDO"
+  },
+  "Ground/sky_eos_g01p10a": {
+   "provider": "PMDO"
+  },
+  "Ground/sky_eos_g01p10c": {
+   "provider": "PMDO"
+  },
+  "Ground/sky_eos_p01p01a": {
+   "provider": "PMDO"
+  },
+  "Ground/sky_eos_p01p02a": {
+   "provider": "PMDO"
+  },
+  "Ground/sky_eos_t00p01": {
+   "provider": "PMDO"
+  },
+  "Ground/sky_eos_t00p02": {
+   "provider": "PMDO"
+  },
+  "Ground/sky_eos_t00p03": {
+   "provider": "PMDO"
+  },
+  "Ground/sky_eos_t00p04a": {
+   "provider": "PMDO"
+  },
+  "Ground/sky_eos_t01p02a": {
+   "provider": "PMDO"
+  },
+  "Ground/sky_eos_t01p03a": {
+   "provider": "PMDO"
+  },
+  "Ground/sky_eos_t01p04a": {
+   "provider": "PMDO"
+  },
+  "Ground/sky_wigglytuff_guild_entrance": {
+   "provider": "PMDO"
+  },
+  "Ground/sky_wigglytuff_guild_main": {
+   "provider": "PMDO"
+  },
+  "Ground/sommet_aurore": {
+   "provider": "PMDO"
+  },
+  "Ground/t00p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/t00p01_sky": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/t00p02": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/t01p00": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/t01p01": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/t01p01a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/t01p02a": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/t01p02a_sky": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/t01p02b": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/t01p03": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/t01p03a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/t01p04": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/t01p04a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/t01p05": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/t01p07": {
+   "provider": "ROM:GBA"
+  },
+  "Ground/terres_tues_porte": {
+   "provider": "PMDO"
+  },
+  "Ground/test_grounds": {
+   "provider": "PMDO"
+  },
+  "Ground/testmap": {
+   "provider": "PMDO"
+  },
+  "Ground/treasure_spinda_cafe": {
+   "provider": "PMDO"
+  },
+  "Ground/v09p04a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/v10p03c": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/v12p01a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/v13p01a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/v14p01a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/v14p03a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/v14p04a": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/vallon_malsain_fond": {
+   "provider": "PMDO"
+  },
+  "Ground/vallon_perdu": {
+   "provider": "PMDO"
+  },
+  "Ground/vast_steppe_entrance": {
+   "provider": "PMDO"
+  },
+  "Ground/vast_steppe_guardian": {
+   "provider": "PMDO"
+  },
+  "Ground/vast_steppe_midpoint": {
+   "provider": "PMDO"
+  },
+  "Ground/vast_steppe_miniboss": {
+   "provider": "PMDO"
+  },
+  "Ground/vigie_stratos": {
+   "provider": "PMDO"
+  },
+  "Ground/waterfall_cave_1": {
+   "provider": "ROM:NDS"
+  },
+  "Ground/won_overw1_autumn": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overw1_spring": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overw1_summer": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overw1_winter": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overw1e_autumn": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overw1e_spring": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overw1e_summer": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overw1e_winter": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overw1n_autumn": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overw1n_spring": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overw1n_summer": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overw1n_winter": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overw2_autumn": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overw2_spring": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overw2_summer": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overw2_winter": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overw3_autumn": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overw3_spring": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overw3_summer": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overw3_winter": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overw4_autumn": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overw4_spring": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overw4_summer": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overw4_winter": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overw4a_autumn": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overw4a_spring": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overw4a_summer": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overw4a_winter": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overw4n_autumn": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overw4n_spring": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overw4n_summer": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overw4n_winter": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overw5_autumn": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overw5_spring": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overw5_summer": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overw5_winter": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overw5e_autumn": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overw5e_spring": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overw5e_summer": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overw5e_winter": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overwf_autumn": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overwf_spring": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overwf_summer": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overwf_winter": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overwh_autumn": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overwh_spring": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overwh_summer": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overwh_winter": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overwhb_autumn": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overwhb_spring": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overwhb_summer": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overwhb_winter": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overwhbn_autumn": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overwhbn_spring": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overwhbn_summer": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overwhbn_winter": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overwhn_autumn": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overwhn_spring": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overwhn_summer": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overwhn_winter": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overwyh_autumn": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overwyh_spring": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overwyh_summer": {
+   "provider": "PMDO"
+  },
+  "Ground/won_overwyh_winter": {
+   "provider": "PMDO"
+  },
+  "Map/amp_clearing_arena": {
+   "provider": "ROM:NDS"
+  },
+  "Map/annexe_toupie": {
+   "provider": "PMDO"
+  },
+  "Map/barren_valley_clearing_map": {
+   "provider": "ROM:NDS"
+  },
+  "Map/beach_cave_pit_arena": {
+   "provider": "ROM:NDS"
+  },
+  "Map/beginner_lesson_general": {
+   "provider": "PMDO"
+  },
+  "Map/beginner_lesson_items": {
+   "provider": "PMDO"
+  },
+  "Map/beginner_lesson_recruit": {
+   "provider": "PMDO"
+  },
+  "Map/beginner_lesson_status": {
+   "provider": "PMDO"
+  },
+  "Map/beginner_lesson_terrain": {
+   "provider": "PMDO"
+  },
+  "Map/black_swamp_map": {
+   "provider": "ROM:NDS"
+  },
+  "Map/bois_ronces_fond": {
+   "provider": "PMDO"
+  },
+  "Map/boss_burmy_pair": {
+   "provider": "PMDO"
+  },
+  "Map/boss_cattle_pair": {
+   "provider": "PMDO"
+  },
+  "Map/boss_eclipse": {
+   "provider": "PMDO"
+  },
+  "Map/boss_nido_pair": {
+   "provider": "PMDO"
+  },
+  "Map/boss_plus_minus_1": {
+   "provider": "PMDO"
+  },
+  "Map/boss_plus_minus_2": {
+   "provider": "PMDO"
+  },
+  "Map/boss_poli_pair": {
+   "provider": "PMDO"
+  },
+  "Map/boss_skarmbliss": {
+   "provider": "PMDO"
+  },
+  "Map/boss_slow_pair": {
+   "provider": "PMDO"
+  },
+  "Map/bottomless_sea_depths_map": {
+   "provider": "ROM:NDS"
+  },
+  "Map/boulder_quarry_clearing_map": {
+   "provider": "ROM:NDS"
+  },
+  "Map/brine_cave_pit_arena": {
+   "provider": "ROM:NDS"
+  },
+  "Map/buried_relic_arena": {
+   "provider": "PMDO"
+  },
+  "Map/carriere_cuivre_fond": {
+   "provider": "PMDO"
+  },
+  "Map/chapter_3_boss_fight": {
+   "provider": "PMDO"
+  },
+  "Map/cloven_ruins_regice": {
+   "provider": "PMDO"
+  },
+  "Map/cloven_ruins_regirock": {
+   "provider": "PMDO"
+  },
+  "Map/cloven_ruins_registeel": {
+   "provider": "PMDO"
+  },
+  "Map/crystal_lake_arena": {
+   "provider": "ROM:NDS"
+  },
+  "Map/dark_crater_pit_map": {
+   "provider": "ROM:NDS"
+  },
+  "Map/dark_ice_mountain_pinnacle_map": {
+   "provider": "ROM:NDS"
+  },
+  "Map/deep_mystery_jungle_map": {
+   "provider": "ROM:NDS"
+  },
+  "Map/deep_star_cave_team_rogue_map": {
+   "provider": "ROM:NDS"
+  },
+  "Map/foret_embuscade_fond": {
+   "provider": "PMDO"
+  },
+  "Map/fortune_ravine_pit_map": {
+   "provider": "ROM:NDS"
+  },
+  "Map/frosty_forest_summit": {
+   "provider": "PMDO"
+  },
+  "Map/giant_volcano_peak_map": {
+   "provider": "ROM:NDS"
+  },
+  "Map/gloomy_forest_boss": {
+   "provider": "PMDO"
+  },
+  "Map/grotte_echoue_autel": {
+   "provider": "PMDO"
+  },
+  "Map/limestone_cavern_depths_map": {
+   "provider": "ROM:NDS"
+  },
+  "Map/magma_pit_groudon": {
+   "provider": "ROM:GBA"
+  },
+  "Map/metano_town_duel": {
+   "provider": "PMDO"
+  },
+  "Map/meteor_cave_arena": {
+   "provider": "PMDO"
+  },
+  "Map/middle_spring_cave_map": {
+   "provider": "ROM:NDS"
+  },
+  "Map/mount_windswept_guardian": {
+   "provider": "PMDO"
+  },
+  "Map/mt_avalanche_peak_map": {
+   "provider": "ROM:NDS"
+  },
+  "Map/mt_blaze_peak_boss": {
+   "provider": "ROM:GBA"
+  },
+  "Map/mt_blaze_summit": {
+   "provider": "PMDO"
+  },
+  "Map/mt_bristle_peak_arena": {
+   "provider": "ROM:NDS"
+  },
+  "Map/mt_freeze_peak_boss": {
+   "provider": "ROM:GBA"
+  },
+  "Map/mt_steel_boss": {
+   "provider": "ROM:GBA"
+  },
+  "Map/mt_thunder_peak_boss": {
+   "provider": "ROM:GBA"
+  },
+  "Map/mystifying_clearing_d45": {
+   "provider": "ROM:NDS"
+  },
+  "Map/nnv_duel_rm35_summer": {
+   "provider": "PMDO"
+  },
+  "Map/nnv_duel_rm59_summer": {
+   "provider": "PMDO"
+  },
+  "Map/nnv_duel_rm82_summer": {
+   "provider": "PMDO"
+  },
+  "Map/nnv_duel_rm83_summer": {
+   "provider": "PMDO"
+  },
+  "Map/nnv_duel_rm84_summer": {
+   "provider": "PMDO"
+  },
+  "Map/nnv_duel_rmvillage_summer": {
+   "provider": "PMDO"
+  },
+  "Map/old_ruins_arena": {
+   "provider": "ROM:NDS"
+  },
+  "Map/pattern_blob_small": {
+   "provider": "PMDO"
+  },
+  "Map/pattern_checker": {
+   "provider": "PMDO"
+  },
+  "Map/pattern_checker_large": {
+   "provider": "PMDO"
+  },
+  "Map/pattern_crosshair": {
+   "provider": "PMDO"
+  },
+  "Map/pattern_dither_fourth": {
+   "provider": "PMDO"
+  },
+  "Map/pattern_dither_three_fourth": {
+   "provider": "PMDO"
+  },
+  "Map/pattern_plus": {
+   "provider": "PMDO"
+  },
+  "Map/pattern_slash": {
+   "provider": "PMDO"
+  },
+  "Map/pattern_squiggle": {
+   "provider": "PMDO"
+  },
+  "Map/pattern_x": {
+   "provider": "PMDO"
+  },
+  "Map/pattern_x_repeat": {
+   "provider": "PMDO"
+  },
+  "Map/petit_tunnel_fond": {
+   "provider": "PMDO"
+  },
+  "Map/regigigas_chamber_boss_map": {
+   "provider": "ROM:NDS"
+  },
+  "Map/relic_forest_blob_broken_pillar": {
+   "provider": "PMDO"
+  },
+  "Map/relic_forest_blob_fallen_left": {
+   "provider": "PMDO"
+  },
+  "Map/relic_forest_blob_fallen_right": {
+   "provider": "PMDO"
+  },
+  "Map/relic_forest_blob_pillar": {
+   "provider": "PMDO"
+  },
+  "Map/relic_forest_blob_rubble": {
+   "provider": "PMDO"
+  },
+  "Map/relic_forest_blob_ruins": {
+   "provider": "PMDO"
+  },
+  "Map/room_ambush_item": {
+   "provider": "PMDO"
+  },
+  "Map/room_evo_altar_diamond": {
+   "provider": "PMDO"
+  },
+  "Map/room_evo_altar_normal": {
+   "provider": "PMDO"
+  },
+  "Map/room_evo_altar_small": {
+   "provider": "PMDO"
+  },
+  "Map/room_fairy_ring": {
+   "provider": "PMDO"
+  },
+  "Map/room_garden_cross_water": {
+   "provider": "PMDO"
+  },
+  "Map/sanctuaire_titans": {
+   "provider": "PMDO"
+  },
+  "Map/sanctuaire_voeu": {
+   "provider": "PMDO"
+  },
+  "Map/searing_crucible": {
+   "provider": "PMDO"
+  },
+  "Map/shimmer_desert_pit_map": {
+   "provider": "ROM:NDS"
+  },
+  "Map/sky_peak_summit_map": {
+   "provider": "ROM:NDS"
+  },
+  "Map/sky_stairway_apex_map": {
+   "provider": "ROM:NDS"
+  },
+  "Map/sky_summit_rayquaza": {
+   "provider": "ROM:GBA"
+  },
+  "Map/spacial_rift_bottom_map": {
+   "provider": "ROM:NDS"
+  },
+  "Map/special_grass_maze": {
+   "provider": "PMDO"
+  },
+  "Map/special_gsc_plant": {
+   "provider": "PMDO"
+  },
+  "Map/special_rby_fossil": {
+   "provider": "PMDO"
+  },
+  "Map/spiritomb_arena": {
+   "provider": "ROM:NDS"
+  },
+  "Map/spring_cave_pit_map": {
+   "provider": "ROM:NDS"
+  },
+  "Map/star_cave_pit_map": {
+   "provider": "ROM:NDS"
+  },
+  "Map/steam_cave_peak_arena": {
+   "provider": "ROM:NDS"
+  },
+  "Map/temporal_pinnacle_arena": {
+   "provider": "ROM:NDS"
+  },
+  "Map/underground_lake_arena": {
+   "provider": "ROM:NDS"
+  },
+  "Map/upper_spring_cave_haunter_map": {
+   "provider": "ROM:NDS"
+  },
+  "Map/vallee_fertile_seuil": {
+   "provider": "PMDO"
+  },
+  "Map/vast_ice_mountain_pinnacle_map": {
+   "provider": "ROM:NDS"
+  },
+  "Map/vast_steppe_guardian": {
+   "provider": "PMDO"
+  },
+  "Map/wish_cave_jirachi": {
+   "provider": "PMDO"
+  },
+  "Map/world_abyss_pit_map": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/aegis_cave_pit": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/amp_clearing": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/amp_plains": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/antre_enigme": {
+   "provider": "PMDO"
+  },
+  "Zone/apple_woods": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/apricorn_grove": {
+   "provider": "PMDO"
+  },
+  "Zone/armaldos_shelter": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/barren_valley": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/barren_valley_clearing": {
+   "provider": "PMDO"
+  },
+  "Zone/beach_cave": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/beach_cave_pit": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/beginner_lesson": {
+   "provider": "PMDO"
+  },
+  "Zone/black_swamp": {
+   "provider": "PMDO"
+  },
+  "Zone/blizzard_island": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/bois_filou": {
+   "provider": "PMDO"
+  },
+  "Zone/bois_ronces": {
+   "provider": "PMDO"
+  },
+  "Zone/bosquet_voile": {
+   "provider": "PMDO"
+  },
+  "Zone/bottomless_sea": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/bottomless_sea_depths": {
+   "provider": "PMDO"
+  },
+  "Zone/boulder_quarry": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/boulder_quarry_clearing": {
+   "provider": "PMDO"
+  },
+  "Zone/brine_cave": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/brine_cave_pit": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/bug_maze": {
+   "provider": "PMDO"
+  },
+  "Zone/buried_relic": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/carriere_cuivre": {
+   "provider": "PMDO"
+  },
+  "Zone/challenge_river": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/chasm_cave": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/cloven_ruins": {
+   "provider": "PMDO"
+  },
+  "Zone/concealed_ruins_post": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/craggy_coast": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/crevice_cave": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/crevice_cave_pit": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/crooked_cavern": {
+   "provider": "PMDO"
+  },
+  "Zone/crystal_cave": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/crystal_crossing": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/crystal_lake": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/dark_crater": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/dark_crater_pit": {
+   "provider": "PMDO"
+  },
+  "Zone/dark_hill": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/dark_ice_mountain": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/dark_ice_mountain_peak": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/dark_ice_mountain_pinnacle": {
+   "provider": "PMDO"
+  },
+  "Zone/dark_wasteland": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/darknight_relic": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/deep_barren_valley": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/deep_boulder_quarry": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/deep_dark_crater": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/deep_dusk_forest": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/deep_limestone_cavern": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/deep_miracle_sea": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/deep_mystery_jungle": {
+   "provider": "PMDO"
+  },
+  "Zone/deep_spacial_rift": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/deep_star_cave_dungeon": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/deep_star_cave_team_rogue": {
+   "provider": "PMDO"
+  },
+  "Zone/desert_region": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/destiny_tower": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/drenched_bluff": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/dusk_forest": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/dusk_forest_se5": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/eastern_cave": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/eighth_station_pass": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/electric_maze": {
+   "provider": "PMDO"
+  },
+  "Zone/fantasy_strait": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/far_amp_plains": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/far_off_sea": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/fiery_field": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/fifth_station_clearing": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/fifth_station_pass": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/fire_maze": {
+   "provider": "PMDO"
+  },
+  "Zone/first_station_pass": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/flying_maze": {
+   "provider": "PMDO"
+  },
+  "Zone/foggy_forest": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/forest_path": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/foret_embuscade": {
+   "provider": "PMDO"
+  },
+  "Zone/fortune_ravine": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/fortune_ravine_depths": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/fortune_ravine_pit": {
+   "provider": "PMDO"
+  },
+  "Zone/fourth_station_pass": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/frosty_forest": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/frosty_grotto": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/giant_volcano": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/giant_volcano_peak": {
+   "provider": "PMDO"
+  },
+  "Zone/gloomy_forest": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/grand_sea": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/grass_maze": {
+   "provider": "PMDO"
+  },
+  "Zone/great_canyon": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/grotte_echoue": {
+   "provider": "PMDO"
+  },
+  "Zone/grotte_mystere": {
+   "provider": "PMDO"
+  },
+  "Zone/grotte_repos": {
+   "provider": "PMDO"
+  },
+  "Zone/guiding_sea": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/halles_royales": {
+   "provider": "PMDO"
+  },
+  "Zone/happy_outlook": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/hidden_highland": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/hidden_land": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/hidden_shopkeeper_village": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/hot_spring_dungeon": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/howling_forest": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/ice_aegis_cave": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/icicle_forest": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/illuminant_riverbed": {
+   "provider": "PMDO"
+  },
+  "Zone/inferno_cave": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/jardin_secret": {
+   "provider": "PMDO"
+  },
+  "Zone/joyous_tower": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/labyrinth_cave": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/lake_afar": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/landslide_cave": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/lapis_cave": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/left_cave_path": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/lightning_field": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/limestone_cavern": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/limestone_cavern_depths": {
+   "provider": "PMDO"
+  },
+  "Zone/little_plains": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/lost_wilderness": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/lower_brine_cave": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/lower_crevice_cave": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/lower_spring_cave": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/luminous_spring_dungeon": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/lush_prairie_post": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/magma_cavern": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/magma_cavern_pit": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/magma_pit_groudon": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/marine_resort": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/marvelous_sea": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/master_zone": {
+   "provider": "PMDO"
+  },
+  "Zone/meteor_cave": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/middle_spring_cave": {
+   "provider": "PMDO"
+  },
+  "Zone/midnight_forest": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/miracle_sea": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/miracle_seabed": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/mount_windswept": {
+   "provider": "PMDO"
+  },
+  "Zone/mt_avalanche": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/mt_avalanche_peak": {
+   "provider": "PMDO"
+  },
+  "Zone/mt_blaze": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/mt_blaze_peak": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/mt_bristle": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/mt_bristle_peak": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/mt_clear": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/mt_faraway": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/mt_freeze": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/mt_freeze_peak": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/mt_horn": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/mt_mistral": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/mt_steel": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/mt_thunder": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/mt_thunder_peak": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/mt_travail_post": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/murky_cave": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/murky_forest": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/mystery_jungle": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/mystifying_forest_clearing": {
+   "provider": "PMDO"
+  },
+  "Zone/mystifying_forest_post": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/ninth_station_pass": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/nnv_wild": {
+   "provider": "PMDO"
+  },
+  "Zone/normal_maze": {
+   "provider": "PMDO"
+  },
+  "Zone/northern_desert": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/northern_range": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/northwind_field": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/oblivion_forest": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/oddity_cave": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/old_ruins": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/oran_forest": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/passage_temps": {
+   "provider": "PMDO"
+  },
+  "Zone/petit_tunnel": {
+   "provider": "PMDO"
+  },
+  "Zone/pitfall_valley": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/purity_forest": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/quicksand_cave": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/quicksand_pit": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/regice_chamber": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/regigigas_chamber_boss": {
+   "provider": "PMDO"
+  },
+  "Zone/regirock_chamber": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/registeel_chamber": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/relic_forest": {
+   "provider": "PMDO"
+  },
+  "Zone/remains_island": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/rescue_dungeon": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/right_cave_path": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/rock_aegis_cave": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/rock_maze": {
+   "provider": "PMDO"
+  },
+  "Zone/rock_path": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/rock_path_sky": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/sealed_ruin": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/sealed_ruin_pit": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/searing_tunnel": {
+   "provider": "PMDO"
+  },
+  "Zone/second_station_pass": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/serenity_river": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/seventh_station_pass": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/shaymin_village": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/shimmer_desert": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/shimmer_desert_pit": {
+   "provider": "PMDO"
+  },
+  "Zone/shimmer_hill": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/side_path": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/silent_chasm": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/silver_trench": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/sixth_station_pass": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/sky_hub_zone": {
+   "provider": "PMDO"
+  },
+  "Zone/sky_peak_summit": {
+   "provider": "PMDO"
+  },
+  "Zone/sky_peak_summit_pass": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/sky_stairway": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/sky_stairway_apex": {
+   "provider": "PMDO"
+  },
+  "Zone/sky_summit_rayquaza": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/sky_tower": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/sky_tower_summit": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/snow_path": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/solar_cave": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/southeastern_islands": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/southern_cavern": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/southern_jungle": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/spacial_cliffs": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/spacial_rift": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/spacial_rift_bottom": {
+   "provider": "PMDO"
+  },
+  "Zone/spiritomb_room": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/spring_cave": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/spring_cave_depths": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/spring_cave_pit": {
+   "provider": "PMDO"
+  },
+  "Zone/star_cave": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/star_cave_depths": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/star_cave_pit": {
+   "provider": "PMDO"
+  },
+  "Zone/star_cave_se1": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/steam_cave": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/steam_cave_peak": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/steel_aegis_cave": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/stormy_sea": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/surrounded_sea": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/temporal_pinnacle": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/temporal_spire": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/temporal_spire_se5": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/temporal_tower": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/temporal_tower_se5": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/the_nightmare": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/third_station_pass": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/thunderwave_cave": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/tiny_meadow_post": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/tiny_woods": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/treacherous_waters": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/treeshroud_forest": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/trial_forest": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/underground_lake": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/unown_relic": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/upper_spring_cave": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/upper_spring_cave_haunter": {
+   "provider": "PMDO"
+  },
+  "Zone/upper_steam_cave": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/uproar_forest": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/vallee_fertile": {
+   "provider": "PMDO"
+  },
+  "Zone/vast_ice_mountain": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/vast_ice_mountain_peak": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/vast_ice_mountain_pinnacle": {
+   "provider": "PMDO"
+  },
+  "Zone/vast_steppe": {
+   "provider": "PMDO"
+  },
+  "Zone/water_maze": {
+   "provider": "PMDO"
+  },
+  "Zone/waterfall_cave": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/waterfall_pond": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/western_cave": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/wish_cave": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/world_abyss": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/world_abyss_pit": {
+   "provider": "PMDO"
+  },
+  "Zone/wyvern_hill": {
+   "provider": "ROM:GBA"
+  },
+  "Zone/zero_isle_center": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/zero_isle_east": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/zero_isle_north": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/zero_isle_south": {
+   "provider": "ROM:NDS"
+  },
+  "Zone/zero_isle_west": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/apricorn_grove_black": {
+   "provider": "PMDO"
+  },
+  "AutoTile/apricorn_grove_blue": {
+   "provider": "PMDO"
+  },
+  "AutoTile/apricorn_grove_brown": {
+   "provider": "PMDO"
+  },
+  "AutoTile/apricorn_grove_green": {
+   "provider": "PMDO"
+  },
+  "AutoTile/apricorn_grove_purple": {
+   "provider": "PMDO"
+  },
+  "AutoTile/apricorn_grove_red": {
+   "provider": "PMDO"
+  },
+  "AutoTile/apricorn_grove_white": {
+   "provider": "PMDO"
+  },
+  "AutoTile/apricorn_grove_yellow": {
+   "provider": "PMDO"
+  },
+  "AutoTile/barren_valley_ts_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/barren_valley_ts_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/barren_valley_ts_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/blizzard_island_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/blizzard_island_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/blizzard_island_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/bottomless_sea_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/bottomless_sea_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/bottomless_sea_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/crevice_cave_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/crevice_cave_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/crevice_cave_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/dark_crater_1_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/dark_crater_1_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/dark_crater_1_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/dark_crater_2_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/dark_crater_2_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/dark_crater_2_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/dark_ice_mountain_peak_ts_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/dark_ice_mountain_peak_ts_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/dark_ice_mountain_peak_ts_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/dark_ice_mountain_ts_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/dark_ice_mountain_ts_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/dark_ice_mountain_ts_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/dark_wasteland_ts_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/dark_wasteland_ts_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/dark_wasteland_ts_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/deep_boulder_quarry_ts_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/deep_boulder_quarry_ts_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/deep_boulder_quarry_ts_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/deep_limestone_cavern_ts_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/deep_limestone_cavern_ts_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/deep_limestone_cavern_ts_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/deep_star_cave_ts_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/deep_star_cave_ts_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/deep_star_cave_ts_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/destiny_tower_1_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/destiny_tower_1_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/destiny_tower_1_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/fortune_ravine_ts_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/fortune_ravine_ts_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/fortune_ravine_ts_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/fourth_station_pass_ts_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/fourth_station_pass_ts_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/fourth_station_pass_ts_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/giant_volcano_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/giant_volcano_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/giant_volcano_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/happy_outlook_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/happy_outlook_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/happy_outlook_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/icicle_forest_ts_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/icicle_forest_ts_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/icicle_forest_ts_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/inferno_cave_ts_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/inferno_cave_ts_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/inferno_cave_ts_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/labyrinth_cave_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/labyrinth_cave_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/labyrinth_cave_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/lake_afar_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/lake_afar_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/lake_afar_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/landslide_cave_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/landslide_cave_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/landslide_cave_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/left_cave_path_ts_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/left_cave_path_ts_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/left_cave_path_ts_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/limestone_cavern_ts_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/limestone_cavern_ts_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/limestone_cavern_ts_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/little_plains_ts_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/little_plains_ts_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/little_plains_ts_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/lost_wilderness_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/lost_wilderness_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/lost_wilderness_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/marine_resort_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/marine_resort_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/marine_resort_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/mt_avalanche_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/mt_avalanche_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/mt_avalanche_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/mt_mistral_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/mt_mistral_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/mt_mistral_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/murky_forest_ts_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/murky_forest_ts_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/murky_forest_ts_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/ninth_station_pass_ts_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/ninth_station_pass_ts_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/ninth_station_pass_ts_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/northwind_field_floor": {
+   "provider": "PMDO"
+  },
+  "AutoTile/northwind_field_secondary": {
+   "provider": "PMDO"
+  },
+  "AutoTile/northwind_field_wall": {
+   "provider": "PMDO"
+  },
+  "AutoTile/oblivion_forest_ts_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/oblivion_forest_ts_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/oblivion_forest_ts_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/oran_forest_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/oran_forest_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/oran_forest_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/serenity_river_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/serenity_river_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/serenity_river_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/seventh_station_pass_ts_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/seventh_station_pass_ts_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/seventh_station_pass_ts_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/shimmer_desert_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/shimmer_desert_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/shimmer_desert_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/shimmer_hill_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/shimmer_hill_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/shimmer_hill_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/shopkeeper_village_ts_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/shopkeeper_village_ts_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/shopkeeper_village_ts_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/sinister_woods_b41_floor": {
+   "provider": "ROM:GBA"
+  },
+  "AutoTile/sinister_woods_b41_secondary": {
+   "provider": "ROM:GBA"
+  },
+  "AutoTile/sinister_woods_b41_wall": {
+   "provider": "ROM:GBA"
+  },
+  "AutoTile/sky_peak_summit_pass_ts_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/sky_peak_summit_pass_ts_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/sky_peak_summit_pass_ts_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/sky_stairway_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/sky_stairway_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/sky_stairway_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/southeastern_islands_ts_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/southeastern_islands_ts_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/southeastern_islands_ts_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/southern_jungle_ts_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/southern_jungle_ts_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/southern_jungle_ts_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/spacial_cliffs_ts_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/spacial_cliffs_ts_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/spacial_cliffs_ts_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/temporal_spire_se5_ts_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/temporal_spire_se5_ts_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/temporal_spire_se5_ts_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/temporal_tower_se5_ts_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/temporal_tower_se5_ts_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/temporal_tower_se5_ts_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/test_dungeon_ts_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/test_dungeon_ts_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/test_dungeon_ts_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/third_station_pass_ts_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/third_station_pass_ts_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/third_station_pass_ts_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/vast_ice_mountain_peak_ts_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/vast_ice_mountain_peak_ts_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/vast_ice_mountain_peak_ts_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/vast_ice_mountain_ts_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/vast_ice_mountain_ts_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/vast_ice_mountain_ts_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/world_abyss_1_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/world_abyss_1_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/world_abyss_1_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/zero_isle_c1_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/zero_isle_c1_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/zero_isle_c1_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/zero_isle_c2_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/zero_isle_c2_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/zero_isle_c2_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/zero_isle_c3_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/zero_isle_c3_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/zero_isle_c3_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/zero_isle_c4_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/zero_isle_c4_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/zero_isle_c4_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/zero_isle_c5_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/zero_isle_c5_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/zero_isle_c5_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/zero_isle_c6_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/zero_isle_c6_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/zero_isle_c6_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/zero_isle_c7_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/zero_isle_c7_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/zero_isle_c7_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/zero_isle_c8_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/zero_isle_c8_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/zero_isle_c8_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/zero_isle_e1_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/zero_isle_e1_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/zero_isle_e1_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/zero_isle_e2_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/zero_isle_e2_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/zero_isle_e2_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/zero_isle_n1_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/zero_isle_n1_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/zero_isle_n1_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/zero_isle_s1_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/zero_isle_s1_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/zero_isle_s1_wall": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/zero_isle_s2_floor": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/zero_isle_s2_secondary": {
+   "provider": "ROM:NDS"
+  },
+  "AutoTile/zero_isle_s2_wall": {
+   "provider": "ROM:NDS"
+  },
+  "Music/A New Adventure.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/A Successful Rescue.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Aegis Cave.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Aftermath.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Ambush Forest 2.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Ambush Forest 3.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Ambush Forest.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Amp Plains.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Anima Core.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Apple Woods.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Ashen Geode.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/At the End of the Day.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Barren Tundra 2.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Barren Tundra.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Barren Valley.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Battle Against Dusknoir.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Beach Cave.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Benevolent Spirit.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Berry Grove.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Blizzard Island Rescue Team Medley.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Boss Battle!.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Boss Battle.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Boulder Quarry.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Bramble Thicket.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Bramble Woods.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Brine Cave.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Canyon Camp.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Castaway Cave.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Cave Camp.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Cave and Side Path.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Champion Road.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Chasm Cave.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Cliff Camp.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Concealed Ruins.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Copper Quarry.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Craggy Coast.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Credits.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Crystal Cave.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Crystal Crossing.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Dark Crater.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Dark Hill.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Dark Ice Mountain.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Dark Wasteland.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Deep Dark Crater.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Deep Dusk Forest.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Deep Limestone Cavern.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Deep Star Cave.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Demonstration 2.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Demonstration 3.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Demonstration.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Depleted Basin.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Dialga's Fight To the Finish!.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Do Your Best, As Always!.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Dream.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Drenched Bluff.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Dusk Forest.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Enraged Caldera.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Escape Through the Snow.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Faded Trail.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Far Amp Plains.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Farewell.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Faultline Ridge.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Fertile Valley.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/File Select (Rescue Team).ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/File Select.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Flyaway Cliffs.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Foggy Forest.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Forsaken Desert.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Fortune Ravine Depths.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Fortune Ravine.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Friend Area Cave.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Friend Area Cryptic Cave.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Friend Area Forest.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Friend Area Legendary Island.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Friend Area Swamp.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Frosty Forest.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Frosty Grotto.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Glacial Path.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Goodnight.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Gourmet Jungle.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Great Canyon.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Growing Anxiety.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Guildmaster Wigglytuff.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Healing Forest.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Heartwarming.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Hidden Highland.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Hidden Land.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/I Saw Something Again....ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Icicle Forest.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/In the Depths of the Pit (Rescue Team).ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/In the Depths of the Pit.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/In the Future.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/In the Nightmare.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Intro Cave.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Intro.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Job Clear!.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Lapis Cave.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Lava Floe Island Fire.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Lava Floe Island Water.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Legend of Ninetales.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Limestone Cavern.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Lodestone Quarry.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Lower Brine Cave.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Lower Spring Cave.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Luminous Spring.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Magma Cavern (Rescue Team).ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Magma Cavern Pit.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Magma Cavern.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Marowak Dojo.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Miracle Sea.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Monster House!.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Moonlit Courtyard.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Mt Blaze Peak.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Mt Blaze.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Mt Freeze Peak.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Mt Freeze.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Mt Steel.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Mt Thunder Peak.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Mt Thunder.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Mt. Blaze.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Mt. Bristle.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Mt. Freeze.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Mt. Horn.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Mt. Thunder.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Mt. Travail.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Muddy Valley.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Murky Forest.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Mysterious Passage 2.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Mysterious Passage.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Mystifying Forest.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Northern Desert.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/On the Beach at Dusk.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Outlaw.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Overgrown Wilds.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Pokemon Square.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Quicksand Cave.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Quicksand Pit.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Rainbow Peak.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Random Dungeon Theme 1.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Random Dungeon Theme 2.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Random Dungeon Theme 3.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Rayquazas Domain.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Relic Tower.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Rescue Team Base.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Rescue.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Rising Fear (Rescue Team).ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Rising Fear.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Sacred Tower.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Sealed Ruin Pit.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Sealed Ruin.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Shady Shop.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Sickly Hollow 2.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Sickly Hollow.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Silent Chasm.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Sinister Woods.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Sky Peak Cave.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Sky Peak Coast.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Sky Peak Final Pass.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Sky Peak Forest.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Sky Peak Prairie.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Sky Peak Snowfield.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Sky Tower (Rescue Team).ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Sky Tower.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Snow Camp.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Snowbound Path.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Southern Jungle.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Spacial Cliffs.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Spinda's Cafe.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Spring Cave Depths.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Spring Cave.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Star Cave.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Steam Cave.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Stormy Sea.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Summit.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Surrounded Sea.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Sweetened Stroll.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Sympathy.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Team Skull.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Team_Dazzling.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Team_Dazzling_Theme.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Temporal Spire.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Temporal Tower.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/The Escape.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/The Mountain of Fire.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/The Power of Darkness.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Theres Trouble.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Thunderstruck Pass.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Thunderwave Cave.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Time Gear Remix.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Time Restored.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Time of Reunion.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Tiny Woods.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Title.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Top Menu Theme.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Treacherous Mountain 2.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Treacherous Mountain 3.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Treacherous Mountain.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Treasure Town.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Treeshroud Forest.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Trickster Woods.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Tropical Path.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Upper Steam Cave.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Vast Ice Mountain Peak.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Vast Ice Mountain.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Veiled Ridge.ogg": {
+   "provider": "PMDO"
+  },
+  "Music/Water Cave.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Waterfall Cave.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Welcome to the World of Pokemon.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Welcome to the World of Pokémon!.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Wigglytuff's Guild Remix.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Wigglytuff's Guild.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/Wish Cave.ogg": {
+   "provider": "ROM:NDS"
+  },
+  "Music/World Calamity.ogg": {
+   "provider": "ROM:NDS"
+  }
+ }
+}
