@@ -1,0 +1,17 @@
+{
+ "skyjourney": {
+  "verdict": "GLOBAL_JOURNEY_PASS",
+  "chapters": 14,
+  "floors": 313,
+  "mobs_seen": 909,
+  "proof": "dev/docs/canonical/sky/journey_post_dungeon_modernization_proof.jsonl",
+  "note": "après lots A-E + fix LoadGen ; tous boss trouvés dont manectric (amp_clearing) et grovyle (crystal_lake)"
+ },
+ "dprobe_proofs": [
+  "monster_house_canonical_proof.jsonl",
+  "kecleon_shop_runtime_proof.jsonl",
+  "hidden_stairs_runtime_proof.jsonl"
+ ],
+ "baseline_stats": "dev/docs/AUDIT_PRE_MODIFICATION/GENERATION_STATS_BASELINE.md (400 étages, 0 doublon)",
+ "redjourney": "relancé (résultat au prochain jalon)"
+}

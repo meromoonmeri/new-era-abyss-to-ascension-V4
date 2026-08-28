@@ -53,6 +53,11 @@ Branche `arena/01a0357e-new-era-abyss-to-ascension-v4`. Base d'audit : `dev/docs
 - Aucun DEV_ONLY requis : PASS (Dusk Forest élucidé — zone réelle CH15, runtime normal).
 - Non-régression : lockfile CH1–CH5 OK à chaque commit ; skyjourney complet relancé (résultat consigné dans runtime_audit.json).
 
+## 4bis. Régression détectée ET corrigée par le protocole §41 (preuve que la non-régression fonctionne)
+- Skyjourney post-lots : **FAIL CH10 « boss manectric absent »** (amp_clearing). Cause racine : `add_kecleon_shops_sky`/`add_hidden_stairs_sky` avaient injecté leurs steps dans des segments **LoadGen** (arènes boss rsmap fixes : amp_clearing, crystal_lake — canoniquement des fixed floors ROM, PAS des étages procéduraux : un ShopStep/escalier caché n'y a pas de sens et perturbe le chargement).
+- Fix commit `01a7d59c` : revert des 2 zones à l'état `15edd49c` (vérifié : LOT B ne les touchait pas), restauration `index.idx`, **garde-fou générique SKIP_LOADGEN_BOSS** ajouté aux deux outils (rejouables sans risque), rapports annotés `REVERTED_LOADGEN_BOSS`.
+- Skyjourney relancé intégralement après fix (verdict consigné dans runtime_audit.json).
+
 ## 5. Restes documentés (jamais supprimés silencieusement)
 1. R7 imperfections / R10 RoomGenMaze / R8 ISLAND composé : PARTIAL — nécessitent des primitives C# nouvelles (RoomGenImperfect/RoomGenMaze) ; le bundle headless actuel ne compile pas PMDC → à faire lors d'un cycle moteur (documenté, aucune donnée perdue).
 2. MobThemeRoomScaled (MH ∝ salle exacte) : approximation data en place ; primitive C# au même cycle moteur.
