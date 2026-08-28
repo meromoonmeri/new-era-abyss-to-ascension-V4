@@ -97,7 +97,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 5000,
+                    "Rate": 4600,
+                    "Range": {
+                      "Min": 0,
+                      "Max": 29
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "ammo_stick",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 400,
                     "Range": {
                       "Min": 0,
                       "Max": 29
@@ -111,7 +125,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 3000,
+                    "Rate": 2760,
+                    "Range": {
+                      "Min": 0,
+                      "Max": 29
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "ammo_iron_thorn",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 240,
                     "Range": {
                       "Min": 0,
                       "Max": 29
@@ -125,7 +153,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 2000,
+                    "Rate": 1840,
+                    "Range": {
+                      "Min": 0,
+                      "Max": 29
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "ammo_silver_spike",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 160,
                     "Range": {
                       "Min": 0,
                       "Max": 29
@@ -139,7 +181,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 2222,
+                    "Rate": 2045,
+                    "Range": {
+                      "Min": 0,
+                      "Max": 29
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "ammo_geo_pebble",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 177,
                     "Range": {
                       "Min": 0,
                       "Max": 29
@@ -153,7 +209,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 103,
+                    "Rate": 95,
+                    "Range": {
+                      "Min": 0,
+                      "Max": 29
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "held_goggle_specs",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 8,
                     "Range": {
                       "Min": 0,
                       "Max": 29
@@ -167,7 +237,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 1547,
+                    "Rate": 1424,
+                    "Range": {
+                      "Min": 0,
+                      "Max": 29
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "held_twist_band",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 123,
                     "Range": {
                       "Min": 0,
                       "Max": 29
@@ -181,7 +265,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 515,
+                    "Rate": 474,
+                    "Range": {
+                      "Min": 0,
+                      "Max": 29
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "held_scope_lens",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 41,
                     "Range": {
                       "Min": 0,
                       "Max": 29
@@ -195,7 +293,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 516,
+                    "Rate": 475,
+                    "Range": {
+                      "Min": 0,
+                      "Max": 29
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "held_power_band",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 41,
                     "Range": {
                       "Min": 0,
                       "Max": 29
@@ -209,7 +321,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 515,
+                    "Rate": 474,
+                    "Range": {
+                      "Min": 0,
+                      "Max": 29
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "held_defense_scarf",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 41,
                     "Range": {
                       "Min": 0,
                       "Max": 29
@@ -223,7 +349,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 515,
+                    "Rate": 474,
+                    "Range": {
+                      "Min": 0,
+                      "Max": 29
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "held_special_band",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 41,
                     "Range": {
                       "Min": 0,
                       "Max": 29
@@ -237,7 +377,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 516,
+                    "Rate": 475,
+                    "Range": {
+                      "Min": 0,
+                      "Max": 29
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "held_zinc_band",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 41,
                     "Range": {
                       "Min": 0,
                       "Max": 29
@@ -251,7 +405,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 515,
+                    "Rate": 474,
+                    "Range": {
+                      "Min": 0,
+                      "Max": 29
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "held_friend_bow",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 41,
                     "Range": {
                       "Min": 0,
                       "Max": 29
@@ -265,7 +433,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 459,
+                    "Rate": 423,
+                    "Range": {
+                      "Min": 0,
+                      "Max": 29
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "seed_reviver",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 36,
                     "Range": {
                       "Min": 0,
                       "Max": 29
@@ -279,7 +461,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 458,
+                    "Rate": 422,
+                    "Range": {
+                      "Min": 0,
+                      "Max": 29
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "seed_blinker",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 36,
                     "Range": {
                       "Min": 0,
                       "Max": 29
@@ -293,7 +489,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 734,
+                    "Rate": 676,
+                    "Range": {
+                      "Min": 0,
+                      "Max": 29
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "seed_doom",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 58,
                     "Range": {
                       "Min": 0,
                       "Max": 29
@@ -307,7 +517,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 551,
+                    "Rate": 507,
+                    "Range": {
+                      "Min": 0,
+                      "Max": 29
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "seed_blinker",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 44,
                     "Range": {
                       "Min": 0,
                       "Max": 29
@@ -321,7 +545,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 459,
+                    "Rate": 423,
+                    "Range": {
+                      "Min": 0,
+                      "Max": 29
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "berry_rawst",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 36,
                     "Range": {
                       "Min": 0,
                       "Max": 29
@@ -335,7 +573,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 458,
+                    "Rate": 422,
+                    "Range": {
+                      "Min": 0,
+                      "Max": 29
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "berry_pecha",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 36,
                     "Range": {
                       "Min": 0,
                       "Max": 29
@@ -349,7 +601,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 459,
+                    "Rate": 423,
+                    "Range": {
+                      "Min": 0,
+                      "Max": 29
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "berry_cheri",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 36,
                     "Range": {
                       "Min": 0,
                       "Max": 29
@@ -363,7 +629,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 459,
+                    "Rate": 423,
+                    "Range": {
+                      "Min": 0,
+                      "Max": 29
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "berry_chesto",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 36,
                     "Range": {
                       "Min": 0,
                       "Max": 29
@@ -377,7 +657,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 1193,
+                    "Rate": 1098,
+                    "Range": {
+                      "Min": 0,
+                      "Max": 29
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "medicine_max_elixir",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 95,
                     "Range": {
                       "Min": 0,
                       "Max": 29
@@ -391,7 +685,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 521,
+                    "Rate": 480,
+                    "Range": {
+                      "Min": 0,
+                      "Max": 29
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "gummi_yellow",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 41,
                     "Range": {
                       "Min": 0,
                       "Max": 29
@@ -405,7 +713,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 521,
+                    "Rate": 480,
+                    "Range": {
+                      "Min": 0,
+                      "Max": 29
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "gummi_clear",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 41,
                     "Range": {
                       "Min": 0,
                       "Max": 29
@@ -419,7 +741,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 521,
+                    "Rate": 480,
+                    "Range": {
+                      "Min": 0,
+                      "Max": 29
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "gummi_pink",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 41,
                     "Range": {
                       "Min": 0,
                       "Max": 29
@@ -433,7 +769,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 520,
+                    "Rate": 479,
+                    "Range": {
+                      "Min": 0,
+                      "Max": 29
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "gummi_gold",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 41,
                     "Range": {
                       "Min": 0,
                       "Max": 29
@@ -447,7 +797,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 521,
+                    "Rate": 480,
+                    "Range": {
+                      "Min": 0,
+                      "Max": 29
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "gummi_gray",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 41,
                     "Range": {
                       "Min": 0,
                       "Max": 29
@@ -461,7 +825,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 521,
+                    "Rate": 480,
+                    "Range": {
+                      "Min": 0,
+                      "Max": 29
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "gummi_purple",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 41,
                     "Range": {
                       "Min": 0,
                       "Max": 29
@@ -475,7 +853,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 521,
+                    "Rate": 480,
+                    "Range": {
+                      "Min": 0,
+                      "Max": 29
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "gummi_royal",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 41,
                     "Range": {
                       "Min": 0,
                       "Max": 29
@@ -489,7 +881,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 521,
+                    "Rate": 480,
+                    "Range": {
+                      "Min": 0,
+                      "Max": 29
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "gummi_black",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 41,
                     "Range": {
                       "Min": 0,
                       "Max": 29
@@ -503,7 +909,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 909,
+                    "Rate": 837,
+                    "Range": {
+                      "Min": 0,
+                      "Max": 29
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "orb_cleanse",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 72,
                     "Range": {
                       "Min": 0,
                       "Max": 29
@@ -517,7 +937,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 2727,
+                    "Rate": 2509,
+                    "Range": {
+                      "Min": 0,
+                      "Max": 29
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "orb_escape",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 218,
                     "Range": {
                       "Min": 0,
                       "Max": 29
@@ -531,7 +965,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 910,
+                    "Rate": 838,
+                    "Range": {
+                      "Min": 0,
+                      "Max": 29
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "orb_trapbust",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 72,
                     "Range": {
                       "Min": 0,
                       "Max": 29
@@ -545,7 +993,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 909,
+                    "Rate": 837,
+                    "Range": {
+                      "Min": 0,
+                      "Max": 29
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "orb_rollcall",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 72,
                     "Range": {
                       "Min": 0,
                       "Max": 29
@@ -559,7 +1021,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 909,
+                    "Rate": 837,
+                    "Range": {
+                      "Min": 0,
+                      "Max": 29
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "orb_all_hit",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 72,
                     "Range": {
                       "Min": 0,
                       "Max": 29
@@ -573,7 +1049,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 909,
+                    "Rate": 837,
+                    "Range": {
+                      "Min": 0,
+                      "Max": 29
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "orb_foe_seal",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 72,
                     "Range": {
                       "Min": 0,
                       "Max": 29
@@ -587,7 +1077,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 5000,
+                    "Rate": 4600,
+                    "Range": {
+                      "Min": 29,
+                      "Max": 50
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "ammo_stick",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 400,
                     "Range": {
                       "Min": 29,
                       "Max": 50
@@ -601,7 +1105,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 3000,
+                    "Rate": 2760,
+                    "Range": {
+                      "Min": 29,
+                      "Max": 50
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "ammo_iron_thorn",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 240,
                     "Range": {
                       "Min": 29,
                       "Max": 50
@@ -615,7 +1133,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 2000,
+                    "Rate": 1840,
+                    "Range": {
+                      "Min": 29,
+                      "Max": 50
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "ammo_silver_spike",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 160,
                     "Range": {
                       "Min": 29,
                       "Max": 50
@@ -629,7 +1161,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 2222,
+                    "Rate": 2045,
+                    "Range": {
+                      "Min": 29,
+                      "Max": 50
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "ammo_geo_pebble",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 177,
                     "Range": {
                       "Min": 29,
                       "Max": 50
@@ -643,7 +1189,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 103,
+                    "Rate": 95,
+                    "Range": {
+                      "Min": 29,
+                      "Max": 50
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "held_goggle_specs",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 8,
                     "Range": {
                       "Min": 29,
                       "Max": 50
@@ -657,7 +1217,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 1547,
+                    "Rate": 1424,
+                    "Range": {
+                      "Min": 29,
+                      "Max": 50
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "held_twist_band",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 123,
                     "Range": {
                       "Min": 29,
                       "Max": 50
@@ -671,7 +1245,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 515,
+                    "Rate": 474,
+                    "Range": {
+                      "Min": 29,
+                      "Max": 50
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "held_scope_lens",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 41,
                     "Range": {
                       "Min": 29,
                       "Max": 50
@@ -685,7 +1273,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 516,
+                    "Rate": 475,
+                    "Range": {
+                      "Min": 29,
+                      "Max": 50
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "held_power_band",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 41,
                     "Range": {
                       "Min": 29,
                       "Max": 50
@@ -699,7 +1301,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 515,
+                    "Rate": 474,
+                    "Range": {
+                      "Min": 29,
+                      "Max": 50
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "held_defense_scarf",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 41,
                     "Range": {
                       "Min": 29,
                       "Max": 50
@@ -713,7 +1329,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 515,
+                    "Rate": 474,
+                    "Range": {
+                      "Min": 29,
+                      "Max": 50
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "held_special_band",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 41,
                     "Range": {
                       "Min": 29,
                       "Max": 50
@@ -727,7 +1357,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 516,
+                    "Rate": 475,
+                    "Range": {
+                      "Min": 29,
+                      "Max": 50
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "held_zinc_band",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 41,
                     "Range": {
                       "Min": 29,
                       "Max": 50
@@ -741,7 +1385,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 515,
+                    "Rate": 474,
+                    "Range": {
+                      "Min": 29,
+                      "Max": 50
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "held_friend_bow",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 41,
                     "Range": {
                       "Min": 29,
                       "Max": 50
@@ -755,7 +1413,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 495,
+                    "Rate": 456,
+                    "Range": {
+                      "Min": 29,
+                      "Max": 50
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "seed_reviver",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 39,
                     "Range": {
                       "Min": 29,
                       "Max": 50
@@ -769,7 +1441,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 495,
+                    "Rate": 456,
+                    "Range": {
+                      "Min": 29,
+                      "Max": 50
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "seed_blinker",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 39,
                     "Range": {
                       "Min": 29,
                       "Max": 50
@@ -783,7 +1469,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 793,
+                    "Rate": 730,
+                    "Range": {
+                      "Min": 29,
+                      "Max": 50
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "seed_doom",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 63,
                     "Range": {
                       "Min": 29,
                       "Max": 50
@@ -797,7 +1497,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 594,
+                    "Rate": 547,
+                    "Range": {
+                      "Min": 29,
+                      "Max": 50
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "seed_blinker",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 47,
                     "Range": {
                       "Min": 29,
                       "Max": 50
@@ -811,7 +1525,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 495,
+                    "Rate": 456,
+                    "Range": {
+                      "Min": 29,
+                      "Max": 50
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "berry_rawst",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 39,
                     "Range": {
                       "Min": 29,
                       "Max": 50
@@ -825,7 +1553,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 495,
+                    "Rate": 456,
+                    "Range": {
+                      "Min": 29,
+                      "Max": 50
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "berry_pecha",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 39,
                     "Range": {
                       "Min": 29,
                       "Max": 50
@@ -839,7 +1581,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 495,
+                    "Rate": 456,
+                    "Range": {
+                      "Min": 29,
+                      "Max": 50
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "berry_cheri",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 39,
                     "Range": {
                       "Min": 29,
                       "Max": 50
@@ -853,7 +1609,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 495,
+                    "Rate": 456,
+                    "Range": {
+                      "Min": 29,
+                      "Max": 50
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "berry_chesto",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 39,
                     "Range": {
                       "Min": 29,
                       "Max": 50
@@ -867,7 +1637,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 495,
+                    "Rate": 456,
+                    "Range": {
+                      "Min": 29,
+                      "Max": 50
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "medicine_max_elixir",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 39,
                     "Range": {
                       "Min": 29,
                       "Max": 50
@@ -881,7 +1665,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 521,
+                    "Rate": 480,
+                    "Range": {
+                      "Min": 29,
+                      "Max": 50
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "gummi_yellow",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 41,
                     "Range": {
                       "Min": 29,
                       "Max": 50
@@ -895,7 +1693,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 521,
+                    "Rate": 480,
+                    "Range": {
+                      "Min": 29,
+                      "Max": 50
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "gummi_clear",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 41,
                     "Range": {
                       "Min": 29,
                       "Max": 50
@@ -909,7 +1721,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 521,
+                    "Rate": 480,
+                    "Range": {
+                      "Min": 29,
+                      "Max": 50
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "gummi_pink",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 41,
                     "Range": {
                       "Min": 29,
                       "Max": 50
@@ -923,7 +1749,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 520,
+                    "Rate": 479,
+                    "Range": {
+                      "Min": 29,
+                      "Max": 50
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "gummi_gold",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 41,
                     "Range": {
                       "Min": 29,
                       "Max": 50
@@ -937,7 +1777,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 521,
+                    "Rate": 480,
+                    "Range": {
+                      "Min": 29,
+                      "Max": 50
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "gummi_gray",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 41,
                     "Range": {
                       "Min": 29,
                       "Max": 50
@@ -951,7 +1805,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 521,
+                    "Rate": 480,
+                    "Range": {
+                      "Min": 29,
+                      "Max": 50
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "gummi_purple",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 41,
                     "Range": {
                       "Min": 29,
                       "Max": 50
@@ -965,7 +1833,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 521,
+                    "Rate": 480,
+                    "Range": {
+                      "Min": 29,
+                      "Max": 50
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "gummi_royal",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 41,
                     "Range": {
                       "Min": 29,
                       "Max": 50
@@ -979,7 +1861,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 521,
+                    "Rate": 480,
+                    "Range": {
+                      "Min": 29,
+                      "Max": 50
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "gummi_black",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 41,
                     "Range": {
                       "Min": 29,
                       "Max": 50
@@ -993,7 +1889,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 909,
+                    "Rate": 837,
+                    "Range": {
+                      "Min": 29,
+                      "Max": 50
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "orb_cleanse",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 72,
                     "Range": {
                       "Min": 29,
                       "Max": 50
@@ -1007,7 +1917,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 2727,
+                    "Rate": 2509,
+                    "Range": {
+                      "Min": 29,
+                      "Max": 50
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "orb_escape",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 218,
                     "Range": {
                       "Min": 29,
                       "Max": 50
@@ -1021,7 +1945,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 910,
+                    "Rate": 838,
+                    "Range": {
+                      "Min": 29,
+                      "Max": 50
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "orb_trapbust",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 72,
                     "Range": {
                       "Min": 29,
                       "Max": 50
@@ -1035,7 +1973,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 909,
+                    "Rate": 837,
+                    "Range": {
+                      "Min": 29,
+                      "Max": 50
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "orb_rollcall",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 72,
                     "Range": {
                       "Min": 29,
                       "Max": 50
@@ -1049,7 +2001,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 909,
+                    "Rate": 837,
+                    "Range": {
+                      "Min": 29,
+                      "Max": 50
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "orb_all_hit",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 72,
                     "Range": {
                       "Min": 29,
                       "Max": 50
@@ -1063,7 +2029,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 909,
+                    "Rate": 837,
+                    "Range": {
+                      "Min": 29,
+                      "Max": 50
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "orb_foe_seal",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 72,
                     "Range": {
                       "Min": 29,
                       "Max": 50

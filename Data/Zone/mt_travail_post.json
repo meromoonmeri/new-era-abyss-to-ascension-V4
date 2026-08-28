@@ -97,7 +97,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 10000,
+                    "Rate": 9500,
+                    "Range": {
+                      "Min": 0,
+                      "Max": 19
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "ammo_geo_pebble",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 500,
                     "Range": {
                       "Min": 0,
                       "Max": 19
@@ -111,7 +125,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 701,
+                    "Rate": 666,
+                    "Range": {
+                      "Min": 0,
+                      "Max": 19
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "seed_blinker",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 35,
                     "Range": {
                       "Min": 0,
                       "Max": 19
@@ -125,7 +153,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 702,
+                    "Rate": 667,
+                    "Range": {
+                      "Min": 0,
+                      "Max": 19
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "seed_doom",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 35,
                     "Range": {
                       "Min": 0,
                       "Max": 19
@@ -139,7 +181,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 702,
+                    "Rate": 667,
+                    "Range": {
+                      "Min": 0,
+                      "Max": 19
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "seed_blinker",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 35,
                     "Range": {
                       "Min": 0,
                       "Max": 19
@@ -153,7 +209,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 877,
+                    "Rate": 834,
+                    "Range": {
+                      "Min": 0,
+                      "Max": 19
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "berry_pecha",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 43,
                     "Range": {
                       "Min": 0,
                       "Max": 19
@@ -167,7 +237,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 439,
+                    "Rate": 418,
+                    "Range": {
+                      "Min": 0,
+                      "Max": 19
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "berry_cheri",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 21,
                     "Range": {
                       "Min": 0,
                       "Max": 19
@@ -181,7 +265,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 701,
+                    "Rate": 666,
+                    "Range": {
+                      "Min": 0,
+                      "Max": 19
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "seed_sleep",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 35,
                     "Range": {
                       "Min": 0,
                       "Max": 19
@@ -195,7 +293,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 1316,
+                    "Rate": 1251,
+                    "Range": {
+                      "Min": 0,
+                      "Max": 19
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "seed_warp",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 65,
                     "Range": {
                       "Min": 0,
                       "Max": 19
@@ -209,7 +321,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 1316,
+                    "Rate": 1251,
+                    "Range": {
+                      "Min": 0,
+                      "Max": 19
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "medicine_max_elixir",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 65,
                     "Range": {
                       "Min": 0,
                       "Max": 19

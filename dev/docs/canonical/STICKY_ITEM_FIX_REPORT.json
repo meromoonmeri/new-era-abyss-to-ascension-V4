@@ -1,0 +1,258 @@
+{
+ "rule": "R12 sticky_item_chance mappa_s -> InvItem.Cursed (taux exact, somme des rates preservee)",
+ "apply": true,
+ "zones": [
+  {
+   "zone": "bottomless_sea",
+   "dungeon": "d73",
+   "sticky_pct": 7,
+   "entries_split": 147,
+   "pools_already_done": 0
+  },
+  {
+   "zone": "dark_crater",
+   "dungeon": "d67",
+   "sticky_pct": 5,
+   "entries_split": 51,
+   "pools_already_done": 0
+  },
+  {
+   "zone": "deep_dark_crater",
+   "dungeon": "d68",
+   "sticky_pct": 5,
+   "entries_split": 51,
+   "pools_already_done": 0
+  },
+  {
+   "zone": "destiny_tower",
+   "dungeon": "d104",
+   "sticky_pct": 8,
+   "entries_split": 295,
+   "pools_already_done": 0
+  },
+  {
+   "zone": "eighth_station_pass",
+   "dungeon": "d118",
+   "sticky_pct": 5,
+   "entries_split": 23,
+   "pools_already_done": 0
+  },
+  {
+   "zone": "fifth_station_clearing",
+   "dungeon": "d121",
+   "sticky_pct": 5,
+   "entries_split": 23,
+   "pools_already_done": 0
+  },
+  {
+   "zone": "fifth_station_pass",
+   "dungeon": "d115",
+   "sticky_pct": 5,
+   "entries_split": 23,
+   "pools_already_done": 0
+  },
+  {
+   "zone": "first_station_pass",
+   "dungeon": "d111",
+   "sticky_pct": 5,
+   "entries_split": 23,
+   "pools_already_done": 0
+  },
+  {
+   "zone": "fourth_station_pass",
+   "dungeon": "d114",
+   "sticky_pct": 5,
+   "entries_split": 23,
+   "pools_already_done": 0
+  },
+  {
+   "zone": "giant_volcano",
+   "dungeon": "d79",
+   "sticky_pct": 5,
+   "entries_split": 26,
+   "pools_already_done": 0
+  },
+  {
+   "zone": "happy_outlook",
+   "dungeon": "d94",
+   "sticky_pct": 5,
+   "entries_split": 198,
+   "pools_already_done": 0
+  },
+  {
+   "zone": "inferno_cave",
+   "dungeon": "d110",
+   "sticky_pct": 8,
+   "entries_split": 101,
+   "pools_already_done": 0
+  },
+  {
+   "zone": "lake_afar",
+   "dungeon": "d93",
+   "sticky_pct": 5,
+   "entries_split": 86,
+   "pools_already_done": 0
+  },
+  {
+   "zone": "lost_wilderness",
+   "dungeon": "d97",
+   "sticky_pct": 7,
+   "entries_split": 162,
+   "pools_already_done": 0
+  },
+  {
+   "zone": "midnight_forest",
+   "dungeon": "d98",
+   "sticky_pct": 5,
+   "entries_split": 86,
+   "pools_already_done": 0
+  },
+  {
+   "zone": "mt_mistral",
+   "dungeon": "d95",
+   "sticky_pct": 5,
+   "entries_split": 52,
+   "pools_already_done": 0
+  },
+  {
+   "zone": "mt_travail_post",
+   "dungeon": "d62",
+   "sticky_pct": 5,
+   "entries_split": 9,
+   "pools_already_done": 0
+  },
+  {
+   "zone": "mystery_jungle",
+   "dungeon": "d85",
+   "sticky_pct": 3,
+   "entries_split": 90,
+   "pools_already_done": 0
+  },
+  {
+   "zone": "mystifying_forest_post",
+   "dungeon": "d44",
+   "sticky_pct": 5,
+   "entries_split": 119,
+   "pools_already_done": 0
+  },
+  {
+   "zone": "ninth_station_pass",
+   "dungeon": "d119",
+   "sticky_pct": 5,
+   "entries_split": 23,
+   "pools_already_done": 0
+  },
+  {
+   "zone": "oblivion_forest",
+   "dungeon": "d107",
+   "sticky_pct": 5,
+   "entries_split": 101,
+   "pools_already_done": 0
+  },
+  {
+   "zone": "second_station_pass",
+   "dungeon": "d112",
+   "sticky_pct": 5,
+   "entries_split": 23,
+   "pools_already_done": 0
+  },
+  {
+   "zone": "seventh_station_pass",
+   "dungeon": "d117",
+   "sticky_pct": 5,
+   "entries_split": 23,
+   "pools_already_done": 0
+  },
+  {
+   "zone": "shimmer_hill",
+   "dungeon": "d96",
+   "sticky_pct": 5,
+   "entries_split": 82,
+   "pools_already_done": 0
+  },
+  {
+   "zone": "sixth_station_pass",
+   "dungeon": "d116",
+   "sticky_pct": 5,
+   "entries_split": 23,
+   "pools_already_done": 0
+  },
+  {
+   "zone": "sky_peak_summit_pass",
+   "dungeon": "d120",
+   "sticky_pct": 5,
+   "entries_split": 23,
+   "pools_already_done": 0
+  },
+  {
+   "zone": "sky_stairway",
+   "dungeon": "d83",
+   "sticky_pct": 5,
+   "entries_split": 64,
+   "pools_already_done": 0
+  },
+  {
+   "zone": "southeastern_islands",
+   "dungeon": "d109",
+   "sticky_pct": 8,
+   "entries_split": 101,
+   "pools_already_done": 0
+  },
+  {
+   "zone": "surrounded_sea",
+   "dungeon": "d50",
+   "sticky_pct": 7,
+   "entries_split": 107,
+   "pools_already_done": 0
+  },
+  {
+   "zone": "third_station_pass",
+   "dungeon": "d113",
+   "sticky_pct": 5,
+   "entries_split": 23,
+   "pools_already_done": 0
+  },
+  {
+   "zone": "treacherous_waters",
+   "dungeon": "d108",
+   "sticky_pct": 8,
+   "entries_split": 101,
+   "pools_already_done": 0
+  },
+  {
+   "zone": "zero_isle_center",
+   "dungeon": "d103",
+   "sticky_pct": 8,
+   "entries_split": 70,
+   "pools_already_done": 0
+  },
+  {
+   "zone": "zero_isle_east",
+   "dungeon": "d100",
+   "sticky_pct": 5,
+   "entries_split": 325,
+   "pools_already_done": 0
+  },
+  {
+   "zone": "zero_isle_north",
+   "dungeon": "d99",
+   "sticky_pct": 5,
+   "entries_split": 60,
+   "pools_already_done": 0
+  },
+  {
+   "zone": "zero_isle_south",
+   "dungeon": "d102",
+   "sticky_pct": 5,
+   "entries_split": 668,
+   "pools_already_done": 0
+  },
+  {
+   "zone": "zero_isle_west",
+   "dungeon": "d101",
+   "sticky_pct": 5,
+   "entries_split": 408,
+   "pools_already_done": 0
+  }
+ ]
+}
