@@ -41,6 +41,19 @@ Branche `arena/01a0357e-new-era-abyss-to-ascension-v4`. Base d'audit : `dev/docs
 - Preuve runtime : `monster_house_items_proof.jsonl` (MH 23–32 mobs, zones rechargées sans erreur) + **GLOBAL_JOURNEY_PASS re-confirmé** (14ch/313 étages, `journey_post_mh_items_proof.jsonl`).
 - Volet pièges 50/50 : reste PARTIAL (MonsterHouseStep PMDO ne pose pas de pièges — primitive C# au cycle moteur).
 
+### LOT E-GBA — Kecleon Red vs ROM (R5) — commit `37864e39`
+- Outil : `dev/tools/audit_kecleon_gba_vs_rom.py` (audit + --fix) ; rapport `KECLEON_GBA_VS_ROM_AUDIT.json`.
+- Contre-épreuve exhaustive kecleonShopChance (FloorProperties offset 7, stream main_data.inc/28) sur les 51 donjons mappés : **25 PASS**, **25 EXTRA_INHERITED_PORT** (ShopStep du port d'origine avec chance ROM=0 — conservés §62, documentés), **mt_blaze FIXED** (chances ROM 6-10 % par étage + table KecleonShop ROM de dungeon_item_data.json mappée via convert_item). Preuve runtime : `red/kecleon_mt_blaze_proof.jsonl` (3 étages Kecleon ≈ 5 % vs 6-10 % ROM).
+
+### LOT G' — Impasses canoniques Sky (R9 dead_ends) — commit `a3946568`
+- Outil : `dev/tools/fix_dead_ends_sky.py` ; rapport `DEAD_ENDS_SKY_FIX_REPORT.json`.
+- Loi EoS (dungeon-eos create_connections l.507) : dead_end=1 ⇒ impasses CONSERVÉES. 707 ConnectGridBranchStep 100→0 sur les étages `dead_ends=true` (114 zones). Preuve : 80/80 étages régénérés avec escalier accessible (DetectIsolatedStairsStep protège), 0 layout dupliqué.
+
+### LOT H' — Météo par étage Sky (§31) — commit `fecc312e`
+- Outil : `dev/tools/fix_weather_sky.py` ; rapport `WEATHER_SKY_FIX_REPORT.json`.
+- 139 étages / 31 zones : `weather` mappa_s → `DefaultMapStatusStep(default_weather,[fog/cloudy/sunny/rain/sandstorm/snow])` (pattern vanilla barren_tundra). Preuve runtime : `weather_per_floor_proof.jsonl` — blizzard_island : `map_status=default_weather,snow` EXACTEMENT aux étages 4 et 8 (= mappa_s), les autres étages restent clear. RANDOM (81 étages) : UNIMPLEMENTED_DATA documenté (tirage météo EoS = step à créer au cycle moteur).
+- GLOBAL_JOURNEY_PASS re-confirmé après G'+H' (14ch/313 étages/870 mobs).
+
 ## 2. Outillage nouveau (§16 ASCII + stats)
 - `dprobe` étendu (validator Lua) : dumps **ASCII tuile/tuile** (murs/sol/eau/lave/gouffre/escaliers `>`/pièges `^`/items `$`/mobs `M`), répétitions **multi-seed** (`PMDO_DPROBE_REPS`, reseed ReRandom), comptage **MH en attente** (`mh_mobs`), **shopkeepers** (`neutrals`), cible `zone@segment`, clamp FloorCount.
 - `dev/tools/analyze_dungeon_generation_stats.py` : stats §36 (min/max/moy mobs/items/traps, hash structurel des layouts, détection identiques/quasi-identiques ≥98 %).
@@ -67,6 +80,7 @@ Branche `arena/01a0357e-new-era-abyss-to-ascension-v4`. Base d'audit : `dev/docs
 - Skyjourney relancé intégralement après fix (verdict consigné dans runtime_audit.json).
 
 ## 5. Restes documentés (jamais supprimés silencieusement)
+État après lots E-GBA/F'/G'/H' : R4.5-items TRAITÉ (LOT F'), R5-GBA TRAITÉ (audit+mt_blaze), R9-dead_ends TRAITÉ (LOT G'), météo fixe TRAITÉE (LOT H'). Restent :
 1. R7 imperfections / R10 RoomGenMaze / R8 ISLAND composé : PARTIAL — nécessitent des primitives C# nouvelles (RoomGenImperfect/RoomGenMaze) ; le bundle headless actuel ne compile pas PMDC → à faire lors d'un cycle moteur (documenté, aucune donnée perdue).
 2. MobThemeRoomScaled (MH ∝ salle exacte) : approximation data en place ; primitive C# au même cycle moteur.
 3. Secret Bazaar (PNJ Sky) dans les salles secrètes : PORTED_APPROXIMATED.
