@@ -13,5 +13,19 @@
   "hidden_stairs_runtime_proof.jsonl"
  ],
  "baseline_stats": "dev/docs/AUDIT_PRE_MODIFICATION/GENERATION_STATS_BASELINE.md (400 étages, 0 doublon)",
- "redjourney": "relancé (résultat au prochain jalon)"
+ "redjourney": {
+  "verdict": "RED_GLOBAL_JOURNEY_PASS",
+  "chapters": 13,
+  "floors": 182,
+  "bosses": [
+   "skarmory",
+   "zapdos",
+   "moltres",
+   "glalie",
+   "groudon",
+   "rayquaza"
+  ],
+  "proof": "dev/docs/canonical/red/journey_post_dungeon_modernization_proof.jsonl",
+  "note": "après lots A-E + fix LoadGen + fix TEAMMATE_2/3 antérieur — première re-preuve red complète"
+ }
 }
