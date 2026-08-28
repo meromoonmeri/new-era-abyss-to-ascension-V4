@@ -1,0 +1,7 @@
+{"event":"dprobe_begin","count":2}
+{"event":"dprobe_floor","zone":"magma_pit_groudon","floor":0,"mobs":1,"items":0,"traps":0,"species":"groudon"}
+{"event":"dprobe_formation","zone":"magma_pit_groudon","ally0":["turtwig",5,4,Up: 4],"ally1":["piplup",5,5,Up: 4],"ally2":["growlithe",4,5,UpRight: 5],"ally3":["zigzagoon",5,6,Up: 4],"foe0_0":["groudon",5,1,Down: 0]}
+{"event":"dprobe_floor","zone":"sky_summit_rayquaza","floor":0,"mobs":1,"items":0,"traps":0,"species":"rayquaza"}
+{"event":"dprobe_formation","zone":"sky_summit_rayquaza","ally0":["turtwig",6,8,Up: 4],"ally1":["piplup",6,9,Up: 4],"ally2":["growlithe",5,9,UpRight: 5],"ally3":["zigzagoon",7,9,UpLeft: 3],"foe0_0":["rayquaza",6,7,Down: 0]}
+{"event":"dprobe_end","verdict":"DPROBE_DONE"}
+{"event":"end"}

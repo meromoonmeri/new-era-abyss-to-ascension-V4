@@ -304,6 +304,23 @@ function V:OnDungeonFloorEnter()
       end end
     end)
     emit('{"event":"dprobe_floor","zone":"'..cz..'","floor":'..floor..',"mobs":'..mobs..',"items":'..items..',"traps":'..traps..',"species":"'..table.concat(species,',')..'"}')
+    -- preuve formation: positions/directions réelles équipe + ennemis
+    pcall(function()
+      local parts={}
+      local team=_DATA.Save.ActiveTeam
+      for pi=0,team.Players.Count-1 do
+        local c=team.Players[pi]
+        parts[#parts+1]='"ally'..pi..'":["'..tostring(c.BaseForm.Species)..'",'..c.CharLoc.X..','..c.CharLoc.Y..','..tostring(c.CharDir)..']'
+      end
+      for ti=0,map.MapTeams.Count-1 do
+        local t2=map.MapTeams[ti]
+        for pi=0,t2.Players.Count-1 do
+          local c=t2.Players[pi]
+          parts[#parts+1]='"foe'..ti..'_'..pi..'":["'..tostring(c.BaseForm.Species)..'",'..c.CharLoc.X..','..c.CharLoc.Y..','..tostring(c.CharDir)..']'
+        end
+      end
+      emit('{"event":"dprobe_formation","zone":"'..cz..'",'..table.concat(parts,',')..'}')
+    end)
     if floor+1<self.dprobe_floors then
       GAME:EnterZone(cz,0,floor+1,0)
     else
