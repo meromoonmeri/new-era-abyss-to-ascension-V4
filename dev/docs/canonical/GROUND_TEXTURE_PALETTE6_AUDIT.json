@@ -1,0 +1,25 @@
+{
+ "schema": "ground-texture-audit/1",
+ "mt_blaze_mt_freeze": {
+  "d09p03 (Mt Blaze Summit ground)": "CORRIGÉ — pixels famille palette-6 GBA (cyclage OAM brûlé dans les captures framebuffer) remplacés par le fond de cellule; preuve ROM: BMA layer0=chunk 0 (fond uni) à ces positions; render final 0 pixel hors-gamme",
+  "mt_blaze_summit.rsmap + Arena_mt_blaze_summit": "CORRIGÉ — mêmes cellules (sheets dérivés du même framebuffer)",
+  "d10p03 / frosty_forest_summit (Mt Gelé)": "AUDITÉ PROPRE — 0 cellule palette-6 (scan exhaustif), 0 pixel hors-gamme au render"
+ },
+ "contre_epreuves_pixel_perfect": {
+  "v12p01a": "diff nulle vs rendu ROM direct skytemple BMA.to_pil (1248x240, bbox None)",
+  "t01p02a": "6.8% de pixels différents EXPLIQUÉS: la référence skytemple sans BPA laisse les cellules d'eau animée vides (invalid tile reference) — notre version contient l'eau animée composée; PASS",
+  "t01p03": "restauré après nettoyage collatéral (ciel bleu = couleurs légitimes), diff nulle vs état antérieur"
+ },
+ "collateral_annule": [
+  "D11p03",
+  "D29p11a",
+  "PicArcEnCiel",
+  "S13p05a",
+  "V12p01a",
+  "b08p01c",
+  "h05p02",
+  "s01",
+  "t01p03 (git checkout)"
+ ],
+ "verdict": "CRITICAL=0 sur les sommets signalés (Mt Blaze / Mt Gelé)"
+}
