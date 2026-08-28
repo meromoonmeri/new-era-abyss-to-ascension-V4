@@ -91284,7 +91284,51 @@
         "Name": "New EntLayer",
         "Visible": true,
         "MapChars": [],
-        "GroundObjects": [],
+        "GroundObjects": [
+          {
+            "EntName": "Kangaskhan_Rock",
+            "Direction": 0,
+            "EntEnabled": true,
+            "EntOrder": 0,
+            "InteractOrder": 0,
+            "triggerType": 1,
+            "ObjectAnim": {
+              "$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+              "AnimIndex": "Statue_Dungeon",
+              "FrameTime": 1,
+              "StartFrame": -1,
+              "EndFrame": -1,
+              "AnimDir": -1,
+              "Alpha": 255,
+              "AnimFlip": 0
+            },
+            "Passable": false,
+            "CurrentAnim": {
+              "$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+              "AnimIndex": "",
+              "FrameTime": 1,
+              "StartFrame": -1,
+              "EndFrame": -1,
+              "AnimDir": 0,
+              "Alpha": 255,
+              "AnimFlip": 0
+            },
+            "AnimTime": {
+              "Ticks": 0
+            },
+            "Cycles": 0,
+            "DrawOffset": {
+              "X": 4,
+              "Y": 8
+            },
+            "Collider": {
+              "X": 228,
+              "Y": 240,
+              "Width": 24,
+              "Height": 24
+            }
+          }
+        ],
         "Spawners": [],
         "Markers": [
           {

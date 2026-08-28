@@ -1,0 +1,515 @@
+{
+ "D06P11A": [
+  {
+   "layer": 0,
+   "name": "OBJECT001",
+   "x": 312,
+   "y": 228,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D07P11A": [
+  {
+   "layer": 0,
+   "name": "OBJECT001",
+   "x": 280,
+   "y": 172,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D08P11A": [
+  {
+   "layer": 0,
+   "name": "OBJECT001",
+   "x": 388,
+   "y": 364,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D09P11A": [
+  {
+   "layer": 0,
+   "name": "OBJECT001",
+   "x": 192,
+   "y": 236,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D10P21A": [
+  {
+   "layer": 0,
+   "name": "OBJECT002",
+   "x": 228,
+   "y": 240,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D12P21A": [
+  {
+   "layer": 0,
+   "name": "OBJECT002",
+   "x": 228,
+   "y": 240,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D15P21A": [
+  {
+   "layer": 0,
+   "name": "OBJECT002",
+   "x": 228,
+   "y": 240,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D16P31A": [
+  {
+   "layer": 0,
+   "name": "OBJECT001",
+   "x": 216,
+   "y": 308,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D18P11A": [
+  {
+   "layer": 0,
+   "name": "OBJECT001",
+   "x": 436,
+   "y": 156,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D19P11A": [
+  {
+   "layer": 0,
+   "name": "OBJECT001",
+   "x": 536,
+   "y": 160,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D20P11A": [
+  {
+   "layer": 0,
+   "name": "OBJECT001",
+   "x": 424,
+   "y": 172,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D21P21A": [
+  {
+   "layer": 0,
+   "name": "OBJECT002",
+   "x": 228,
+   "y": 240,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D22P11A": [
+  {
+   "layer": 0,
+   "name": "OBJECT001",
+   "x": 224,
+   "y": 236,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D23P11A": [
+  {
+   "layer": 0,
+   "name": "OBJECT001",
+   "x": 208,
+   "y": 308,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D24P11A": [
+  {
+   "layer": 0,
+   "name": "OBJECT001",
+   "x": 344,
+   "y": 228,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D25P11A": [
+  {
+   "layer": 0,
+   "name": "OBJECT001",
+   "x": 376,
+   "y": 260,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D26P21A": [
+  {
+   "layer": 0,
+   "name": "OBJECT002",
+   "x": 228,
+   "y": 240,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D27P11A": [
+  {
+   "layer": 0,
+   "name": "OBJECT001",
+   "x": 200,
+   "y": 260,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D28P21A": [
+  {
+   "layer": 0,
+   "name": "OBJECT002",
+   "x": 228,
+   "y": 240,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D29P11A": [
+  {
+   "layer": 0,
+   "name": "OBJECT001",
+   "x": 256,
+   "y": 268,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D30P21A": [
+  {
+   "layer": 0,
+   "name": "OBJECT002",
+   "x": 228,
+   "y": 240,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D31P11A": [
+  {
+   "layer": 0,
+   "name": "OBJECT001",
+   "x": 216,
+   "y": 228,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D35P21A": [
+  {
+   "layer": 0,
+   "name": "OBJECT002",
+   "x": 228,
+   "y": 240,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D38P12A": [
+  {
+   "layer": 0,
+   "name": "OBJECT001",
+   "x": 152,
+   "y": 148,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D39P21A": [
+  {
+   "layer": 0,
+   "name": "OBJECT002",
+   "x": 228,
+   "y": 240,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D41P21A": [
+  {
+   "layer": 0,
+   "name": "OBJECT002",
+   "x": 228,
+   "y": 240,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D42P21A": [
+  {
+   "layer": 0,
+   "name": "OBJECT002",
+   "x": 228,
+   "y": 240,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D45P21A": [
+  {
+   "layer": 0,
+   "name": "OBJECT002",
+   "x": 228,
+   "y": 240,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D46P11A": [
+  {
+   "layer": 0,
+   "name": "OBJECT002",
+   "x": 180,
+   "y": 192,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D46P21A": [
+  {
+   "layer": 0,
+   "name": "OBJECT002",
+   "x": 228,
+   "y": 240,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D47P11A": [
+  {
+   "layer": 0,
+   "name": "OBJECT002",
+   "x": 124,
+   "y": 132,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D48P11A": [
+  {
+   "layer": 0,
+   "name": "OBJECT002",
+   "x": 248,
+   "y": 264,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D48P21A": [
+  {
+   "layer": 0,
+   "name": "OBJECT002",
+   "x": 228,
+   "y": 240,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D50P11A": [
+  {
+   "layer": 0,
+   "name": "OBJECT002",
+   "x": 244,
+   "y": 204,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D51P11A": [
+  {
+   "layer": 0,
+   "name": "OBJECT002",
+   "x": 360,
+   "y": 128,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D51P21A": [
+  {
+   "layer": 0,
+   "name": "OBJECT002",
+   "x": 228,
+   "y": 240,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D52P11A": [
+  {
+   "layer": 0,
+   "name": "OBJECT002",
+   "x": 336,
+   "y": 216,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D53P11A": [
+  {
+   "layer": 0,
+   "name": "OBJECT002",
+   "x": 320,
+   "y": 132,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D53P21A": [
+  {
+   "layer": 0,
+   "name": "OBJECT002",
+   "x": 228,
+   "y": 240,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D54P11A": [
+  {
+   "layer": 0,
+   "name": "OBJECT002",
+   "x": 304,
+   "y": 168,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D55P11A": [
+  {
+   "layer": 0,
+   "name": "OBJECT002",
+   "x": 364,
+   "y": 208,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D55P21A": [
+  {
+   "layer": 0,
+   "name": "OBJECT002",
+   "x": 228,
+   "y": 240,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D56P11A": [
+  {
+   "layer": 0,
+   "name": "OBJECT002",
+   "x": 184,
+   "y": 248,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D56P21A": [
+  {
+   "layer": 0,
+   "name": "OBJECT002",
+   "x": 228,
+   "y": 240,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D57P21A": [
+  {
+   "layer": 0,
+   "name": "OBJECT002",
+   "x": 228,
+   "y": 240,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D73P11A": [
+  {
+   "layer": 0,
+   "name": "OBJECT002",
+   "x": 420,
+   "y": 168,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D73P21A": [
+  {
+   "layer": 10,
+   "name": "OBJECT002",
+   "x": 228,
+   "y": 240,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D73P22A": [
+  {
+   "layer": 10,
+   "name": "OBJECT002",
+   "x": 288,
+   "y": 192,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D73P23A": [
+  {
+   "layer": 10,
+   "name": "OBJECT002",
+   "x": 228,
+   "y": 240,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D73P24A": [
+  {
+   "layer": 10,
+   "name": "OBJECT002",
+   "x": 288,
+   "y": 192,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D73P26A": [
+  {
+   "layer": 10,
+   "name": "OBJECT002",
+   "x": 288,
+   "y": 192,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D73P27A": [
+  {
+   "layer": 0,
+   "name": "OBJECT002",
+   "x": 276,
+   "y": 184,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D73P28A": [
+  {
+   "layer": 0,
+   "name": "OBJECT002",
+   "x": 180,
+   "y": 208,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D73P29A": [
+  {
+   "layer": 0,
+   "name": "OBJECT002",
+   "x": 268,
+   "y": 200,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D79P11A": [
+  {
+   "layer": 0,
+   "name": "OBJECT001",
+   "x": 216,
+   "y": 364,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "D79P21A": [
+  {
+   "layer": 0,
+   "name": "OBJECT002",
+   "x": 228,
+   "y": 240,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ],
+ "P19P01A": [
+  {
+   "layer": 0,
+   "name": "OBJECT001",
+   "x": 196,
+   "y": 176,
+   "dir": "Pmd2ScriptDirection<{'ssa_id': 1, 'ssb_id': 0, 'name': 'Down'}>"
+  }
+ ]
+}
