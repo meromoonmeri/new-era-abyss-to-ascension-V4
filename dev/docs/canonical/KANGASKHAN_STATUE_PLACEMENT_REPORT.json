@@ -31,36 +31,15 @@
   "d79p11a": 1,
   "p19p01a": 1
  },
- "absent_grounds": [
-  "d10p21a",
-  "d12p21a",
-  "d15p21a",
-  "d26p21a",
-  "d28p21a",
-  "d30p21a",
-  "d35p21a",
-  "d38p12a",
-  "d39p21a",
-  "d41p21a",
-  "d42p21a",
-  "d45p21a",
-  "d46p21a",
-  "d48p21a",
-  "d51p21a",
-  "d53p21a",
-  "d55p21a",
-  "d56p21a",
-  "d57p21a",
-  "d73p21a",
-  "d73p22a",
-  "d73p23a",
-  "d73p24a",
-  "d73p26a",
-  "d73p27a",
-  "d73p29a",
-  "d79p21a"
- ],
+ "absent_grounds": [],
  "authority": "SSA enter.sse ROM Sky EU (OBJECT001/OBJECT002 entid 554 sprite 597), positions x_absolute/y_absolute 1:1 px (convention hubnpc runtime-validée)",
  "asset": "Statue_Dungeon PMDO (règle PMDO-prioritaire, correspondance visuelle sprite 597 vérifiée)",
- "red_note": "PMD Red GBA: la statue Kangourex du Dépôt fait partie du décor BG de t01p01 (Place Pokémon) — déjà présente dans le ground importé pixel-perfect, aucun objet à poser"
+ "red_note": "PMD Red GBA: la statue Kangourex du Dépôt fait partie du décor BG de t01p01 (Place Pokémon) — déjà présente dans le ground importé pixel-perfect, aucun objet à poser",
+ "rest_grounds_imported": {
+  "count": 27,
+  "statues_placed": 27,
+  "tool": "dev/tools/promote_sky_rest_grounds.py",
+  "runtime_proof": "dev/docs/canonical/sky/rest_grounds_runtime_proof.jsonl (27/27 LOAD+MOVEMENT_PASS)",
+  "note": "placements SSA enter.sse 1:1 pixels, modele GroundObject d06p11a exact"
+ }
 }

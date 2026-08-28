@@ -1,0 +1,168 @@
+{
+ "promoted": [
+  {
+   "ground": "d10p21a",
+   "statues": 1,
+   "sheet": "D10p21a_Base",
+   "status": "OK"
+  },
+  {
+   "ground": "d12p21a",
+   "statues": 1,
+   "sheet": "D12p21a_Base",
+   "status": "OK"
+  },
+  {
+   "ground": "d15p21a",
+   "statues": 1,
+   "sheet": "D15p21a_Base",
+   "status": "OK"
+  },
+  {
+   "ground": "d26p21a",
+   "statues": 1,
+   "sheet": "D26p21a_Base",
+   "status": "OK"
+  },
+  {
+   "ground": "d28p21a",
+   "statues": 1,
+   "sheet": "D28p21a_Base",
+   "status": "OK"
+  },
+  {
+   "ground": "d30p21a",
+   "statues": 1,
+   "sheet": "D30p21a_Base",
+   "status": "OK"
+  },
+  {
+   "ground": "d35p21a",
+   "statues": 1,
+   "sheet": "D35p21a_Base",
+   "status": "OK"
+  },
+  {
+   "ground": "d38p12a",
+   "statues": 1,
+   "sheet": "D38p12a_Base",
+   "status": "OK"
+  },
+  {
+   "ground": "d39p21a",
+   "statues": 1,
+   "sheet": "D39p21a_Base",
+   "status": "OK"
+  },
+  {
+   "ground": "d41p21a",
+   "statues": 1,
+   "sheet": "D41p21a_Base",
+   "status": "OK"
+  },
+  {
+   "ground": "d42p21a",
+   "statues": 1,
+   "sheet": "D42p21a_Base",
+   "status": "OK"
+  },
+  {
+   "ground": "d45p21a",
+   "statues": 1,
+   "sheet": "D45p21a_Base",
+   "status": "OK"
+  },
+  {
+   "ground": "d46p21a",
+   "statues": 1,
+   "sheet": "D46p21a_Base",
+   "status": "OK"
+  },
+  {
+   "ground": "d48p21a",
+   "statues": 1,
+   "sheet": "D48p21a_Base",
+   "status": "OK"
+  },
+  {
+   "ground": "d51p21a",
+   "statues": 1,
+   "sheet": "D51p21a_Base",
+   "status": "OK"
+  },
+  {
+   "ground": "d53p21a",
+   "statues": 1,
+   "sheet": "D53p21a_Base",
+   "status": "OK"
+  },
+  {
+   "ground": "d55p21a",
+   "statues": 1,
+   "sheet": "D55p21a_Base",
+   "status": "OK"
+  },
+  {
+   "ground": "d56p21a",
+   "statues": 1,
+   "sheet": "D56p21a_Base",
+   "status": "OK"
+  },
+  {
+   "ground": "d57p21a",
+   "statues": 1,
+   "sheet": "D57p21a_Base",
+   "status": "OK"
+  },
+  {
+   "ground": "d73p21a",
+   "statues": 1,
+   "sheet": "D73p21a_Base",
+   "status": "OK"
+  },
+  {
+   "ground": "d73p22a",
+   "statues": 1,
+   "sheet": "D73p22a_Base",
+   "status": "OK"
+  },
+  {
+   "ground": "d73p23a",
+   "statues": 1,
+   "sheet": "D73p23a_Base",
+   "status": "OK"
+  },
+  {
+   "ground": "d73p24a",
+   "statues": 1,
+   "sheet": "D73p24a_Base",
+   "status": "OK"
+  },
+  {
+   "ground": "d73p26a",
+   "statues": 1,
+   "sheet": "D73p26a_Base",
+   "status": "OK"
+  },
+  {
+   "ground": "d73p27a",
+   "statues": 1,
+   "sheet": "D73p27a_Base",
+   "status": "OK"
+  },
+  {
+   "ground": "d73p29a",
+   "statues": 1,
+   "sheet": "D73p29a_Base",
+   "status": "OK"
+  },
+  {
+   "ground": "d79p21a",
+   "statues": 1,
+   "sheet": "D79p21a_Base",
+   "status": "OK"
+  }
+ ],
+ "statues_placed": 27,
+ "apply": true
+}
