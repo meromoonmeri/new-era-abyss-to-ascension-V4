@@ -5455,7 +5455,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 20,
+                    "Rate": 19,
+                    "Range": {
+                      "Min": 0,
+                      "Max": 10
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "ammo_geo_pebble",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 1,
                     "Range": {
                       "Min": 0,
                       "Max": 10
@@ -12352,7 +12366,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 20,
+                    "Rate": 19,
+                    "Range": {
+                      "Min": 0,
+                      "Max": 9
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "ammo_geo_pebble",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 1,
                     "Range": {
                       "Min": 0,
                       "Max": 9

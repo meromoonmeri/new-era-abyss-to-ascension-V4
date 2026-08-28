@@ -1,0 +1,25 @@
+{
+ "rule": "R12 GBA itemStickyChance (offset 10, valeur unique 5%) -> InvItem.Cursed rate*5//100, somme des rates préservée",
+ "zones": [
+  {
+   "zone": "buried_relic",
+   "sticky_pct": 5,
+   "entries_split": 6
+  },
+  {
+   "zone": "darknight_relic",
+   "sticky_pct": 5,
+   "entries_split": 2
+  },
+  {
+   "zone": "purity_forest",
+   "sticky_pct": 5,
+   "entries_split": 4
+  },
+  {
+   "zone": "waterfall_pond",
+   "sticky_pct": 5,
+   "entries_split": 2
+  }
+ ]
+}

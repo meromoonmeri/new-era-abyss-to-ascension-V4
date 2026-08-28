@@ -13672,7 +13672,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 20,
+                    "Rate": 19,
+                    "Range": {
+                      "Min": 0,
+                      "Max": 25
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "machine_recall_box",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 1,
                     "Range": {
                       "Min": 0,
                       "Max": 25
@@ -29758,7 +29772,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 20,
+                    "Rate": 19,
+                    "Range": {
+                      "Min": 0,
+                      "Max": 25
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "machine_recall_box",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 1,
                     "Range": {
                       "Min": 0,
                       "Max": 25
@@ -46322,7 +46350,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 20,
+                    "Rate": 19,
+                    "Range": {
+                      "Min": 0,
+                      "Max": 24
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "machine_recall_box",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 1,
                     "Range": {
                       "Min": 0,
                       "Max": 24
@@ -63416,7 +63458,21 @@
                       "Amount": 0,
                       "Price": 0
                     },
-                    "Rate": 20,
+                    "Rate": 19,
+                    "Range": {
+                      "Min": 0,
+                      "Max": 25
+                    }
+                  },
+                  {
+                    "Spawn": {
+                      "ID": "machine_recall_box",
+                      "Cursed": true,
+                      "HiddenValue": "",
+                      "Amount": 0,
+                      "Price": 0
+                    },
+                    "Rate": 1,
                     "Range": {
                       "Min": 0,
                       "Max": 25
