@@ -1,0 +1,1075 @@
+{
+ "rule": "R6 structure mappa_s -> GridPath exact (dungeon-eos)",
+ "apply": true,
+ "zones": [
+  {
+   "zone": "apple_woods",
+   "dungeon": "d07",
+   "segment": 0,
+   "floors": [
+    {
+     "floor": 7,
+     "structure": "RING",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      6,
+      4
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 8,
+     "structure": "CROSSROADS",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      5,
+      4
+     ],
+     "status": "CHANGED"
+    }
+   ],
+   "changed": 2
+  },
+  {
+   "zone": "bottomless_sea",
+   "dungeon": "d73",
+   "segment": 0,
+   "floors": [
+    {
+     "floor": 28,
+     "structure": "CROSSROADS",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      5,
+      4
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 32,
+     "structure": "RING",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      6,
+      4
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 36,
+     "structure": "CROSS",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      3,
+      3
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 40,
+     "structure": "BETTLE",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      3,
+      3
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 41,
+     "structure": "BETTLE",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      3,
+      3
+     ],
+     "status": "CHANGED"
+    }
+   ],
+   "changed": 5
+  },
+  {
+   "zone": "chasm_cave",
+   "dungeon": "d27",
+   "segment": 0,
+   "floors": [
+    {
+     "floor": 1,
+     "structure": "LINE",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      5,
+      1
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 2,
+     "structure": "CROSSROADS",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      5,
+      4
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 3,
+     "structure": "CROSSROADS",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      5,
+      4
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 4,
+     "structure": "LINE",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      5,
+      1
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 5,
+     "structure": "CROSSROADS",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      5,
+      4
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 6,
+     "structure": "CROSSROADS",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      5,
+      4
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 7,
+     "structure": "LINE",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      5,
+      1
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 8,
+     "structure": "CROSSROADS",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      5,
+      4
+     ],
+     "status": "CHANGED"
+    }
+   ],
+   "changed": 8
+  },
+  {
+   "zone": "dark_crater",
+   "dungeon": "d67",
+   "segment": 0,
+   "floors": [
+    {
+     "floor": 2,
+     "structure": "CROSSROADS",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      5,
+      4
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 4,
+     "structure": "CROSSROADS",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      5,
+      4
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 7,
+     "structure": "RING",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      6,
+      4
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 10,
+     "structure": "RING",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      6,
+      4
+     ],
+     "status": "CHANGED"
+    }
+   ],
+   "changed": 4
+  },
+  {
+   "zone": "dark_hill",
+   "dungeon": "d28",
+   "segment": 0,
+   "floors": [
+    {
+     "floor": 6,
+     "structure": "BETTLE",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      3,
+      3
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 11,
+     "structure": "BETTLE",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      3,
+      3
+     ],
+     "status": "CHANGED"
+    }
+   ],
+   "changed": 2
+  },
+  {
+   "zone": "giant_volcano",
+   "dungeon": "d79",
+   "segment": 0,
+   "floors": [
+    {
+     "floor": 6,
+     "structure": "BETTLE",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      3,
+      3
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 11,
+     "structure": "BETTLE",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      3,
+      3
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 18,
+     "structure": "BETTLE",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      3,
+      3
+     ],
+     "status": "CHANGED"
+    }
+   ],
+   "changed": 3
+  },
+  {
+   "zone": "lake_afar",
+   "dungeon": "d93",
+   "segment": 0,
+   "floors": [
+    {
+     "floor": 10,
+     "structure": "CROSS",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      3,
+      3
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 11,
+     "structure": "CROSS",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      3,
+      3
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 12,
+     "structure": "CROSS",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      3,
+      3
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 13,
+     "structure": "CROSS",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      3,
+      3
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 14,
+     "structure": "CROSS",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      3,
+      3
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 15,
+     "structure": "CROSSROADS",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      5,
+      4
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 16,
+     "structure": "RING",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      6,
+      4
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 17,
+     "structure": "CROSSROADS",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      5,
+      4
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 18,
+     "structure": "RING",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      6,
+      4
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 19,
+     "structure": "CROSSROADS",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      5,
+      4
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 20,
+     "structure": "RING",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      6,
+      4
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 21,
+     "structure": "CROSSROADS",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      5,
+      4
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 22,
+     "structure": "RING",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      6,
+      4
+     ],
+     "status": "CHANGED"
+    }
+   ],
+   "changed": 13
+  },
+  {
+   "zone": "midnight_forest",
+   "dungeon": "d98",
+   "segment": 0,
+   "floors": [
+    {
+     "floor": 11,
+     "structure": "CROSS",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      3,
+      3
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 12,
+     "structure": "CROSS",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      3,
+      3
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 13,
+     "structure": "CROSS",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      3,
+      3
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 14,
+     "structure": "CROSS",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      3,
+      3
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 15,
+     "structure": "CROSS",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      3,
+      3
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 16,
+     "structure": "CROSS",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      3,
+      3
+     ],
+     "status": "CHANGED"
+    }
+   ],
+   "changed": 6
+  },
+  {
+   "zone": "mt_mistral",
+   "dungeon": "d95",
+   "segment": 0,
+   "floors": [
+    {
+     "floor": 3,
+     "structure": "CROSSROADS",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      5,
+      4
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 8,
+     "structure": "CROSSROADS",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      5,
+      4
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 11,
+     "structure": "CROSSROADS",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      5,
+      4
+     ],
+     "status": "CHANGED"
+    }
+   ],
+   "changed": 3
+  },
+  {
+   "zone": "sealed_ruin",
+   "dungeon": "d29",
+   "segment": 0,
+   "floors": [
+    {
+     "floor": 6,
+     "structure": "BETTLE",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      3,
+      3
+     ],
+     "status": "CHANGED"
+    }
+   ],
+   "changed": 1
+  },
+  {
+   "zone": "shimmer_desert",
+   "dungeon": "d75",
+   "segment": 0,
+   "floors": [
+    {
+     "floor": 4,
+     "structure": "RING",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      6,
+      4
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 6,
+     "structure": "RING",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      6,
+      4
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 8,
+     "structure": "CROSSROADS",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      5,
+      4
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 9,
+     "structure": "CROSSROADS",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      5,
+      4
+     ],
+     "status": "CHANGED"
+    }
+   ],
+   "changed": 4
+  },
+  {
+   "zone": "shimmer_hill",
+   "dungeon": "d96",
+   "segment": 0,
+   "floors": [
+    {
+     "floor": 9,
+     "structure": "CROSS",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      3,
+      3
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 10,
+     "structure": "CROSS",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      3,
+      3
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 12,
+     "structure": "CROSS",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      3,
+      3
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 14,
+     "structure": "CROSS",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      3,
+      3
+     ],
+     "status": "CHANGED"
+    }
+   ],
+   "changed": 4
+  },
+  {
+   "zone": "sky_stairway",
+   "dungeon": "d83",
+   "segment": 0,
+   "floors": [
+    {
+     "floor": 5,
+     "structure": "BETTLE",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      3,
+      3
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 6,
+     "structure": "BETTLE",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      3,
+      3
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 15,
+     "structure": "CROSSROADS",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      5,
+      4
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 20,
+     "structure": "BETTLE",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      3,
+      3
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 21,
+     "structure": "BETTLE",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      3,
+      3
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 35,
+     "structure": "CROSSROADS",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      5,
+      4
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 36,
+     "structure": "BETTLE",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      3,
+      3
+     ],
+     "status": "CHANGED"
+    }
+   ],
+   "changed": 7
+  },
+  {
+   "zone": "world_abyss",
+   "dungeon": "d81",
+   "segment": 0,
+   "floors": [
+    {
+     "floor": 5,
+     "structure": "BETTLE",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      3,
+      3
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 6,
+     "structure": "BETTLE",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      3,
+      3
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 15,
+     "structure": "CROSSROADS",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      5,
+      4
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 20,
+     "structure": "BETTLE",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      3,
+      3
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 21,
+     "structure": "BETTLE",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      3,
+      3
+     ],
+     "status": "CHANGED"
+    }
+   ],
+   "changed": 5
+  },
+  {
+   "zone": "zero_isle_west",
+   "dungeon": "d101",
+   "segment": 0,
+   "floors": [
+    {
+     "floor": 34,
+     "structure": "CROSSROADS",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      5,
+      4
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 35,
+     "structure": "RING",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      6,
+      4
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 36,
+     "structure": "CROSSROADS",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      5,
+      4
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 37,
+     "structure": "RING",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      6,
+      4
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 38,
+     "structure": "CROSSROADS",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      5,
+      4
+     ],
+     "status": "CHANGED"
+    },
+    {
+     "floor": 39,
+     "structure": "RING",
+     "grid_before": [
+      4,
+      4
+     ],
+     "grid_after": [
+      6,
+      4
+     ],
+     "status": "CHANGED"
+    }
+   ],
+   "changed": 6
+  }
+ ]
+}

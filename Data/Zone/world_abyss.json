@@ -4556,8 +4556,8 @@
                   "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "CellWidth": 10,
                   "CellHeight": 10,
-                  "CellX": 4,
-                  "CellY": 4,
+                  "CellX": 3,
+                  "CellY": 3,
                   "CellWall": 2,
                   "Wrap": false
                 }
@@ -4569,16 +4569,7 @@
                   ]
                 },
                 "Value": {
-                  "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "RoomRatio": {
-                    "Min": 85,
-                    "Max": 100
-                  },
-                  "BranchRatio": {
-                    "Min": 70,
-                    "Max": 100
-                  },
-                  "NoForcedBranches": false,
+                  "$type": "PMDC.GridPathBeetle`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
                   "GenericRooms": {
                     "$type": "RogueElements.SpawnList`1[[RogueElements.RoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
                     "$values": [
@@ -4598,12 +4589,6 @@
                       }
                     ]
                   },
-                  "RoomComponents": [
-                    {
-                      "$type": "PMDC.LevelGen.ConnectivityRoom, PMDC",
-                      "Connection": 1
-                    }
-                  ],
                   "GenericHalls": {
                     "$type": "RogueElements.SpawnList`1[[RogueElements.PermissiveRoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
                     "$values": [
@@ -4626,7 +4611,43 @@
                         "Rate": 10
                       }
                     ]
-                  }
+                  },
+                  "RoomComponents": [
+                    {
+                      "$type": "PMDC.LevelGen.ConnectivityRoom, PMDC",
+                      "Connection": 1
+                    }
+                  ],
+                  "LargeRoomComponents": [
+                    {
+                      "$type": "PMDC.LevelGen.ConnectivityRoom, PMDC",
+                      "Connection": 1
+                    }
+                  ],
+                  "Vertical": false,
+                  "LegPercent": 80,
+                  "ConnectPercent": 80,
+                  "FromCorners": false,
+                  "GiantHallGen": [
+                    {
+                      "Spawn": {
+                        "$type": "RogueElements.RoomGenBump`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+                        "Width": {
+                          "Min": 6,
+                          "Max": 10
+                        },
+                        "Height": {
+                          "Min": 22,
+                          "Max": 30
+                        },
+                        "BumpPercent": {
+                          "Min": 0,
+                          "Max": 101
+                        }
+                      },
+                      "Rate": 10
+                    }
+                  ]
                 }
               },
               {
@@ -5406,8 +5427,8 @@
                   "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "CellWidth": 10,
                   "CellHeight": 10,
-                  "CellX": 4,
-                  "CellY": 4,
+                  "CellX": 3,
+                  "CellY": 3,
                   "CellWall": 2,
                   "Wrap": false
                 }
@@ -5419,16 +5440,7 @@
                   ]
                 },
                 "Value": {
-                  "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "RoomRatio": {
-                    "Min": 85,
-                    "Max": 100
-                  },
-                  "BranchRatio": {
-                    "Min": 70,
-                    "Max": 100
-                  },
-                  "NoForcedBranches": false,
+                  "$type": "PMDC.GridPathBeetle`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
                   "GenericRooms": {
                     "$type": "RogueElements.SpawnList`1[[RogueElements.RoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
                     "$values": [
@@ -5448,12 +5460,6 @@
                       }
                     ]
                   },
-                  "RoomComponents": [
-                    {
-                      "$type": "PMDC.LevelGen.ConnectivityRoom, PMDC",
-                      "Connection": 1
-                    }
-                  ],
                   "GenericHalls": {
                     "$type": "RogueElements.SpawnList`1[[RogueElements.PermissiveRoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
                     "$values": [
@@ -5476,7 +5482,43 @@
                         "Rate": 10
                       }
                     ]
-                  }
+                  },
+                  "RoomComponents": [
+                    {
+                      "$type": "PMDC.LevelGen.ConnectivityRoom, PMDC",
+                      "Connection": 1
+                    }
+                  ],
+                  "LargeRoomComponents": [
+                    {
+                      "$type": "PMDC.LevelGen.ConnectivityRoom, PMDC",
+                      "Connection": 1
+                    }
+                  ],
+                  "Vertical": false,
+                  "LegPercent": 80,
+                  "ConnectPercent": 80,
+                  "FromCorners": false,
+                  "GiantHallGen": [
+                    {
+                      "Spawn": {
+                        "$type": "RogueElements.RoomGenBump`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+                        "Width": {
+                          "Min": 6,
+                          "Max": 10
+                        },
+                        "Height": {
+                          "Min": 22,
+                          "Max": 30
+                        },
+                        "BumpPercent": {
+                          "Min": 0,
+                          "Max": 101
+                        }
+                      },
+                      "Rate": 10
+                    }
+                  ]
                 }
               },
               {
@@ -13170,7 +13212,7 @@
                   "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "CellWidth": 10,
                   "CellHeight": 10,
-                  "CellX": 4,
+                  "CellX": 5,
                   "CellY": 4,
                   "CellWall": 2,
                   "Wrap": false
@@ -13183,16 +13225,7 @@
                   ]
                 },
                 "Value": {
-                  "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "RoomRatio": {
-                    "Min": 85,
-                    "Max": 100
-                  },
-                  "BranchRatio": {
-                    "Min": 70,
-                    "Max": 100
-                  },
-                  "NoForcedBranches": false,
+                  "$type": "RogueElements.GridPathCross`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "GenericRooms": {
                     "$type": "RogueElements.SpawnList`1[[RogueElements.RoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
                     "$values": [
@@ -13212,12 +13245,6 @@
                       }
                     ]
                   },
-                  "RoomComponents": [
-                    {
-                      "$type": "PMDC.LevelGen.ConnectivityRoom, PMDC",
-                      "Connection": 1
-                    }
-                  ],
                   "GenericHalls": {
                     "$type": "RogueElements.SpawnList`1[[RogueElements.PermissiveRoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
                     "$values": [
@@ -13240,7 +13267,13 @@
                         "Rate": 10
                       }
                     ]
-                  }
+                  },
+                  "RoomComponents": [
+                    {
+                      "$type": "PMDC.LevelGen.ConnectivityRoom, PMDC",
+                      "Connection": 1
+                    }
+                  ]
                 }
               },
               {
@@ -16926,8 +16959,8 @@
                   "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "CellWidth": 10,
                   "CellHeight": 10,
-                  "CellX": 4,
-                  "CellY": 4,
+                  "CellX": 3,
+                  "CellY": 3,
                   "CellWall": 2,
                   "Wrap": false
                 }
@@ -16939,16 +16972,7 @@
                   ]
                 },
                 "Value": {
-                  "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "RoomRatio": {
-                    "Min": 85,
-                    "Max": 100
-                  },
-                  "BranchRatio": {
-                    "Min": 70,
-                    "Max": 100
-                  },
-                  "NoForcedBranches": false,
+                  "$type": "PMDC.GridPathBeetle`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
                   "GenericRooms": {
                     "$type": "RogueElements.SpawnList`1[[RogueElements.RoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
                     "$values": [
@@ -16968,12 +16992,6 @@
                       }
                     ]
                   },
-                  "RoomComponents": [
-                    {
-                      "$type": "PMDC.LevelGen.ConnectivityRoom, PMDC",
-                      "Connection": 1
-                    }
-                  ],
                   "GenericHalls": {
                     "$type": "RogueElements.SpawnList`1[[RogueElements.PermissiveRoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
                     "$values": [
@@ -16996,7 +17014,43 @@
                         "Rate": 10
                       }
                     ]
-                  }
+                  },
+                  "RoomComponents": [
+                    {
+                      "$type": "PMDC.LevelGen.ConnectivityRoom, PMDC",
+                      "Connection": 1
+                    }
+                  ],
+                  "LargeRoomComponents": [
+                    {
+                      "$type": "PMDC.LevelGen.ConnectivityRoom, PMDC",
+                      "Connection": 1
+                    }
+                  ],
+                  "Vertical": false,
+                  "LegPercent": 80,
+                  "ConnectPercent": 80,
+                  "FromCorners": false,
+                  "GiantHallGen": [
+                    {
+                      "Spawn": {
+                        "$type": "RogueElements.RoomGenBump`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+                        "Width": {
+                          "Min": 6,
+                          "Max": 10
+                        },
+                        "Height": {
+                          "Min": 22,
+                          "Max": 30
+                        },
+                        "BumpPercent": {
+                          "Min": 0,
+                          "Max": 101
+                        }
+                      },
+                      "Rate": 10
+                    }
+                  ]
                 }
               },
               {
@@ -17662,8 +17716,8 @@
                   "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "CellWidth": 10,
                   "CellHeight": 10,
-                  "CellX": 4,
-                  "CellY": 4,
+                  "CellX": 3,
+                  "CellY": 3,
                   "CellWall": 2,
                   "Wrap": false
                 }
@@ -17675,16 +17729,7 @@
                   ]
                 },
                 "Value": {
-                  "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "RoomRatio": {
-                    "Min": 85,
-                    "Max": 100
-                  },
-                  "BranchRatio": {
-                    "Min": 70,
-                    "Max": 100
-                  },
-                  "NoForcedBranches": false,
+                  "$type": "PMDC.GridPathBeetle`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
                   "GenericRooms": {
                     "$type": "RogueElements.SpawnList`1[[RogueElements.RoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
                     "$values": [
@@ -17704,12 +17749,6 @@
                       }
                     ]
                   },
-                  "RoomComponents": [
-                    {
-                      "$type": "PMDC.LevelGen.ConnectivityRoom, PMDC",
-                      "Connection": 1
-                    }
-                  ],
                   "GenericHalls": {
                     "$type": "RogueElements.SpawnList`1[[RogueElements.PermissiveRoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
                     "$values": [
@@ -17732,7 +17771,43 @@
                         "Rate": 10
                       }
                     ]
-                  }
+                  },
+                  "RoomComponents": [
+                    {
+                      "$type": "PMDC.LevelGen.ConnectivityRoom, PMDC",
+                      "Connection": 1
+                    }
+                  ],
+                  "LargeRoomComponents": [
+                    {
+                      "$type": "PMDC.LevelGen.ConnectivityRoom, PMDC",
+                      "Connection": 1
+                    }
+                  ],
+                  "Vertical": false,
+                  "LegPercent": 80,
+                  "ConnectPercent": 80,
+                  "FromCorners": false,
+                  "GiantHallGen": [
+                    {
+                      "Spawn": {
+                        "$type": "RogueElements.RoomGenBump`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+                        "Width": {
+                          "Min": 6,
+                          "Max": 10
+                        },
+                        "Height": {
+                          "Min": 22,
+                          "Max": 30
+                        },
+                        "BumpPercent": {
+                          "Min": 0,
+                          "Max": 101
+                        }
+                      },
+                      "Rate": 10
+                    }
+                  ]
                 }
               },
               {

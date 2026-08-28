@@ -377,7 +377,14 @@ function V:OnDungeonFloorEnter()
       end
       emit('{"event":"dprobe_formation","zone":"'..cz..'",'..table.concat(parts,',')..'}')
     end)
-    if floor+1<self.dprobe_floors then
+    -- clamp au nombre d'étages réel du segment 0 (évite un EnterZone invalide)
+    local maxfl=self.dprobe_floors
+    pcall(function()
+      local segs=_ZONE.CurrentZone.Segments
+      local fc=segs[0].FloorCount
+      if fc and fc<maxfl then maxfl=fc end
+    end)
+    if floor+1<maxfl then
       GAME:EnterZone(cz,0,floor+1,0)
     else
       self.dprobe_i=self.dprobe_i+1
