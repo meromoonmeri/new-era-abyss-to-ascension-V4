@@ -1,0 +1,10 @@
+{
+ "schema": "rsmap-tileset-uniformity/2",
+ "verdict": "PASS 109/109",
+ "rule": "Toutes les arènes ROM fixes mono-tileset (36/36). Mélanges restants prouvés canoniques.",
+ "exceptions_canoniques": {
+  "beginner_lesson_terrain": "tutoriel Halcyon multi-terrains (leçon sur lava/eau/pit) — mélange pédagogique d'origine",
+  "carriere_cuivre_fond/petit_tunnel_fond/room_ambush_item/special_*": "motif test_dungeon+tall_grass identique aux rsmaps vanilla PMDO (end_copper_quarry, end_tiny_tunnel, room_ambush_item DumpAsset)",
+  "annexe_toupie": "slots lava/pit inutilisés réalignés purity_forest_4 (0 tile concernée)"
+ }
+}

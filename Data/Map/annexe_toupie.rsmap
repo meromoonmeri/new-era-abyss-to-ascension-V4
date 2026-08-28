@@ -103,13 +103,13 @@
         "NeighborCode": -1
       },
       "lava": {
-        "AutoTileset": "mystifying_forest_secondary",
+        "AutoTileset": "purity_forest_4_secondary",
         "Associates": [],
         "Layers": [],
         "NeighborCode": -1
       },
       "pit": {
-        "AutoTileset": "mystifying_forest_secondary",
+        "AutoTileset": "purity_forest_4_secondary",
         "Associates": [],
         "Layers": [],
         "NeighborCode": -1
