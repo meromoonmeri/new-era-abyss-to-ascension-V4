@@ -604,8 +604,8 @@
                   "$type": "PMDC.LevelGen.MobThemeNone, PMDC",
                   "SpecialRatio": 40,
                   "Amount": {
-                    "Min": 7,
-                    "Max": 13
+                    "Min": 21,
+                    "Max": 33
                   }
                 },
                 "Rate": 10,
@@ -684,8 +684,8 @@
                   "$type": "PMDC.LevelGen.MobThemeNone, PMDC",
                   "SpecialRatio": 40,
                   "Amount": {
-                    "Min": 7,
-                    "Max": 13
+                    "Min": 21,
+                    "Max": 33
                   }
                 },
                 "Rate": 10,
@@ -764,8 +764,8 @@
                   "$type": "PMDC.LevelGen.MobThemeNone, PMDC",
                   "SpecialRatio": 40,
                   "Amount": {
-                    "Min": 7,
-                    "Max": 13
+                    "Min": 21,
+                    "Max": 33
                   }
                 },
                 "Rate": 10,
@@ -844,8 +844,8 @@
                   "$type": "PMDC.LevelGen.MobThemeNone, PMDC",
                   "SpecialRatio": 40,
                   "Amount": {
-                    "Min": 7,
-                    "Max": 13
+                    "Min": 21,
+                    "Max": 33
                   }
                 },
                 "Rate": 10,

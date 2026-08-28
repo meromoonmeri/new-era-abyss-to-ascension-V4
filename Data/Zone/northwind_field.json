@@ -10693,8 +10693,8 @@
                   "$type": "PMDC.LevelGen.MobThemeNone, PMDC",
                   "SpecialRatio": 40,
                   "Amount": {
-                    "Min": 7,
-                    "Max": 13
+                    "Min": 14,
+                    "Max": 18
                   }
                 },
                 "Rate": 10,
@@ -20248,8 +20248,8 @@
                   "$type": "PMDC.LevelGen.MobThemeNone, PMDC",
                   "SpecialRatio": 40,
                   "Amount": {
-                    "Min": 7,
-                    "Max": 13
+                    "Min": 14,
+                    "Max": 18
                   }
                 },
                 "Rate": 10,

@@ -315,7 +315,31 @@ function V:OnDungeonFloorEnter()
         if eff and eff.ID~=nil and tostring(eff.ID)~='' then traps=traps+1 end
       end end
     end)
-    emit('{"event":"dprobe_floor","zone":"'..cz..'","floor":'..floor..',"mobs":'..mobs..',"items":'..items..',"traps":'..traps..',"species":"'..table.concat(species,',')..'"}')
+    -- Monster Houses en attente (preuve §37) : mobs stockés dans les
+    -- CheckIntrudeBoundsEvent -> MonsterHouseMapEvent.Mobs du map status.
+    local mh_counts={}
+    pcall(function()
+      local MapCheckState=luanet.import_type('RogueEssence.Dungeon.MapCheckState')
+      local senum=map.Status:GetEnumerator()
+      while senum:MoveNext() do
+        local st=senum.Current.Value
+        local chk=st.StatusStates:GetWithDefault(luanet.ctype(MapCheckState))
+        if chk then
+          for ci=0,chk.CheckEvents.Count-1 do
+            local ev=chk.CheckEvents[ci]
+            pcall(function()
+              for ei=0,ev.Effects.Count-1 do
+                local eff=ev.Effects[ei]
+                pcall(function() mh_counts[#mh_counts+1]=eff.Mobs.Count end)
+              end
+            end)
+          end
+        end
+      end
+    end)
+    local mhs=''
+    if #mh_counts>0 then mhs=',"mh_mobs":['..table.concat(mh_counts,',')..']' end
+    emit('{"event":"dprobe_floor","zone":"'..cz..'","floor":'..floor..',"mobs":'..mobs..',"items":'..items..',"traps":'..traps..',"species":"'..table.concat(species,',')..'"'..mhs..'}')
     -- dump ASCII du layout (murs/sol/eau/escaliers/pièges/items/mobs) pour
     -- analyse statistique hors-ligne (variété §17/§19, stats §36).
     if os.getenv('PMDO_DPROBE_ASCII')=='1' then pcall(function()

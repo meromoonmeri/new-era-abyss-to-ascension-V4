@@ -1,0 +1,1112 @@
+{
+ "rule": "R4.4 MH taille canonique (GBA cap 18 / Sky cap 45, plages 70-80% des salles mesurées)",
+ "sky_amount": {
+  "Min": 21,
+  "Max": 33
+ },
+ "gba_amount": {
+  "Min": 14,
+  "Max": 18
+ },
+ "apply": true,
+ "zones": [
+  {
+   "zone": "amp_plains",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "armaldos_shelter",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "blizzard_island",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "bottomless_sea",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "buried_relic",
+   "provider": "ROM:GBA",
+   "changed": 3,
+   "amount": {
+    "Min": 14,
+    "Max": 18
+   }
+  },
+  {
+   "zone": "concealed_ruins_post",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "crevice_cave",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "crevice_cave_pit",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "crystal_cave",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "crystal_crossing",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "dark_crater",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "dark_ice_mountain",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "dark_ice_mountain_peak",
+   "provider": "ROM:NDS",
+   "changed": 2,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "darknight_relic",
+   "provider": "ROM:GBA",
+   "changed": 2,
+   "amount": {
+    "Min": 14,
+    "Max": 18
+   }
+  },
+  {
+   "zone": "deep_barren_valley",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "deep_boulder_quarry",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "deep_dark_crater",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "deep_limestone_cavern",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "deep_miracle_sea",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "deep_spacial_rift",
+   "provider": "ROM:NDS",
+   "changed": 3,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "desert_region",
+   "provider": "ROM:GBA",
+   "changed": 2,
+   "amount": {
+    "Min": 14,
+    "Max": 18
+   }
+  },
+  {
+   "zone": "destiny_tower",
+   "provider": "ROM:NDS",
+   "changed": 11,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "eastern_cave",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "eighth_station_pass",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "fantasy_strait",
+   "provider": "ROM:GBA",
+   "changed": 2,
+   "amount": {
+    "Min": 14,
+    "Max": 18
+   }
+  },
+  {
+   "zone": "far_amp_plains",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "far_off_sea",
+   "provider": "ROM:GBA",
+   "changed": 3,
+   "amount": {
+    "Min": 14,
+    "Max": 18
+   }
+  },
+  {
+   "zone": "fiery_field",
+   "provider": "ROM:GBA",
+   "changed": 2,
+   "amount": {
+    "Min": 14,
+    "Max": 18
+   }
+  },
+  {
+   "zone": "fifth_station_clearing",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "fifth_station_pass",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "fortune_ravine",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "fortune_ravine_depths",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "fourth_station_pass",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "frosty_forest",
+   "provider": "ROM:GBA",
+   "changed": 1,
+   "amount": {
+    "Min": 14,
+    "Max": 18
+   }
+  },
+  {
+   "zone": "frosty_grotto",
+   "provider": "ROM:GBA",
+   "changed": 1,
+   "amount": {
+    "Min": 14,
+    "Max": 18
+   }
+  },
+  {
+   "zone": "giant_volcano",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "grand_sea",
+   "provider": "ROM:GBA",
+   "changed": 2,
+   "amount": {
+    "Min": 14,
+    "Max": 18
+   }
+  },
+  {
+   "zone": "happy_outlook",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "hidden_highland",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "hidden_land",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "hot_spring_dungeon",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "howling_forest",
+   "provider": "ROM:GBA",
+   "changed": 2,
+   "amount": {
+    "Min": 14,
+    "Max": 18
+   }
+  },
+  {
+   "zone": "inferno_cave",
+   "provider": "ROM:NDS",
+   "changed": 5,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "joyous_tower",
+   "provider": "ROM:GBA",
+   "changed": 3,
+   "amount": {
+    "Min": 14,
+    "Max": 18
+   }
+  },
+  {
+   "zone": "labyrinth_cave",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "lake_afar",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "landslide_cave",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "lightning_field",
+   "provider": "ROM:GBA",
+   "changed": 2,
+   "amount": {
+    "Min": 14,
+    "Max": 18
+   }
+  },
+  {
+   "zone": "lost_wilderness",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "lower_crevice_cave",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "lower_spring_cave",
+   "provider": "ROM:NDS",
+   "changed": 4,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "luminous_spring_dungeon",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "magma_cavern",
+   "provider": "ROM:GBA",
+   "changed": 3,
+   "amount": {
+    "Min": 14,
+    "Max": 18
+   }
+  },
+  {
+   "zone": "magma_cavern_pit",
+   "provider": "ROM:GBA",
+   "changed": 1,
+   "amount": {
+    "Min": 14,
+    "Max": 18
+   }
+  },
+  {
+   "zone": "marine_resort",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "marvelous_sea",
+   "provider": "ROM:GBA",
+   "changed": 2,
+   "amount": {
+    "Min": 14,
+    "Max": 18
+   }
+  },
+  {
+   "zone": "meteor_cave",
+   "provider": "ROM:GBA",
+   "changed": 2,
+   "amount": {
+    "Min": 14,
+    "Max": 18
+   }
+  },
+  {
+   "zone": "miracle_sea",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "miracle_seabed",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "mt_avalanche",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "mt_faraway",
+   "provider": "ROM:GBA",
+   "changed": 3,
+   "amount": {
+    "Min": 14,
+    "Max": 18
+   }
+  },
+  {
+   "zone": "mt_mistral",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "mt_travail_post",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "murky_cave",
+   "provider": "ROM:GBA",
+   "changed": 2,
+   "amount": {
+    "Min": 14,
+    "Max": 18
+   }
+  },
+  {
+   "zone": "murky_forest",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "mystery_jungle",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "mystifying_forest_post",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "ninth_station_pass",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "northern_range",
+   "provider": "ROM:GBA",
+   "changed": 2,
+   "amount": {
+    "Min": 14,
+    "Max": 18
+   }
+  },
+  {
+   "zone": "northwind_field",
+   "provider": "ROM:GBA",
+   "changed": 2,
+   "amount": {
+    "Min": 14,
+    "Max": 18
+   }
+  },
+  {
+   "zone": "oblivion_forest",
+   "provider": "ROM:NDS",
+   "changed": 2,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "oddity_cave",
+   "provider": "ROM:GBA",
+   "changed": 2,
+   "amount": {
+    "Min": 14,
+    "Max": 18
+   }
+  },
+  {
+   "zone": "pitfall_valley",
+   "provider": "ROM:GBA",
+   "changed": 2,
+   "amount": {
+    "Min": 14,
+    "Max": 18
+   }
+  },
+  {
+   "zone": "purity_forest",
+   "provider": "ROM:GBA",
+   "changed": 4,
+   "amount": {
+    "Min": 14,
+    "Max": 18
+   }
+  },
+  {
+   "zone": "quicksand_cave",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "quicksand_pit",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "remains_island",
+   "provider": "ROM:GBA",
+   "changed": 2,
+   "amount": {
+    "Min": 14,
+    "Max": 18
+   }
+  },
+  {
+   "zone": "rock_path",
+   "provider": "ROM:GBA",
+   "changed": 1,
+   "amount": {
+    "Min": 14,
+    "Max": 18
+   }
+  },
+  {
+   "zone": "second_station_pass",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "serenity_river",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "seventh_station_pass",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "shaymin_village",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "shimmer_desert",
+   "provider": "ROM:NDS",
+   "changed": 3,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "shimmer_hill",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "silver_trench",
+   "provider": "ROM:GBA",
+   "changed": 3,
+   "amount": {
+    "Min": 14,
+    "Max": 18
+   }
+  },
+  {
+   "zone": "sixth_station_pass",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "sky_peak_summit_pass",
+   "provider": "ROM:NDS",
+   "changed": 2,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "sky_tower",
+   "provider": "ROM:GBA",
+   "changed": 1,
+   "amount": {
+    "Min": 14,
+    "Max": 18
+   }
+  },
+  {
+   "zone": "sky_tower_summit",
+   "provider": "ROM:GBA",
+   "changed": 1,
+   "amount": {
+    "Min": 14,
+    "Max": 18
+   }
+  },
+  {
+   "zone": "snow_path",
+   "provider": "ROM:GBA",
+   "changed": 1,
+   "amount": {
+    "Min": 14,
+    "Max": 18
+   }
+  },
+  {
+   "zone": "solar_cave",
+   "provider": "ROM:GBA",
+   "changed": 2,
+   "amount": {
+    "Min": 14,
+    "Max": 18
+   }
+  },
+  {
+   "zone": "southeastern_islands",
+   "provider": "ROM:NDS",
+   "changed": 5,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "southern_cavern",
+   "provider": "ROM:GBA",
+   "changed": 3,
+   "amount": {
+    "Min": 14,
+    "Max": 18
+   }
+  },
+  {
+   "zone": "southern_jungle",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "spacial_cliffs",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "spacial_rift",
+   "provider": "ROM:NDS",
+   "changed": 2,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "spring_cave_depths",
+   "provider": "ROM:NDS",
+   "changed": 2,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "star_cave",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "star_cave_depths",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "stormy_sea",
+   "provider": "ROM:GBA",
+   "changed": 3,
+   "amount": {
+    "Min": 14,
+    "Max": 18
+   }
+  },
+  {
+   "zone": "surrounded_sea",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "temporal_spire",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "temporal_spire_se5",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "temporal_tower",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "temporal_tower_se5",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "the_nightmare",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "third_station_pass",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "treacherous_waters",
+   "provider": "ROM:NDS",
+   "changed": 2,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "treeshroud_forest",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "unown_relic",
+   "provider": "ROM:GBA",
+   "changed": 2,
+   "amount": {
+    "Min": 14,
+    "Max": 18
+   }
+  },
+  {
+   "zone": "upper_spring_cave",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "uproar_forest",
+   "provider": "ROM:GBA",
+   "changed": 2,
+   "amount": {
+    "Min": 14,
+    "Max": 18
+   }
+  },
+  {
+   "zone": "vast_ice_mountain_peak",
+   "provider": "ROM:NDS",
+   "changed": 1,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "waterfall_pond",
+   "provider": "ROM:GBA",
+   "changed": 2,
+   "amount": {
+    "Min": 14,
+    "Max": 18
+   }
+  },
+  {
+   "zone": "western_cave",
+   "provider": "ROM:GBA",
+   "changed": 3,
+   "amount": {
+    "Min": 14,
+    "Max": 18
+   }
+  },
+  {
+   "zone": "wish_cave",
+   "provider": "ROM:GBA",
+   "changed": 2,
+   "amount": {
+    "Min": 14,
+    "Max": 18
+   }
+  },
+  {
+   "zone": "world_abyss",
+   "provider": "ROM:NDS",
+   "changed": 5,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "wyvern_hill",
+   "provider": "ROM:GBA",
+   "changed": 2,
+   "amount": {
+    "Min": 14,
+    "Max": 18
+   }
+  },
+  {
+   "zone": "zero_isle_center",
+   "provider": "ROM:NDS",
+   "changed": 7,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "zero_isle_north",
+   "provider": "ROM:NDS",
+   "changed": 9,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "zero_isle_south",
+   "provider": "ROM:NDS",
+   "changed": 11,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  },
+  {
+   "zone": "zero_isle_west",
+   "provider": "ROM:NDS",
+   "changed": 4,
+   "amount": {
+    "Min": 21,
+    "Max": 33
+   }
+  }
+ ]
+}
