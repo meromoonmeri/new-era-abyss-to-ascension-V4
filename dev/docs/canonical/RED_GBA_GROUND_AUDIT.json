@@ -1,0 +1,5537 @@
+{
+ "summary": {
+  "PASS": 246
+ },
+ "grounds": {
+  "a01p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    48
+   ],
+   "dims_pmdo": [
+    60,
+    48
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "a01p02": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    48
+   ],
+   "dims_pmdo": [
+    60,
+    48
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "a02p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    45
+   ],
+   "dims_pmdo": [
+    60,
+    45
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "a02p02": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    33,
+    24
+   ],
+   "dims_pmdo": [
+    33,
+    24
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {
+    "0": 6,
+    "1": 6,
+    "2": 6,
+    "3": 6,
+    "6": 6,
+    "7": 6
+   },
+   "rom_pal_anims_effective": {
+    "0": 6,
+    "1": 6,
+    "2": 6,
+    "3": 6,
+    "6": 6,
+    "7": 6
+   },
+   "pmdo_anim_cells": 234,
+   "pmdo_max_frames": 36,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "a02p03": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    45,
+    36
+   ],
+   "dims_pmdo": [
+    45,
+    36
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "a02p04": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    33,
+    48
+   ],
+   "dims_pmdo": [
+    33,
+    48
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {
+    "0": 6,
+    "1": 10,
+    "2": 8,
+    "3": 8,
+    "6": 8
+   },
+   "rom_pal_anims_effective": {
+    "0": 6,
+    "1": 10,
+    "2": 8,
+    "3": 8,
+    "6": 8
+   },
+   "pmdo_anim_cells": 531,
+   "pmdo_max_frames": 120,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "a03p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    120,
+    36
+   ],
+   "dims_pmdo": [
+    120,
+    36
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "a03p02": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    33,
+    42
+   ],
+   "dims_pmdo": [
+    33,
+    42
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "a03p03": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    120,
+    36
+   ],
+   "dims_pmdo": [
+    120,
+    36
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "a04p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    39,
+    75
+   ],
+   "dims_pmdo": [
+    39,
+    75
+   ],
+   "rom_bpa": [
+    "A04P011"
+   ],
+   "rom_pal_anims_declared": {
+    "8": 28,
+    "9": 28
+   },
+   "rom_pal_anims_effective": {
+    "8": 28,
+    "9": 28
+   },
+   "pmdo_anim_cells": 153,
+   "pmdo_max_frames": 28,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "a04p02": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    36,
+    27
+   ],
+   "dims_pmdo": [
+    36,
+    27
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "a04p03": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    36,
+    54
+   ],
+   "dims_pmdo": [
+    36,
+    54
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {
+    "1": 8,
+    "2": 8,
+    "3": 5,
+    "5": 8,
+    "6": 12
+   },
+   "rom_pal_anims_effective": {
+    "1": 8,
+    "2": 8,
+    "3": 5,
+    "5": 8,
+    "6": 12
+   },
+   "pmdo_anim_cells": 630,
+   "pmdo_max_frames": 24,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "a04p04": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    42,
+    30
+   ],
+   "dims_pmdo": [
+    42,
+    30
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "a05p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    39,
+    30
+   ],
+   "dims_pmdo": [
+    39,
+    30
+   ],
+   "rom_bpa": [
+    "A05P011"
+   ],
+   "rom_pal_anims_declared": {
+    "1": 19
+   },
+   "rom_pal_anims_effective": {
+    "1": 19
+   },
+   "pmdo_anim_cells": 36,
+   "pmdo_max_frames": 7980,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "a05p02": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    39,
+    30
+   ],
+   "dims_pmdo": [
+    39,
+    30
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {
+    "0": 2
+   },
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "a05p03": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    39,
+    30
+   ],
+   "dims_pmdo": [
+    39,
+    30
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "a05p03f": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    39,
+    30
+   ],
+   "dims_pmdo": [
+    39,
+    30
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "a05p03g": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    39,
+    30
+   ],
+   "dims_pmdo": [
+    39,
+    30
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "a05p03i": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    39,
+    30
+   ],
+   "dims_pmdo": [
+    39,
+    30
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "a05p03s": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    39,
+    30
+   ],
+   "dims_pmdo": [
+    39,
+    30
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b01p00a": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    69
+   ],
+   "dims_pmdo": [
+    69,
+    69
+   ],
+   "rom_bpa": [
+    "B01P01A1"
+   ],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 270,
+   "pmdo_max_frames": 6,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b01p01a": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    69
+   ],
+   "dims_pmdo": [
+    69,
+    69
+   ],
+   "rom_bpa": [
+    "B01P01A1"
+   ],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 270,
+   "pmdo_max_frames": 6,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b01p01b": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    69
+   ],
+   "dims_pmdo": [
+    69,
+    69
+   ],
+   "rom_bpa": [
+    "B01P01B1",
+    "B01P01B3"
+   ],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 270,
+   "pmdo_max_frames": 6,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b01p01c": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    69
+   ],
+   "dims_pmdo": [
+    69,
+    69
+   ],
+   "rom_bpa": [
+    "B01P01C1"
+   ],
+   "rom_pal_anims_declared": {
+    "4": 12
+   },
+   "rom_pal_anims_effective": {
+    "4": 12
+   },
+   "pmdo_anim_cells": 315,
+   "pmdo_max_frames": 12,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b01p02a": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    60
+   ],
+   "dims_pmdo": [
+    60,
+    60
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b01p02b": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    60
+   ],
+   "dims_pmdo": [
+    60,
+    60
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b01p02c": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    60
+   ],
+   "dims_pmdo": [
+    60,
+    60
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b02p01a": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    69
+   ],
+   "dims_pmdo": [
+    69,
+    69
+   ],
+   "rom_bpa": [
+    "B01P01A1"
+   ],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 270,
+   "pmdo_max_frames": 6,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b02p01b": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    69
+   ],
+   "dims_pmdo": [
+    69,
+    69
+   ],
+   "rom_bpa": [
+    "B01P01B1",
+    "B02P01B3"
+   ],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 270,
+   "pmdo_max_frames": 6,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b02p01c": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    69
+   ],
+   "dims_pmdo": [
+    69,
+    69
+   ],
+   "rom_bpa": [
+    "B02P01C1"
+   ],
+   "rom_pal_anims_declared": {
+    "4": 12
+   },
+   "rom_pal_anims_effective": {
+    "4": 12
+   },
+   "pmdo_anim_cells": 315,
+   "pmdo_max_frames": 12,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b02p02a": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    60
+   ],
+   "dims_pmdo": [
+    60,
+    60
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b02p02b": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    60
+   ],
+   "dims_pmdo": [
+    60,
+    60
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b02p02c": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    60
+   ],
+   "dims_pmdo": [
+    60,
+    60
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b03p01a": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    69
+   ],
+   "dims_pmdo": [
+    69,
+    69
+   ],
+   "rom_bpa": [
+    "B01P01A1"
+   ],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 270,
+   "pmdo_max_frames": 6,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b03p01b": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    69
+   ],
+   "dims_pmdo": [
+    69,
+    69
+   ],
+   "rom_bpa": [
+    "B01P01B1",
+    "B03P01B3"
+   ],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 270,
+   "pmdo_max_frames": 6,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b03p01c": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    69
+   ],
+   "dims_pmdo": [
+    69,
+    69
+   ],
+   "rom_bpa": [
+    "B03P01C1"
+   ],
+   "rom_pal_anims_declared": {
+    "4": 12
+   },
+   "rom_pal_anims_effective": {
+    "4": 12
+   },
+   "pmdo_anim_cells": 315,
+   "pmdo_max_frames": 12,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b03p02a": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    60
+   ],
+   "dims_pmdo": [
+    60,
+    60
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b03p02b": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    60
+   ],
+   "dims_pmdo": [
+    60,
+    60
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b03p02c": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    60
+   ],
+   "dims_pmdo": [
+    60,
+    60
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b04p01a": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    69
+   ],
+   "dims_pmdo": [
+    69,
+    69
+   ],
+   "rom_bpa": [
+    "B01P01A1"
+   ],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 270,
+   "pmdo_max_frames": 6,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b04p01b": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    69
+   ],
+   "dims_pmdo": [
+    69,
+    69
+   ],
+   "rom_bpa": [
+    "B01P01B1",
+    "B04P01B3"
+   ],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 270,
+   "pmdo_max_frames": 6,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b04p01c": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    69
+   ],
+   "dims_pmdo": [
+    69,
+    69
+   ],
+   "rom_bpa": [
+    "B04P01C1"
+   ],
+   "rom_pal_anims_declared": {
+    "1": 12
+   },
+   "rom_pal_anims_effective": {
+    "1": 12
+   },
+   "pmdo_anim_cells": 315,
+   "pmdo_max_frames": 12,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b04p02a": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    60
+   ],
+   "dims_pmdo": [
+    60,
+    60
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b04p02b": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    60
+   ],
+   "dims_pmdo": [
+    60,
+    60
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b04p02c": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    60
+   ],
+   "dims_pmdo": [
+    60,
+    60
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b05p01a": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    69
+   ],
+   "dims_pmdo": [
+    69,
+    69
+   ],
+   "rom_bpa": [
+    "B05P01A1"
+   ],
+   "rom_pal_anims_declared": {
+    "2": 8,
+    "3": 8
+   },
+   "rom_pal_anims_effective": {
+    "2": 8,
+    "3": 8
+   },
+   "pmdo_anim_cells": 405,
+   "pmdo_max_frames": 8,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b05p01b": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    69
+   ],
+   "dims_pmdo": [
+    69,
+    69
+   ],
+   "rom_bpa": [
+    "B05P01B1",
+    "B05P01B3"
+   ],
+   "rom_pal_anims_declared": {
+    "3": 8
+   },
+   "rom_pal_anims_effective": {
+    "3": 8
+   },
+   "pmdo_anim_cells": 387,
+   "pmdo_max_frames": 8,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b05p01c": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    69
+   ],
+   "dims_pmdo": [
+    69,
+    69
+   ],
+   "rom_bpa": [
+    "B05P01C1"
+   ],
+   "rom_pal_anims_declared": {
+    "4": 8
+   },
+   "rom_pal_anims_effective": {
+    "4": 8
+   },
+   "pmdo_anim_cells": 387,
+   "pmdo_max_frames": 8,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b05p02a": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    60
+   ],
+   "dims_pmdo": [
+    60,
+    60
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {
+    "4": 15,
+    "7": 15,
+    "10": 18,
+    "11": 8
+   },
+   "rom_pal_anims_effective": {
+    "4": 15,
+    "7": 15,
+    "10": 18,
+    "11": 8
+   },
+   "pmdo_anim_cells": 252,
+   "pmdo_max_frames": 120,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b05p02b": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    60
+   ],
+   "dims_pmdo": [
+    60,
+    60
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {
+    "4": 15,
+    "7": 15,
+    "10": 18,
+    "11": 8
+   },
+   "rom_pal_anims_effective": {
+    "4": 15,
+    "7": 15,
+    "10": 18,
+    "11": 8
+   },
+   "pmdo_anim_cells": 252,
+   "pmdo_max_frames": 120,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b05p02c": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    60
+   ],
+   "dims_pmdo": [
+    60,
+    60
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {
+    "2": 15,
+    "3": 15,
+    "5": 12,
+    "10": 8
+   },
+   "rom_pal_anims_effective": {
+    "2": 15,
+    "3": 15,
+    "5": 12,
+    "10": 8
+   },
+   "pmdo_anim_cells": 252,
+   "pmdo_max_frames": 72,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b06p01a": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    69
+   ],
+   "dims_pmdo": [
+    69,
+    69
+   ],
+   "rom_bpa": [
+    "B05P01A1"
+   ],
+   "rom_pal_anims_declared": {
+    "2": 8,
+    "3": 8
+   },
+   "rom_pal_anims_effective": {
+    "2": 8,
+    "3": 8
+   },
+   "pmdo_anim_cells": 405,
+   "pmdo_max_frames": 8,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b06p01b": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    69
+   ],
+   "dims_pmdo": [
+    69,
+    69
+   ],
+   "rom_bpa": [
+    "B05P01B1",
+    "B06P01B3"
+   ],
+   "rom_pal_anims_declared": {
+    "3": 8
+   },
+   "rom_pal_anims_effective": {
+    "3": 8
+   },
+   "pmdo_anim_cells": 387,
+   "pmdo_max_frames": 8,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b06p01c": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    69
+   ],
+   "dims_pmdo": [
+    69,
+    69
+   ],
+   "rom_bpa": [
+    "B06P01C1"
+   ],
+   "rom_pal_anims_declared": {
+    "2": 8
+   },
+   "rom_pal_anims_effective": {
+    "2": 8
+   },
+   "pmdo_anim_cells": 387,
+   "pmdo_max_frames": 8,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b06p02a": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    60
+   ],
+   "dims_pmdo": [
+    60,
+    60
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {
+    "4": 15,
+    "7": 15,
+    "10": 18,
+    "11": 8
+   },
+   "rom_pal_anims_effective": {
+    "4": 15,
+    "7": 15,
+    "10": 18,
+    "11": 8
+   },
+   "pmdo_anim_cells": 252,
+   "pmdo_max_frames": 120,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b06p02b": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    60
+   ],
+   "dims_pmdo": [
+    60,
+    60
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {
+    "4": 15,
+    "7": 15,
+    "10": 18,
+    "11": 8
+   },
+   "rom_pal_anims_effective": {
+    "4": 15,
+    "7": 15,
+    "10": 18,
+    "11": 8
+   },
+   "pmdo_anim_cells": 252,
+   "pmdo_max_frames": 120,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b06p02c": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    60
+   ],
+   "dims_pmdo": [
+    60,
+    60
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {
+    "2": 15,
+    "3": 15,
+    "5": 12,
+    "10": 8
+   },
+   "rom_pal_anims_effective": {
+    "2": 15,
+    "3": 15,
+    "5": 12,
+    "10": 8
+   },
+   "pmdo_anim_cells": 252,
+   "pmdo_max_frames": 72,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b07p01a": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    69
+   ],
+   "dims_pmdo": [
+    69,
+    69
+   ],
+   "rom_bpa": [
+    "B05P01A1"
+   ],
+   "rom_pal_anims_declared": {
+    "2": 8,
+    "3": 8
+   },
+   "rom_pal_anims_effective": {
+    "2": 8,
+    "3": 8
+   },
+   "pmdo_anim_cells": 405,
+   "pmdo_max_frames": 8,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b07p01b": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    69
+   ],
+   "dims_pmdo": [
+    69,
+    69
+   ],
+   "rom_bpa": [
+    "B05P01B1",
+    "B07P01B3"
+   ],
+   "rom_pal_anims_declared": {
+    "3": 8
+   },
+   "rom_pal_anims_effective": {
+    "3": 8
+   },
+   "pmdo_anim_cells": 387,
+   "pmdo_max_frames": 8,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b07p01c": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    69
+   ],
+   "dims_pmdo": [
+    69,
+    69
+   ],
+   "rom_bpa": [
+    "B07P01C1"
+   ],
+   "rom_pal_anims_declared": {
+    "4": 8
+   },
+   "rom_pal_anims_effective": {
+    "4": 8
+   },
+   "pmdo_anim_cells": 387,
+   "pmdo_max_frames": 8,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b07p02a": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    60
+   ],
+   "dims_pmdo": [
+    60,
+    60
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {
+    "4": 15,
+    "7": 15,
+    "10": 18,
+    "11": 8
+   },
+   "rom_pal_anims_effective": {
+    "4": 15,
+    "7": 15,
+    "10": 18,
+    "11": 8
+   },
+   "pmdo_anim_cells": 252,
+   "pmdo_max_frames": 120,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b07p02b": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    60
+   ],
+   "dims_pmdo": [
+    60,
+    60
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {
+    "4": 15,
+    "7": 15,
+    "10": 18,
+    "11": 8
+   },
+   "rom_pal_anims_effective": {
+    "4": 15,
+    "7": 15,
+    "10": 18,
+    "11": 8
+   },
+   "pmdo_anim_cells": 252,
+   "pmdo_max_frames": 120,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b07p02c": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    60
+   ],
+   "dims_pmdo": [
+    60,
+    60
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {
+    "2": 15,
+    "3": 15,
+    "5": 12,
+    "10": 8
+   },
+   "rom_pal_anims_effective": {
+    "2": 15,
+    "3": 15,
+    "5": 12,
+    "10": 8
+   },
+   "pmdo_anim_cells": 252,
+   "pmdo_max_frames": 72,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b08p01a": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    69
+   ],
+   "dims_pmdo": [
+    69,
+    69
+   ],
+   "rom_bpa": [
+    "B05P01A1"
+   ],
+   "rom_pal_anims_declared": {
+    "2": 8,
+    "3": 8
+   },
+   "rom_pal_anims_effective": {
+    "2": 8,
+    "3": 8
+   },
+   "pmdo_anim_cells": 405,
+   "pmdo_max_frames": 8,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b08p01b": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    69
+   ],
+   "dims_pmdo": [
+    69,
+    69
+   ],
+   "rom_bpa": [
+    "B05P01B1",
+    "B08P01B3"
+   ],
+   "rom_pal_anims_declared": {
+    "3": 8
+   },
+   "rom_pal_anims_effective": {
+    "3": 8
+   },
+   "pmdo_anim_cells": 387,
+   "pmdo_max_frames": 8,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b08p01c": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    69
+   ],
+   "dims_pmdo": [
+    69,
+    69
+   ],
+   "rom_bpa": [
+    "B08P01C1"
+   ],
+   "rom_pal_anims_declared": {
+    "4": 8
+   },
+   "rom_pal_anims_effective": {
+    "4": 8
+   },
+   "pmdo_anim_cells": 387,
+   "pmdo_max_frames": 8,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b08p02a": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    60
+   ],
+   "dims_pmdo": [
+    60,
+    60
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {
+    "4": 15,
+    "7": 15,
+    "10": 18,
+    "11": 8
+   },
+   "rom_pal_anims_effective": {
+    "4": 15,
+    "7": 15,
+    "10": 18,
+    "11": 8
+   },
+   "pmdo_anim_cells": 252,
+   "pmdo_max_frames": 120,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b08p02b": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    60
+   ],
+   "dims_pmdo": [
+    60,
+    60
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {
+    "4": 15,
+    "7": 15,
+    "10": 18,
+    "11": 8
+   },
+   "rom_pal_anims_effective": {
+    "4": 15,
+    "7": 15,
+    "10": 18,
+    "11": 8
+   },
+   "pmdo_anim_cells": 252,
+   "pmdo_max_frames": 120,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b08p02c": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    60
+   ],
+   "dims_pmdo": [
+    60,
+    60
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {
+    "2": 15,
+    "3": 15,
+    "5": 12,
+    "10": 8
+   },
+   "rom_pal_anims_effective": {
+    "2": 15,
+    "3": 15,
+    "5": 12,
+    "10": 8
+   },
+   "pmdo_anim_cells": 252,
+   "pmdo_max_frames": 72,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b09p01a": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    69
+   ],
+   "dims_pmdo": [
+    69,
+    69
+   ],
+   "rom_bpa": [
+    "B09P01A1"
+   ],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 468,
+   "pmdo_max_frames": 6,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b09p01b": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    69
+   ],
+   "dims_pmdo": [
+    69,
+    69
+   ],
+   "rom_bpa": [
+    "B09P01B1",
+    "B09P01B3"
+   ],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 450,
+   "pmdo_max_frames": 6,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b09p01c": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    69
+   ],
+   "dims_pmdo": [
+    69,
+    69
+   ],
+   "rom_bpa": [
+    "B09P01C1"
+   ],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 495,
+   "pmdo_max_frames": 6,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b09p02a": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    60
+   ],
+   "dims_pmdo": [
+    60,
+    60
+   ],
+   "rom_bpa": [
+    "B09P021"
+   ],
+   "rom_pal_anims_declared": {
+    "10": 10,
+    "11": 10
+   },
+   "rom_pal_anims_effective": {
+    "10": 10,
+    "11": 10
+   },
+   "pmdo_anim_cells": 72,
+   "pmdo_max_frames": 1680,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b09p02b": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    60
+   ],
+   "dims_pmdo": [
+    60,
+    60
+   ],
+   "rom_bpa": [
+    "B09P021"
+   ],
+   "rom_pal_anims_declared": {
+    "10": 10,
+    "11": 10
+   },
+   "rom_pal_anims_effective": {
+    "11": 10
+   },
+   "pmdo_anim_cells": 54,
+   "pmdo_max_frames": 6,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b09p02c": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    60
+   ],
+   "dims_pmdo": [
+    60,
+    60
+   ],
+   "rom_bpa": [
+    "B09P02C1"
+   ],
+   "rom_pal_anims_declared": {
+    "10": 10
+   },
+   "rom_pal_anims_effective": {
+    "10": 10
+   },
+   "pmdo_anim_cells": 108,
+   "pmdo_max_frames": 10,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b10p01a": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    69
+   ],
+   "dims_pmdo": [
+    69,
+    69
+   ],
+   "rom_bpa": [
+    "B09P01A1"
+   ],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 468,
+   "pmdo_max_frames": 6,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b10p01b": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    69
+   ],
+   "dims_pmdo": [
+    69,
+    69
+   ],
+   "rom_bpa": [
+    "B09P01B1",
+    "B10P01B3"
+   ],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 450,
+   "pmdo_max_frames": 6,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b10p01c": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    69
+   ],
+   "dims_pmdo": [
+    69,
+    69
+   ],
+   "rom_bpa": [
+    "B10P01C1"
+   ],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 468,
+   "pmdo_max_frames": 6,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b10p02a": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    60
+   ],
+   "dims_pmdo": [
+    60,
+    60
+   ],
+   "rom_bpa": [
+    "B09P021"
+   ],
+   "rom_pal_anims_declared": {
+    "10": 10,
+    "11": 10
+   },
+   "rom_pal_anims_effective": {
+    "10": 10,
+    "11": 10
+   },
+   "pmdo_anim_cells": 72,
+   "pmdo_max_frames": 1680,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b10p02b": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    60
+   ],
+   "dims_pmdo": [
+    60,
+    60
+   ],
+   "rom_bpa": [
+    "B09P021"
+   ],
+   "rom_pal_anims_declared": {
+    "10": 10,
+    "11": 10
+   },
+   "rom_pal_anims_effective": {
+    "11": 10
+   },
+   "pmdo_anim_cells": 54,
+   "pmdo_max_frames": 6,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b10p02c": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    60
+   ],
+   "dims_pmdo": [
+    60,
+    60
+   ],
+   "rom_bpa": [
+    "B09P02C1"
+   ],
+   "rom_pal_anims_declared": {
+    "10": 10
+   },
+   "rom_pal_anims_effective": {
+    "10": 10
+   },
+   "pmdo_anim_cells": 108,
+   "pmdo_max_frames": 10,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b11p01a": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    69
+   ],
+   "dims_pmdo": [
+    69,
+    69
+   ],
+   "rom_bpa": [
+    "B09P01A1"
+   ],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 468,
+   "pmdo_max_frames": 6,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b11p01b": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    69
+   ],
+   "dims_pmdo": [
+    69,
+    69
+   ],
+   "rom_bpa": [
+    "B09P01B1",
+    "B11P01B3"
+   ],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 450,
+   "pmdo_max_frames": 6,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b11p01c": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    69
+   ],
+   "dims_pmdo": [
+    69,
+    69
+   ],
+   "rom_bpa": [
+    "B11P01C1"
+   ],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 486,
+   "pmdo_max_frames": 6,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b11p02a": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    60
+   ],
+   "dims_pmdo": [
+    60,
+    60
+   ],
+   "rom_bpa": [
+    "B09P021"
+   ],
+   "rom_pal_anims_declared": {
+    "10": 10,
+    "11": 10
+   },
+   "rom_pal_anims_effective": {
+    "10": 10,
+    "11": 10
+   },
+   "pmdo_anim_cells": 72,
+   "pmdo_max_frames": 1680,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b11p02b": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    60
+   ],
+   "dims_pmdo": [
+    60,
+    60
+   ],
+   "rom_bpa": [
+    "B09P021"
+   ],
+   "rom_pal_anims_declared": {
+    "10": 10,
+    "11": 10
+   },
+   "rom_pal_anims_effective": {
+    "11": 10
+   },
+   "pmdo_anim_cells": 54,
+   "pmdo_max_frames": 6,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b11p02c": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    60
+   ],
+   "dims_pmdo": [
+    60,
+    60
+   ],
+   "rom_bpa": [
+    "B09P02C1"
+   ],
+   "rom_pal_anims_declared": {
+    "10": 10
+   },
+   "rom_pal_anims_effective": {
+    "10": 10
+   },
+   "pmdo_anim_cells": 108,
+   "pmdo_max_frames": 10,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b12p01a": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    69
+   ],
+   "dims_pmdo": [
+    69,
+    69
+   ],
+   "rom_bpa": [
+    "B12P01A1"
+   ],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 270,
+   "pmdo_max_frames": 6,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b12p01b": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    69
+   ],
+   "dims_pmdo": [
+    69,
+    69
+   ],
+   "rom_bpa": [
+    "B12P01B1",
+    "B12P01B3"
+   ],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 270,
+   "pmdo_max_frames": 6,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b12p01c": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    69
+   ],
+   "dims_pmdo": [
+    69,
+    69
+   ],
+   "rom_bpa": [
+    "B12P01C1"
+   ],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 270,
+   "pmdo_max_frames": 6,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b12p02a": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    60
+   ],
+   "dims_pmdo": [
+    60,
+    60
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b12p02b": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    60
+   ],
+   "dims_pmdo": [
+    60,
+    60
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b12p02c": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    60
+   ],
+   "dims_pmdo": [
+    60,
+    60
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b13p01a": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    69
+   ],
+   "dims_pmdo": [
+    69,
+    69
+   ],
+   "rom_bpa": [
+    "B12P01A1"
+   ],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 270,
+   "pmdo_max_frames": 6,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b13p01b": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    69
+   ],
+   "dims_pmdo": [
+    69,
+    69
+   ],
+   "rom_bpa": [
+    "B12P01B1",
+    "B13P01B3"
+   ],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 270,
+   "pmdo_max_frames": 6,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b13p01c": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    69
+   ],
+   "dims_pmdo": [
+    69,
+    69
+   ],
+   "rom_bpa": [
+    "B13P01C1"
+   ],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 270,
+   "pmdo_max_frames": 6,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b13p02a": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    60
+   ],
+   "dims_pmdo": [
+    60,
+    60
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b13p02b": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    60
+   ],
+   "dims_pmdo": [
+    60,
+    60
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b13p02c": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    60
+   ],
+   "dims_pmdo": [
+    60,
+    60
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b14p01a": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    69
+   ],
+   "dims_pmdo": [
+    69,
+    69
+   ],
+   "rom_bpa": [
+    "B14P01A1"
+   ],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 270,
+   "pmdo_max_frames": 6,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b14p01b": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    69
+   ],
+   "dims_pmdo": [
+    69,
+    69
+   ],
+   "rom_bpa": [
+    "B14P01B1",
+    "B14P01B3"
+   ],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 270,
+   "pmdo_max_frames": 6,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b14p01c": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    69
+   ],
+   "dims_pmdo": [
+    69,
+    69
+   ],
+   "rom_bpa": [
+    "B14P01C1"
+   ],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 270,
+   "pmdo_max_frames": 6,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b14p02a": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    60
+   ],
+   "dims_pmdo": [
+    60,
+    60
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b14p02b": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    60
+   ],
+   "dims_pmdo": [
+    60,
+    60
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b14p02c": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    60
+   ],
+   "dims_pmdo": [
+    60,
+    60
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b15p01a": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    69
+   ],
+   "dims_pmdo": [
+    69,
+    69
+   ],
+   "rom_bpa": [
+    "B14P01A1"
+   ],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 270,
+   "pmdo_max_frames": 6,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b15p01b": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    69
+   ],
+   "dims_pmdo": [
+    69,
+    69
+   ],
+   "rom_bpa": [
+    "B14P01B1",
+    "B15P01B3"
+   ],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 270,
+   "pmdo_max_frames": 6,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b15p01c": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    69
+   ],
+   "dims_pmdo": [
+    69,
+    69
+   ],
+   "rom_bpa": [
+    "B15P01C1"
+   ],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 270,
+   "pmdo_max_frames": 6,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b15p02a": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    60
+   ],
+   "dims_pmdo": [
+    60,
+    60
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b15p02b": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    60
+   ],
+   "dims_pmdo": [
+    60,
+    60
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b15p02c": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    60
+   ],
+   "dims_pmdo": [
+    60,
+    60
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b16p01a": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    69
+   ],
+   "dims_pmdo": [
+    69,
+    69
+   ],
+   "rom_bpa": [
+    "B14P01A1"
+   ],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 270,
+   "pmdo_max_frames": 6,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b16p01b": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    69
+   ],
+   "dims_pmdo": [
+    69,
+    69
+   ],
+   "rom_bpa": [
+    "B14P01B1",
+    "B16P01B3"
+   ],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 270,
+   "pmdo_max_frames": 6,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b16p01c": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    69
+   ],
+   "dims_pmdo": [
+    69,
+    69
+   ],
+   "rom_bpa": [
+    "B16P01C1"
+   ],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 270,
+   "pmdo_max_frames": 6,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b16p02a": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    60
+   ],
+   "dims_pmdo": [
+    60,
+    60
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b16p02b": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    60
+   ],
+   "dims_pmdo": [
+    60,
+    60
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "b16p02c": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    60
+   ],
+   "dims_pmdo": [
+    60,
+    60
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "d01p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    54,
+    45
+   ],
+   "dims_pmdo": [
+    54,
+    45
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "d01p02": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    45,
+    42
+   ],
+   "dims_pmdo": [
+    45,
+    42
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 0.0
+  },
+  "d02p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    48,
+    39
+   ],
+   "dims_pmdo": [
+    48,
+    39
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "d02p02": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    45,
+    42
+   ],
+   "dims_pmdo": [
+    45,
+    42
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 0.0
+  },
+  "d03p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    45,
+    39
+   ],
+   "dims_pmdo": [
+    45,
+    39
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "d03p02": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    57,
+    69
+   ],
+   "dims_pmdo": [
+    57,
+    69
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 0.0
+  },
+  "d04p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    57,
+    48
+   ],
+   "dims_pmdo": [
+    57,
+    48
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "d04p02": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    72
+   ],
+   "dims_pmdo": [
+    69,
+    72
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 0.0
+  },
+  "d05p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    84,
+    30
+   ],
+   "dims_pmdo": [
+    84,
+    30
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "d05p02": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    45,
+    51
+   ],
+   "dims_pmdo": [
+    45,
+    51
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 0.0
+  },
+  "d06p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    51,
+    36
+   ],
+   "dims_pmdo": [
+    51,
+    36
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "d06p02": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    57,
+    57
+   ],
+   "dims_pmdo": [
+    57,
+    57
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 0.0
+  },
+  "d06p03": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    57,
+    57
+   ],
+   "dims_pmdo": [
+    57,
+    57
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 5.1
+  },
+  "d07p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    57,
+    30
+   ],
+   "dims_pmdo": [
+    57,
+    30
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "d07p02": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    39,
+    75
+   ],
+   "dims_pmdo": [
+    39,
+    75
+   ],
+   "rom_bpa": [
+    "A04P011"
+   ],
+   "rom_pal_anims_declared": {
+    "8": 28,
+    "9": 28
+   },
+   "rom_pal_anims_effective": {
+    "8": 28,
+    "9": 28
+   },
+   "pmdo_anim_cells": 153,
+   "pmdo_max_frames": 28,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "d08p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    45,
+    36
+   ],
+   "dims_pmdo": [
+    45,
+    36
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "d08p02": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    45,
+    36
+   ],
+   "dims_pmdo": [
+    45,
+    36
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "d09p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    45,
+    39
+   ],
+   "dims_pmdo": [
+    45,
+    39
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {
+    "0": 6,
+    "2": 6,
+    "3": 6,
+    "4": 6,
+    "5": 6
+   },
+   "rom_pal_anims_effective": {
+    "0": 6,
+    "2": 6,
+    "3": 6,
+    "4": 6,
+    "5": 6
+   },
+   "pmdo_anim_cells": 558,
+   "pmdo_max_frames": 6,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "d09p02": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    57,
+    57
+   ],
+   "dims_pmdo": [
+    57,
+    57
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "d09p03": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    69
+   ],
+   "dims_pmdo": [
+    69,
+    69
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 0.0
+  },
+  "d10p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    33,
+    42
+   ],
+   "dims_pmdo": [
+    33,
+    42
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "d10p02": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    57,
+    57
+   ],
+   "dims_pmdo": [
+    57,
+    57
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 0.0
+  },
+  "d10p03": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    66,
+    63
+   ],
+   "dims_pmdo": [
+    66,
+    63
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 0.0
+  },
+  "d11p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    33,
+    36
+   ],
+   "dims_pmdo": [
+    33,
+    36
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {
+    "1": 26,
+    "2": 26,
+    "3": 26,
+    "4": 26,
+    "5": 26
+   },
+   "rom_pal_anims_effective": {
+    "1": 26,
+    "2": 26,
+    "3": 26,
+    "4": 26,
+    "5": 26
+   },
+   "pmdo_anim_cells": 387,
+   "pmdo_max_frames": 26,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "d11p02": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    57,
+    57
+   ],
+   "dims_pmdo": [
+    57,
+    57
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 0.0
+  },
+  "d11p03": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    63,
+    63
+   ],
+   "dims_pmdo": [
+    63,
+    63
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 0.0
+  },
+  "d12p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    51,
+    42
+   ],
+   "dims_pmdo": [
+    51,
+    42
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {
+    "0": 8,
+    "1": 8,
+    "2": 8,
+    "3": 8,
+    "4": 8,
+    "5": 8,
+    "6": 8,
+    "7": 14
+   },
+   "rom_pal_anims_effective": {
+    "0": 8,
+    "1": 8,
+    "2": 8,
+    "3": 8,
+    "4": 8,
+    "5": 8,
+    "6": 8,
+    "7": 14
+   },
+   "pmdo_anim_cells": 1926,
+   "pmdo_max_frames": 56,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "d12p02": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    57,
+    57
+   ],
+   "dims_pmdo": [
+    57,
+    57
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 0.0
+  },
+  "d12p04": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    63,
+    63
+   ],
+   "dims_pmdo": [
+    63,
+    63
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 5.6
+  },
+  "d13p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    51,
+    36
+   ],
+   "dims_pmdo": [
+    51,
+    36
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {
+    "9": 8,
+    "10": 8
+   },
+   "rom_pal_anims_effective": {
+    "9": 8,
+    "10": 8
+   },
+   "pmdo_anim_cells": 648,
+   "pmdo_max_frames": 8,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "d13p02": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    57,
+    57
+   ],
+   "dims_pmdo": [
+    57,
+    57
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 0.0
+  },
+  "d13p03": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    75
+   ],
+   "dims_pmdo": [
+    69,
+    75
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 7.0
+  },
+  "d14p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    66,
+    63
+   ],
+   "dims_pmdo": [
+    66,
+    63
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {
+    "7": 17
+   },
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 0.0
+  },
+  "d15p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    75
+   ],
+   "dims_pmdo": [
+    69,
+    75
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {
+    "8": 24
+   },
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 3.5
+  },
+  "d16p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    45,
+    45
+   ],
+   "dims_pmdo": [
+    45,
+    45
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 0.0
+  },
+  "d17p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    48,
+    45
+   ],
+   "dims_pmdo": [
+    48,
+    45
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 0.0
+  },
+  "d18p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    45,
+    42
+   ],
+   "dims_pmdo": [
+    45,
+    42
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 0.0
+  },
+  "d19p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    66,
+    63
+   ],
+   "dims_pmdo": [
+    66,
+    63
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 0.0
+  },
+  "d20p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    45,
+    42
+   ],
+   "dims_pmdo": [
+    45,
+    42
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 0.0
+  },
+  "d21p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    63,
+    60
+   ],
+   "dims_pmdo": [
+    63,
+    60
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 2.1
+  },
+  "d22p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    51,
+    45
+   ],
+   "dims_pmdo": [
+    51,
+    45
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "d23p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    45,
+    42
+   ],
+   "dims_pmdo": [
+    45,
+    42
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 0.0
+  },
+  "d24p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    51,
+    48
+   ],
+   "dims_pmdo": [
+    51,
+    48
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "d24p02": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    51,
+    36
+   ],
+   "dims_pmdo": [
+    51,
+    36
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "d25p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    45,
+    42
+   ],
+   "dims_pmdo": [
+    45,
+    42
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 0.0
+  },
+  "h01p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    57,
+    30
+   ],
+   "dims_pmdo": [
+    57,
+    30
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h01p02": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    42
+   ],
+   "dims_pmdo": [
+    60,
+    42
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h01p03": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    66,
+    45
+   ],
+   "dims_pmdo": [
+    66,
+    45
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h02p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    42
+   ],
+   "dims_pmdo": [
+    60,
+    42
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h02p02": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    57,
+    39
+   ],
+   "dims_pmdo": [
+    57,
+    39
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h02p03": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    45,
+    42
+   ],
+   "dims_pmdo": [
+    45,
+    42
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {
+    "2": 23,
+    "4": 23,
+    "7": 23
+   },
+   "rom_pal_anims_effective": {
+    "2": 23,
+    "4": 23,
+    "7": 23
+   },
+   "pmdo_anim_cells": 360,
+   "pmdo_max_frames": 23,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h03p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    69,
+    42
+   ],
+   "dims_pmdo": [
+    69,
+    42
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {
+    "0": 25,
+    "11": 64
+   },
+   "rom_pal_anims_effective": {
+    "0": 25,
+    "11": 64
+   },
+   "pmdo_anim_cells": 522,
+   "pmdo_max_frames": 64,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h04p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    63,
+    42
+   ],
+   "dims_pmdo": [
+    63,
+    42
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h04p02": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    42
+   ],
+   "dims_pmdo": [
+    60,
+    42
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h05p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    42
+   ],
+   "dims_pmdo": [
+    60,
+    42
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {
+    "1": 20,
+    "2": 20
+   },
+   "rom_pal_anims_effective": {
+    "1": 20,
+    "2": 20
+   },
+   "pmdo_anim_cells": 126,
+   "pmdo_max_frames": 20,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h05p02": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    57,
+    39
+   ],
+   "dims_pmdo": [
+    57,
+    39
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h06p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    57,
+    42
+   ],
+   "dims_pmdo": [
+    57,
+    42
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {
+    "0": 10,
+    "1": 18,
+    "7": 18
+   },
+   "rom_pal_anims_effective": {
+    "1": 18,
+    "7": 18
+   },
+   "pmdo_anim_cells": 270,
+   "pmdo_max_frames": 18,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h06p02": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    42
+   ],
+   "dims_pmdo": [
+    60,
+    42
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {
+    "7": 10,
+    "8": 10
+   },
+   "rom_pal_anims_effective": {
+    "7": 10,
+    "8": 10
+   },
+   "pmdo_anim_cells": 72,
+   "pmdo_max_frames": 10,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h06p03": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    57,
+    42
+   ],
+   "dims_pmdo": [
+    57,
+    42
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h06p04": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    42
+   ],
+   "dims_pmdo": [
+    60,
+    42
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h06p05": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    57,
+    42
+   ],
+   "dims_pmdo": [
+    57,
+    42
+   ],
+   "rom_bpa": [
+    "H06P051"
+   ],
+   "rom_pal_anims_declared": {
+    "5": 9,
+    "6": 9
+   },
+   "rom_pal_anims_effective": {
+    "5": 9,
+    "6": 9
+   },
+   "pmdo_anim_cells": 432,
+   "pmdo_max_frames": 10,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h06p06": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    39
+   ],
+   "dims_pmdo": [
+    60,
+    39
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h07p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    57,
+    39
+   ],
+   "dims_pmdo": [
+    57,
+    39
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {
+    "7": 10,
+    "8": 15
+   },
+   "rom_pal_anims_effective": {
+    "7": 10,
+    "8": 15
+   },
+   "pmdo_anim_cells": 90,
+   "pmdo_max_frames": 30,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h07p02": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    57,
+    39
+   ],
+   "dims_pmdo": [
+    57,
+    39
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {
+    "3": 8,
+    "4": 8
+   },
+   "rom_pal_anims_effective": {
+    "3": 8,
+    "4": 8
+   },
+   "pmdo_anim_cells": 126,
+   "pmdo_max_frames": 8,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h07p03": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    39
+   ],
+   "dims_pmdo": [
+    60,
+    39
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h07p04": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    42
+   ],
+   "dims_pmdo": [
+    60,
+    42
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h07p05": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    57,
+    42
+   ],
+   "dims_pmdo": [
+    57,
+    42
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h07p06": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    42
+   ],
+   "dims_pmdo": [
+    60,
+    42
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {
+    "5": 31,
+    "6": 16,
+    "7": 16
+   },
+   "rom_pal_anims_effective": {
+    "5": 31,
+    "6": 16,
+    "7": 16
+   },
+   "pmdo_anim_cells": 360,
+   "pmdo_max_frames": 1488,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h07p07": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    39
+   ],
+   "dims_pmdo": [
+    60,
+    39
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {
+    "6": 32
+   },
+   "rom_pal_anims_effective": {
+    "6": 32
+   },
+   "pmdo_anim_cells": 36,
+   "pmdo_max_frames": 32,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h07p08": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    57,
+    39
+   ],
+   "dims_pmdo": [
+    57,
+    39
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h08p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    42
+   ],
+   "dims_pmdo": [
+    60,
+    42
+   ],
+   "rom_bpa": [
+    "H08P011"
+   ],
+   "rom_pal_anims_declared": {
+    "2": 11,
+    "6": 12,
+    "9": 14,
+    "10": 7
+   },
+   "rom_pal_anims_effective": {
+    "2": 11,
+    "6": 12,
+    "9": 14,
+    "10": 7
+   },
+   "pmdo_anim_cells": 693,
+   "pmdo_max_frames": 264,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h09p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    63,
+    42
+   ],
+   "dims_pmdo": [
+    63,
+    42
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {
+    "6": 10,
+    "10": 16,
+    "11": 16
+   },
+   "rom_pal_anims_effective": {
+    "6": 10,
+    "10": 16,
+    "11": 16
+   },
+   "pmdo_anim_cells": 513,
+   "pmdo_max_frames": 16,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h09p02": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    42
+   ],
+   "dims_pmdo": [
+    60,
+    42
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {
+    "0": 8,
+    "10": 17,
+    "11": 17
+   },
+   "rom_pal_anims_effective": {
+    "0": 8,
+    "10": 17,
+    "11": 17
+   },
+   "pmdo_anim_cells": 504,
+   "pmdo_max_frames": 2040,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h10p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    42
+   ],
+   "dims_pmdo": [
+    60,
+    42
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {
+    "1": 8,
+    "9": 11
+   },
+   "rom_pal_anims_effective": {
+    "1": 8,
+    "9": 11
+   },
+   "pmdo_anim_cells": 270,
+   "pmdo_max_frames": 11,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h10p02": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    57,
+    39
+   ],
+   "dims_pmdo": [
+    57,
+    39
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {
+    "0": 8,
+    "1": 8,
+    "3": 6,
+    "4": 6,
+    "5": 9,
+    "6": 6,
+    "7": 6,
+    "8": 16,
+    "9": 14,
+    "10": 20,
+    "11": 12
+   },
+   "rom_pal_anims_effective": {
+    "0": 8,
+    "1": 8,
+    "3": 6,
+    "4": 6,
+    "5": 9,
+    "6": 6,
+    "7": 6,
+    "8": 16,
+    "9": 14,
+    "10": 20,
+    "11": 12
+   },
+   "pmdo_anim_cells": 1287,
+   "pmdo_max_frames": 420,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h11p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    66,
+    42
+   ],
+   "dims_pmdo": [
+    66,
+    42
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {
+    "5": 12
+   },
+   "rom_pal_anims_effective": {
+    "5": 12
+   },
+   "pmdo_anim_cells": 603,
+   "pmdo_max_frames": 12,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h12p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    57,
+    42
+   ],
+   "dims_pmdo": [
+    57,
+    42
+   ],
+   "rom_bpa": [
+    "H12P011"
+   ],
+   "rom_pal_anims_declared": {
+    "3": 8
+   },
+   "rom_pal_anims_effective": {
+    "3": 8
+   },
+   "pmdo_anim_cells": 135,
+   "pmdo_max_frames": 9,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h13p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    63,
+    45
+   ],
+   "dims_pmdo": [
+    63,
+    45
+   ],
+   "rom_bpa": [
+    "H13P011"
+   ],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 90,
+   "pmdo_max_frames": 4,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h13p02": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    45,
+    39
+   ],
+   "dims_pmdo": [
+    45,
+    39
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h13p03": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    57,
+    39
+   ],
+   "dims_pmdo": [
+    57,
+    39
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h13p04": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    63,
+    45
+   ],
+   "dims_pmdo": [
+    63,
+    45
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h14p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    57,
+    42
+   ],
+   "dims_pmdo": [
+    57,
+    42
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {
+    "2": 13,
+    "4": 13,
+    "8": 13
+   },
+   "rom_pal_anims_effective": {
+    "2": 13,
+    "4": 13,
+    "8": 13
+   },
+   "pmdo_anim_cells": 207,
+   "pmdo_max_frames": 13,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h15p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    39
+   ],
+   "dims_pmdo": [
+    60,
+    39
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {
+    "0": 15,
+    "7": 32,
+    "10": 25
+   },
+   "rom_pal_anims_effective": {
+    "0": 15,
+    "7": 32,
+    "10": 25
+   },
+   "pmdo_anim_cells": 342,
+   "pmdo_max_frames": 32,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h16p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    42
+   ],
+   "dims_pmdo": [
+    60,
+    42
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h17p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    57,
+    42
+   ],
+   "dims_pmdo": [
+    57,
+    42
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {
+    "0": 27,
+    "1": 27,
+    "2": 27,
+    "3": 27,
+    "4": 27
+   },
+   "rom_pal_anims_effective": {
+    "0": 27,
+    "1": 27,
+    "2": 27,
+    "3": 27,
+    "4": 27
+   },
+   "pmdo_anim_cells": 1071,
+   "pmdo_max_frames": 27,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h18p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    42
+   ],
+   "dims_pmdo": [
+    60,
+    42
+   ],
+   "rom_bpa": [
+    "H18P011"
+   ],
+   "rom_pal_anims_declared": {
+    "4": 6,
+    "10": 6
+   },
+   "rom_pal_anims_effective": {
+    "4": 6,
+    "10": 6
+   },
+   "pmdo_anim_cells": 234,
+   "pmdo_max_frames": 6,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h19p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    57,
+    39
+   ],
+   "dims_pmdo": [
+    57,
+    39
+   ],
+   "rom_bpa": [
+    "H19P011"
+   ],
+   "rom_pal_anims_declared": {
+    "3": 20,
+    "7": 23,
+    "8": 27
+   },
+   "rom_pal_anims_effective": {
+    "3": 20,
+    "7": 23,
+    "8": 27
+   },
+   "pmdo_anim_cells": 342,
+   "pmdo_max_frames": 85,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h20p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    57,
+    42
+   ],
+   "dims_pmdo": [
+    57,
+    42
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {
+    "8": 12,
+    "9": 9
+   },
+   "rom_pal_anims_effective": {
+    "8": 12,
+    "9": 9
+   },
+   "pmdo_anim_cells": 288,
+   "pmdo_max_frames": 12,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h21p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    39
+   ],
+   "dims_pmdo": [
+    60,
+    39
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {
+    "0": 15,
+    "3": 15
+   },
+   "rom_pal_anims_effective": {
+    "0": 15,
+    "3": 15
+   },
+   "pmdo_anim_cells": 252,
+   "pmdo_max_frames": 15,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h21p02": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    39
+   ],
+   "dims_pmdo": [
+    60,
+    39
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {
+    "0": 21,
+    "3": 21
+   },
+   "rom_pal_anims_effective": {
+    "0": 21,
+    "3": 21
+   },
+   "pmdo_anim_cells": 252,
+   "pmdo_max_frames": 21,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h22p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    39
+   ],
+   "dims_pmdo": [
+    60,
+    39
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {
+    "0": 18,
+    "5": 18
+   },
+   "rom_pal_anims_effective": {
+    "0": 18,
+    "5": 18
+   },
+   "pmdo_anim_cells": 108,
+   "pmdo_max_frames": 18,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h23p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    57,
+    39
+   ],
+   "dims_pmdo": [
+    57,
+    39
+   ],
+   "rom_bpa": [
+    "H23P011"
+   ],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 90,
+   "pmdo_max_frames": 29,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h24p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    45
+   ],
+   "dims_pmdo": [
+    60,
+    45
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h25p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    36
+   ],
+   "dims_pmdo": [
+    60,
+    36
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {
+    "3": 14,
+    "4": 15,
+    "5": 32,
+    "6": 14,
+    "7": 14
+   },
+   "rom_pal_anims_effective": {
+    "3": 14,
+    "4": 15,
+    "5": 32,
+    "6": 14,
+    "7": 14
+   },
+   "pmdo_anim_cells": 468,
+   "pmdo_max_frames": 32,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h26p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    39
+   ],
+   "dims_pmdo": [
+    60,
+    39
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {
+    "0": 15,
+    "4": 8,
+    "5": 31,
+    "6": 31,
+    "7": 31,
+    "8": 31,
+    "9": 4
+   },
+   "rom_pal_anims_effective": {
+    "0": 15,
+    "4": 8,
+    "5": 31,
+    "6": 31,
+    "7": 31,
+    "8": 31,
+    "9": 4
+   },
+   "pmdo_anim_cells": 1134,
+   "pmdo_max_frames": 744,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h27p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    39
+   ],
+   "dims_pmdo": [
+    60,
+    39
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {
+    "4": 6,
+    "5": 6,
+    "6": 38
+   },
+   "rom_pal_anims_effective": {
+    "4": 6,
+    "5": 6,
+    "6": 38
+   },
+   "pmdo_anim_cells": 1089,
+   "pmdo_max_frames": 228,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h28p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    39
+   ],
+   "dims_pmdo": [
+    60,
+    39
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h28p02": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    39
+   ],
+   "dims_pmdo": [
+    60,
+    39
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h29p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    33
+   ],
+   "dims_pmdo": [
+    60,
+    33
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {
+    "0": 9,
+    "1": 16,
+    "6": 16,
+    "9": 16,
+    "10": 10
+   },
+   "rom_pal_anims_effective": {
+    "0": 9,
+    "1": 16,
+    "6": 16,
+    "9": 16,
+    "10": 10
+   },
+   "pmdo_anim_cells": 180,
+   "pmdo_max_frames": 16,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h29p02": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    42
+   ],
+   "dims_pmdo": [
+    60,
+    42
+   ],
+   "rom_bpa": [
+    "H29P021"
+   ],
+   "rom_pal_anims_declared": {
+    "0": 9,
+    "10": 20
+   },
+   "rom_pal_anims_effective": {
+    "0": 9,
+    "10": 20
+   },
+   "pmdo_anim_cells": 801,
+   "pmdo_max_frames": 20,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h29p03": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    42
+   ],
+   "dims_pmdo": [
+    60,
+    42
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {
+    "1": 12,
+    "7": 12,
+    "8": 12,
+    "9": 14
+   },
+   "rom_pal_anims_effective": {
+    "1": 12,
+    "7": 12,
+    "8": 12,
+    "9": 14
+   },
+   "pmdo_anim_cells": 1728,
+   "pmdo_max_frames": 168,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "h29p04": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    39
+   ],
+   "dims_pmdo": [
+    60,
+    39
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {
+    "0": 4,
+    "5": 18
+   },
+   "rom_pal_anims_effective": {
+    "0": 4,
+    "5": 18
+   },
+   "pmdo_anim_cells": 198,
+   "pmdo_max_frames": 18,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "s01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    60,
+    48
+   ],
+   "dims_pmdo": [
+    60,
+    48
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {
+    "0": 63
+   },
+   "rom_pal_anims_effective": {
+    "0": 63
+   },
+   "pmdo_anim_cells": 2772,
+   "pmdo_max_frames": 63,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "s02": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    36,
+    54
+   ],
+   "dims_pmdo": [
+    36,
+    54
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "s02_fre": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    36,
+    54
+   ],
+   "dims_pmdo": [
+    36,
+    54
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "s02_ger": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    36,
+    54
+   ],
+   "dims_pmdo": [
+    36,
+    54
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "s02_ita": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    36,
+    54
+   ],
+   "dims_pmdo": [
+    36,
+    54
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "s02_spa": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    36,
+    54
+   ],
+   "dims_pmdo": [
+    36,
+    54
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "s03": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    36,
+    39
+   ],
+   "dims_pmdo": [
+    36,
+    39
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {
+    "0": 64,
+    "1": 64,
+    "2": 64,
+    "3": 64,
+    "4": 64,
+    "5": 64,
+    "6": 64,
+    "7": 64,
+    "8": 64,
+    "9": 64,
+    "10": 64,
+    "11": 64
+   },
+   "rom_pal_anims_effective": {
+    "0": 64,
+    "1": 64,
+    "2": 64,
+    "3": 64,
+    "4": 64,
+    "5": 64,
+    "6": 64,
+    "7": 64,
+    "8": 64,
+    "9": 64,
+    "10": 64,
+    "11": 64
+   },
+   "pmdo_anim_cells": 1080,
+   "pmdo_max_frames": 64,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "s04": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    30,
+    80
+   ],
+   "dims_pmdo": [
+    30,
+    80
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "s05": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    33,
+    42
+   ],
+   "dims_pmdo": [
+    33,
+    42
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "s05_fre": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    33,
+    42
+   ],
+   "dims_pmdo": [
+    33,
+    42
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "s05_ger": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    33,
+    42
+   ],
+   "dims_pmdo": [
+    33,
+    42
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "s05_ita": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    33,
+    42
+   ],
+   "dims_pmdo": [
+    33,
+    42
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "s05_spa": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    33,
+    42
+   ],
+   "dims_pmdo": [
+    33,
+    42
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "s06": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    30,
+    21
+   ],
+   "dims_pmdo": [
+    30,
+    21
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "s06_fre": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    30,
+    21
+   ],
+   "dims_pmdo": [
+    30,
+    21
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "s06_ger": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    30,
+    21
+   ],
+   "dims_pmdo": [
+    30,
+    21
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "s06_ita": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    30,
+    21
+   ],
+   "dims_pmdo": [
+    30,
+    21
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "s06_spa": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    30,
+    21
+   ],
+   "dims_pmdo": [
+    30,
+    21
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "t00p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    144,
+    111
+   ],
+   "dims_pmdo": [
+    144,
+    111
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "t01p00": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    120,
+    90
+   ],
+   "dims_pmdo": [
+    120,
+    90
+   ],
+   "rom_bpa": [
+    "T01P011"
+   ],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 738,
+   "pmdo_max_frames": 6,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "t01p01": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    120,
+    90
+   ],
+   "dims_pmdo": [
+    120,
+    90
+   ],
+   "rom_bpa": [
+    "T01P011"
+   ],
+   "rom_pal_anims_declared": {
+    "2": 6
+   },
+   "rom_pal_anims_effective": {
+    "2": 6
+   },
+   "pmdo_anim_cells": 909,
+   "pmdo_max_frames": 6,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "t01p02a": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    57,
+    78
+   ],
+   "dims_pmdo": [
+    57,
+    78
+   ],
+   "rom_bpa": [
+    "T01P021"
+   ],
+   "rom_pal_anims_declared": {
+    "0": 7,
+    "1": 3,
+    "2": 8,
+    "8": 6,
+    "9": 7,
+    "10": 6
+   },
+   "rom_pal_anims_effective": {
+    "0": 7,
+    "1": 3,
+    "2": 8,
+    "8": 6,
+    "9": 7,
+    "10": 6
+   },
+   "pmdo_anim_cells": 1098,
+   "pmdo_max_frames": 336,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "t01p02b": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    57,
+    78
+   ],
+   "dims_pmdo": [
+    57,
+    78
+   ],
+   "rom_bpa": [
+    "T01P021"
+   ],
+   "rom_pal_anims_declared": {
+    "0": 7,
+    "1": 3,
+    "2": 8,
+    "8": 6,
+    "9": 7,
+    "10": 6
+   },
+   "rom_pal_anims_effective": {
+    "0": 7,
+    "1": 3,
+    "2": 8,
+    "8": 6,
+    "9": 7,
+    "10": 6
+   },
+   "pmdo_anim_cells": 1098,
+   "pmdo_max_frames": 336,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "t01p03": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    90,
+    66
+   ],
+   "dims_pmdo": [
+    90,
+    66
+   ],
+   "rom_bpa": [
+    "T01P031"
+   ],
+   "rom_pal_anims_declared": {
+    "10": 10,
+    "11": 10
+   },
+   "rom_pal_anims_effective": {
+    "10": 10,
+    "11": 10
+   },
+   "pmdo_anim_cells": 1260,
+   "pmdo_max_frames": 700,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "t01p04": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    66,
+    66
+   ],
+   "dims_pmdo": [
+    66,
+    66
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {},
+   "rom_pal_anims_effective": {},
+   "pmdo_anim_cells": 0,
+   "pmdo_max_frames": 0,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "t01p05": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    81,
+    48
+   ],
+   "dims_pmdo": [
+    81,
+    48
+   ],
+   "rom_bpa": [
+    "T01P051"
+   ],
+   "rom_pal_anims_declared": {
+    "8": 7,
+    "9": 5
+   },
+   "rom_pal_anims_effective": {
+    "8": 7,
+    "9": 5
+   },
+   "pmdo_anim_cells": 540,
+   "pmdo_max_frames": 70,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  },
+  "t01p07": {
+   "verdict": "PASS",
+   "reasons": [],
+   "dims_rom": [
+    51,
+    48
+   ],
+   "dims_pmdo": [
+    51,
+    48
+   ],
+   "rom_bpa": [],
+   "rom_pal_anims_declared": {
+    "1": 24,
+    "2": 24,
+    "3": 24
+   },
+   "rom_pal_anims_effective": {
+    "1": 24,
+    "2": 24,
+    "3": 24
+   },
+   "pmdo_anim_cells": 27,
+   "pmdo_max_frames": 24,
+   "artifact_cells": 0,
+   "palette_coverage_pct": 100.0
+  }
+ }
+}
