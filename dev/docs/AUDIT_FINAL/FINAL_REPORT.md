@@ -69,6 +69,18 @@ Branche `arena/01a0357e-new-era-abyss-to-ascension-v4`. Base d'audit : `dev/docs
 - Corrections trouvées par le test : `zone.GroundMaps` (Zone runtime) ≠ `.Grounds` (summary) ; EndSegment synchrone pattern red validator ; transition seg2 via EnterZone en headless (EnterDungeon = menus).
 - **Preuve runtime bout-en-bout : `restflow:` 26/26 REST_FLOW_ALL_PASS** (`dev/docs/canonical/sky/rest_areas_flow_proof.jsonl`) : dernier étage seg1 → victoire (EndSegment=chemin moteur de l escalier) → ExitSegment → chargement du BON ground (26/26 match) → statue présente (26/26) → reprise seg2 étage 0. Le critère n est PAS « les grounds chargent » : c est la chaîne de progression complète.
 
+
+### LOTS K/L/M/N — Clôture des restes « cycle moteur » SANS C# (contre-épreuves ROM)
+- **LOT K (météo RANDOM, 81 étages/13 zones)** — `f71fbdd9` : DefaultMapStatusStep multi-status tire UNIFORMÉMENT via map.Rand seedé (PMDC MapDataStep.cs l.190) parmi les 8 météos EoS (enum weather_id 0-7). Preuve : destiny_tower fl15→clear, fl21→sunny, exactement aux étages RANDOM ROM (`weather_random_proof.jsonl`). AUCUN code C# nécessaire.
+- **LOT L (ratio pièges MH, R4.5)** — `7cde1055` : dungeon_id≥28 (MH_MIN_TRAP_DUNGEON, dungeon-eos l.66/3215) ⇒ ~50 % des 6-7 spawns MH sont des pièges ⇒ Amount items 3-4 (133 themes/77 zones). Pose physique de pièges dans la salle MH = seul point restant C#.
+- **LOT M (structures secondaires GBA, R8)** — `bd07d495` : secondaryStructuresBudget ROM (offset 12, 155 étages) → PatternTerrainStep eau natif (motifs vanilla blob/checker/plus/slash ≈ POOL/CHECKERBOARD/MAZE+DOT/DIVIDER, Amount = budget exact, stencil vanilla depleted_basin). Preuve étage-exact : eau posée UNIQUEMENT aux étages à budget>0 (stormy_sea fl1/5 = 16/32 tuiles, howling_forest fl6/7, 0 ailleurs) — `gba_secondary_structures_proof.jsonl`. ISLAND (warp+loot) = PORTED_APPROXIMATED.
+- **LOT N (sticky GBA, R12)** — `b09cb2e7` : itemStickyChance offset 10 (5 %) → Cursed, 14 entrées/4 zones — couverture exhaustive des zones mappées (contre-épreuve : 0 zone restante).
+
+### R7/R10 — RECLASSÉS « UNUSED canonique » (preuve binaire, AUCUN code à écrire)
+- **R7 imperfections** : le flag ROOM_FLAG_ALLOW_IMPERFECTIONS (0x4) n est actif sur **0/1764 étages GBA** (stream main_data.inc) et `generate_imperfect_rooms=false` sur **1795/1795 étages Sky**. L algorithme existe mais AUCUNE donnée ne l active dans les deux ROMs.
+- **R10 maze rooms** : GBA `GenerateMazeRoom` est INATTEIGNABLE (guard `unk3A16>=0`, pret l.3385 : « This bizarre check prevents maze rooms from ever being created ») ; Sky `mazify` n est jamais exécuté (`PATCH_APPLIED=0 && maze_value=0`, dungeon-eos l.1348). Mécanique morte des deux côtés : la porter serait INVENTER du contenu (contraire à la règle canon).
+⇒ Le « cycle moteur C# » se réduit à 3 sujets optionnels de fidélité fine : MobThemeRoomScaled (approx data en place), pièges physiques dans MonsterHouseStep, ISLAND complet. Tout le reste du périmètre canonique est PORTÉ.
+
 ## 2. Outillage nouveau (§16 ASCII + stats)
 - `dprobe` étendu (validator Lua) : dumps **ASCII tuile/tuile** (murs/sol/eau/lave/gouffre/escaliers `>`/pièges `^`/items `$`/mobs `M`), répétitions **multi-seed** (`PMDO_DPROBE_REPS`, reseed ReRandom), comptage **MH en attente** (`mh_mobs`), **shopkeepers** (`neutrals`), cible `zone@segment`, clamp FloorCount.
 - `dev/tools/analyze_dungeon_generation_stats.py` : stats §36 (min/max/moy mobs/items/traps, hash structurel des layouts, détection identiques/quasi-identiques ≥98 %).
