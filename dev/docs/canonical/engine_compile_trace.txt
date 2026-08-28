@@ -1,0 +1,9 @@
+LoadEngine called
+root=/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/canonical-appdata/MODS/New-Era src=/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/canonical-appdata/MODS/New-Era/dev/engine/src/NewEraEngine.cs exists=true
+OK
+LoadEngine called
+root=/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/canonical-appdata/MODS/New-Era src=/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/canonical-appdata/MODS/New-Era/dev/engine/src/NewEraEngine.cs exists=true
+OK
+LoadEngine called
+root=/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/canonical-appdata/MODS/New-Era src=/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/canonical-appdata/MODS/New-Era/dev/engine/src/NewEraEngine.cs exists=true
+OK

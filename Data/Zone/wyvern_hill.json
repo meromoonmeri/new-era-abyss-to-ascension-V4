@@ -10102,7 +10102,7 @@
             "HouseStepSpawns": [
               {
                 "Spawn": {
-                  "$type": "PMDC.LevelGen.MonsterHouseStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], PMDC",
+                  "$type": "NewEra.LevelGen.MonsterHouseRomStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], NewEra.Engine",
                   "Filters": [
                     {
                       "$type": "RogueElements.RoomFilterComponent, RogueElements",
@@ -10120,7 +10120,11 @@
                   "Items": [],
                   "ItemThemes": [],
                   "Mobs": [],
-                  "MobThemes": []
+                  "MobThemes": [],
+                  "MobCap": 12,
+                  "ItemTrapCap": 7,
+                  "AllowTraps": true,
+                  "Traps": []
                 },
                 "Rate": 10
               }
@@ -19682,7 +19686,7 @@
             "HouseStepSpawns": [
               {
                 "Spawn": {
-                  "$type": "PMDC.LevelGen.MonsterHouseStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], PMDC",
+                  "$type": "NewEra.LevelGen.MonsterHouseRomStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], NewEra.Engine",
                   "Filters": [
                     {
                       "$type": "RogueElements.RoomFilterComponent, RogueElements",
@@ -19700,7 +19704,11 @@
                   "Items": [],
                   "ItemThemes": [],
                   "Mobs": [],
-                  "MobThemes": []
+                  "MobThemes": [],
+                  "MobCap": 12,
+                  "ItemTrapCap": 7,
+                  "AllowTraps": true,
+                  "Traps": []
                 },
                 "Rate": 10
               }

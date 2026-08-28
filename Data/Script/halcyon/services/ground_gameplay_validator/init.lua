@@ -20,7 +20,7 @@ local function emit(s)
  PrintInfo('[GROUND_VALIDATOR] '..s)
  local f=io.open('/tmp/ground_gameplay_validator.jsonl','a');if f then f:write(s..'\n');f:flush();f:close() end
 end
-function V:initialize() BaseService.initialize(self);self.mode=os.getenv('PMDO_GROUND_VALIDATOR');self.enabled=(self.mode=='1' or self.mode=='tornadus_battle' or string.sub(self.mode or '',1,6)=='arena:' or string.sub(self.mode or '',1,6)=='luluby' or string.sub(self.mode or '',1,4)=='sky:' or string.sub(self.mode or '',1,9)=='skyscene:' or self.mode=='skyprogress' or self.mode=='skyjourney' or string.sub(self.mode or '',1,9)=='skyresume' or self.mode=='redjourney' or string.sub(self.mode or '',1,9)=='redresume' or string.sub(self.mode or '',1,7)=='skyhub:' or string.sub(self.mode or '',1,7)=='dprobe:' or string.sub(self.mode or '',1,9)=='restflow:');self.idx=0;self.entered=false;self.busy=false
+function V:initialize() BaseService.initialize(self);self.mode=os.getenv('PMDO_GROUND_VALIDATOR');self.enabled=(self.mode=='1' or self.mode=='tornadus_battle' or string.sub(self.mode or '',1,6)=='arena:' or string.sub(self.mode or '',1,6)=='luluby' or string.sub(self.mode or '',1,4)=='sky:' or string.sub(self.mode or '',1,9)=='skyscene:' or self.mode=='skyprogress' or self.mode=='skyjourney' or string.sub(self.mode or '',1,9)=='skyresume' or self.mode=='redjourney' or string.sub(self.mode or '',1,9)=='redresume' or string.sub(self.mode or '',1,7)=='skyhub:' or string.sub(self.mode or '',1,7)=='dprobe:' or string.sub(self.mode or '',1,9)=='restflow:' or self.mode=='enginelab');self.idx=0;self.entered=false;self.busy=false
  -- mode 'skyscene:<scene>@<ground>' : rejoue une cinématique canonique Sky
  if string.sub(self.mode or '',1,9)=='skyscene:' then
   local spec=string.sub(self.mode,10)
@@ -45,6 +45,17 @@ function V:begin()
   local gi=141;if self.mode=='luluby_evening' then gi=142 elseif self.mode=='luluby_night' then gi=143 end
   emit('{"event":"luluby_runtime_begin","ground_index":'..tostring(gi)..'}')
   GAME:EnterZone('master_zone',-1,gi,0)
+  return
+ end
+ if self.mode=='enginelab' then
+  self.idx=-9;SV.RuntimeGroundAudit.Active=false
+  local ok,err=xpcall(function()
+    local lab=require('halcyon.enginelab_compile')
+    lab.run('/tmp/enginelab')
+  end,debug.traceback)
+  emit('{"event":"enginelab_done","ok":'..tostring(ok)..'}')
+  if not ok then emit('{"event":"enginelab_err","error":"'..tostring(err):gsub('"','\\"'):gsub('\n',' | ')..'"}') end
+  emit('{"event":"end"}')
   return
  end
  if string.sub(self.mode or '',1,9)=='restflow:' then
