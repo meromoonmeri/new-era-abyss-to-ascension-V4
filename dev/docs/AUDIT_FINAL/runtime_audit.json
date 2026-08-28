@@ -35,5 +35,17 @@
   "mobs_seen": 904,
   "proof": "dev/docs/canonical/sky/journey_post_mh_items_proof.jsonl",
   "note": "après LOT F items MH + fix SpawnRangeList"
- }
+ },
+ "skyjourney_post_deadends": {
+  "verdict": "GLOBAL_JOURNEY_PASS",
+  "chapters": 14,
+  "floors": 313,
+  "mobs_seen": 870,
+  "note": "après LOT G dead_ends (707 steps) + LOT H météo (139 étages)"
+ },
+ "weather_proof": {
+  "file": "dev/docs/canonical/sky/weather_per_floor_proof.jsonl",
+  "verified": "blizzard_island floors ROM 4/8 -> map_status default_weather,snow exactement aux étages mappa_s"
+ },
+ "dead_ends_proof": "dev/docs/canonical/sky/dead_ends_runtime_proof.jsonl (80/80 étages escalier accessible)"
 }

@@ -356,6 +356,13 @@ function V:OnDungeonFloorEnter()
     local mhs=''
     if #mh_counts>0 then mhs=',"mh_mobs":['..table.concat(mh_counts,',')..']' end
     if #neutrals>0 then mhs=mhs..',"neutrals":"'..table.concat(neutrals,',')..'"' end
+    -- statuts de carte actifs (météo/terrain §31)
+    pcall(function()
+      local st={}
+      local senum=map.Status:GetEnumerator()
+      while senum:MoveNext() do st[#st+1]=tostring(senum.Current.Key) end
+      if #st>0 then mhs=mhs..',"map_status":"'..table.concat(st,',')..'"' end
+    end)
     emit('{"event":"dprobe_floor","zone":"'..cz..'","floor":'..floor..',"mobs":'..mobs..',"items":'..items..',"traps":'..traps..',"species":"'..table.concat(species,',')..'"'..mhs..'}')
     -- dump ASCII du layout (murs/sol/eau/escaliers/pièges/items/mobs) pour
     -- analyse statistique hors-ligne (variété §17/§19, stats §36).

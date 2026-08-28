@@ -19860,6 +19860,20 @@
               {
                 "Key": {
                   "str": [
+                    -6
+                  ]
+                },
+                "Value": {
+                  "$type": "PMDC.LevelGen.DefaultMapStatusStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
+                  "SetterID": "default_weather",
+                  "DefaultMapStatus": [
+                    "fog"
+                  ]
+                }
+              },
+              {
+                "Key": {
+                  "str": [
                     -5
                   ]
                 },
@@ -22035,6 +22049,20 @@
                   "TileSight": 0,
                   "CharSight": 1,
                   "ClampCamera": false
+                }
+              },
+              {
+                "Key": {
+                  "str": [
+                    -6
+                  ]
+                },
+                "Value": {
+                  "$type": "PMDC.LevelGen.DefaultMapStatusStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
+                  "SetterID": "default_weather",
+                  "DefaultMapStatus": [
+                    "fog"
+                  ]
                 }
               },
               {
@@ -41660,6 +41688,20 @@
               {
                 "Key": {
                   "str": [
+                    -6
+                  ]
+                },
+                "Value": {
+                  "$type": "PMDC.LevelGen.DefaultMapStatusStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
+                  "SetterID": "default_weather",
+                  "DefaultMapStatus": [
+                    "fog"
+                  ]
+                }
+              },
+              {
+                "Key": {
+                  "str": [
                     -5
                   ]
                 },
@@ -43835,6 +43877,20 @@
                   "TileSight": 0,
                   "CharSight": 1,
                   "ClampCamera": false
+                }
+              },
+              {
+                "Key": {
+                  "str": [
+                    -6
+                  ]
+                },
+                "Value": {
+                  "$type": "PMDC.LevelGen.DefaultMapStatusStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
+                  "SetterID": "default_weather",
+                  "DefaultMapStatus": [
+                    "fog"
+                  ]
                 }
               },
               {

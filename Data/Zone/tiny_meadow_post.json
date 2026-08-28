@@ -2313,6 +2313,20 @@
               {
                 "Key": {
                   "str": [
+                    -6
+                  ]
+                },
+                "Value": {
+                  "$type": "PMDC.LevelGen.DefaultMapStatusStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
+                  "SetterID": "default_weather",
+                  "DefaultMapStatus": [
+                    "fog"
+                  ]
+                }
+              },
+              {
+                "Key": {
+                  "str": [
                     -5
                   ]
                 },
