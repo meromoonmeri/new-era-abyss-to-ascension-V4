@@ -47,5 +47,21 @@
   "file": "dev/docs/canonical/sky/weather_per_floor_proof.jsonl",
   "verified": "blizzard_island floors ROM 4/8 -> map_status default_weather,snow exactement aux étages mappa_s"
  },
- "dead_ends_proof": "dev/docs/canonical/sky/dead_ends_runtime_proof.jsonl (80/80 étages escalier accessible)"
+ "dead_ends_proof": "dev/docs/canonical/sky/dead_ends_runtime_proof.jsonl (80/80 étages escalier accessible)",
+ "rest_areas": {
+  "verdict": "REST_FLOW_ALL_PASS",
+  "checkpoints": 26,
+  "entry_grounds": 1,
+  "proof": "dev/docs/canonical/sky/rest_areas_flow_proof.jsonl",
+  "truth_table": "dev/CAMPAIGNS/PMD_SKY_EXPLORERS/Tables/SKY_REST_AREAS_TRUTH.json",
+  "chain": "seg1 dernier étage -> victoire -> aire (ground+statue vérifiés 26/26) -> reprise seg2 fl0"
+ },
+ "skyjourney_post_rest_areas": {
+  "verdict": "GLOBAL_JOURNEY_PASS",
+  "chapters": 14,
+  "floors": 313,
+  "mobs_seen": 870,
+  "proof": "dev/docs/canonical/sky/journey_post_rest_areas_proof.jsonl",
+  "note": "non-régression après ajout des 26 zone init.lua + module SkyRestAreas"
+ }
 }

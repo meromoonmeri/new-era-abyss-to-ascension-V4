@@ -61,6 +61,14 @@ Branche `arena/01a0357e-new-era-abyss-to-ascension-v4`. Base d'audit : `dev/docs
 - Enregistrés dans sky_hub_zone.GroundMaps + index. Preuve runtime : `rest_grounds_runtime_proof.jsonl` — **27/27 LOAD+MOVEMENT_PASS**.
 - Suite documentée : câblage des aires dans la progression des zones donjon (checkpoint mi-parcours type Mt Horn 6F) — nécessite le mapping étage→ground par donjon (scripts ROM), étape séparée.
 
+
+### LOT J — Câblage progression des 27 aires de repos (ROM-exact) — session courante
+- **Définition** (contre-épreuve ROM) : aire de repos = ground fixe `dXXp21a` (mapty 10) chargé par `unionall.ssb` (coros GETOUT_SCENARIO_DUNGEON / GETOUT_REQUEST_CONQUEST / GETOUT_REQUEST_RETURN, switch `$DUNGEON_ENTER_INDEX`) **à la victoire du dernier étage du segment 1** — jamais à un étage intermédiaire ; la reprise (`main_EnterDungeon(<seg2>)`) est portée par les scripts mXX/nXX/sXX du ground lui-même. Extraction script par script, 27/27, **zéro devinette**.
+- Table de vérité : `dev/CAMPAIGNS/PMD_SKY_EXPLORERS/Tables/SKY_REST_AREAS_TRUTH.json` (26 checkpoints + 1 ground d entrée d38p12a Spacial Rift ; 27 grounds distincts, aucun doublon/manquant vérifié par assertion).
+- Câblage natif : `Data/Script/halcyon/SkyRestAreas.lua` (module générique, handlers HandleDungeonExit/OnRestAreaEnter — pattern zone/mt_blaze + creer_midpoints) + 26 stubs zone/<seg1>/init.lua + 27 stubs ground/<rest>/init.lua ; grounds rattachés aux GroundMaps des zones seg1 (transition INTRA-zone comme mt_blaze→d09p02) ; statue Kangourex = sauvegarde native (GeneralFunctions.Kangashkhan_Rock_Interact). AUCUN générateur/hardcode par-donjon.
+- Corrections trouvées par le test : `zone.GroundMaps` (Zone runtime) ≠ `.Grounds` (summary) ; EndSegment synchrone pattern red validator ; transition seg2 via EnterZone en headless (EnterDungeon = menus).
+- **Preuve runtime bout-en-bout : `restflow:` 26/26 REST_FLOW_ALL_PASS** (`dev/docs/canonical/sky/rest_areas_flow_proof.jsonl`) : dernier étage seg1 → victoire (EndSegment=chemin moteur de l escalier) → ExitSegment → chargement du BON ground (26/26 match) → statue présente (26/26) → reprise seg2 étage 0. Le critère n est PAS « les grounds chargent » : c est la chaîne de progression complète.
+
 ## 2. Outillage nouveau (§16 ASCII + stats)
 - `dprobe` étendu (validator Lua) : dumps **ASCII tuile/tuile** (murs/sol/eau/lave/gouffre/escaliers `>`/pièges `^`/items `$`/mobs `M`), répétitions **multi-seed** (`PMDO_DPROBE_REPS`, reseed ReRandom), comptage **MH en attente** (`mh_mobs`), **shopkeepers** (`neutrals`), cible `zone@segment`, clamp FloorCount.
 - `dev/tools/analyze_dungeon_generation_stats.py` : stats §36 (min/max/moy mobs/items/traps, hash structurel des layouts, détection identiques/quasi-identiques ≥98 %).
