@@ -916,7 +916,7 @@
       }
     },
     "BlankBG": {
-      "AutoTileset": "treeshroud_forest_1_wall",
+      "AutoTileset": "",
       "Associates": [],
       "Layers": [],
       "NeighborCode": -1

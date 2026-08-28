@@ -1,4 +1,4 @@
-{
+﻿{
   "Version": "0.8.12.0",
   "Object": {
     "$type": "RogueEssence.Dungeon.Map, RogueEssence",
@@ -72,7 +72,7 @@
       }
     },
     "BlankBG": {
-      "AutoTileset": "purity_forest_4_wall",
+      "AutoTileset": "",
       "Associates": [],
       "Layers": [],
       "NeighborCode": -1
