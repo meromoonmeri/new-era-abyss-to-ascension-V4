@@ -2368,6 +2368,7 @@ return {
   ["p01p04a__s30a0304"] = true,
   ["p01p04a__s30a0401"] = true,
   ["p01p04a__s30a0501"] = true,
+  ["p01p04a__s30a0601"] = true,
   ["p01p04a__s30a0701"] = true,
   ["p01p04a__s31a0102"] = true,
   ["p01p04a__s31a0104"] = true,

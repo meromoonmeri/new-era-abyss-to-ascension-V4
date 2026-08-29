@@ -1,0 +1,34 @@
+{
+ "schema": "sky-menu2-ticket-labels/1",
+ "authority": "Strings ROM Sky EU MESSAGE/text_*.str ids 6944-6947 (noms d'objets tickets) ; mapping menu2(N)->ticket prouvé par les corps de branche de P01P04A/s30a0601.ssb",
+ "labels": {
+  "2": {
+   "english": "Prize Ticket",
+   "french": "Ticket Magot",
+   "german": "Preisticket",
+   "italian": "Buono Premio",
+   "spanish": "Boleto"
+  },
+  "3": {
+   "english": "Silver Ticket",
+   "french": "Ticket Argent",
+   "german": "Silberticket",
+   "italian": "Buono Rubino",
+   "spanish": "Boleto Plata"
+  },
+  "4": {
+   "english": "Gold Ticket",
+   "french": "Ticket Or",
+   "german": "Goldticket",
+   "italian": "Buono Oro",
+   "spanish": "Boleto Oro"
+  },
+  "5": {
+   "english": "Prism Ticket",
+   "french": "Ticket Irisé",
+   "german": "Prismaticket",
+   "italian": "Buono Iride",
+   "spanish": "Bol. Prisma"
+  }
+ }
+}

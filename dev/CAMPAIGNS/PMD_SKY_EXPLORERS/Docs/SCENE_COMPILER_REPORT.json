@@ -2,11 +2,11 @@
  "schema": "sky-scene-compiler/1",
  "rule": "FAIL-CLOSED: seules les scènes 100% traduites sont émises ; PARTIAL_OPS/MULTIROUTINE comptées, jamais émises approximées",
  "totals": {
-  "COMPILED": 3588,
+  "COMPILED": 3589,
   "COMPILED_DUAL_SCREEN": 169,
   "TRIVIAL_SKIPPED": 168,
   "COMPILED_MULTIROUTINE": 60,
-  "PARTIAL_OPS": 3,
+  "PARTIAL_OPS": 2,
   "NO_DEF0": 1
  },
  "scenes": {
@@ -20136,9 +20136,26 @@
    ]
   },
   "P01P04A/s30a0601.ssb": {
-   "status": "PARTIAL_OPS",
-   "unsupported_ops": [
-    "switch:menu_parse"
+   "status": "COMPILED",
+   "file": "p01p04a__s30a0601.lua",
+   "dialogues": 59,
+   "dual_screen_focus": null,
+   "gaps": [
+    "BGM BGM_PERFECT_SENTRY_DUTY non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
+    "BGM BGM_SPINDAS_CAFE non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
+    "BGM BGM_MISSION_FAILURE non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
+    "BGM BGM_SPINDAS_CAFE non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
+    "se_Play(11274) — id SE NDS sans portage PMDO identifié",
+    "se_Play(6420) — id SE NDS sans portage PMDO identifié",
+    "se_Play(11275) — id SE NDS sans portage PMDO identifié",
+    "BGM BGM_LUDICOLO_DANCE non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)",
+    "se_Play(6403) — id SE NDS sans portage PMDO identifié",
+    "se_Play(7944) — id SE NDS sans portage PMDO identifié",
+    "SetEffect EFFECT_CONFETTI — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_CONFETTI — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_CONFETTI — VFX sans émote PMDO équivalente",
+    "SetEffect EFFECT_CONFETTI — VFX sans émote PMDO équivalente",
+    "BGM BGM_SPINDAS_CAFE non mappé au roster (REQUIRES_MOD_ASSET ou canal ambiance)"
    ]
   },
   "P01P04A/s30a0701.ssb": {

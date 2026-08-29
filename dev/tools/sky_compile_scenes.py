@@ -77,6 +77,18 @@ _AGT = json.load(open(os.path.join(CAMP, "Docs",
 GLOBAL_ACTOR_ENTID = _AGT["entid"]
 GLOBAL_ACTOR_ZONEPOS = _AGT["zone_first_pos"]
 
+# labels canoniques des cases `case menu2(N):` (menu moteur NDS « liste des
+# tickets possédés », unique usage ROM = P01P04A/s30a0601.ssb loterie du
+# Spinda Café). Source : Strings ROM EU MESSAGE/text_*.str ids 6944-6947
+# (noms d'objets tickets), mapping N->ticket prouvé par les corps de branche
+# (« Draw a [CS:I]X Ticket[CR]? »). Extrait par
+# dev/tools/extract_menu2_ticket_labels.py — AUCUN texte inventé.
+try:
+    MENU2_LABELS = json.load(open(os.path.join(
+        CAMP, "Tables", "MENU2_TICKET_LABELS.json")))["labels"]
+except FileNotFoundError:
+    MENU2_LABELS = {}
+
 DIRMAP = {"DIR_DOWN": "Direction.Down", "DIR_DOWNRIGHT": "Direction.DownRight",
           "DIR_RIGHT": "Direction.Right", "DIR_UPRIGHT": "Direction.UpRight",
           "DIR_UP": "Direction.Up", "DIR_UPLEFT": "Direction.UpLeft",
@@ -554,6 +566,7 @@ class SceneCompiler:
 
     def parse_menu_switch(self, body):
         """Corps d'un switch(message_SwitchMenu) : cases `menu({...}):`
+        et `menu2(N):` (labels tickets Strings ROM, cf. MENU2_LABELS)
         (+ default). Retourne (labels[], branches[([idx],corps)],
         default_body|None) ; None si structure imprévue."""
         marks = []
@@ -571,6 +584,15 @@ class SceneCompiler:
                         return None
                     marks.append((i, k + 1, ("menu", langs)))
                     i = k + 1
+                    continue
+                mo2 = re.match(r"case menu2\((\d+)\):", body[i:])
+                if mo2:
+                    langs = MENU2_LABELS.get(mo2.group(1))
+                    if not langs:
+                        # id menu2 sans label ROM extrait : fail-closed
+                        return None
+                    marks.append((i, i + mo2.end(), ("menu", dict(langs))))
+                    i += mo2.end()
                     continue
                 mo = re.match(r"default\s*:", body[i:])
                 if mo and (i == 0 or body[i-1] in " \t\n;{}:"):
