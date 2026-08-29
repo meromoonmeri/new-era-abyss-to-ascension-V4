@@ -3325,6 +3325,112 @@
                     }
                   ]
                 }
+              },
+              {
+                "Key": {
+                  "str": [
+                    3,
+                    4
+                  ]
+                },
+                "Value": {
+                  "$type": "NewEra.LevelGen.IslandRoomStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], NewEra.Engine",
+                  "Amount": {
+                    "Min": 0,
+                    "Max": 1
+                  },
+                  "Filters": [
+                    {
+                      "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
+                      "Connection": 1
+                    }
+                  ],
+                  "Terrain": {
+                    "$type": "RogueEssence.Dungeon.Tile, RogueEssence",
+                    "Data": {
+                      "ID": "water",
+                      "TileTex": {
+                        "AutoTileset": "",
+                        "Associates": [],
+                        "Layers": [],
+                        "NeighborCode": -1
+                      },
+                      "StableTex": false
+                    },
+                    "Effect": {
+                      "TileLoc": {
+                        "X": 0,
+                        "Y": 0
+                      },
+                      "ID": "",
+                      "Revealed": false,
+                      "Owner": 0,
+                      "TileStates": []
+                    }
+                  },
+                  "Items": [
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "berry_cheri",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 10
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "berry_chesto",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 10
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "berry_oran",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 10
+                    }
+                  ],
+                  "Tiles": [
+                    {
+                      "Spawn": {
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        },
+                        "ID": "trap_warp",
+                        "Revealed": true,
+                        "Owner": 0,
+                        "TileStates": []
+                      },
+                      "Rate": 10
+                    }
+                  ]
+                }
               }
             ],
             "Comment": "howling_edge — profile branching — grid 5x4 cells 9x9 — authoring-seed 478616200503809045 (debug only: selects the parameters, NOT the layout; the layout is rolled by the engine RNG at every entry)"
@@ -4019,6 +4125,112 @@
                         "Pattern": 0
                       },
                       "Rate": 1
+                    }
+                  ]
+                }
+              },
+              {
+                "Key": {
+                  "str": [
+                    3,
+                    4
+                  ]
+                },
+                "Value": {
+                  "$type": "NewEra.LevelGen.IslandRoomStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], NewEra.Engine",
+                  "Amount": {
+                    "Min": 0,
+                    "Max": 1
+                  },
+                  "Filters": [
+                    {
+                      "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
+                      "Connection": 1
+                    }
+                  ],
+                  "Terrain": {
+                    "$type": "RogueEssence.Dungeon.Tile, RogueEssence",
+                    "Data": {
+                      "ID": "water",
+                      "TileTex": {
+                        "AutoTileset": "",
+                        "Associates": [],
+                        "Layers": [],
+                        "NeighborCode": -1
+                      },
+                      "StableTex": false
+                    },
+                    "Effect": {
+                      "TileLoc": {
+                        "X": 0,
+                        "Y": 0
+                      },
+                      "ID": "",
+                      "Revealed": false,
+                      "Owner": 0,
+                      "TileStates": []
+                    }
+                  },
+                  "Items": [
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "berry_cheri",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 10
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "berry_chesto",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 10
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "berry_oran",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 10
+                    }
+                  ],
+                  "Tiles": [
+                    {
+                      "Spawn": {
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        },
+                        "ID": "trap_warp",
+                        "Revealed": true,
+                        "Owner": 0,
+                        "TileStates": []
+                      },
+                      "Rate": 10
                     }
                   ]
                 }
@@ -6890,6 +7102,112 @@
                     }
                   ]
                 }
+              },
+              {
+                "Key": {
+                  "str": [
+                    3,
+                    4
+                  ]
+                },
+                "Value": {
+                  "$type": "NewEra.LevelGen.IslandRoomStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], NewEra.Engine",
+                  "Amount": {
+                    "Min": 0,
+                    "Max": 1
+                  },
+                  "Filters": [
+                    {
+                      "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
+                      "Connection": 1
+                    }
+                  ],
+                  "Terrain": {
+                    "$type": "RogueEssence.Dungeon.Tile, RogueEssence",
+                    "Data": {
+                      "ID": "water",
+                      "TileTex": {
+                        "AutoTileset": "",
+                        "Associates": [],
+                        "Layers": [],
+                        "NeighborCode": -1
+                      },
+                      "StableTex": false
+                    },
+                    "Effect": {
+                      "TileLoc": {
+                        "X": 0,
+                        "Y": 0
+                      },
+                      "ID": "",
+                      "Revealed": false,
+                      "Owner": 0,
+                      "TileStates": []
+                    }
+                  },
+                  "Items": [
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "berry_cheri",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 10
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "berry_chesto",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 10
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "berry_oran",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 10
+                    }
+                  ],
+                  "Tiles": [
+                    {
+                      "Spawn": {
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        },
+                        "ID": "trap_warp",
+                        "Revealed": true,
+                        "Owner": 0,
+                        "TileStates": []
+                      },
+                      "Rate": 10
+                    }
+                  ]
+                }
               }
             ],
             "Comment": "howling_heart — profile mixed — grid 6x3 cells 10x11 — authoring-seed 478616200503809045 (debug only: selects the parameters, NOT the layout; the layout is rolled by the engine RNG at every entry)"
@@ -7606,6 +7924,112 @@
                         "Pattern": 0
                       },
                       "Rate": 1
+                    }
+                  ]
+                }
+              },
+              {
+                "Key": {
+                  "str": [
+                    3,
+                    4
+                  ]
+                },
+                "Value": {
+                  "$type": "NewEra.LevelGen.IslandRoomStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], NewEra.Engine",
+                  "Amount": {
+                    "Min": 0,
+                    "Max": 1
+                  },
+                  "Filters": [
+                    {
+                      "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
+                      "Connection": 1
+                    }
+                  ],
+                  "Terrain": {
+                    "$type": "RogueEssence.Dungeon.Tile, RogueEssence",
+                    "Data": {
+                      "ID": "water",
+                      "TileTex": {
+                        "AutoTileset": "",
+                        "Associates": [],
+                        "Layers": [],
+                        "NeighborCode": -1
+                      },
+                      "StableTex": false
+                    },
+                    "Effect": {
+                      "TileLoc": {
+                        "X": 0,
+                        "Y": 0
+                      },
+                      "ID": "",
+                      "Revealed": false,
+                      "Owner": 0,
+                      "TileStates": []
+                    }
+                  },
+                  "Items": [
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "berry_cheri",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 10
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "berry_chesto",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 10
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "berry_oran",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 10
+                    }
+                  ],
+                  "Tiles": [
+                    {
+                      "Spawn": {
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        },
+                        "ID": "trap_warp",
+                        "Revealed": true,
+                        "Owner": 0,
+                        "TileStates": []
+                      },
+                      "Rate": 10
                     }
                   ]
                 }
@@ -8788,6 +9212,112 @@
                     }
                   ]
                 }
+              },
+              {
+                "Key": {
+                  "str": [
+                    3,
+                    4
+                  ]
+                },
+                "Value": {
+                  "$type": "NewEra.LevelGen.IslandRoomStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], NewEra.Engine",
+                  "Amount": {
+                    "Min": 0,
+                    "Max": 1
+                  },
+                  "Filters": [
+                    {
+                      "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
+                      "Connection": 1
+                    }
+                  ],
+                  "Terrain": {
+                    "$type": "RogueEssence.Dungeon.Tile, RogueEssence",
+                    "Data": {
+                      "ID": "water",
+                      "TileTex": {
+                        "AutoTileset": "",
+                        "Associates": [],
+                        "Layers": [],
+                        "NeighborCode": -1
+                      },
+                      "StableTex": false
+                    },
+                    "Effect": {
+                      "TileLoc": {
+                        "X": 0,
+                        "Y": 0
+                      },
+                      "ID": "",
+                      "Revealed": false,
+                      "Owner": 0,
+                      "TileStates": []
+                    }
+                  },
+                  "Items": [
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "berry_cheri",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 10
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "berry_chesto",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 10
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "berry_oran",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 10
+                    }
+                  ],
+                  "Tiles": [
+                    {
+                      "Spawn": {
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        },
+                        "ID": "trap_warp",
+                        "Revealed": true,
+                        "Owner": 0,
+                        "TileStates": []
+                      },
+                      "Rate": 10
+                    }
+                  ]
+                }
               }
             ],
             "Comment": "howling_heart — profile branching — grid 5x4 cells 9x10 — authoring-seed 478616200503809045 (debug only: selects the parameters, NOT the layout; the layout is rolled by the engine RNG at every entry)"
@@ -9352,6 +9882,112 @@
                         "Pattern": 0
                       },
                       "Rate": 1
+                    }
+                  ]
+                }
+              },
+              {
+                "Key": {
+                  "str": [
+                    3,
+                    4
+                  ]
+                },
+                "Value": {
+                  "$type": "NewEra.LevelGen.IslandRoomStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], NewEra.Engine",
+                  "Amount": {
+                    "Min": 0,
+                    "Max": 1
+                  },
+                  "Filters": [
+                    {
+                      "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
+                      "Connection": 1
+                    }
+                  ],
+                  "Terrain": {
+                    "$type": "RogueEssence.Dungeon.Tile, RogueEssence",
+                    "Data": {
+                      "ID": "water",
+                      "TileTex": {
+                        "AutoTileset": "",
+                        "Associates": [],
+                        "Layers": [],
+                        "NeighborCode": -1
+                      },
+                      "StableTex": false
+                    },
+                    "Effect": {
+                      "TileLoc": {
+                        "X": 0,
+                        "Y": 0
+                      },
+                      "ID": "",
+                      "Revealed": false,
+                      "Owner": 0,
+                      "TileStates": []
+                    }
+                  },
+                  "Items": [
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "berry_cheri",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 10
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "berry_chesto",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 10
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "berry_oran",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 10
+                    }
+                  ],
+                  "Tiles": [
+                    {
+                      "Spawn": {
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        },
+                        "ID": "trap_warp",
+                        "Revealed": true,
+                        "Owner": 0,
+                        "TileStates": []
+                      },
+                      "Rate": 10
                     }
                   ]
                 }
@@ -10379,6 +11015,112 @@
                         "Pattern": 0
                       },
                       "Rate": 1
+                    }
+                  ]
+                }
+              },
+              {
+                "Key": {
+                  "str": [
+                    3,
+                    4
+                  ]
+                },
+                "Value": {
+                  "$type": "NewEra.LevelGen.IslandRoomStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], NewEra.Engine",
+                  "Amount": {
+                    "Min": 0,
+                    "Max": 1
+                  },
+                  "Filters": [
+                    {
+                      "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
+                      "Connection": 1
+                    }
+                  ],
+                  "Terrain": {
+                    "$type": "RogueEssence.Dungeon.Tile, RogueEssence",
+                    "Data": {
+                      "ID": "water",
+                      "TileTex": {
+                        "AutoTileset": "",
+                        "Associates": [],
+                        "Layers": [],
+                        "NeighborCode": -1
+                      },
+                      "StableTex": false
+                    },
+                    "Effect": {
+                      "TileLoc": {
+                        "X": 0,
+                        "Y": 0
+                      },
+                      "ID": "",
+                      "Revealed": false,
+                      "Owner": 0,
+                      "TileStates": []
+                    }
+                  },
+                  "Items": [
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "berry_cheri",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 10
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "berry_chesto",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 10
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "berry_oran",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 10
+                    }
+                  ],
+                  "Tiles": [
+                    {
+                      "Spawn": {
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        },
+                        "ID": "trap_warp",
+                        "Revealed": true,
+                        "Owner": 0,
+                        "TileStates": []
+                      },
+                      "Rate": 10
                     }
                   ]
                 }
