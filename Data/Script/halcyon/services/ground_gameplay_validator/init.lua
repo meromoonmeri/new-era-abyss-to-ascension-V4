@@ -420,8 +420,79 @@ function V:OnDungeonFloorEnter()
         end
       end
     end)
-    local mhs=''
-    if #mh_counts>0 then mhs=',"mh_mobs":['..table.concat(mh_counts,',')..']' end
+    -- §37 : déclenchement RÉEL de la MH (PMDO_DPROBE_TRIGGER_MH=1) :
+    -- téléporte le leader au centre des bounds, avance quelques tours,
+    -- recompte les mobs de la carte (spawn + IA actives).
+    local mh_triggered=''
+    if #mh_counts>0 and os.getenv('PMDO_DPROBE_TRIGGER_MH')=='1' then pcall(function()
+      local MapCheckState=luanet.import_type('RogueEssence.Dungeon.MapCheckState')
+      local bounds=nil
+      local senum2=map.Status:GetEnumerator()
+      while senum2:MoveNext() do
+        local chk=senum2.Current.Value.StatusStates:GetWithDefault(luanet.ctype(MapCheckState))
+        if chk then
+          for ci=0,chk.CheckEvents.Count-1 do
+            local ev=chk.CheckEvents[ci]
+            local okb,b=pcall(function() return ev.Bounds end)
+            if okb and b then bounds=b end
+          end
+        end
+      end
+      if bounds then
+        local team=_DATA.Save.ActiveTeam
+        local leader=team.Players[0]
+        local cx=math.floor(bounds.X+bounds.Size.X/2)
+        local cy=math.floor(bounds.Y+bounds.Size.Y/2)
+        local before=0
+        for ti=0,map.MapTeams.Count-1 do before=before+map.MapTeams[ti].Players.Count end
+        -- déclenchement différé (le check d'intrusion tourne au tour suivant)
+        self.mh_probe={zone=cz,floor=floor,before=before,cx=cx,cy=cy}
+        TASK:BranchCoroutine(function()
+          GAME:WaitFrames(20)
+          pcall(function() leader.CharLoc=RogueElements.Loc(cx,cy) end)
+          -- déclenchement du MÊME code moteur que CheckIntrudeBounds :
+          -- exécuter les Effects (MonsterHouseMapEvent) de l'événement trouvé
+          local okx,errx=pcall(function()
+            local MapCheckState=luanet.import_type('RogueEssence.Dungeon.MapCheckState')
+            local SCContext=luanet.import_type('RogueEssence.Dungeon.SingleCharContext')
+            local m1=_ZONE.CurrentMap
+            local senum3=m1.Status:GetEnumerator()
+            while senum3:MoveNext() do
+              local st=senum3.Current.Value
+              local chk=st.StatusStates:GetWithDefault(luanet.ctype(MapCheckState))
+              if chk then
+                for ci=chk.CheckEvents.Count-1,0,-1 do
+                  local ev=chk.CheckEvents[ci]
+                  local okb,b=pcall(function() return ev.Bounds end)
+                  if okb and b then
+                    local ctx=SCContext(leader)
+                    for ei=0,ev.Effects.Count-1 do
+                      local co=ev.Effects[ei]:Apply(st,leader,ctx)
+                      TASK:WaitTask(co)
+                    end
+                    chk.CheckEvents:RemoveAt(ci)
+                  end
+                end
+              end
+            end
+          end)
+          if not okx then emit('{"event":"mh_trigger_err","error":"'..tostring(errx):gsub('"','\\"'):gsub('\n',' ')..'"}') end
+          GAME:WaitFrames(60)
+          local m2=_ZONE.CurrentMap
+          local after=0
+          pcall(function()
+            for ti=0,m2.MapTeams.Count-1 do after=after+m2.MapTeams[ti].Players.Count end
+          end)
+          emit('{"event":"mh_trigger","zone":"'..cz..'","floor":'..floor..',"before":'..before..',"after":'..after..',"verdict":"'..((after>before+5) and 'MH_TRIGGER_PASS' or 'MH_NOT_TRIGGERED')..'"}')
+          self.mh_probe=nil
+          local cont=self.mh_continue
+          self.mh_continue=nil
+          if cont then cont() end
+        end)
+      end
+    end) end
+    local mhs=''..mh_triggered
+    if #mh_counts>0 then mhs=mhs..',"mh_mobs":['..table.concat(mh_counts,',')..']' end
     if #neutrals>0 then mhs=mhs..',"neutrals":"'..table.concat(neutrals,',')..'"' end
     -- statuts de carte actifs (météo/terrain §31)
     pcall(function()
@@ -500,12 +571,17 @@ function V:OnDungeonFloorEnter()
       local fc=segs[curseg].FloorCount
       if fc and fc<maxfl then maxfl=fc end
     end)
+    local goNext
     if floor+1<maxfl then
-      GAME:EnterZone(cz,_ZONE.CurrentMapID.Segment,floor+1,0)
+      local seg0=_ZONE.CurrentMapID.Segment
+      goNext=function() GAME:EnterZone(cz,seg0,floor+1,0) end
+      if self.mh_probe then self.mh_continue=goNext else goNext() end
     else
       self.dprobe_i=self.dprobe_i+1
       if self.dprobe[self.dprobe_i] then
-        local dz,dseg=dprobe_target(self.dprobe[self.dprobe_i]);GAME:EnterZone(dz,dseg,0,0)
+        local dz,dseg=dprobe_target(self.dprobe[self.dprobe_i])
+        local go=function() GAME:EnterZone(dz,dseg,0,0) end
+        if self.mh_probe then self.mh_continue=go else go() end
       elseif self.dprobe_rep<self.dprobe_reps then
         -- nouvelle passe multi-seed : reseed du Save.Rand puis retour zone 1
         self.dprobe_rep=self.dprobe_rep+1
