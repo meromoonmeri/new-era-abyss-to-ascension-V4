@@ -44,6 +44,13 @@ pmu_assets/
                          furniture, wall art, books, plants, lighting, tools)
   buildings/             3 qualified complete PMD houses (House_Normal, tent,
                          plain tent) + manifest with sha256 provenance
+  BUILDINGS_INDEX.md     per-archive building index: Tiles7 (467) / Tiles8 (285)
+                         / Tiles9 (174) isolated building records + where to
+                         triage them
+  pmu_extraction/        full extraction reports from the PMU client .dat
+                         (2 001 canonical maps, per-map tileset usage,
+                         map connection graph, contact renders of 3 critical
+                         village maps, tileset geometry audit)
 ```
 
 ## Hard rules (from the project, verified)
