@@ -81,6 +81,10 @@ Branche `arena/01a0357e-new-era-abyss-to-ascension-v4`. Base d'audit : `dev/docs
 - **R10 maze rooms** : GBA `GenerateMazeRoom` est INATTEIGNABLE (guard `unk3A16>=0`, pret l.3385 : « This bizarre check prevents maze rooms from ever being created ») ; Sky `mazify` n est jamais exécuté (`PATCH_APPLIED=0 && maze_value=0`, dungeon-eos l.1348). Mécanique morte des deux côtés : la porter serait INVENTER du contenu (contraire à la règle canon).
 ⇒ Le « cycle moteur C# » se réduit à 3 sujets optionnels de fidélité fine : MobThemeRoomScaled (approx data en place), pièges physiques dans MonsterHouseStep, ISLAND complet. Tout le reste du périmètre canonique est PORTÉ.
 
+
+### CYCLE MOTEUR C# — NewEra.Engine (commits `3d36bb3c`/`79b31352`/`29510d66`/`01c85df7`)
+Rapport dédié : `ENGINE_CYCLE_REPORT.md`. Compilation Roslyn in-process (pas de SDK réseau requis), 4 primitives ROM-exactes : **MonsterHouseRomStep** (R4.4 exact 70-80 % de la salle + R4.5 pièges POSÉS 50/50, 232 steps/130 zones, preuve cap GBA 18 exact + déclenchement réel 33-35 mobs MH_TRIGGER_PASS), **IslandRoomStep** (R8 ISLAND complet, 134 étages/11 zones, île visible ASCII), **RoomGenMaze**/**ImperfectRoomStep** (fidèles pret, DISPONIBLES mais non déployés — mécaniques prouvées dormantes dans les 2 ROMs). Météo RANDOM : aucune table pondérée n'existe dans les sources binaires publiques → tirage uniforme seedé du LOT K = implémentation la plus fidèle documentable.
+
 ## 2. Outillage nouveau (§16 ASCII + stats)
 - `dprobe` étendu (validator Lua) : dumps **ASCII tuile/tuile** (murs/sol/eau/lave/gouffre/escaliers `>`/pièges `^`/items `$`/mobs `M`), répétitions **multi-seed** (`PMDO_DPROBE_REPS`, reseed ReRandom), comptage **MH en attente** (`mh_mobs`), **shopkeepers** (`neutrals`), cible `zone@segment`, clamp FloorCount.
 - `dev/tools/analyze_dungeon_generation_stats.py` : stats §36 (min/max/moy mobs/items/traps, hash structurel des layouts, détection identiques/quasi-identiques ≥98 %).
