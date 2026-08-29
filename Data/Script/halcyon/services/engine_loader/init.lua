@@ -103,6 +103,72 @@ function S:LoadEngine()
     local ver = probe:GetMethod('Version'):Invoke(nil, nil)
     PrintInfo('[NewEraEngine] chargé: ' .. tostring(ver) .. ' (' .. hash .. ')')
     _G.NEWERA_ENGINE_LOADED = tostring(ver)
+
+    -- ---- TESTRUNNER in-process (équivalent `dotnet test` sans SDK) ----
+    -- PMDO_NRETEST=1 : compile dev/engine/tests/*.cs AVEC référence à
+    -- NewEra.Engine, exécute NewEra.Tests.Suite.Run(), écrit le JSONL,
+    -- puis quitte le processus (tests rapides, pas de boot complet).
+    if os.getenv('PMDO_NRETEST') == '1' then
+      local testsDir = Path.Combine(root, 'dev/engine/tests')
+      if Directory.Exists(testsDir) then
+        PrintInfo('[NRETEST] compilation des tests...')
+        luanet.load_assembly('Microsoft.CodeAnalysis')
+        luanet.load_assembly('Microsoft.CodeAnalysis.CSharp')
+        local CSharpSyntaxTree = luanet.import_type('Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree')
+        local CSharpCompilation = luanet.import_type('Microsoft.CodeAnalysis.CSharp.CSharpCompilation')
+        local CSharpCompilationOptions = luanet.import_type('Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions')
+        local OutputKind = luanet.import_type('Microsoft.CodeAnalysis.OutputKind')
+        local MetadataReference = luanet.import_type('Microsoft.CodeAnalysis.MetadataReference')
+        local AppDomain = luanet.import_type('System.AppDomain')
+        local comp = CSharpCompilation.Create('NewEra.Tests', nil, nil,
+          CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary))
+        local files = Directory.GetFiles(testsDir, '*.cs')
+        for i = 0, files.Length - 1 do
+          comp = comp:AddSyntaxTrees(CSharpSyntaxTree.ParseText(File.ReadAllText(files[i])))
+        end
+        local asms2 = AppDomain.CurrentDomain:GetAssemblies()
+        for i = 0, asms2.Length - 1 do
+          local okl2, loc2 = pcall(function() return asms2[i].Location end)
+          if okl2 and loc2 ~= nil and loc2 ~= '' then
+            comp = comp:AddReferences(MetadataReference.CreateFromFile(loc2))
+          end
+        end
+        comp = comp:AddReferences(MetadataReference.CreateFromFile(dllPath))
+        local FileStream2 = luanet.import_type('System.IO.FileStream')
+        local FileMode2 = luanet.import_type('System.IO.FileMode')
+        local testDll = Path.Combine(cacheDir, 'NewEra.Tests.dll')
+        if File.Exists(testDll) then File.Delete(testDll) end
+        local fs2 = FileStream2(testDll, FileMode2.Create)
+        local res2 = comp:Emit(fs2)
+        fs2:Dispose()
+        if not res2.Success then
+          local msg2 = ''
+          local ds2 = res2.Diagnostics
+          local shown2 = 0
+          for i = 0, ds2.Length - 1 do
+            local sv = tostring(ds2[i].Severity)
+            if sv == 'Error' or sv == '3' then
+              if shown2 < 15 then msg2 = msg2 .. tostring(ds2[i]) .. '\n' end
+              shown2 = shown2 + 1
+            end
+          end
+          if msg2 == '' then
+            for i = 0, math.min(ds2.Length - 1, 14) do msg2 = msg2 .. tostring(ds2[i]) .. '\n' end
+          end
+          File.WriteAllText('/tmp/nretest.jsonl',
+            '{"test":"COMPILE","verdict":"FAIL","detail":"' .. msg2:gsub('"', "'"):gsub('\n', ' | ') .. '"}')
+          PrintError('[NRETEST] COMPILE FAIL:\n' .. msg2)
+        else
+          local tasm = Assembly.LoadFrom(testDll)
+          local suite = tasm:GetType('NewEra.Tests.Suite')
+          local outp = suite:GetMethod('Run'):Invoke(nil, nil)
+          File.WriteAllText('/tmp/nretest.jsonl', tostring(outp))
+          PrintInfo('[NRETEST] terminé:\n' .. tostring(outp))
+        end
+        local Environment = luanet.import_type('System.Environment')
+        Environment.Exit(0)
+      end
+    end
   end, debug.traceback)
   if not ok then
     PrintError('[NewEraEngine] ÉCHEC: ' .. tostring(err))

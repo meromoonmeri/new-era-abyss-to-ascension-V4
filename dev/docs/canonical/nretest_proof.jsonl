@@ -1,0 +1,12 @@
+{"test":"maze_odd_dims","verdict":"PASS","detail":"ProposeSize 11x11 (pret: dims impaires)"}
+{"test":"maze_min_5","verdict":"PASS","detail":"min 5x5, obtenu 11x11"}
+{"test":"maze_deterministic","verdict":"PASS","detail":"même seed => même layout (ReRandom)"}
+{"test":"maze_varies","verdict":"PASS","detail":"seeds différents => layouts différents"}
+{"test":"maze_wall_ratio","verdict":"PASS","detail":"ratio ouvert 0.32 (labyrinthe: ni plein ni vide)"}
+{"test":"maze_connected","verdict":"PASS","detail":"1 composante(s) ouverte(s) (pret: maze connexe)"}
+{"test":"mh_r44_cap_gba","verdict":"PASS","detail":"cap GBA 12*3/2 = 18 (dungeon_config.c l.22)"}
+{"test":"mh_r44_range","verdict":"PASS","detail":"tirage borné [33,38) puis cap 18 (SpawnEnemies)"}
+{"test":"mh_r44_cap_nds","verdict":"PASS","detail":"cap NDS 30*3/2 = 45 (dungeon-eos l.64/3355)"}
+{"test":"mh_r45_items","verdict":"PASS","detail":"items+pièges max(6, 50-80%) cap 7 => 7"}
+{"test":"island_geometry","verdict":"PASS","detail":"île 2x2=4, douve=32 (pret: 6x6 avec centre 2x2)"}
+{"test":"SUMMARY","pass":11,"fail":0,"verdict":"NRETEST_ALL_PASS"}

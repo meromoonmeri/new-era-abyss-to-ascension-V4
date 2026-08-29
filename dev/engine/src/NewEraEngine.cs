@@ -263,7 +263,11 @@ namespace NewEra.LevelGen
 
         public override void DrawOnMap(T map)
         {
-            // 1. tout ouvrir
+            // pret GenerateMaze EXACT : ouvrir la salle puis lancer des
+            // "wall walks" DEPUIS LES 4 BORDS EXTERIEURS (start-1 / end),
+            // positions impaires, pas de 2. Pas de remplissage interne :
+            // les murs croissent depuis l'exterieur, le complement reste
+            // connexe (couloirs de largeur 1).
             for (int x = 0; x < Draw.Size.X; x++)
             {
                 for (int y = 0; y < Draw.Size.Y; y++)
@@ -273,59 +277,40 @@ namespace NewEra.LevelGen
             int sx = Draw.X, sy = Draw.Y;
             int ex = Draw.X + Draw.Size.X, ey = Draw.Y + Draw.Size.Y;
 
-            // 2. marches depuis les bords (positions impaires), pret GenerateMaze
             for (int curX = sx + 1; curX < ex - 1; curX += 2)
-                MazeLine(map, curX, sy, sx, sy, ex, ey);
+                MazeLine(map, curX, sy - 1, sx, sy, ex, ey);      // bord haut (pret start.y-1)
             for (int curY = sy + 1; curY < ey - 1; curY += 2)
-                MazeLine(map, ex - 1, curY, sx, sy, ex, ey);
+                MazeLine(map, ex, curY, sx, sy, ex, ey);          // bord droit (pret end.x)
             for (int curX = sx + 1; curX < ex - 1; curX += 2)
-                MazeLine(map, curX, ey - 1, sx, sy, ex, ey);
+                MazeLine(map, curX, ey, sx, sy, ex, ey);          // bord bas (pret end.y)
             for (int curY = sy + 1; curY < ey - 1; curY += 2)
-                MazeLine(map, sx, curY, sx, sy, ex, ey);
+                MazeLine(map, sx - 1, curY, sx, sy, ex, ey);      // bord gauche (pret start.x-1)
 
-            // 3. remplissage interne stride 2 (pret : inner tiles + marches)
-            for (int curX = sx + 3; curX < ex - 3; curX += 2)
-            {
-                for (int curY = sy + 3; curY < ey - 3; curY += 2)
-                {
-                    if (IsOpen(map, curX, curY))
-                    {
-                        map.TrySetTile(new Loc(curX - 1, curY), map.WallTerrain.Copy());
-                        MazeLine(map, curX, curY, sx, sy, ex, ey);
-                    }
-                }
-            }
-
-            // 4. bordures franchissables (mêmes règles que les salles normales)
             SetRoomBorders(map);
-        }
-
-        private bool IsOpen(T map, int x, int y)
-        {
-            return map.GetTile(new Loc(x, y)).TileEquivalent(map.RoomTerrain);
         }
 
         private void MazeLine(T map, int x0, int y0, int xMin, int yMin, int xMax, int yMax)
         {
-            // pret GenerateMazeLine : pose un mur, cherche une tuile ouverte
-            // à distance 2 dans une direction aléatoire, mure l'intermédiaire,
-            // avance ; stop quand plus aucune direction libre.
-            int guard = (xMax - xMin) * (yMax - yMin) + 8;
+            // pret GenerateMazeLine EXACT (l.3427+) : obstacle sur (x0,y0)
+            // si dans la salle, chercher OUVERT a distance 2 (4 directions
+            // en rotation), murer l'intermediaire, avancer ; return si rien.
+            int guard = (xMax - xMin) * (yMax - yMin) + 16;
             while (guard-- > 0)
             {
                 int direction = map.Rand.Next(4);
                 int i = 0;
-                map.TrySetTile(new Loc(x0, y0), map.WallTerrain.Copy());
+                if (xMin <= x0 && x0 < xMax && yMin <= y0 && y0 < yMax)
+                    map.TrySetTile(new Loc(x0, y0), map.WallTerrain.Copy());
                 int offX = 0, offY = 0;
                 bool found = false;
                 while (true)
                 {
                     switch (direction & 3)
                     {
-                        case 0: offX = 2; offY = 0; break;   // droite
-                        case 1: offX = 0; offY = -2; break;  // haut
-                        case 2: offX = -2; offY = 0; break;  // gauche
-                        default: offX = 0; offY = 2; break;  // bas
+                        case 0: offX = 2; offY = 0; break;
+                        case 1: offX = 0; offY = -2; break;
+                        case 2: offX = -2; offY = 0; break;
+                        default: offX = 0; offY = 2; break;
                     }
                     int posX = x0 + offX, posY = y0 + offY;
                     if (xMin <= posX && posX < xMax && yMin <= posY && posY < yMax
@@ -336,15 +321,21 @@ namespace NewEra.LevelGen
                     }
                     direction++;
                     if (++i >= 4)
-                        break;
+                        return;
                 }
-                if (!found)
-                    return;
-                map.TrySetTile(new Loc(x0 + offX / 2, y0 + offY / 2), map.WallTerrain.Copy());
+                int midX = x0 + offX / 2, midY = y0 + offY / 2;
+                if (xMin <= midX && midX < xMax && yMin <= midY && midY < yMax)
+                    map.TrySetTile(new Loc(midX, midY), map.WallTerrain.Copy());
                 x0 += offX;
                 y0 += offY;
             }
         }
+
+        private bool IsOpen(T map, int x, int y)
+        {
+            return map.GetTile(new Loc(x, y)).TileEquivalent(map.RoomTerrain);
+        }
+
 
         public override string ToString()
         {
