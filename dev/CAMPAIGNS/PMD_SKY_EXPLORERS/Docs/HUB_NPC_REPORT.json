@@ -3,62 +3,81 @@
  "authority": "enter.sse (placements SSA ROM) + enterNN.ssb (dialogues 5 langues ROM) par level MAP porté",
  "rule": "FAIL-CLOSED: pas de dialogue compilable = talk nil tracé, jamais inventé",
  "totals": {
-  "hubs": 15,
-  "npcs": 33,
-  "with_talk": 16,
-  "talk_missing": 17
+  "hubs": 20,
+  "npcs": 44,
+  "with_talk": 39,
+  "talk_missing": 5
  },
  "hubs": {
+  "d47p11a": {
+   "package_ground": "d47p11a",
+   "file": "hubnpc_d47p11a.lua",
+   "npcs": 1,
+   "with_talk": 1,
+   "talk_missing": []
+  },
+  "d48p11a": {
+   "package_ground": "d48p11a",
+   "file": "hubnpc_d48p11a.lua",
+   "npcs": 1,
+   "with_talk": 1,
+   "talk_missing": []
+  },
+  "d50p11a": {
+   "package_ground": "d50p11a",
+   "file": "hubnpc_d50p11a.lua",
+   "npcs": 1,
+   "with_talk": 1,
+   "talk_missing": []
+  },
+  "d51p11a": {
+   "package_ground": "d51p11a",
+   "file": "hubnpc_d51p11a.lua",
+   "npcs": 1,
+   "with_talk": 1,
+   "talk_missing": []
+  },
+  "d52p11a": {
+   "package_ground": "d52p11a",
+   "file": "hubnpc_d52p11a.lua",
+   "npcs": 1,
+   "with_talk": 1,
+   "talk_missing": []
+  },
   "d53p11a": {
    "package_ground": "d53p11a",
    "file": "hubnpc_d53p11a.lua",
-   "npcs": 4,
-   "with_talk": 0,
-   "talk_missing": [
-    "NPC_YAMIRAMI",
-    "NPC_YAMIRAMI2",
-    "NPC_YAMIRAMI3",
-    "NPC_YAMIRAMI4"
-   ]
+   "npcs": 6,
+   "with_talk": 6,
+   "talk_missing": []
   },
   "d54p11a": {
    "package_ground": "d54p11a",
    "file": "hubnpc_d54p11a.lua",
-   "npcs": 2,
-   "with_talk": 0,
-   "talk_missing": [
-    "NPC_CHAAREMU",
-    "NPC_SAANAITO"
-   ]
+   "npcs": 3,
+   "with_talk": 3,
+   "talk_missing": []
   },
   "d55p11a": {
    "package_ground": "d55p11a",
    "file": "hubnpc_d55p11a.lua",
-   "npcs": 2,
-   "with_talk": 0,
-   "talk_missing": [
-    "NPC_CHAAREMU",
-    "NPC_SAANAITO"
-   ]
+   "npcs": 3,
+   "with_talk": 3,
+   "talk_missing": []
   },
   "d56p11a": {
    "package_ground": "d56p11a",
    "file": "hubnpc_d56p11a.lua",
    "npcs": 2,
-   "with_talk": 0,
-   "talk_missing": [
-    "NPC_CHAAREMU",
-    "NPC_SAANAITO"
-   ]
+   "with_talk": 2,
+   "talk_missing": []
   },
   "d73p11a": {
    "package_ground": "d73p11a",
    "file": "hubnpc_d73p11a.lua",
    "npcs": 1,
-   "with_talk": 0,
-   "talk_missing": [
-    "NPC_FUWARAIDO"
-   ]
+   "with_talk": 1,
+   "talk_missing": []
   },
   "d73p28a": {
    "package_ground": "d73p28a",
@@ -70,8 +89,8 @@
   "d73p31a": {
    "package_ground": "d73p31a",
    "file": "hubnpc_d73p31a.lua",
-   "npcs": 1,
-   "with_talk": 1,
+   "npcs": 2,
+   "with_talk": 2,
    "talk_missing": []
   },
   "g01p04a": {
@@ -95,10 +114,8 @@
    "package_ground": "p19p01a",
    "file": "hubnpc_p19p01a.lua",
    "npcs": 1,
-   "with_talk": 0,
-   "talk_missing": [
-    "NPC_AAMARUDO"
-   ]
+   "with_talk": 1,
+   "talk_missing": []
   },
   "s01p02a": {
    "package_ground": "s01p02a",
@@ -128,8 +145,8 @@
   "t01p02a": {
    "package_ground": "t01p02a_sky",
    "file": "hubnpc_t01p02a_sky.lua",
-   "npcs": 3,
-   "with_talk": 3,
+   "npcs": 4,
+   "with_talk": 4,
    "talk_missing": []
   },
   "t01p03a": {

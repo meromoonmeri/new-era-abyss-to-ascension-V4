@@ -2,6 +2,28 @@
 -- NPC résidents canoniques du hub d73p11a (enter.sse ROM Sky EU: placements SSA exacts,
 -- dialogues enterNN.ssb 5 langues; talk=nil = script ROM sans dialogue compilable, tracé).
 local SkySceneKit = require 'halcyon.skyscenes.kit'
+local function talk_npc_fuwaraido(hero, partner)
+      pcall(function() UI:SetSpeaker("Drifblim", true, "drifblim", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_FUWARAIDO (espèce ROM, sans placement zone)
+      SkySceneKit.say({english="Hi!\nThis is [CS:K]Drifblim[CR]'s Gondola.\nWhere would you like to go?", french="Salut!\nBienvenue à la [CS:K]Navette Grodrive[CR].\nOù souhaitez-vous aller?", german="Hallo!\nDies ist die [CS:K]Drifzepeli-Seilbahn[CR].\nWohin möchtest du?", italian="Salve!\nQuesta è l'Agenzia Viaggi [CS:K]Drifblim[CR].\nDove vuoi andare?", spanish="¡Hola!\nEstás en la [CS:K]Góndola Drifblim[CR].\n¿Adónde quieres ir?"})
+      pcall(function() UI:SetSpeaker("Drifblim", true, "drifblim", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_FUWARAIDO (espèce ROM, sans placement zone)
+      SkySceneKit.say({english=" To the [CS:P]Shaymin Village[CR]?", french=" Direction le [CS:P]Village Shaymin[CR]?", german=" Nach [CS:P]Shaymin-Dorf[CR]?", italian="Vuoi andare\nal [CS:P]Villaggio Shaymin[CR]?", spanish=" ¿A [CS:P]Aldea Shaymin[CR]?"})
+      pcall(function() UI:SetSpeaker("Drifblim", true, "drifblim", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_FUWARAIDO (espèce ROM, sans placement zone)
+      SkySceneKit.say({english=" Now...here we go!", french=" Attention... décollage!", german=" Nun... Auf geht's!", italian=" Ok... si parte!", spanish=" Bueno... ¡Vamos allá!"})
+      pcall(function() UI:SetSpeaker("Drifblim", true, "drifblim", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_FUWARAIDO (espèce ROM, sans placement zone)
+      SkySceneKit.say({english="[CN]You have too many team members\n[CN]for [CS:N]Shaymin[CR] to join your team.", french="[CN]Votre équipe est déjà au complet,\n[CN][CS:N]Shaymin[CR] ne peut pas la rejoindre.", german="[CN]Du hast zu viele Team-Mitglieder, um\n[CN][CS:N]Shaymin[CR] in deinem Team aufzunehmen.", italian="[CN]La tua squadra ha troppi membri,\n[CN]quindi [CS:N]Shaymin[CR] non può entrare a farne parte.", spanish="[CN][CS:N]Shaymin[CR] no puede unirse a tu equipo,\n[CN]ya hay demasiados miembros."})
+      pcall(function() UI:SetSpeaker("Drifblim", true, "drifblim", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_FUWARAIDO (espèce ROM, sans placement zone)
+      SkySceneKit.say({english="[CN]Head to the [CS:K]Chimecho[CR] Assembly Post\n[CN]near the entrance to reduce the number of\n[CN]members in your team.", french="[CN]Allez au [CS:K]Point de Rassemblement Eoko[CR]\n[CN]près de l'entrée pour réduire le nombre\n[CN]de membres dans votre équipe.", german="[CN]Begib dich zum [CS:K]Palimpalim-Versammlungsort[CR]\n[CN]in der Nähe des Eingangs, um die\n[CN]Anzahl der Team-Mitglieder anzupassen.", italian="[CN]Vai al Raduno Squadra di [CS:K]Chimecho[CR]\n[CN]vicino all'entrata per diminuire il numero\n[CN]di membri della tua squadra.", spanish="[CN]Dirígete al punto de reunión de [CS:K]Chimecho[CR]\n[CN]que está cerca de la entrada para reducir el\n[CN]número de miembros de tu equipo."})
+      pcall(function() UI:SetSpeaker("Drifblim", true, "drifblim", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_FUWARAIDO (espèce ROM, sans placement zone)
+      SkySceneKit.say({english=" Where would you like to go?", french=" Où souhaitez-vous aller?", german=" Wohin möchtest du?", italian=" Dove vuoi andare?", spanish=" ¿Adónde quieres ir?"})
+      pcall(function() UI:SetSpeaker("Drifblim", true, "drifblim", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_FUWARAIDO (espèce ROM, sans placement zone)
+      SkySceneKit.say({english=" [CS:P]Sky Peak[CR] 2nd Station Clearing?", french="Direction le [CS:P]Pic Céleste[CR],\ntrouée du 2[F:E] Relais?", german="Zum [CS:P]Himmelsgipfel[CR],\n2. Zwischenlagerlichtung?", italian="Vuoi andare\nal Bivacco 2 [CS:P]Picco del Cielo[CR]?", spanish="¿A la Base del Segundo Puerto\nde la [CS:P]Cumbre del Cielo[CR]?"})
+      pcall(function() UI:SetSpeaker("Drifblim", true, "drifblim", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_FUWARAIDO (espèce ROM, sans placement zone)
+      SkySceneKit.say({english=" [CS:P]Sky Peak[CR] 4th Station Clearing?", french="Direction le [CS:P]Pic Céleste[CR],\ntrouée du 4[F:E] Relais?", german="Zum [CS:P]Himmelsgipfel[CR],\n4. Zwischenlagerlichtung?", italian="Vuoi andare\nal Bivacco 4 [CS:P]Picco del Cielo[CR]?", spanish="¿A la Base del Cuarto Puerto\nde la [CS:P]Cumbre del Cielo[CR]?"})
+      pcall(function() UI:SetSpeaker("Drifblim", true, "drifblim", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_FUWARAIDO (espèce ROM, sans placement zone)
+      SkySceneKit.say({english=" [CS:P]Sky Peak[CR] 6th Station Clearing?", french="Direction le [CS:P]Pic Céleste[CR],\ntrouée du 6[F:E] Relais?", german="Zum [CS:P]Himmelsgipfel[CR],\n6. Zwischenlagerlichtung?", italian="Vuoi andare\nal Bivacco 6 [CS:P]Picco del Cielo[CR]?", spanish="¿A la Base del Sexto Puerto\nde la [CS:P]Cumbre del Cielo[CR]?"})
+      pcall(function() UI:SetSpeaker("Drifblim", true, "drifblim", 0, '', RogueEssence.Data.Gender.Unknown) end) -- locuteur NPC_FUWARAIDO (espèce ROM, sans placement zone)
+      SkySceneKit.say({english=" Thank you for your patronage.", french="Merci d'avoir utilisé\nnos services.", german="Es ist mir immer ein Vergnügen,\ndich als Kunden begrüßen zu dürfen.", italian=" Grazie per averci scelto.", spanish=" Gracias por usar nuestro servicio."})
+end
 return {
-  {species="drifblim", x=280, y=232, dir=Direction.Down, name="NPC_FUWARAIDO", talk=nil},
+  {species="drifblim", x=280, y=232, dir=Direction.Down, name="NPC_FUWARAIDO", talk=talk_npc_fuwaraido},
 }
