@@ -1,0 +1,81 @@
+{
+ "schema": "spinda-cafe-audit/1",
+ "date": "2026-08-29",
+ "objet": "Audit exhaustif de l'incorporation PMDO/RogueEssence de TOUS les scripts ROM liés au Spinda Café (PMD Explorers of Sky EU) — demande utilisateur : « vérifie que tous les scripts liés à spinda café etc sont bien incorporés dans pmdo rogue essence »",
+ "identification_rom": {
+  "level_cafe": "P01P04A ('Spinda's Café' / 'Café Spinda', nameid place_name FR prouvé LEVEL_HUMAN_NAMES.json)",
+  "level_croisement": "P01P01A ('Crossroads/Croisement' — escalier d'accès au café, PAS le café lui-même)",
+  "note": "confusion évitée : P01P01A contient aussi des scripts s30a01xx (arrivée au Croisement de la quête café)"
+ },
+ "inventaire_rom_p01p04a": {
+  "total_scripts": 253,
+  "ssb": 212,
+  "ssb_compiles_lua": 195,
+  "ssb_stations_sans_dialogue": 17,
+  "detail_stations": "um0900/um1000/um1100/um1200/um1300/um1500/um1600/um1700/um1800/um1900/um2300/um2400/um2500/um2600/us0100/us0200/us2100 = uniquement supervision_Station(N) (+ 2 routines acteur JumpCommon CORO_MOVE/LIVES pour us0100/um1200/um2300) — AUCUN dialogue, chargement de station NDS assuré par le harnais PMDO (contre-épreuve : regex message_* sur l'explorerscript ROM = 0 occurrence chacun)"
+ },
+ "services_canoniques_du_cafe": {
+  "spinda_juice_bar": {
+   "script_rom": "P01P04A/s30a0701.ssb (MENU_JUICE_BAR + MENU_JUICE_BAR_PICK_ITEM)",
+   "statut": "COMPILED -> Data/Script/halcyon/skyscenes/p01p04a__s30a0701.lua (menus moteur NDS: branches préservées via SV.SkyMenuResults)"
+  },
+  "recycle_shop_wynaut_wobbuffet": {
+   "script_rom": "P01P04A/s30a0601.ssb (MENU_RECYCLE_SHOP/RECYCLE_SHOP2, 227645 caractères ExplorerScript, cartes Rouge/Bleu/Jaune + loterie)",
+   "statut": "COMPILED (CETTE SESSION) -> p01p04a__s30a0601.lua, 59 dialogues 5 langues, 0 op non traduite",
+   "blocage_resolu": "case menu2(N) N=2..5 (menu moteur NDS « liste des tickets possédés ») non supporté par le compilateur -> étendu : labels = noms d'objets tickets des Strings ROM EU (MESSAGE/text_*.str ids 6944 Prize/6945 Silver/6946 Gold/6947 Prism, extraits par dev/tools/extract_menu2_ticket_labels.py), mapping N->ticket prouvé par les corps de branche ROM (« Draw a [CS:I]X Ticket[CR]? » @label_34/36/37/38). Fail-closed conservé : id menu2 sans label ROM = scène non émise.",
+   "contre_epreuve_unicite": "grep exhaustif rom_scripts (3591 scènes) : case menu2 n'apparaît QUE dans P01P04A/s30a0601.ssb"
+  },
+  "loterie_prize_tickets": {
+   "script_rom": "même s30a0601.ssb ($EVENT_LOCAL 1-8, $LOTTERY_RESULT 0-3, tables random(100) par ticket : Prize 50/90/95, Silver 40/80/90, Gold 30/75/85 — corps ROM compilés intégralement)",
+   "statut": "COMPILED (mêmes branches, tirages random ROM -> math.random natif)"
+  },
+  "npc_residents": {
+   "source_rom": "enter.sse P01P04A (placements SSA) + enterNN.ssb (dialogues)",
+   "fichier": "Data/Script/halcyon/skyscenes/hubnpc_p01p04a.lua",
+   "npcs": [
+    {"name": "NPC_PATCHIIRU", "species": "spinda", "x": 256, "y": 152, "talk": "dialogue colis/équipe 5 langues ROM"},
+    {"name": "NPC_SOONANO", "species": "wynaut", "x": 432, "y": 152, "talk": "découverte fabuleuse 5 langues ROM"},
+    {"name": "NPC_SOONANSU", "species": "wobbuffet", "x": 456, "y": 152, "talk": "renvoi vers Wynaut + « That's right! » 5 langues ROM"}
+   ],
+   "rapport": "HUB_NPC_REPORT.json hubs.p01p04a : npcs 3, with_talk 3, talk_missing []"
+  },
+  "cinematiques_histoire": {
+   "scenes": "s30a0202/s30a0302/s30a0304/s30a0401/s30a0501/s30a0701 + s31a0102/s31a0104 (épisode spécial) + mXX/nXX/us/um : 195 scènes P01P04A émises",
+   "statut": "COMPILED (SCENE_COMPILER_REPORT: P01P04A 100% des scènes classées émises après cette session)"
+  },
+  "acces_croisement": {
+   "scenes": "P01P01A s30a0101/s30a0201/s30a0301 (découverte de l'escalier du café) : COMPILED, 103/103 scènes P01P01A émises",
+   "ground": "sky_eos_p01p01a (rsground pixel-perfect, collision BMA)"
+  }
+ },
+ "grounds_pmdo": {
+  "p01p04a.rsground": "Data/Ground/p01p04a.rsground — MAP_BG pixel-perfect skytemple (bma.to_pil), collision BMA d'origine",
+  "p01p01a.rsground + sky_eos_p01p01a.rsground": "présents",
+  "zone": "sky_hub_zone.GroundMaps contient p01p04a (vérifié)"
+ },
+ "preuves_runtime_moteur_reel": {
+  "hub_npc": {
+   "commande": "PMDO_GROUND_VALIDATOR=skyhub:p01p04a",
+   "verdict": "HUB_NPC_RUNTIME_PASS — npcs 3/3 spawnes, talks 3/3 joués (héros marche jusqu'au NPC, dialogue ROM affiché)",
+   "fichier": "dev/docs/canonical/sky/spinda_cafe_hub_npc_proof.jsonl"
+  },
+  "recycle_shop": {
+   "commande": "PMDO_GROUND_VALIDATOR=skyscene:p01p04a__s30a0601@p01p04a + PMDO_SKY_MENU_RESULTS=MENU_RECYCLE_SHOP2=1",
+   "verdict": "CINEMATIC_RUNTIME_PASS — branche cartes couleur jouée (say 53c + ask n=3 Rouge/Bleu/Jaune + confirmations)",
+   "fichier": "dev/docs/canonical/sky/spinda_cafe_recycle_proof.jsonl"
+  },
+  "loterie_menu2": {
+   "commande": "idem + MENU_RECYCLE_SHOP2=5 (case 5 = proposition loterie ROM)",
+   "verdict": "CINEMATIC_RUNTIME_PASS — dialogue loterie Méga Magot (120c) + ask n=2 Oui/Non joués",
+   "fichier": "dev/docs/canonical/sky/spinda_cafe_lottery_menu2_proof.jsonl"
+  },
+  "harnais": "PMDO_SKY_MENU_RESULTS (nouveau, harnais uniquement) : prépose SV.SkyMenuResults pour rejouer une branche précise des menus moteur NDS — aucune modification du canon"
+ },
+ "gaps_documentes_pure_data": [
+  "BGM BGM_SPINDAS_CAFE / BGM_LUDICOLO_DANCE / BGM_PERFECT_SENTRY_DUTY / BGM_MISSION_FAILURE non mappés au roster audio PMDO (REQUIRES_MOD_ASSET, tracés en commentaires dans la scène)",
+  "se_Play ids NDS (11274/11275/6403/6420/7944) sans portage identifié (tracés)",
+  "SetEffect EFFECT_CONFETTI : VFX NDS sans équivalent émote PMDO (tracé)",
+  "menus moteur profonds (échange réel d'objets du Recycle Shop, tirage d'objets loterie ADD_TABLE_ITEM_TO_BAG) : ProcessSpecial arm9 — équivalents PMDO gérés par le moteur (sacs/inventaire natifs), branches scriptées toutes préservées"
+ ],
+ "verdict": "SPINDA_CAFE_FULLY_INCORPORATED — 195/212 ssb émis en Lua + 17 stations sans dialogue (contre-épreuve regex message_* = 0), 3 NPC résidents avec dialogues ROM joués au runtime, scène recyclage/loterie complète compilée et jouée au runtime (2 branches), grounds pixel-perfect présents et câblés dans sky_hub_zone"
+}

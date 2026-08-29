@@ -830,6 +830,17 @@ function V:OnGroundMapEnter()
   self.busy=true
   self.task=TASK:BranchCoroutine(function()
     GAME:WaitFrames(20)
+    -- PMDO_SKY_MENU_RESULTS='MENU_X=1,MENU_Y=2' : préposer les résultats
+    -- des menus moteur NDS (SV.SkyMenuResults lus par les scènes
+    -- compilées) pour rejouer une branche précise — harnais uniquement.
+    local mres=os.getenv('PMDO_SKY_MENU_RESULTS')
+    if mres and mres~='' then
+      SV.SkyMenuResults=SV.SkyMenuResults or {}
+      for pair in string.gmatch(mres,'[^,]+') do
+        local k,v=string.match(pair,'^%s*([%w_]+)%s*=%s*(-?%d+)%s*$')
+        if k then SV.SkyMenuResults[k]=tonumber(v) end
+      end
+    end
     local ok,err=xpcall(function()
       -- 1) scènes artisanales (SkyCanonScenes) ; 2) scènes compilées
       -- (halcyon.skyscenes.<zone>__<scene>, générées par

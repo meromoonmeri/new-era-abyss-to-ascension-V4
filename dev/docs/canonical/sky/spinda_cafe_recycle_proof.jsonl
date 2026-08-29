@@ -1,0 +1,10 @@
+{"event":"sky_scene_begin","scene":"p01p04a__s30a0601","ground":"p01p04a"}
+{"kit":"say_begin","len":53}
+{"kit":"say_done"}
+{"kit":"ask","n":3}
+{"kit":"say_begin","len":13}
+{"kit":"say_done"}
+{"kit":"say_begin","len":11}
+{"kit":"say_done"}
+{"scene":"p01p04a__s30a0601","kind":"compiled","verdict":"CINEMATIC_RUNTIME_PASS"}
+{"event":"end"}
