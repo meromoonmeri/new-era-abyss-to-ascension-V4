@@ -1,6 +1,4 @@
-# Tileset sheets per ground
-
-Ground -> `.tile` sheet names (look them up in `tilesets/`).
+# Tileset sheets per ground (Halcyon scope only)
 
 ## altere_pond
 - Altere_Pond_Base
@@ -12,30 +10,6 @@ Ground -> `.tile` sheet names (look them up in `tilesets/`).
 - Altere_Pond_River_Animations
 - Altere_Pond_Shadows
 - Metano_Town_Animation_Tileset
-
-## bourg_comptoir
-- T01p01a_Base
-
-## cap_dents_mer
-- H01p99a_Base
-
-## carrefour_assemblee
-- P01p03a_Base
-
-## carrefour_nord
-- P01P01A_layer1
-
-## carrefour_sud
-- P01P02A_layer1
-- P01P02A_layer2
-
-## colline_sans_lumiere
-- Dark Hill Entrance Layer 1
-- Dark Hill Entrance Layer 2
-
-## dojo_ossatueur
-- MarowakDojo
-- T01P03A_layer1
 
 ## guild_bedroom_hallway
 - Guild_Bedroom_Hallway_Floor
@@ -71,13 +45,6 @@ Ground -> `.tile` sheet names (look them up in `tilesets/`).
 - Guild_Dining_Room_Objects
 - Guild_First_Floor
 
-## guild_guildmasters_bedroom
-- Guild_Top_Right_Bedroom_Floor
-- Guild_Top_Right_Bedroom_Objects
-- Guild_Top_Right_Bedroom_Shadows
-- Guild_Top_Right_Bedroom_Supports
-- Guild_Top_Right_Bedroom_Walls
-
 ## guild_guildmasters_room
 - Guild_Guildmasters_Room_Floor
 - Guild_Guildmasters_Room_Objects
@@ -93,12 +60,6 @@ Ground -> `.tile` sheet names (look them up in `tilesets/`).
 - Guild_Heros_Room_Shadows
 - Guild_Heros_Room_Supports
 - Guild_Heros_Room_Walls
-
-## guild_hut
-- debug_placeholder_Base
-
-## guild_path
-- debug_placeholder_Base
 
 ## guild_second_floor
 - Guild_Second_Floor_Floor
@@ -233,11 +194,6 @@ Ground -> `.tile` sheet names (look them up in `tilesets/`).
 - Metano_Town_Water_Home_Base_Animated
 - Metano_Town_Water_Home_Objects
 
-## plage_lucioles
-- D01P11A_layer1
-- D01P11A_layer2
-- beach_animation
-
 ## post_office
 - PostOffice
 
@@ -246,12 +202,4 @@ Ground -> `.tile` sheet names (look them up in `tilesets/`).
 - Relic_Forest_Fringe
 - Relic_Forest_Objects
 - Relic_Forest_Objects_Under
-
-## vast_steppe_entrance
-- Vast_Steppe_Base
-- Vast_Steppe_Cliifs
-- Vast_Steppe_Flower_Animations
-- Vast_Steppe_Fringe
-- Vast_Steppe_Objects
-- Vast_Steppe_Objects_Under
 

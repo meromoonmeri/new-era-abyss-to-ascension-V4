@@ -1,8 +1,9 @@
 # Metano Town — Pixel-Art Resource Pack
 
 Everything a pixel artist needs to work on **Metano Town (New Era / PMDO)**:
-full ground renders, the exact tileset sheets they use, format notes, and the
-PMUniverse / RawAsset house & furniture asset lists.
+ground renders **limited to Metano Town locations as in the original Halcyon mod**
+(https://github.com/Palikadude/Halcyon), the exact tileset sheets they use, format
+notes, and the PMUniverse / RawAsset house & furniture asset lists.
 
 This pack is extracted from `meromoonmeri/new-era-abyss-to-ascension-V4`
 (branch `arena/01a02f1c-new-era-abyss-to-ascension-v4`) on 2026-08-29.
@@ -12,16 +13,19 @@ in the mod repository.
 ## Layout
 
 ```
-renders/        one PNG per ground (41 maps) + contact_sheet.png
+renders/        one PNG per ground (31 images / 29 grounds) + contact_sheet.png
+                SCOPE = Halcyon original only: the New Era sky-network grounds
+                (carrefour_*, bourg_comptoir, cap_dents_mer, plage_lucioles,
+                colline_sans_lumiere, vast_steppe_entrance, dojo_ossatueur,
+                guilde_parvis, guild_hut/path) are intentionally excluded.
                 - the town itself, day and night (1512x1512 px)
                 - all 3 guild floors, 10 guild annexes (bedrooms, dining,
                   storage, master office, hero's room, hallway)
                 - public buildings: cafe, inn, ledian dojo, post office, cave
                 - 6 elemental houses (fire/water/grass/electric/normal/rock)
-                - outskirts: altere transition & pond, crossroads N/S/assembly,
-                  market town, beach, cliff, dark hill, relic forest,
-                  riverbed & steppe entrances
-tilesets/       the 161 `.tile` sheet files (and their raw `.png` atlases)
+                - Halcyon entrances: altere transition & pond, relic forest,
+                  illuminant riverbed entrance
+tilesets/       the 141 `.tile` sheet files (and their raw `.png` atlases)
                 actually referenced by those grounds — 8px grid, do not rescale
 specs/
   ground_inventory.csv   per ground: grid, px size, layers, music, solid %,
