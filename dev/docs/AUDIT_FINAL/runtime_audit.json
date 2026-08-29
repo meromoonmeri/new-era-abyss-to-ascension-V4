@@ -63,5 +63,13 @@
   "mobs_seen": 870,
   "proof": "dev/docs/canonical/sky/journey_post_rest_areas_proof.jsonl",
   "note": "non-régression après ajout des 26 zone init.lua + module SkyRestAreas"
+ },
+ "skyjourney_post_engine_cycle": {
+  "verdict": "GLOBAL_JOURNEY_PASS",
+  "chapters": 14,
+  "floors": 313,
+  "mobs_seen": 866,
+  "proof": "dev/docs/canonical/sky/journey_post_engine_cycle_proof.jsonl",
+  "note": "après cycle moteur C# complet (MonsterHouseRomStep 130 zones + IslandRoomStep 11 zones + MH trigger §37)"
  }
 }
