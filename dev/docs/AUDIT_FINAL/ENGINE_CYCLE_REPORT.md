@@ -49,6 +49,9 @@ Pas de SDK .NET ni NuGet dans la sandbox (réseau restreint à GitHub) → **com
 - GLOBAL_JOURNEY_PASS après déploiement MonsterHouseRomStep (commit 3d36bb3c) et re-vérifié post-K/L/M/N (`journey_post_klmn_proof.jsonl`).
 - Lockfile CH1-5 : INTÉGRITÉ OK sur tous les commits du cycle (le fix 79b31352 a corrigé la seule violation détectée — main.lua restauré à l'octet).
 
-## 5. Limites restantes
-- Secret Bazaar PNJ (salles secrètes) : hors périmètre moteur — prochaine étape.
+## 5. Tests unitaires (nretest)
+Testrunner in-process (PMDO_NRETEST=1, Roslyn du bundle) : 11 tests de lois ROM chiffrées — a détecté et fait corriger un bug réel de RoomGenMaze (réécrit pret-exact : marches depuis les bords extérieurs, maze connexe). NRETEST_ALL_PASS 11/11 (`dev/docs/canonical/nretest_proof.jsonl`).
+
+## 6. Limites restantes
+- Secret Bazaar : flux + marchand Swalot livrés (LOT O) ; dialogues PNJ (Mime Jr./Lickilicky/Kirlia) PORTED_APPROXIMATED (textes ROM non extraits).
 - Table météo RANDOM pondérée : si extraite d'overlay29 un jour → data.
