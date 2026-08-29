@@ -1,0 +1,23 @@
+{
+ "schema": "sky-partial-ops-final/1",
+ "date": "2026-08-29",
+ "objet": "Statut final des scènes PARTIAL_OPS du compilateur Sky après extension menu2 — contre-épreuves de non-canonicité joueur",
+ "historique": {
+  "avant": ["P01P04A/s30a0601.ssb", "S02P01A/m00a01a.ssb", "T00P01/enter04.ssb"],
+  "apres": ["S02P01A/m00a01a.ssb", "T00P01/enter04.ssb"]
+ },
+ "resolu": {
+  "P01P04A/s30a0601.ssb": "COMPILED cette session (recyclage/loterie Spinda Café, extension case menu2(N) labels Strings ROM, 59 dialogues, preuve runtime CINEMATIC_RUNTIME_PASS 2 branches)"
+ },
+ "restants_debug_rom": {
+  "T00P01/enter04.ssb": {
+   "preuve": "textes EN==FR==DE==IT==ES non localisés ('Which dungeon will you enter?  A/B/C') ; T00P01 = level debug ROM 'Select Prepared Job Type' (LEVEL_HUMAN_NAMES name_out_of_block, place_name=None) ; main_EnterAdventure(-1/251,30) = sélecteur de donjon debug développeur",
+   "classement": "DEBUG_ONLY — contenu jamais atteint par un joueur (level hors progression, textes placeholder anglophones sur les 5 langues) ; ne pas porter serait INVENTER un flux joueur inexistant"
+  },
+  "S02P01A/m00a01a.ssb": {
+   "preuve": "263/264 blocs de texte préfixés [M:D2] = mémos DEBUG du 2e écran NDS ('Memo: Which debug will you do today?', 'Memo: Start from which Scenario?', 'Dialogue Check') ; le 264e est vide ; le test de personnalité réel joueur = message_Menu(MENU_PERSONALITY_TEST/[_CONTINUE]) = menus moteur arm9 (équivalent PMDO : création de personnage native, déjà couverte par le flux NewGame du mod)",
+   "classement": "DEBUG_ONLY — harnais de debug développeur du test de personnalité ; les menus moteur joueur n'ont aucun contenu scripté à porter"
+  }
+ },
+ "verdict": "SKY_SCENE_COMPILER_COMPLETE — 3589 COMPILED + 169 DUAL_SCREEN + 60 MULTIROUTINE + 168 TRIVIAL ; les 2 PARTIAL_OPS restants sont prouvés DEBUG_ONLY (aucun contenu joueur canonique non porté) ; NO_DEF0=1 antérieur documenté"
+}
