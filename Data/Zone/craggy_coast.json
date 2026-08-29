@@ -7566,6 +7566,265 @@
                     }
                   ]
                 }
+              },
+              {
+                "Key": {
+                  "str": [
+                    5,
+                    4
+                  ]
+                },
+                "Value": {
+                  "$type": "PMDC.LevelGen.ShopStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
+                  "Items": [
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "ammo_geo_pebble",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 10
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "berry_oran",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 10
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "seed_reviver",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 10
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "seed_blinker",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 10
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "berry_pecha",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 10
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "berry_cheri",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 10
+                    }
+                  ],
+                  "ItemThemes": [],
+                  "Mobs": [
+                    {
+                      "Spawn": {
+                        "BaseForm": {
+                          "Species": "swalot",
+                          "Form": 0,
+                          "Skin": "normal",
+                          "Gender": -1
+                        },
+                        "Level": {
+                          "Min": 55,
+                          "Max": 55
+                        },
+                        "SpecifiedSkills": [
+                          "toxic",
+                          "sludge_bomb",
+                          "body_slam",
+                          "yawn"
+                        ],
+                        "Intrinsic": "sticky_hold",
+                        "Tactic": "shopkeeper",
+                        "SpawnConditions": [],
+                        "SpawnFeatures": [
+                          {
+                            "$type": "PMDC.LevelGen.MobSpawnBoost, PMDC",
+                            "MaxHPBonus": 256,
+                            "AtkBonus": 256,
+                            "DefBonus": 256,
+                            "SpAtkBonus": 256,
+                            "SpDefBonus": 256,
+                            "SpeedBonus": 256
+                          },
+                          {
+                            "$type": "PMDC.LevelGen.MobSpawnInv, PMDC",
+                            "Items": [
+                              {
+                                "ID": "xcl_family_kecleon_00",
+                                "Cursed": false,
+                                "HiddenValue": "",
+                                "Amount": 0,
+                                "Price": 0
+                              },
+                              {
+                                "ID": "xcl_family_kecleon_01",
+                                "Cursed": false,
+                                "HiddenValue": "",
+                                "Amount": 0,
+                                "Price": 0
+                              },
+                              {
+                                "ID": "xcl_family_kecleon_04",
+                                "Cursed": false,
+                                "HiddenValue": "",
+                                "Amount": 0,
+                                "Price": 0
+                              }
+                            ],
+                            "MapStartOnly": false
+                          },
+                          {
+                            "$type": "PMDC.LevelGen.MobSpawnDiscriminator, PMDC",
+                            "Discriminator": 0
+                          },
+                          {
+                            "$type": "PMDC.LevelGen.MobSpawnInteractable, PMDC",
+                            "CheckEvents": []
+                          },
+                          {
+                            "$type": "PMDC.LevelGen.MobSpawnLuaTable, PMDC",
+                            "LuaTable": "{ Role = \"Shopkeeper\" }"
+                          }
+                        ]
+                      },
+                      "Rate": 10
+                    }
+                  ],
+                  "StartMob": {
+                    "BaseForm": {
+                      "Species": "swalot",
+                      "Form": 0,
+                      "Skin": "normal",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 55,
+                      "Max": 55
+                    },
+                    "SpecifiedSkills": [
+                      "toxic",
+                      "sludge_bomb",
+                      "body_slam",
+                      "yawn"
+                    ],
+                    "Intrinsic": "sticky_hold",
+                    "Tactic": "shopkeeper",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnBoost, PMDC",
+                        "MaxHPBonus": 256,
+                        "AtkBonus": 256,
+                        "DefBonus": 256,
+                        "SpAtkBonus": 256,
+                        "SpDefBonus": 256,
+                        "SpeedBonus": 256
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnInv, PMDC",
+                        "Items": [
+                          {
+                            "ID": "xcl_family_kecleon_00",
+                            "Cursed": false,
+                            "HiddenValue": "",
+                            "Amount": 0,
+                            "Price": 0
+                          },
+                          {
+                            "ID": "xcl_family_kecleon_01",
+                            "Cursed": false,
+                            "HiddenValue": "",
+                            "Amount": 0,
+                            "Price": 0
+                          },
+                          {
+                            "ID": "xcl_family_kecleon_04",
+                            "Cursed": false,
+                            "HiddenValue": "",
+                            "Amount": 0,
+                            "Price": 0
+                          }
+                        ],
+                        "MapStartOnly": false
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnDiscriminator, PMDC",
+                        "Discriminator": 0
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnInteractable, PMDC",
+                        "CheckEvents": []
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnLuaTable, PMDC",
+                        "LuaTable": "{ Role = \"Shopkeeper\" }"
+                      }
+                    ]
+                  },
+                  "Filters": [
+                    {
+                      "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
+                      "Connection": 1
+                    }
+                  ],
+                  "SecurityStatus": "shop_security",
+                  "Personality": 0
+                }
               }
             ]
           },
@@ -8729,6 +8988,265 @@
                       "Rate": 2632
                     }
                   ]
+                }
+              },
+              {
+                "Key": {
+                  "str": [
+                    5,
+                    4
+                  ]
+                },
+                "Value": {
+                  "$type": "PMDC.LevelGen.ShopStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
+                  "Items": [
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "ammo_geo_pebble",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 10
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "berry_oran",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 10
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "seed_reviver",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 10
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "seed_blinker",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 10
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "berry_pecha",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 10
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "berry_cheri",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 10
+                    }
+                  ],
+                  "ItemThemes": [],
+                  "Mobs": [
+                    {
+                      "Spawn": {
+                        "BaseForm": {
+                          "Species": "swalot",
+                          "Form": 0,
+                          "Skin": "normal",
+                          "Gender": -1
+                        },
+                        "Level": {
+                          "Min": 55,
+                          "Max": 55
+                        },
+                        "SpecifiedSkills": [
+                          "toxic",
+                          "sludge_bomb",
+                          "body_slam",
+                          "yawn"
+                        ],
+                        "Intrinsic": "sticky_hold",
+                        "Tactic": "shopkeeper",
+                        "SpawnConditions": [],
+                        "SpawnFeatures": [
+                          {
+                            "$type": "PMDC.LevelGen.MobSpawnBoost, PMDC",
+                            "MaxHPBonus": 256,
+                            "AtkBonus": 256,
+                            "DefBonus": 256,
+                            "SpAtkBonus": 256,
+                            "SpDefBonus": 256,
+                            "SpeedBonus": 256
+                          },
+                          {
+                            "$type": "PMDC.LevelGen.MobSpawnInv, PMDC",
+                            "Items": [
+                              {
+                                "ID": "xcl_family_kecleon_00",
+                                "Cursed": false,
+                                "HiddenValue": "",
+                                "Amount": 0,
+                                "Price": 0
+                              },
+                              {
+                                "ID": "xcl_family_kecleon_01",
+                                "Cursed": false,
+                                "HiddenValue": "",
+                                "Amount": 0,
+                                "Price": 0
+                              },
+                              {
+                                "ID": "xcl_family_kecleon_04",
+                                "Cursed": false,
+                                "HiddenValue": "",
+                                "Amount": 0,
+                                "Price": 0
+                              }
+                            ],
+                            "MapStartOnly": false
+                          },
+                          {
+                            "$type": "PMDC.LevelGen.MobSpawnDiscriminator, PMDC",
+                            "Discriminator": 0
+                          },
+                          {
+                            "$type": "PMDC.LevelGen.MobSpawnInteractable, PMDC",
+                            "CheckEvents": []
+                          },
+                          {
+                            "$type": "PMDC.LevelGen.MobSpawnLuaTable, PMDC",
+                            "LuaTable": "{ Role = \"Shopkeeper\" }"
+                          }
+                        ]
+                      },
+                      "Rate": 10
+                    }
+                  ],
+                  "StartMob": {
+                    "BaseForm": {
+                      "Species": "swalot",
+                      "Form": 0,
+                      "Skin": "normal",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 55,
+                      "Max": 55
+                    },
+                    "SpecifiedSkills": [
+                      "toxic",
+                      "sludge_bomb",
+                      "body_slam",
+                      "yawn"
+                    ],
+                    "Intrinsic": "sticky_hold",
+                    "Tactic": "shopkeeper",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnBoost, PMDC",
+                        "MaxHPBonus": 256,
+                        "AtkBonus": 256,
+                        "DefBonus": 256,
+                        "SpAtkBonus": 256,
+                        "SpDefBonus": 256,
+                        "SpeedBonus": 256
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnInv, PMDC",
+                        "Items": [
+                          {
+                            "ID": "xcl_family_kecleon_00",
+                            "Cursed": false,
+                            "HiddenValue": "",
+                            "Amount": 0,
+                            "Price": 0
+                          },
+                          {
+                            "ID": "xcl_family_kecleon_01",
+                            "Cursed": false,
+                            "HiddenValue": "",
+                            "Amount": 0,
+                            "Price": 0
+                          },
+                          {
+                            "ID": "xcl_family_kecleon_04",
+                            "Cursed": false,
+                            "HiddenValue": "",
+                            "Amount": 0,
+                            "Price": 0
+                          }
+                        ],
+                        "MapStartOnly": false
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnDiscriminator, PMDC",
+                        "Discriminator": 0
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnInteractable, PMDC",
+                        "CheckEvents": []
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnLuaTable, PMDC",
+                        "LuaTable": "{ Role = \"Shopkeeper\" }"
+                      }
+                    ]
+                  },
+                  "Filters": [
+                    {
+                      "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
+                      "Connection": 1
+                    }
+                  ],
+                  "SecurityStatus": "shop_security",
+                  "Personality": 0
                 }
               }
             ]
@@ -9894,6 +10412,265 @@
                     }
                   ]
                 }
+              },
+              {
+                "Key": {
+                  "str": [
+                    5,
+                    4
+                  ]
+                },
+                "Value": {
+                  "$type": "PMDC.LevelGen.ShopStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
+                  "Items": [
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "ammo_geo_pebble",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 10
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "berry_oran",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 10
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "seed_reviver",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 10
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "seed_blinker",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 10
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "berry_pecha",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 10
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "berry_cheri",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 10
+                    }
+                  ],
+                  "ItemThemes": [],
+                  "Mobs": [
+                    {
+                      "Spawn": {
+                        "BaseForm": {
+                          "Species": "swalot",
+                          "Form": 0,
+                          "Skin": "normal",
+                          "Gender": -1
+                        },
+                        "Level": {
+                          "Min": 55,
+                          "Max": 55
+                        },
+                        "SpecifiedSkills": [
+                          "toxic",
+                          "sludge_bomb",
+                          "body_slam",
+                          "yawn"
+                        ],
+                        "Intrinsic": "sticky_hold",
+                        "Tactic": "shopkeeper",
+                        "SpawnConditions": [],
+                        "SpawnFeatures": [
+                          {
+                            "$type": "PMDC.LevelGen.MobSpawnBoost, PMDC",
+                            "MaxHPBonus": 256,
+                            "AtkBonus": 256,
+                            "DefBonus": 256,
+                            "SpAtkBonus": 256,
+                            "SpDefBonus": 256,
+                            "SpeedBonus": 256
+                          },
+                          {
+                            "$type": "PMDC.LevelGen.MobSpawnInv, PMDC",
+                            "Items": [
+                              {
+                                "ID": "xcl_family_kecleon_00",
+                                "Cursed": false,
+                                "HiddenValue": "",
+                                "Amount": 0,
+                                "Price": 0
+                              },
+                              {
+                                "ID": "xcl_family_kecleon_01",
+                                "Cursed": false,
+                                "HiddenValue": "",
+                                "Amount": 0,
+                                "Price": 0
+                              },
+                              {
+                                "ID": "xcl_family_kecleon_04",
+                                "Cursed": false,
+                                "HiddenValue": "",
+                                "Amount": 0,
+                                "Price": 0
+                              }
+                            ],
+                            "MapStartOnly": false
+                          },
+                          {
+                            "$type": "PMDC.LevelGen.MobSpawnDiscriminator, PMDC",
+                            "Discriminator": 0
+                          },
+                          {
+                            "$type": "PMDC.LevelGen.MobSpawnInteractable, PMDC",
+                            "CheckEvents": []
+                          },
+                          {
+                            "$type": "PMDC.LevelGen.MobSpawnLuaTable, PMDC",
+                            "LuaTable": "{ Role = \"Shopkeeper\" }"
+                          }
+                        ]
+                      },
+                      "Rate": 10
+                    }
+                  ],
+                  "StartMob": {
+                    "BaseForm": {
+                      "Species": "swalot",
+                      "Form": 0,
+                      "Skin": "normal",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 55,
+                      "Max": 55
+                    },
+                    "SpecifiedSkills": [
+                      "toxic",
+                      "sludge_bomb",
+                      "body_slam",
+                      "yawn"
+                    ],
+                    "Intrinsic": "sticky_hold",
+                    "Tactic": "shopkeeper",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnBoost, PMDC",
+                        "MaxHPBonus": 256,
+                        "AtkBonus": 256,
+                        "DefBonus": 256,
+                        "SpAtkBonus": 256,
+                        "SpDefBonus": 256,
+                        "SpeedBonus": 256
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnInv, PMDC",
+                        "Items": [
+                          {
+                            "ID": "xcl_family_kecleon_00",
+                            "Cursed": false,
+                            "HiddenValue": "",
+                            "Amount": 0,
+                            "Price": 0
+                          },
+                          {
+                            "ID": "xcl_family_kecleon_01",
+                            "Cursed": false,
+                            "HiddenValue": "",
+                            "Amount": 0,
+                            "Price": 0
+                          },
+                          {
+                            "ID": "xcl_family_kecleon_04",
+                            "Cursed": false,
+                            "HiddenValue": "",
+                            "Amount": 0,
+                            "Price": 0
+                          }
+                        ],
+                        "MapStartOnly": false
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnDiscriminator, PMDC",
+                        "Discriminator": 0
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnInteractable, PMDC",
+                        "CheckEvents": []
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnLuaTable, PMDC",
+                        "LuaTable": "{ Role = \"Shopkeeper\" }"
+                      }
+                    ]
+                  },
+                  "Filters": [
+                    {
+                      "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
+                      "Connection": 1
+                    }
+                  ],
+                  "SecurityStatus": "shop_security",
+                  "Personality": 0
+                }
               }
             ]
           },
@@ -11058,6 +11835,265 @@
                     }
                   ]
                 }
+              },
+              {
+                "Key": {
+                  "str": [
+                    5,
+                    4
+                  ]
+                },
+                "Value": {
+                  "$type": "PMDC.LevelGen.ShopStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
+                  "Items": [
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "ammo_geo_pebble",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 10
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "berry_oran",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 10
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "seed_reviver",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 10
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "seed_blinker",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 10
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "berry_pecha",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 10
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "berry_cheri",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 10
+                    }
+                  ],
+                  "ItemThemes": [],
+                  "Mobs": [
+                    {
+                      "Spawn": {
+                        "BaseForm": {
+                          "Species": "swalot",
+                          "Form": 0,
+                          "Skin": "normal",
+                          "Gender": -1
+                        },
+                        "Level": {
+                          "Min": 55,
+                          "Max": 55
+                        },
+                        "SpecifiedSkills": [
+                          "toxic",
+                          "sludge_bomb",
+                          "body_slam",
+                          "yawn"
+                        ],
+                        "Intrinsic": "sticky_hold",
+                        "Tactic": "shopkeeper",
+                        "SpawnConditions": [],
+                        "SpawnFeatures": [
+                          {
+                            "$type": "PMDC.LevelGen.MobSpawnBoost, PMDC",
+                            "MaxHPBonus": 256,
+                            "AtkBonus": 256,
+                            "DefBonus": 256,
+                            "SpAtkBonus": 256,
+                            "SpDefBonus": 256,
+                            "SpeedBonus": 256
+                          },
+                          {
+                            "$type": "PMDC.LevelGen.MobSpawnInv, PMDC",
+                            "Items": [
+                              {
+                                "ID": "xcl_family_kecleon_00",
+                                "Cursed": false,
+                                "HiddenValue": "",
+                                "Amount": 0,
+                                "Price": 0
+                              },
+                              {
+                                "ID": "xcl_family_kecleon_01",
+                                "Cursed": false,
+                                "HiddenValue": "",
+                                "Amount": 0,
+                                "Price": 0
+                              },
+                              {
+                                "ID": "xcl_family_kecleon_04",
+                                "Cursed": false,
+                                "HiddenValue": "",
+                                "Amount": 0,
+                                "Price": 0
+                              }
+                            ],
+                            "MapStartOnly": false
+                          },
+                          {
+                            "$type": "PMDC.LevelGen.MobSpawnDiscriminator, PMDC",
+                            "Discriminator": 0
+                          },
+                          {
+                            "$type": "PMDC.LevelGen.MobSpawnInteractable, PMDC",
+                            "CheckEvents": []
+                          },
+                          {
+                            "$type": "PMDC.LevelGen.MobSpawnLuaTable, PMDC",
+                            "LuaTable": "{ Role = \"Shopkeeper\" }"
+                          }
+                        ]
+                      },
+                      "Rate": 10
+                    }
+                  ],
+                  "StartMob": {
+                    "BaseForm": {
+                      "Species": "swalot",
+                      "Form": 0,
+                      "Skin": "normal",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 55,
+                      "Max": 55
+                    },
+                    "SpecifiedSkills": [
+                      "toxic",
+                      "sludge_bomb",
+                      "body_slam",
+                      "yawn"
+                    ],
+                    "Intrinsic": "sticky_hold",
+                    "Tactic": "shopkeeper",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnBoost, PMDC",
+                        "MaxHPBonus": 256,
+                        "AtkBonus": 256,
+                        "DefBonus": 256,
+                        "SpAtkBonus": 256,
+                        "SpDefBonus": 256,
+                        "SpeedBonus": 256
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnInv, PMDC",
+                        "Items": [
+                          {
+                            "ID": "xcl_family_kecleon_00",
+                            "Cursed": false,
+                            "HiddenValue": "",
+                            "Amount": 0,
+                            "Price": 0
+                          },
+                          {
+                            "ID": "xcl_family_kecleon_01",
+                            "Cursed": false,
+                            "HiddenValue": "",
+                            "Amount": 0,
+                            "Price": 0
+                          },
+                          {
+                            "ID": "xcl_family_kecleon_04",
+                            "Cursed": false,
+                            "HiddenValue": "",
+                            "Amount": 0,
+                            "Price": 0
+                          }
+                        ],
+                        "MapStartOnly": false
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnDiscriminator, PMDC",
+                        "Discriminator": 0
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnInteractable, PMDC",
+                        "CheckEvents": []
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnLuaTable, PMDC",
+                        "LuaTable": "{ Role = \"Shopkeeper\" }"
+                      }
+                    ]
+                  },
+                  "Filters": [
+                    {
+                      "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
+                      "Connection": 1
+                    }
+                  ],
+                  "SecurityStatus": "shop_security",
+                  "Personality": 0
+                }
               }
             ]
           },
@@ -12221,6 +13257,265 @@
                       "Rate": 2632
                     }
                   ]
+                }
+              },
+              {
+                "Key": {
+                  "str": [
+                    5,
+                    4
+                  ]
+                },
+                "Value": {
+                  "$type": "PMDC.LevelGen.ShopStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
+                  "Items": [
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "ammo_geo_pebble",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 10
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "berry_oran",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 10
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "seed_reviver",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 10
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "seed_blinker",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 10
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "berry_pecha",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 10
+                    },
+                    {
+                      "Spawn": {
+                        "IsMoney": false,
+                        "Cursed": false,
+                        "Value": "berry_cheri",
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0,
+                        "TileLoc": {
+                          "X": 0,
+                          "Y": 0
+                        }
+                      },
+                      "Rate": 10
+                    }
+                  ],
+                  "ItemThemes": [],
+                  "Mobs": [
+                    {
+                      "Spawn": {
+                        "BaseForm": {
+                          "Species": "swalot",
+                          "Form": 0,
+                          "Skin": "normal",
+                          "Gender": -1
+                        },
+                        "Level": {
+                          "Min": 55,
+                          "Max": 55
+                        },
+                        "SpecifiedSkills": [
+                          "toxic",
+                          "sludge_bomb",
+                          "body_slam",
+                          "yawn"
+                        ],
+                        "Intrinsic": "sticky_hold",
+                        "Tactic": "shopkeeper",
+                        "SpawnConditions": [],
+                        "SpawnFeatures": [
+                          {
+                            "$type": "PMDC.LevelGen.MobSpawnBoost, PMDC",
+                            "MaxHPBonus": 256,
+                            "AtkBonus": 256,
+                            "DefBonus": 256,
+                            "SpAtkBonus": 256,
+                            "SpDefBonus": 256,
+                            "SpeedBonus": 256
+                          },
+                          {
+                            "$type": "PMDC.LevelGen.MobSpawnInv, PMDC",
+                            "Items": [
+                              {
+                                "ID": "xcl_family_kecleon_00",
+                                "Cursed": false,
+                                "HiddenValue": "",
+                                "Amount": 0,
+                                "Price": 0
+                              },
+                              {
+                                "ID": "xcl_family_kecleon_01",
+                                "Cursed": false,
+                                "HiddenValue": "",
+                                "Amount": 0,
+                                "Price": 0
+                              },
+                              {
+                                "ID": "xcl_family_kecleon_04",
+                                "Cursed": false,
+                                "HiddenValue": "",
+                                "Amount": 0,
+                                "Price": 0
+                              }
+                            ],
+                            "MapStartOnly": false
+                          },
+                          {
+                            "$type": "PMDC.LevelGen.MobSpawnDiscriminator, PMDC",
+                            "Discriminator": 0
+                          },
+                          {
+                            "$type": "PMDC.LevelGen.MobSpawnInteractable, PMDC",
+                            "CheckEvents": []
+                          },
+                          {
+                            "$type": "PMDC.LevelGen.MobSpawnLuaTable, PMDC",
+                            "LuaTable": "{ Role = \"Shopkeeper\" }"
+                          }
+                        ]
+                      },
+                      "Rate": 10
+                    }
+                  ],
+                  "StartMob": {
+                    "BaseForm": {
+                      "Species": "swalot",
+                      "Form": 0,
+                      "Skin": "normal",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 55,
+                      "Max": 55
+                    },
+                    "SpecifiedSkills": [
+                      "toxic",
+                      "sludge_bomb",
+                      "body_slam",
+                      "yawn"
+                    ],
+                    "Intrinsic": "sticky_hold",
+                    "Tactic": "shopkeeper",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnBoost, PMDC",
+                        "MaxHPBonus": 256,
+                        "AtkBonus": 256,
+                        "DefBonus": 256,
+                        "SpAtkBonus": 256,
+                        "SpDefBonus": 256,
+                        "SpeedBonus": 256
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnInv, PMDC",
+                        "Items": [
+                          {
+                            "ID": "xcl_family_kecleon_00",
+                            "Cursed": false,
+                            "HiddenValue": "",
+                            "Amount": 0,
+                            "Price": 0
+                          },
+                          {
+                            "ID": "xcl_family_kecleon_01",
+                            "Cursed": false,
+                            "HiddenValue": "",
+                            "Amount": 0,
+                            "Price": 0
+                          },
+                          {
+                            "ID": "xcl_family_kecleon_04",
+                            "Cursed": false,
+                            "HiddenValue": "",
+                            "Amount": 0,
+                            "Price": 0
+                          }
+                        ],
+                        "MapStartOnly": false
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnDiscriminator, PMDC",
+                        "Discriminator": 0
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnInteractable, PMDC",
+                        "CheckEvents": []
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnLuaTable, PMDC",
+                        "LuaTable": "{ Role = \"Shopkeeper\" }"
+                      }
+                    ]
+                  },
+                  "Filters": [
+                    {
+                      "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
+                      "Connection": 1
+                    }
+                  ],
+                  "SecurityStatus": "shop_security",
+                  "Personality": 0
                 }
               }
             ]
