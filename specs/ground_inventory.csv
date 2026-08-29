@@ -1,0 +1,42 @@
+ground,grid_tiles,size_px,layers,layer_names,music,solid_pct,npcs,objects,markers,spawners,tileset_sheets
+altere_pond,116x96,928x768,8,Base|River|Cliffs|Shadows|Objects Under|Objects|Objects Over|Fringe,File Select.ogg,14.1,1,2,2,1,9
+bourg_comptoir,84x63,672x504,1,Base,Treasure Town.ogg,74.9,18,17,4,4,1
+cap_dents_mer,63x48,504x384,1,Base,,86.8,0,2,2,2,1
+carrefour_assemblee,54x57,432x456,1,Base,Treasure Town.ogg,68.4,2,5,4,2,1
+carrefour_nord,54x57,432x456,1,Static Background,Treasure Town.ogg,67.8,0,0,3,3,1
+carrefour_sud,54x54,432x432,2,Crossroads South Layer 1|Crossroads South Layer 2,Treasure Town.ogg,76.9,0,2,2,2,2
+colline_sans_lumiere,96x48,768x384,2,Layer 1|Layer 2,Dark Hill.ogg,72.6,0,0,1,0,2
+dojo_ossatueur,63x54,504x432,2,Main|Rock Wall,,87.2,1,2,2,2,2
+guild_bedroom_hallway,60x32,480x256,4,Floor|Walls|Objects|Supports,Wigglytuff's Guild.ogg,58.0,0,6,11,1,4
+guild_bottom_left_bedroom,44x44,352x352,6,Floor|Walls|Shadows|Objects|Objects Over|Supports,Wigglytuff's Guild.ogg,13.7,0,1,1,1,6
+guild_bottom_right_bedroom,44x44,352x352,6,Floor|Walls|Shadows|Objects|Objects Over|Supports,Wigglytuff's Guild.ogg,16.7,0,4,1,1,5
+guild_dining_room,56x36,448x288,7,Floor|Walls|Shadows|Objects|Objects Over|Fringe|Supports,Wigglytuff's Guild.ogg,13.7,0,14,13,1,7
+guild_first_floor,40x30,320x240,2,New Layer|Objects,Wigglytuff's Guild.ogg,54.9,0,2,4,1,2
+guild_guildmasters_bedroom,44x44,352x352,5,Floor|Walls|Shadows|Objects|Supports,Wigglytuff's Guild.ogg,10.0,0,3,3,1,5
+guild_guildmasters_room,48x48,384x384,6,Floor|Walls|Shadows|Objects|Objects Over|Supports,Wigglytuff's Guild.ogg,18.6,1,2,1,1,6
+guild_heros_room,44x44,352x352,6,Floor|Walls|Shadows|Objects|Objects Over|Supports,Wigglytuff's Guild.ogg,12.3,0,3,4,1,6
+guild_hut,16x12,128x96,1,Base,,27.1,0,0,0,0,1
+guild_path,16x12,128x96,1,Base,,27.1,0,0,0,0,1
+guild_second_floor,84x56,672x448,8,Floor|Walls|Objects Under|Objects|Objects Over|Shadows|Fringe|Supports,Wigglytuff's Guild.ogg,10.4,1,5,27,1,8
+guild_storage_hallway,44x48,352x384,4,Floor|Walls|Objects|Supports,Wigglytuff's Guild.ogg,5.8,0,3,3,1,4
+guild_storage_room,44x44,352x352,8,Floor|Walls|Shadows|Objects Under|Objects|Objects Over|Fringe|Supports,Wigglytuff's Guild.ogg,19.8,0,1,1,1,8
+guild_third_floor_lobby,100x56,800x448,8,Floor|Walls|Shadows|Objects Under|Objects|Objects Over|Fringe|Supports,Wigglytuff's Guild.ogg,13.6,0,6,21,1,7
+guild_top_left_bedroom,44x44,352x352,5,Floors|Walls|Shadows|Objects|Supports,Wigglytuff's Guild.ogg,9.2,0,1,1,1,5
+guild_top_right_bedroom,44x44,352x352,5,Floor|Walls|Shadows|Objects|Supports,Wigglytuff's Guild.ogg,10.0,0,1,3,1,5
+illuminant_riverbed_entrance,40x30,320x240,4,Base|River|Objects Under|Objects,,39.9,0,0,1,1,5
+ledian_dojo,51x39,408x312,6,Floor|Objects Under|Objects|Objects Over|Shadows|Ceiling,Wigglytuff's Guild Remix.ogg,24.1,2,2,1,1,7
+metano_altere_transition,64x38,512x304,5,Layer 3|River|Objects Under|Objects|Objects Over,Treasure Town.ogg,26.7,0,2,4,1,6
+metano_cafe,57x40,456x320,5,Base|Objects Under|Objects|Objects Over|Fringe,Spinda's Cafe.ogg,25.1,2,3,18,3,5
+metano_cave,52x46,416x368,2,Base|Objects,Treasure Town.ogg,85.6,1,1,2,1,2
+metano_electric_home,43x34,344x272,2,Base|Objects,Treasure Town.ogg,25.6,0,1,2,1,2
+metano_fire_home,43x34,344x272,2,Base|Objects,Treasure Town.ogg,67.0,0,1,2,1,3
+metano_grass_home,46x35,368x280,2,Base|Objects,Treasure Town.ogg,25.7,0,1,2,1,2
+metano_inn,56x44,448x352,5,Base|Floor Decor|Shadows|Objects|Objects Over,Treasure Town.ogg,19.4,0,3,3,1,5
+metano_normal_home,45x35,360x280,2,Base|Objects,Treasure Town.ogg,14.8,0,1,2,1,2
+metano_rock_home,44x34,352x272,2,Base|Objects,Treasure Town.ogg,16.0,0,1,2,1,2
+metano_town,189x189,1512x1512,11,Base|Cliffs|River|Layer 4|Objects Under|Objects Under Anim|Objects|Objects Anim|Objects Over|Objects Over Anim|Fringe,Treasure Town.ogg,41.9,12,62,38,1,14
+metano_water_home,43x34,344x272,2,Base|Objects,Treasure Town.ogg,67.0,0,2,2,1,3
+plage_lucioles,99x48,792x384,3,Back|Anim|Front,,80.1,0,2,2,3,3
+post_office,48x39,384x312,1,New Layer,Treasure Town.ogg,80.3,2,3,5,1,1
+relic_forest,75x75,600x600,4,Base|Objects Under|Objects|Fringe,In the Depths of the Pit.ogg,14.1,0,0,3,3,4
+vast_steppe_entrance,64x64,512x512,5,Base|Cliffs|Objects Under|Objects|Fringe,Sky Peak Prairie.ogg,16.3,0,3,1,3,6
