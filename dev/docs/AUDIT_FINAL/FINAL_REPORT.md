@@ -122,3 +122,14 @@ Rapport dédié : `ENGINE_CYCLE_REPORT.md`. Compilation Roslyn in-process (pas d
 2. MobThemeRoomScaled (MH ∝ salle exacte) : approximation data en place ; primitive C# au même cycle moteur.
 3. Secret Bazaar (PNJ Sky) dans les salles secrètes : PORTED_APPROXIMATED.
 4. R4.5 items+pièges 50/50 dans MH : les HouseStepSpawns actuels portent les items thématiques ; l'ajout des pièges MH reste à brancher (données prêtes dans mappa items['monster_house']).
+
+## 6. Session 2026-08-29 — Audit Spinda Café & hub NPC (post-périmètre)
+Demande : « vérifie que tous les scripts liés à spinda café etc sont bien incorporés dans pmdo rogue essence ».
+- **Identification ROM** : Spinda Café = level **P01P04A** (place_name FR « Café Spinda ») — P01P01A = Croisement (escalier d'accès). 253 fichiers SCRIPT ROM P01P04A (212 ssb).
+- **Résultat** : 195/212 ssb émis en Lua ; les 17 restants = stations `supervision_Station` **sans aucun dialogue** (contre-épreuve regex `message_*` = 0 sur l'explorerscript ROM de chacun).
+- **Gap réel trouvé et corrigé** : `s30a0601.ssb` (Recycle Shop Wynaut/Wobbuffet + loterie Prize Tickets, 227 645 caractères) était PARTIAL_OPS (`case menu2(N)` non supporté). Extension compilateur : labels tickets = **Strings ROM EU** (MESSAGE/text_*.str ids 6944–6947, extracteur `extract_menu2_ticket_labels.py`), mapping N→ticket prouvé par les corps de branche ROM. → **COMPILED, 59 dialogues 5 langues, 0 op perdue**. Contre-épreuve d'unicité : `menu2` n'apparaît dans AUCUNE autre des 3591 scènes.
+- **Preuves runtime moteur réel** : `HUB_NPC_RUNTIME_PASS` (3/3 NPC du café spawnes + dialogues ROM joués) ; `CINEMATIC_RUNTIME_PASS` ×2 (branche recyclage cartes couleur, branche loterie menu2) via le nouveau levier harnais `PMDO_SKY_MENU_RESULTS` (préposition SV.SkyMenuResults — harnais uniquement, zéro modification du canon). Fichiers : `canonical/sky/spinda_cafe_{hub_npc,recycle,lottery_menu2}_proof.jsonl`.
+- **Effet de bord positif** : régénération des hub NPC avec le compilateur à jour → **15→20 hubs, 33→44 NPC, 16→39 dialogues** (Sableye D53, Mime Jr. D54–56, Drifloon D73, Armaldo P19 désormais parlants). 5 talk_missing restants prouvés canoniques (menus moteur banque/stockage/assemblée S01P02A sans dialogue ; G01P04A script_id=-1).
+- **PARTIAL_OPS finaux** : 3→2 ; les 2 restants (`T00P01/enter04`, `S02P01A/m00a01a`) prouvés **DEBUG_ONLY** (textes non localisés EN==FR==DE==IT==ES ; 263/264 mémos `[M:D2]` debug 2e écran) — `PARTIAL_OPS_FINAL_STATUS.json`.
+- **Non-régression complète** : `GLOBAL_JOURNEY_PASS` Sky (14 ch/313 étages/866 mobs → Dialga) **et** `RED_GLOBAL_JOURNEY_PASS` (13 ch/182 étages → Rayquaza) re-prouvés après tous ces changements (`journey_post_spinda_cafe_proof.jsonl` sky+red). Lockfile CH1–CH5 OK à chaque commit.
+- Cafés custom du mod vérifiés aussi : `treasure_spinda_cafe`/`metano_cafe`/`carrefour_assemblee` présents dans master_zone + index.idx, scripts Lua syntaxe OK, transitions EnterGroundMap câblées.
