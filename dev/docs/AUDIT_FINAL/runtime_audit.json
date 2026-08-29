@@ -71,5 +71,13 @@
   "mobs_seen": 866,
   "proof": "dev/docs/canonical/sky/journey_post_engine_cycle_proof.jsonl",
   "note": "après cycle moteur C# complet (MonsterHouseRomStep 130 zones + IslandRoomStep 11 zones + MH trigger §37)"
+ },
+ "skyjourney_post_bazaar": {
+  "verdict": "GLOBAL_JOURNEY_PASS",
+  "chapters": 14,
+  "floors": 313,
+  "mobs_seen": 866,
+  "proof": "dev/docs/canonical/sky/journey_post_bazaar_proof.jsonl",
+  "note": "après LOT O Secret Bazaar (223 étages/32 zones) + fix RoomGenMaze pret-exact + testrunner nretest 11/11"
  }
 }
