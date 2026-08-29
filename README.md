@@ -72,6 +72,14 @@ pmu_assets/
    editing; previews are rendered 2× nearest **for viewing**, never for
    submission.
 
+buildings/            186 extracted building records across 5 libraries:
+                      pmuniverse_buildings (143 PMU village houses/props,
+                      byte-exact), metano_origins_structure_library (18 actual
+                      Metano buildings day/night), pmd_structure_library,
+                      waves_nostalgia_structures, pmdo_isolated_structures —
+                      each with contact_sheet.png; ALL_BUILDINGS_sheet.png is
+                      the combined overview. See buildings/README.md.
+
 ## Where things plug into the engine
 
 - Ground file: `Data/Ground/<id>.rsground`
