@@ -1,7 +1,10 @@
+{"event":"bootstrap"}
 {"event":"begin"}
-{"event":"map","w":160,"h":120}
-{"event":"water_stop","stop_x_tile":105}
-{"event":"spawn","x":352,"y":528}
-{"event":"movement","dirs_moved":4}
+{"event":"enter_call","ok":true}
+{"event":"ground_seen","name":"town_hollow"}
+{"event":"map_loaded","w":168,"h":128}
+{"event":"spawn","x":560,"y":16}
+{"event":"movement","dirs":4}
 {"event":"PASS"}
+{"event":"screenshot","via":"ground"}
 {"event":"end","normal_unload_requested":true}
