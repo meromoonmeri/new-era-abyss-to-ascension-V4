@@ -1,15 +1,8 @@
-<<<<<<< HEAD
 """Data models and type definitions for PMDO Outdoor Town Layout Generator."""
 from __future__ import annotations
 
 import json
 from dataclasses import asdict, dataclass, field
-=======
-"""Data models and enumerations for PMDO Town Generator & SkyTemple Map Engine."""
-from __future__ import annotations
-
-from dataclasses import dataclass, field
->>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
 from enum import Enum
 from typing import Any, Dict, List, Optional, Tuple
 
@@ -17,19 +10,11 @@ from typing import Any, Dict, List, Optional, Tuple
 class BiomeType(str, Enum):
     GRASSLAND = "grassland"
     FOREST = "forest"
-<<<<<<< HEAD
     COASTAL = "coastal"
     MOUNTAIN = "mountain"
     SWAMP = "swamp"
     SNOW = "snow"
     DESERT = "desert"
-=======
-    MOUNTAIN = "mountain"
-    COASTAL = "coastal"
-    SWAMP = "swamp"
-    DESERT = "desert"
-    SNOW = "snow"
->>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
 
 
 class SeasonType(str, Enum):
@@ -42,7 +27,6 @@ class SeasonType(str, Enum):
 class TileCollision(int, Enum):
     WALKABLE = 0
     BLOCKED = 1
-<<<<<<< HEAD
     WARP = 2
     ITEM = 3
     SCRIPTED = 7
@@ -68,20 +52,10 @@ class RoadHierarchy(str, Enum):
     PRIMARY_AVENUE = "primary_avenue"      # 3-4 tiles wide
     SECONDARY_STREET = "secondary_street"  # 2 tiles wide
     MICRO_PATH = "micro_path"              # 1 tile wide
-=======
-    WATER = 2
-    CLIFF = 3
-    BUILDING = 4
-    DOOR = 5
-    WARP = 6
-    SIGN = 7
-    STAIR = 8
->>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
 
 
 class DistrictType(str, Enum):
     PLAZA = "plaza"
-<<<<<<< HEAD
     RESIDENTIAL = "residential"
     COMMERCIAL = "commercial"
     NATURE = "nature"
@@ -141,21 +115,11 @@ class TownSpec:
         if "exits" in d:
             d["exits"] = [EntranceSpec(**e) if isinstance(e, dict) else e for e in d["exits"]]
         return cls(**d)
-=======
-    COMMERCIAL = "commercial"
-    RESIDENTIAL = "residential"
-    GUILD = "guild"
-    WATERFRONT = "waterfront"
-    OUTSKIRTS = "outskirts"
-    DOCK = "dock"
-    SHRINE = "shrine"
->>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
 
 
 @dataclass
 class StairConnection:
     id: str
-<<<<<<< HEAD
     from_level: int
     to_level: int
     x: int
@@ -182,16 +146,6 @@ class RoadEdge:
     path_points: List[Tuple[int, int]]
     hierarchy: RoadHierarchy = RoadHierarchy.SECONDARY_STREET
     width: int = 2
-=======
-    x: int
-    y: int
-    width: int
-    length: int
-    from_level: int
-    to_level: int
-    orientation: str  # "north", "south", "east", "west"
-    walkable_bounds: Tuple[int, int, int, int]
->>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
 
 
 @dataclass
@@ -202,37 +156,23 @@ class District:
     center_y: int
     radius: int
     elevation: int
-<<<<<<< HEAD
     bounds: Tuple[int, int, int, int]  # x0, y0, x1, y1
-=======
-    bounds: Tuple[int, int, int, int]  # min_x, min_y, max_x, max_y
->>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
 
 
 @dataclass
 class Parcel:
     id: str
     district_id: str
-<<<<<<< HEAD
     bounds: Tuple[int, int, int, int]  # x, y, width, height
     elevation: int
     front_road_side: str  # "north", "south", "east", "west"
     road_connection_point: Tuple[int, int]
     door_target_pos: Tuple[int, int]
     clearance: int = 1
-=======
-    bounds: Tuple[int, int, int, int]  # x, y, w, h
-    elevation: int
-    front_road_side: str
-    road_connection_point: Tuple[int, int]
-    door_target_pos: Tuple[int, int]
-    clearance: int
->>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
     assigned_structure_id: Optional[str] = None
 
 
 @dataclass
-<<<<<<< HEAD
 class StructurePrefab:
     id: str
     role: str
@@ -249,8 +189,6 @@ class StructurePrefab:
 
 
 @dataclass
-=======
->>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
 class PlacedStructure:
     instance_id: str
     prefab_id: str
@@ -263,75 +201,37 @@ class PlacedStructure:
     door_map_pos: Tuple[int, int]
     door_warp_target: str
     parcel_id: str
-<<<<<<< HEAD
-=======
-    rotation: int = 0
->>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
 
 
 @dataclass
 class PlacedVegetation:
     id: str
-<<<<<<< HEAD
     veg_type: str  # "tree_large", "tree_small", "bush", "flower_cluster"
-=======
-    veg_type: str
->>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
     x: int
     y: int
     width: int
     height: int
     elevation: int
-<<<<<<< HEAD
     trunk_bounds: Tuple[int, int, int, int]  # x, y, w, h
-=======
-    trunk_bounds: Tuple[int, int, int, int]
->>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
     canopy_bounds: Tuple[int, int, int, int]
 
 
 @dataclass
 class PlacedDecoration:
     id: str
-<<<<<<< HEAD
     prop_type: str  # "signpost", "lamppost", "bench", "fence", "mailbox", "barrel"
-=======
-    prop_type: str
->>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
     x: int
     y: int
     width: int
     height: int
     elevation: int
-<<<<<<< HEAD
     collision_type: TileCollision = TileCollision.BLOCKED
     text_lines: Optional[List[str]] = None
-=======
-    collision_type: TileCollision
-    text_lines: List[str] = field(default_factory=list)
-
-
-@dataclass
-class TownSpec:
-    name: str = "skytemple_metano_outskirts"
-    display_name: str = "Metano Outskirts (Clairière de Metano)"
-    biome: BiomeType = BiomeType.GRASSLAND
-    season: SeasonType = SeasonType.SPRING
-    seed: int = 20260830
-    width: int = 63
-    height: int = 63
-    elevation_levels: int = 2
-    reference_style: Optional[str] = "metano"
-    has_river: bool = True
-    river_side: str = "east"
-    target_buildings: int = 6
->>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
 
 
 @dataclass
 class ValidationScore:
     geometry: float = 100.0
-<<<<<<< HEAD
     connectivity: float = 100.0
     collision: float = 100.0
     elevation: float = 100.0
@@ -370,19 +270,10 @@ class ValidationScore:
         if self.total_score >= 75.0:
             return "REVIEW"
         return "FAIL"
-=======
-    elevation: float = 100.0
-    cliffs: float = 100.0
-    stairs: float = 100.0
-    roads: float = 100.0
-    structures: float = 100.0
-    connectivity: float = 100.0
->>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
 
 
 @dataclass
 class ValidationReport:
-<<<<<<< HEAD
     status: str
     score: ValidationScore
     reachable_objectives: int
@@ -392,30 +283,6 @@ class ValidationReport:
     unreachable_nodes: List[str] = field(default_factory=list)
     warnings: List[str] = field(default_factory=list)
     errors: List[str] = field(default_factory=list)
-=======
-    status: str = "PASS"
-    errors: List[str] = field(default_factory=list)
-    warnings: List[str] = field(default_factory=list)
-    score: ValidationScore = field(default_factory=ValidationScore)
-    collision_errors: int = 0
-    reachability_ratio: float = 1.0
-
-
-@dataclass
-class VisualScoreMetrics:
-    palette_harmony: float = 95.0
-    texture_cohesion: float = 95.0
-    contrast_balance: float = 94.0
-    edge_transition_naturalness: float = 96.0
-    pmd_perspective_consistency: float = 98.0
-    elevation_depth_readability: float = 95.0
-    shadow_coherence: float = 94.0
-    visual_hierarchy: float = 96.0
-    dithering_subtlety: float = 92.0
-    fringe_layering_accuracy: float = 97.0
-    atmosphere_and_mood: float = 95.0
-    total_visual_score: float = 95.2
->>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
 
 
 @dataclass
@@ -423,7 +290,6 @@ class TownLayout:
     spec: TownSpec
     width: int
     height: int
-<<<<<<< HEAD
     heightmap: List[List[int]]  # 2D [width][height] elevation (0, 1, 2)
     terrain_types: List[List[str]]  # "grass", "dirt", "water", "cliff", "stair"
     cliff_mask: List[List[int]]  # 0 or 1
@@ -450,20 +316,3 @@ class TownLayout:
         if 0 <= x < self.width and 0 <= y < self.height:
             return self.collision[x][y] == TileCollision.WALKABLE.value or self.collision[x][y] == TileCollision.WARP.value
         return False
-=======
-    heightmap: List[List[int]]
-    terrain_types: List[List[str]]
-    cliff_mask: List[List[int]]
-    water_mask: List[List[int]]
-    road_mask: List[List[int]]
-    stairs: List[StairConnection]
-    districts: List[District]
-    parcels: List[Parcel]
-    buildings: List[PlacedStructure]
-    vegetation: List[PlacedVegetation]
-    decorations: List[PlacedDecoration]
-    collision: List[List[int]]
-    validation: ValidationReport
-    visual_score: VisualScoreMetrics = field(default_factory=VisualScoreMetrics)
-    composite_score: float = 96.5
->>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)

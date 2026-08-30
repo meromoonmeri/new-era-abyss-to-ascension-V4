@@ -62,8 +62,8 @@ def test_skytemple_build_outskirts(skytemple_engine: SkyTempleMapEngine):
     assert artifacts["tile"].exists()
     assert artifacts["script"].exists()
 
-    # Check .rsground contents
-    with open(artifacts["ground"], "r", encoding="utf-8") as f:
+    # Check .rsground contents with UTF-8 BOM
+    with open(artifacts["ground"], "r", encoding="utf-8-sig") as f:
         data = json.load(f)
     assert data["Object"]["TexSize"] == 1
     assert len(data["Object"]["obstacles"]) == 189
@@ -74,12 +74,12 @@ def test_skytemple_build_outskirts(skytemple_engine: SkyTempleMapEngine):
 def test_animation_dir_compilation():
     """Verify compilation of multi-frame animated .dir assets."""
     anim = AnimationEngine()
-    wf_path = anim.create_waterfall_animation(48, 72, 4, "test_waterfall")
-    assert wf_path.exists()
-    assert wf_path.stat().st_size > 100
+    wf_asset = anim.create_waterfall_animation(48, 72, 4, "test_waterfall")
+    assert Path(wf_asset.dir_path).exists()
+    assert Path(wf_asset.dir_path).stat().st_size > 100
 
-    rip_path = anim.create_river_ripple_animation(24, 24, 4, "test_ripple")
-    assert rip_path.exists()
+    rip_asset = anim.create_river_ripple_animation(24, 24, 4, "test_ripple")
+    assert Path(rip_asset.dir_path).exists()
 
-    fire_path = anim.create_campfire_animation(36, 36, 4, "test_campfire")
-    assert fire_path.exists()
+    fire_asset = anim.create_campfire_animation(36, 36, 4, "test_campfire")
+    assert Path(fire_asset.dir_path).exists()

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 """PixelLab Wang Tileset Engine for PMDO Town Generator.
 
 Manages 16-tile Wang terrain sets, bitmask-to-Wang mapping, seamless transitions,
@@ -131,73 +130,3 @@ class PixelLabTilesetEngine:
             return 10 # Horizontal channel (E+W bridge)
 
         return 0
-=======
-"""Wang tileset engine integrating PixelLab transitions with PMD autotiling."""
-from __future__ import annotations
-
-import hashlib
-from dataclasses import dataclass
-from pathlib import Path
-from typing import Dict, Optional, Tuple
-from PIL import Image, ImageDraw
-
-from .pixellab_client import PixelLabClient
-
-
-@dataclass
-class WangTileset:
-    tileset_id: str
-    lower_terrain: str
-    upper_terrain: str
-    tile_size: int
-    image_path: Path
-    sha256: str
-
-
-class PixelLabTilesetEngine:
-    """Manages 16-tile Wang autotiling sets."""
-
-    def __init__(self, client: Optional[PixelLabClient] = None, tile_size: int = 24):
-        self.client = client or PixelLabClient()
-        self.tile_size = tile_size
-        self.tilesets: Dict[str, WangTileset] = {}
-
-    def get_or_create_tileset(self, lower: str, upper: str) -> WangTileset:
-        key = f"{lower}_{upper}_{self.tile_size}"
-        if key in self.tilesets:
-            return self.tilesets[key]
-
-        tid = f"wang_{lower}_{upper}_{self.tile_size}"
-        img_path = self.client.cache_dir / f"{tid}.png"
-
-        if not img_path.exists():
-            # Generate 4x4 grid of 16 Wang tiles
-            w_px = self.tile_size * 4
-            h_px = self.tile_size * 4
-            atlas = Image.new("RGBA", (w_px, h_px), (108, 172, 72, 255))
-            draw = ImageDraw.Draw(atlas)
-
-            for i in range(16):
-                tx = (i % 4) * self.tile_size
-                ty = (i // 4) * self.tile_size
-                if lower == "water":
-                    draw.rectangle([tx, ty, tx + self.tile_size - 1, ty + self.tile_size - 1], fill=(48, 112, 184, 255))
-                elif lower == "dirt":
-                    draw.rectangle([tx, ty, tx + self.tile_size - 1, ty + self.tile_size - 1], fill=(215, 185, 135, 255))
-                elif lower == "cliff":
-                    draw.rectangle([tx, ty, tx + self.tile_size - 1, ty + self.tile_size - 1], fill=(175, 138, 76, 255))
-
-            atlas.save(img_path)
-
-        sha = hashlib.sha256(open(img_path, "rb").read()).hexdigest()
-        wt = WangTileset(
-            tileset_id=tid,
-            lower_terrain=lower,
-            upper_terrain=upper,
-            tile_size=self.tile_size,
-            image_path=img_path,
-            sha256=sha,
-        )
-        self.tilesets[key] = wt
-        return wt
->>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)

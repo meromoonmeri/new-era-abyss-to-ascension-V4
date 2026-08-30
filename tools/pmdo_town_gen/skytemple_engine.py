@@ -268,14 +268,14 @@ class SkyTempleMapEngine:
         # Stone Stairways
         stairs: List[StairConnection] = [
             StairConnection(
-                id="stair_west_ascent", x=18, y=33, width=3, length=2,
+                id="stair_west_ascent", x=18, y=34, width=3, length=2,
                 from_level=0, to_level=1, orientation="north",
-                walkable_bounds=(18, 32, 20, 35),
+                walkable_bounds=(18, 33, 20, 36),
             ),
             StairConnection(
-                id="stair_waterfall_lookout", x=36, y=20, width=3, length=2,
+                id="stair_waterfall_lookout", x=36, y=23, width=3, length=2,
                 from_level=0, to_level=1, orientation="north",
-                walkable_bounds=(36, 19, 38, 22),
+                walkable_bounds=(36, 22, 38, 25),
             ),
         ]
         for st in stairs:
@@ -577,7 +577,7 @@ class SkyTempleMapEngine:
             cliffs_cells=cliff_count,
             skytemple_load_valid=True,
             visual_score=visual_score.total_visual_score,
-            collision_valid=(v_report.collision_errors == 0),
+            collision_valid=(len(v_report.errors) == 0),
             gameplay_connectivity=v_report.score.connectivity,
             export_valid=artifacts["ground"].exists() and artifacts["tile"].exists() and artifacts["script"].exists(),
             status=gate_status,

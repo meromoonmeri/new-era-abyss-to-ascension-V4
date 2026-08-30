@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 """PixelLab Structure & Building Engine for PMDO Town Generator.
 
 Generates and registers PMDO-compliant pixel art building prefabs, shops, homes,
@@ -208,22 +207,3 @@ class PixelLabStructureEngine:
         )
         self.prefabs[prefab_id] = prefab
         return prefab
-=======
-"""Structure stamp engine generating buildings via PixelLab."""
-from __future__ import annotations
-
-from pathlib import Path
-from typing import Dict, Optional
-from .pixellab_client import PixelLabClient
-from .structure_library import StructureLibrary, StructurePrefab
-
-
-class PixelLabStructureEngine:
-    """Manages building stamp generation and PMDO integration."""
-
-    def __init__(self, client: Optional[PixelLabClient] = None, project_root: Optional[Path] = None):
-        self.client = client or PixelLabClient()
-        self.project_root = project_root or Path(__file__).resolve().parents[2]
-        self.library = StructureLibrary(self.project_root)
-        self.prefabs = self.library.prefabs
->>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)

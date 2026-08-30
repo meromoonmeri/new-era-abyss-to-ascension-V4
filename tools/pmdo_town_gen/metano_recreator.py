@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 """High-Fidelity Metano Town Recreator and Stylistic Engine for PMDO.
 
 Recreates Metano Town using the exact canonical PMD colorimetry, authentic
@@ -15,14 +14,6 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
 from PIL import Image, ImageDraw
-=======
-"""High-fidelity recreator for canonical Metano Town."""
-from __future__ import annotations
-
-import math
-from pathlib import Path
-from typing import Dict, List, Optional, Tuple
->>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
 
 from .models import (
     BiomeType,
@@ -39,7 +30,6 @@ from .models import (
     TownSpec,
 )
 from .pixellab_client import PixelLabClient
-<<<<<<< HEAD
 from .pixellab_tileset_engine import PixelLabTilesetEngine
 from .pmdo_exporter import PMDOExporter
 from .structure_library import StructureLibrary
@@ -107,37 +97,11 @@ class MetanoRecreator:
             seed=seed,
             width=w,
             height=h,
-=======
-from .pmdo_exporter import PMDOExporter
-from .renderer import TownRenderer
-from .validator import TownValidator
-from .visual_validator import VisualQualityValidator
-
-
-class MetanoRecreator:
-    """Recreates canonical Metano Town with exact layout and 100% reachability."""
-
-    def __init__(self, pixellab_client: Optional[PixelLabClient] = None, project_root: Optional[Path] = None):
-        self.client = pixellab_client or PixelLabClient()
-        self.project_root = project_root or Path(__file__).resolve().parents[2]
-        self.exporter = PMDOExporter(self.project_root)
-
-    def execute_and_export(self) -> Tuple[TownLayout, Dict[str, Path]]:
-        spec = TownSpec(
-            name="metano_town_recreated",
-            display_name="Metano Town (Recreated)",
-            biome=BiomeType.GRASSLAND,
-            season=SeasonType.SPRING,
-            seed=20260830,
-            width=63,
-            height=63,
->>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
             elevation_levels=2,
             reference_style="metano",
             has_river=True,
             river_side="east",
         )
-<<<<<<< HEAD
 
         # 1. Heightmap & Relief Synthesis
         # Level 0 in central valley and south; Level 1 on western residential terrace and north cafe terrace
@@ -154,21 +118,10 @@ class MetanoRecreator:
                 is_far_north = (y <= 14 + int(2.0 * math.sin(x * 0.2)))
 
                 if is_west_terrace or is_north_terrace or is_far_north:
-=======
-        w, h = spec.width, spec.height
-
-        # Heightmap
-        hmap = [[0 for _ in range(h)] for _ in range(w)]
-        cliff_mask = [[0 for _ in range(h)] for _ in range(w)]
-        for x in range(w):
-            for y in range(h):
-                if (x <= 20 and y <= 35) or (x >= 30 and y <= 22):
->>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
                     hmap[x][y] = 1
                 else:
                     hmap[x][y] = 0
 
-<<<<<<< HEAD
         # Create Cliff Boundaries (Edge transitions from 0 to 1)
         for x in range(w):
             for y in range(h):
@@ -220,50 +173,12 @@ class MetanoRecreator:
         stairs.append(stair_east)
 
         # Clear cliff mask at stairs
-=======
-        for x in range(w):
-            for y in range(h):
-                if hmap[x][y] == 0:
-                    for dx, dy in ((-1, 0), (1, 0), (0, -1), (0, 1)):
-                        nx, ny = x + dx, y + dy
-                        if 0 <= nx < w and 0 <= ny < h and hmap[nx][ny] == 1:
-                            if dy == -1:
-                                cliff_mask[x][y] = 1
-
-        water_mask = [[0 for _ in range(h)] for _ in range(w)]
-        for y in range(h):
-            rx = 52 + int(2.0 * math.sin(y * 0.2))
-            for dx in range(-2, 3):
-                if 0 <= rx + dx < w:
-                    water_mask[rx + dx][y] = 1
-                    cliff_mask[rx + dx][y] = 0
-
-        road_mask = [[0 for _ in range(h)] for _ in range(w)]
-        for y in range(45, h - 1):
-            for x in range(30, 34):
-                road_mask[x][y] = 2
-        for y in range(32, 46):
-            for x in range(24, 40):
-                if abs(x - 32) + abs(y - 39) <= 10:
-                    road_mask[x][y] = 2
-
-        # Bridge
-        for bx in range(48, 56):
-            if water_mask[bx][42] == 1:
-                road_mask[bx][42] = 2
-
-        stairs = [
-            StairConnection("stair_w", 18, 34, 3, 2, 0, 1, "north", (18, 33, 20, 36)),
-            StairConnection("stair_e", 34, 21, 3, 2, 0, 1, "north", (34, 20, 36, 23)),
-        ]
->>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
         for st in stairs:
             for sx in range(st.x, st.x + st.width):
                 for sy in range(st.y - 1, st.y + st.length + 1):
                     if 0 <= sx < w and 0 <= sy < h:
                         cliff_mask[sx][sy] = 0
 
-<<<<<<< HEAD
         # 4. Roads & Plaza Network (Cobblestone Plaza + Natural Dirt Lanes)
         road_mask = [[0 for _ in range(h)] for _ in range(w)]
 
@@ -695,55 +610,4 @@ class MetanoRecreator:
         r.render_navigation(layout).save(render_dir / "navigation.png", optimize=True)
 
         artifacts = self.exporter.export(layout, target_dir)
-=======
-        districts = [
-            District("plaza", DistrictType.PLAZA, 32, 39, 8, 0, (24, 32, 40, 46)),
-        ]
-        parcels: List[Parcel] = []
-        buildings = [
-            PlacedStructure("kecleon_shop", "shop", "shop", 36, 34, 4, 3, 0, (38, 36), "interior_shop", "p1"),
-            PlacedStructure("kangaskhan_storage", "pokemon_center", "storage", 22, 34, 5, 4, 0, (24, 37), "interior_storage", "p2"),
-            PlacedStructure("spinda_cafe", "inn", "cafe", 38, 12, 4, 4, 1, (40, 15), "interior_cafe", "p3"),
-        ]
-        vegetation = [
-            PlacedVegetation("t1", "tree_large", 8, 8, 3, 3, 1, (8, 9, 2, 1), (7, 7, 3, 3)),
-            PlacedVegetation("t2", "tree_large", 14, 14, 3, 3, 1, (14, 15, 2, 1), (13, 13, 3, 3)),
-        ]
-        decorations = [
-            PlacedDecoration("sign_m", "signpost", 32, 48, 1, 1, 0, TileCollision.SIGN, ["Metano Town", "Crossroads to Destiny", ""]),
-        ]
-
-        terrain_types = [["grass" for _ in range(h)] for _ in range(w)]
-        validator = TownValidator(spec)
-        collision = validator.build_collision_grid(hmap, cliff_mask, road_mask, water_mask, stairs, buildings, vegetation, decorations, w, h)
-        v_rep = validator.validate(hmap, cliff_mask, road_mask, stairs, buildings, vegetation, decorations, collision, w, h)
-
-        layout = TownLayout(
-            spec=spec, width=w, height=h,
-            heightmap=hmap, terrain_types=terrain_types,
-            cliff_mask=cliff_mask, water_mask=water_mask, road_mask=road_mask,
-            stairs=stairs, districts=districts, parcels=parcels,
-            buildings=buildings, vegetation=vegetation, decorations=decorations,
-            collision=collision, validation=v_rep,
-        )
-
-        vis_val = VisualQualityValidator(spec)
-        v_score, _ = vis_val.evaluate(layout)
-        layout.visual_score = v_score
-        layout.composite_score = 97.5
-
-        # Render passes
-        r_dir = self.project_root / "docs/pmu_maps/renders/metano_town_recreated"
-        r_dir.mkdir(parents=True, exist_ok=True)
-        renderer = TownRenderer(tile_size=24, project_root=self.project_root)
-        renderer.render_final(layout).save(r_dir / "final.png", optimize=True)
-        renderer.render_final(layout).save(r_dir / "preview.png", optimize=True)
-        renderer.render_layout(layout).save(r_dir / "layout.png", optimize=True)
-        renderer.render_elevation(layout).save(r_dir / "elevation.png", optimize=True)
-        renderer.render_cliffs(layout).save(r_dir / "cliffs.png", optimize=True)
-        renderer.render_collision(layout).save(r_dir / "collision.png", optimize=True)
-        renderer.render_navigation(layout).save(r_dir / "navigation.png", optimize=True)
-
-        artifacts = self.exporter.export(layout)
->>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
         return layout, artifacts

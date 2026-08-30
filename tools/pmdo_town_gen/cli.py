@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 """CLI interface for PMDO Town Generator with PixelLab integration."""
-=======
-"""CLI interface for PMDO Town Generator (SkyTemple & PixelLab Powered)."""
->>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
 from __future__ import annotations
 
 import argparse
@@ -14,19 +10,11 @@ from .hybrid_town_synthesizer import HybridTownSynthesizer
 from .models import BiomeType, SeasonType, TownSpec
 from .pixellab_client import DEFAULT_PIXELLAB_TOKEN, PixelLabClient
 from .reference_analyzer import ReferenceAnalyzer
-<<<<<<< HEAD
-=======
-from .skytemple_engine import SkyTempleMapEngine
->>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
 from .viewer_server import run_viewer_server
 
 
 def main() -> None:
-<<<<<<< HEAD
     parser = argparse.ArgumentParser(description="PMDO Outdoor Town Layout Generator (PixelLab Powered)")
-=======
-    parser = argparse.ArgumentParser(description="PMDO Outdoor Town Layout Generator (SkyTemple Powered)")
->>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
     parser.add_argument(
         "--pixellab-token",
         default=DEFAULT_PIXELLAB_TOKEN,
@@ -41,19 +29,11 @@ def main() -> None:
     subparsers.add_parser("metano-exact", help="Recreate high-fidelity Metano Town using exact canonical colorimetry & layout")
 
     # 1.2 Novel Hybrid Town Synthesis
-<<<<<<< HEAD
     syn_parser = subparsers.add_parser("synthesize-novel", help="Generate a novel PMDO town combining canonical assets & PixelLab procedural elements")
-=======
-    syn_parser = subparsers.add_parser("synthesize-novel", help="Generate a novel PMDO town combining canonical assets & procedural elements")
->>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
     syn_parser.add_argument("--name", default="metano_waterfall_haven", help="Town ID")
     syn_parser.add_argument("--display-name", default="Metano Waterfall Haven", help="Town title")
     syn_parser.add_argument("--seed", type=int, default=20260830, help="Random seed")
 
-<<<<<<< HEAD
-    # 2. Generate command
-    gen_parser = subparsers.add_parser("generate", help="Generate a procedural Pokémon town with PixelLab")
-=======
     # 1.3 SkyTemple Map Engine Command
     st_parser = subparsers.add_parser("skytemple-build", help="Build a new PMD map using SkyTemple rules & PMDO native pipeline")
     st_parser.add_argument("--name", default="skytemple_metano_outskirts", help="Map ID")
@@ -61,8 +41,7 @@ def main() -> None:
     st_parser.add_argument("--seed", type=int, default=20260830, help="Random seed")
 
     # 2. Generate command
-    gen_parser = subparsers.add_parser("generate", help="Generate a procedural Pokémon town")
->>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
+    gen_parser = subparsers.add_parser("generate", help="Generate a procedural Pokémon town with PixelLab")
     gen_parser.add_argument("--name", default="starter_village", help="Town internal ID")
     gen_parser.add_argument("--display-name", default="Starter Village", help="User-facing town title")
     gen_parser.add_argument("--biome", default="grassland", choices=[b.value for b in BiomeType], help="Primary biome")
@@ -95,23 +74,14 @@ def main() -> None:
 
     # 6. PixelLab Tileset command
     ts_parser = subparsers.add_parser("pixellab-tileset", help="Generate a Wang tileset via PixelLab")
-<<<<<<< HEAD
     ts_parser.add_argument("--lower", required=True, help="Lower terrain description (e.g. 'water', 'grass')")
     ts_parser.add_argument("--upper", required=True, help="Upper terrain description (e.g. 'grass', 'dirt path')")
-=======
-    ts_parser.add_argument("--lower", required=True, help="Lower terrain description")
-    ts_parser.add_argument("--upper", required=True, help="Upper terrain description")
->>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
     ts_parser.add_argument("--tile-size", type=int, default=24, help="Tile size in pixels (16, 24, 32)")
 
     # 7. PixelLab Building command
     b_parser = subparsers.add_parser("pixellab-building", help="Generate a building sprite via PixelLab")
     b_parser.add_argument("--prompt", required=True, help="Text description of the building")
-<<<<<<< HEAD
     b_parser.add_argument("--category", default="shop", help="Building category (e.g. shop, cafe, house)")
-=======
-    b_parser.add_argument("--category", default="shop", help="Building category")
->>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
     b_parser.add_argument("--width", type=int, default=96, help="Width in pixels")
     b_parser.add_argument("--height", type=int, default=96, help="Height in pixels")
 
@@ -136,11 +106,7 @@ def main() -> None:
         from .metano_recreator import MetanoRecreator
         rec = MetanoRecreator(pixellab_client=pixellab_client)
         layout, artifacts = rec.execute_and_export()
-<<<<<<< HEAD
         print("Metano Town High-Fidelity Canonical Recreation Complete (PixelLab Integrated):")
-=======
-        print("Metano Town High-Fidelity Canonical Recreation Complete:")
->>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
         print(f"  - Validation Status: {layout.validation.status}")
         print(f"  - Connectivity: {layout.validation.score.connectivity}% (100% reachability)")
         print(f"  - Visual Score: {layout.visual_score.total_visual_score}/100")
@@ -149,9 +115,8 @@ def main() -> None:
         print(f"  - PMDO Tile: {artifacts['tile']}")
         print(f"  - Render: docs/pmu_maps/renders/metano_town_recreated/final.png")
 
-<<<<<<< HEAD
-=======
     elif args.command == "skytemple-build":
+        from .skytemple_engine import SkyTempleMapEngine
         st_engine = SkyTempleMapEngine()
         layout, report, artifacts = st_engine.build_new_era_map(
             map_id=args.name,
@@ -165,7 +130,6 @@ def main() -> None:
         print(f"  - Script: {artifacts['script']}")
         print(f"  - Render: docs/pmu_maps/renders/{args.name}/final.png")
 
->>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
     elif args.command == "synthesize-novel":
         synth = HybridTownSynthesizer(pixellab_client=pixellab_client)
         layout, artifacts = synth.synthesize_waterfall_haven(
@@ -174,11 +138,7 @@ def main() -> None:
             seed=args.seed,
         )
         print(f"Novel Hybrid Town Synthesis Complete ('{args.display_name}'):")
-<<<<<<< HEAD
         print(f"  - Composition: Canonical Terrain + PixelLab River & 4-Frame Waterfall (.dir)")
-=======
-        print(f"  - Composition: Canonical Terrain + River & 4-Frame Waterfall (.dir)")
->>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
         print(f"  - Validation Status: {layout.validation.status}")
         print(f"  - Connectivity: {layout.validation.score.connectivity}% (100% reachability)")
         print(f"  - Visual Score: {layout.visual_score.total_visual_score}/100")
@@ -203,11 +163,7 @@ def main() -> None:
         )
         generator = TownGenerator(pixellab_client=pixellab_client)
         layout, artifacts = generator.generate_and_export(spec, out_dir=args.out)
-<<<<<<< HEAD
         print(f"Successfully generated '{spec.display_name}' (Seed {spec.seed}) via PixelLab Engine:")
-=======
-        print(f"Successfully generated '{spec.display_name}' (Seed {spec.seed}):")
->>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
         print(f"  - Validation Status: {layout.validation.status}")
         print(f"  - Gameplay Score: {layout.validation.score.connectivity}% (100% reachability)")
         print(f"  - Visual Quality Score: {layout.visual_score.total_visual_score}/100")
@@ -226,11 +182,7 @@ def main() -> None:
         )
         generator = TownGenerator(pixellab_client=pixellab_client)
         variants = generator.generate_variants(spec, count=args.count)
-<<<<<<< HEAD
         print(f"Generated {len(variants)} variants for '{spec.name}' with PixelLab:")
-=======
-        print(f"Generated {len(variants)} variants for '{spec.name}':")
->>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
         for v in variants:
             print(f"  - {v.spec.display_name} (Seed {v.spec.seed}): Status={v.validation.status}, Composite={v.composite_score}/100 (Gameplay={v.validation.score.connectivity}%, Visual={v.visual_score.total_visual_score}/100)")
 
@@ -243,11 +195,7 @@ def main() -> None:
         )
         generator = TownGenerator(pixellab_client=pixellab_client)
         ranked = generator.generate_batch_and_rank(spec, count=args.count)
-<<<<<<< HEAD
         print(f"\n=== BATCH RANKING REPORT ({args.count} Layouts Generated via PixelLab) ===")
-=======
-        print(f"\n=== BATCH RANKING REPORT ({args.count} Layouts Generated) ===")
->>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
         print(f"Reference Style: {args.reference.upper()}")
         print("-" * 75)
         print(f"{'Rank':<6}{'Layout ID':<24}{'Seed':<10}{'Status':<8}{'Gameplay':<10}{'Visual':<10}{'Composite'}")

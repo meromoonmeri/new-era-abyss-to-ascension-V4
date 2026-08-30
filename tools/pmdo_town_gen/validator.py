@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 """Validator and Connectivity Verification Suite for PMDO Town Generator.
 
 Simulates player navigation (A*), verifies collision integrity, and scores
@@ -11,24 +10,12 @@ from typing import Dict, List, Optional, Set, Tuple
 
 from .models import (
     Parcel,
-=======
-"""Validation and pathfinding reachability solver for PMDO towns."""
-from __future__ import annotations
-
-import heapq
-from typing import Dict, List, Optional, Set, Tuple
-
-from .models import (
->>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
     PlacedDecoration,
     PlacedStructure,
     PlacedVegetation,
     StairConnection,
     TileCollision,
-<<<<<<< HEAD
     TownLayout,
-=======
->>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
     TownSpec,
     ValidationReport,
     ValidationScore,
@@ -36,23 +23,12 @@ from .models import (
 
 
 class TownValidator:
-<<<<<<< HEAD
     def __init__(self, spec: TownSpec):
         self.spec = spec
 
     def build_collision_grid(
         self,
         hmap: List[List[int]],
-=======
-    """Validates structural integrity, cliff consistency, stairs, and 100% pathfinding."""
-
-    def __init__(self, spec: Optional[TownSpec] = None):
-        self.spec = spec or TownSpec()
-
-    def build_collision_grid(
-        self,
-        heightmap: List[List[int]],
->>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
         cliff_mask: List[List[int]],
         road_mask: List[List[int]],
         water_mask: List[List[int]],
@@ -63,7 +39,6 @@ class TownValidator:
         w: int,
         h: int,
     ) -> List[List[int]]:
-<<<<<<< HEAD
         """Assembles authoritative 2D collision grid (TileCollision enum values)."""
         grid = [[TileCollision.WALKABLE.value for _ in range(h)] for _ in range(w)]
 
@@ -109,36 +84,10 @@ class TownValidator:
                         grid[sx][sy] = TileCollision.WALKABLE.value
 
         # 5. Buildings: Mark walls as Blocked, doors as Warp/Walkable
-=======
-        """Constructs 2D tile collision matrix."""
-        grid = [[TileCollision.WALKABLE.value for _ in range(h)] for _ in range(w)]
-
-        # 1. Cliffs & Water
-        for x in range(w):
-            for y in range(h):
-                if water_mask[x][y] == 1:
-                    # Bridge exception
-                    if road_mask[x][y] > 0:
-                        grid[x][y] = TileCollision.WALKABLE.value
-                    else:
-                        grid[x][y] = TileCollision.WATER.value
-                elif cliff_mask[x][y] == 1:
-                    grid[x][y] = TileCollision.CLIFF.value
-
-        # 2. Stairs (Always walkable)
-        for st in stairs:
-            for sx in range(st.x, st.x + st.width):
-                for sy in range(st.y - 1, st.y + st.length + 1):
-                    if 0 <= sx < w and 0 <= sy < h:
-                        grid[sx][sy] = TileCollision.STAIR.value
-
-        # 3. Buildings
->>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
         for b in buildings:
             for bx in range(b.x, b.x + b.width):
                 for by in range(b.y, b.y + b.height):
                     if 0 <= bx < w and 0 <= by < h:
-<<<<<<< HEAD
                         grid[bx][by] = TileCollision.BLOCKED.value
 
             dx, dy = b.door_map_pos
@@ -157,22 +106,6 @@ class TownValidator:
                         grid[bx][by] = TileCollision.BLOCKED.value
 
         # 7. Decorations
-=======
-                        if (bx, by) == b.door_map_pos:
-                            grid[bx][by] = TileCollision.DOOR.value
-                        else:
-                            grid[bx][by] = TileCollision.BUILDING.value
-
-        # 4. Vegetation (Tree trunks solid, canopies passable)
-        for veg in vegetation:
-            tx, ty, tw, th = veg.trunk_bounds
-            for x in range(tx, tx + tw):
-                for y in range(ty, ty + th):
-                    if 0 <= x < w and 0 <= y < h:
-                        grid[x][y] = TileCollision.BLOCKED.value
-
-        # 5. Decorations
->>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
         for dec in decorations:
             for dx in range(dec.x, dec.x + dec.width):
                 for dy in range(dec.y, dec.y + dec.height):
@@ -183,11 +116,7 @@ class TownValidator:
 
     def validate(
         self,
-<<<<<<< HEAD
         hmap: List[List[int]],
-=======
-        heightmap: List[List[int]],
->>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
         cliff_mask: List[List[int]],
         road_mask: List[List[int]],
         stairs: List[StairConnection],
@@ -198,7 +127,6 @@ class TownValidator:
         w: int,
         h: int,
     ) -> ValidationReport:
-<<<<<<< HEAD
         """Executes full constraint validation and gameplay reachability testing."""
         errors: List[str] = []
         warnings: List[str] = []
@@ -360,81 +288,3 @@ class TownValidator:
                         visited.add((nx, ny))
                         queue.append((nx, ny))
         return visited
-=======
-        """Runs full suite of topological and connectivity checks."""
-        errors: List[str] = []
-        warnings: List[str] = []
-
-        # Find main entrance / starting point
-        start_x, start_y = 32, 61
-        if grid[start_x][start_y] != TileCollision.WALKABLE.value and grid[start_x][start_y] != TileCollision.DOOR.value:
-            for y in range(h - 1, 0, -1):
-                if grid[start_x][y] in (TileCollision.WALKABLE.value, TileCollision.STAIR.value):
-                    start_y = y
-                    break
-
-        # Check pathfinding from Start to all Doors & Stairs
-        targets: List[Tuple[int, int, str]] = []
-        for b in buildings:
-            targets.append((b.door_map_pos[0], b.door_map_pos[1], f"Building {b.instance_id}"))
-        for st in stairs:
-            targets.append((st.x + 1, st.y + st.length, f"Stair {st.id} Bottom"))
-            targets.append((st.x + 1, st.y - 1, f"Stair {st.id} Top"))
-
-        # BFS Reachability
-        visited: Set[Tuple[int, int]] = set()
-        queue = [(start_x, start_y)]
-        visited.add((start_x, start_y))
-
-        walkable_vals = {
-            TileCollision.WALKABLE.value,
-            TileCollision.DOOR.value,
-            TileCollision.STAIR.value,
-            TileCollision.SIGN.value,
-        }
-
-        while queue:
-            cx, cy = queue.pop(0)
-            for dx, dy in ((-1, 0), (1, 0), (0, -1), (0, 1)):
-                nx, ny = cx + dx, cy + dy
-                if 0 <= nx < w and 0 <= ny < h:
-                    if (nx, ny) not in visited:
-                        # Check height transition
-                        dh = abs(heightmap[nx][ny] - heightmap[cx][cy])
-                        is_stair = (grid[nx][ny] == TileCollision.STAIR.value or grid[cx][cy] == TileCollision.STAIR.value)
-                        if dh > 0 and not is_stair:
-                            continue  # Cannot traverse cliff without stair
-                        if grid[nx][ny] in walkable_vals:
-                            visited.add((nx, ny))
-                            queue.append((nx, ny))
-
-        unreachable = 0
-        for tx, ty, tname in targets:
-            if (tx, ty) not in visited:
-                unreachable += 1
-                errors.append(f"Target '{tname}' at ({tx}, {ty}) is unreachable from entrance ({start_x}, {start_y})")
-
-        reachability_ratio = 1.0 - (unreachable / max(1, len(targets)))
-        connectivity_score = round(reachability_ratio * 100.0, 1)
-
-        score = ValidationScore(
-            geometry=100.0,
-            elevation=100.0,
-            cliffs=100.0 if not errors else 90.0,
-            stairs=100.0,
-            roads=100.0,
-            structures=100.0,
-            connectivity=connectivity_score,
-        )
-
-        status = "PASS" if (len(errors) == 0 and connectivity_score == 100.0) else "FAIL"
-
-        return ValidationReport(
-            status=status,
-            errors=errors,
-            warnings=warnings,
-            score=score,
-            collision_errors=len(errors),
-            reachability_ratio=reachability_ratio,
-        )
->>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)

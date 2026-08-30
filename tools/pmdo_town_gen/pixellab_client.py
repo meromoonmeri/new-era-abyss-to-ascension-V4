@@ -1,18 +1,13 @@
-<<<<<<< HEAD
 """PixelLab API Client & Cache Engine for PMDO Town Generator.
 
 Integrates with PixelLab (https://api.pixellab.ai) for pixel-art tilesets,
 building stamps, and map object generation with automatic caching, SHA-256 provenance,
 and offline synthesis fallback.
 """
-=======
-"""PixelLab API client and persistent asset cache manager."""
->>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
 from __future__ import annotations
 
 import hashlib
 import json
-<<<<<<< HEAD
 import os
 import time
 import urllib.error
@@ -26,19 +21,10 @@ from PIL import Image, ImageColor, ImageDraw, ImageFilter
 
 DEFAULT_PIXELLAB_TOKEN = "4ac820d2-3d4c-4aff-a287-49246dc961ec"
 PIXELLAB_API_BASE = "https://api.pixellab.ai"
-=======
-from dataclasses import dataclass
-from pathlib import Path
-from typing import Any, Dict, List, Optional
-from PIL import Image, ImageDraw
-
-DEFAULT_PIXELLAB_TOKEN = "4ac820d2-3d4c-4aff-a287-49246dc961ec"
->>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
 
 
 @dataclass
 class PixelLabAsset:
-<<<<<<< HEAD
     """Represents an asset generated or cached via PixelLab."""
     asset_id: str
     asset_type: str  # "tileset", "structure", "object", "tile"
@@ -86,26 +72,6 @@ class PixelLabClient:
 
         self.manifest_path = self.cache_dir / "manifest.json"
         self.manifest: Dict[str, Any] = self._load_manifest()
-=======
-    asset_id: str
-    asset_type: str  # "tileset", "building", "animation"
-    prompt: str
-    image_path: Path
-    sha256: str
-    source: str  # "api" or "cache" or "synthesized"
-
-
-class PixelLabClient:
-    """Client for PixelLab API with offline fallback synthesizer and caching."""
-
-    def __init__(self, api_token: str = DEFAULT_PIXELLAB_TOKEN, project_root: Optional[Path] = None):
-        self.api_token = api_token
-        self.project_root = project_root or Path(__file__).resolve().parents[2]
-        self.cache_dir = self.project_root / "data/pixellab_cache"
-        self.cache_dir.mkdir(parents=True, exist_ok=True)
-        self.manifest_path = self.cache_dir / "manifest.json"
-        self.manifest = self._load_manifest()
->>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
 
     def _load_manifest(self) -> Dict[str, Any]:
         if self.manifest_path.exists():
@@ -113,7 +79,6 @@ class PixelLabClient:
                 with open(self.manifest_path, "r", encoding="utf-8") as f:
                     return json.load(f)
             except Exception:
-<<<<<<< HEAD
                 pass
         return {"version": "1.0", "assets": {}, "updated_at": time.time()}
 
@@ -680,53 +645,3 @@ class PixelLabClient:
             draw.rectangle([(int(w * 0.18), body_y0 + 4), (int(w * 0.32), body_y0 + int(h * 0.16))], outline=c_wood_dark)
 
         return img
-=======
-                return {}
-        return {}
-
-    def _save_manifest(self) -> None:
-        with open(self.manifest_path, "w", encoding="utf-8") as f:
-            json.dump(self.manifest, f, indent=2)
-
-    def create_structure_stamp(
-        self,
-        description: str,
-        category: str = "shop",
-        width: int = 96,
-        height: int = 96,
-        no_background: bool = True,
-    ) -> PixelLabAsset:
-        """Creates or fetches cached building sprite stamp."""
-        key = f"struct_{category}_{width}x{height}_{description[:20]}"
-        asset_id = hashlib.md5(key.encode()).hexdigest()[:12]
-        img_path = self.cache_dir / f"{asset_id}.png"
-
-        if not img_path.exists():
-            # Synthesize pixel art structure
-            img = Image.new("RGBA", (width, height), (0, 0, 0, 0))
-            draw = ImageDraw.Draw(img)
-            draw.rectangle([4, height // 3, width - 4, height - 4], fill=(215, 190, 150, 255), outline=(90, 60, 30, 255), width=2)
-            draw.polygon([(0, height // 3 + 4), (width // 2, 4), (width - 1, height // 3 + 4)], fill=(185, 75, 55, 255), outline=(110, 40, 25, 255))
-            # Door
-            draw.rectangle([width // 2 - 8, height - 24, width // 2 + 8, height - 4], fill=(75, 45, 25, 255))
-            img.save(img_path)
-
-        sha = hashlib.sha256(open(img_path, "rb").read()).hexdigest()
-        self.manifest[asset_id] = {
-            "type": "building",
-            "category": category,
-            "description": description,
-            "path": str(img_path.relative_to(self.project_root)),
-            "sha256": sha,
-        }
-        self._save_manifest()
-
-        return PixelLabAsset(
-            asset_id=asset_id,
-            asset_type="building",
-            prompt=description,
-            image_path=img_path,
-            sha256=sha,
-            source="synthesized",
-        )
->>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
