@@ -11,9 +11,24 @@
 Date : 2026-08-30 — mission « récupère toutes les maps de ville de PMU en
 render pixel-perfect ».
 
-Statut : **MOTEUR DE RENDU LIVRÉ ET VALIDÉ SUR DONNÉE PMU RÉELLE — 0 ville
-rendable depuis les seules sources atteignables ici** (les 121 maps « ville »
-du cache client sont chiffrées avec une clé morte ; preuve et détail au §3).
+Statut : **RÉCUPIÉRÉ ET LIVRÉ.** Les 2000 maps du monde PMU ont été
+reconstruites en données structurées CLAIRES depuis le dump MySQL officiel
+publié dans `Sprinkoringo/PMU-Server` (`Content_Data.zip` → `pmu_data.sql`,
+MIT PMU Staff), rendues pixel-perfect, et **les PNG sont commités** sous
+`docs/pmu_maps/renders/<id>/render.png` (+ `manifest.json`), avec index
+`docs/pmu_maps/RENDERS.md` et contact sheets `docs/pmu_maps/sheets/`. Le
+chiffré des 140 caches du client n'a jamais été à forcer : la source serveur
+était en clair. Détail de l'enquête call-graph et de la reco :
+`docs/pmu_maps/ENQUETE_CHARGEMENT_ET_RECOUPEMENT_2026-08-30.md`.
+
+---
+
+Statut initial (matin du 2026-08-30) : **MOTEUR DE RENDU LIVRÉ ET VALIDÉ
+SUR DONNÉE PMU RÉELLE — 0 ville rendable**
+> _Ce bloc est l'état d'hier soir, conservé tel quel pour l'honnêteté de
+> l'histoire : il était exact tant que la seule piste était le cache chiffré
+> du client. Il est INVALIDÉ par le statut du dessus (reconstruite via le dump
+> serveur en clair) — voir ENQUETE_… ci-dessus._
 
 ---
 

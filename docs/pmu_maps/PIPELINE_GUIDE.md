@@ -4,6 +4,25 @@
 catalogue, sélection, preview, portes d'approbation, import New Era,
 validation disque, provenance chaînée.
 
+## Étape zéro — récupérer les données en clair (FAITE, 2026-08-30)
+
+Les maps ville PMU ne viennent PAS des caches chiffrés du client : elles sont
+en CLAIR dans le dump officiel `pmu_data.sql` livré dans
+`Sprinkoringo/PMU-Server/Content_Data.zip` (MIT). Reconstruction :
+
+```bash
+python3 tools/pmu_maps/sql_maps_extract.py --sql pmu_data.sql \
+    --out pmu_dataseed --prefix s          # 2000 Map-s####.dat format V9 exact
+python3 tools/pmu_maps/batch_export.py --maps pmu_dataseed \
+    --tiles-dir <Planches PMU> --work <work> --docs docs/pmu_maps --all
+```
+
+Résultat versionné : `docs/pmu_maps/renders/<id>/{render.png,manifest.json}`
+(2000/2000), `docs/pmu_maps/sheets/` (17 contact sheets, les 2000 en visuel),
+`docs/pmu_maps/RENDERS.md` (index cliquable).
+
+## Pipeline complet (chaque map rendable → New Era)
+
 ```
 PMU MapData (.dat clair) ─▶ catalog ─▶ SELECT ─▶ render ─▶ preview ▶ validate
      (141 découverts)                                │
@@ -66,6 +85,11 @@ $PY tools/pmu_maps/pmu_pipeline.py selftest --golden
   fichier de carte. Les deux modes ne se mélangent jamais (manifestes distincts).
 
 ## Maps chiffrées (140 caches du client PMU)
+
+> **Résolu 2026-08-30** : inutile de forcer ces caches — les 2000 maps ville
+> sont récupérées en clair via `pmu_data.sql` du serveur (voir Étape zéro en
+> tête de ce guide). Ce qui suit reste vrai pour le cache client lui-même.
+
 Statut dans le catalogue : `encrypted-unrecoverable`, avec intrant manquant
 expliqué (un `.dat` en clair `MapData|V4/V9` ou un dump serveur
 `map<N>.dat-<hash>`). Elles n'excluent rien du pipeline : dès qu'un fichier
