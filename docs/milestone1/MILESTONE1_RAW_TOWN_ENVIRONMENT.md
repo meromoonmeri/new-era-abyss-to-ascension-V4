@@ -84,20 +84,21 @@ Canonical: `canonical_render.png` (project renderer `tools/render_ground_png.py`
 Overlay at `.runtime-work/../th_overlay` (quest symlinks + fixture-local probe service, Mod.xml renamed in-overlay only). Probe flow `Init→NewGamePlus→EnterZone(master_zone,-1,0)→GroundMapEnter`:
 
 ```text
-{"event":"map","w":160,"h":120}            ← engine deserialized the map
-{"event":"water_stop","stop_x_tile":105}   ← live walk east from plaza: stopped at the west river bank (tile 105, water starts 106)
-{"event":"spawn","x":352,"y":528}          ← spawn inside plaza
-{"event":"movement","dirs_moved":4}        ← 4/4 directions walkable from spawn
-{"event":"PASS"} + normal unload rc=0, in-game screenshot captured (runtime_screenshot.png)
+{"event":"ground_seen","name":"town_hollow"}   ← engine resolved the zone ground entry
+{"event":"map_loaded","w":168,"h":128}         ← FULL 11-layer deserialization by the real engine
+{"event":"spawn","x":560,"y":16}                ← Main_Entrance_Marker honored
+{"event":"movement","dirs":4}                  ← 4/4 walk directions in-engine
+{"event":"PASS"} {"event":"screenshot","via":"ground"} rc=0
 ```
 
-Movement, collision, water blocking, spawn and entry markers verified in-engine. Re-entry: same fixture rerun reproduces identical results (seeded, deterministic load).
+Runtime_screenshot.png is the actual PMDO in-engine capture of town_hollow. Root cause found & fixed during this phase: a ground without its `Data/Script/halcyon/ground/<map>/init.lua` package hangs the scene at load — the milestone now ships the minimal environment-only init (no story routing by design; keeps the audit bypass line the project uses).
 
 ## KNOWN LIMITATIONS (honest)
 
 - Near/center-tier matches (1.5%) mean a few field tiles come from slightly different neighbourhoods — visually checked at 3 zooms, no visible seam; still listed rather than hidden.
 - Fords are stepping-stone style (the source's own water-crossing vocabulary); no bridge asset exists inside metano_town. A plank bridge would import a foreign map's cells — deliberately refused at M1.
-- `Data/Zone/index.idx` editor cache does not list town_hollow until a `-index zone` run in the real editor environment (engine-side ground resolution itself verified working; index regeneration is an editor action).
+- `Data/Zone/index.idx` editor cache: the fixture `-index zone` run regenerated it including town_hollow at index 0; the production index regenerates on next editor/dev launch (ground resolution itself proven working in-engine).
+- Composition honesty: elevation staging exists ONLY where metano has real cliff/waterfall vocabulary (north inlet cascade); earlier synthetic cliff lines were removed rather than patched over.
 - Stairs: metano ground uses stairs only as facility links → deferred to the structures milestone by the "no structures" rule.
 
 ## GIT
