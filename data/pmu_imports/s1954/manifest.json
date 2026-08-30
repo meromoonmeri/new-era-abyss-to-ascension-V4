@@ -1,0 +1,35 @@
+{
+  "schema": "new-era.pmu-manifest.v1",
+  "map_id": "s1954",
+  "name": "Char's Sandy Dungeon map.",
+  "revision": 57,
+  "extraction_timestamp": "2026-08-30T15:13:16.978724+00:00",
+  "source_provenance": {
+    "database": "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/pmu-extraction/pmu-standard.sqlite3",
+    "database_sha256": "829e18106d920480ce90fca5bc370e241eff6713e1b49815cddd31af1b65685c"
+  },
+  "dimensions": {
+    "tiles": [
+      36,
+      51
+    ],
+    "pixels": [
+      1152,
+      1632
+    ],
+    "tile_size": 32
+  },
+  "statistics": {
+    "total_tiles": 1836,
+    "animated_tiles": 159,
+    "tilesets_used": [
+      4,
+      7,
+      8
+    ],
+    "npcs_count": 0,
+    "warps_count": 20,
+    "signs_count": 0
+  },
+  "status": "EXTRACTED"
+}

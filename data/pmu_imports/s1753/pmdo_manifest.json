@@ -1,0 +1,31 @@
+{
+  "schema": "new-era.pmu-pmdo-manifest.v1",
+  "map_id": "s1753",
+  "asset_name": "pmu_s1753",
+  "name": "Tanren Mines B7F",
+  "tex_size": 1,
+  "scale_factor_px": 1.0,
+  "dimensions_tiles_pmu": [
+    51,
+    51
+  ],
+  "dimensions_pixels": [
+    1632,
+    1632
+  ],
+  "dimensions_grid_pmdo": [
+    204,
+    204
+  ],
+  "unique_subtiles": 0,
+  "animated_subcells": 0,
+  "artifacts": {
+    "ground": "Data/Ground/pmu_s1753.rsground",
+    "ground_sha256": "dacaea31401eeeb027edc097dbc0ffd4baffcbc91a707d6df029fb77ad6c47e8",
+    "tile": "Content/Tile/pmu_s1753_Base.tile",
+    "tile_sha256": "6cc16abd70eefb90dc0ba0d14fb088630873b2c6ad943f7442356735984c35a3",
+    "script": "Data/Script/halcyon/ground/pmu_s1753/init.lua",
+    "script_sha256": "f4cce984b7c2dbf9f199ab2301e3ab47e6ad35aa8c1f8f4f52689cd0bf2755ca"
+  },
+  "status": "CONVERTED"
+}

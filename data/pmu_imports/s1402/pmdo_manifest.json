@@ -1,0 +1,31 @@
+{
+  "schema": "new-era.pmu-pmdo-manifest.v1",
+  "map_id": "s1402",
+  "asset_name": "pmu_s1402",
+  "name": "Iceberg Adrift Base",
+  "tex_size": 1,
+  "scale_factor_px": 1.0,
+  "dimensions_tiles_pmu": [
+    20,
+    15
+  ],
+  "dimensions_pixels": [
+    640,
+    480
+  ],
+  "dimensions_grid_pmdo": [
+    80,
+    60
+  ],
+  "unique_subtiles": 543,
+  "animated_subcells": 612,
+  "artifacts": {
+    "ground": "Data/Ground/pmu_s1402.rsground",
+    "ground_sha256": "1a28429fdd2cdd42cfaa1ba752e5280cf1412fd4ba6cfb282dd74e2982e3e0a0",
+    "tile": "Content/Tile/pmu_s1402_Base.tile",
+    "tile_sha256": "47661ef07157f6c896eb2977e142d2776d624fe0f3d7c6e9df18da57abf36e5e",
+    "script": "Data/Script/halcyon/ground/pmu_s1402/init.lua",
+    "script_sha256": "db5e2ce7cc2ddab016e8400743e545e166e25ae1cec204a5f56b923d0ff7b7d6"
+  },
+  "status": "CONVERTED"
+}

@@ -1,0 +1,176 @@
+{
+  "schema": "new-era.pmu-semantics.v1",
+  "map_id": "s412",
+  "warps_count": 2,
+  "signs_count": 2,
+  "doors_count": 0,
+  "items_count": 0,
+  "scripts_count": 8,
+  "stories_count": 1,
+  "level_blocks_count": 0,
+  "sprite_blocks_count": 0,
+  "mobile_blocks_count": 0,
+  "warps": [
+    {
+      "source_x": 9,
+      "source_y": 14,
+      "target_map_id": "s737",
+      "target_x": 45,
+      "target_y": 37,
+      "raw_data": [
+        737,
+        45,
+        37
+      ]
+    },
+    {
+      "source_x": 10,
+      "source_y": 14,
+      "target_map_id": "s737",
+      "target_x": 45,
+      "target_y": 37,
+      "raw_data": [
+        737,
+        45,
+        37
+      ]
+    }
+  ],
+  "signs": [
+    {
+      "x": 9,
+      "y": 10,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "Use /sethouse in a bed!",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 10,
+      "y": 10,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "Use /sethouse in a bed!",
+        "",
+        ""
+      ]
+    }
+  ],
+  "doors": [],
+  "items": [],
+  "scripts": [
+    {
+      "x": 6,
+      "y": 4,
+      "script_id": 10,
+      "param2": 0,
+      "param3": 0,
+      "strings": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 7,
+      "y": 4,
+      "script_id": 10,
+      "param2": 0,
+      "param3": 0,
+      "strings": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 12,
+      "y": 4,
+      "script_id": 10,
+      "param2": 0,
+      "param3": 0,
+      "strings": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 13,
+      "y": 4,
+      "script_id": 10,
+      "param2": 0,
+      "param3": 0,
+      "strings": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 5,
+      "y": 6,
+      "script_id": 10,
+      "param2": 0,
+      "param3": 0,
+      "strings": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 14,
+      "y": 6,
+      "script_id": 10,
+      "param2": 0,
+      "param3": 0,
+      "strings": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 5,
+      "y": 8,
+      "script_id": 10,
+      "param2": 0,
+      "param3": 0,
+      "strings": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 14,
+      "y": 8,
+      "script_id": 10,
+      "param2": 0,
+      "param3": 0,
+      "strings": [
+        "",
+        "",
+        ""
+      ]
+    }
+  ],
+  "stories": [
+    {
+      "x": 10,
+      "y": 13,
+      "story_id": 132,
+      "param2": 0
+    }
+  ],
+  "level_blocks": [],
+  "sprite_blocks": [],
+  "mobile_blocks": [],
+  "other_semantics": [],
+  "cardinal_connections": {}
+}

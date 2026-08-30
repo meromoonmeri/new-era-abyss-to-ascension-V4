@@ -1,0 +1,129 @@
+{
+  "schema": "new-era.pmu-semantics.v1",
+  "map_id": "s55",
+  "warps_count": 3,
+  "signs_count": 0,
+  "doors_count": 0,
+  "items_count": 0,
+  "scripts_count": 0,
+  "stories_count": 3,
+  "level_blocks_count": 0,
+  "sprite_blocks_count": 0,
+  "mobile_blocks_count": 0,
+  "warps": [
+    {
+      "source_x": 8,
+      "source_y": 14,
+      "target_map_id": "s1777",
+      "target_x": 10,
+      "target_y": 6,
+      "raw_data": [
+        1777,
+        10,
+        6
+      ]
+    },
+    {
+      "source_x": 9,
+      "source_y": 14,
+      "target_map_id": "s1777",
+      "target_x": 10,
+      "target_y": 6,
+      "raw_data": [
+        1777,
+        10,
+        6
+      ]
+    },
+    {
+      "source_x": 10,
+      "source_y": 14,
+      "target_map_id": "s1777",
+      "target_x": 10,
+      "target_y": 6,
+      "raw_data": [
+        1777,
+        10,
+        6
+      ]
+    }
+  ],
+  "signs": [],
+  "doors": [],
+  "items": [],
+  "scripts": [],
+  "stories": [
+    {
+      "x": 8,
+      "y": 13,
+      "story_id": 72,
+      "param2": 0
+    },
+    {
+      "x": 9,
+      "y": 13,
+      "story_id": 72,
+      "param2": 0
+    },
+    {
+      "x": 10,
+      "y": 13,
+      "story_id": 72,
+      "param2": 0
+    }
+  ],
+  "level_blocks": [],
+  "sprite_blocks": [],
+  "mobile_blocks": [],
+  "other_semantics": [
+    {
+      "x": 8,
+      "y": 5,
+      "type_id": 18,
+      "type_name": "LinkShop",
+      "raw_data": [
+        262,
+        1,
+        1
+      ],
+      "raw_strings": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 9,
+      "y": 5,
+      "type_id": 18,
+      "type_name": "LinkShop",
+      "raw_data": [
+        262,
+        1,
+        1
+      ],
+      "raw_strings": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 10,
+      "y": 5,
+      "type_id": 18,
+      "type_name": "LinkShop",
+      "raw_data": [
+        262,
+        1,
+        1
+      ],
+      "raw_strings": [
+        "",
+        "",
+        ""
+      ]
+    }
+  ],
+  "cardinal_connections": {}
+}

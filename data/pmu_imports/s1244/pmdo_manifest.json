@@ -1,0 +1,31 @@
+{
+  "schema": "new-era.pmu-pmdo-manifest.v1",
+  "map_id": "s1244",
+  "asset_name": "pmu_s1244",
+  "name": "Grassroot Bazaar",
+  "tex_size": 1,
+  "scale_factor_px": 1.0,
+  "dimensions_tiles_pmu": [
+    20,
+    15
+  ],
+  "dimensions_pixels": [
+    640,
+    480
+  ],
+  "dimensions_grid_pmdo": [
+    80,
+    60
+  ],
+  "unique_subtiles": 1198,
+  "animated_subcells": 48,
+  "artifacts": {
+    "ground": "Data/Ground/pmu_s1244.rsground",
+    "ground_sha256": "7321720bfea1c3dd712b5aad1d0b8d66747461141821e1a2b46faabff2001034",
+    "tile": "Content/Tile/pmu_s1244_Base.tile",
+    "tile_sha256": "183f1b0f300b9b4fd56389b98a75c1c0befd46b307b569d3aff307a7c594cce0",
+    "script": "Data/Script/halcyon/ground/pmu_s1244/init.lua",
+    "script_sha256": "84a96b1fca50274d8393262a06cb9a766171be7bd229573a11ab3e7f09e55fc3"
+  },
+  "status": "CONVERTED"
+}

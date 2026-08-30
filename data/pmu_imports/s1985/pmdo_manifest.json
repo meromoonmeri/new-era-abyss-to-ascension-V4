@@ -1,0 +1,31 @@
+{
+  "schema": "new-era.pmu-pmdo-manifest.v1",
+  "map_id": "s1985",
+  "asset_name": "pmu_s1985",
+  "name": "The Skitty Saloon",
+  "tex_size": 1,
+  "scale_factor_px": 1.0,
+  "dimensions_tiles_pmu": [
+    20,
+    15
+  ],
+  "dimensions_pixels": [
+    640,
+    480
+  ],
+  "dimensions_grid_pmdo": [
+    80,
+    60
+  ],
+  "unique_subtiles": 649,
+  "animated_subcells": 64,
+  "artifacts": {
+    "ground": "Data/Ground/pmu_s1985.rsground",
+    "ground_sha256": "19ca41fda1080d7cd3883f841f6e2ddfca274457a5853fd29b26559a9e2e6f28",
+    "tile": "Content/Tile/pmu_s1985_Base.tile",
+    "tile_sha256": "ce29df98d1cfa1d870570fbc6948403128057b6ad5db5ce6b905d4f90d686768",
+    "script": "Data/Script/halcyon/ground/pmu_s1985/init.lua",
+    "script_sha256": "137e4ded77e46cd31df2903d968d207c81e28d46da45a39443d97416bbe94b30"
+  },
+  "status": "CONVERTED"
+}

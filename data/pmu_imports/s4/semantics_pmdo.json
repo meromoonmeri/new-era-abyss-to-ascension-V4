@@ -1,0 +1,210 @@
+{
+  "schema": "new-era.pmdo-semantics.v1",
+  "map_id": "s4",
+  "asset_name": "pmu_s4",
+  "grid_dimensions_8px": [
+    80,
+    60
+  ],
+  "tex_size": 1,
+  "warps": [
+    {
+      "name": "Warp_1",
+      "pos": {
+        "X": 336,
+        "Y": 176
+      },
+      "target": "s202",
+      "tx": 17,
+      "ty": 28
+    },
+    {
+      "name": "Warp_2",
+      "pos": {
+        "X": 464,
+        "Y": 336
+      },
+      "target": "s645",
+      "tx": 9,
+      "ty": 13
+    },
+    {
+      "name": "Warp_3",
+      "pos": {
+        "X": 592,
+        "Y": 336
+      },
+      "target": "s1490",
+      "tx": 9,
+      "ty": 13
+    },
+    {
+      "name": "Warp_4",
+      "pos": {
+        "X": 272,
+        "Y": 400
+      },
+      "target": "s998",
+      "tx": 9,
+      "ty": 13
+    },
+    {
+      "name": "Warp_5",
+      "pos": {
+        "X": 400,
+        "Y": 432
+      },
+      "target": "s663",
+      "tx": 9,
+      "ty": 13
+    }
+  ],
+  "signs": [
+    {
+      "name": "Sign_1",
+      "collider": {
+        "X": 256,
+        "Y": 160,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "Azura's House",
+        "",
+        ""
+      ]
+    },
+    {
+      "name": "Sign_2",
+      "collider": {
+        "X": 384,
+        "Y": 160,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "Flare's House",
+        "",
+        ""
+      ]
+    },
+    {
+      "name": "Sign_3",
+      "collider": {
+        "X": 512,
+        "Y": 160,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "Luminare's House",
+        "",
+        ""
+      ]
+    },
+    {
+      "name": "Sign_4",
+      "collider": {
+        "X": 128,
+        "Y": 320,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "chomp's house",
+        "",
+        ""
+      ]
+    },
+    {
+      "name": "Sign_5",
+      "collider": {
+        "X": 256,
+        "Y": 320,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "pokemonmaster2437's house",
+        "",
+        ""
+      ]
+    },
+    {
+      "name": "Sign_6",
+      "collider": {
+        "X": 384,
+        "Y": 320,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "Max222's House",
+        "",
+        ""
+      ]
+    },
+    {
+      "name": "Sign_7",
+      "collider": {
+        "X": 480,
+        "Y": 352,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "Team Spark Base",
+        "",
+        ""
+      ]
+    },
+    {
+      "name": "Sign_8",
+      "collider": {
+        "X": 544,
+        "Y": 352,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "Sladhe's House",
+        "",
+        ""
+      ]
+    },
+    {
+      "name": "Sign_9",
+      "collider": {
+        "X": 192,
+        "Y": 384,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "Sonamus' Nest",
+        "",
+        ""
+      ]
+    },
+    {
+      "name": "Sign_10",
+      "collider": {
+        "X": 416,
+        "Y": 384,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "Pedro sa's House",
+        "",
+        ""
+      ]
+    }
+  ],
+  "npcs": [],
+  "obstacles_summary": {
+    "total_cells": 4800,
+    "blocked_cells": 1680,
+    "walkable_cells": 3120
+  }
+}

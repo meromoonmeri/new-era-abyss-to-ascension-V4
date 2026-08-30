@@ -1,0 +1,120 @@
+{
+  "schema": "new-era.pmdo-semantics.v1",
+  "map_id": "s21",
+  "asset_name": "pmu_s21",
+  "grid_dimensions_8px": [
+    80,
+    60
+  ],
+  "tex_size": 1,
+  "warps": [
+    {
+      "name": "Warp_1",
+      "pos": {
+        "X": 112,
+        "Y": 144
+      },
+      "target": "s793",
+      "tx": 9,
+      "ty": 3
+    },
+    {
+      "name": "Warp_2",
+      "pos": {
+        "X": 144,
+        "Y": 144
+      },
+      "target": "s793",
+      "tx": 9,
+      "ty": 3
+    },
+    {
+      "name": "Warp_3",
+      "pos": {
+        "X": 496,
+        "Y": 144
+      },
+      "target": "s55",
+      "tx": 9,
+      "ty": 14
+    }
+  ],
+  "signs": [
+    {
+      "name": "Sign_1",
+      "collider": {
+        "X": 192,
+        "Y": 160,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "Come one, come all!",
+        "Participate in Wigglytuff's Minigame Tent!",
+        ""
+      ]
+    },
+    {
+      "name": "Sign_2",
+      "collider": {
+        "X": 256,
+        "Y": 160,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "<--- To the Jail.",
+        "",
+        ""
+      ]
+    },
+    {
+      "name": "Sign_3",
+      "collider": {
+        "X": 384,
+        "Y": 160,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "Winden up ahead.",
+        "",
+        ""
+      ]
+    },
+    {
+      "name": "Sign_4",
+      "collider": {
+        "X": 416,
+        "Y": 160,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "Winden up ahead.",
+        "",
+        ""
+      ]
+    },
+    {
+      "name": "Sign_5",
+      "collider": {
+        "X": 512,
+        "Y": 160,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "Loomy's Treasure Exchange",
+        "Mushrooms, you say? Bring 'em here!",
+        ""
+      ]
+    }
+  ],
+  "npcs": [],
+  "obstacles_summary": {
+    "total_cells": 4800,
+    "blocked_cells": 1424,
+    "walkable_cells": 3376
+  }
+}

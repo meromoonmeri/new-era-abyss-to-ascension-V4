@@ -1,0 +1,64 @@
+{
+  "schema": "new-era.pmdo-semantics.v1",
+  "map_id": "s1",
+  "asset_name": "pmu_s1",
+  "grid_dimensions_8px": [
+    80,
+    60
+  ],
+  "tex_size": 1,
+  "warps": [],
+  "signs": [],
+  "npcs": [
+    {
+      "name": "NPC_1_Weedle",
+      "sprite": 13,
+      "pos": {
+        "X": 320,
+        "Y": 240
+      },
+      "behavior": 0
+    },
+    {
+      "name": "NPC_2_Weedle",
+      "sprite": 13,
+      "pos": {
+        "X": 320,
+        "Y": 240
+      },
+      "behavior": 0
+    },
+    {
+      "name": "NPC_3_Weedle",
+      "sprite": 13,
+      "pos": {
+        "X": 320,
+        "Y": 240
+      },
+      "behavior": 0
+    },
+    {
+      "name": "NPC_4_Weedle",
+      "sprite": 13,
+      "pos": {
+        "X": 320,
+        "Y": 240
+      },
+      "behavior": 0
+    },
+    {
+      "name": "NPC_5_Weedle",
+      "sprite": 13,
+      "pos": {
+        "X": 320,
+        "Y": 240
+      },
+      "behavior": 0
+    }
+  ],
+  "obstacles_summary": {
+    "total_cells": 4800,
+    "blocked_cells": 2272,
+    "walkable_cells": 2528
+  }
+}

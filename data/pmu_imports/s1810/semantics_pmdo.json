@@ -1,0 +1,299 @@
+{
+  "schema": "new-era.pmdo-semantics.v1",
+  "map_id": "s1810",
+  "asset_name": "pmu_s1810",
+  "grid_dimensions_8px": [
+    204,
+    204
+  ],
+  "tex_size": 1,
+  "warps": [],
+  "signs": [
+    {
+      "name": "Sign_1",
+      "collider": {
+        "X": 1472,
+        "Y": 224,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "Come here to cleanthe your thticky itemth!",
+        "",
+        ""
+      ]
+    },
+    {
+      "name": "Sign_2",
+      "collider": {
+        "X": 608,
+        "Y": 544,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "Wigglytuff's Minigame Tent",
+        "CTF has been redesigned!",
+        "Come in and play!"
+      ]
+    },
+    {
+      "name": "Sign_3",
+      "collider": {
+        "X": 1280,
+        "Y": 544,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "Electivire's Moveset Services",
+        "",
+        ""
+      ]
+    },
+    {
+      "name": "Sign_4",
+      "collider": {
+        "X": 800,
+        "Y": 736,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "Kangaskhan Storage",
+        "Wild Plains Tavern",
+        "Kecleon Shoppe"
+      ]
+    },
+    {
+      "name": "Sign_5",
+      "collider": {
+        "X": 832,
+        "Y": 736,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "Kangaskhan Storage",
+        "Wild Plains Tavern",
+        "Kecleon Shoppe"
+      ]
+    },
+    {
+      "name": "Sign_6",
+      "collider": {
+        "X": 480,
+        "Y": 1088,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "Grassroot Housing Center",
+        "Come here to visit houses or decorate your own!",
+        ""
+      ]
+    },
+    {
+      "name": "Sign_7",
+      "collider": {
+        "X": 512,
+        "Y": 1088,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "Grassroot Housing Center",
+        "Come here to visit houses or decorate your own!",
+        ""
+      ]
+    },
+    {
+      "name": "Sign_8",
+      "collider": {
+        "X": 960,
+        "Y": 1088,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "Welcome to Grassroot Town!",
+        "",
+        ""
+      ]
+    },
+    {
+      "name": "Sign_9",
+      "collider": {
+        "X": 992,
+        "Y": 1088,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "Welcome to Grassroot Town!",
+        "",
+        ""
+      ]
+    },
+    {
+      "name": "Sign_10",
+      "collider": {
+        "X": 96,
+        "Y": 1120,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "Marowak Training Dojo",
+        "Train your strenght, skill, speed and resistence in our training facilities!",
+        "You can also fight your friends in the arena!"
+      ]
+    },
+    {
+      "name": "Sign_11",
+      "collider": {
+        "X": 128,
+        "Y": 1120,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "Marowak Training Dojo",
+        "Train your strenght, skill, speed and resistence in our training facilities!",
+        "You can also fight your friends in the arena!"
+      ]
+    },
+    {
+      "name": "Sign_12",
+      "collider": {
+        "X": 1056,
+        "Y": 1248,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "To trade items with another Player use /trade",
+        "if you drop items they may be stolen.",
+        ""
+      ]
+    },
+    {
+      "name": "Sign_13",
+      "collider": {
+        "X": 1184,
+        "Y": 1280,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "As of October 25th, 2010 the staff will not be selling guilds.",
+        "This means that as of 10/25/2010 until present day, guilds will not be sold unless said otherwise.",
+        ""
+      ]
+    },
+    {
+      "name": "Sign_14",
+      "collider": {
+        "X": 1216,
+        "Y": 1280,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "As of October 25th, 2010 the staff will not be selling guilds.",
+        "This means that as of 10/25/2010 until present day, guilds will not be sold unless said otherwise.",
+        ""
+      ]
+    },
+    {
+      "name": "Sign_15",
+      "collider": {
+        "X": 96,
+        "Y": 1344,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "Welcome to Delite Plaza!",
+        "Come on down and have a Deliteful Day!",
+        ""
+      ]
+    },
+    {
+      "name": "Sign_16",
+      "collider": {
+        "X": 128,
+        "Y": 1344,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "Welcome to Delite Plaza!",
+        "Come on down and have a Deliteful Day!",
+        ""
+      ]
+    },
+    {
+      "name": "Sign_17",
+      "collider": {
+        "X": 832,
+        "Y": 1536,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "Welcome to Grassroot town, from early PMU7.",
+        "A blast to the past, enjoy!",
+        ""
+      ]
+    },
+    {
+      "name": "Sign_18",
+      "collider": {
+        "X": 864,
+        "Y": 1536,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "Welcome to Grassroot town, from early PMU7.",
+        "A blast to the past, enjoy!",
+        ""
+      ]
+    }
+  ],
+  "npcs": [
+    {
+      "name": "NPC_1_Chimecho",
+      "sprite": 358,
+      "pos": {
+        "X": 1168,
+        "Y": 1296
+      },
+      "behavior": 3
+    },
+    {
+      "name": "NPC_2_Kangaskhan",
+      "sprite": 115,
+      "pos": {
+        "X": 528,
+        "Y": 880
+      },
+      "behavior": 3
+    },
+    {
+      "name": "NPC_3_Electivire",
+      "sprite": 466,
+      "pos": {
+        "X": 1232,
+        "Y": 528
+      },
+      "behavior": 2
+    }
+  ],
+  "obstacles_summary": {
+    "total_cells": 41616,
+    "blocked_cells": 8784,
+    "walkable_cells": 32832
+  }
+}

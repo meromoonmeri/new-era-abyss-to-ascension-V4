@@ -1,0 +1,31 @@
+{
+  "schema": "new-era.pmu-pmdo-manifest.v1",
+  "map_id": "s255",
+  "asset_name": "pmu_s255",
+  "name": "Seaside Cavern Pit",
+  "tex_size": 1,
+  "scale_factor_px": 1.0,
+  "dimensions_tiles_pmu": [
+    20,
+    15
+  ],
+  "dimensions_pixels": [
+    640,
+    480
+  ],
+  "dimensions_grid_pmdo": [
+    80,
+    60
+  ],
+  "unique_subtiles": 524,
+  "animated_subcells": 0,
+  "artifacts": {
+    "ground": "Data/Ground/pmu_s255.rsground",
+    "ground_sha256": "35b27e37279ded3d5e228b42c17b6de15a8efd791ee383aa443bf499a5869523",
+    "tile": "Content/Tile/pmu_s255_Base.tile",
+    "tile_sha256": "f61d73883476d475b58762e7336d8cbb1e6a3b3e115d8db36032655ade6e33af",
+    "script": "Data/Script/halcyon/ground/pmu_s255/init.lua",
+    "script_sha256": "9456b32e3c1ffc304dd39490bdbea982af783668ca24a6296e62623ba1dd4061"
+  },
+  "status": "CONVERTED"
+}

@@ -1,0 +1,31 @@
+{
+  "schema": "new-era.pmu-pmdo-manifest.v1",
+  "map_id": "s1143",
+  "asset_name": "pmu_s1143",
+  "name": "Grassroot Town, Rustle's House",
+  "tex_size": 1,
+  "scale_factor_px": 1.0,
+  "dimensions_tiles_pmu": [
+    20,
+    15
+  ],
+  "dimensions_pixels": [
+    640,
+    480
+  ],
+  "dimensions_grid_pmdo": [
+    80,
+    60
+  ],
+  "unique_subtiles": 979,
+  "animated_subcells": 69,
+  "artifacts": {
+    "ground": "Data/Ground/pmu_s1143.rsground",
+    "ground_sha256": "533fbedc3ad930003e0d6cf0b63b20118adbcab15929b0d59804954958020487",
+    "tile": "Content/Tile/pmu_s1143_Base.tile",
+    "tile_sha256": "2f9da58624cf92403dbdc575cec394edcb4dc9f25a36079e2f2391ab7676f991",
+    "script": "Data/Script/halcyon/ground/pmu_s1143/init.lua",
+    "script_sha256": "0cffc44e43fd563ce37dae310562b3d50802795e00cdc9d528156071d8598840"
+  },
+  "status": "CONVERTED"
+}

@@ -1,0 +1,174 @@
+{
+  "schema": "new-era.pmu-semantics.v1",
+  "map_id": "s13",
+  "warps_count": 2,
+  "signs_count": 3,
+  "doors_count": 0,
+  "items_count": 0,
+  "scripts_count": 0,
+  "stories_count": 6,
+  "level_blocks_count": 0,
+  "sprite_blocks_count": 0,
+  "mobile_blocks_count": 0,
+  "warps": [
+    {
+      "source_x": 4,
+      "source_y": 5,
+      "target_map_id": "s987",
+      "target_x": 9,
+      "target_y": 12,
+      "raw_data": [
+        987,
+        9,
+        12
+      ]
+    },
+    {
+      "source_x": 3,
+      "source_y": 9,
+      "target_map_id": "s357",
+      "target_x": 10,
+      "target_y": 20,
+      "raw_data": [
+        357,
+        10,
+        20
+      ]
+    }
+  ],
+  "signs": [
+    {
+      "x": 16,
+      "y": 5,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "Left: Poketown Outskirts",
+        "Right: Poketown Square",
+        ""
+      ]
+    },
+    {
+      "x": 4,
+      "y": 10,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "Spinda's Caf",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 5,
+      "y": 10,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "Spinda's Caf",
+        "",
+        ""
+      ]
+    }
+  ],
+  "doors": [],
+  "items": [],
+  "scripts": [],
+  "stories": [
+    {
+      "x": 8,
+      "y": 5,
+      "story_id": 50,
+      "param2": 0
+    },
+    {
+      "x": 12,
+      "y": 5,
+      "story_id": 50,
+      "param2": 0
+    },
+    {
+      "x": 9,
+      "y": 6,
+      "story_id": 50,
+      "param2": 0
+    },
+    {
+      "x": 10,
+      "y": 6,
+      "story_id": 8,
+      "param2": 0
+    },
+    {
+      "x": 11,
+      "y": 6,
+      "story_id": 50,
+      "param2": 0
+    },
+    {
+      "x": 10,
+      "y": 7,
+      "story_id": 50,
+      "param2": 0
+    }
+  ],
+  "level_blocks": [],
+  "sprite_blocks": [],
+  "mobile_blocks": [],
+  "other_semantics": [
+    {
+      "x": 9,
+      "y": 5,
+      "type_id": 22,
+      "type_name": "Bank",
+      "raw_data": [
+        0,
+        0,
+        0
+      ],
+      "raw_strings": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 10,
+      "y": 5,
+      "type_id": 22,
+      "type_name": "Bank",
+      "raw_data": [
+        0,
+        0,
+        0
+      ],
+      "raw_strings": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 11,
+      "y": 5,
+      "type_id": 22,
+      "type_name": "Bank",
+      "raw_data": [
+        0,
+        0,
+        0
+      ],
+      "raw_strings": [
+        "",
+        "",
+        ""
+      ]
+    }
+  ],
+  "cardinal_connections": {
+    "up": "s30",
+    "down": "s15",
+    "left": "s14",
+    "right": "s3"
+  }
+}

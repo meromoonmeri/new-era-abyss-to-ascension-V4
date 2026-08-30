@@ -1,0 +1,82 @@
+{
+  "schema": "new-era.pmdo-semantics.v1",
+  "map_id": "s1985",
+  "asset_name": "pmu_s1985",
+  "grid_dimensions_8px": [
+    80,
+    60
+  ],
+  "tex_size": 1,
+  "warps": [
+    {
+      "name": "Warp_1",
+      "pos": {
+        "X": 304,
+        "Y": 400
+      },
+      "target": "s1997",
+      "tx": 34,
+      "ty": 24
+    },
+    {
+      "name": "Warp_2",
+      "pos": {
+        "X": 336,
+        "Y": 400
+      },
+      "target": "s1997",
+      "tx": 34,
+      "ty": 24
+    }
+  ],
+  "signs": [
+    {
+      "name": "Sign_1",
+      "collider": {
+        "X": 256,
+        "Y": 96,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "List of Beverages:",
+        "Cheri Berri Punch, Chesto Wake-Up Smoothie...",
+        "...Leppa Power Shake... -list continues on-."
+      ]
+    },
+    {
+      "name": "Sign_2",
+      "collider": {
+        "X": 352,
+        "Y": 192,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "Welcome to the Skitty Saloon!",
+        "Feel free to help yourself to a drink.",
+        "And don't forget to sit back and relax!"
+      ]
+    },
+    {
+      "name": "Sign_3",
+      "collider": {
+        "X": 384,
+        "Y": 192,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "Welcome to the Skitty Saloon!",
+        "Feel free to help yourself to a drink.",
+        "And don't forget to sit back and relax!"
+      ]
+    }
+  ],
+  "npcs": [],
+  "obstacles_summary": {
+    "total_cells": 4800,
+    "blocked_cells": 3152,
+    "walkable_cells": 1648
+  }
+}

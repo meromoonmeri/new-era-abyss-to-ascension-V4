@@ -1,0 +1,31 @@
+{
+  "schema": "new-era.pmu-pmdo-manifest.v1",
+  "map_id": "s1990",
+  "asset_name": "pmu_s1990",
+  "name": "Boss Rush [Stonecore]",
+  "tex_size": 1,
+  "scale_factor_px": 1.0,
+  "dimensions_tiles_pmu": [
+    20,
+    15
+  ],
+  "dimensions_pixels": [
+    640,
+    480
+  ],
+  "dimensions_grid_pmdo": [
+    80,
+    60
+  ],
+  "unique_subtiles": 263,
+  "animated_subcells": 0,
+  "artifacts": {
+    "ground": "Data/Ground/pmu_s1990.rsground",
+    "ground_sha256": "3acd7046ca1c1f39d708c10e1d368b24d28564d5778efc0aeab264abcc69eb83",
+    "tile": "Content/Tile/pmu_s1990_Base.tile",
+    "tile_sha256": "feb9b6a39dc52c683f8f672cd5a2bb9d25fbb191f0512c877aef4a3a9ba5c151",
+    "script": "Data/Script/halcyon/ground/pmu_s1990/init.lua",
+    "script_sha256": "7197e98e502ebb10552891daac2bb61640955c03b8ff2a78568d53ed555a80f2"
+  },
+  "status": "CONVERTED"
+}

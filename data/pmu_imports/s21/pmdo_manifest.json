@@ -1,0 +1,31 @@
+{
+  "schema": "new-era.pmu-pmdo-manifest.v1",
+  "map_id": "s21",
+  "asset_name": "pmu_s21",
+  "name": "Pok? Town",
+  "tex_size": 1,
+  "scale_factor_px": 1.0,
+  "dimensions_tiles_pmu": [
+    20,
+    15
+  ],
+  "dimensions_pixels": [
+    640,
+    480
+  ],
+  "dimensions_grid_pmdo": [
+    80,
+    60
+  ],
+  "unique_subtiles": 949,
+  "animated_subcells": 202,
+  "artifacts": {
+    "ground": "Data/Ground/pmu_s21.rsground",
+    "ground_sha256": "d32bc2be0d6edd4f7d1f39465d6e8d40290adc2c6844462ecaee44c0c375b48e",
+    "tile": "Content/Tile/pmu_s21_Base.tile",
+    "tile_sha256": "d11e0bf9000ec3147354e859583ffae2350deb5956c0a6304ec31dbea88d4c31",
+    "script": "Data/Script/halcyon/ground/pmu_s21/init.lua",
+    "script_sha256": "2b686fa293c6c4eaf74a917c696962e1c20988c09aaab939656095ec42107949"
+  },
+  "status": "CONVERTED"
+}

@@ -1,0 +1,31 @@
+{
+  "schema": "new-era.pmu-pmdo-manifest.v1",
+  "map_id": "s1142",
+  "asset_name": "pmu_s1142",
+  "name": "Grassroot Town, Eevee Family House",
+  "tex_size": 1,
+  "scale_factor_px": 1.0,
+  "dimensions_tiles_pmu": [
+    20,
+    15
+  ],
+  "dimensions_pixels": [
+    640,
+    480
+  ],
+  "dimensions_grid_pmdo": [
+    80,
+    60
+  ],
+  "unique_subtiles": 754,
+  "animated_subcells": 20,
+  "artifacts": {
+    "ground": "Data/Ground/pmu_s1142.rsground",
+    "ground_sha256": "2cd36ad92eb39d421766fa3b6d102c7fc67230059e0d584fcd63bc26ff8377a8",
+    "tile": "Content/Tile/pmu_s1142_Base.tile",
+    "tile_sha256": "309000e685e6de5f3c5fccf118b65b9d1c056044a855d77c71eeaf52769b4e38",
+    "script": "Data/Script/halcyon/ground/pmu_s1142/init.lua",
+    "script_sha256": "2f934200cf2541c69d4f60d3069ec828bdf078a1a2ee5aa3eb2fa58452500c00"
+  },
+  "status": "CONVERTED"
+}

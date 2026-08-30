@@ -1,0 +1,31 @@
+{
+  "schema": "new-era.pmu-pmdo-manifest.v1",
+  "map_id": "s1785",
+  "asset_name": "pmu_s1785",
+  "name": "Boggy Wastes [Midway Point]",
+  "tex_size": 1,
+  "scale_factor_px": 1.0,
+  "dimensions_tiles_pmu": [
+    20,
+    31
+  ],
+  "dimensions_pixels": [
+    640,
+    992
+  ],
+  "dimensions_grid_pmdo": [
+    80,
+    124
+  ],
+  "unique_subtiles": 808,
+  "animated_subcells": 0,
+  "artifacts": {
+    "ground": "Data/Ground/pmu_s1785.rsground",
+    "ground_sha256": "74b00cf4f62fc2140f64fad395ea2937c07c28f7c40055e1afab51abb7575974",
+    "tile": "Content/Tile/pmu_s1785_Base.tile",
+    "tile_sha256": "77310104c8f5b72474b1790820a64d0ab3d13560e44b15fc1b3f719d4de186e4",
+    "script": "Data/Script/halcyon/ground/pmu_s1785/init.lua",
+    "script_sha256": "99f87bafde61b134f09f5990c5025266d8b3fb73f59a8dac16a18fd7fb489b62"
+  },
+  "status": "CONVERTED"
+}

@@ -1,0 +1,62 @@
+{
+  "schema": "new-era.pmu-semantics.v1",
+  "map_id": "s1244",
+  "warps_count": 1,
+  "signs_count": 0,
+  "doors_count": 0,
+  "items_count": 0,
+  "scripts_count": 2,
+  "stories_count": 0,
+  "level_blocks_count": 0,
+  "sprite_blocks_count": 0,
+  "mobile_blocks_count": 0,
+  "warps": [
+    {
+      "source_x": 10,
+      "source_y": 13,
+      "target_map_id": "s737",
+      "target_x": 3,
+      "target_y": 33,
+      "raw_data": [
+        737,
+        3,
+        33
+      ]
+    }
+  ],
+  "signs": [],
+  "doors": [],
+  "items": [],
+  "scripts": [
+    {
+      "x": 3,
+      "y": 4,
+      "script_id": 9,
+      "param2": 0,
+      "param3": 0,
+      "strings": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 10,
+      "y": 4,
+      "script_id": 8,
+      "param2": 0,
+      "param3": 0,
+      "strings": [
+        "1",
+        "1",
+        "1"
+      ]
+    }
+  ],
+  "stories": [],
+  "level_blocks": [],
+  "sprite_blocks": [],
+  "mobile_blocks": [],
+  "other_semantics": [],
+  "cardinal_connections": {}
+}

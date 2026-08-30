@@ -1,0 +1,36 @@
+{
+  "schema": "new-era.pmu-manifest.v1",
+  "map_id": "s1991",
+  "name": "Winden, Snowbasin Town",
+  "revision": 378,
+  "extraction_timestamp": "2026-08-30T15:01:32.003049+00:00",
+  "source_provenance": {
+    "database": "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/pmu-extraction/pmu-standard.sqlite3",
+    "database_sha256": "829e18106d920480ce90fca5bc370e241eff6713e1b49815cddd31af1b65685c"
+  },
+  "dimensions": {
+    "tiles": [
+      51,
+      51
+    ],
+    "pixels": [
+      1632,
+      1632
+    ],
+    "tile_size": 32
+  },
+  "statistics": {
+    "total_tiles": 2601,
+    "animated_tiles": 10,
+    "tilesets_used": [
+      4,
+      7,
+      8,
+      9
+    ],
+    "npcs_count": 1,
+    "warps_count": 6,
+    "signs_count": 7
+  },
+  "status": "EXTRACTED"
+}

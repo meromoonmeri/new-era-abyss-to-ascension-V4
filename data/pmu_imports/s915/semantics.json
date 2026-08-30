@@ -1,0 +1,84 @@
+{
+  "schema": "new-era.pmu-semantics.v1",
+  "map_id": "s915",
+  "warps_count": 0,
+  "signs_count": 0,
+  "doors_count": 0,
+  "items_count": 0,
+  "scripts_count": 2,
+  "stories_count": 0,
+  "level_blocks_count": 0,
+  "sprite_blocks_count": 0,
+  "mobile_blocks_count": 0,
+  "warps": [],
+  "signs": [],
+  "doors": [],
+  "items": [],
+  "scripts": [
+    {
+      "x": 8,
+      "y": 6,
+      "script_id": 46,
+      "param2": 0,
+      "param3": 0,
+      "strings": [
+        "12",
+        "887",
+        "9:7"
+      ]
+    },
+    {
+      "x": 8,
+      "y": 7,
+      "script_id": 46,
+      "param2": 0,
+      "param3": 0,
+      "strings": [
+        "12",
+        "887",
+        "9:7"
+      ]
+    }
+  ],
+  "stories": [],
+  "level_blocks": [],
+  "sprite_blocks": [],
+  "mobile_blocks": [],
+  "other_semantics": [
+    {
+      "x": 4,
+      "y": 6,
+      "type_id": 16,
+      "type_name": "Notice",
+      "raw_data": [
+        0,
+        0,
+        0
+      ],
+      "raw_strings": [
+        "",
+        "(This is my only chance to escape...)",
+        "Notification.wav"
+      ]
+    },
+    {
+      "x": 4,
+      "y": 7,
+      "type_id": 16,
+      "type_name": "Notice",
+      "raw_data": [
+        0,
+        0,
+        0
+      ],
+      "raw_strings": [
+        "",
+        "(This is my only chance to escape...)",
+        "Notification.wav"
+      ]
+    }
+  ],
+  "cardinal_connections": {
+    "left": "s914"
+  }
+}

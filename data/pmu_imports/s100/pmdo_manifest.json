@@ -1,0 +1,31 @@
+{
+  "schema": "new-era.pmu-pmdo-manifest.v1",
+  "map_id": "s100",
+  "asset_name": "pmu_s100",
+  "name": "Sour Root Cave B1F",
+  "tex_size": 1,
+  "scale_factor_px": 1.0,
+  "dimensions_tiles_pmu": [
+    40,
+    15
+  ],
+  "dimensions_pixels": [
+    1280,
+    480
+  ],
+  "dimensions_grid_pmdo": [
+    160,
+    60
+  ],
+  "unique_subtiles": 624,
+  "animated_subcells": 0,
+  "artifacts": {
+    "ground": "Data/Ground/pmu_s100.rsground",
+    "ground_sha256": "fb6a59c3055ee31ebec76b6131bfc83a28ea76c4a5686e239c2dc6eae5acce15",
+    "tile": "Content/Tile/pmu_s100_Base.tile",
+    "tile_sha256": "6f3d7fa0f8778d5839e63cfbc253299291a8426a4769819a0efa462ba757fb2d",
+    "script": "Data/Script/halcyon/ground/pmu_s100/init.lua",
+    "script_sha256": "21b36f49b1e87318642d6abf367fee016b04780dba91b5422de277749fa063aa"
+  },
+  "status": "CONVERTED"
+}

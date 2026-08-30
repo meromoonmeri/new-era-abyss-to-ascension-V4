@@ -1,0 +1,31 @@
+{
+  "schema": "new-era.pmu-pmdo-manifest.v1",
+  "map_id": "s1263",
+  "asset_name": "pmu_s1263",
+  "name": "Sauna Cavern Source",
+  "tex_size": 1,
+  "scale_factor_px": 1.0,
+  "dimensions_tiles_pmu": [
+    20,
+    15
+  ],
+  "dimensions_pixels": [
+    640,
+    480
+  ],
+  "dimensions_grid_pmdo": [
+    80,
+    60
+  ],
+  "unique_subtiles": 914,
+  "animated_subcells": 1969,
+  "artifacts": {
+    "ground": "Data/Ground/pmu_s1263.rsground",
+    "ground_sha256": "91e78d77643905dcf7012675a173e17a16db98cdb5752d7b6c8f8715d3ce2b6e",
+    "tile": "Content/Tile/pmu_s1263_Base.tile",
+    "tile_sha256": "f9a521f34cde8783646bcd6c5530869df53a877f0698010ac0cee7a4bc2288ff",
+    "script": "Data/Script/halcyon/ground/pmu_s1263/init.lua",
+    "script_sha256": "8775a844e4e9e255d0b41ff58e01b03c2eb3ec8d1fa02fdf0ef4467aa298bfd1"
+  },
+  "status": "CONVERTED"
+}

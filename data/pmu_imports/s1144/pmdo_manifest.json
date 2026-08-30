@@ -1,0 +1,31 @@
+{
+  "schema": "new-era.pmu-pmdo-manifest.v1",
+  "map_id": "s1144",
+  "asset_name": "pmu_s1144",
+  "name": "Grassroot Town, Leavi and Bulby's House",
+  "tex_size": 1,
+  "scale_factor_px": 1.0,
+  "dimensions_tiles_pmu": [
+    20,
+    15
+  ],
+  "dimensions_pixels": [
+    640,
+    480
+  ],
+  "dimensions_grid_pmdo": [
+    80,
+    60
+  ],
+  "unique_subtiles": 1065,
+  "animated_subcells": 0,
+  "artifacts": {
+    "ground": "Data/Ground/pmu_s1144.rsground",
+    "ground_sha256": "7c8256d89ee263d90d5ded1f5589f3e51de73e4651b440dd96ca8c2a37d1bb5e",
+    "tile": "Content/Tile/pmu_s1144_Base.tile",
+    "tile_sha256": "aa3bd3f03d2fdee4d595d5a0b53c19db8bef3ed16ba001fdcc2d92024e246435",
+    "script": "Data/Script/halcyon/ground/pmu_s1144/init.lua",
+    "script_sha256": "a02b6f9fb0525b25e5fb319eb9cd117d48e8e50c895cfdee9ebde124bad4cf4e"
+  },
+  "status": "CONVERTED"
+}

@@ -1,0 +1,200 @@
+{
+  "schema": "new-era.pmu-semantics.v1",
+  "map_id": "s4",
+  "warps_count": 5,
+  "signs_count": 10,
+  "doors_count": 0,
+  "items_count": 0,
+  "scripts_count": 0,
+  "stories_count": 0,
+  "level_blocks_count": 0,
+  "sprite_blocks_count": 0,
+  "mobile_blocks_count": 0,
+  "warps": [
+    {
+      "source_x": 10,
+      "source_y": 5,
+      "target_map_id": "s202",
+      "target_x": 17,
+      "target_y": 28,
+      "raw_data": [
+        202,
+        17,
+        28
+      ]
+    },
+    {
+      "source_x": 14,
+      "source_y": 10,
+      "target_map_id": "s645",
+      "target_x": 9,
+      "target_y": 13,
+      "raw_data": [
+        645,
+        9,
+        13
+      ]
+    },
+    {
+      "source_x": 18,
+      "source_y": 10,
+      "target_map_id": "s1490",
+      "target_x": 9,
+      "target_y": 13,
+      "raw_data": [
+        1490,
+        9,
+        13
+      ]
+    },
+    {
+      "source_x": 8,
+      "source_y": 12,
+      "target_map_id": "s998",
+      "target_x": 9,
+      "target_y": 13,
+      "raw_data": [
+        998,
+        9,
+        13
+      ]
+    },
+    {
+      "source_x": 12,
+      "source_y": 13,
+      "target_map_id": "s663",
+      "target_x": 9,
+      "target_y": 13,
+      "raw_data": [
+        663,
+        9,
+        13
+      ]
+    }
+  ],
+  "signs": [
+    {
+      "x": 8,
+      "y": 5,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "Azura's House",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 12,
+      "y": 5,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "Flare's House",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 16,
+      "y": 5,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "Luminare's House",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 4,
+      "y": 10,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "chomp's house",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 8,
+      "y": 10,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "pokemonmaster2437's house",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 12,
+      "y": 10,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "Max222's House",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 15,
+      "y": 11,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "Team Spark Base",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 17,
+      "y": 11,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "Sladhe's House",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 6,
+      "y": 12,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "Sonamus' Nest",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 13,
+      "y": 12,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "Pedro sa's House",
+        "",
+        ""
+      ]
+    }
+  ],
+  "doors": [],
+  "items": [],
+  "scripts": [],
+  "stories": [],
+  "level_blocks": [],
+  "sprite_blocks": [],
+  "mobile_blocks": [],
+  "other_semantics": [],
+  "cardinal_connections": {
+    "up": "s289",
+    "left": "s3",
+    "right": "s5"
+  }
+}

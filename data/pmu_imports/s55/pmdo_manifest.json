@@ -1,0 +1,31 @@
+{
+  "schema": "new-era.pmu-pmdo-manifest.v1",
+  "map_id": "s55",
+  "asset_name": "pmu_s55",
+  "name": "Loomy's Treasure Trade Market",
+  "tex_size": 1,
+  "scale_factor_px": 1.0,
+  "dimensions_tiles_pmu": [
+    20,
+    15
+  ],
+  "dimensions_pixels": [
+    640,
+    480
+  ],
+  "dimensions_grid_pmdo": [
+    80,
+    60
+  ],
+  "unique_subtiles": 2005,
+  "animated_subcells": 0,
+  "artifacts": {
+    "ground": "Data/Ground/pmu_s55.rsground",
+    "ground_sha256": "eca000818fed93b98f6c31e37ce8832a3eb413e27cf7b6359657bfbcbeb079c4",
+    "tile": "Content/Tile/pmu_s55_Base.tile",
+    "tile_sha256": "41b1201a97b32281b37be2d907f72bb74ce70e89427d2d3b91640e5b94a2b352",
+    "script": "Data/Script/halcyon/ground/pmu_s55/init.lua",
+    "script_sha256": "7b3af019fc8f1cf109872f15d0843963d063fab9be8d5713c68fed28c37cc1a5"
+  },
+  "status": "CONVERTED"
+}

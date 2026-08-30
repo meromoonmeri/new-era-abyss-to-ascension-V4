@@ -1,0 +1,31 @@
+{
+  "schema": "new-era.pmu-pmdo-manifest.v1",
+  "map_id": "s1",
+  "asset_name": "pmu_s1",
+  "name": "The Crossroads",
+  "tex_size": 1,
+  "scale_factor_px": 1.0,
+  "dimensions_tiles_pmu": [
+    20,
+    15
+  ],
+  "dimensions_pixels": [
+    640,
+    480
+  ],
+  "dimensions_grid_pmdo": [
+    80,
+    60
+  ],
+  "unique_subtiles": 911,
+  "animated_subcells": 181,
+  "artifacts": {
+    "ground": "Data/Ground/pmu_s1.rsground",
+    "ground_sha256": "4f444debf617291387ce86b4564c36adf9bb9f61320d35cd4b6ff44cbb3df919",
+    "tile": "Content/Tile/pmu_s1_Base.tile",
+    "tile_sha256": "fb4d5dcd61504db4a829fa316f264287b90ff4721417ae610bd73a51165f0d9a",
+    "script": "Data/Script/halcyon/ground/pmu_s1/init.lua",
+    "script_sha256": "4663b9e6c802eb7cdfc15d5be3b61f3e8d524831c20fb22bad8d8323b6ca15cd"
+  },
+  "status": "CONVERTED"
+}

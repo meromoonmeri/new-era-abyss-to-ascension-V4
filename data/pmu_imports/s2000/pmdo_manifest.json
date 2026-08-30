@@ -1,0 +1,31 @@
+{
+  "schema": "new-era.pmu-pmdo-manifest.v1",
+  "map_id": "s2000",
+  "asset_name": "pmu_s2000",
+  "name": "You Shouldn't Have Done That",
+  "tex_size": 1,
+  "scale_factor_px": 1.0,
+  "dimensions_tiles_pmu": [
+    20,
+    15
+  ],
+  "dimensions_pixels": [
+    640,
+    480
+  ],
+  "dimensions_grid_pmdo": [
+    80,
+    60
+  ],
+  "unique_subtiles": 12,
+  "animated_subcells": 0,
+  "artifacts": {
+    "ground": "Data/Ground/pmu_s2000.rsground",
+    "ground_sha256": "cd324f94df8e135f3558418cecf235c36ba8d50d17c1cde026b6e3b5a7a9a7a4",
+    "tile": "Content/Tile/pmu_s2000_Base.tile",
+    "tile_sha256": "ae6987ffa6c046ba040841f5d33491a9cf56e3edd3a8ae16d6ea4eee3aa93d8b",
+    "script": "Data/Script/halcyon/ground/pmu_s2000/init.lua",
+    "script_sha256": "7d795253a59e5ee6f85d7738a6367604cc397dfc65c1a0442b5848f8aa15e738"
+  },
+  "status": "CONVERTED"
+}

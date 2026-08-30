@@ -1,0 +1,110 @@
+{
+  "schema": "new-era.pmu-semantics.v1",
+  "map_id": "s1263",
+  "warps_count": 0,
+  "signs_count": 0,
+  "doors_count": 0,
+  "items_count": 0,
+  "scripts_count": 0,
+  "stories_count": 0,
+  "level_blocks_count": 0,
+  "sprite_blocks_count": 0,
+  "mobile_blocks_count": 17,
+  "warps": [],
+  "signs": [],
+  "doors": [],
+  "items": [],
+  "scripts": [],
+  "stories": [],
+  "level_blocks": [],
+  "sprite_blocks": [],
+  "mobile_blocks": [
+    {
+      "x": 7,
+      "y": 2,
+      "mobility_mask": 8
+    },
+    {
+      "x": 11,
+      "y": 2,
+      "mobility_mask": 8
+    },
+    {
+      "x": 5,
+      "y": 4,
+      "mobility_mask": 8
+    },
+    {
+      "x": 17,
+      "y": 4,
+      "mobility_mask": 8
+    },
+    {
+      "x": 5,
+      "y": 5,
+      "mobility_mask": 8
+    },
+    {
+      "x": 8,
+      "y": 6,
+      "mobility_mask": 8
+    },
+    {
+      "x": 16,
+      "y": 9,
+      "mobility_mask": 8
+    },
+    {
+      "x": 18,
+      "y": 9,
+      "mobility_mask": 8
+    },
+    {
+      "x": 5,
+      "y": 10,
+      "mobility_mask": 8
+    },
+    {
+      "x": 18,
+      "y": 10,
+      "mobility_mask": 8
+    },
+    {
+      "x": 4,
+      "y": 11,
+      "mobility_mask": 8
+    },
+    {
+      "x": 4,
+      "y": 12,
+      "mobility_mask": 8
+    },
+    {
+      "x": 5,
+      "y": 13,
+      "mobility_mask": 8
+    },
+    {
+      "x": 11,
+      "y": 13,
+      "mobility_mask": 8
+    },
+    {
+      "x": 12,
+      "y": 13,
+      "mobility_mask": 8
+    },
+    {
+      "x": 13,
+      "y": 13,
+      "mobility_mask": 8
+    },
+    {
+      "x": 17,
+      "y": 13,
+      "mobility_mask": 8
+    }
+  ],
+  "other_semantics": [],
+  "cardinal_connections": {}
+}

@@ -1,0 +1,31 @@
+{
+  "schema": "new-era.pmu-pmdo-manifest.v1",
+  "map_id": "s1980",
+  "asset_name": "pmu_s1980",
+  "name": "Sea",
+  "tex_size": 1,
+  "scale_factor_px": 1.0,
+  "dimensions_tiles_pmu": [
+    51,
+    51
+  ],
+  "dimensions_pixels": [
+    1632,
+    1632
+  ],
+  "dimensions_grid_pmdo": [
+    204,
+    204
+  ],
+  "unique_subtiles": 22,
+  "animated_subcells": 28611,
+  "artifacts": {
+    "ground": "Data/Ground/pmu_s1980.rsground",
+    "ground_sha256": "4ca59864f15fa251390ec9e87178d2a93914eea21f50b6fd8afecaacaec87dc2",
+    "tile": "Content/Tile/pmu_s1980_Base.tile",
+    "tile_sha256": "7bc548b6e1c71f13dd30010b38589a2e0b4ad7a501acab88faa2fd2b47786229",
+    "script": "Data/Script/halcyon/ground/pmu_s1980/init.lua",
+    "script_sha256": "f2103993ca9a7bd617b217f764229a31df8f0890d359761fbee68df3de5943dc"
+  },
+  "status": "CONVERTED"
+}

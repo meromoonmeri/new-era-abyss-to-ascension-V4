@@ -1,0 +1,940 @@
+{
+  "schema": "new-era.pmu-semantics.v1",
+  "map_id": "s737",
+  "warps_count": 12,
+  "signs_count": 13,
+  "doors_count": 0,
+  "items_count": 0,
+  "scripts_count": 1,
+  "stories_count": 0,
+  "level_blocks_count": 0,
+  "sprite_blocks_count": 0,
+  "mobile_blocks_count": 99,
+  "warps": [
+    {
+      "source_x": 7,
+      "source_y": 6,
+      "target_map_id": "s50",
+      "target_x": 9,
+      "target_y": 13,
+      "raw_data": [
+        50,
+        9,
+        13
+      ]
+    },
+    {
+      "source_x": 20,
+      "source_y": 6,
+      "target_map_id": "s1144",
+      "target_x": 9,
+      "target_y": 11,
+      "raw_data": [
+        1144,
+        9,
+        11
+      ]
+    },
+    {
+      "source_x": 32,
+      "source_y": 6,
+      "target_map_id": "s1143",
+      "target_x": 10,
+      "target_y": 11,
+      "raw_data": [
+        1143,
+        10,
+        11
+      ]
+    },
+    {
+      "source_x": 15,
+      "source_y": 8,
+      "target_map_id": "s1146",
+      "target_x": 10,
+      "target_y": 11,
+      "raw_data": [
+        1146,
+        10,
+        11
+      ]
+    },
+    {
+      "source_x": 37,
+      "source_y": 8,
+      "target_map_id": "s1145",
+      "target_x": 10,
+      "target_y": 11,
+      "raw_data": [
+        1145,
+        10,
+        11
+      ]
+    },
+    {
+      "source_x": 2,
+      "source_y": 9,
+      "target_map_id": "s1777",
+      "target_x": 16,
+      "target_y": 21,
+      "raw_data": [
+        1777,
+        16,
+        21
+      ]
+    },
+    {
+      "source_x": 43,
+      "source_y": 16,
+      "target_map_id": "s1000",
+      "target_x": 10,
+      "target_y": 13,
+      "raw_data": [
+        1000,
+        10,
+        13
+      ]
+    },
+    {
+      "source_x": 6,
+      "source_y": 17,
+      "target_map_id": "s793",
+      "target_x": 9,
+      "target_y": 3,
+      "raw_data": [
+        793,
+        9,
+        3
+      ]
+    },
+    {
+      "source_x": 7,
+      "source_y": 17,
+      "target_map_id": "s793",
+      "target_x": 9,
+      "target_y": 3,
+      "raw_data": [
+        793,
+        9,
+        3
+      ]
+    },
+    {
+      "source_x": 42,
+      "source_y": 21,
+      "target_map_id": "s1142",
+      "target_x": 10,
+      "target_y": 11,
+      "raw_data": [
+        1142,
+        10,
+        11
+      ]
+    },
+    {
+      "source_x": 3,
+      "source_y": 32,
+      "target_map_id": "s1244",
+      "target_x": 10,
+      "target_y": 12,
+      "raw_data": [
+        1244,
+        10,
+        12
+      ]
+    },
+    {
+      "source_x": 45,
+      "source_y": 36,
+      "target_map_id": "s412",
+      "target_x": 10,
+      "target_y": 13,
+      "raw_data": [
+        412,
+        10,
+        13
+      ]
+    }
+  ],
+  "signs": [
+    {
+      "x": 19,
+      "y": 9,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "Leavi and Bulby's House",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 33,
+      "y": 9,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "Rustle's House",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 14,
+      "y": 11,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "Lark's House",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 38,
+      "y": 11,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "Trishian's House",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 41,
+      "y": 16,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "Basic House Commands:~",
+        "- \"/edithouse\" Opens the Map Editor to edit your own house. \"/houseentrance\" Sets the spawn point of your house when you visit it. \"/housesign\" Adds a sign on the tile you are standing on. \"/housesound\" Places a Sound Tile that plays a sound effect on the tile you are standing on. ",
+        "\"/houselight\" Changes the Light/Dark settings of the house. \"/houseroof\" Opens the roof of the house to set weather conditions and allow the change of time. \"/houseweather\" Sets the house weather. \"/housexpand\" Expands the house size."
+      ]
+    },
+    {
+      "x": 43,
+      "y": 24,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "Eevee Family House",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 7,
+      "y": 32,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "Grassroot Bazaar",
+        "Need your boxes unsealed, need your items cleansed, need your eggs to be homed?",
+        "You are at the right place!"
+      ]
+    },
+    {
+      "x": 8,
+      "y": 32,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "Grassroot Bazaar",
+        "Need your boxes unsealed, need your items cleansed, need your eggs to be homed?",
+        "You are at the right place!"
+      ]
+    },
+    {
+      "x": 22,
+      "y": 37,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "Welcome to Grassroot Town.",
+        "The root of all beginnings.",
+        ""
+      ]
+    },
+    {
+      "x": 23,
+      "y": 37,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "Welcome to Grassroot Town.",
+        "The root of all beginnings.",
+        ""
+      ]
+    },
+    {
+      "x": 17,
+      "y": 39,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "Kangaskhan's Storage",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 33,
+      "y": 39,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "Chimecho's Assembly",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 42,
+      "y": 40,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "Milly's Grassroot Inn",
+        "",
+        ""
+      ]
+    }
+  ],
+  "doors": [],
+  "items": [],
+  "scripts": [
+    {
+      "x": 45,
+      "y": 2,
+      "script_id": 14,
+      "param2": 0,
+      "param3": 0,
+      "strings": [
+        "1740",
+        "9",
+        "12"
+      ]
+    }
+  ],
+  "stories": [],
+  "level_blocks": [],
+  "sprite_blocks": [],
+  "mobile_blocks": [
+    {
+      "x": 22,
+      "y": 21,
+      "mobility_mask": 2
+    },
+    {
+      "x": 23,
+      "y": 21,
+      "mobility_mask": 2
+    },
+    {
+      "x": 27,
+      "y": 21,
+      "mobility_mask": 2
+    },
+    {
+      "x": 28,
+      "y": 21,
+      "mobility_mask": 2
+    },
+    {
+      "x": 20,
+      "y": 22,
+      "mobility_mask": 2
+    },
+    {
+      "x": 21,
+      "y": 22,
+      "mobility_mask": 2
+    },
+    {
+      "x": 22,
+      "y": 22,
+      "mobility_mask": 2
+    },
+    {
+      "x": 23,
+      "y": 22,
+      "mobility_mask": 2
+    },
+    {
+      "x": 27,
+      "y": 22,
+      "mobility_mask": 2
+    },
+    {
+      "x": 28,
+      "y": 22,
+      "mobility_mask": 2
+    },
+    {
+      "x": 29,
+      "y": 22,
+      "mobility_mask": 2
+    },
+    {
+      "x": 30,
+      "y": 22,
+      "mobility_mask": 2
+    },
+    {
+      "x": 19,
+      "y": 23,
+      "mobility_mask": 2
+    },
+    {
+      "x": 20,
+      "y": 23,
+      "mobility_mask": 2
+    },
+    {
+      "x": 21,
+      "y": 23,
+      "mobility_mask": 2
+    },
+    {
+      "x": 22,
+      "y": 23,
+      "mobility_mask": 2
+    },
+    {
+      "x": 23,
+      "y": 23,
+      "mobility_mask": 2
+    },
+    {
+      "x": 27,
+      "y": 23,
+      "mobility_mask": 2
+    },
+    {
+      "x": 28,
+      "y": 23,
+      "mobility_mask": 2
+    },
+    {
+      "x": 29,
+      "y": 23,
+      "mobility_mask": 2
+    },
+    {
+      "x": 30,
+      "y": 23,
+      "mobility_mask": 2
+    },
+    {
+      "x": 31,
+      "y": 23,
+      "mobility_mask": 2
+    },
+    {
+      "x": 19,
+      "y": 24,
+      "mobility_mask": 2
+    },
+    {
+      "x": 20,
+      "y": 24,
+      "mobility_mask": 2
+    },
+    {
+      "x": 21,
+      "y": 24,
+      "mobility_mask": 2
+    },
+    {
+      "x": 23,
+      "y": 24,
+      "mobility_mask": 2
+    },
+    {
+      "x": 27,
+      "y": 24,
+      "mobility_mask": 2
+    },
+    {
+      "x": 29,
+      "y": 24,
+      "mobility_mask": 2
+    },
+    {
+      "x": 30,
+      "y": 24,
+      "mobility_mask": 2
+    },
+    {
+      "x": 31,
+      "y": 24,
+      "mobility_mask": 2
+    },
+    {
+      "x": 18,
+      "y": 25,
+      "mobility_mask": 2
+    },
+    {
+      "x": 19,
+      "y": 25,
+      "mobility_mask": 2
+    },
+    {
+      "x": 20,
+      "y": 25,
+      "mobility_mask": 2
+    },
+    {
+      "x": 21,
+      "y": 25,
+      "mobility_mask": 2
+    },
+    {
+      "x": 22,
+      "y": 25,
+      "mobility_mask": 2
+    },
+    {
+      "x": 23,
+      "y": 25,
+      "mobility_mask": 2
+    },
+    {
+      "x": 27,
+      "y": 25,
+      "mobility_mask": 2
+    },
+    {
+      "x": 28,
+      "y": 25,
+      "mobility_mask": 2
+    },
+    {
+      "x": 29,
+      "y": 25,
+      "mobility_mask": 2
+    },
+    {
+      "x": 30,
+      "y": 25,
+      "mobility_mask": 2
+    },
+    {
+      "x": 31,
+      "y": 25,
+      "mobility_mask": 2
+    },
+    {
+      "x": 32,
+      "y": 25,
+      "mobility_mask": 2
+    },
+    {
+      "x": 18,
+      "y": 26,
+      "mobility_mask": 2
+    },
+    {
+      "x": 19,
+      "y": 26,
+      "mobility_mask": 2
+    },
+    {
+      "x": 21,
+      "y": 26,
+      "mobility_mask": 2
+    },
+    {
+      "x": 22,
+      "y": 26,
+      "mobility_mask": 2
+    },
+    {
+      "x": 23,
+      "y": 26,
+      "mobility_mask": 2
+    },
+    {
+      "x": 27,
+      "y": 26,
+      "mobility_mask": 2
+    },
+    {
+      "x": 28,
+      "y": 26,
+      "mobility_mask": 2
+    },
+    {
+      "x": 29,
+      "y": 26,
+      "mobility_mask": 2
+    },
+    {
+      "x": 31,
+      "y": 26,
+      "mobility_mask": 2
+    },
+    {
+      "x": 32,
+      "y": 26,
+      "mobility_mask": 2
+    },
+    {
+      "x": 18,
+      "y": 31,
+      "mobility_mask": 2
+    },
+    {
+      "x": 19,
+      "y": 31,
+      "mobility_mask": 2
+    },
+    {
+      "x": 20,
+      "y": 31,
+      "mobility_mask": 2
+    },
+    {
+      "x": 21,
+      "y": 31,
+      "mobility_mask": 2
+    },
+    {
+      "x": 22,
+      "y": 31,
+      "mobility_mask": 2
+    },
+    {
+      "x": 28,
+      "y": 31,
+      "mobility_mask": 2
+    },
+    {
+      "x": 30,
+      "y": 31,
+      "mobility_mask": 2
+    },
+    {
+      "x": 31,
+      "y": 31,
+      "mobility_mask": 2
+    },
+    {
+      "x": 32,
+      "y": 31,
+      "mobility_mask": 2
+    },
+    {
+      "x": 18,
+      "y": 32,
+      "mobility_mask": 2
+    },
+    {
+      "x": 19,
+      "y": 32,
+      "mobility_mask": 2
+    },
+    {
+      "x": 21,
+      "y": 32,
+      "mobility_mask": 2
+    },
+    {
+      "x": 22,
+      "y": 32,
+      "mobility_mask": 2
+    },
+    {
+      "x": 23,
+      "y": 32,
+      "mobility_mask": 2
+    },
+    {
+      "x": 27,
+      "y": 32,
+      "mobility_mask": 2
+    },
+    {
+      "x": 29,
+      "y": 32,
+      "mobility_mask": 2
+    },
+    {
+      "x": 31,
+      "y": 32,
+      "mobility_mask": 2
+    },
+    {
+      "x": 32,
+      "y": 32,
+      "mobility_mask": 2
+    },
+    {
+      "x": 19,
+      "y": 33,
+      "mobility_mask": 2
+    },
+    {
+      "x": 20,
+      "y": 33,
+      "mobility_mask": 2
+    },
+    {
+      "x": 21,
+      "y": 33,
+      "mobility_mask": 2
+    },
+    {
+      "x": 22,
+      "y": 33,
+      "mobility_mask": 2
+    },
+    {
+      "x": 23,
+      "y": 33,
+      "mobility_mask": 2
+    },
+    {
+      "x": 27,
+      "y": 33,
+      "mobility_mask": 2
+    },
+    {
+      "x": 28,
+      "y": 33,
+      "mobility_mask": 2
+    },
+    {
+      "x": 30,
+      "y": 33,
+      "mobility_mask": 2
+    },
+    {
+      "x": 31,
+      "y": 33,
+      "mobility_mask": 2
+    },
+    {
+      "x": 19,
+      "y": 34,
+      "mobility_mask": 2
+    },
+    {
+      "x": 20,
+      "y": 34,
+      "mobility_mask": 2
+    },
+    {
+      "x": 22,
+      "y": 34,
+      "mobility_mask": 2
+    },
+    {
+      "x": 23,
+      "y": 34,
+      "mobility_mask": 2
+    },
+    {
+      "x": 27,
+      "y": 34,
+      "mobility_mask": 2
+    },
+    {
+      "x": 28,
+      "y": 34,
+      "mobility_mask": 2
+    },
+    {
+      "x": 30,
+      "y": 34,
+      "mobility_mask": 2
+    },
+    {
+      "x": 31,
+      "y": 34,
+      "mobility_mask": 2
+    },
+    {
+      "x": 20,
+      "y": 35,
+      "mobility_mask": 2
+    },
+    {
+      "x": 21,
+      "y": 35,
+      "mobility_mask": 2
+    },
+    {
+      "x": 22,
+      "y": 35,
+      "mobility_mask": 2
+    },
+    {
+      "x": 23,
+      "y": 35,
+      "mobility_mask": 2
+    },
+    {
+      "x": 27,
+      "y": 35,
+      "mobility_mask": 2
+    },
+    {
+      "x": 28,
+      "y": 35,
+      "mobility_mask": 2
+    },
+    {
+      "x": 29,
+      "y": 35,
+      "mobility_mask": 2
+    },
+    {
+      "x": 30,
+      "y": 35,
+      "mobility_mask": 2
+    },
+    {
+      "x": 22,
+      "y": 36,
+      "mobility_mask": 2
+    },
+    {
+      "x": 23,
+      "y": 36,
+      "mobility_mask": 2
+    },
+    {
+      "x": 27,
+      "y": 36,
+      "mobility_mask": 2
+    },
+    {
+      "x": 28,
+      "y": 36,
+      "mobility_mask": 2
+    }
+  ],
+  "other_semantics": [
+    {
+      "x": 39,
+      "y": 16,
+      "type_id": 29,
+      "type_name": "MissionBoard",
+      "raw_data": [
+        0,
+        0,
+        0
+      ],
+      "raw_strings": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 40,
+      "y": 16,
+      "type_id": 29,
+      "type_name": "MissionBoard",
+      "raw_data": [
+        0,
+        0,
+        0
+      ],
+      "raw_strings": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 20,
+      "y": 39,
+      "type_id": 22,
+      "type_name": "Bank",
+      "raw_data": [
+        0,
+        0,
+        0
+      ],
+      "raw_strings": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 30,
+      "y": 39,
+      "type_id": 26,
+      "type_name": "Assembly",
+      "raw_data": [
+        0,
+        0,
+        0
+      ],
+      "raw_strings": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 4,
+      "y": 43,
+      "type_id": 9,
+      "type_name": "Shop",
+      "raw_data": [
+        1,
+        0,
+        0
+      ],
+      "raw_strings": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 5,
+      "y": 43,
+      "type_id": 9,
+      "type_name": "Shop",
+      "raw_data": [
+        1,
+        0,
+        0
+      ],
+      "raw_strings": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 40,
+      "y": 47,
+      "type_id": 18,
+      "type_name": "LinkShop",
+      "raw_data": [
+        261,
+        1,
+        0
+      ],
+      "raw_strings": [
+        "",
+        "",
+        ""
+      ]
+    }
+  ],
+  "cardinal_connections": {
+    "up": "s799",
+    "down": "s1015",
+    "left": "s943",
+    "right": "s1022"
+  }
+}

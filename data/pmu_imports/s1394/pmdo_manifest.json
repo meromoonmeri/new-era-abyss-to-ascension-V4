@@ -1,0 +1,31 @@
+{
+  "schema": "new-era.pmu-pmdo-manifest.v1",
+  "map_id": "s1394",
+  "asset_name": "pmu_s1394",
+  "name": "Crystal Castle Throne",
+  "tex_size": 1,
+  "scale_factor_px": 1.0,
+  "dimensions_tiles_pmu": [
+    20,
+    15
+  ],
+  "dimensions_pixels": [
+    640,
+    480
+  ],
+  "dimensions_grid_pmdo": [
+    80,
+    60
+  ],
+  "unique_subtiles": 710,
+  "animated_subcells": 0,
+  "artifacts": {
+    "ground": "Data/Ground/pmu_s1394.rsground",
+    "ground_sha256": "e3ba9a25c39a16ce6a6d921416daa8725ac1acdfdf3f1d9720f43b5c9ddffa9c",
+    "tile": "Content/Tile/pmu_s1394_Base.tile",
+    "tile_sha256": "4874dff36f5dfbd7d4a6b030cfb80e04b6d0daacd731a613f81945d3f7f96908",
+    "script": "Data/Script/halcyon/ground/pmu_s1394/init.lua",
+    "script_sha256": "45f1e856f0744e1b015b0d1591f457c8641777b171bafd5aa2bf087021e48839"
+  },
+  "status": "CONVERTED"
+}

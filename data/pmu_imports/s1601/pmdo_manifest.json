@@ -1,0 +1,31 @@
+{
+  "schema": "new-era.pmu-pmdo-manifest.v1",
+  "map_id": "s1601",
+  "asset_name": "pmu_s1601",
+  "name": "Electrostasis Tower Entrance",
+  "tex_size": 1,
+  "scale_factor_px": 1.0,
+  "dimensions_tiles_pmu": [
+    51,
+    51
+  ],
+  "dimensions_pixels": [
+    1632,
+    1632
+  ],
+  "dimensions_grid_pmdo": [
+    204,
+    204
+  ],
+  "unique_subtiles": 455,
+  "animated_subcells": 622,
+  "artifacts": {
+    "ground": "Data/Ground/pmu_s1601.rsground",
+    "ground_sha256": "84947130a49ee51a58777411d159eab6cbaaf797d69e03e7f954951a0cafcdc5",
+    "tile": "Content/Tile/pmu_s1601_Base.tile",
+    "tile_sha256": "13b3042eca3f68e230d0d75fa46b022a9afefb41f276bf2211e59cb5483b2506",
+    "script": "Data/Script/halcyon/ground/pmu_s1601/init.lua",
+    "script_sha256": "6680e0ec97dc219f8be3ebac750d13a103b76c2c2a688b0a403eec0d5896e3a7"
+  },
+  "status": "CONVERTED"
+}

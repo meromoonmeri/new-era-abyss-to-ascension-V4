@@ -1,0 +1,31 @@
+{
+  "schema": "new-era.pmu-pmdo-manifest.v1",
+  "map_id": "s412",
+  "asset_name": "pmu_s412",
+  "name": "Milly's Grassroot Inn",
+  "tex_size": 1,
+  "scale_factor_px": 1.0,
+  "dimensions_tiles_pmu": [
+    20,
+    15
+  ],
+  "dimensions_pixels": [
+    640,
+    480
+  ],
+  "dimensions_grid_pmdo": [
+    80,
+    60
+  ],
+  "unique_subtiles": 1678,
+  "animated_subcells": 14,
+  "artifacts": {
+    "ground": "Data/Ground/pmu_s412.rsground",
+    "ground_sha256": "a227d484a5f61fb2e7963c46cebd6d5365133b211920b27f3b773c0f0c5f29b8",
+    "tile": "Content/Tile/pmu_s412_Base.tile",
+    "tile_sha256": "4149665c14e321182b4147df24124427be9cd63f102f90ac2d804d948e56c486",
+    "script": "Data/Script/halcyon/ground/pmu_s412/init.lua",
+    "script_sha256": "0604ce6764473ac2780230baa3e5234ec1de8f846a787514dfe1fc58f6ebcab4"
+  },
+  "status": "CONVERTED"
+}

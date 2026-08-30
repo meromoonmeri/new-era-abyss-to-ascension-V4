@@ -1,0 +1,48 @@
+{
+  "schema": "new-era.pmu-tileset.v1",
+  "map_id": "s1990",
+  "tileset_ids": [
+    4,
+    8
+  ],
+  "tile_counts_by_tileset": {
+    "4": 21,
+    "8": 1
+  },
+  "tile_ids_by_tileset": {
+    "4": [
+      3,
+      5,
+      17,
+      18,
+      980,
+      981,
+      983,
+      984,
+      994,
+      995,
+      996,
+      997,
+      998,
+      1009,
+      1010,
+      1023,
+      1024,
+      1026,
+      1036,
+      1037,
+      1038
+    ],
+    "8": [
+      2569
+    ]
+  },
+  "animated_tiles_count": 0,
+  "layer_names": [
+    "Ground",
+    "Mask",
+    "Mask2",
+    "Fringe",
+    "Fringe2"
+  ]
+}

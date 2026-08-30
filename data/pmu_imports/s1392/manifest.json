@@ -1,0 +1,34 @@
+{
+  "schema": "new-era.pmu-manifest.v1",
+  "map_id": "s1392",
+  "name": "Crystal Ruins Hall",
+  "revision": 15,
+  "extraction_timestamp": "2026-08-30T15:12:38.206461+00:00",
+  "source_provenance": {
+    "database": "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/pmu-extraction/pmu-standard.sqlite3",
+    "database_sha256": "829e18106d920480ce90fca5bc370e241eff6713e1b49815cddd31af1b65685c"
+  },
+  "dimensions": {
+    "tiles": [
+      20,
+      15
+    ],
+    "pixels": [
+      640,
+      480
+    ],
+    "tile_size": 32
+  },
+  "statistics": {
+    "total_tiles": 300,
+    "animated_tiles": 0,
+    "tilesets_used": [
+      4,
+      7
+    ],
+    "npcs_count": 0,
+    "warps_count": 0,
+    "signs_count": 0
+  },
+  "status": "EXTRACTED"
+}

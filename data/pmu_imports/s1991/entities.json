@@ -1,0 +1,28 @@
+{
+  "schema": "new-era.pmu-entities.v1",
+  "map_id": "s1991",
+  "npc_count": 1,
+  "npcs": [
+    {
+      "map_id": "s1991",
+      "slot": 0,
+      "number": 508,
+      "spawn_x": 17,
+      "spawn_y": 31,
+      "min_level": 1,
+      "max_level": 1,
+      "appearance_rate": 100,
+      "start_status": 0,
+      "start_status_counter": 0,
+      "start_status_chance": 1,
+      "npc_name": "Jamie",
+      "npc_sprite": 365,
+      "npc_species": -1,
+      "npc_form": -1,
+      "npc_sex": -1,
+      "npc_behavior": 2,
+      "npc_script": "",
+      "npc_attack_say": "Most of the other inhabitants of this town don't stay outside thinking they will get attacked by a Regice, but I know that is just a myth."
+    }
+  ]
+}

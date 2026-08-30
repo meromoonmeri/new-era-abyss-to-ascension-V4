@@ -1,0 +1,67 @@
+{
+  "schema": "new-era.pmdo-semantics.v1",
+  "map_id": "s1144",
+  "asset_name": "pmu_s1144",
+  "grid_dimensions_8px": [
+    80,
+    60
+  ],
+  "tex_size": 1,
+  "warps": [
+    {
+      "name": "Warp_1",
+      "pos": {
+        "X": 304,
+        "Y": 400
+      },
+      "target": "s737",
+      "tx": 20,
+      "ty": 7
+    },
+    {
+      "name": "Warp_2",
+      "pos": {
+        "X": 336,
+        "Y": 400
+      },
+      "target": "s737",
+      "tx": 20,
+      "ty": 7
+    }
+  ],
+  "signs": [],
+  "npcs": [
+    {
+      "name": "NPC_1_Leavi",
+      "sprite": 2,
+      "pos": {
+        "X": 320,
+        "Y": 240
+      },
+      "behavior": 2
+    },
+    {
+      "name": "NPC_2_Bulby",
+      "sprite": 1,
+      "pos": {
+        "X": 336,
+        "Y": 112
+      },
+      "behavior": 2
+    },
+    {
+      "name": "NPC_3_Bulby",
+      "sprite": 1,
+      "pos": {
+        "X": 336,
+        "Y": 112
+      },
+      "behavior": 2
+    }
+  ],
+  "obstacles_summary": {
+    "total_cells": 4800,
+    "blocked_cells": 3392,
+    "walkable_cells": 1408
+  }
+}

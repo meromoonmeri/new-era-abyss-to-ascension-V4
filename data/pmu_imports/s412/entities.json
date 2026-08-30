@@ -1,0 +1,49 @@
+{
+  "schema": "new-era.pmu-entities.v1",
+  "map_id": "s412",
+  "npc_count": 2,
+  "npcs": [
+    {
+      "map_id": "s412",
+      "slot": 0,
+      "number": 16,
+      "spawn_x": 12,
+      "spawn_y": 6,
+      "min_level": 1,
+      "max_level": 1,
+      "appearance_rate": 100,
+      "start_status": 0,
+      "start_status_counter": 0,
+      "start_status_chance": 100,
+      "npc_name": "Snap",
+      "npc_sprite": 153,
+      "npc_species": 0,
+      "npc_form": 0,
+      "npc_sex": 0,
+      "npc_behavior": 2,
+      "npc_script": "",
+      "npc_attack_say": "Yeeeah, I don't know if she's being sarcastic or highly optimistic either."
+    },
+    {
+      "map_id": "s412",
+      "slot": 1,
+      "number": 15,
+      "spawn_x": 12,
+      "spawn_y": 7,
+      "min_level": 1,
+      "max_level": 1,
+      "appearance_rate": 100,
+      "start_status": 0,
+      "start_status_counter": 0,
+      "start_status_chance": 100,
+      "npc_name": "Milly",
+      "npc_sprite": 154,
+      "npc_species": 0,
+      "npc_form": 0,
+      "npc_sex": 0,
+      "npc_behavior": 2,
+      "npc_script": "",
+      "npc_attack_say": "If you just woke up breathing, congratulations! You have another chance."
+    }
+  ]
+}

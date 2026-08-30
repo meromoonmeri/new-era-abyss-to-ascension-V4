@@ -1,0 +1,31 @@
+{
+  "schema": "new-era.pmu-pmdo-manifest.v1",
+  "map_id": "s1392",
+  "asset_name": "pmu_s1392",
+  "name": "Crystal Ruins Hall",
+  "tex_size": 1,
+  "scale_factor_px": 1.0,
+  "dimensions_tiles_pmu": [
+    20,
+    15
+  ],
+  "dimensions_pixels": [
+    640,
+    480
+  ],
+  "dimensions_grid_pmdo": [
+    80,
+    60
+  ],
+  "unique_subtiles": 466,
+  "animated_subcells": 0,
+  "artifacts": {
+    "ground": "Data/Ground/pmu_s1392.rsground",
+    "ground_sha256": "1e3c1c28da0d002a1cc590d30654e807db9fbcb9568b6177950abd4007833aaf",
+    "tile": "Content/Tile/pmu_s1392_Base.tile",
+    "tile_sha256": "a01fdfb78be8a93000fb3ffa0183524a96ebc668c3087d3f41ef2d78d4566929",
+    "script": "Data/Script/halcyon/ground/pmu_s1392/init.lua",
+    "script_sha256": "74e4fb7e1166ca1c5f67a0a379ef225ee5200a2331263bd8efc95e52b59250a0"
+  },
+  "status": "CONVERTED"
+}

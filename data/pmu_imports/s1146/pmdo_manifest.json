@@ -1,0 +1,31 @@
+{
+  "schema": "new-era.pmu-pmdo-manifest.v1",
+  "map_id": "s1146",
+  "asset_name": "pmu_s1146",
+  "name": "Exbel Grassroot Town, Lark's House",
+  "tex_size": 1,
+  "scale_factor_px": 1.0,
+  "dimensions_tiles_pmu": [
+    20,
+    15
+  ],
+  "dimensions_pixels": [
+    640,
+    480
+  ],
+  "dimensions_grid_pmdo": [
+    80,
+    60
+  ],
+  "unique_subtiles": 769,
+  "animated_subcells": 28,
+  "artifacts": {
+    "ground": "Data/Ground/pmu_s1146.rsground",
+    "ground_sha256": "9968f776ad2cf9b64a077d3425057f9a9c52687521682439092b751c0f749c32",
+    "tile": "Content/Tile/pmu_s1146_Base.tile",
+    "tile_sha256": "b5995650c0449b33567831fa522ffcbf4cc5c9688654e925e7557799fc03cfe4",
+    "script": "Data/Script/halcyon/ground/pmu_s1146/init.lua",
+    "script_sha256": "1c784034982de644c7c675448af01236c4a7765f5d6b9ef7d8b362a665065a27"
+  },
+  "status": "CONVERTED"
+}

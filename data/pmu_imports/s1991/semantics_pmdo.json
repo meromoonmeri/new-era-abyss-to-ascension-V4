@@ -1,0 +1,188 @@
+{
+  "schema": "new-era.pmdo-semantics.v1",
+  "map_id": "s1991",
+  "asset_name": "pmu_s1991",
+  "grid_dimensions_8px": [
+    204,
+    204
+  ],
+  "tex_size": 1,
+  "warps": [
+    {
+      "name": "Warp_1",
+      "pos": {
+        "X": 1200,
+        "Y": 240
+      },
+      "target": "s278",
+      "tx": 10,
+      "ty": 13
+    },
+    {
+      "name": "Warp_2",
+      "pos": {
+        "X": 816,
+        "Y": 464
+      },
+      "target": "s1334",
+      "tx": 9,
+      "ty": 29
+    },
+    {
+      "name": "Warp_3",
+      "pos": {
+        "X": 496,
+        "Y": 848
+      },
+      "target": "s321",
+      "tx": 9,
+      "ty": 11
+    },
+    {
+      "name": "Warp_4",
+      "pos": {
+        "X": 1136,
+        "Y": 1008
+      },
+      "target": "s1333",
+      "tx": 9,
+      "ty": 11
+    },
+    {
+      "name": "Warp_5",
+      "pos": {
+        "X": 624,
+        "Y": 1136
+      },
+      "target": "s56",
+      "tx": 9,
+      "ty": 9
+    },
+    {
+      "name": "Warp_6",
+      "pos": {
+        "X": 1008,
+        "Y": 1168
+      },
+      "target": "s319",
+      "tx": 9,
+      "ty": 11
+    }
+  ],
+  "signs": [
+    {
+      "name": "Sign_1",
+      "collider": {
+        "X": 1120,
+        "Y": 256,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "Winden Sauna",
+        "And Lickilicky's Drool Service",
+        ""
+      ]
+    },
+    {
+      "name": "Sign_2",
+      "collider": {
+        "X": 736,
+        "Y": 480,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "Winden Town Hall",
+        "",
+        ""
+      ]
+    },
+    {
+      "name": "Sign_3",
+      "collider": {
+        "X": 1248,
+        "Y": 576,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "North: Winden Sauna",
+        "",
+        ""
+      ]
+    },
+    {
+      "name": "Sign_4",
+      "collider": {
+        "X": 1280,
+        "Y": 576,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "North: Winden Sauna",
+        "",
+        ""
+      ]
+    },
+    {
+      "name": "Sign_5",
+      "collider": {
+        "X": 1312,
+        "Y": 576,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "East: Snowball Game",
+        "---->",
+        "Follow the path."
+      ]
+    },
+    {
+      "name": "Sign_6",
+      "collider": {
+        "X": 1344,
+        "Y": 576,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "East: Snowball Game",
+        "---->",
+        "Follow the path."
+      ]
+    },
+    {
+      "name": "Sign_7",
+      "collider": {
+        "X": 864,
+        "Y": 768,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "NeverMeltIce Pillar",
+        "Winden's Pride and Glory",
+        "This ice pillar has stood here in Snowbasin Town since the day it was founded."
+      ]
+    }
+  ],
+  "npcs": [
+    {
+      "name": "NPC_1_Jamie",
+      "sprite": 365,
+      "pos": {
+        "X": 560,
+        "Y": 1008
+      },
+      "behavior": 2
+    }
+  ],
+  "obstacles_summary": {
+    "total_cells": 41616,
+    "blocked_cells": 13808,
+    "walkable_cells": 27808
+  }
+}

@@ -1,0 +1,163 @@
+{
+  "schema": "new-era.pmdo-semantics.v1",
+  "map_id": "s2000",
+  "asset_name": "pmu_s2000",
+  "grid_dimensions_8px": [
+    80,
+    60
+  ],
+  "tex_size": 1,
+  "warps": [],
+  "signs": [],
+  "npcs": [
+    {
+      "name": "NPC_1_._.",
+      "sprite": 194,
+      "pos": {
+        "X": 304,
+        "Y": 176
+      },
+      "behavior": 2
+    },
+    {
+      "name": "NPC_2_._.",
+      "sprite": 194,
+      "pos": {
+        "X": 336,
+        "Y": 208
+      },
+      "behavior": 2
+    },
+    {
+      "name": "NPC_3_._.",
+      "sprite": 194,
+      "pos": {
+        "X": 304,
+        "Y": 240
+      },
+      "behavior": 2
+    },
+    {
+      "name": "NPC_4_._.",
+      "sprite": 194,
+      "pos": {
+        "X": 272,
+        "Y": 208
+      },
+      "behavior": 2
+    },
+    {
+      "name": "NPC_5_._.",
+      "sprite": 194,
+      "pos": {
+        "X": 272,
+        "Y": 144
+      },
+      "behavior": 2
+    },
+    {
+      "name": "NPC_6_._.",
+      "sprite": 194,
+      "pos": {
+        "X": 336,
+        "Y": 144
+      },
+      "behavior": 2
+    },
+    {
+      "name": "NPC_7_._.",
+      "sprite": 194,
+      "pos": {
+        "X": 368,
+        "Y": 176
+      },
+      "behavior": 2
+    },
+    {
+      "name": "NPC_8_._.",
+      "sprite": 194,
+      "pos": {
+        "X": 368,
+        "Y": 240
+      },
+      "behavior": 2
+    },
+    {
+      "name": "NPC_9_._.",
+      "sprite": 194,
+      "pos": {
+        "X": 336,
+        "Y": 272
+      },
+      "behavior": 2
+    },
+    {
+      "name": "NPC_10_._.",
+      "sprite": 194,
+      "pos": {
+        "X": 272,
+        "Y": 272
+      },
+      "behavior": 2
+    },
+    {
+      "name": "NPC_11_._.",
+      "sprite": 194,
+      "pos": {
+        "X": 240,
+        "Y": 240
+      },
+      "behavior": 2
+    },
+    {
+      "name": "NPC_12_._.",
+      "sprite": 194,
+      "pos": {
+        "X": 240,
+        "Y": 176
+      },
+      "behavior": 2
+    },
+    {
+      "name": "NPC_13_._.",
+      "sprite": 194,
+      "pos": {
+        "X": 208,
+        "Y": 112
+      },
+      "behavior": 2
+    },
+    {
+      "name": "NPC_14_._.",
+      "sprite": 194,
+      "pos": {
+        "X": 400,
+        "Y": 112
+      },
+      "behavior": 2
+    },
+    {
+      "name": "NPC_15_._.",
+      "sprite": 194,
+      "pos": {
+        "X": 400,
+        "Y": 304
+      },
+      "behavior": 2
+    },
+    {
+      "name": "NPC_16_._.",
+      "sprite": 194,
+      "pos": {
+        "X": 208,
+        "Y": 304
+      },
+      "behavior": 2
+    }
+  ],
+  "obstacles_summary": {
+    "total_cells": 4800,
+    "blocked_cells": 1856,
+    "walkable_cells": 2944
+  }
+}

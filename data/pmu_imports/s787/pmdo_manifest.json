@@ -1,0 +1,31 @@
+{
+  "schema": "new-era.pmu-pmdo-manifest.v1",
+  "map_id": "s787",
+  "asset_name": "pmu_s787",
+  "name": "Boggy Wastes [Final Boss]",
+  "tex_size": 1,
+  "scale_factor_px": 1.0,
+  "dimensions_tiles_pmu": [
+    20,
+    15
+  ],
+  "dimensions_pixels": [
+    640,
+    480
+  ],
+  "dimensions_grid_pmdo": [
+    80,
+    60
+  ],
+  "unique_subtiles": 565,
+  "animated_subcells": 0,
+  "artifacts": {
+    "ground": "Data/Ground/pmu_s787.rsground",
+    "ground_sha256": "a34e298167576f8d3e45f8d5489ed27116da46e825d3eb85a1caea7cb00c2903",
+    "tile": "Content/Tile/pmu_s787_Base.tile",
+    "tile_sha256": "9ef7dceb0bb45ac6e8822decc8dd2dc4e8d41cac7d23ed3dbceeddd8d94ef974",
+    "script": "Data/Script/halcyon/ground/pmu_s787/init.lua",
+    "script_sha256": "74b8ed97731ad6ce067dab379f33b9301ced7bc655aac0358fa30a0673610dcd"
+  },
+  "status": "CONVERTED"
+}

@@ -1,0 +1,36 @@
+{
+  "schema": "new-era.pmu-manifest.v1",
+  "map_id": "s737",
+  "name": "Exbel, Grassroot Town",
+  "revision": 1715,
+  "extraction_timestamp": "2026-08-30T15:00:30.612593+00:00",
+  "source_provenance": {
+    "database": "/home/user/new-era-abyss-to-ascension-V4/.runtime-cache/pmu-extraction/pmu-standard.sqlite3",
+    "database_sha256": "829e18106d920480ce90fca5bc370e241eff6713e1b49815cddd31af1b65685c"
+  },
+  "dimensions": {
+    "tiles": [
+      51,
+      51
+    ],
+    "pixels": [
+      1632,
+      1632
+    ],
+    "tile_size": 32
+  },
+  "statistics": {
+    "total_tiles": 2601,
+    "animated_tiles": 138,
+    "tilesets_used": [
+      0,
+      7,
+      8,
+      9
+    ],
+    "npcs_count": 13,
+    "warps_count": 12,
+    "signs_count": 13
+  },
+  "status": "EXTRACTED"
+}

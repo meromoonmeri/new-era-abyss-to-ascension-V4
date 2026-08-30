@@ -1,0 +1,75 @@
+{
+  "schema": "new-era.pmdo-semantics.v1",
+  "map_id": "s100",
+  "asset_name": "pmu_s100",
+  "grid_dimensions_8px": [
+    160,
+    60
+  ],
+  "tex_size": 1,
+  "warps": [
+    {
+      "name": "Warp_1",
+      "pos": {
+        "X": 1200,
+        "Y": 400
+      },
+      "target": "s104",
+      "tx": 18,
+      "ty": 43
+    }
+  ],
+  "signs": [],
+  "npcs": [
+    {
+      "name": "NPC_1_Kricketot",
+      "sprite": 401,
+      "pos": {
+        "X": 640,
+        "Y": 240
+      },
+      "behavior": 0
+    },
+    {
+      "name": "NPC_2_Budew",
+      "sprite": 406,
+      "pos": {
+        "X": 640,
+        "Y": 240
+      },
+      "behavior": 0
+    },
+    {
+      "name": "NPC_3_Bellsprout",
+      "sprite": 69,
+      "pos": {
+        "X": 640,
+        "Y": 240
+      },
+      "behavior": 0
+    },
+    {
+      "name": "NPC_4_Caterpie",
+      "sprite": 10,
+      "pos": {
+        "X": 640,
+        "Y": 240
+      },
+      "behavior": 0
+    },
+    {
+      "name": "NPC_5_Nincada",
+      "sprite": 290,
+      "pos": {
+        "X": 1008,
+        "Y": 368
+      },
+      "behavior": 0
+    }
+  ],
+  "obstacles_summary": {
+    "total_cells": 9600,
+    "blocked_cells": 4560,
+    "walkable_cells": 5040
+  }
+}

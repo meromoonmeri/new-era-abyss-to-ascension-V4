@@ -1,0 +1,100 @@
+{
+  "schema": "new-era.pmu-semantics.v1",
+  "map_id": "s1985",
+  "warps_count": 2,
+  "signs_count": 3,
+  "doors_count": 0,
+  "items_count": 0,
+  "scripts_count": 0,
+  "stories_count": 0,
+  "level_blocks_count": 0,
+  "sprite_blocks_count": 0,
+  "mobile_blocks_count": 0,
+  "warps": [
+    {
+      "source_x": 9,
+      "source_y": 12,
+      "target_map_id": "s1997",
+      "target_x": 34,
+      "target_y": 24,
+      "raw_data": [
+        1997,
+        34,
+        24
+      ]
+    },
+    {
+      "source_x": 10,
+      "source_y": 12,
+      "target_map_id": "s1997",
+      "target_x": 34,
+      "target_y": 24,
+      "raw_data": [
+        1997,
+        34,
+        24
+      ]
+    }
+  ],
+  "signs": [
+    {
+      "x": 8,
+      "y": 3,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "List of Beverages:",
+        "Cheri Berri Punch, Chesto Wake-Up Smoothie...",
+        "...Leppa Power Shake... -list continues on-."
+      ]
+    },
+    {
+      "x": 11,
+      "y": 6,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "Welcome to the Skitty Saloon!",
+        "Feel free to help yourself to a drink.",
+        "And don't forget to sit back and relax!"
+      ]
+    },
+    {
+      "x": 12,
+      "y": 6,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "Welcome to the Skitty Saloon!",
+        "Feel free to help yourself to a drink.",
+        "And don't forget to sit back and relax!"
+      ]
+    }
+  ],
+  "doors": [],
+  "items": [],
+  "scripts": [],
+  "stories": [],
+  "level_blocks": [],
+  "sprite_blocks": [],
+  "mobile_blocks": [],
+  "other_semantics": [
+    {
+      "x": 8,
+      "y": 4,
+      "type_id": 16,
+      "type_name": "Notice",
+      "raw_data": [
+        0,
+        0,
+        0
+      ],
+      "raw_strings": [
+        "You look upon the menu.",
+        "",
+        "magic10.ogg"
+      ]
+    }
+  ],
+  "cardinal_connections": {}
+}

@@ -1,0 +1,155 @@
+{
+  "schema": "new-era.pmu-semantics.v1",
+  "map_id": "s21",
+  "warps_count": 3,
+  "signs_count": 5,
+  "doors_count": 0,
+  "items_count": 0,
+  "scripts_count": 0,
+  "stories_count": 0,
+  "level_blocks_count": 0,
+  "sprite_blocks_count": 0,
+  "mobile_blocks_count": 0,
+  "warps": [
+    {
+      "source_x": 3,
+      "source_y": 4,
+      "target_map_id": "s793",
+      "target_x": 9,
+      "target_y": 3,
+      "raw_data": [
+        793,
+        9,
+        3
+      ]
+    },
+    {
+      "source_x": 4,
+      "source_y": 4,
+      "target_map_id": "s793",
+      "target_x": 9,
+      "target_y": 3,
+      "raw_data": [
+        793,
+        9,
+        3
+      ]
+    },
+    {
+      "source_x": 15,
+      "source_y": 4,
+      "target_map_id": "s55",
+      "target_x": 9,
+      "target_y": 14,
+      "raw_data": [
+        55,
+        9,
+        14
+      ]
+    }
+  ],
+  "signs": [
+    {
+      "x": 6,
+      "y": 5,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "Come one, come all!",
+        "Participate in Wigglytuff's Minigame Tent!",
+        ""
+      ]
+    },
+    {
+      "x": 8,
+      "y": 5,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "<--- To the Jail.",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 12,
+      "y": 5,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "Winden up ahead.",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 13,
+      "y": 5,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "Winden up ahead.",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 16,
+      "y": 5,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "Loomy's Treasure Exchange",
+        "Mushrooms, you say? Bring 'em here!",
+        ""
+      ]
+    }
+  ],
+  "doors": [],
+  "items": [],
+  "scripts": [],
+  "stories": [],
+  "level_blocks": [],
+  "sprite_blocks": [],
+  "mobile_blocks": [],
+  "other_semantics": [
+    {
+      "x": 12,
+      "y": 10,
+      "type_id": 5,
+      "type_name": "Key",
+      "raw_data": [
+        25,
+        0,
+        0
+      ],
+      "raw_strings": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 18,
+      "y": 11,
+      "type_id": 5,
+      "type_name": "Key",
+      "raw_data": [
+        25,
+        0,
+        0
+      ],
+      "raw_strings": [
+        "",
+        "",
+        ""
+      ]
+    }
+  ],
+  "cardinal_connections": {
+    "up": "s25",
+    "down": "s17",
+    "left": "s32",
+    "right": "s57"
+  }
+}

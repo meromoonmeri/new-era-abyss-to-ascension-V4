@@ -1,0 +1,11 @@
+{
+  "status": "VALIDATED",
+  "total_pmu_cells": 1836,
+  "total_pmdo_cells": 29376,
+  "matched_cells": 29376,
+  "mismatched_cells": 0,
+  "lost_blocked_cells": 0,
+  "added_blocked_cells": 0,
+  "expansion_ratio": 16,
+  "perfect_collision_match": true
+}

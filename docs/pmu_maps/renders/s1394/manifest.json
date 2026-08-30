@@ -1,0 +1,15 @@
+{
+  "map_id": "s1394",
+  "dimensions_px": [
+    640,
+    480
+  ],
+  "source_png": "/home/user/new-era-abyss-to-ascension-V4/docs/pmu_maps/renders/s1394/original.png",
+  "source_png_sha256": "a3f3837d74c0ff0a9ff8fa281c9ecaffa5e4de74f95de41650447c06314f85ea",
+  "preview_png": "/home/user/new-era-abyss-to-ascension-V4/docs/pmu_maps/renders/s1394/preview.png",
+  "preview_png_sha256": "08dbd6080d3e48ab034a611323addcee690f2c146ba1068257dd4189c99109b7",
+  "collision_png": "/home/user/new-era-abyss-to-ascension-V4/docs/pmu_maps/renders/s1394/collision.png",
+  "collision_png_sha256": "7170ead94b6bab7082627be42d6db8446d3f064a8ee44e6dd1c61b01874dbadf",
+  "has_animations": false,
+  "status": "RENDERED"
+}

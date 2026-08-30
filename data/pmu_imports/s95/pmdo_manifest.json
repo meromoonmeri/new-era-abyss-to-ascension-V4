@@ -1,0 +1,31 @@
+{
+  "schema": "new-era.pmu-pmdo-manifest.v1",
+  "map_id": "s95",
+  "asset_name": "pmu_s95",
+  "name": "Stone-Solid Dungeon B1F",
+  "tex_size": 1,
+  "scale_factor_px": 1.0,
+  "dimensions_tiles_pmu": [
+    20,
+    15
+  ],
+  "dimensions_pixels": [
+    640,
+    480
+  ],
+  "dimensions_grid_pmdo": [
+    80,
+    60
+  ],
+  "unique_subtiles": 241,
+  "animated_subcells": 0,
+  "artifacts": {
+    "ground": "Data/Ground/pmu_s95.rsground",
+    "ground_sha256": "796f90b6fdac8b642355201ced610c9ad939be7a39935ed4d6c6951238fd60c5",
+    "tile": "Content/Tile/pmu_s95_Base.tile",
+    "tile_sha256": "bcc43f49772406566d07a72b757c9949320ecd541dd81166055dad724ac38e88",
+    "script": "Data/Script/halcyon/ground/pmu_s95/init.lua",
+    "script_sha256": "0d75a4b50071f6a043cd47c9efd58a62e7c6eca7ac480b9e3b58ce1dacc8d971"
+  },
+  "status": "CONVERTED"
+}

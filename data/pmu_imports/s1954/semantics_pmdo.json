@@ -1,0 +1,219 @@
+{
+  "schema": "new-era.pmdo-semantics.v1",
+  "map_id": "s1954",
+  "asset_name": "pmu_s1954",
+  "grid_dimensions_8px": [
+    144,
+    204
+  ],
+  "tex_size": 1,
+  "warps": [
+    {
+      "name": "Warp_1",
+      "pos": {
+        "X": 656,
+        "Y": 176
+      },
+      "target": "s1954",
+      "tx": 22,
+      "ty": 45
+    },
+    {
+      "name": "Warp_2",
+      "pos": {
+        "X": 272,
+        "Y": 208
+      },
+      "target": "s1954",
+      "tx": 4,
+      "ty": 43
+    },
+    {
+      "name": "Warp_3",
+      "pos": {
+        "X": 304,
+        "Y": 208
+      },
+      "target": "s1954",
+      "tx": 4,
+      "ty": 43
+    },
+    {
+      "name": "Warp_4",
+      "pos": {
+        "X": 784,
+        "Y": 240
+      },
+      "target": "s1954",
+      "tx": 27,
+      "ty": 45
+    },
+    {
+      "name": "Warp_5",
+      "pos": {
+        "X": 816,
+        "Y": 240
+      },
+      "target": "s1954",
+      "tx": 27,
+      "ty": 45
+    },
+    {
+      "name": "Warp_6",
+      "pos": {
+        "X": 944,
+        "Y": 272
+      },
+      "target": "s1954",
+      "tx": 32,
+      "ty": 47
+    },
+    {
+      "name": "Warp_7",
+      "pos": {
+        "X": 976,
+        "Y": 272
+      },
+      "target": "s1954",
+      "tx": 32,
+      "ty": 47
+    },
+    {
+      "name": "Warp_8",
+      "pos": {
+        "X": 528,
+        "Y": 304
+      },
+      "target": "s1954",
+      "tx": 15,
+      "ty": 44
+    },
+    {
+      "name": "Warp_9",
+      "pos": {
+        "X": 560,
+        "Y": 304
+      },
+      "target": "s1954",
+      "tx": 15,
+      "ty": 44
+    },
+    {
+      "name": "Warp_10",
+      "pos": {
+        "X": 112,
+        "Y": 336
+      },
+      "target": "s1954",
+      "tx": 2,
+      "ty": 49
+    },
+    {
+      "name": "Warp_11",
+      "pos": {
+        "X": 144,
+        "Y": 336
+      },
+      "target": "s1954",
+      "tx": 2,
+      "ty": 49
+    },
+    {
+      "name": "Warp_12",
+      "pos": {
+        "X": 272,
+        "Y": 368
+      },
+      "target": "s1954",
+      "tx": 12,
+      "ty": 47
+    },
+    {
+      "name": "Warp_13",
+      "pos": {
+        "X": 688,
+        "Y": 432
+      },
+      "target": "s1987",
+      "tx": 16,
+      "ty": 9
+    },
+    {
+      "name": "Warp_14",
+      "pos": {
+        "X": 240,
+        "Y": 1392
+      },
+      "target": "s1954",
+      "tx": 27,
+      "ty": 11
+    },
+    {
+      "name": "Warp_15",
+      "pos": {
+        "X": 784,
+        "Y": 1392
+      },
+      "target": "s1954",
+      "tx": 27,
+      "ty": 11
+    },
+    {
+      "name": "Warp_16",
+      "pos": {
+        "X": 912,
+        "Y": 1392
+      },
+      "target": "s1954",
+      "tx": 27,
+      "ty": 11
+    },
+    {
+      "name": "Warp_17",
+      "pos": {
+        "X": 336,
+        "Y": 1456
+      },
+      "target": "s1954",
+      "tx": 27,
+      "ty": 11
+    },
+    {
+      "name": "Warp_18",
+      "pos": {
+        "X": 656,
+        "Y": 1456
+      },
+      "target": "s1954",
+      "tx": 27,
+      "ty": 11
+    },
+    {
+      "name": "Warp_19",
+      "pos": {
+        "X": 1072,
+        "Y": 1456
+      },
+      "target": "s1954",
+      "tx": 27,
+      "ty": 11
+    },
+    {
+      "name": "Warp_20",
+      "pos": {
+        "X": 48,
+        "Y": 1520
+      },
+      "target": "s1954",
+      "tx": 27,
+      "ty": 11
+    }
+  ],
+  "signs": [],
+  "npcs": [],
+  "obstacles_summary": {
+    "total_cells": 29376,
+    "blocked_cells": 12048,
+    "walkable_cells": 17328
+  }
+}

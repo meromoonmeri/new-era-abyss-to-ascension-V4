@@ -1,0 +1,336 @@
+{
+  "schema": "new-era.pmu-semantics.v1",
+  "map_id": "s1810",
+  "warps_count": 0,
+  "signs_count": 18,
+  "doors_count": 0,
+  "items_count": 0,
+  "scripts_count": 0,
+  "stories_count": 0,
+  "level_blocks_count": 0,
+  "sprite_blocks_count": 0,
+  "mobile_blocks_count": 19,
+  "warps": [],
+  "signs": [
+    {
+      "x": 46,
+      "y": 7,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "Come here to cleanthe your thticky itemth!",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 19,
+      "y": 17,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "Wigglytuff's Minigame Tent",
+        "CTF has been redesigned!",
+        "Come in and play!"
+      ]
+    },
+    {
+      "x": 40,
+      "y": 17,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "Electivire's Moveset Services",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 25,
+      "y": 23,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "Kangaskhan Storage",
+        "Wild Plains Tavern",
+        "Kecleon Shoppe"
+      ]
+    },
+    {
+      "x": 26,
+      "y": 23,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "Kangaskhan Storage",
+        "Wild Plains Tavern",
+        "Kecleon Shoppe"
+      ]
+    },
+    {
+      "x": 15,
+      "y": 34,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "Grassroot Housing Center",
+        "Come here to visit houses or decorate your own!",
+        ""
+      ]
+    },
+    {
+      "x": 16,
+      "y": 34,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "Grassroot Housing Center",
+        "Come here to visit houses or decorate your own!",
+        ""
+      ]
+    },
+    {
+      "x": 30,
+      "y": 34,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "Welcome to Grassroot Town!",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 31,
+      "y": 34,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "Welcome to Grassroot Town!",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 3,
+      "y": 35,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "Marowak Training Dojo",
+        "Train your strenght, skill, speed and resistence in our training facilities!",
+        "You can also fight your friends in the arena!"
+      ]
+    },
+    {
+      "x": 4,
+      "y": 35,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "Marowak Training Dojo",
+        "Train your strenght, skill, speed and resistence in our training facilities!",
+        "You can also fight your friends in the arena!"
+      ]
+    },
+    {
+      "x": 33,
+      "y": 39,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "To trade items with another Player use /trade",
+        "if you drop items they may be stolen.",
+        ""
+      ]
+    },
+    {
+      "x": 37,
+      "y": 40,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "As of October 25th, 2010 the staff will not be selling guilds.",
+        "This means that as of 10/25/2010 until present day, guilds will not be sold unless said otherwise.",
+        ""
+      ]
+    },
+    {
+      "x": 38,
+      "y": 40,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "As of October 25th, 2010 the staff will not be selling guilds.",
+        "This means that as of 10/25/2010 until present day, guilds will not be sold unless said otherwise.",
+        ""
+      ]
+    },
+    {
+      "x": 3,
+      "y": 42,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "Welcome to Delite Plaza!",
+        "Come on down and have a Deliteful Day!",
+        ""
+      ]
+    },
+    {
+      "x": 4,
+      "y": 42,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "Welcome to Delite Plaza!",
+        "Come on down and have a Deliteful Day!",
+        ""
+      ]
+    },
+    {
+      "x": 26,
+      "y": 48,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "Welcome to Grassroot town, from early PMU7.",
+        "A blast to the past, enjoy!",
+        ""
+      ]
+    },
+    {
+      "x": 27,
+      "y": 48,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "Welcome to Grassroot town, from early PMU7.",
+        "A blast to the past, enjoy!",
+        ""
+      ]
+    }
+  ],
+  "doors": [],
+  "items": [],
+  "scripts": [],
+  "stories": [],
+  "level_blocks": [],
+  "sprite_blocks": [],
+  "mobile_blocks": [
+    {
+      "x": 25,
+      "y": 28,
+      "mobility_mask": 2
+    },
+    {
+      "x": 26,
+      "y": 28,
+      "mobility_mask": 2
+    },
+    {
+      "x": 27,
+      "y": 28,
+      "mobility_mask": 2
+    },
+    {
+      "x": 28,
+      "y": 28,
+      "mobility_mask": 2
+    },
+    {
+      "x": 29,
+      "y": 28,
+      "mobility_mask": 2
+    },
+    {
+      "x": 30,
+      "y": 28,
+      "mobility_mask": 2
+    },
+    {
+      "x": 31,
+      "y": 28,
+      "mobility_mask": 2
+    },
+    {
+      "x": 25,
+      "y": 29,
+      "mobility_mask": 2
+    },
+    {
+      "x": 31,
+      "y": 29,
+      "mobility_mask": 2
+    },
+    {
+      "x": 25,
+      "y": 30,
+      "mobility_mask": 2
+    },
+    {
+      "x": 31,
+      "y": 30,
+      "mobility_mask": 2
+    },
+    {
+      "x": 25,
+      "y": 31,
+      "mobility_mask": 2
+    },
+    {
+      "x": 26,
+      "y": 31,
+      "mobility_mask": 2
+    },
+    {
+      "x": 30,
+      "y": 31,
+      "mobility_mask": 2
+    },
+    {
+      "x": 31,
+      "y": 31,
+      "mobility_mask": 2
+    },
+    {
+      "x": 25,
+      "y": 32,
+      "mobility_mask": 2
+    },
+    {
+      "x": 26,
+      "y": 32,
+      "mobility_mask": 2
+    },
+    {
+      "x": 30,
+      "y": 32,
+      "mobility_mask": 2
+    },
+    {
+      "x": 31,
+      "y": 32,
+      "mobility_mask": 2
+    }
+  ],
+  "other_semantics": [
+    {
+      "x": 33,
+      "y": 40,
+      "type_id": 16,
+      "type_name": "Notice",
+      "raw_data": [
+        0,
+        0,
+        0
+      ],
+      "raw_strings": [
+        "Press Enter to Read signs!",
+        "",
+        "JoinGame.ogg"
+      ]
+    }
+  ],
+  "cardinal_connections": {}
+}

@@ -1,0 +1,31 @@
+{
+  "schema": "new-era.pmu-pmdo-manifest.v1",
+  "map_id": "s1810",
+  "asset_name": "pmu_s1810",
+  "name": "Exbel, Grassroot Town",
+  "tex_size": 1,
+  "scale_factor_px": 1.0,
+  "dimensions_tiles_pmu": [
+    51,
+    51
+  ],
+  "dimensions_pixels": [
+    1632,
+    1632
+  ],
+  "dimensions_grid_pmdo": [
+    204,
+    204
+  ],
+  "unique_subtiles": 4001,
+  "animated_subcells": 1092,
+  "artifacts": {
+    "ground": "Data/Ground/pmu_s1810.rsground",
+    "ground_sha256": "01b1127d3f8041d12158fcd596f1c8248c8d1fd2b558ecad4e98465630435cb9",
+    "tile": "Content/Tile/pmu_s1810_Base.tile",
+    "tile_sha256": "8af3d519a62260825d2124ed586c91c9519474359a7513b325e71e0ae77b8a48",
+    "script": "Data/Script/halcyon/ground/pmu_s1810/init.lua",
+    "script_sha256": "4379149ca0f89f82080ff4b8d9489184bea48b62018694112bd62381f7d6a78b"
+  },
+  "status": "CONVERTED"
+}

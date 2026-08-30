@@ -1,0 +1,15 @@
+{
+  "status": "VALIDATED",
+  "dimensions_match": true,
+  "dimensions": [
+    640,
+    1472
+  ],
+  "total_pixels": 942080,
+  "diff_pixels_base": 0,
+  "diff_percentage_base": 0.0,
+  "diff_pixels_anim": 0,
+  "diff_percentage_anim": 0.0,
+  "diff_bounding_box": null,
+  "perfect_byte_match": true
+}

@@ -1,0 +1,82 @@
+{
+  "schema": "new-era.pmu-semantics.v1",
+  "map_id": "s1785",
+  "warps_count": 0,
+  "signs_count": 0,
+  "doors_count": 0,
+  "items_count": 0,
+  "scripts_count": 2,
+  "stories_count": 0,
+  "level_blocks_count": 0,
+  "sprite_blocks_count": 0,
+  "mobile_blocks_count": 0,
+  "warps": [],
+  "signs": [],
+  "doors": [],
+  "items": [],
+  "scripts": [
+    {
+      "x": 9,
+      "y": 0,
+      "script_id": 36,
+      "param2": 0,
+      "param3": 0,
+      "strings": [
+        "95",
+        "25",
+        ""
+      ]
+    },
+    {
+      "x": 10,
+      "y": 0,
+      "script_id": 36,
+      "param2": 0,
+      "param3": 0,
+      "strings": [
+        "95",
+        "25",
+        ""
+      ]
+    }
+  ],
+  "stories": [],
+  "level_blocks": [],
+  "sprite_blocks": [],
+  "mobile_blocks": [],
+  "other_semantics": [
+    {
+      "x": 9,
+      "y": 10,
+      "type_id": 22,
+      "type_name": "Bank",
+      "raw_data": [
+        0,
+        0,
+        0
+      ],
+      "raw_strings": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 10,
+      "y": 10,
+      "type_id": 22,
+      "type_name": "Bank",
+      "raw_data": [
+        0,
+        0,
+        0
+      ],
+      "raw_strings": [
+        "",
+        "",
+        ""
+      ]
+    }
+  ],
+  "cardinal_connections": {}
+}

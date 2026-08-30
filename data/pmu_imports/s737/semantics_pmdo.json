@@ -1,0 +1,440 @@
+{
+  "schema": "new-era.pmdo-semantics.v1",
+  "map_id": "s737",
+  "asset_name": "pmu_s737",
+  "grid_dimensions_8px": [
+    204,
+    204
+  ],
+  "tex_size": 1,
+  "warps": [
+    {
+      "name": "Warp_1",
+      "pos": {
+        "X": 240,
+        "Y": 208
+      },
+      "target": "s50",
+      "tx": 9,
+      "ty": 13
+    },
+    {
+      "name": "Warp_2",
+      "pos": {
+        "X": 656,
+        "Y": 208
+      },
+      "target": "s1144",
+      "tx": 9,
+      "ty": 11
+    },
+    {
+      "name": "Warp_3",
+      "pos": {
+        "X": 1040,
+        "Y": 208
+      },
+      "target": "s1143",
+      "tx": 10,
+      "ty": 11
+    },
+    {
+      "name": "Warp_4",
+      "pos": {
+        "X": 496,
+        "Y": 272
+      },
+      "target": "s1146",
+      "tx": 10,
+      "ty": 11
+    },
+    {
+      "name": "Warp_5",
+      "pos": {
+        "X": 1200,
+        "Y": 272
+      },
+      "target": "s1145",
+      "tx": 10,
+      "ty": 11
+    },
+    {
+      "name": "Warp_6",
+      "pos": {
+        "X": 80,
+        "Y": 304
+      },
+      "target": "s1777",
+      "tx": 16,
+      "ty": 21
+    },
+    {
+      "name": "Warp_7",
+      "pos": {
+        "X": 1392,
+        "Y": 528
+      },
+      "target": "s1000",
+      "tx": 10,
+      "ty": 13
+    },
+    {
+      "name": "Warp_8",
+      "pos": {
+        "X": 208,
+        "Y": 560
+      },
+      "target": "s793",
+      "tx": 9,
+      "ty": 3
+    },
+    {
+      "name": "Warp_9",
+      "pos": {
+        "X": 240,
+        "Y": 560
+      },
+      "target": "s793",
+      "tx": 9,
+      "ty": 3
+    },
+    {
+      "name": "Warp_10",
+      "pos": {
+        "X": 1360,
+        "Y": 688
+      },
+      "target": "s1142",
+      "tx": 10,
+      "ty": 11
+    },
+    {
+      "name": "Warp_11",
+      "pos": {
+        "X": 112,
+        "Y": 1040
+      },
+      "target": "s1244",
+      "tx": 10,
+      "ty": 12
+    },
+    {
+      "name": "Warp_12",
+      "pos": {
+        "X": 1456,
+        "Y": 1168
+      },
+      "target": "s412",
+      "tx": 10,
+      "ty": 13
+    }
+  ],
+  "signs": [
+    {
+      "name": "Sign_1",
+      "collider": {
+        "X": 608,
+        "Y": 288,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "Leavi and Bulby's House",
+        "",
+        ""
+      ]
+    },
+    {
+      "name": "Sign_2",
+      "collider": {
+        "X": 1056,
+        "Y": 288,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "Rustle's House",
+        "",
+        ""
+      ]
+    },
+    {
+      "name": "Sign_3",
+      "collider": {
+        "X": 448,
+        "Y": 352,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "Lark's House",
+        "",
+        ""
+      ]
+    },
+    {
+      "name": "Sign_4",
+      "collider": {
+        "X": 1216,
+        "Y": 352,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "Trishian's House",
+        "",
+        ""
+      ]
+    },
+    {
+      "name": "Sign_5",
+      "collider": {
+        "X": 1312,
+        "Y": 512,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "Basic House Commands:~",
+        "- \"/edithouse\" Opens the Map Editor to edit your own house. \"/houseentrance\" Sets the spawn point of your house when you visit it. \"/housesign\" Adds a sign on the tile you are standing on. \"/housesound\" Places a Sound Tile that plays a sound effect on the tile you are standing on. ",
+        "\"/houselight\" Changes the Light/Dark settings of the house. \"/houseroof\" Opens the roof of the house to set weather conditions and allow the change of time. \"/houseweather\" Sets the house weather. \"/housexpand\" Expands the house size."
+      ]
+    },
+    {
+      "name": "Sign_6",
+      "collider": {
+        "X": 1376,
+        "Y": 768,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "Eevee Family House",
+        "",
+        ""
+      ]
+    },
+    {
+      "name": "Sign_7",
+      "collider": {
+        "X": 224,
+        "Y": 1024,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "Grassroot Bazaar",
+        "Need your boxes unsealed, need your items cleansed, need your eggs to be homed?",
+        "You are at the right place!"
+      ]
+    },
+    {
+      "name": "Sign_8",
+      "collider": {
+        "X": 256,
+        "Y": 1024,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "Grassroot Bazaar",
+        "Need your boxes unsealed, need your items cleansed, need your eggs to be homed?",
+        "You are at the right place!"
+      ]
+    },
+    {
+      "name": "Sign_9",
+      "collider": {
+        "X": 704,
+        "Y": 1184,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "Welcome to Grassroot Town.",
+        "The root of all beginnings.",
+        ""
+      ]
+    },
+    {
+      "name": "Sign_10",
+      "collider": {
+        "X": 736,
+        "Y": 1184,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "Welcome to Grassroot Town.",
+        "The root of all beginnings.",
+        ""
+      ]
+    },
+    {
+      "name": "Sign_11",
+      "collider": {
+        "X": 544,
+        "Y": 1248,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "Kangaskhan's Storage",
+        "",
+        ""
+      ]
+    },
+    {
+      "name": "Sign_12",
+      "collider": {
+        "X": 1056,
+        "Y": 1248,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "Chimecho's Assembly",
+        "",
+        ""
+      ]
+    },
+    {
+      "name": "Sign_13",
+      "collider": {
+        "X": 1344,
+        "Y": 1280,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "Milly's Grassroot Inn",
+        "",
+        ""
+      ]
+    }
+  ],
+  "npcs": [
+    {
+      "name": "NPC_1_Ace",
+      "sprite": 277,
+      "pos": {
+        "X": 688,
+        "Y": 400
+      },
+      "behavior": 2
+    },
+    {
+      "name": "NPC_2_Bongo",
+      "sprite": 424,
+      "pos": {
+        "X": 656,
+        "Y": 1520
+      },
+      "behavior": 2
+    },
+    {
+      "name": "NPC_3_Eevee",
+      "sprite": 133,
+      "pos": {
+        "X": 944,
+        "Y": 1296
+      },
+      "behavior": 2
+    },
+    {
+      "name": "NPC_4_Twitch",
+      "sprite": 162,
+      "pos": {
+        "X": 336,
+        "Y": 1296
+      },
+      "behavior": 2
+    },
+    {
+      "name": "NPC_5_Navi",
+      "sprite": 284,
+      "pos": {
+        "X": 1584,
+        "Y": 1328
+      },
+      "behavior": 2
+    },
+    {
+      "name": "NPC_6_Chimecho",
+      "sprite": 358,
+      "pos": {
+        "X": 976,
+        "Y": 1232
+      },
+      "behavior": 3
+    },
+    {
+      "name": "NPC_7_Kangaskhan",
+      "sprite": 115,
+      "pos": {
+        "X": 656,
+        "Y": 1232
+      },
+      "behavior": 3
+    },
+    {
+      "name": "NPC_8_Pillows",
+      "sprite": 180,
+      "pos": {
+        "X": 1392,
+        "Y": 1168
+      },
+      "behavior": 2
+    },
+    {
+      "name": "NPC_9_Electivire",
+      "sprite": 466,
+      "pos": {
+        "X": 1296,
+        "Y": 1488
+      },
+      "behavior": 2
+    },
+    {
+      "name": "NPC_10_Rustle",
+      "sprite": 156,
+      "pos": {
+        "X": 816,
+        "Y": 944
+      },
+      "behavior": 2
+    },
+    {
+      "name": "NPC_11_Manual",
+      "sprite": 137,
+      "pos": {
+        "X": 1232,
+        "Y": 496
+      },
+      "behavior": 2
+    },
+    {
+      "name": "NPC_12_Cashew",
+      "sprite": 20,
+      "pos": {
+        "X": 720,
+        "Y": 432
+      },
+      "behavior": 2
+    },
+    {
+      "name": "NPC_13_Needles",
+      "sprite": 32,
+      "pos": {
+        "X": 1104,
+        "Y": 1264
+      },
+      "behavior": 2
+    }
+  ],
+  "obstacles_summary": {
+    "total_cells": 41616,
+    "blocked_cells": 9104,
+    "walkable_cells": 32512
+  }
+}

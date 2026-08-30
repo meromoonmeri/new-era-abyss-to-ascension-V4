@@ -1,0 +1,76 @@
+{
+  "schema": "new-era.pmu-semantics.v1",
+  "map_id": "s100",
+  "warps_count": 1,
+  "signs_count": 0,
+  "doors_count": 0,
+  "items_count": 3,
+  "scripts_count": 0,
+  "stories_count": 0,
+  "level_blocks_count": 0,
+  "sprite_blocks_count": 0,
+  "mobile_blocks_count": 0,
+  "warps": [
+    {
+      "source_x": 37,
+      "source_y": 12,
+      "target_map_id": "s104",
+      "target_x": 18,
+      "target_y": 43,
+      "raw_data": [
+        104,
+        18,
+        43
+      ]
+    }
+  ],
+  "signs": [],
+  "doors": [],
+  "items": [
+    {
+      "x": 2,
+      "y": 3,
+      "item_id": 69,
+      "amount": 3,
+      "sticky": 0
+    },
+    {
+      "x": 26,
+      "y": 9,
+      "item_id": 1,
+      "amount": 10,
+      "sticky": 0
+    },
+    {
+      "x": 15,
+      "y": 12,
+      "item_id": 487,
+      "amount": 0,
+      "sticky": 0
+    }
+  ],
+  "scripts": [],
+  "stories": [],
+  "level_blocks": [],
+  "sprite_blocks": [],
+  "mobile_blocks": [],
+  "other_semantics": [
+    {
+      "x": 17,
+      "y": 3,
+      "type_id": 5,
+      "type_name": "Key",
+      "raw_data": [
+        49,
+        0,
+        0
+      ],
+      "raw_strings": [
+        "",
+        "",
+        ""
+      ]
+    }
+  ],
+  "cardinal_connections": {}
+}

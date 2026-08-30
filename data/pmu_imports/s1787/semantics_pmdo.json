@@ -1,0 +1,18 @@
+{
+  "schema": "new-era.pmdo-semantics.v1",
+  "map_id": "s1787",
+  "asset_name": "pmu_s1787",
+  "grid_dimensions_8px": [
+    80,
+    124
+  ],
+  "tex_size": 1,
+  "warps": [],
+  "signs": [],
+  "npcs": [],
+  "obstacles_summary": {
+    "total_cells": 9920,
+    "blocked_cells": 5520,
+    "walkable_cells": 4400
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "schema": "new-era.pmu-pmdo-manifest.v1",
+  "map_id": "s1787",
+  "asset_name": "pmu_s1787",
+  "name": "Boggy Wastes [Final Reward Map]",
+  "tex_size": 1,
+  "scale_factor_px": 1.0,
+  "dimensions_tiles_pmu": [
+    20,
+    31
+  ],
+  "dimensions_pixels": [
+    640,
+    992
+  ],
+  "dimensions_grid_pmdo": [
+    80,
+    124
+  ],
+  "unique_subtiles": 3023,
+  "animated_subcells": 135,
+  "artifacts": {
+    "ground": "Data/Ground/pmu_s1787.rsground",
+    "ground_sha256": "44b75f21c6567a1695b3d5622b2be2af7a9d2ca75d08ad36472d04cca37a8b04",
+    "tile": "Content/Tile/pmu_s1787_Base.tile",
+    "tile_sha256": "5a92e3e232620c0a6c15f63467c036bf779392278c02e582324d9574d7ac6989",
+    "script": "Data/Script/halcyon/ground/pmu_s1787/init.lua",
+    "script_sha256": "85d87cea18f94ff78c451adff5cfd43aba619e76179450d6012a365574bab921"
+  },
+  "status": "CONVERTED"
+}

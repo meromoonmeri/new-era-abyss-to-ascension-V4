@@ -1,0 +1,245 @@
+{
+  "schema": "new-era.pmu-semantics.v1",
+  "map_id": "s17",
+  "warps_count": 1,
+  "signs_count": 3,
+  "doors_count": 0,
+  "items_count": 1,
+  "scripts_count": 0,
+  "stories_count": 0,
+  "level_blocks_count": 0,
+  "sprite_blocks_count": 0,
+  "mobile_blocks_count": 0,
+  "warps": [
+    {
+      "source_x": 4,
+      "source_y": 26,
+      "target_map_id": "s412",
+      "target_x": 10,
+      "target_y": 12,
+      "raw_data": [
+        412,
+        10,
+        12
+      ]
+    }
+  ],
+  "signs": [
+    {
+      "x": 8,
+      "y": 7,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "<-- Dojo",
+        "v Shops and post office",
+        "Read other sign for more!"
+      ]
+    },
+    {
+      "x": 12,
+      "y": 7,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "--> Housing district",
+        "Read other sign for more!",
+        ""
+      ]
+    },
+    {
+      "x": 10,
+      "y": 8,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "New shadows arise! More friends to make! Generation 5... coming soon!",
+        "",
+        ""
+      ]
+    }
+  ],
+  "doors": [],
+  "items": [
+    {
+      "x": 14,
+      "y": 17,
+      "item_id": 2,
+      "amount": 0,
+      "sticky": 0
+    }
+  ],
+  "scripts": [],
+  "stories": [],
+  "level_blocks": [],
+  "sprite_blocks": [],
+  "mobile_blocks": [],
+  "other_semantics": [
+    {
+      "x": 1,
+      "y": 7,
+      "type_id": 16,
+      "type_name": "Notice",
+      "raw_data": [
+        0,
+        0,
+        0
+      ],
+      "raw_strings": [
+        "Dojo",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 18,
+      "y": 7,
+      "type_id": 16,
+      "type_name": "Notice",
+      "raw_data": [
+        0,
+        0,
+        0
+      ],
+      "raw_strings": [
+        "Housing District",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 15,
+      "y": 18,
+      "type_id": 5,
+      "type_name": "Key",
+      "raw_data": [
+        26,
+        0,
+        0
+      ],
+      "raw_strings": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 14,
+      "y": 23,
+      "type_id": 5,
+      "type_name": "Key",
+      "raw_data": [
+        26,
+        0,
+        0
+      ],
+      "raw_strings": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 17,
+      "y": 23,
+      "type_id": 5,
+      "type_name": "Key",
+      "raw_data": [
+        26,
+        0,
+        0
+      ],
+      "raw_strings": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 7,
+      "y": 25,
+      "type_id": 5,
+      "type_name": "Key",
+      "raw_data": [
+        25,
+        0,
+        0
+      ],
+      "raw_strings": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 13,
+      "y": 26,
+      "type_id": 5,
+      "type_name": "Key",
+      "raw_data": [
+        26,
+        0,
+        0
+      ],
+      "raw_strings": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 14,
+      "y": 26,
+      "type_id": 5,
+      "type_name": "Key",
+      "raw_data": [
+        26,
+        0,
+        0
+      ],
+      "raw_strings": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 15,
+      "y": 26,
+      "type_id": 5,
+      "type_name": "Key",
+      "raw_data": [
+        26,
+        0,
+        0
+      ],
+      "raw_strings": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 16,
+      "y": 26,
+      "type_id": 5,
+      "type_name": "Key",
+      "raw_data": [
+        26,
+        0,
+        0
+      ],
+      "raw_strings": [
+        "",
+        "",
+        ""
+      ]
+    }
+  ],
+  "cardinal_connections": {
+    "up": "s21",
+    "down": "s3",
+    "left": "s30",
+    "right": "s289"
+  }
+}

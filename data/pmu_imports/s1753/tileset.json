@@ -1,0 +1,15 @@
+{
+  "schema": "new-era.pmu-tileset.v1",
+  "map_id": "s1753",
+  "tileset_ids": [],
+  "tile_counts_by_tileset": {},
+  "tile_ids_by_tileset": {},
+  "animated_tiles_count": 0,
+  "layer_names": [
+    "Ground",
+    "Mask",
+    "Mask2",
+    "Fringe",
+    "Fringe2"
+  ]
+}

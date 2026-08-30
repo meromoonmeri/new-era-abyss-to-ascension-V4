@@ -1,0 +1,31 @@
+{
+  "schema": "new-era.pmu-pmdo-manifest.v1",
+  "map_id": "s1249",
+  "asset_name": "pmu_s1249",
+  "name": "Sauna Cave Rest Point",
+  "tex_size": 1,
+  "scale_factor_px": 1.0,
+  "dimensions_tiles_pmu": [
+    20,
+    15
+  ],
+  "dimensions_pixels": [
+    640,
+    480
+  ],
+  "dimensions_grid_pmdo": [
+    80,
+    60
+  ],
+  "unique_subtiles": 647,
+  "animated_subcells": 434,
+  "artifacts": {
+    "ground": "Data/Ground/pmu_s1249.rsground",
+    "ground_sha256": "a1d5c1f8f5c21cac5a854f3d54de7504c55703465efdfa148127f7f7ecc64688",
+    "tile": "Content/Tile/pmu_s1249_Base.tile",
+    "tile_sha256": "3bc7f7981ea88e04c82ede42382b96956db11e6eb6814fbdd1c89e784cdd3bab",
+    "script": "Data/Script/halcyon/ground/pmu_s1249/init.lua",
+    "script_sha256": "7cbceccc18722a53e46bc55506e625ece4bc94a529283d3533468ee9be938e7c"
+  },
+  "status": "CONVERTED"
+}

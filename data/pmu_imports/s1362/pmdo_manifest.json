@@ -1,0 +1,31 @@
+{
+  "schema": "new-era.pmu-pmdo-manifest.v1",
+  "map_id": "s1362",
+  "asset_name": "pmu_s1362",
+  "name": "Southern Sea Trench",
+  "tex_size": 1,
+  "scale_factor_px": 1.0,
+  "dimensions_tiles_pmu": [
+    20,
+    15
+  ],
+  "dimensions_pixels": [
+    640,
+    480
+  ],
+  "dimensions_grid_pmdo": [
+    80,
+    60
+  ],
+  "unique_subtiles": 1142,
+  "animated_subcells": 0,
+  "artifacts": {
+    "ground": "Data/Ground/pmu_s1362.rsground",
+    "ground_sha256": "f9874da1c97348045cb5bc822c42fb9b0caaf5093312fe285954b58080b2cc2e",
+    "tile": "Content/Tile/pmu_s1362_Base.tile",
+    "tile_sha256": "775761098d0f63a61d2ea599eb2bcc3917c028acf9f000d86f84ffbaafcfb217",
+    "script": "Data/Script/halcyon/ground/pmu_s1362/init.lua",
+    "script_sha256": "071477207f4464f1d29a60fbf02646687c5dde6ea401010ebbc9044ed77f7a05"
+  },
+  "status": "CONVERTED"
+}

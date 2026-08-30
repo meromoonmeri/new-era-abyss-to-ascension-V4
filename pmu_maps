@@ -1,0 +1,10 @@
+#!/bin/bash
+# PMU Maps CLI wrapper
+set -e
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+if [ -f "$DIR/.runtime-cache/pmu-venv/bin/python" ]; then
+    PYTHON="$DIR/.runtime-cache/pmu-venv/bin/python"
+else
+    PYTHON="python3"
+fi
+exec "$PYTHON" "$DIR/tools/pmu_maps.py" --repo-root "$DIR" "$@"

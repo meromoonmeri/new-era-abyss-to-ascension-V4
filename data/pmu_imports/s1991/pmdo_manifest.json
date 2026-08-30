@@ -1,0 +1,31 @@
+{
+  "schema": "new-era.pmu-pmdo-manifest.v1",
+  "map_id": "s1991",
+  "asset_name": "pmu_s1991",
+  "name": "Winden, Snowbasin Town",
+  "tex_size": 1,
+  "scale_factor_px": 1.0,
+  "dimensions_tiles_pmu": [
+    51,
+    51
+  ],
+  "dimensions_pixels": [
+    1632,
+    1632
+  ],
+  "dimensions_grid_pmdo": [
+    204,
+    204
+  ],
+  "unique_subtiles": 2531,
+  "animated_subcells": 54,
+  "artifacts": {
+    "ground": "Data/Ground/pmu_s1991.rsground",
+    "ground_sha256": "c15b8a9eb6f036ef8df69b3d054dc4407b09ce328314c413205d03914d8108a4",
+    "tile": "Content/Tile/pmu_s1991_Base.tile",
+    "tile_sha256": "98881c6103e3e4efa2c6389ae5903e257f2b62abd26c2cea66f7a3bfd104a35a",
+    "script": "Data/Script/halcyon/ground/pmu_s1991/init.lua",
+    "script_sha256": "7437ad42fa7fea8b86235239883fb34a627230b0c8dc4bac34107d4741f854b8"
+  },
+  "status": "CONVERTED"
+}

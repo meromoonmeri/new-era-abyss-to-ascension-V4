@@ -1,0 +1,100 @@
+{
+  "schema": "new-era.pmdo-semantics.v1",
+  "map_id": "s95",
+  "asset_name": "pmu_s95",
+  "grid_dimensions_8px": [
+    80,
+    60
+  ],
+  "tex_size": 1,
+  "warps": [],
+  "signs": [],
+  "npcs": [
+    {
+      "name": "NPC_1_Graveler",
+      "sprite": 75,
+      "pos": {
+        "X": 320,
+        "Y": 240
+      },
+      "behavior": 0
+    },
+    {
+      "name": "NPC_2_Grimer",
+      "sprite": 88,
+      "pos": {
+        "X": 320,
+        "Y": 240
+      },
+      "behavior": 0
+    },
+    {
+      "name": "NPC_3_Grimer",
+      "sprite": 88,
+      "pos": {
+        "X": 320,
+        "Y": 240
+      },
+      "behavior": 0
+    },
+    {
+      "name": "NPC_4_Grimer",
+      "sprite": 88,
+      "pos": {
+        "X": 320,
+        "Y": 240
+      },
+      "behavior": 0
+    },
+    {
+      "name": "NPC_5_Geodude",
+      "sprite": 74,
+      "pos": {
+        "X": 320,
+        "Y": 240
+      },
+      "behavior": 0
+    },
+    {
+      "name": "NPC_6_Geodude",
+      "sprite": 74,
+      "pos": {
+        "X": 320,
+        "Y": 240
+      },
+      "behavior": 0
+    },
+    {
+      "name": "NPC_7_Geodude",
+      "sprite": 74,
+      "pos": {
+        "X": 320,
+        "Y": 240
+      },
+      "behavior": 0
+    },
+    {
+      "name": "NPC_8_Geodude",
+      "sprite": 74,
+      "pos": {
+        "X": 320,
+        "Y": 240
+      },
+      "behavior": 0
+    },
+    {
+      "name": "NPC_9_Graveler",
+      "sprite": 75,
+      "pos": {
+        "X": 320,
+        "Y": 240
+      },
+      "behavior": 0
+    }
+  ],
+  "obstacles_summary": {
+    "total_cells": 4800,
+    "blocked_cells": 1776,
+    "walkable_cells": 3024
+  }
+}

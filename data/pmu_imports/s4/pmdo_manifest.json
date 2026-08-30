@@ -1,0 +1,31 @@
+{
+  "schema": "new-era.pmu-pmdo-manifest.v1",
+  "map_id": "s4",
+  "asset_name": "pmu_s4",
+  "name": "Poké Town Housing District",
+  "tex_size": 1,
+  "scale_factor_px": 1.0,
+  "dimensions_tiles_pmu": [
+    20,
+    15
+  ],
+  "dimensions_pixels": [
+    640,
+    480
+  ],
+  "dimensions_grid_pmdo": [
+    80,
+    60
+  ],
+  "unique_subtiles": 1634,
+  "animated_subcells": 140,
+  "artifacts": {
+    "ground": "Data/Ground/pmu_s4.rsground",
+    "ground_sha256": "65dc73625c554c742dca3cfa60aa2990ff0ac8fe272753dc3e19bdb24179952b",
+    "tile": "Content/Tile/pmu_s4_Base.tile",
+    "tile_sha256": "69d660679b238fd83de3ee80914218de8b017a4d2296cfcdac2985a72db9f5fa",
+    "script": "Data/Script/halcyon/ground/pmu_s4/init.lua",
+    "script_sha256": "766786c16e6307cfb4d84bf3a1d67e62a435d83d124c15230ce8dc2de1073e90"
+  },
+  "status": "CONVERTED"
+}

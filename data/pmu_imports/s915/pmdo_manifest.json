@@ -1,0 +1,31 @@
+{
+  "schema": "new-era.pmu-pmdo-manifest.v1",
+  "map_id": "s915",
+  "asset_name": "pmu_s915",
+  "name": "Moonlight Cliff",
+  "tex_size": 1,
+  "scale_factor_px": 1.0,
+  "dimensions_tiles_pmu": [
+    20,
+    15
+  ],
+  "dimensions_pixels": [
+    640,
+    480
+  ],
+  "dimensions_grid_pmdo": [
+    80,
+    60
+  ],
+  "unique_subtiles": 191,
+  "animated_subcells": 0,
+  "artifacts": {
+    "ground": "Data/Ground/pmu_s915.rsground",
+    "ground_sha256": "f2599e168aaf8d7a9c6d2240e971c2db70c59ec1354b644febe4a07d3bb303de",
+    "tile": "Content/Tile/pmu_s915_Base.tile",
+    "tile_sha256": "d67b83624390c937b7db494c00c2476f68b19c35b289742967c2d229cfd6d5b4",
+    "script": "Data/Script/halcyon/ground/pmu_s915/init.lua",
+    "script_sha256": "7dcd17cd748ccc61f2f2c2d8a8db69acd2cb9e8b43d9d0796cdb4e3cb9ed0700"
+  },
+  "status": "CONVERTED"
+}

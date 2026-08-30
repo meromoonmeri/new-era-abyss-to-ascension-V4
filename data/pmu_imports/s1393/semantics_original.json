@@ -1,0 +1,155 @@
+{
+  "schema": "new-era.pmu-semantics.v1",
+  "map_id": "s1393",
+  "warps_count": 4,
+  "signs_count": 0,
+  "doors_count": 0,
+  "items_count": 0,
+  "scripts_count": 4,
+  "stories_count": 0,
+  "level_blocks_count": 0,
+  "sprite_blocks_count": 0,
+  "mobile_blocks_count": 0,
+  "warps": [
+    {
+      "source_x": 8,
+      "source_y": 14,
+      "target_map_id": "s1991",
+      "target_x": 25,
+      "target_y": 25,
+      "raw_data": [
+        1991,
+        25,
+        25
+      ]
+    },
+    {
+      "source_x": 9,
+      "source_y": 14,
+      "target_map_id": "s1991",
+      "target_x": 25,
+      "target_y": 25,
+      "raw_data": [
+        1991,
+        25,
+        25
+      ]
+    },
+    {
+      "source_x": 10,
+      "source_y": 14,
+      "target_map_id": "s1991",
+      "target_x": 25,
+      "target_y": 25,
+      "raw_data": [
+        1991,
+        25,
+        25
+      ]
+    },
+    {
+      "source_x": 11,
+      "source_y": 14,
+      "target_map_id": "s1991",
+      "target_x": 25,
+      "target_y": 25,
+      "raw_data": [
+        1991,
+        25,
+        25
+      ]
+    }
+  ],
+  "signs": [],
+  "doors": [],
+  "items": [],
+  "scripts": [
+    {
+      "x": 8,
+      "y": 0,
+      "script_id": 36,
+      "param2": 0,
+      "param3": 0,
+      "strings": [
+        "36",
+        "1",
+        ""
+      ]
+    },
+    {
+      "x": 9,
+      "y": 0,
+      "script_id": 36,
+      "param2": 0,
+      "param3": 0,
+      "strings": [
+        "36",
+        "1",
+        ""
+      ]
+    },
+    {
+      "x": 10,
+      "y": 0,
+      "script_id": 36,
+      "param2": 0,
+      "param3": 0,
+      "strings": [
+        "36",
+        "1",
+        ""
+      ]
+    },
+    {
+      "x": 11,
+      "y": 0,
+      "script_id": 36,
+      "param2": 0,
+      "param3": 0,
+      "strings": [
+        "36",
+        "1",
+        ""
+      ]
+    }
+  ],
+  "stories": [],
+  "level_blocks": [],
+  "sprite_blocks": [],
+  "mobile_blocks": [],
+  "other_semantics": [
+    {
+      "x": 9,
+      "y": 8,
+      "type_id": 22,
+      "type_name": "Bank",
+      "raw_data": [
+        0,
+        0,
+        0
+      ],
+      "raw_strings": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 10,
+      "y": 8,
+      "type_id": 22,
+      "type_name": "Bank",
+      "raw_data": [
+        0,
+        0,
+        0
+      ],
+      "raw_strings": [
+        "",
+        "",
+        ""
+      ]
+    }
+  ],
+  "cardinal_connections": {}
+}

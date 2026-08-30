@@ -1,0 +1,31 @@
+{
+  "schema": "new-era.pmu-pmdo-manifest.v1",
+  "map_id": "s1393",
+  "asset_name": "pmu_s1393",
+  "name": "Crystal Castle Entrance",
+  "tex_size": 1,
+  "scale_factor_px": 1.0,
+  "dimensions_tiles_pmu": [
+    20,
+    15
+  ],
+  "dimensions_pixels": [
+    640,
+    480
+  ],
+  "dimensions_grid_pmdo": [
+    80,
+    60
+  ],
+  "unique_subtiles": 495,
+  "animated_subcells": 0,
+  "artifacts": {
+    "ground": "Data/Ground/pmu_s1393.rsground",
+    "ground_sha256": "bcf39533e6f62f6030a8d72eff5744bfcdd03818bb8e46e484be671449d25758",
+    "tile": "Content/Tile/pmu_s1393_Base.tile",
+    "tile_sha256": "fd93ecabbf4f90ea5143a5e58d8e42c1ad8a6ddcfe4a0f8b50a887de42f5d7f3",
+    "script": "Data/Script/halcyon/ground/pmu_s1393/init.lua",
+    "script_sha256": "7cb65f28a26f31cf59d82de5f79379d54e1c8d03f5e0dddca10bfeadfac92fc9"
+  },
+  "status": "CONVERTED"
+}

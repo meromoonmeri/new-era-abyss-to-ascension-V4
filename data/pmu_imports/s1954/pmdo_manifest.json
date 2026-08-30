@@ -1,0 +1,31 @@
+{
+  "schema": "new-era.pmu-pmdo-manifest.v1",
+  "map_id": "s1954",
+  "asset_name": "pmu_s1954",
+  "name": "Char's Sandy Dungeon map.",
+  "tex_size": 1,
+  "scale_factor_px": 1.0,
+  "dimensions_tiles_pmu": [
+    36,
+    51
+  ],
+  "dimensions_pixels": [
+    1152,
+    1632
+  ],
+  "dimensions_grid_pmdo": [
+    144,
+    204
+  ],
+  "unique_subtiles": 1722,
+  "animated_subcells": 1105,
+  "artifacts": {
+    "ground": "Data/Ground/pmu_s1954.rsground",
+    "ground_sha256": "255ed41a2188698b136d88c7d2d23ea31674fc4d712f80dada25cc94d42cbe78",
+    "tile": "Content/Tile/pmu_s1954_Base.tile",
+    "tile_sha256": "b7da8089426cce4b363f2551bf106a4c09f4d4d67b38a8590f9f8a820e3fb782",
+    "script": "Data/Script/halcyon/ground/pmu_s1954/init.lua",
+    "script_sha256": "97039f98311ffd4f2ebd75f183034429dbe283aea50e226ca926506f4a882f2f"
+  },
+  "status": "CONVERTED"
+}

@@ -1,0 +1,31 @@
+{
+  "schema": "new-era.pmu-pmdo-manifest.v1",
+  "map_id": "s1145",
+  "asset_name": "pmu_s1145",
+  "name": "Grassroot Town, Trishian's  House",
+  "tex_size": 1,
+  "scale_factor_px": 1.0,
+  "dimensions_tiles_pmu": [
+    20,
+    15
+  ],
+  "dimensions_pixels": [
+    640,
+    480
+  ],
+  "dimensions_grid_pmdo": [
+    80,
+    60
+  ],
+  "unique_subtiles": 834,
+  "animated_subcells": 30,
+  "artifacts": {
+    "ground": "Data/Ground/pmu_s1145.rsground",
+    "ground_sha256": "e4fd9f700c759156414126ef350a18793f5989df4d099ed6b8da744d3a459370",
+    "tile": "Content/Tile/pmu_s1145_Base.tile",
+    "tile_sha256": "72ccfc0ad17a9a01d6d84354c9681b82be32c38b1d5f28ced8233bc3bba45646",
+    "script": "Data/Script/halcyon/ground/pmu_s1145/init.lua",
+    "script_sha256": "09b4c188a93865cf562379924d30438f50c5cdf9f4d3bcedfe61502f4f018bc2"
+  },
+  "status": "CONVERTED"
+}

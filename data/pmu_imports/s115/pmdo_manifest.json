@@ -1,0 +1,31 @@
+{
+  "schema": "new-era.pmu-pmdo-manifest.v1",
+  "map_id": "s115",
+  "asset_name": "pmu_s115",
+  "name": "Sour Root Lair",
+  "tex_size": 1,
+  "scale_factor_px": 1.0,
+  "dimensions_tiles_pmu": [
+    20,
+    15
+  ],
+  "dimensions_pixels": [
+    640,
+    480
+  ],
+  "dimensions_grid_pmdo": [
+    80,
+    60
+  ],
+  "unique_subtiles": 349,
+  "animated_subcells": 0,
+  "artifacts": {
+    "ground": "Data/Ground/pmu_s115.rsground",
+    "ground_sha256": "931798ab2ed08ceb169c327b2eed026b3155b77e6dcff57424a6a942f51c4358",
+    "tile": "Content/Tile/pmu_s115_Base.tile",
+    "tile_sha256": "fd908ccefe7ea6729c6ad8e927e21c923c1e337008ef77dbb324e442ac9c32bb",
+    "script": "Data/Script/halcyon/ground/pmu_s115/init.lua",
+    "script_sha256": "8857c55ec460ccaf224cb1d7585ba707ce9e7a813549465bcf166fd9d48b4d76"
+  },
+  "status": "CONVERTED"
+}

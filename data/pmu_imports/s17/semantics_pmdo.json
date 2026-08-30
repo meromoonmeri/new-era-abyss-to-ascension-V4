@@ -1,0 +1,72 @@
+{
+  "schema": "new-era.pmdo-semantics.v1",
+  "map_id": "s17",
+  "asset_name": "pmu_s17",
+  "grid_dimensions_8px": [
+    80,
+    184
+  ],
+  "tex_size": 1,
+  "warps": [
+    {
+      "name": "Warp_1",
+      "pos": {
+        "X": 144,
+        "Y": 848
+      },
+      "target": "s412",
+      "tx": 10,
+      "ty": 12
+    }
+  ],
+  "signs": [
+    {
+      "name": "Sign_1",
+      "collider": {
+        "X": 256,
+        "Y": 224,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "<-- Dojo",
+        "v Shops and post office",
+        "Read other sign for more!"
+      ]
+    },
+    {
+      "name": "Sign_2",
+      "collider": {
+        "X": 384,
+        "Y": 224,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "--> Housing district",
+        "Read other sign for more!",
+        ""
+      ]
+    },
+    {
+      "name": "Sign_3",
+      "collider": {
+        "X": 320,
+        "Y": 256,
+        "Width": 32,
+        "Height": 32
+      },
+      "lines": [
+        "New shadows arise! More friends to make! Generation 5... coming soon!",
+        "",
+        ""
+      ]
+    }
+  ],
+  "npcs": [],
+  "obstacles_summary": {
+    "total_cells": 14720,
+    "blocked_cells": 4016,
+    "walkable_cells": 10704
+  }
+}

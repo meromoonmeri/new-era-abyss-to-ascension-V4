@@ -1,0 +1,384 @@
+{
+  "schema": "new-era.pmu-semantics.v1",
+  "map_id": "s1249",
+  "warps_count": 0,
+  "signs_count": 0,
+  "doors_count": 0,
+  "items_count": 0,
+  "scripts_count": 14,
+  "stories_count": 0,
+  "level_blocks_count": 0,
+  "sprite_blocks_count": 0,
+  "mobile_blocks_count": 9,
+  "warps": [],
+  "signs": [],
+  "doors": [],
+  "items": [],
+  "scripts": [
+    {
+      "x": 5,
+      "y": 0,
+      "script_id": 36,
+      "param2": 0,
+      "param3": 0,
+      "strings": [
+        "32",
+        "1",
+        ""
+      ]
+    },
+    {
+      "x": 6,
+      "y": 0,
+      "script_id": 36,
+      "param2": 0,
+      "param3": 0,
+      "strings": [
+        "32",
+        "1",
+        ""
+      ]
+    },
+    {
+      "x": 7,
+      "y": 0,
+      "script_id": 36,
+      "param2": 0,
+      "param3": 0,
+      "strings": [
+        "32",
+        "1",
+        ""
+      ]
+    },
+    {
+      "x": 8,
+      "y": 0,
+      "script_id": 36,
+      "param2": 0,
+      "param3": 0,
+      "strings": [
+        "32",
+        "1",
+        ""
+      ]
+    },
+    {
+      "x": 9,
+      "y": 0,
+      "script_id": 36,
+      "param2": 0,
+      "param3": 0,
+      "strings": [
+        "32",
+        "1",
+        ""
+      ]
+    },
+    {
+      "x": 10,
+      "y": 0,
+      "script_id": 36,
+      "param2": 0,
+      "param3": 0,
+      "strings": [
+        "32",
+        "1",
+        ""
+      ]
+    },
+    {
+      "x": 4,
+      "y": 14,
+      "script_id": 47,
+      "param2": 0,
+      "param3": 0,
+      "strings": [
+        "",
+        "1991",
+        "25:25"
+      ]
+    },
+    {
+      "x": 5,
+      "y": 14,
+      "script_id": 47,
+      "param2": 0,
+      "param3": 0,
+      "strings": [
+        "",
+        "1991",
+        "25:25"
+      ]
+    },
+    {
+      "x": 6,
+      "y": 14,
+      "script_id": 47,
+      "param2": 0,
+      "param3": 0,
+      "strings": [
+        "",
+        "1991",
+        "25:25"
+      ]
+    },
+    {
+      "x": 7,
+      "y": 14,
+      "script_id": 47,
+      "param2": 0,
+      "param3": 0,
+      "strings": [
+        "",
+        "1991",
+        "25:25"
+      ]
+    },
+    {
+      "x": 8,
+      "y": 14,
+      "script_id": 47,
+      "param2": 0,
+      "param3": 0,
+      "strings": [
+        "",
+        "1991",
+        "25:25"
+      ]
+    },
+    {
+      "x": 9,
+      "y": 14,
+      "script_id": 47,
+      "param2": 0,
+      "param3": 0,
+      "strings": [
+        "",
+        "1991",
+        "25:25"
+      ]
+    },
+    {
+      "x": 10,
+      "y": 14,
+      "script_id": 47,
+      "param2": 0,
+      "param3": 0,
+      "strings": [
+        "",
+        "1991",
+        "25:25"
+      ]
+    },
+    {
+      "x": 11,
+      "y": 14,
+      "script_id": 47,
+      "param2": 0,
+      "param3": 0,
+      "strings": [
+        "",
+        "1991",
+        "25:25"
+      ]
+    }
+  ],
+  "stories": [],
+  "level_blocks": [],
+  "sprite_blocks": [],
+  "mobile_blocks": [
+    {
+      "x": 4,
+      "y": 1,
+      "mobility_mask": 8
+    },
+    {
+      "x": 11,
+      "y": 1,
+      "mobility_mask": 8
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "mobility_mask": 8
+    },
+    {
+      "x": 2,
+      "y": 6,
+      "mobility_mask": 8
+    },
+    {
+      "x": 13,
+      "y": 6,
+      "mobility_mask": 8
+    },
+    {
+      "x": 2,
+      "y": 7,
+      "mobility_mask": 8
+    },
+    {
+      "x": 13,
+      "y": 7,
+      "mobility_mask": 8
+    },
+    {
+      "x": 10,
+      "y": 8,
+      "mobility_mask": 8
+    },
+    {
+      "x": 3,
+      "y": 10,
+      "mobility_mask": 8
+    }
+  ],
+  "other_semantics": [
+    {
+      "x": 9,
+      "y": 2,
+      "type_id": 5,
+      "type_name": "Key",
+      "raw_data": [
+        25,
+        0,
+        0
+      ],
+      "raw_strings": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "type_id": 5,
+      "type_name": "Key",
+      "raw_data": [
+        25,
+        0,
+        0
+      ],
+      "raw_strings": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 7,
+      "y": 4,
+      "type_id": 5,
+      "type_name": "Key",
+      "raw_data": [
+        25,
+        0,
+        0
+      ],
+      "raw_strings": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 10,
+      "y": 4,
+      "type_id": 5,
+      "type_name": "Key",
+      "raw_data": [
+        25,
+        0,
+        0
+      ],
+      "raw_strings": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 3,
+      "y": 5,
+      "type_id": 5,
+      "type_name": "Key",
+      "raw_data": [
+        25,
+        0,
+        0
+      ],
+      "raw_strings": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 6,
+      "y": 5,
+      "type_id": 5,
+      "type_name": "Key",
+      "raw_data": [
+        25,
+        0,
+        0
+      ],
+      "raw_strings": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 11,
+      "y": 6,
+      "type_id": 5,
+      "type_name": "Key",
+      "raw_data": [
+        25,
+        0,
+        0
+      ],
+      "raw_strings": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 5,
+      "y": 7,
+      "type_id": 5,
+      "type_name": "Key",
+      "raw_data": [
+        25,
+        0,
+        0
+      ],
+      "raw_strings": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 7,
+      "y": 8,
+      "type_id": 22,
+      "type_name": "Bank",
+      "raw_data": [
+        0,
+        0,
+        0
+      ],
+      "raw_strings": [
+        "",
+        "",
+        ""
+      ]
+    }
+  ],
+  "cardinal_connections": {}
+}

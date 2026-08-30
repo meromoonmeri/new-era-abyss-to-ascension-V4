@@ -1,0 +1,28 @@
+{
+  "schema": "new-era.pmu-entities.v1",
+  "map_id": "s1146",
+  "npc_count": 1,
+  "npcs": [
+    {
+      "map_id": "s1146",
+      "slot": 0,
+      "number": 432,
+      "spawn_x": -1,
+      "spawn_y": -1,
+      "min_level": 1,
+      "max_level": 1,
+      "appearance_rate": 100,
+      "start_status": 0,
+      "start_status_counter": 0,
+      "start_status_chance": 0,
+      "npc_name": "Lark",
+      "npc_sprite": 158,
+      "npc_species": 0,
+      "npc_form": 0,
+      "npc_sex": 0,
+      "npc_behavior": 2,
+      "npc_script": "",
+      "npc_attack_say": "Hey Dude! Feel free to take a dip, but just take care of business before you do. I live in the thing, mate."
+    }
+  ]
+}

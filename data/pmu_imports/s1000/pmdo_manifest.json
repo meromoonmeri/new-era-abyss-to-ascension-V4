@@ -1,0 +1,31 @@
+{
+  "schema": "new-era.pmu-pmdo-manifest.v1",
+  "map_id": "s1000",
+  "asset_name": "pmu_s1000",
+  "name": "Grassroot Housing Center",
+  "tex_size": 1,
+  "scale_factor_px": 1.0,
+  "dimensions_tiles_pmu": [
+    20,
+    15
+  ],
+  "dimensions_pixels": [
+    640,
+    480
+  ],
+  "dimensions_grid_pmdo": [
+    80,
+    60
+  ],
+  "unique_subtiles": 1679,
+  "animated_subcells": 15,
+  "artifacts": {
+    "ground": "Data/Ground/pmu_s1000.rsground",
+    "ground_sha256": "f0258cb6442934ce80525a5186b40b8c71d47d59347734d45d805adf3ea9f7ad",
+    "tile": "Content/Tile/pmu_s1000_Base.tile",
+    "tile_sha256": "70f652610c634498fbd664b88a168da5dd5fb61041711a324f19df9d1c2b8c24",
+    "script": "Data/Script/halcyon/ground/pmu_s1000/init.lua",
+    "script_sha256": "d895b1d915d3a13b8681637e6f7dc08245af2368a7dfbd97db2d76a9362050d9"
+  },
+  "status": "CONVERTED"
+}

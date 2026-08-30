@@ -1,0 +1,306 @@
+{
+  "schema": "new-era.pmu-semantics.v1",
+  "map_id": "s1954",
+  "warps_count": 20,
+  "signs_count": 0,
+  "doors_count": 0,
+  "items_count": 3,
+  "scripts_count": 0,
+  "stories_count": 0,
+  "level_blocks_count": 0,
+  "sprite_blocks_count": 0,
+  "mobile_blocks_count": 0,
+  "warps": [
+    {
+      "source_x": 20,
+      "source_y": 5,
+      "target_map_id": "s1954",
+      "target_x": 22,
+      "target_y": 45,
+      "raw_data": [
+        1954,
+        22,
+        45
+      ]
+    },
+    {
+      "source_x": 8,
+      "source_y": 6,
+      "target_map_id": "s1954",
+      "target_x": 4,
+      "target_y": 43,
+      "raw_data": [
+        1954,
+        4,
+        43
+      ]
+    },
+    {
+      "source_x": 9,
+      "source_y": 6,
+      "target_map_id": "s1954",
+      "target_x": 4,
+      "target_y": 43,
+      "raw_data": [
+        1954,
+        4,
+        43
+      ]
+    },
+    {
+      "source_x": 24,
+      "source_y": 7,
+      "target_map_id": "s1954",
+      "target_x": 27,
+      "target_y": 45,
+      "raw_data": [
+        1954,
+        27,
+        45
+      ]
+    },
+    {
+      "source_x": 25,
+      "source_y": 7,
+      "target_map_id": "s1954",
+      "target_x": 27,
+      "target_y": 45,
+      "raw_data": [
+        1954,
+        27,
+        45
+      ]
+    },
+    {
+      "source_x": 29,
+      "source_y": 8,
+      "target_map_id": "s1954",
+      "target_x": 32,
+      "target_y": 47,
+      "raw_data": [
+        1954,
+        32,
+        47
+      ]
+    },
+    {
+      "source_x": 30,
+      "source_y": 8,
+      "target_map_id": "s1954",
+      "target_x": 32,
+      "target_y": 47,
+      "raw_data": [
+        1954,
+        32,
+        47
+      ]
+    },
+    {
+      "source_x": 16,
+      "source_y": 9,
+      "target_map_id": "s1954",
+      "target_x": 15,
+      "target_y": 44,
+      "raw_data": [
+        1954,
+        15,
+        44
+      ]
+    },
+    {
+      "source_x": 17,
+      "source_y": 9,
+      "target_map_id": "s1954",
+      "target_x": 15,
+      "target_y": 44,
+      "raw_data": [
+        1954,
+        15,
+        44
+      ]
+    },
+    {
+      "source_x": 3,
+      "source_y": 10,
+      "target_map_id": "s1954",
+      "target_x": 2,
+      "target_y": 49,
+      "raw_data": [
+        1954,
+        2,
+        49
+      ]
+    },
+    {
+      "source_x": 4,
+      "source_y": 10,
+      "target_map_id": "s1954",
+      "target_x": 2,
+      "target_y": 49,
+      "raw_data": [
+        1954,
+        2,
+        49
+      ]
+    },
+    {
+      "source_x": 8,
+      "source_y": 11,
+      "target_map_id": "s1954",
+      "target_x": 12,
+      "target_y": 47,
+      "raw_data": [
+        1954,
+        12,
+        47
+      ]
+    },
+    {
+      "source_x": 21,
+      "source_y": 13,
+      "target_map_id": "s1987",
+      "target_x": 16,
+      "target_y": 9,
+      "raw_data": [
+        1987,
+        16,
+        9
+      ]
+    },
+    {
+      "source_x": 7,
+      "source_y": 43,
+      "target_map_id": "s1954",
+      "target_x": 27,
+      "target_y": 11,
+      "raw_data": [
+        1954,
+        27,
+        11
+      ]
+    },
+    {
+      "source_x": 24,
+      "source_y": 43,
+      "target_map_id": "s1954",
+      "target_x": 27,
+      "target_y": 11,
+      "raw_data": [
+        1954,
+        27,
+        11
+      ]
+    },
+    {
+      "source_x": 28,
+      "source_y": 43,
+      "target_map_id": "s1954",
+      "target_x": 27,
+      "target_y": 11,
+      "raw_data": [
+        1954,
+        27,
+        11
+      ]
+    },
+    {
+      "source_x": 10,
+      "source_y": 45,
+      "target_map_id": "s1954",
+      "target_x": 27,
+      "target_y": 11,
+      "raw_data": [
+        1954,
+        27,
+        11
+      ]
+    },
+    {
+      "source_x": 20,
+      "source_y": 45,
+      "target_map_id": "s1954",
+      "target_x": 27,
+      "target_y": 11,
+      "raw_data": [
+        1954,
+        27,
+        11
+      ]
+    },
+    {
+      "source_x": 33,
+      "source_y": 45,
+      "target_map_id": "s1954",
+      "target_x": 27,
+      "target_y": 11,
+      "raw_data": [
+        1954,
+        27,
+        11
+      ]
+    },
+    {
+      "source_x": 1,
+      "source_y": 47,
+      "target_map_id": "s1954",
+      "target_x": 27,
+      "target_y": 11,
+      "raw_data": [
+        1954,
+        27,
+        11
+      ]
+    }
+  ],
+  "signs": [],
+  "doors": [],
+  "items": [
+    {
+      "x": 15,
+      "y": 39,
+      "item_id": 543,
+      "amount": 0,
+      "sticky": 0
+    },
+    {
+      "x": 19,
+      "y": 41,
+      "item_id": 1,
+      "amount": 0,
+      "sticky": 0
+    },
+    {
+      "x": 23,
+      "y": 46,
+      "item_id": 813,
+      "amount": 0,
+      "sticky": 0
+    }
+  ],
+  "scripts": [],
+  "stories": [],
+  "level_blocks": [],
+  "sprite_blocks": [],
+  "mobile_blocks": [],
+  "other_semantics": [
+    {
+      "x": 30,
+      "y": 3,
+      "type_id": 16,
+      "type_name": "Notice",
+      "raw_data": [
+        0,
+        0,
+        0
+      ],
+      "raw_strings": [
+        "\"A secret pitfall...?",
+        "Nope!\"",
+        "A.ogg"
+      ]
+    }
+  ],
+  "cardinal_connections": {
+    "down": "s1987"
+  }
+}

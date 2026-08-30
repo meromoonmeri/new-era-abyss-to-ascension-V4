@@ -1,0 +1,346 @@
+{
+  "schema": "new-era.pmu-semantics.v1",
+  "map_id": "s1991",
+  "warps_count": 6,
+  "signs_count": 7,
+  "doors_count": 0,
+  "items_count": 1,
+  "scripts_count": 1,
+  "stories_count": 0,
+  "level_blocks_count": 0,
+  "sprite_blocks_count": 0,
+  "mobile_blocks_count": 0,
+  "warps": [
+    {
+      "source_x": 37,
+      "source_y": 7,
+      "target_map_id": "s278",
+      "target_x": 10,
+      "target_y": 13,
+      "raw_data": [
+        278,
+        10,
+        13
+      ]
+    },
+    {
+      "source_x": 25,
+      "source_y": 14,
+      "target_map_id": "s1334",
+      "target_x": 9,
+      "target_y": 29,
+      "raw_data": [
+        1334,
+        9,
+        29
+      ]
+    },
+    {
+      "source_x": 15,
+      "source_y": 26,
+      "target_map_id": "s321",
+      "target_x": 9,
+      "target_y": 11,
+      "raw_data": [
+        321,
+        9,
+        11
+      ]
+    },
+    {
+      "source_x": 35,
+      "source_y": 31,
+      "target_map_id": "s1333",
+      "target_x": 9,
+      "target_y": 11,
+      "raw_data": [
+        1333,
+        9,
+        11
+      ]
+    },
+    {
+      "source_x": 19,
+      "source_y": 35,
+      "target_map_id": "s56",
+      "target_x": 9,
+      "target_y": 9,
+      "raw_data": [
+        56,
+        9,
+        9
+      ]
+    },
+    {
+      "source_x": 31,
+      "source_y": 36,
+      "target_map_id": "s319",
+      "target_x": 9,
+      "target_y": 11,
+      "raw_data": [
+        319,
+        9,
+        11
+      ]
+    }
+  ],
+  "signs": [
+    {
+      "x": 35,
+      "y": 8,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "Winden Sauna",
+        "And Lickilicky's Drool Service",
+        ""
+      ]
+    },
+    {
+      "x": 23,
+      "y": 15,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "Winden Town Hall",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 39,
+      "y": 18,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "North: Winden Sauna",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 40,
+      "y": 18,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "North: Winden Sauna",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 41,
+      "y": 18,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "East: Snowball Game",
+        "---->",
+        "Follow the path."
+      ]
+    },
+    {
+      "x": 42,
+      "y": 18,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "East: Snowball Game",
+        "---->",
+        "Follow the path."
+      ]
+    },
+    {
+      "x": 27,
+      "y": 24,
+      "type": "Sign",
+      "script_id": null,
+      "lines": [
+        "NeverMeltIce Pillar",
+        "Winden's Pride and Glory",
+        "This ice pillar has stood here in Snowbasin Town since the day it was founded."
+      ]
+    }
+  ],
+  "doors": [],
+  "items": [
+    {
+      "x": 14,
+      "y": 45,
+      "item_id": 494,
+      "amount": 1,
+      "sticky": 0
+    }
+  ],
+  "scripts": [
+    {
+      "x": 25,
+      "y": 7,
+      "script_id": 14,
+      "param2": 0,
+      "param3": 0,
+      "strings": [
+        "1740",
+        "7",
+        "1"
+      ]
+    }
+  ],
+  "stories": [],
+  "level_blocks": [],
+  "sprite_blocks": [],
+  "mobile_blocks": [],
+  "other_semantics": [
+    {
+      "x": 13,
+      "y": 6,
+      "type_id": 5,
+      "type_name": "Key",
+      "raw_data": [
+        25,
+        0,
+        0
+      ],
+      "raw_strings": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 22,
+      "y": 11,
+      "type_id": 5,
+      "type_name": "Key",
+      "raw_data": [
+        25,
+        0,
+        0
+      ],
+      "raw_strings": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 23,
+      "y": 11,
+      "type_id": 5,
+      "type_name": "Key",
+      "raw_data": [
+        25,
+        0,
+        0
+      ],
+      "raw_strings": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 21,
+      "y": 12,
+      "type_id": 5,
+      "type_name": "Key",
+      "raw_data": [
+        25,
+        0,
+        0
+      ],
+      "raw_strings": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 17,
+      "y": 17,
+      "type_id": 5,
+      "type_name": "Key",
+      "raw_data": [
+        26,
+        0,
+        0
+      ],
+      "raw_strings": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 7,
+      "y": 27,
+      "type_id": 5,
+      "type_name": "Key",
+      "raw_data": [
+        26,
+        0,
+        0
+      ],
+      "raw_strings": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 13,
+      "y": 31,
+      "type_id": 5,
+      "type_name": "Key",
+      "raw_data": [
+        26,
+        0,
+        0
+      ],
+      "raw_strings": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 33,
+      "y": 37,
+      "type_id": 5,
+      "type_name": "Key",
+      "raw_data": [
+        25,
+        0,
+        0
+      ],
+      "raw_strings": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "x": 29,
+      "y": 38,
+      "type_id": 5,
+      "type_name": "Key",
+      "raw_data": [
+        25,
+        0,
+        0
+      ],
+      "raw_strings": [
+        "",
+        "",
+        ""
+      ]
+    }
+  ],
+  "cardinal_connections": {
+    "up": "s1642",
+    "down": "s921",
+    "left": "s1391",
+    "right": "s1640"
+  }
+}

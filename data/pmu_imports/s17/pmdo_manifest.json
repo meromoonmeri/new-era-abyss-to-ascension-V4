@@ -1,0 +1,31 @@
+{
+  "schema": "new-era.pmu-pmdo-manifest.v1",
+  "map_id": "s17",
+  "asset_name": "pmu_s17",
+  "name": "Pok? Town Square",
+  "tex_size": 1,
+  "scale_factor_px": 1.0,
+  "dimensions_tiles_pmu": [
+    20,
+    46
+  ],
+  "dimensions_pixels": [
+    640,
+    1472
+  ],
+  "dimensions_grid_pmdo": [
+    80,
+    184
+  ],
+  "unique_subtiles": 1444,
+  "animated_subcells": 369,
+  "artifacts": {
+    "ground": "Data/Ground/pmu_s17.rsground",
+    "ground_sha256": "894ee11a51c26d62f46173ff15c47b08dfb06f932850bd43d2656206d1f655b7",
+    "tile": "Content/Tile/pmu_s17_Base.tile",
+    "tile_sha256": "f9f615b1a449771f022114470aa1ce57036b8545d6891a9787937582dd8bc566",
+    "script": "Data/Script/halcyon/ground/pmu_s17/init.lua",
+    "script_sha256": "e68ecc045e86998fb89c79e47b798cf8936b39ed6103fbdd4ab5f4ea9728591c"
+  },
+  "status": "CONVERTED"
+}
