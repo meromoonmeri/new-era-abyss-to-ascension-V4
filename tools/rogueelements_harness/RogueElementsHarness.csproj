@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RogueElementsRoot Condition="'$(RogueElementsRoot)' == ''">$(ROGUE_ELEMENTS_ROOT)</RogueElementsRoot>
+  </PropertyGroup>
+  <Target Name="RequireRogueElements" BeforeTargets="ResolveReferences" Condition="!Exists('$(RogueElementsRoot)/RogueElements/RogueElements.csproj')">
+    <Error Text="Set RogueElementsRoot (or ROGUE_ELEMENTS_ROOT) to a RogueElements checkout." />
+  </Target>
+  <ItemGroup>
+    <ProjectReference Include="$(RogueElementsRoot)/RogueElements/RogueElements.csproj" />
+    <!-- Reuse the official executable examples' context, map, stair and tile contracts. -->
+    <Compile Include="$(RogueElementsRoot)/RogueElements.Examples/Common/**/*.cs" Link="OfficialExamples/Common/%(RecursiveDir)%(Filename)%(Extension)" />
+    <Compile Include="$(RogueElementsRoot)/RogueElements.Examples/Ex4_Stairs/Map.cs" Link="OfficialExamples/Ex4_Stairs/Map.cs" />
+    <Compile Include="$(RogueElementsRoot)/RogueElements.Examples/Ex4_Stairs/MapGenContext.cs" Link="OfficialExamples/Ex4_Stairs/MapGenContext.cs" />
+  </ItemGroup>
+</Project>

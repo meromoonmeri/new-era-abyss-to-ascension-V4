@@ -1,4 +1,4 @@
-{
+﻿{
   "Version": "0.8.9.0",
   "Object": {
     "$type": "RogueEssence.Data.ZoneData, RogueEssence",
@@ -83031,6 +83031,7 @@
       }
     ],
     "GroundMaps": [
+"town_hollow",
       "relic_forest",
       "metano_town",
       "guild_heros_room",

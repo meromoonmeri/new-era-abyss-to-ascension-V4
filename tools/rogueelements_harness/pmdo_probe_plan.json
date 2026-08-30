@@ -1,0 +1,16 @@
+{
+  "schema": "new-era.rogueelements-harness.pmdo-probe-plan.v1",
+  "status": "BLOCKED_BY_ENVIRONMENT",
+  "purpose": "Translate only successful RogueElements prototype profiles into a temporary PMDO overlay. Never copy this plan into Data/Zone.",
+  "profiles": [
+    {"id": "branching_dead_ends", "floor_gen": "GridFloorGen", "path": "GridPathBranch", "post_path": [], "expected": "tree-like graph, branches and terminal rooms"},
+    {"id": "looping_alternative_routes", "floor_gen": "GridFloorGen", "path": "GridPathCircle", "post_path": ["ConnectGridBranchStep"], "expected": "cycle(s) plus radial alternatives"},
+    {"id": "room_dense_grid", "floor_gen": "GridFloorGen", "path": "GridPathGrid", "post_path": [], "expected": "high room and cycle density; may be unsuitable if overly regular"},
+    {"id": "corridor_heavy_two_sides", "floor_gen": "GridFloorGen", "path": "GridPathTwoSides", "post_path": [], "expected": "opposed rooms connected across a corridor-oriented structure"},
+    {"id": "mixed_branch_connect", "floor_gen": "GridFloorGen", "path": "GridPathBranch", "post_path": ["ConnectGridBranchStep"], "expected": "branches plus deliberate extra connections"},
+    {"id": "room_floor_branch", "floor_gen": "RoomFloorGen", "path": "FloorPathBranch", "post_path": [], "expected": "non-grid room placement baseline"}
+  ],
+  "native_fairplay_chain": ["DrawGridToFloorStep or FloorPathBranch", "DrawFloorToTileStep", "FloorStairsStep", "DetectIsolatedStairsStep"],
+  "required_runtime_observations": ["map dimensions", "free and blocked TileBlocked probes", "entrance and exit existence", "reachable exit", "no isolated mandatory tiles", "runtime log without generation exception"],
+  "forbidden": ["production zone index mutation", "fixed production seed", "cached layout replay", "declaring runtime confirmation from static JSON"]
+}
