@@ -1,7 +1,10 @@
 # MILESTONE 1 — RAW_TOWN_ENVIRONMENT
 
-STATUS: **IN_PROGRESS** (composition + rendu PASS ; intégration
-.rsground + collision QA + runtime restants — voir « RESTE À FAIRE »)
+STATUS: **PASS (M1)** — .rsground natif matérialisé, rendu canonique,
+animations rivière/cascades prouvées, RUNTIME réel PMDO : LOAD_PASS +
+MOVEMENT_PASS + SAFE, marche 94,5 % de l'aire libre atteignable depuis
+l'entrée (zones non atteignables = plateau au-dessus de la falaise et
+poches de forêt — intentionnelles).
 
 ## Contexte
 
@@ -11,12 +14,19 @@ New Era est archivée sur la branche `archive/new-era-halcyon-complete`
 
 ## MAP
 
-- Nom de travail : **Vallon de l'Éclusée** (M1 = environnement brut)
-- Fichier composé : `reports/analysis/m1_composed_grid.json`
-  (grille de supertiles + collision + masque + paramètres)
+- Nom : **Vallon de l'Éclusée** — `Data/Ground/vallon_eclusee.rsground`
+  (12,6 Mo, 11 couches natives Metano, animations rivière 4 frames
+  FrameLength 10, colorimétrie canonique par recopie de cellules
+  représentatives du donneur)
+- Zone : master_zone ground 392 (json + index.idx alignés)
+- Script : `Data/Script/halcyon/ground/vallon_eclusee/init.lua`
+- Layout v4 (croquis utilisateur comme PLAN, jamais croppé) : falaise
+  nord haute, DEUX cascades Metano complètes (crête+chute+écume),
+  deux rivières verticales serpentines, DEUX ponts en bois Metano
+  (platelage praticable natif, extrait au pixel 119..127×74..81),
+  place centrale, croisée de chemins organiques, forêt périmétrique
 - Render canonique : `reports/renders/m1_raw_town_environment.png`
-  (à l'instar des renders Metano — `metano_town.png` inclus pour
-  comparaison, `luluby_town_morning.png` aussi)
+  (+ `_2x`, `_tick20` = preuve animation, détails cascade/pont/place)
 
 ## DIMENSIONS
 
@@ -79,11 +89,15 @@ New Era est archivée sur la branche `archive/new-era-halcyon-complete`
   des juxtapositions nouvelles (autotile correct de part et d'autre,
   ex. herbe|herbe d'une autre variante) : à réduire en QA visuelle,
   critère final = zéro couture visible au zoom
-- Layers : BLOCKED (matérialisation .rsground pas encore faite)
-- Collision : IN_PROGRESS (héritée par supertile ; audit dédié à faire)
-- Animation : BLOCKED (idem matérialisation)
-- Runtime : BLOCKED (après matérialisation)
-- Walkability : BLOCKED (après runtime)
+- Layers : PASS (11 couches natives recopiées, .rsground 0.8.9.0)
+- Collision : PASS (native par cellule ; BFS : place/ponts/col nord/
+  rives atteignables depuis l'entrée sud, 94,5 % de l'aire libre)
+- Animation : PASS (tick0 vs tick20 : 2 883 px échantillonnés changent
+  sur rivières+cascades — 4 frames canoniques FrameLength 10)
+- Runtime : PASS (PMDO réel headless : ground_entered, LOAD_PASS,
+  spawn 344,592, move 4 directions MOVEMENT_PASS, verdict SAFE —
+  `reports/m1_runtime_proof.jsonl`)
+- Walkability : PASS (voir Collision)
 
 ## QA
 

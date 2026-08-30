@@ -1,0 +1,4 @@
+{"event":"begin","count":1}
+{"event":"ground_entered","ground":"vallon_eclusee","scheduler":"TASK_BRANCH"}
+{"ground":"vallon_eclusee","load":"LOAD_PASS","spawn":{"x":344,"y":592},"move_dirs":[1,1,1,1],"move_deltas":["0,-16","8,0","0,16","-16,0"],"movement_probe":"MOVEMENT_PASS","verdict":"SAFE"}
+{"event":"end"}

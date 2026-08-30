@@ -86,6 +86,8 @@ def main():
     sig_of = {}
     composite = {}
     tile_cache = {}
+    rep_cell = {}
+    sheet_cats = {}
     for x in range(W):
         for y in range(H):
             sig = []
@@ -121,6 +123,20 @@ def main():
                 sig_of[key] = sig
                 composite[key] = im
                 im.save(IMG_DIR / f'{key}.png')
+                rep_cell[key] = [x, y]
+                cats = set()
+                for (_li, frames, _ft) in sig:
+                    sh = frames[0][0] or ''
+                    if 'Cliff' in sh:
+                        cats.add('cliff')
+                    if 'River' in sh or 'Animated' in sh or \
+                            'Animation' in sh:
+                        cats.add('riveranim')
+                    if 'Objects' in sh:
+                        cats.add('objects')
+                    if 'Fringe' in sh:
+                        cats.add('fringe')
+                sheet_cats[key] = sorted(cats)
 
     freq = Counter()
     collv = defaultdict(Counter)
@@ -163,8 +179,15 @@ def main():
             cls = 'O'
         info[k] = {'avg': list(avg), 'var': var, 'coll': coll,
                    'freq': freq[k], 'layers': nlayers,
-                   'animated': animated, 'cls': cls}
+                   'animated': animated, 'cls': cls,
+                   'rep': rep_cell[k], 'cats': sheet_cats[k]}
 
+    # signatures complètes par hash (matérialisation .rsground fidèle :
+    # mêmes couches, mêmes frames d'animation, mêmes FrameTime)
+    json.dump({k: [[li, [list(f) for f in frames], ft]
+                   for (li, frames, ft) in sig]
+               for k, sig in sig_of.items()},
+              open('/tmp/mt_sigs.json', 'w'))
     coll_grid = [[obs[x][y]['Tags'] for y in range(H)] for x in range(W)]
     json.dump({'W': W, 'H': H, 'grid': grid, 'coll': coll_grid,
                'hp': sorted(map(list, hp)), 'vp': sorted(map(list, vp)),
