@@ -166,9 +166,11 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         <div class="section-box">
             <div class="section-title">Select PMD Map</div>
             <select id="sel-map" onchange="loadSelectedMap()" style="width: 100%;">
-                <option value="skytemple_metano_outskirts">Metano Outskirts (Clairière de Metano)</option>
-                <option value="metano_waterfall_haven">Metano Waterfall Haven</option>
-                <option value="metano_town_recreated">Metano Town (Recreated)</option>
+                <option value="pixellab_metano_sanctuary">Metano Sanctuary (PixelLab Native)</option>
+                <option value="metano_town_recreated">Metano Town (Recreated PMD Layout)</option>
+                <option value="metano_waterfall_haven">Metano Waterfall Haven (Hybrid & Animations)</option>
+                <option value="skytemple_metano_outskirts">Metano Outskirts (Clairière SkyTemple)</option>
+                <option value="pixellab_metano_variant">Metano Variant (PixelLab Procedural)</option>
             </select>
         </div>
 
@@ -216,7 +218,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     </div>
 
     <script>
-        let currentMap = "skytemple_metano_outskirts";
+        let currentMap = "pixellab_metano_sanctuary";
         let currentLayer = "final";
         const canvas = document.getElementById('view-canvas');
         const ctx = canvas.getContext('2d');
@@ -231,9 +233,11 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         function loadSelectedMap() {
             currentMap = document.getElementById('sel-map').value;
             const titles = {
-                "skytemple_metano_outskirts": "Metano Outskirts (Clairière de Metano) — 63x63 PMD Tiles",
-                "metano_waterfall_haven": "Metano Waterfall Haven — 64x64 PMD Tiles",
-                "metano_town_recreated": "Metano Town (Recreated) — 63x63 PMD Tiles"
+                "pixellab_metano_sanctuary": "Metano Sanctuary (PixelLab Native) — 63x63 PMD Tiles (1512x1512 px)",
+                "metano_town_recreated": "Metano Town (Recreated PMD Layout) — 63x63 PMD Tiles (1512x1512 px)",
+                "metano_waterfall_haven": "Metano Waterfall Haven (Hybrid & Animations) — 64x64 PMD Tiles",
+                "skytemple_metano_outskirts": "Metano Outskirts (Clairière SkyTemple) — 63x63 PMD Tiles",
+                "pixellab_metano_variant": "Metano Variant (PixelLab Procedural) — 63x63 PMD Tiles"
             };
             document.getElementById('town-title').innerText = titles[currentMap] || currentMap;
             renderMap();
