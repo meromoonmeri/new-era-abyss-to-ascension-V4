@@ -1,32 +1,22 @@
 {
   "source": "pixellab_treehouse_village.webp",
   "animated_gif": "pixellab_treehouse_village_WATER_ANIMATED.gif",
-  "reference_style": "PMU_Metano_Town_Water",
-  "resolution": [
-    1147,
-    928
-  ],
+  "animation_method": "Metano_Town_Wang_Tile_Swapping",
+  "engine": "PixelLab Wang Tileset Engine",
   "frame_count": 4,
-  "fps": 5.0,
-  "frame_duration_ms": 200,
+  "fps": 4.55,
+  "duration_per_frame_ms": 220,
   "loop": true,
-  "water_surface_pixels": 13209,
-  "waterfall_pixels": 6615,
-  "total_animated_pixels": 19824,
-  "non_water_pixels_preserved": 1044592,
-  "frames": [
-    "pixellab_treehouse_village_ANIM_FRAME_00.webp",
-    "pixellab_treehouse_village_ANIM_FRAME_01.webp",
-    "pixellab_treehouse_village_ANIM_FRAME_02.webp",
-    "pixellab_treehouse_village_ANIM_FRAME_03.webp"
+  "features_animated": [
+    "North-West River & Wooden Bridge channel (4-phase Wang tile cycle)",
+    "South-West Crystal Lake Basin (subtle wavelets and ripple highlights)",
+    "South-West Cliff Waterfall Cascade (downward foam flow + impact splash)"
   ],
   "validations": {
-    "dimensions": "PASS (1147x928 px exact)",
-    "scale": "PASS (1:1 PMD pixel art)",
-    "shoreline_integrity": "PASS (Hard shoreline mask, 0 leakage)",
-    "non_water_immutability": "PASS (0 mismatches)",
-    "waterfall_flow": "PASS (Vertical downward cascade with impact splash)",
-    "stream_and_lake": "PASS (Horizontal discrete wavelets & sparkle twinkle)",
-    "seamless_loop": "PASS (Frame 3 connects perfectly back to Frame 0)"
+    "dimensions": "PASS (1147x928 px)",
+    "native_scale": "PASS (1:1 PMD pixel art)",
+    "shoreline_stability": "PASS (Hard mask, 0 leakage)",
+    "terrain_immutability": "PASS (100% of trees, paths, cliffs, treehouse intact)",
+    "seamless_loop": "PASS (Frame 03 loops seamlessly into Frame 00)"
   }
 }
