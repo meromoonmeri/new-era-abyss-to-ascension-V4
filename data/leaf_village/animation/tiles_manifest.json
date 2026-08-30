@@ -1,0 +1,7058 @@
+[
+  {
+    "tile_index": 0,
+    "grid_pos": [
+      6,
+      0
+    ],
+    "pixel_bbox": [
+      144,
+      0,
+      168,
+      24
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_06_00.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 1,
+    "grid_pos": [
+      15,
+      0
+    ],
+    "pixel_bbox": [
+      360,
+      0,
+      384,
+      24
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_15_00.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 2,
+    "grid_pos": [
+      20,
+      0
+    ],
+    "pixel_bbox": [
+      480,
+      0,
+      504,
+      24
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_20_00.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 3,
+    "grid_pos": [
+      22,
+      0
+    ],
+    "pixel_bbox": [
+      528,
+      0,
+      552,
+      24
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_22_00.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 4,
+    "grid_pos": [
+      23,
+      0
+    ],
+    "pixel_bbox": [
+      552,
+      0,
+      576,
+      24
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_23_00.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 5,
+    "grid_pos": [
+      31,
+      0
+    ],
+    "pixel_bbox": [
+      744,
+      0,
+      768,
+      24
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_31_00.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 6,
+    "grid_pos": [
+      32,
+      0
+    ],
+    "pixel_bbox": [
+      768,
+      0,
+      792,
+      24
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_32_00.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 7,
+    "grid_pos": [
+      35,
+      0
+    ],
+    "pixel_bbox": [
+      840,
+      0,
+      864,
+      24
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_35_00.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 8,
+    "grid_pos": [
+      36,
+      0
+    ],
+    "pixel_bbox": [
+      864,
+      0,
+      888,
+      24
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_36_00.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 9,
+    "grid_pos": [
+      3,
+      1
+    ],
+    "pixel_bbox": [
+      72,
+      24,
+      96,
+      48
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_03_01.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 10,
+    "grid_pos": [
+      6,
+      1
+    ],
+    "pixel_bbox": [
+      144,
+      24,
+      168,
+      48
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_06_01.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 11,
+    "grid_pos": [
+      7,
+      1
+    ],
+    "pixel_bbox": [
+      168,
+      24,
+      192,
+      48
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_07_01.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 12,
+    "grid_pos": [
+      8,
+      1
+    ],
+    "pixel_bbox": [
+      192,
+      24,
+      216,
+      48
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_08_01.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 13,
+    "grid_pos": [
+      10,
+      1
+    ],
+    "pixel_bbox": [
+      240,
+      24,
+      264,
+      48
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_10_01.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 14,
+    "grid_pos": [
+      11,
+      1
+    ],
+    "pixel_bbox": [
+      264,
+      24,
+      288,
+      48
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_11_01.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 15,
+    "grid_pos": [
+      12,
+      1
+    ],
+    "pixel_bbox": [
+      288,
+      24,
+      312,
+      48
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_12_01.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 16,
+    "grid_pos": [
+      13,
+      1
+    ],
+    "pixel_bbox": [
+      312,
+      24,
+      336,
+      48
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_13_01.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 17,
+    "grid_pos": [
+      14,
+      1
+    ],
+    "pixel_bbox": [
+      336,
+      24,
+      360,
+      48
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_14_01.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 18,
+    "grid_pos": [
+      15,
+      1
+    ],
+    "pixel_bbox": [
+      360,
+      24,
+      384,
+      48
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_15_01.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 19,
+    "grid_pos": [
+      19,
+      1
+    ],
+    "pixel_bbox": [
+      456,
+      24,
+      480,
+      48
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_19_01.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 20,
+    "grid_pos": [
+      23,
+      1
+    ],
+    "pixel_bbox": [
+      552,
+      24,
+      576,
+      48
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_23_01.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 21,
+    "grid_pos": [
+      24,
+      1
+    ],
+    "pixel_bbox": [
+      576,
+      24,
+      600,
+      48
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_24_01.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 22,
+    "grid_pos": [
+      25,
+      1
+    ],
+    "pixel_bbox": [
+      600,
+      24,
+      624,
+      48
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_25_01.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 23,
+    "grid_pos": [
+      32,
+      1
+    ],
+    "pixel_bbox": [
+      768,
+      24,
+      792,
+      48
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_32_01.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 24,
+    "grid_pos": [
+      40,
+      1
+    ],
+    "pixel_bbox": [
+      960,
+      24,
+      984,
+      48
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_40_01.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 25,
+    "grid_pos": [
+      41,
+      1
+    ],
+    "pixel_bbox": [
+      984,
+      24,
+      1008,
+      48
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_41_01.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 26,
+    "grid_pos": [
+      4,
+      2
+    ],
+    "pixel_bbox": [
+      96,
+      48,
+      120,
+      72
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_04_02.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 27,
+    "grid_pos": [
+      5,
+      2
+    ],
+    "pixel_bbox": [
+      120,
+      48,
+      144,
+      72
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_05_02.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 28,
+    "grid_pos": [
+      6,
+      2
+    ],
+    "pixel_bbox": [
+      144,
+      48,
+      168,
+      72
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_06_02.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 29,
+    "grid_pos": [
+      7,
+      2
+    ],
+    "pixel_bbox": [
+      168,
+      48,
+      192,
+      72
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_07_02.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 30,
+    "grid_pos": [
+      13,
+      2
+    ],
+    "pixel_bbox": [
+      312,
+      48,
+      336,
+      72
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_13_02.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 31,
+    "grid_pos": [
+      14,
+      2
+    ],
+    "pixel_bbox": [
+      336,
+      48,
+      360,
+      72
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_14_02.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 32,
+    "grid_pos": [
+      15,
+      2
+    ],
+    "pixel_bbox": [
+      360,
+      48,
+      384,
+      72
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_15_02.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 33,
+    "grid_pos": [
+      16,
+      2
+    ],
+    "pixel_bbox": [
+      384,
+      48,
+      408,
+      72
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_16_02.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 34,
+    "grid_pos": [
+      24,
+      2
+    ],
+    "pixel_bbox": [
+      576,
+      48,
+      600,
+      72
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_24_02.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 35,
+    "grid_pos": [
+      25,
+      2
+    ],
+    "pixel_bbox": [
+      600,
+      48,
+      624,
+      72
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_25_02.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 36,
+    "grid_pos": [
+      28,
+      2
+    ],
+    "pixel_bbox": [
+      672,
+      48,
+      696,
+      72
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_28_02.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 37,
+    "grid_pos": [
+      35,
+      2
+    ],
+    "pixel_bbox": [
+      840,
+      48,
+      864,
+      72
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_35_02.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 38,
+    "grid_pos": [
+      36,
+      2
+    ],
+    "pixel_bbox": [
+      864,
+      48,
+      888,
+      72
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_36_02.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 39,
+    "grid_pos": [
+      6,
+      3
+    ],
+    "pixel_bbox": [
+      144,
+      72,
+      168,
+      96
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_06_03.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 40,
+    "grid_pos": [
+      7,
+      3
+    ],
+    "pixel_bbox": [
+      168,
+      72,
+      192,
+      96
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_07_03.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 41,
+    "grid_pos": [
+      8,
+      3
+    ],
+    "pixel_bbox": [
+      192,
+      72,
+      216,
+      96
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_08_03.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 42,
+    "grid_pos": [
+      9,
+      3
+    ],
+    "pixel_bbox": [
+      216,
+      72,
+      240,
+      96
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_09_03.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 43,
+    "grid_pos": [
+      17,
+      3
+    ],
+    "pixel_bbox": [
+      408,
+      72,
+      432,
+      96
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_17_03.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 44,
+    "grid_pos": [
+      23,
+      3
+    ],
+    "pixel_bbox": [
+      552,
+      72,
+      576,
+      96
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_23_03.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 45,
+    "grid_pos": [
+      24,
+      3
+    ],
+    "pixel_bbox": [
+      576,
+      72,
+      600,
+      96
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_24_03.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 46,
+    "grid_pos": [
+      35,
+      3
+    ],
+    "pixel_bbox": [
+      840,
+      72,
+      864,
+      96
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_35_03.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 47,
+    "grid_pos": [
+      36,
+      3
+    ],
+    "pixel_bbox": [
+      864,
+      72,
+      888,
+      96
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_36_03.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 48,
+    "grid_pos": [
+      37,
+      3
+    ],
+    "pixel_bbox": [
+      888,
+      72,
+      912,
+      96
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_37_03.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 49,
+    "grid_pos": [
+      40,
+      3
+    ],
+    "pixel_bbox": [
+      960,
+      72,
+      984,
+      96
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_40_03.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 50,
+    "grid_pos": [
+      2,
+      4
+    ],
+    "pixel_bbox": [
+      48,
+      96,
+      72,
+      120
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_02_04.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 51,
+    "grid_pos": [
+      3,
+      4
+    ],
+    "pixel_bbox": [
+      72,
+      96,
+      96,
+      120
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_03_04.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 52,
+    "grid_pos": [
+      4,
+      4
+    ],
+    "pixel_bbox": [
+      96,
+      96,
+      120,
+      120
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_04_04.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 53,
+    "grid_pos": [
+      5,
+      4
+    ],
+    "pixel_bbox": [
+      120,
+      96,
+      144,
+      120
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_05_04.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 54,
+    "grid_pos": [
+      9,
+      4
+    ],
+    "pixel_bbox": [
+      216,
+      96,
+      240,
+      120
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_09_04.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 55,
+    "grid_pos": [
+      10,
+      4
+    ],
+    "pixel_bbox": [
+      240,
+      96,
+      264,
+      120
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_10_04.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 56,
+    "grid_pos": [
+      11,
+      4
+    ],
+    "pixel_bbox": [
+      264,
+      96,
+      288,
+      120
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_11_04.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 57,
+    "grid_pos": [
+      12,
+      4
+    ],
+    "pixel_bbox": [
+      288,
+      96,
+      312,
+      120
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_12_04.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 58,
+    "grid_pos": [
+      13,
+      4
+    ],
+    "pixel_bbox": [
+      312,
+      96,
+      336,
+      120
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_13_04.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 59,
+    "grid_pos": [
+      14,
+      4
+    ],
+    "pixel_bbox": [
+      336,
+      96,
+      360,
+      120
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_14_04.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 60,
+    "grid_pos": [
+      17,
+      4
+    ],
+    "pixel_bbox": [
+      408,
+      96,
+      432,
+      120
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_17_04.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 61,
+    "grid_pos": [
+      23,
+      4
+    ],
+    "pixel_bbox": [
+      552,
+      96,
+      576,
+      120
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_23_04.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 62,
+    "grid_pos": [
+      25,
+      4
+    ],
+    "pixel_bbox": [
+      600,
+      96,
+      624,
+      120
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_25_04.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 63,
+    "grid_pos": [
+      29,
+      4
+    ],
+    "pixel_bbox": [
+      696,
+      96,
+      720,
+      120
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_29_04.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 64,
+    "grid_pos": [
+      32,
+      4
+    ],
+    "pixel_bbox": [
+      768,
+      96,
+      792,
+      120
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_32_04.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 65,
+    "grid_pos": [
+      33,
+      4
+    ],
+    "pixel_bbox": [
+      792,
+      96,
+      816,
+      120
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_33_04.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 66,
+    "grid_pos": [
+      39,
+      4
+    ],
+    "pixel_bbox": [
+      936,
+      96,
+      960,
+      120
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_39_04.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 67,
+    "grid_pos": [
+      40,
+      4
+    ],
+    "pixel_bbox": [
+      960,
+      96,
+      984,
+      120
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_40_04.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 68,
+    "grid_pos": [
+      4,
+      5
+    ],
+    "pixel_bbox": [
+      96,
+      120,
+      120,
+      144
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_04_05.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 69,
+    "grid_pos": [
+      5,
+      5
+    ],
+    "pixel_bbox": [
+      120,
+      120,
+      144,
+      144
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_05_05.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 70,
+    "grid_pos": [
+      13,
+      5
+    ],
+    "pixel_bbox": [
+      312,
+      120,
+      336,
+      144
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_13_05.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 71,
+    "grid_pos": [
+      14,
+      5
+    ],
+    "pixel_bbox": [
+      336,
+      120,
+      360,
+      144
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_14_05.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 72,
+    "grid_pos": [
+      17,
+      5
+    ],
+    "pixel_bbox": [
+      408,
+      120,
+      432,
+      144
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_17_05.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 73,
+    "grid_pos": [
+      18,
+      5
+    ],
+    "pixel_bbox": [
+      432,
+      120,
+      456,
+      144
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_18_05.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 74,
+    "grid_pos": [
+      19,
+      5
+    ],
+    "pixel_bbox": [
+      456,
+      120,
+      480,
+      144
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_19_05.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 75,
+    "grid_pos": [
+      20,
+      5
+    ],
+    "pixel_bbox": [
+      480,
+      120,
+      504,
+      144
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_20_05.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 76,
+    "grid_pos": [
+      22,
+      5
+    ],
+    "pixel_bbox": [
+      528,
+      120,
+      552,
+      144
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_22_05.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 77,
+    "grid_pos": [
+      23,
+      5
+    ],
+    "pixel_bbox": [
+      552,
+      120,
+      576,
+      144
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_23_05.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 78,
+    "grid_pos": [
+      24,
+      5
+    ],
+    "pixel_bbox": [
+      576,
+      120,
+      600,
+      144
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_24_05.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 79,
+    "grid_pos": [
+      25,
+      5
+    ],
+    "pixel_bbox": [
+      600,
+      120,
+      624,
+      144
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_25_05.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 80,
+    "grid_pos": [
+      27,
+      5
+    ],
+    "pixel_bbox": [
+      648,
+      120,
+      672,
+      144
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_27_05.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 81,
+    "grid_pos": [
+      28,
+      5
+    ],
+    "pixel_bbox": [
+      672,
+      120,
+      696,
+      144
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_28_05.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 82,
+    "grid_pos": [
+      29,
+      5
+    ],
+    "pixel_bbox": [
+      696,
+      120,
+      720,
+      144
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_29_05.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 83,
+    "grid_pos": [
+      39,
+      5
+    ],
+    "pixel_bbox": [
+      936,
+      120,
+      960,
+      144
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_39_05.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 84,
+    "grid_pos": [
+      14,
+      6
+    ],
+    "pixel_bbox": [
+      336,
+      144,
+      360,
+      168
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_14_06.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 85,
+    "grid_pos": [
+      17,
+      6
+    ],
+    "pixel_bbox": [
+      408,
+      144,
+      432,
+      168
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_17_06.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 86,
+    "grid_pos": [
+      18,
+      6
+    ],
+    "pixel_bbox": [
+      432,
+      144,
+      456,
+      168
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_18_06.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 87,
+    "grid_pos": [
+      19,
+      6
+    ],
+    "pixel_bbox": [
+      456,
+      144,
+      480,
+      168
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_19_06.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 88,
+    "grid_pos": [
+      20,
+      6
+    ],
+    "pixel_bbox": [
+      480,
+      144,
+      504,
+      168
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_20_06.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 89,
+    "grid_pos": [
+      22,
+      6
+    ],
+    "pixel_bbox": [
+      528,
+      144,
+      552,
+      168
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_22_06.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 90,
+    "grid_pos": [
+      23,
+      6
+    ],
+    "pixel_bbox": [
+      552,
+      144,
+      576,
+      168
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_23_06.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 91,
+    "grid_pos": [
+      32,
+      6
+    ],
+    "pixel_bbox": [
+      768,
+      144,
+      792,
+      168
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_32_06.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 92,
+    "grid_pos": [
+      33,
+      6
+    ],
+    "pixel_bbox": [
+      792,
+      144,
+      816,
+      168
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_33_06.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 93,
+    "grid_pos": [
+      16,
+      7
+    ],
+    "pixel_bbox": [
+      384,
+      168,
+      408,
+      192
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_16_07.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 94,
+    "grid_pos": [
+      17,
+      7
+    ],
+    "pixel_bbox": [
+      408,
+      168,
+      432,
+      192
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_17_07.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 95,
+    "grid_pos": [
+      18,
+      7
+    ],
+    "pixel_bbox": [
+      432,
+      168,
+      456,
+      192
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_18_07.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 96,
+    "grid_pos": [
+      19,
+      7
+    ],
+    "pixel_bbox": [
+      456,
+      168,
+      480,
+      192
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_19_07.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 97,
+    "grid_pos": [
+      32,
+      7
+    ],
+    "pixel_bbox": [
+      768,
+      168,
+      792,
+      192
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_32_07.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 98,
+    "grid_pos": [
+      33,
+      7
+    ],
+    "pixel_bbox": [
+      792,
+      168,
+      816,
+      192
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_33_07.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 99,
+    "grid_pos": [
+      40,
+      7
+    ],
+    "pixel_bbox": [
+      960,
+      168,
+      984,
+      192
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_40_07.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 100,
+    "grid_pos": [
+      41,
+      7
+    ],
+    "pixel_bbox": [
+      984,
+      168,
+      1008,
+      192
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_41_07.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 101,
+    "grid_pos": [
+      5,
+      8
+    ],
+    "pixel_bbox": [
+      120,
+      192,
+      144,
+      216
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_05_08.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 102,
+    "grid_pos": [
+      16,
+      8
+    ],
+    "pixel_bbox": [
+      384,
+      192,
+      408,
+      216
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_16_08.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 103,
+    "grid_pos": [
+      17,
+      8
+    ],
+    "pixel_bbox": [
+      408,
+      192,
+      432,
+      216
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_17_08.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 104,
+    "grid_pos": [
+      18,
+      8
+    ],
+    "pixel_bbox": [
+      432,
+      192,
+      456,
+      216
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_18_08.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 105,
+    "grid_pos": [
+      22,
+      8
+    ],
+    "pixel_bbox": [
+      528,
+      192,
+      552,
+      216
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_22_08.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 106,
+    "grid_pos": [
+      24,
+      8
+    ],
+    "pixel_bbox": [
+      576,
+      192,
+      600,
+      216
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_24_08.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 107,
+    "grid_pos": [
+      28,
+      8
+    ],
+    "pixel_bbox": [
+      672,
+      192,
+      696,
+      216
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_28_08.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 108,
+    "grid_pos": [
+      29,
+      8
+    ],
+    "pixel_bbox": [
+      696,
+      192,
+      720,
+      216
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_29_08.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 109,
+    "grid_pos": [
+      40,
+      8
+    ],
+    "pixel_bbox": [
+      960,
+      192,
+      984,
+      216
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_40_08.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 110,
+    "grid_pos": [
+      41,
+      8
+    ],
+    "pixel_bbox": [
+      984,
+      192,
+      1008,
+      216
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_41_08.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 111,
+    "grid_pos": [
+      2,
+      9
+    ],
+    "pixel_bbox": [
+      48,
+      216,
+      72,
+      240
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_02_09.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 112,
+    "grid_pos": [
+      6,
+      9
+    ],
+    "pixel_bbox": [
+      144,
+      216,
+      168,
+      240
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_06_09.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 113,
+    "grid_pos": [
+      8,
+      9
+    ],
+    "pixel_bbox": [
+      192,
+      216,
+      216,
+      240
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_08_09.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 114,
+    "grid_pos": [
+      16,
+      9
+    ],
+    "pixel_bbox": [
+      384,
+      216,
+      408,
+      240
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_16_09.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 115,
+    "grid_pos": [
+      17,
+      9
+    ],
+    "pixel_bbox": [
+      408,
+      216,
+      432,
+      240
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_17_09.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 116,
+    "grid_pos": [
+      20,
+      9
+    ],
+    "pixel_bbox": [
+      480,
+      216,
+      504,
+      240
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_20_09.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 117,
+    "grid_pos": [
+      23,
+      9
+    ],
+    "pixel_bbox": [
+      552,
+      216,
+      576,
+      240
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_23_09.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 118,
+    "grid_pos": [
+      24,
+      9
+    ],
+    "pixel_bbox": [
+      576,
+      216,
+      600,
+      240
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_24_09.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 119,
+    "grid_pos": [
+      26,
+      9
+    ],
+    "pixel_bbox": [
+      624,
+      216,
+      648,
+      240
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_26_09.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 120,
+    "grid_pos": [
+      28,
+      9
+    ],
+    "pixel_bbox": [
+      672,
+      216,
+      696,
+      240
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_28_09.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 121,
+    "grid_pos": [
+      29,
+      9
+    ],
+    "pixel_bbox": [
+      696,
+      216,
+      720,
+      240
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_29_09.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 122,
+    "grid_pos": [
+      34,
+      9
+    ],
+    "pixel_bbox": [
+      816,
+      216,
+      840,
+      240
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_34_09.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 123,
+    "grid_pos": [
+      35,
+      9
+    ],
+    "pixel_bbox": [
+      840,
+      216,
+      864,
+      240
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_35_09.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 124,
+    "grid_pos": [
+      36,
+      9
+    ],
+    "pixel_bbox": [
+      864,
+      216,
+      888,
+      240
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_36_09.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 125,
+    "grid_pos": [
+      40,
+      9
+    ],
+    "pixel_bbox": [
+      960,
+      216,
+      984,
+      240
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_40_09.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 126,
+    "grid_pos": [
+      4,
+      10
+    ],
+    "pixel_bbox": [
+      96,
+      240,
+      120,
+      264
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_04_10.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 127,
+    "grid_pos": [
+      7,
+      10
+    ],
+    "pixel_bbox": [
+      168,
+      240,
+      192,
+      264
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_07_10.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 128,
+    "grid_pos": [
+      13,
+      10
+    ],
+    "pixel_bbox": [
+      312,
+      240,
+      336,
+      264
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_13_10.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 129,
+    "grid_pos": [
+      16,
+      10
+    ],
+    "pixel_bbox": [
+      384,
+      240,
+      408,
+      264
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_16_10.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 130,
+    "grid_pos": [
+      19,
+      10
+    ],
+    "pixel_bbox": [
+      456,
+      240,
+      480,
+      264
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_19_10.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 131,
+    "grid_pos": [
+      20,
+      10
+    ],
+    "pixel_bbox": [
+      480,
+      240,
+      504,
+      264
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_20_10.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 132,
+    "grid_pos": [
+      21,
+      10
+    ],
+    "pixel_bbox": [
+      504,
+      240,
+      528,
+      264
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_21_10.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 133,
+    "grid_pos": [
+      26,
+      10
+    ],
+    "pixel_bbox": [
+      624,
+      240,
+      648,
+      264
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_26_10.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 134,
+    "grid_pos": [
+      27,
+      10
+    ],
+    "pixel_bbox": [
+      648,
+      240,
+      672,
+      264
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_27_10.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 135,
+    "grid_pos": [
+      31,
+      10
+    ],
+    "pixel_bbox": [
+      744,
+      240,
+      768,
+      264
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_31_10.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 136,
+    "grid_pos": [
+      32,
+      10
+    ],
+    "pixel_bbox": [
+      768,
+      240,
+      792,
+      264
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_32_10.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 137,
+    "grid_pos": [
+      6,
+      11
+    ],
+    "pixel_bbox": [
+      144,
+      264,
+      168,
+      288
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_06_11.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 138,
+    "grid_pos": [
+      9,
+      11
+    ],
+    "pixel_bbox": [
+      216,
+      264,
+      240,
+      288
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_09_11.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 139,
+    "grid_pos": [
+      10,
+      11
+    ],
+    "pixel_bbox": [
+      240,
+      264,
+      264,
+      288
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_10_11.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 140,
+    "grid_pos": [
+      13,
+      11
+    ],
+    "pixel_bbox": [
+      312,
+      264,
+      336,
+      288
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_13_11.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 141,
+    "grid_pos": [
+      14,
+      11
+    ],
+    "pixel_bbox": [
+      336,
+      264,
+      360,
+      288
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_14_11.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 142,
+    "grid_pos": [
+      20,
+      11
+    ],
+    "pixel_bbox": [
+      480,
+      264,
+      504,
+      288
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_20_11.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 143,
+    "grid_pos": [
+      21,
+      11
+    ],
+    "pixel_bbox": [
+      504,
+      264,
+      528,
+      288
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_21_11.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 144,
+    "grid_pos": [
+      22,
+      11
+    ],
+    "pixel_bbox": [
+      528,
+      264,
+      552,
+      288
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_22_11.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 145,
+    "grid_pos": [
+      27,
+      11
+    ],
+    "pixel_bbox": [
+      648,
+      264,
+      672,
+      288
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_27_11.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 146,
+    "grid_pos": [
+      31,
+      11
+    ],
+    "pixel_bbox": [
+      744,
+      264,
+      768,
+      288
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_31_11.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 147,
+    "grid_pos": [
+      35,
+      11
+    ],
+    "pixel_bbox": [
+      840,
+      264,
+      864,
+      288
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_35_11.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 148,
+    "grid_pos": [
+      0,
+      12
+    ],
+    "pixel_bbox": [
+      0,
+      288,
+      24,
+      312
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_00_12.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 149,
+    "grid_pos": [
+      1,
+      12
+    ],
+    "pixel_bbox": [
+      24,
+      288,
+      48,
+      312
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_01_12.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 150,
+    "grid_pos": [
+      5,
+      12
+    ],
+    "pixel_bbox": [
+      120,
+      288,
+      144,
+      312
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_05_12.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 151,
+    "grid_pos": [
+      6,
+      12
+    ],
+    "pixel_bbox": [
+      144,
+      288,
+      168,
+      312
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_06_12.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 152,
+    "grid_pos": [
+      9,
+      12
+    ],
+    "pixel_bbox": [
+      216,
+      288,
+      240,
+      312
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_09_12.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 153,
+    "grid_pos": [
+      10,
+      12
+    ],
+    "pixel_bbox": [
+      240,
+      288,
+      264,
+      312
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_10_12.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 154,
+    "grid_pos": [
+      11,
+      12
+    ],
+    "pixel_bbox": [
+      264,
+      288,
+      288,
+      312
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_11_12.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 155,
+    "grid_pos": [
+      13,
+      12
+    ],
+    "pixel_bbox": [
+      312,
+      288,
+      336,
+      312
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_13_12.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 156,
+    "grid_pos": [
+      14,
+      12
+    ],
+    "pixel_bbox": [
+      336,
+      288,
+      360,
+      312
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_14_12.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 157,
+    "grid_pos": [
+      26,
+      12
+    ],
+    "pixel_bbox": [
+      624,
+      288,
+      648,
+      312
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_26_12.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 158,
+    "grid_pos": [
+      28,
+      12
+    ],
+    "pixel_bbox": [
+      672,
+      288,
+      696,
+      312
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_28_12.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 159,
+    "grid_pos": [
+      29,
+      12
+    ],
+    "pixel_bbox": [
+      696,
+      288,
+      720,
+      312
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_29_12.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 160,
+    "grid_pos": [
+      30,
+      12
+    ],
+    "pixel_bbox": [
+      720,
+      288,
+      744,
+      312
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_30_12.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 161,
+    "grid_pos": [
+      31,
+      12
+    ],
+    "pixel_bbox": [
+      744,
+      288,
+      768,
+      312
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_31_12.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 162,
+    "grid_pos": [
+      35,
+      12
+    ],
+    "pixel_bbox": [
+      840,
+      288,
+      864,
+      312
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_35_12.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 163,
+    "grid_pos": [
+      38,
+      12
+    ],
+    "pixel_bbox": [
+      912,
+      288,
+      936,
+      312
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_38_12.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 164,
+    "grid_pos": [
+      39,
+      12
+    ],
+    "pixel_bbox": [
+      936,
+      288,
+      960,
+      312
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_39_12.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 165,
+    "grid_pos": [
+      40,
+      12
+    ],
+    "pixel_bbox": [
+      960,
+      288,
+      984,
+      312
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_40_12.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 166,
+    "grid_pos": [
+      0,
+      13
+    ],
+    "pixel_bbox": [
+      0,
+      312,
+      24,
+      336
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_00_13.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 167,
+    "grid_pos": [
+      1,
+      13
+    ],
+    "pixel_bbox": [
+      24,
+      312,
+      48,
+      336
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_01_13.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 168,
+    "grid_pos": [
+      5,
+      13
+    ],
+    "pixel_bbox": [
+      120,
+      312,
+      144,
+      336
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_05_13.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 169,
+    "grid_pos": [
+      6,
+      13
+    ],
+    "pixel_bbox": [
+      144,
+      312,
+      168,
+      336
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_06_13.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 170,
+    "grid_pos": [
+      10,
+      13
+    ],
+    "pixel_bbox": [
+      240,
+      312,
+      264,
+      336
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_10_13.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 171,
+    "grid_pos": [
+      11,
+      13
+    ],
+    "pixel_bbox": [
+      264,
+      312,
+      288,
+      336
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_11_13.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 172,
+    "grid_pos": [
+      12,
+      13
+    ],
+    "pixel_bbox": [
+      288,
+      312,
+      312,
+      336
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_12_13.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 173,
+    "grid_pos": [
+      13,
+      13
+    ],
+    "pixel_bbox": [
+      312,
+      312,
+      336,
+      336
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_13_13.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 174,
+    "grid_pos": [
+      14,
+      13
+    ],
+    "pixel_bbox": [
+      336,
+      312,
+      360,
+      336
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_14_13.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 175,
+    "grid_pos": [
+      23,
+      13
+    ],
+    "pixel_bbox": [
+      552,
+      312,
+      576,
+      336
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_23_13.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 176,
+    "grid_pos": [
+      30,
+      13
+    ],
+    "pixel_bbox": [
+      720,
+      312,
+      744,
+      336
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_30_13.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 177,
+    "grid_pos": [
+      32,
+      13
+    ],
+    "pixel_bbox": [
+      768,
+      312,
+      792,
+      336
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_32_13.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 178,
+    "grid_pos": [
+      0,
+      14
+    ],
+    "pixel_bbox": [
+      0,
+      336,
+      24,
+      360
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_00_14.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 179,
+    "grid_pos": [
+      1,
+      14
+    ],
+    "pixel_bbox": [
+      24,
+      336,
+      48,
+      360
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_01_14.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 180,
+    "grid_pos": [
+      2,
+      14
+    ],
+    "pixel_bbox": [
+      48,
+      336,
+      72,
+      360
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_02_14.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 181,
+    "grid_pos": [
+      3,
+      14
+    ],
+    "pixel_bbox": [
+      72,
+      336,
+      96,
+      360
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_03_14.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 182,
+    "grid_pos": [
+      4,
+      14
+    ],
+    "pixel_bbox": [
+      96,
+      336,
+      120,
+      360
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_04_14.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 183,
+    "grid_pos": [
+      5,
+      14
+    ],
+    "pixel_bbox": [
+      120,
+      336,
+      144,
+      360
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_05_14.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 184,
+    "grid_pos": [
+      7,
+      14
+    ],
+    "pixel_bbox": [
+      168,
+      336,
+      192,
+      360
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_07_14.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 185,
+    "grid_pos": [
+      10,
+      14
+    ],
+    "pixel_bbox": [
+      240,
+      336,
+      264,
+      360
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_10_14.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 186,
+    "grid_pos": [
+      13,
+      14
+    ],
+    "pixel_bbox": [
+      312,
+      336,
+      336,
+      360
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_13_14.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 187,
+    "grid_pos": [
+      25,
+      14
+    ],
+    "pixel_bbox": [
+      600,
+      336,
+      624,
+      360
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_25_14.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 188,
+    "grid_pos": [
+      26,
+      14
+    ],
+    "pixel_bbox": [
+      624,
+      336,
+      648,
+      360
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_26_14.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 189,
+    "grid_pos": [
+      31,
+      14
+    ],
+    "pixel_bbox": [
+      744,
+      336,
+      768,
+      360
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_31_14.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 190,
+    "grid_pos": [
+      7,
+      15
+    ],
+    "pixel_bbox": [
+      168,
+      360,
+      192,
+      384
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_07_15.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 191,
+    "grid_pos": [
+      8,
+      15
+    ],
+    "pixel_bbox": [
+      192,
+      360,
+      216,
+      384
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_08_15.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 192,
+    "grid_pos": [
+      24,
+      15
+    ],
+    "pixel_bbox": [
+      576,
+      360,
+      600,
+      384
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_24_15.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 193,
+    "grid_pos": [
+      29,
+      15
+    ],
+    "pixel_bbox": [
+      696,
+      360,
+      720,
+      384
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_29_15.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 194,
+    "grid_pos": [
+      30,
+      15
+    ],
+    "pixel_bbox": [
+      720,
+      360,
+      744,
+      384
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_30_15.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 195,
+    "grid_pos": [
+      34,
+      15
+    ],
+    "pixel_bbox": [
+      816,
+      360,
+      840,
+      384
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_34_15.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 196,
+    "grid_pos": [
+      40,
+      15
+    ],
+    "pixel_bbox": [
+      960,
+      360,
+      984,
+      384
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_40_15.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 197,
+    "grid_pos": [
+      41,
+      15
+    ],
+    "pixel_bbox": [
+      984,
+      360,
+      1008,
+      384
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_41_15.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 198,
+    "grid_pos": [
+      0,
+      16
+    ],
+    "pixel_bbox": [
+      0,
+      384,
+      24,
+      408
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_00_16.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 199,
+    "grid_pos": [
+      1,
+      16
+    ],
+    "pixel_bbox": [
+      24,
+      384,
+      48,
+      408
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_01_16.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 200,
+    "grid_pos": [
+      2,
+      16
+    ],
+    "pixel_bbox": [
+      48,
+      384,
+      72,
+      408
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_02_16.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 201,
+    "grid_pos": [
+      3,
+      16
+    ],
+    "pixel_bbox": [
+      72,
+      384,
+      96,
+      408
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_03_16.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 202,
+    "grid_pos": [
+      5,
+      16
+    ],
+    "pixel_bbox": [
+      120,
+      384,
+      144,
+      408
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_05_16.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 203,
+    "grid_pos": [
+      6,
+      16
+    ],
+    "pixel_bbox": [
+      144,
+      384,
+      168,
+      408
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_06_16.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 204,
+    "grid_pos": [
+      7,
+      16
+    ],
+    "pixel_bbox": [
+      168,
+      384,
+      192,
+      408
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_07_16.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 205,
+    "grid_pos": [
+      8,
+      16
+    ],
+    "pixel_bbox": [
+      192,
+      384,
+      216,
+      408
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_08_16.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 206,
+    "grid_pos": [
+      14,
+      16
+    ],
+    "pixel_bbox": [
+      336,
+      384,
+      360,
+      408
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_14_16.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 207,
+    "grid_pos": [
+      15,
+      16
+    ],
+    "pixel_bbox": [
+      360,
+      384,
+      384,
+      408
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_15_16.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 208,
+    "grid_pos": [
+      26,
+      16
+    ],
+    "pixel_bbox": [
+      624,
+      384,
+      648,
+      408
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_26_16.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 209,
+    "grid_pos": [
+      27,
+      16
+    ],
+    "pixel_bbox": [
+      648,
+      384,
+      672,
+      408
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_27_16.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 210,
+    "grid_pos": [
+      31,
+      16
+    ],
+    "pixel_bbox": [
+      744,
+      384,
+      768,
+      408
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_31_16.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 211,
+    "grid_pos": [
+      35,
+      16
+    ],
+    "pixel_bbox": [
+      840,
+      384,
+      864,
+      408
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_35_16.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 212,
+    "grid_pos": [
+      37,
+      16
+    ],
+    "pixel_bbox": [
+      888,
+      384,
+      912,
+      408
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_37_16.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 213,
+    "grid_pos": [
+      38,
+      16
+    ],
+    "pixel_bbox": [
+      912,
+      384,
+      936,
+      408
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_38_16.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 214,
+    "grid_pos": [
+      39,
+      16
+    ],
+    "pixel_bbox": [
+      936,
+      384,
+      960,
+      408
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_39_16.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 215,
+    "grid_pos": [
+      10,
+      17
+    ],
+    "pixel_bbox": [
+      240,
+      408,
+      264,
+      432
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_10_17.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 216,
+    "grid_pos": [
+      11,
+      17
+    ],
+    "pixel_bbox": [
+      264,
+      408,
+      288,
+      432
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_11_17.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 217,
+    "grid_pos": [
+      12,
+      17
+    ],
+    "pixel_bbox": [
+      288,
+      408,
+      312,
+      432
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_12_17.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 218,
+    "grid_pos": [
+      15,
+      17
+    ],
+    "pixel_bbox": [
+      360,
+      408,
+      384,
+      432
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_15_17.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 219,
+    "grid_pos": [
+      16,
+      17
+    ],
+    "pixel_bbox": [
+      384,
+      408,
+      408,
+      432
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_16_17.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 220,
+    "grid_pos": [
+      38,
+      17
+    ],
+    "pixel_bbox": [
+      912,
+      408,
+      936,
+      432
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_38_17.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 221,
+    "grid_pos": [
+      39,
+      17
+    ],
+    "pixel_bbox": [
+      936,
+      408,
+      960,
+      432
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_39_17.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 222,
+    "grid_pos": [
+      41,
+      17
+    ],
+    "pixel_bbox": [
+      984,
+      408,
+      1008,
+      432
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_41_17.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 223,
+    "grid_pos": [
+      0,
+      18
+    ],
+    "pixel_bbox": [
+      0,
+      432,
+      24,
+      456
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_00_18.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 224,
+    "grid_pos": [
+      3,
+      18
+    ],
+    "pixel_bbox": [
+      72,
+      432,
+      96,
+      456
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_03_18.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 225,
+    "grid_pos": [
+      5,
+      18
+    ],
+    "pixel_bbox": [
+      120,
+      432,
+      144,
+      456
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_05_18.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 226,
+    "grid_pos": [
+      8,
+      18
+    ],
+    "pixel_bbox": [
+      192,
+      432,
+      216,
+      456
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_08_18.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 227,
+    "grid_pos": [
+      10,
+      18
+    ],
+    "pixel_bbox": [
+      240,
+      432,
+      264,
+      456
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_10_18.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 228,
+    "grid_pos": [
+      12,
+      18
+    ],
+    "pixel_bbox": [
+      288,
+      432,
+      312,
+      456
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_12_18.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 229,
+    "grid_pos": [
+      19,
+      18
+    ],
+    "pixel_bbox": [
+      456,
+      432,
+      480,
+      456
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_19_18.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 230,
+    "grid_pos": [
+      25,
+      18
+    ],
+    "pixel_bbox": [
+      600,
+      432,
+      624,
+      456
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_25_18.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 231,
+    "grid_pos": [
+      26,
+      18
+    ],
+    "pixel_bbox": [
+      624,
+      432,
+      648,
+      456
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_26_18.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 232,
+    "grid_pos": [
+      27,
+      18
+    ],
+    "pixel_bbox": [
+      648,
+      432,
+      672,
+      456
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_27_18.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 233,
+    "grid_pos": [
+      28,
+      18
+    ],
+    "pixel_bbox": [
+      672,
+      432,
+      696,
+      456
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_28_18.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 234,
+    "grid_pos": [
+      29,
+      18
+    ],
+    "pixel_bbox": [
+      696,
+      432,
+      720,
+      456
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_29_18.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 235,
+    "grid_pos": [
+      31,
+      18
+    ],
+    "pixel_bbox": [
+      744,
+      432,
+      768,
+      456
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_31_18.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 236,
+    "grid_pos": [
+      6,
+      19
+    ],
+    "pixel_bbox": [
+      144,
+      456,
+      168,
+      480
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_06_19.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 237,
+    "grid_pos": [
+      7,
+      19
+    ],
+    "pixel_bbox": [
+      168,
+      456,
+      192,
+      480
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_07_19.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 238,
+    "grid_pos": [
+      9,
+      19
+    ],
+    "pixel_bbox": [
+      216,
+      456,
+      240,
+      480
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_09_19.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 239,
+    "grid_pos": [
+      10,
+      19
+    ],
+    "pixel_bbox": [
+      240,
+      456,
+      264,
+      480
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_10_19.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 240,
+    "grid_pos": [
+      31,
+      19
+    ],
+    "pixel_bbox": [
+      744,
+      456,
+      768,
+      480
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_31_19.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 241,
+    "grid_pos": [
+      2,
+      20
+    ],
+    "pixel_bbox": [
+      48,
+      480,
+      72,
+      504
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_02_20.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 242,
+    "grid_pos": [
+      9,
+      20
+    ],
+    "pixel_bbox": [
+      216,
+      480,
+      240,
+      504
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_09_20.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 243,
+    "grid_pos": [
+      12,
+      20
+    ],
+    "pixel_bbox": [
+      288,
+      480,
+      312,
+      504
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_12_20.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 244,
+    "grid_pos": [
+      13,
+      20
+    ],
+    "pixel_bbox": [
+      312,
+      480,
+      336,
+      504
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_13_20.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 245,
+    "grid_pos": [
+      14,
+      20
+    ],
+    "pixel_bbox": [
+      336,
+      480,
+      360,
+      504
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_14_20.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 246,
+    "grid_pos": [
+      20,
+      20
+    ],
+    "pixel_bbox": [
+      480,
+      480,
+      504,
+      504
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_20_20.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 247,
+    "grid_pos": [
+      29,
+      20
+    ],
+    "pixel_bbox": [
+      696,
+      480,
+      720,
+      504
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_29_20.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 248,
+    "grid_pos": [
+      30,
+      20
+    ],
+    "pixel_bbox": [
+      720,
+      480,
+      744,
+      504
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_30_20.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 249,
+    "grid_pos": [
+      31,
+      20
+    ],
+    "pixel_bbox": [
+      744,
+      480,
+      768,
+      504
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_31_20.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 250,
+    "grid_pos": [
+      34,
+      20
+    ],
+    "pixel_bbox": [
+      816,
+      480,
+      840,
+      504
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_34_20.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 251,
+    "grid_pos": [
+      36,
+      20
+    ],
+    "pixel_bbox": [
+      864,
+      480,
+      888,
+      504
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_36_20.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 252,
+    "grid_pos": [
+      37,
+      20
+    ],
+    "pixel_bbox": [
+      888,
+      480,
+      912,
+      504
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_37_20.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 253,
+    "grid_pos": [
+      39,
+      20
+    ],
+    "pixel_bbox": [
+      936,
+      480,
+      960,
+      504
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_39_20.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 254,
+    "grid_pos": [
+      40,
+      20
+    ],
+    "pixel_bbox": [
+      960,
+      480,
+      984,
+      504
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_40_20.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 255,
+    "grid_pos": [
+      8,
+      21
+    ],
+    "pixel_bbox": [
+      192,
+      504,
+      216,
+      528
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_08_21.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 256,
+    "grid_pos": [
+      10,
+      21
+    ],
+    "pixel_bbox": [
+      240,
+      504,
+      264,
+      528
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_10_21.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 257,
+    "grid_pos": [
+      11,
+      21
+    ],
+    "pixel_bbox": [
+      264,
+      504,
+      288,
+      528
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_11_21.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 258,
+    "grid_pos": [
+      12,
+      21
+    ],
+    "pixel_bbox": [
+      288,
+      504,
+      312,
+      528
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_12_21.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 259,
+    "grid_pos": [
+      13,
+      21
+    ],
+    "pixel_bbox": [
+      312,
+      504,
+      336,
+      528
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_13_21.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 260,
+    "grid_pos": [
+      14,
+      21
+    ],
+    "pixel_bbox": [
+      336,
+      504,
+      360,
+      528
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_14_21.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 261,
+    "grid_pos": [
+      15,
+      21
+    ],
+    "pixel_bbox": [
+      360,
+      504,
+      384,
+      528
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_15_21.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 262,
+    "grid_pos": [
+      18,
+      21
+    ],
+    "pixel_bbox": [
+      432,
+      504,
+      456,
+      528
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_18_21.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 263,
+    "grid_pos": [
+      24,
+      21
+    ],
+    "pixel_bbox": [
+      576,
+      504,
+      600,
+      528
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_24_21.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 264,
+    "grid_pos": [
+      29,
+      21
+    ],
+    "pixel_bbox": [
+      696,
+      504,
+      720,
+      528
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_29_21.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 265,
+    "grid_pos": [
+      30,
+      21
+    ],
+    "pixel_bbox": [
+      720,
+      504,
+      744,
+      528
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_30_21.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 266,
+    "grid_pos": [
+      31,
+      21
+    ],
+    "pixel_bbox": [
+      744,
+      504,
+      768,
+      528
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_31_21.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 267,
+    "grid_pos": [
+      41,
+      21
+    ],
+    "pixel_bbox": [
+      984,
+      504,
+      1008,
+      528
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_41_21.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 268,
+    "grid_pos": [
+      0,
+      22
+    ],
+    "pixel_bbox": [
+      0,
+      528,
+      24,
+      552
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_00_22.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 269,
+    "grid_pos": [
+      1,
+      22
+    ],
+    "pixel_bbox": [
+      24,
+      528,
+      48,
+      552
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_01_22.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 270,
+    "grid_pos": [
+      2,
+      22
+    ],
+    "pixel_bbox": [
+      48,
+      528,
+      72,
+      552
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_02_22.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 271,
+    "grid_pos": [
+      3,
+      22
+    ],
+    "pixel_bbox": [
+      72,
+      528,
+      96,
+      552
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_03_22.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 272,
+    "grid_pos": [
+      7,
+      22
+    ],
+    "pixel_bbox": [
+      168,
+      528,
+      192,
+      552
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_07_22.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 273,
+    "grid_pos": [
+      10,
+      22
+    ],
+    "pixel_bbox": [
+      240,
+      528,
+      264,
+      552
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_10_22.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 274,
+    "grid_pos": [
+      11,
+      22
+    ],
+    "pixel_bbox": [
+      264,
+      528,
+      288,
+      552
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_11_22.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 275,
+    "grid_pos": [
+      15,
+      22
+    ],
+    "pixel_bbox": [
+      360,
+      528,
+      384,
+      552
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_15_22.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 276,
+    "grid_pos": [
+      18,
+      22
+    ],
+    "pixel_bbox": [
+      432,
+      528,
+      456,
+      552
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_18_22.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 277,
+    "grid_pos": [
+      23,
+      22
+    ],
+    "pixel_bbox": [
+      552,
+      528,
+      576,
+      552
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_23_22.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 278,
+    "grid_pos": [
+      24,
+      22
+    ],
+    "pixel_bbox": [
+      576,
+      528,
+      600,
+      552
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_24_22.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 279,
+    "grid_pos": [
+      25,
+      22
+    ],
+    "pixel_bbox": [
+      600,
+      528,
+      624,
+      552
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_25_22.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 280,
+    "grid_pos": [
+      29,
+      22
+    ],
+    "pixel_bbox": [
+      696,
+      528,
+      720,
+      552
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_29_22.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 281,
+    "grid_pos": [
+      31,
+      22
+    ],
+    "pixel_bbox": [
+      744,
+      528,
+      768,
+      552
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_31_22.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 282,
+    "grid_pos": [
+      1,
+      23
+    ],
+    "pixel_bbox": [
+      24,
+      552,
+      48,
+      576
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_01_23.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 283,
+    "grid_pos": [
+      5,
+      23
+    ],
+    "pixel_bbox": [
+      120,
+      552,
+      144,
+      576
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_05_23.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 284,
+    "grid_pos": [
+      6,
+      23
+    ],
+    "pixel_bbox": [
+      144,
+      552,
+      168,
+      576
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_06_23.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 285,
+    "grid_pos": [
+      10,
+      23
+    ],
+    "pixel_bbox": [
+      240,
+      552,
+      264,
+      576
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_10_23.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 286,
+    "grid_pos": [
+      12,
+      23
+    ],
+    "pixel_bbox": [
+      288,
+      552,
+      312,
+      576
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_12_23.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 287,
+    "grid_pos": [
+      13,
+      23
+    ],
+    "pixel_bbox": [
+      312,
+      552,
+      336,
+      576
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_13_23.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 288,
+    "grid_pos": [
+      15,
+      23
+    ],
+    "pixel_bbox": [
+      360,
+      552,
+      384,
+      576
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_15_23.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 289,
+    "grid_pos": [
+      20,
+      23
+    ],
+    "pixel_bbox": [
+      480,
+      552,
+      504,
+      576
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_20_23.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 290,
+    "grid_pos": [
+      24,
+      23
+    ],
+    "pixel_bbox": [
+      576,
+      552,
+      600,
+      576
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_24_23.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 291,
+    "grid_pos": [
+      25,
+      23
+    ],
+    "pixel_bbox": [
+      600,
+      552,
+      624,
+      576
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_25_23.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 292,
+    "grid_pos": [
+      30,
+      23
+    ],
+    "pixel_bbox": [
+      720,
+      552,
+      744,
+      576
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_30_23.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 293,
+    "grid_pos": [
+      31,
+      23
+    ],
+    "pixel_bbox": [
+      744,
+      552,
+      768,
+      576
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_31_23.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 294,
+    "grid_pos": [
+      39,
+      23
+    ],
+    "pixel_bbox": [
+      936,
+      552,
+      960,
+      576
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_39_23.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 295,
+    "grid_pos": [
+      40,
+      23
+    ],
+    "pixel_bbox": [
+      960,
+      552,
+      984,
+      576
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_40_23.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 296,
+    "grid_pos": [
+      41,
+      23
+    ],
+    "pixel_bbox": [
+      984,
+      552,
+      1008,
+      576
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_41_23.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 297,
+    "grid_pos": [
+      6,
+      24
+    ],
+    "pixel_bbox": [
+      144,
+      576,
+      168,
+      600
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_06_24.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 298,
+    "grid_pos": [
+      9,
+      24
+    ],
+    "pixel_bbox": [
+      216,
+      576,
+      240,
+      600
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_09_24.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 299,
+    "grid_pos": [
+      14,
+      24
+    ],
+    "pixel_bbox": [
+      336,
+      576,
+      360,
+      600
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_14_24.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 300,
+    "grid_pos": [
+      27,
+      24
+    ],
+    "pixel_bbox": [
+      648,
+      576,
+      672,
+      600
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_27_24.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 301,
+    "grid_pos": [
+      28,
+      24
+    ],
+    "pixel_bbox": [
+      672,
+      576,
+      696,
+      600
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_28_24.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 302,
+    "grid_pos": [
+      29,
+      24
+    ],
+    "pixel_bbox": [
+      696,
+      576,
+      720,
+      600
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_29_24.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 303,
+    "grid_pos": [
+      30,
+      24
+    ],
+    "pixel_bbox": [
+      720,
+      576,
+      744,
+      600
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_30_24.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 304,
+    "grid_pos": [
+      34,
+      24
+    ],
+    "pixel_bbox": [
+      816,
+      576,
+      840,
+      600
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_34_24.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 305,
+    "grid_pos": [
+      0,
+      25
+    ],
+    "pixel_bbox": [
+      0,
+      600,
+      24,
+      624
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_00_25.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 306,
+    "grid_pos": [
+      1,
+      25
+    ],
+    "pixel_bbox": [
+      24,
+      600,
+      48,
+      624
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_01_25.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 307,
+    "grid_pos": [
+      15,
+      25
+    ],
+    "pixel_bbox": [
+      360,
+      600,
+      384,
+      624
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_15_25.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 308,
+    "grid_pos": [
+      19,
+      25
+    ],
+    "pixel_bbox": [
+      456,
+      600,
+      480,
+      624
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_19_25.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 309,
+    "grid_pos": [
+      20,
+      25
+    ],
+    "pixel_bbox": [
+      480,
+      600,
+      504,
+      624
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_20_25.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 310,
+    "grid_pos": [
+      28,
+      25
+    ],
+    "pixel_bbox": [
+      672,
+      600,
+      696,
+      624
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_28_25.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 311,
+    "grid_pos": [
+      31,
+      25
+    ],
+    "pixel_bbox": [
+      744,
+      600,
+      768,
+      624
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_31_25.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 312,
+    "grid_pos": [
+      35,
+      25
+    ],
+    "pixel_bbox": [
+      840,
+      600,
+      864,
+      624
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_35_25.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 313,
+    "grid_pos": [
+      0,
+      26
+    ],
+    "pixel_bbox": [
+      0,
+      624,
+      24,
+      648
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_00_26.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 314,
+    "grid_pos": [
+      2,
+      26
+    ],
+    "pixel_bbox": [
+      48,
+      624,
+      72,
+      648
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_02_26.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 315,
+    "grid_pos": [
+      3,
+      26
+    ],
+    "pixel_bbox": [
+      72,
+      624,
+      96,
+      648
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_03_26.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 316,
+    "grid_pos": [
+      4,
+      26
+    ],
+    "pixel_bbox": [
+      96,
+      624,
+      120,
+      648
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_04_26.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 317,
+    "grid_pos": [
+      14,
+      26
+    ],
+    "pixel_bbox": [
+      336,
+      624,
+      360,
+      648
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_14_26.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 318,
+    "grid_pos": [
+      15,
+      26
+    ],
+    "pixel_bbox": [
+      360,
+      624,
+      384,
+      648
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_15_26.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 319,
+    "grid_pos": [
+      16,
+      26
+    ],
+    "pixel_bbox": [
+      384,
+      624,
+      408,
+      648
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_16_26.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 320,
+    "grid_pos": [
+      19,
+      26
+    ],
+    "pixel_bbox": [
+      456,
+      624,
+      480,
+      648
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_19_26.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 321,
+    "grid_pos": [
+      20,
+      26
+    ],
+    "pixel_bbox": [
+      480,
+      624,
+      504,
+      648
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_20_26.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 322,
+    "grid_pos": [
+      24,
+      26
+    ],
+    "pixel_bbox": [
+      576,
+      624,
+      600,
+      648
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_24_26.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 323,
+    "grid_pos": [
+      25,
+      26
+    ],
+    "pixel_bbox": [
+      600,
+      624,
+      624,
+      648
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_25_26.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 324,
+    "grid_pos": [
+      28,
+      26
+    ],
+    "pixel_bbox": [
+      672,
+      624,
+      696,
+      648
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_28_26.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 325,
+    "grid_pos": [
+      0,
+      27
+    ],
+    "pixel_bbox": [
+      0,
+      648,
+      24,
+      672
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_00_27.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 326,
+    "grid_pos": [
+      2,
+      27
+    ],
+    "pixel_bbox": [
+      48,
+      648,
+      72,
+      672
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_02_27.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 327,
+    "grid_pos": [
+      5,
+      27
+    ],
+    "pixel_bbox": [
+      120,
+      648,
+      144,
+      672
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_05_27.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 328,
+    "grid_pos": [
+      9,
+      27
+    ],
+    "pixel_bbox": [
+      216,
+      648,
+      240,
+      672
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_09_27.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 329,
+    "grid_pos": [
+      10,
+      27
+    ],
+    "pixel_bbox": [
+      240,
+      648,
+      264,
+      672
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_10_27.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 330,
+    "grid_pos": [
+      16,
+      27
+    ],
+    "pixel_bbox": [
+      384,
+      648,
+      408,
+      672
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_16_27.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 331,
+    "grid_pos": [
+      17,
+      27
+    ],
+    "pixel_bbox": [
+      408,
+      648,
+      432,
+      672
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_17_27.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 332,
+    "grid_pos": [
+      19,
+      27
+    ],
+    "pixel_bbox": [
+      456,
+      648,
+      480,
+      672
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_19_27.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 333,
+    "grid_pos": [
+      20,
+      27
+    ],
+    "pixel_bbox": [
+      480,
+      648,
+      504,
+      672
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_20_27.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 334,
+    "grid_pos": [
+      23,
+      27
+    ],
+    "pixel_bbox": [
+      552,
+      648,
+      576,
+      672
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_23_27.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 335,
+    "grid_pos": [
+      24,
+      27
+    ],
+    "pixel_bbox": [
+      576,
+      648,
+      600,
+      672
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_24_27.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 336,
+    "grid_pos": [
+      27,
+      27
+    ],
+    "pixel_bbox": [
+      648,
+      648,
+      672,
+      672
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_27_27.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 337,
+    "grid_pos": [
+      0,
+      28
+    ],
+    "pixel_bbox": [
+      0,
+      672,
+      24,
+      696
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_00_28.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 338,
+    "grid_pos": [
+      9,
+      28
+    ],
+    "pixel_bbox": [
+      216,
+      672,
+      240,
+      696
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_09_28.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 339,
+    "grid_pos": [
+      10,
+      28
+    ],
+    "pixel_bbox": [
+      240,
+      672,
+      264,
+      696
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_10_28.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 340,
+    "grid_pos": [
+      12,
+      28
+    ],
+    "pixel_bbox": [
+      288,
+      672,
+      312,
+      696
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_12_28.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 341,
+    "grid_pos": [
+      15,
+      28
+    ],
+    "pixel_bbox": [
+      360,
+      672,
+      384,
+      696
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_15_28.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 342,
+    "grid_pos": [
+      19,
+      28
+    ],
+    "pixel_bbox": [
+      456,
+      672,
+      480,
+      696
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_19_28.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 343,
+    "grid_pos": [
+      20,
+      28
+    ],
+    "pixel_bbox": [
+      480,
+      672,
+      504,
+      696
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_20_28.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 344,
+    "grid_pos": [
+      21,
+      28
+    ],
+    "pixel_bbox": [
+      504,
+      672,
+      528,
+      696
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_21_28.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 345,
+    "grid_pos": [
+      22,
+      28
+    ],
+    "pixel_bbox": [
+      528,
+      672,
+      552,
+      696
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_22_28.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 346,
+    "grid_pos": [
+      23,
+      28
+    ],
+    "pixel_bbox": [
+      552,
+      672,
+      576,
+      696
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_23_28.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 347,
+    "grid_pos": [
+      24,
+      28
+    ],
+    "pixel_bbox": [
+      576,
+      672,
+      600,
+      696
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_24_28.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 348,
+    "grid_pos": [
+      26,
+      28
+    ],
+    "pixel_bbox": [
+      624,
+      672,
+      648,
+      696
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_26_28.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 349,
+    "grid_pos": [
+      27,
+      28
+    ],
+    "pixel_bbox": [
+      648,
+      672,
+      672,
+      696
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_27_28.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 350,
+    "grid_pos": [
+      34,
+      28
+    ],
+    "pixel_bbox": [
+      816,
+      672,
+      840,
+      696
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_34_28.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 351,
+    "grid_pos": [
+      35,
+      28
+    ],
+    "pixel_bbox": [
+      840,
+      672,
+      864,
+      696
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_35_28.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 352,
+    "grid_pos": [
+      36,
+      28
+    ],
+    "pixel_bbox": [
+      864,
+      672,
+      888,
+      696
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_36_28.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 353,
+    "grid_pos": [
+      0,
+      29
+    ],
+    "pixel_bbox": [
+      0,
+      696,
+      24,
+      720
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_00_29.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 354,
+    "grid_pos": [
+      10,
+      29
+    ],
+    "pixel_bbox": [
+      240,
+      696,
+      264,
+      720
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_10_29.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 355,
+    "grid_pos": [
+      16,
+      29
+    ],
+    "pixel_bbox": [
+      384,
+      696,
+      408,
+      720
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_16_29.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 356,
+    "grid_pos": [
+      17,
+      29
+    ],
+    "pixel_bbox": [
+      408,
+      696,
+      432,
+      720
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_17_29.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 357,
+    "grid_pos": [
+      18,
+      29
+    ],
+    "pixel_bbox": [
+      432,
+      696,
+      456,
+      720
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_18_29.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 358,
+    "grid_pos": [
+      20,
+      29
+    ],
+    "pixel_bbox": [
+      480,
+      696,
+      504,
+      720
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_20_29.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 359,
+    "grid_pos": [
+      22,
+      29
+    ],
+    "pixel_bbox": [
+      528,
+      696,
+      552,
+      720
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_22_29.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 360,
+    "grid_pos": [
+      23,
+      29
+    ],
+    "pixel_bbox": [
+      552,
+      696,
+      576,
+      720
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_23_29.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 361,
+    "grid_pos": [
+      25,
+      29
+    ],
+    "pixel_bbox": [
+      600,
+      696,
+      624,
+      720
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_25_29.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 362,
+    "grid_pos": [
+      26,
+      29
+    ],
+    "pixel_bbox": [
+      624,
+      696,
+      648,
+      720
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_26_29.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 363,
+    "grid_pos": [
+      27,
+      29
+    ],
+    "pixel_bbox": [
+      648,
+      696,
+      672,
+      720
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_27_29.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 364,
+    "grid_pos": [
+      28,
+      29
+    ],
+    "pixel_bbox": [
+      672,
+      696,
+      696,
+      720
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_28_29.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 365,
+    "grid_pos": [
+      29,
+      29
+    ],
+    "pixel_bbox": [
+      696,
+      696,
+      720,
+      720
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_29_29.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 366,
+    "grid_pos": [
+      33,
+      29
+    ],
+    "pixel_bbox": [
+      792,
+      696,
+      816,
+      720
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_33_29.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 367,
+    "grid_pos": [
+      35,
+      29
+    ],
+    "pixel_bbox": [
+      840,
+      696,
+      864,
+      720
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_35_29.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 368,
+    "grid_pos": [
+      20,
+      30
+    ],
+    "pixel_bbox": [
+      480,
+      720,
+      504,
+      744
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_20_30.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 369,
+    "grid_pos": [
+      21,
+      30
+    ],
+    "pixel_bbox": [
+      504,
+      720,
+      528,
+      744
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_21_30.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 370,
+    "grid_pos": [
+      22,
+      30
+    ],
+    "pixel_bbox": [
+      528,
+      720,
+      552,
+      744
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_22_30.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 371,
+    "grid_pos": [
+      23,
+      30
+    ],
+    "pixel_bbox": [
+      552,
+      720,
+      576,
+      744
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_23_30.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 372,
+    "grid_pos": [
+      29,
+      30
+    ],
+    "pixel_bbox": [
+      696,
+      720,
+      720,
+      744
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_29_30.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 373,
+    "grid_pos": [
+      30,
+      30
+    ],
+    "pixel_bbox": [
+      720,
+      720,
+      744,
+      744
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_30_30.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 374,
+    "grid_pos": [
+      33,
+      30
+    ],
+    "pixel_bbox": [
+      792,
+      720,
+      816,
+      744
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_33_30.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 375,
+    "grid_pos": [
+      8,
+      31
+    ],
+    "pixel_bbox": [
+      192,
+      744,
+      216,
+      768
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_08_31.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 376,
+    "grid_pos": [
+      9,
+      31
+    ],
+    "pixel_bbox": [
+      216,
+      744,
+      240,
+      768
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_09_31.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 377,
+    "grid_pos": [
+      10,
+      31
+    ],
+    "pixel_bbox": [
+      240,
+      744,
+      264,
+      768
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_10_31.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 378,
+    "grid_pos": [
+      24,
+      31
+    ],
+    "pixel_bbox": [
+      576,
+      744,
+      600,
+      768
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_24_31.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 379,
+    "grid_pos": [
+      34,
+      31
+    ],
+    "pixel_bbox": [
+      816,
+      744,
+      840,
+      768
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_34_31.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 380,
+    "grid_pos": [
+      9,
+      32
+    ],
+    "pixel_bbox": [
+      216,
+      768,
+      240,
+      792
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_09_32.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 381,
+    "grid_pos": [
+      17,
+      32
+    ],
+    "pixel_bbox": [
+      408,
+      768,
+      432,
+      792
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_17_32.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 382,
+    "grid_pos": [
+      18,
+      32
+    ],
+    "pixel_bbox": [
+      432,
+      768,
+      456,
+      792
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_18_32.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 383,
+    "grid_pos": [
+      23,
+      32
+    ],
+    "pixel_bbox": [
+      552,
+      768,
+      576,
+      792
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_23_32.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 384,
+    "grid_pos": [
+      24,
+      32
+    ],
+    "pixel_bbox": [
+      576,
+      768,
+      600,
+      792
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_24_32.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 385,
+    "grid_pos": [
+      9,
+      33
+    ],
+    "pixel_bbox": [
+      216,
+      792,
+      240,
+      816
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_09_33.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 386,
+    "grid_pos": [
+      10,
+      33
+    ],
+    "pixel_bbox": [
+      240,
+      792,
+      264,
+      816
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_10_33.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 387,
+    "grid_pos": [
+      11,
+      33
+    ],
+    "pixel_bbox": [
+      264,
+      792,
+      288,
+      816
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_11_33.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 388,
+    "grid_pos": [
+      12,
+      33
+    ],
+    "pixel_bbox": [
+      288,
+      792,
+      312,
+      816
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_12_33.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 389,
+    "grid_pos": [
+      13,
+      33
+    ],
+    "pixel_bbox": [
+      312,
+      792,
+      336,
+      816
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_13_33.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 390,
+    "grid_pos": [
+      14,
+      33
+    ],
+    "pixel_bbox": [
+      336,
+      792,
+      360,
+      816
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_14_33.png",
+    "duration_ms": 180
+  },
+  {
+    "tile_index": 391,
+    "grid_pos": [
+      15,
+      33
+    ],
+    "pixel_bbox": [
+      360,
+      792,
+      384,
+      816
+    ],
+    "frames": 40,
+    "frame_width": 24,
+    "frame_height": 24,
+    "strip_file": "data/leaf_village/animation/regions/anim_tile_15_33.png",
+    "duration_ms": 180
+  }
+]

@@ -1,0 +1,56 @@
+{
+  "id": "leaf_village",
+  "display_name": "LeafVillage (Village de la Feuille)",
+  "source": {
+    "file": "town_map (1).gif",
+    "commit": "5968f338b9eca113498e863b3d38e5aef8da1d13",
+    "sha256": "ce31bb49ec7281962a1232f162962d9a3858eb5fdc281402975193782a0bcb0b",
+    "file_size_bytes": 9545821
+  },
+  "dimensions_px": [
+    1008,
+    816
+  ],
+  "tile_grid_24x24": [
+    42,
+    34
+  ],
+  "cell_grid_8x8": [
+    126,
+    102
+  ],
+  "animation": {
+    "frame_count": 40,
+    "frame_duration_ms": 180,
+    "fps": 5.56,
+    "loop": true,
+    "static_pixels": 800693,
+    "animated_pixels": 21835,
+    "animated_tiles_24x24": 392,
+    "tiles_manifest": "data/leaf_village/animation/tiles_manifest.json"
+  },
+  "collision": {
+    "total_cells": 12852,
+    "walkable_cells": 9900,
+    "blocked_cells": 2952,
+    "walkability_percent": 77.03,
+    "stairs_cells": 12,
+    "entrance_cells": 8
+  },
+  "ground_assets": {
+    "rsground": "Data/Ground/leaf_village.rsground",
+    "tile_atlas": "Content/Tile/leaf_village_Base.tile",
+    "script": "Data/Script/halcyon/ground/leaf_village/init.lua",
+    "animated_tiles_dir": "data/leaf_village/animation/regions/"
+  },
+  "validation": {
+    "dimensions": "PASS (1008x816 px exact)",
+    "frames_extracted": "PASS (40/40 frames)",
+    "pixel_scale": "PASS (1:1 native PMDO 8x8 cell grid)",
+    "static_ground_integrity": "PASS (100% bit-identical to frame_000)",
+    "animation_reconstructed": "PASS (392 isolated animated tile strips)",
+    "collision_grid": "PASS (77.0% walkable, closed borders, valid doors/stairs)",
+    "lua_script": "PASS (Registered Init, OnMapStart, Doors, Stairs, Transitions)",
+    "runtime_load": "PASS (Compliant binary RSGROUND & TILE headers)"
+  }
+}

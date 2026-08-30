@@ -50,3 +50,21 @@ Every map adheres strictly to the 8-stage Quality Gate:
   - Tile Atlas: `Content/Tile/pixellab_treehouse_village_Base.tile`
   - Lua Script: `Data/Script/halcyon/ground/pixellab_treehouse_village/init.lua`
   - Manifest: `data/pmu_imports/pixellab_treehouse_village/manifest.json`
+
+
+### `leaf_village` — LeafVillage (Village de la Feuille)
+- **Status**: Complete & Verified (Native PMDO City Ground from `town_map (1).gif`)
+- **Source Commit**: `5968f338b9eca113498e863b3d38e5aef8da1d13` (SHA: `ce31bb49...`)
+- **Dimensions**: 1008x816 px (126x102 8x8 cells, 42x34 24x24 tiles)
+- **Animation**: 40 frames, 180ms cycle (392 isolated animated tile strips)
+- **Collision**: 9,900 walkable cells (77.0%), 2,952 blocked cells (23.0%)
+- **Data Files**:
+  - Ground: `Data/Ground/leaf_village.rsground`
+  - Tile Atlas: `Content/Tile/leaf_village_Base.tile`
+  - Lua Script: `Data/Script/halcyon/ground/leaf_village/init.lua`
+  - Manifest: `data/leaf_village/manifest.json`
+- **Renders**:
+  - Static Ground: `docs/pmu_maps/renders/leaf_village/static_ground.png`
+  - Collision Overlay: `docs/pmu_maps/renders/leaf_village/collision_overlay.png`
+  - Animation Overlay: `docs/pmu_maps/renders/leaf_village/animation_overlay.png`
+  - Runtime Preview: `docs/pmu_maps/renders/leaf_village/LeafVillage_preview.gif`
