@@ -76,8 +76,12 @@ def main():
     import random
     rng = random.Random(SEED)
     objs = VOC['objects']
-    # tri : gros d'abord (bosquets), petits ensuite
-    order = sorted(range(len(objs)), key=lambda i: -objs[i]['n'])
+    # CURATION mécanique : un objet décoratif RÉEL contient au moins
+    # une cellule bloquée (rocher/souche/buisson plein) — les
+    # composantes sans collision sont des variations de sol/fragments
+    # (source des cellules parasites détectées en QA) : exclues.
+    keep = [i for i, o in enumerate(objs) if o['blocked'] >= 1]
+    order = sorted(keep, key=lambda i: -objs[i]['n'])
     specs = []
     for oi in order:
         o = objs[oi]

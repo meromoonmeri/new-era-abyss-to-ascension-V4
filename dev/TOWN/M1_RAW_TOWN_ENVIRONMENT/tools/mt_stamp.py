@@ -164,7 +164,11 @@ class Compo:
                 stats['exact_code'] += 1
             else:
                 stats['near_code'] += 1
-            cands = [h for h, _n in table[c2]]
+            pool = [(h, n) for h, n in table[c2]
+                    if INFO[h]['freq'] >= 5]
+            pool = pool or list(table[c2])
+            strong = [h for h, n in pool if n >= 3]
+            cands = strong or [h for h, _n in pool]
             # greedy : maximiser les paires observées avec gauche/haut
             def score(h):
                 s = 0
@@ -195,7 +199,11 @@ class Compo:
             if not adj:
                 continue
             c2 = nearest_code(bank, code)
-            cands = [h for h, _n in bank[c2]]
+            pool = [(h, n) for h, n in bank[c2]
+                    if INFO[h]['freq'] >= 5]
+            pool = pool or list(bank[c2])
+            strong = [h for h, n in pool if n >= 3]
+            cands = strong or [h for h, _n in pool]
 
             def bscore(h):
                 s = 0
