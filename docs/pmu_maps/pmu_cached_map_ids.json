@@ -1,0 +1,987 @@
+{
+ "source": "Sprinkoringo/PMU-Client resources/MapData @ c25c01f9 (140 fichiers)",
+ "note": "chiffr\u00e9s 3DES (cl\u00e9 de session d'\u00e8re live) \u2014 non d\u00e9cryptables avec les cl\u00e9s publi\u00e9es ; rendus impossibles SANS FANTAISIE. IDs >=1000 = plage \u00abtown\u00bb pr\u00e9sum\u00e9e (cartes de ville), hypoth\u00e8se marqu\u00e9e comme telle.",
+ "count": 140,
+ "maps": [
+  {
+   "id": "h-a10-0",
+   "kind": "house",
+   "bytes": 39072,
+   "sha1": "6b2d29fb6e02157d4525af00a45fa2435c8956e2",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "h-a4-0",
+   "kind": "house",
+   "bytes": 117064,
+   "sha1": "183b7476dd14bbe31f25d91d34cf08fe8724e779",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1000",
+   "kind": "town-range (hyp.)",
+   "bytes": 44864,
+   "sha1": "d82acaf9b1c5874f57360264389b6ac115a1d867",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1013",
+   "kind": "town-range (hyp.)",
+   "bytes": 349472,
+   "sha1": "61e0a8159124b0ed23c79ef4a4ad92007bf5c55d",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1014",
+   "kind": "town-range (hyp.)",
+   "bytes": 366280,
+   "sha1": "d64e49474157cd69e2f5c695a0ae689383490b10",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1015",
+   "kind": "town-range (hyp.)",
+   "bytes": 352080,
+   "sha1": "31105f77207f422dd8a0bc12612e8ca214b0b97b",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1016",
+   "kind": "town-range (hyp.)",
+   "bytes": 351592,
+   "sha1": "1b6d13778caa6bc05b37dd351d5cacc52d0c4efe",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1017",
+   "kind": "town-range (hyp.)",
+   "bytes": 353376,
+   "sha1": "f1588061755785429cf1c66b1a7ffe13e61a771e",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1018",
+   "kind": "town-range (hyp.)",
+   "bytes": 353472,
+   "sha1": "cca7cc6960c18be46fb841ea43577efb17a2dd25",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1022",
+   "kind": "town-range (hyp.)",
+   "bytes": 351904,
+   "sha1": "4708b2109d1c2b1257fa4f0462980b6fba550368",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1031",
+   "kind": "town-range (hyp.)",
+   "bytes": 351328,
+   "sha1": "9773728333be434e1f98563f8943906b58bca5e0",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1035",
+   "kind": "town-range (hyp.)",
+   "bytes": 42760,
+   "sha1": "a93827250645ddf2075483d1cb98592ea02a757a",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1037",
+   "kind": "town-range (hyp.)",
+   "bytes": 352856,
+   "sha1": "a0e98c9df80e1c8cbabcdc2a097fdafebc7fc083",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1180",
+   "kind": "town-range (hyp.)",
+   "bytes": 357304,
+   "sha1": "760fa540a39d6997a50da2d0cede0dfca830cd67",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1181",
+   "kind": "town-range (hyp.)",
+   "bytes": 348960,
+   "sha1": "2eb9af0e73227dfa74ed27a819a6fbdad6c51f93",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1182",
+   "kind": "town-range (hyp.)",
+   "bytes": 347576,
+   "sha1": "d7cb715678d69e508931ee59f713bce776fb6646",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1197",
+   "kind": "town-range (hyp.)",
+   "bytes": 364408,
+   "sha1": "67a001a956380aa38f739a9de110b44eca5a8273",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1198",
+   "kind": "town-range (hyp.)",
+   "bytes": 362736,
+   "sha1": "9258aa2b6bcdb540bacb6f8b50d2571ae2d3d3c9",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s120",
+   "kind": "scene/dungeon-range (hyp.)",
+   "bytes": 42680,
+   "sha1": "1ea827645cea38f28c3d39eed8b281c6e8f0d8b8",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1200",
+   "kind": "town-range (hyp.)",
+   "bytes": 352136,
+   "sha1": "6a9d7bcc71626aef0def1b128feb4917843d0d88",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1217",
+   "kind": "town-range (hyp.)",
+   "bytes": 360600,
+   "sha1": "e4b9c7fc3427f7f48c318fe3272a43eca9192145",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1218",
+   "kind": "town-range (hyp.)",
+   "bytes": 356792,
+   "sha1": "194f04322e8294106dd12fab0371059796018780",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1220",
+   "kind": "town-range (hyp.)",
+   "bytes": 358888,
+   "sha1": "64f8120444586546116cf3971c9730cca0f38aa5",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1222",
+   "kind": "town-range (hyp.)",
+   "bytes": 372960,
+   "sha1": "0918568d9405ed87411900476473814748d54ed1",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1224",
+   "kind": "town-range (hyp.)",
+   "bytes": 354416,
+   "sha1": "bd3eb1f0a6fa0f5252bc4bdf02b91d99bb7e3d36",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1225",
+   "kind": "town-range (hyp.)",
+   "bytes": 355744,
+   "sha1": "1c4e30def44b72c9383df582e985065db0bd216e",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1227",
+   "kind": "town-range (hyp.)",
+   "bytes": 357072,
+   "sha1": "bbc7100657b10324bb995335f87a4dc7218382ae",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1228",
+   "kind": "town-range (hyp.)",
+   "bytes": 358032,
+   "sha1": "fb34ae9eefdb59eba3ae4838b660f0f306617131",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1229",
+   "kind": "town-range (hyp.)",
+   "bytes": 359400,
+   "sha1": "fb614d12888c6daaa6be9a142ab31a4d966625c6",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1230",
+   "kind": "town-range (hyp.)",
+   "bytes": 362840,
+   "sha1": "3adf7c50dfffcce4e6306207304f04645a0180dd",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1231",
+   "kind": "town-range (hyp.)",
+   "bytes": 358664,
+   "sha1": "b03c1b211eba37cc8b2a42fb9d7810d210369a7b",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1232",
+   "kind": "town-range (hyp.)",
+   "bytes": 353440,
+   "sha1": "732e8221d445dd1ed13b5688191f09f2d6ed769d",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1239",
+   "kind": "town-range (hyp.)",
+   "bytes": 363744,
+   "sha1": "0460a64b7f4361b7d0730d70a1d9c4a1afff3eec",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1247",
+   "kind": "town-range (hyp.)",
+   "bytes": 56072,
+   "sha1": "412ff8ed0a2d1354898d43f9b65fc81d5f76299c",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1250",
+   "kind": "town-range (hyp.)",
+   "bytes": 355408,
+   "sha1": "e37c28081de67b31b8df0e56d5e32e27ed43a2af",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1251",
+   "kind": "town-range (hyp.)",
+   "bytes": 366616,
+   "sha1": "d947a03251dfb5e8284ef99c1d36a5c87d49cfdf",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1252",
+   "kind": "town-range (hyp.)",
+   "bytes": 365152,
+   "sha1": "927cadcd5c4ef082bc71147d87030f30067c1125",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1253",
+   "kind": "town-range (hyp.)",
+   "bytes": 365392,
+   "sha1": "efcc3bdcd2f5a7a67ea28b8629e836500e2a5272",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1254",
+   "kind": "town-range (hyp.)",
+   "bytes": 356440,
+   "sha1": "117e8199353aa10e3d7267709149d8384b856cf3",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1260",
+   "kind": "town-range (hyp.)",
+   "bytes": 355624,
+   "sha1": "62b0d7c5d3b8ad1679b410eaf2a2630cd5cab248",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1261",
+   "kind": "town-range (hyp.)",
+   "bytes": 353400,
+   "sha1": "50eb496412a6e68eb2d327a64da4d05a01159636",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1262",
+   "kind": "town-range (hyp.)",
+   "bytes": 351992,
+   "sha1": "debe8d7aa6f71ec0a928203836667333819d91fe",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1266",
+   "kind": "town-range (hyp.)",
+   "bytes": 357120,
+   "sha1": "a7b49c7c13310b580388c8c4b91bf91e8f958064",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1275",
+   "kind": "town-range (hyp.)",
+   "bytes": 42984,
+   "sha1": "d8fa30156c83b075ce64682ecc5cf20b45261bcb",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1285",
+   "kind": "town-range (hyp.)",
+   "bytes": 357680,
+   "sha1": "5137e613e1771d286323d3470caed4a04c088552",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1286",
+   "kind": "town-range (hyp.)",
+   "bytes": 353408,
+   "sha1": "588100d9cb9a264ec275c2e2db0170f22423b5cb",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1312",
+   "kind": "town-range (hyp.)",
+   "bytes": 184152,
+   "sha1": "f580c9d229a2806a6e8c08ebc1b775e3d7b06c09",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1313",
+   "kind": "town-range (hyp.)",
+   "bytes": 217704,
+   "sha1": "b505d62c2577da655895cfd1a46072cf76f114b3",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1317",
+   "kind": "town-range (hyp.)",
+   "bytes": 358784,
+   "sha1": "38b540f58f7ae41ef385cb58ceea9ca8316cd5ce",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1318",
+   "kind": "town-range (hyp.)",
+   "bytes": 42344,
+   "sha1": "904f9a189beea59c7d33a65525f988e11a681ed4",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1320",
+   "kind": "town-range (hyp.)",
+   "bytes": 369824,
+   "sha1": "af2d7f2ab0949307f73944f2e2898f33a05037f0",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1321",
+   "kind": "town-range (hyp.)",
+   "bytes": 366640,
+   "sha1": "974c042d70c1f0cccda62411be1e4d79ba2405dc",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1322",
+   "kind": "town-range (hyp.)",
+   "bytes": 363704,
+   "sha1": "c355e853ee5cf267d4cb9abc02b2b874c3753895",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1323",
+   "kind": "town-range (hyp.)",
+   "bytes": 362856,
+   "sha1": "720f89481e625b323c77b76ea9153ae31402aa35",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1324",
+   "kind": "town-range (hyp.)",
+   "bytes": 362456,
+   "sha1": "0dac9516347f502640900a6f3358920db39a8acd",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1325",
+   "kind": "town-range (hyp.)",
+   "bytes": 359920,
+   "sha1": "1df270861cc6c70457e62f560ce522d4160b8286",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1326",
+   "kind": "town-range (hyp.)",
+   "bytes": 362608,
+   "sha1": "5b44db9769ae55ddadc5ec6a8388fb155c579492",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1327",
+   "kind": "town-range (hyp.)",
+   "bytes": 362000,
+   "sha1": "934adee506074023d80d891590022a9aa5f2ad1d",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1328",
+   "kind": "town-range (hyp.)",
+   "bytes": 362736,
+   "sha1": "2d131013c7caa6538de6dbfecec10ac4c0333e4a",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1329",
+   "kind": "town-range (hyp.)",
+   "bytes": 367976,
+   "sha1": "3fa62530e54f068d97db7264e482c5f268165df3",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1330",
+   "kind": "town-range (hyp.)",
+   "bytes": 365184,
+   "sha1": "a29e1f2f36682081b9e63ec562187aeb7a08ece4",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1332",
+   "kind": "town-range (hyp.)",
+   "bytes": 359736,
+   "sha1": "e0aae024a1a2c73bd883f231ebc9ccfa340ba8da",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1333",
+   "kind": "town-range (hyp.)",
+   "bytes": 41696,
+   "sha1": "0bb257be32bc70fcecdc63d0920dcce0d7d1ae4f",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1334",
+   "kind": "town-range (hyp.)",
+   "bytes": 86992,
+   "sha1": "d4469086cb3afbc30e4632cd929d573955141db6",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1335",
+   "kind": "town-range (hyp.)",
+   "bytes": 42264,
+   "sha1": "6d82d08987b2af300389c0b67f6017c23966f1d6",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1336",
+   "kind": "town-range (hyp.)",
+   "bytes": 42328,
+   "sha1": "48b750fc288a9d495934db5af981397ff897f1c6",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1337",
+   "kind": "town-range (hyp.)",
+   "bytes": 360232,
+   "sha1": "d0b8b2bef6ad1ecd0ef553e8215af42462166cc6",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1338",
+   "kind": "town-range (hyp.)",
+   "bytes": 353920,
+   "sha1": "2d1de30e398e13b7d915f0c17bf24dcf948e1492",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1339",
+   "kind": "town-range (hyp.)",
+   "bytes": 354376,
+   "sha1": "f6c9d4fc2e5527383f2e98b355cd7169b16603f8",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1340",
+   "kind": "town-range (hyp.)",
+   "bytes": 39136,
+   "sha1": "6eced5794cb27d27a1c530f63e893cdebb8994fa",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1341",
+   "kind": "town-range (hyp.)",
+   "bytes": 368696,
+   "sha1": "0f0b0e5265e7155fd22da3af79d84d3413e48c17",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1342",
+   "kind": "town-range (hyp.)",
+   "bytes": 357992,
+   "sha1": "23df720054e8fb7d6e11786c8885357f17656c06",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1343",
+   "kind": "town-range (hyp.)",
+   "bytes": 352520,
+   "sha1": "a70be8cd0097203f7fc431590fb8c50dc04e1836",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1345",
+   "kind": "town-range (hyp.)",
+   "bytes": 360528,
+   "sha1": "d9e3865ae9250d356216156149255faa2e387d4b",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1346",
+   "kind": "town-range (hyp.)",
+   "bytes": 360240,
+   "sha1": "7e5ad9705d6dc08f92a11612f2f1b847ce692e0b",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1349",
+   "kind": "town-range (hyp.)",
+   "bytes": 353928,
+   "sha1": "9a01b663de4ff6fd970f5a946fd2f168a9db5e5d",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1358",
+   "kind": "town-range (hyp.)",
+   "bytes": 354392,
+   "sha1": "f8abac53167c8cc839a5ea529de4df48e4e9e34c",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1359",
+   "kind": "town-range (hyp.)",
+   "bytes": 341568,
+   "sha1": "3cd1decdf63d1ae9739db3f1b596ab16b1495252",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1360",
+   "kind": "town-range (hyp.)",
+   "bytes": 352256,
+   "sha1": "ad9d509c265c63495e3c6a0d90749a80a0bceea8",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1364",
+   "kind": "town-range (hyp.)",
+   "bytes": 363336,
+   "sha1": "75cf2a0f224d9a20e2994c48fe3a13d4722683f0",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1366",
+   "kind": "town-range (hyp.)",
+   "bytes": 360080,
+   "sha1": "1a845a1ef2697a8d4cc73a9e7851a6e5fd39e0a0",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1367",
+   "kind": "town-range (hyp.)",
+   "bytes": 348480,
+   "sha1": "ae69f5f1679014e4f09617b46c055ceb871843bb",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1368",
+   "kind": "town-range (hyp.)",
+   "bytes": 358768,
+   "sha1": "15225da0a17d64f0bc2095ab39975a52b5fcdae8",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1371",
+   "kind": "town-range (hyp.)",
+   "bytes": 357968,
+   "sha1": "4374a1ee8ed80280eca537ce039f0400337e630e",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1391",
+   "kind": "town-range (hyp.)",
+   "bytes": 366704,
+   "sha1": "2f2728cd1a1ce9f370f12fa5b5cc419edf53e65b",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1432",
+   "kind": "town-range (hyp.)",
+   "bytes": 127784,
+   "sha1": "d6f4724455d0be93a3a7d85bfd5148e4f166ebbe",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1473",
+   "kind": "town-range (hyp.)",
+   "bytes": 359376,
+   "sha1": "39905da4fe15060fe05d1f3f08d95b411cb878e0",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1474",
+   "kind": "town-range (hyp.)",
+   "bytes": 361912,
+   "sha1": "9fe1d5d4204eb3a7bc885e5f2383ac258cc3938b",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1492",
+   "kind": "town-range (hyp.)",
+   "bytes": 357120,
+   "sha1": "d92a9d5b5de6942b4768eeb24701d2238631066e",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1500",
+   "kind": "town-range (hyp.)",
+   "bytes": 100928,
+   "sha1": "1756097d04e1171885d99ec39e251f29ab87980b",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1516",
+   "kind": "town-range (hyp.)",
+   "bytes": 353112,
+   "sha1": "514f017d1adf975536a0b0df4d8c0f7dd8239e74",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1518",
+   "kind": "town-range (hyp.)",
+   "bytes": 42928,
+   "sha1": "63b46c1ba0640ae6fca595f844b8def67a6b37c7",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1523",
+   "kind": "town-range (hyp.)",
+   "bytes": 356000,
+   "sha1": "8c45c9c959e532b401a91e0798d6c2c1616d3182",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1527",
+   "kind": "town-range (hyp.)",
+   "bytes": 43704,
+   "sha1": "f496f080307d5c0e918ca0f12b93431d2b54d8ef",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1530",
+   "kind": "town-range (hyp.)",
+   "bytes": 357712,
+   "sha1": "4fce25465da31ef4ad929beb02c03e9f696fda82",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1531",
+   "kind": "town-range (hyp.)",
+   "bytes": 357560,
+   "sha1": "5e90df12d574a670abc2e91d07840135a9a4ab83",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1533",
+   "kind": "town-range (hyp.)",
+   "bytes": 352744,
+   "sha1": "495235680efae34089f56ec9ff953110f754967d",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1581",
+   "kind": "town-range (hyp.)",
+   "bytes": 363296,
+   "sha1": "f6de0071719901bd7e3989c20e7dba5296d8a543",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1582",
+   "kind": "town-range (hyp.)",
+   "bytes": 359320,
+   "sha1": "44c165110111a8170bd4258e38b0d25c959a9352",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1583",
+   "kind": "town-range (hyp.)",
+   "bytes": 351888,
+   "sha1": "0f320043af127b9e6b1d0f38970f094ec6ed68ba",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1584",
+   "kind": "town-range (hyp.)",
+   "bytes": 351896,
+   "sha1": "1ffbd5befec2ce1b364af5b6bc272ec87bb5e18d",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1586",
+   "kind": "town-range (hyp.)",
+   "bytes": 362328,
+   "sha1": "9cf576d59772895d48179ea88b6605791feb74ed",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1587",
+   "kind": "town-range (hyp.)",
+   "bytes": 352968,
+   "sha1": "8f6ffd9f1ee58fcc29aa78fc8560d11324fffed3",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1588",
+   "kind": "town-range (hyp.)",
+   "bytes": 351888,
+   "sha1": "c7e474ad405f75b99753fde41ab1badb89079d46",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1640",
+   "kind": "town-range (hyp.)",
+   "bytes": 360400,
+   "sha1": "5c7ea4afc49108e1ab72a95a174be8c7047e9baf",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1641",
+   "kind": "town-range (hyp.)",
+   "bytes": 361704,
+   "sha1": "4876bd6165b11903324465692b38265ff6c23282",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1642",
+   "kind": "town-range (hyp.)",
+   "bytes": 359544,
+   "sha1": "804a8b3e7809a930381d359b7ee62396fc41b84d",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1673",
+   "kind": "town-range (hyp.)",
+   "bytes": 359056,
+   "sha1": "911f3c53eb8ec73df280b736179004b618933ac7",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1733",
+   "kind": "town-range (hyp.)",
+   "bytes": 351896,
+   "sha1": "f0c9c0f694cdd1d63ce5896983fa63e2294f7065",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1778",
+   "kind": "town-range (hyp.)",
+   "bytes": 97464,
+   "sha1": "223ab626f5b85b82d37873189d521afeb537fb5a",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1911",
+   "kind": "town-range (hyp.)",
+   "bytes": 362488,
+   "sha1": "1b4dae88c675a4123db85b8746ed314cd5e25632",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1912",
+   "kind": "town-range (hyp.)",
+   "bytes": 355216,
+   "sha1": "3243f94a16d1de7ae8164292a02aa2d3c792e33b",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1959",
+   "kind": "town-range (hyp.)",
+   "bytes": 357256,
+   "sha1": "9453f7065159ec0d45b9d00feffe3236932a958a",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1962",
+   "kind": "town-range (hyp.)",
+   "bytes": 144384,
+   "sha1": "01faa1b30d18bedc81f5ee532e3bf94935d7f410",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1963",
+   "kind": "town-range (hyp.)",
+   "bytes": 144344,
+   "sha1": "a2dfbd9e3cadf72a5935fad373536236aa278ea3",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1965",
+   "kind": "town-range (hyp.)",
+   "bytes": 360472,
+   "sha1": "f3d3c0eaf1e467c3a6856a407111c3a43e156666",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1966",
+   "kind": "town-range (hyp.)",
+   "bytes": 360136,
+   "sha1": "31f8cab264cae021a994d59846a8fab0a6270779",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1967",
+   "kind": "town-range (hyp.)",
+   "bytes": 365944,
+   "sha1": "1c39c27e0d6fdc12935753c001abff87f2d8565a",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1971",
+   "kind": "town-range (hyp.)",
+   "bytes": 351912,
+   "sha1": "e4781f238d505a862774202f47fe926cd5e6860f",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1973",
+   "kind": "town-range (hyp.)",
+   "bytes": 357128,
+   "sha1": "88c06a275c06e7744dee803774031076d826fe87",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1977",
+   "kind": "town-range (hyp.)",
+   "bytes": 351880,
+   "sha1": "367ef86f1ee3bf921ace3944fcd90a76ca107ad1",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s198",
+   "kind": "scene/dungeon-range (hyp.)",
+   "bytes": 362488,
+   "sha1": "f6818469eaeba03a8c1a57142f0b35b054d3be99",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1991",
+   "kind": "town-range (hyp.)",
+   "bytes": 366360,
+   "sha1": "4a7bef4e4620ce7041439f1f9820f53dc167255d",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s1998",
+   "kind": "town-range (hyp.)",
+   "bytes": 358512,
+   "sha1": "38659cc0649d0209685c6f8a967fd1d1f437e53b",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s3000",
+   "kind": "town-range (hyp.)",
+   "bytes": 39048,
+   "sha1": "627fe0273fcd4707e838d09b1d9c27ca1a96dd5d",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s350",
+   "kind": "scene/dungeon-range (hyp.)",
+   "bytes": 150504,
+   "sha1": "5d62f648cfac3340ae6de5e60944da24700f7a6b",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s41",
+   "kind": "scene/dungeon-range (hyp.)",
+   "bytes": 95032,
+   "sha1": "5a200f68a82ff2662928e5a978470959bbc0985a",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s412",
+   "kind": "scene/dungeon-range (hyp.)",
+   "bytes": 42800,
+   "sha1": "db754722d1df11b6f220760f2678eebb5d399471",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s50",
+   "kind": "scene/dungeon-range (hyp.)",
+   "bytes": 43992,
+   "sha1": "6c10b2317a03666deeaec03cf866376093ff86ee",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s660",
+   "kind": "scene/dungeon-range (hyp.)",
+   "bytes": 134432,
+   "sha1": "b247f35f9a3a31b535dd93140669530112a9c7ce",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s737",
+   "kind": "scene/dungeon-range (hyp.)",
+   "bytes": 364632,
+   "sha1": "dcbf7dd18da5e8947e3420e65257cb83749992f3",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s799",
+   "kind": "scene/dungeon-range (hyp.)",
+   "bytes": 356752,
+   "sha1": "fdffed63f4d6df8a86ed74ef9367bf9e206992ab",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s801",
+   "kind": "scene/dungeon-range (hyp.)",
+   "bytes": 355688,
+   "sha1": "20c9630371f69177f9f9e830938e06fac33be9a1",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s817",
+   "kind": "scene/dungeon-range (hyp.)",
+   "bytes": 354936,
+   "sha1": "737a745b26791ef772b15a98f89718f749f58328",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s919",
+   "kind": "scene/dungeon-range (hyp.)",
+   "bytes": 363400,
+   "sha1": "be34d7b1b5b32237cf6c6e5a5befbbd5832773f6",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s921",
+   "kind": "scene/dungeon-range (hyp.)",
+   "bytes": 364656,
+   "sha1": "561921d72f6d0cd68e68f54ca43fd73a0de01da9",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s943",
+   "kind": "scene/dungeon-range (hyp.)",
+   "bytes": 350120,
+   "sha1": "419a05108fcb8c60634ea6a10e758c10de81e7cb",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s944",
+   "kind": "scene/dungeon-range (hyp.)",
+   "bytes": 349168,
+   "sha1": "5dc534efaf039e47d1a0742a669533e45c47eb8f",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s947",
+   "kind": "scene/dungeon-range (hyp.)",
+   "bytes": 365304,
+   "sha1": "498958d0e498ce1bdabefb8535ea63ff62e12c8c",
+   "status": "encrypted-unrecoverable"
+  },
+  {
+   "id": "s983",
+   "kind": "scene/dungeon-range (hyp.)",
+   "bytes": 42144,
+   "sha1": "401c87a41ac4be3926307f5722c9296fa6acb8c7",
+   "status": "encrypted-unrecoverable"
+  }
+ ]
+}
