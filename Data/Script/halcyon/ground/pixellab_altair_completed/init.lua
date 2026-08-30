@@ -15,7 +15,7 @@ function pixellab_altair_completed.Enter(map)
 end
 
 function pixellab_altair_completed.Update(map, time)
-  -- Real-time updates (river ripples, leaf breeze)
+  -- Real-time updates (river ripples, breeze)
 end
 
 function pixellab_altair_completed.Exit(map)
