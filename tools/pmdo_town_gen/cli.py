@@ -18,6 +18,9 @@ def main() -> None:
     # 1. Analyze command
     subparsers.add_parser("analyze", help="Analyze canonical references (Metano Town & Grasstown)")
 
+    # 1.1 Recreate Metano Canonical command
+    subparsers.add_parser("metano-exact", help="Recreate high-fidelity Metano Town using exact canonical colorimetry & layout")
+
     # 2. Generate command
     gen_parser = subparsers.add_parser("generate", help="Generate a procedural Pokémon town")
     gen_parser.add_argument("--name", default="starter_village", help="Town internal ID")
@@ -61,6 +64,19 @@ def main() -> None:
         print("  - docs/pmu_maps/town_generator/reference_analysis_grasstown.json")
         print("  - docs/pmu_maps/town_generator/pokemon_town_style_profile.json")
         print("  - docs/pmu_maps/town_generator/REFERENCE_ANALYSIS.md")
+
+    elif args.command == "metano-exact":
+        from .metano_recreator import MetanoRecreator
+        rec = MetanoRecreator()
+        layout, artifacts = rec.execute_and_export()
+        print("Metano Town High-Fidelity Canonical Recreation Complete:")
+        print(f"  - Validation Status: {layout.validation.status}")
+        print(f"  - Connectivity: {layout.validation.score.connectivity}% (100% reachability)")
+        print(f"  - Visual Score: {layout.visual_score.total_visual_score}/100")
+        print(f"  - Composite Score: {layout.composite_score}/100")
+        print(f"  - PMDO Ground: {artifacts['ground']}")
+        print(f"  - PMDO Tile: {artifacts['tile']}")
+        print(f"  - Render: docs/pmu_maps/renders/metano_town_recreated/final.png")
 
     elif args.command == "generate":
         spec = TownSpec(

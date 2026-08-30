@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "map_name": "metano_town_recreated",
+  "display_name": "Metano Town (Recreated)",
+  "generator_version": "1.0.0",
+  "seed": 184729,
+  "biome": "grassland",
+  "season": "spring",
+  "dimensions": {
+    "width_tiles": 63,
+    "height_tiles": 63,
+    "tile_size_px": 24,
+    "width_px": 1512,
+    "height_px": 1512
+  },
+  "validation": {
+    "status": "PASS",
+    "score": 100.0,
+    "connectivity": 100.0,
+    "reachable_objectives": 15,
+    "total_objectives": 15
+  },
+  "artifacts": {
+    "ground": "Data/Ground/metano_town_recreated.rsground",
+    "tile": "Content/Tile/metano_town_recreated_Base.tile",
+    "script": "Data/Script/halcyon/ground/metano_town_recreated/init.lua"
+  }
+}
