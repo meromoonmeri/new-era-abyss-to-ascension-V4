@@ -1,6 +1,27 @@
 {
- "walkable": 10276,
- "reachable": 9893,
- "ratio": 0.9627,
- "probs": []
+ "checks": [
+  "grid 168x128 all 11 layers + obstacles",
+  "autotile adjacency (content keys vs metano tables)",
+  "provenance 100%",
+  "collision policy W/C solid + pocket fill",
+  "walkability BFS from 3 gates = 100%",
+  "8/8 parcels reachable",
+  "border closure",
+  "no structures/npcs/objects",
+  "determinism (seed, identical sha on re-run)"
+ ],
+ "stats": {
+  "tiers": {
+   "exact": 12067,
+   "relaxed": 3225,
+   "pure": 6212
+  },
+  "violations_after_repair": 0,
+  "walkable": 10943,
+  "reachable_from_gates": 10943,
+  "reach_ratio": 1.0,
+  "parcels_reachable": "8/8",
+  "sha256": "9a7b8613dd0f63c00914396bbda368efb4088acffc13c2e29993e6882ebbf49e"
+ },
+ "verdict": "PASS"
 }

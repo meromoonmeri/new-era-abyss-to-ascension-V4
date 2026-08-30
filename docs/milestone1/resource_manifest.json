@@ -1,9 +1,8 @@
 {
  "ground": "town_hollow",
- "dims": [
-  160,
-  120
- ],
+ "generator": "tools/newtown/mapforge.py (content-key composer)",
+ "seed": 20260830,
+ "dims_tiles": "168x128",
  "layers": [
   "Base",
   "Cliffs",
@@ -18,63 +17,22 @@
   "Fringe"
  ],
  "music": "Treasure Town.ogg",
- "markers": 9,
+ "markers": 12,
+ "npcs": 0,
+ "ground_objects": 0,
  "sheets_used": {
-  "Metano_Town_Animated": {
-   "refs": 49,
-   "file": "Content/Tile/Metano_Town_Animated.tile"
-  },
-  "Metano_Town_Animation_Tileset": {
-   "refs": 2421,
-   "file": "Content/Tile/Metano_Town_Animation_Tileset.tile"
-  },
-  "Metano_Town_Base": {
-   "refs": 19199,
-   "file": "Content/Tile/Metano_Town_Base.tile"
-  },
-  "Metano_Town_Cliffs": {
-   "refs": 231,
-   "file": "Content/Tile/Metano_Town_Cliffs.tile"
-  },
-  "Metano_Town_Fringe": {
-   "refs": 1,
-   "file": "Content/Tile/Metano_Town_Fringe.tile"
-  },
-  "Metano_Town_Objects": {
-   "refs": 8051,
-   "file": "Content/Tile/Metano_Town_Objects.tile"
-  },
-  "Metano_Town_Objects_Over": {
-   "refs": 26,
-   "file": "Content/Tile/Metano_Town_Objects_Over.tile"
-  },
-  "Metano_Town_Objects_Under": {
-   "refs": 309,
-   "file": "Content/Tile/Metano_Town_Objects_Under.tile"
-  },
-  "Metano_Town_River_Animation_1": {
-   "refs": 1808,
-   "file": "Content/Tile/Metano_Town_River_Animation_1.tile"
-  },
-  "Metano_Town_River_Animation_2": {
-   "refs": 1808,
-   "file": "Content/Tile/Metano_Town_River_Animation_2.tile"
-  },
-  "Metano_Town_River_Animation_3": {
-   "refs": 1808,
-   "file": "Content/Tile/Metano_Town_River_Animation_3.tile"
-  },
-  "Metano_Town_River_Animation_4": {
-   "refs": 1808,
-   "file": "Content/Tile/Metano_Town_River_Animation_4.tile"
-  },
-  "Metano_Town_River_Sparkles": {
-   "refs": 472,
-   "file": "Content/Tile/Metano_Town_River_Sparkles.tile"
-  }
+  "Metano_Town_Animation_Tileset": 7278,
+  "Metano_Town_Base": 21504,
+  "Metano_Town_Cliffs": 319,
+  "Metano_Town_Fringe": 5,
+  "Metano_Town_Objects": 6706,
+  "Metano_Town_Objects_Over": 23,
+  "Metano_Town_Objects_Under": 572,
+  "Metano_Town_River_Animation_1": 2485,
+  "Metano_Town_River_Animation_2": 2485,
+  "Metano_Town_River_Animation_3": 2485,
+  "Metano_Town_River_Animation_4": 2485
  },
- "sources": {
-  "metano_town": "sole tile source (shared_sheets with luluby = 0 => composition-only reference)"
- },
- "structures_in_map": 0
+ "structures_in_map": 0,
+ "source": "metano_town (sole tile source; luluby = grammar reference only: shared_sheets=0)"
 }
