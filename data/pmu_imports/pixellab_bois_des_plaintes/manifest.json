@@ -1,0 +1,20 @@
+{
+  "map_id": "pixellab_bois_des_plaintes",
+  "display_name": "Weeping Woods (Bois des Plaintes)",
+  "generator": "PixelLab + SkyTemple Hybrid Engine",
+  "resolution": [
+    1080,
+    1008
+  ],
+  "grid_cells": [
+    45,
+    42
+  ],
+  "walkable_cells": 618,
+  "blocked_cells": 1272,
+  "walkable_ratio": 0.327,
+  "layers_count": 1,
+  "status": "READY",
+  "reachability": 100.0,
+  "visual_score": 98.0
+}

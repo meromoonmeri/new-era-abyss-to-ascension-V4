@@ -1,0 +1,20 @@
+{
+  "map_id": "pixellab_bourg_comptoir",
+  "display_name": "Treasure Town (Bourg Comptoir)",
+  "generator": "PixelLab + SkyTemple Hybrid Engine",
+  "resolution": [
+    2016,
+    1512
+  ],
+  "grid_cells": [
+    84,
+    63
+  ],
+  "walkable_cells": 1328,
+  "blocked_cells": 3964,
+  "walkable_ratio": 0.251,
+  "layers_count": 1,
+  "status": "READY",
+  "reachability": 100.0,
+  "visual_score": 98.0
+}

@@ -1,0 +1,20 @@
+{
+  "map_id": "pixellab_apricorn_glade",
+  "display_name": "Apricorn Glade (Clairi\u00e8re Noigrumes)",
+  "generator": "PixelLab + SkyTemple Hybrid Engine",
+  "resolution": [
+    1752,
+    1656
+  ],
+  "grid_cells": [
+    73,
+    69
+  ],
+  "walkable_cells": 5037,
+  "blocked_cells": 0,
+  "walkable_ratio": 1.0,
+  "layers_count": 4,
+  "status": "READY",
+  "reachability": 100.0,
+  "visual_score": 98.0
+}

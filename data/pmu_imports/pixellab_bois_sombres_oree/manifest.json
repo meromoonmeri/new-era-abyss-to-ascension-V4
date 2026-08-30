@@ -1,0 +1,20 @@
+{
+  "map_id": "pixellab_bois_sombres_oree",
+  "display_name": "Sinister Woods Verge (Or\u00e9e des Bois Sombres)",
+  "generator": "PixelLab + SkyTemple Hybrid Engine",
+  "resolution": [
+    1368,
+    1152
+  ],
+  "grid_cells": [
+    57,
+    48
+  ],
+  "walkable_cells": 292,
+  "blocked_cells": 2444,
+  "walkable_ratio": 0.107,
+  "layers_count": 1,
+  "status": "READY",
+  "reachability": 100.0,
+  "visual_score": 98.0
+}

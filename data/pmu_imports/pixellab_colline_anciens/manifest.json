@@ -1,0 +1,20 @@
+{
+  "map_id": "pixellab_colline_anciens",
+  "display_name": "Hill of Ancients (Colline des Anciens)",
+  "generator": "PixelLab + SkyTemple Hybrid Engine",
+  "resolution": [
+    720,
+    480
+  ],
+  "grid_cells": [
+    30,
+    20
+  ],
+  "walkable_cells": 271,
+  "blocked_cells": 329,
+  "walkable_ratio": 0.452,
+  "layers_count": 1,
+  "status": "READY",
+  "reachability": 100.0,
+  "visual_score": 98.0
+}

@@ -167,12 +167,18 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             <div class="section-title">Select PMD Map</div>
             <select id="sel-map" onchange="loadSelectedMap()" style="width: 100%;">
                 <option value="pixellab_altair_completed">Altair Transition (Completed by PixelLab)</option>
+                <option value="pixellab_altere_pond">Altere Pond (Étang Altéré)</option>
                 <option value="pixellab_altere_transition">Altere Transition (Metano -> Altere Pond)</option>
+                <option value="pixellab_apricorn_glade">Apricorn Glade (Clairière Noigrumes)</option>
+                <option value="pixellab_apricorn_grove_entrance">Apricorn Grove Entrance (Bosquet Noigrumes)</option>
+                <option value="pixellab_bois_sombres_oree">Sinister Woods Verge (Orée des Bois Sombres)</option>
+                <option value="pixellab_bourg_comptoir">Treasure Town (Bourg Comptoir)</option>
+                <option value="pixellab_colline_anciens">Hill of Ancients (Colline des Anciens)</option>
+                <option value="pixellab_bois_des_plaintes">Weeping Woods (Bois des Plaintes)</option>
                 <option value="pixellab_metano_sanctuary">Metano Sanctuary (PixelLab Native)</option>
                 <option value="metano_town_recreated">Metano Town (Recreated PMD Layout)</option>
                 <option value="metano_waterfall_haven">Metano Waterfall Haven (Hybrid & Animations)</option>
                 <option value="skytemple_metano_outskirts">Metano Outskirts (Clairière SkyTemple)</option>
-                <option value="pixellab_metano_variant">Metano Variant (PixelLab Procedural)</option>
             </select>
         </div>
 
@@ -236,12 +242,18 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             currentMap = document.getElementById('sel-map').value;
             const titles = {
                 "pixellab_altair_completed": "Altair Transition (Completed by PixelLab) — 45x36 Tiles (1080x864 px)",
+                "pixellab_altere_pond": "Altere Pond (Étang Altéré) — 116x96 Cells (2784x2304 px)",
                 "pixellab_altere_transition": "Altere Transition (Metano -> Altere Pond) — 64x38 Cells (1536x912 px)",
+                "pixellab_apricorn_glade": "Apricorn Glade (Clairière Noigrumes) — 73x69 Cells (1752x1656 px)",
+                "pixellab_apricorn_grove_entrance": "Apricorn Grove Entrance — 43x38 Cells (1032x912 px)",
+                "pixellab_bois_sombres_oree": "Sinister Woods Verge — 57x48 Cells (1368x1152 px)",
+                "pixellab_bourg_comptoir": "Treasure Town (Bourg Comptoir) — 84x63 Cells (2016x1512 px)",
+                "pixellab_colline_anciens": "Hill of Ancients (Colline des Anciens) — 30x20 Cells (720x480 px)",
+                "pixellab_bois_des_plaintes": "Weeping Woods (Bois des Plaintes) — 45x42 Cells (1080x1008 px)",
                 "pixellab_metano_sanctuary": "Metano Sanctuary (PixelLab Native) — 63x63 PMD Tiles (1512x1512 px)",
                 "metano_town_recreated": "Metano Town (Recreated PMD Layout) — 63x63 PMD Tiles (1512x1512 px)",
                 "metano_waterfall_haven": "Metano Waterfall Haven (Hybrid & Animations) — 64x64 PMD Tiles",
-                "skytemple_metano_outskirts": "Metano Outskirts (Clairière SkyTemple) — 63x63 PMD Tiles",
-                "pixellab_metano_variant": "Metano Variant (PixelLab Procedural) — 63x63 PMD Tiles"
+                "skytemple_metano_outskirts": "Metano Outskirts (Clairière SkyTemple) — 63x63 PMD Tiles"
             };
             document.getElementById('town-title').innerText = titles[currentMap] || currentMap;
             renderMap();

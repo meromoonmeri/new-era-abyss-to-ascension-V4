@@ -1,0 +1,20 @@
+{
+  "map_id": "pixellab_apricorn_grove_entrance",
+  "display_name": "Apricorn Grove Entrance (Bosquet Noigrumes)",
+  "generator": "PixelLab + SkyTemple Hybrid Engine",
+  "resolution": [
+    1032,
+    912
+  ],
+  "grid_cells": [
+    43,
+    38
+  ],
+  "walkable_cells": 1634,
+  "blocked_cells": 0,
+  "walkable_ratio": 1.0,
+  "layers_count": 2,
+  "status": "READY",
+  "reachability": 100.0,
+  "visual_score": 98.0
+}

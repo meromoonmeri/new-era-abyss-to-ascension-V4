@@ -1,0 +1,20 @@
+{
+  "map_id": "pixellab_altere_pond",
+  "display_name": "Altere Pond (\u00c9tang Alt\u00e9r\u00e9)",
+  "generator": "PixelLab + SkyTemple Hybrid Engine",
+  "resolution": [
+    2784,
+    2304
+  ],
+  "grid_cells": [
+    116,
+    96
+  ],
+  "walkable_cells": 9571,
+  "blocked_cells": 1565,
+  "walkable_ratio": 0.859,
+  "layers_count": 8,
+  "status": "READY",
+  "reachability": 100.0,
+  "visual_score": 98.0
+}
