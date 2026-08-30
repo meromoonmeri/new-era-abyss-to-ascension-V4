@@ -1,0 +1,152 @@
+{
+  "schema": 1,
+  "profile_name": "PokemonTownStyleProfile",
+  "version": "1.0.0",
+  "description": "Common spatial, structural, and topological composition rules extracted from canonical references.",
+  "references_analyzed": [
+    "metano_town",
+    "grasstown_s737"
+  ],
+  "macro_zoning": {
+    "elevation_levels_range": [
+      2,
+      3
+    ],
+    "level_0_lower_valley_ratio": [
+      0.55,
+      0.65
+    ],
+    "level_1_terrace_ratio": [
+      0.35,
+      0.45
+    ],
+    "cliff_boundary_ratio": [
+      0.06,
+      0.12
+    ],
+    "stairs_per_tier_boundary": [
+      2,
+      4
+    ],
+    "stair_width_range_tiles": [
+      2,
+      4
+    ]
+  },
+  "road_network": {
+    "primary_avenue_width_tiles": [
+      3,
+      4
+    ],
+    "secondary_street_width_tiles": [
+      2,
+      2
+    ],
+    "micro_path_width_tiles": [
+      1,
+      1
+    ],
+    "road_density_range": [
+      0.16,
+      0.26
+    ],
+    "organic_curvature_factor": 0.2,
+    "min_spanning_tree_cycle_probability": 0.2
+  },
+  "district_composition": {
+    "required_districts": [
+      "plaza",
+      "residential",
+      "commercial",
+      "nature"
+    ],
+    "plaza_area_ratio": [
+      0.08,
+      0.15
+    ],
+    "residential_area_ratio": [
+      0.3,
+      0.45
+    ],
+    "commercial_area_ratio": [
+      0.15,
+      0.25
+    ],
+    "nature_buffer_ratio": [
+      0.2,
+      0.35
+    ]
+  },
+  "density_ranges": {
+    "building_ratio": [
+      0.12,
+      0.22
+    ],
+    "road_ratio": [
+      0.15,
+      0.25
+    ],
+    "nature_tree_ratio": [
+      0.15,
+      0.28
+    ],
+    "open_space_ratio": [
+      0.22,
+      0.35
+    ],
+    "water_feature_ratio": [
+      0.04,
+      0.14
+    ]
+  },
+  "spacing_constraints": {
+    "house_to_house_spacing_tiles": [
+      2,
+      6
+    ],
+    "house_to_road_clearance_tiles": [
+      1,
+      2
+    ],
+    "house_to_cliff_clearance_tiles": [
+      2,
+      3
+    ],
+    "tree_to_road_clearance_tiles": [
+      1,
+      2
+    ],
+    "tree_to_door_clearance_tiles": [
+      2,
+      4
+    ]
+  },
+  "environment_constraints": {
+    "strictly_one_primary_biome": true,
+    "strictly_one_season": true,
+    "allowed_biomes": [
+      "grassland",
+      "forest",
+      "coastal",
+      "mountain"
+    ],
+    "allowed_seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ]
+  },
+  "gameplay_connectivity": {
+    "mandatory_routes": [
+      "entrance -> central_plaza",
+      "central_plaza -> pokemon_center",
+      "central_plaza -> shop",
+      "central_plaza -> residential_district",
+      "level_0_valley -> stairs -> level_1_terrace",
+      "central_plaza -> all_cardinal_exits"
+    ],
+    "min_stair_width": 2,
+    "deadlock_tolerance": 0
+  }
+}

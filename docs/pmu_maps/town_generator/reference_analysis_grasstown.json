@@ -1,0 +1,268 @@
+{
+  "reference_id": "grasstown_s737",
+  "name": "Exbel, Grassroot Town",
+  "source_type": "PMU_STANDARDIZED_IMPORT",
+  "dimensions": {
+    "width_tiles": 51,
+    "height_tiles": 51,
+    "tile_size_px": 32,
+    "width_px": 1632,
+    "height_px": 1632
+  },
+  "metrics": {
+    "total_tiles": 2601,
+    "walkable_ratio": 0.0,
+    "blocked_ratio": 1.0,
+    "cliff_ratio": 0.085,
+    "water_ratio": 0.045,
+    "building_density": 0.178,
+    "road_density": 0.224,
+    "nature_density": 0.26,
+    "open_space_ratio": 0.293
+  },
+  "elevation": {
+    "levels_count": 2,
+    "level_0_ratio": 0.58,
+    "level_1_ratio": 0.42,
+    "cliff_ratio": 0.085,
+    "stair_connections_count": 3,
+    "stair_locations": [
+      {
+        "name": "West Ascent Stairs",
+        "from_level": 0,
+        "to_level": 1,
+        "orientation": "north",
+        "position": [
+          10,
+          22
+        ],
+        "width_tiles": 3
+      },
+      {
+        "name": "Central Ascent Stairs",
+        "from_level": 0,
+        "to_level": 1,
+        "orientation": "north",
+        "position": [
+          25,
+          20
+        ],
+        "width_tiles": 4
+      },
+      {
+        "name": "East Ascent Stairs",
+        "from_level": 0,
+        "to_level": 1,
+        "orientation": "north",
+        "position": [
+          40,
+          22
+        ],
+        "width_tiles": 3
+      }
+    ]
+  },
+  "districts": [
+    {
+      "id": "central_plaza",
+      "type": "plaza",
+      "center_tiles": [
+        25,
+        34
+      ],
+      "radius_tiles": 8,
+      "elevation": 0,
+      "importance": 1
+    },
+    {
+      "id": "commercial_lower",
+      "type": "commercial",
+      "center_tiles": [
+        25,
+        38
+      ],
+      "radius_tiles": 12,
+      "elevation": 0,
+      "importance": 2
+    },
+    {
+      "id": "residential_upper",
+      "type": "residential",
+      "center_tiles": [
+        25,
+        10
+      ],
+      "radius_tiles": 14,
+      "elevation": 1,
+      "importance": 2
+    },
+    {
+      "id": "nature_perimeter",
+      "type": "nature",
+      "center_tiles": [
+        25,
+        2
+      ],
+      "radius_tiles": 10,
+      "elevation": 1,
+      "importance": 3
+    }
+  ],
+  "structures": [
+    {
+      "id": "grassroot_bazaar",
+      "role": "shop",
+      "position_tile": [
+        7,
+        32
+      ],
+      "door_warp": [
+        6,
+        17
+      ],
+      "elevation": 0
+    },
+    {
+      "id": "kangaskhan_storage",
+      "role": "bank_storage",
+      "position_tile": [
+        17,
+        39
+      ],
+      "door_warp": [
+        15,
+        8
+      ],
+      "elevation": 0
+    },
+    {
+      "id": "chimecho_assembly",
+      "role": "guild_assembly",
+      "position_tile": [
+        33,
+        39
+      ],
+      "door_warp": [
+        32,
+        6
+      ],
+      "elevation": 0
+    },
+    {
+      "id": "grassroot_inn",
+      "role": "inn",
+      "position_tile": [
+        42,
+        40
+      ],
+      "door_warp": [
+        42,
+        21
+      ],
+      "elevation": 0
+    },
+    {
+      "id": "house_leavi_bulby",
+      "role": "residential",
+      "position_tile": [
+        20,
+        6
+      ],
+      "door_warp": [
+        20,
+        6
+      ],
+      "elevation": 1
+    },
+    {
+      "id": "house_rustle",
+      "role": "residential",
+      "position_tile": [
+        32,
+        6
+      ],
+      "door_warp": [
+        32,
+        6
+      ],
+      "elevation": 1
+    },
+    {
+      "id": "house_lark",
+      "role": "residential",
+      "position_tile": [
+        14,
+        11
+      ],
+      "door_warp": [
+        15,
+        8
+      ],
+      "elevation": 1
+    },
+    {
+      "id": "house_trishian",
+      "role": "residential",
+      "position_tile": [
+        38,
+        11
+      ],
+      "door_warp": [
+        37,
+        8
+      ],
+      "elevation": 1
+    },
+    {
+      "id": "house_eevee",
+      "role": "residential",
+      "position_tile": [
+        43,
+        24
+      ],
+      "door_warp": [
+        43,
+        16
+      ],
+      "elevation": 1
+    }
+  ],
+  "road_hierarchy": {
+    "primary_avenue_tiles": 4,
+    "secondary_street_tiles": 2,
+    "micro_path_tiles": 1
+  },
+  "spacing_rules": {
+    "house_spacing_min_tiles": 2,
+    "house_spacing_mean_tiles": 4,
+    "house_spacing_max_tiles": 7,
+    "house_road_clearance_tiles": 1,
+    "house_cliff_clearance_tiles": 2
+  },
+  "biome_profile": {
+    "primary_biome": "grassland",
+    "season": "spring"
+  },
+  "circulation": {
+    "entrance_south": {
+      "cardinal": "down",
+      "target_map_id": "s1015",
+      "type": "main_gate"
+    },
+    "exit_north": {
+      "cardinal": "up",
+      "target_map_id": "s799",
+      "type": "forest_trail"
+    },
+    "exit_west": {
+      "cardinal": "left",
+      "target_map_id": "s943",
+      "type": "coast_gate"
+    },
+    "exit_east": {
+      "cardinal": "right",
+      "target_map_id": "s1022",
+      "type": "plain_gate"
+    }
+  }
+}

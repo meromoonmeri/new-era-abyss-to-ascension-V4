@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "map_name": "amber_valley_village",
+  "display_name": "Amber Valley Village",
+  "generator_version": "1.0.0",
+  "seed": 555888,
+  "biome": "forest",
+  "season": "autumn",
+  "dimensions": {
+    "width_tiles": 64,
+    "height_tiles": 48,
+    "tile_size_px": 24,
+    "width_px": 1536,
+    "height_px": 1152
+  },
+  "validation": {
+    "status": "PASS",
+    "score": 99.0,
+    "connectivity": 100.0,
+    "reachable_objectives": 18,
+    "total_objectives": 18
+  },
+  "artifacts": {
+    "ground": "Data/Ground/amber_valley_village.rsground",
+    "tile": "Content/Tile/amber_valley_village_Base.tile",
+    "script": "Data/Script/halcyon/ground/amber_valley_village/init.lua"
+  }
+}

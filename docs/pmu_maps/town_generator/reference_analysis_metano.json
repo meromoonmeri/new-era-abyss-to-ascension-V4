@@ -1,0 +1,246 @@
+{
+  "reference_id": "metano_town",
+  "name": "Metano Town",
+  "source_type": "PMDO_GROUND",
+  "dimensions": {
+    "width_cells_8px": 189,
+    "height_cells_8px": 189,
+    "cell_size_px": 8,
+    "width_px": 1512,
+    "height_px": 1512,
+    "equivalent_tiles_32px": [
+      47,
+      47
+    ]
+  },
+  "metrics": {
+    "total_cells": 35721,
+    "walkable_ratio": 0.5812,
+    "blocked_ratio": 0.4188,
+    "cliff_ratio": 0.0607,
+    "water_ratio": 0.0896,
+    "building_density": 0.165,
+    "road_density": 0.215,
+    "nature_density": 0.245,
+    "open_space_ratio": 0.28
+  },
+  "elevation": {
+    "levels_count": 2,
+    "level_0_ratio": 0.564,
+    "level_1_ratio": 0.376,
+    "cliff_ratio": 0.061,
+    "stair_connections_count": 3,
+    "stair_locations": [
+      {
+        "name": "Central Plaza North Stairs",
+        "from_level": 0,
+        "to_level": 1,
+        "orientation": "north",
+        "width_cells": 6
+      },
+      {
+        "name": "West Terrace Stairs",
+        "from_level": 0,
+        "to_level": 1,
+        "orientation": "north",
+        "width_cells": 4
+      },
+      {
+        "name": "East River Bank Stairs",
+        "from_level": 0,
+        "to_level": 1,
+        "orientation": "north",
+        "width_cells": 4
+      }
+    ]
+  },
+  "districts": [
+    {
+      "id": "plaza",
+      "type": "plaza",
+      "center_cells": [
+        130,
+        105
+      ],
+      "radius_cells": 24,
+      "elevation": 0,
+      "importance": 1
+    },
+    {
+      "id": "residential_west",
+      "type": "residential",
+      "center_cells": [
+        45,
+        65
+      ],
+      "radius_cells": 30,
+      "elevation": 1,
+      "importance": 2
+    },
+    {
+      "id": "commercial_east",
+      "type": "commercial",
+      "center_cells": [
+        135,
+        75
+      ],
+      "radius_cells": 25,
+      "elevation": 1,
+      "importance": 2
+    },
+    {
+      "id": "river_valley",
+      "type": "waterfront",
+      "center_cells": [
+        95,
+        95
+      ],
+      "radius_cells": 20,
+      "elevation": 0,
+      "importance": 3
+    },
+    {
+      "id": "nature_borders",
+      "type": "nature",
+      "center_cells": [
+        95,
+        20
+      ],
+      "radius_cells": 35,
+      "elevation": 1,
+      "importance": 4
+    }
+  ],
+  "structures": [
+    {
+      "id": "metano_cafe",
+      "role": "cafe",
+      "position_px": [
+        1148,
+        580
+      ],
+      "approx_bounds_cells": [
+        120,
+        62,
+        35,
+        16
+      ],
+      "elevation": 1
+    },
+    {
+      "id": "metano_kecleon_shop",
+      "role": "kecleon_shop",
+      "position_px": [
+        1080,
+        824
+      ],
+      "approx_bounds_cells": [
+        128,
+        95,
+        14,
+        15
+      ],
+      "elevation": 0
+    },
+    {
+      "id": "metano_house_normal",
+      "role": "normal_home",
+      "position_px": [
+        256,
+        622
+      ],
+      "approx_bounds_cells": [
+        26,
+        69,
+        10,
+        14
+      ],
+      "elevation": 0
+    },
+    {
+      "id": "metano_house_rock",
+      "role": "rock_home",
+      "position_px": [
+        576,
+        470
+      ],
+      "approx_bounds_cells": [
+        65,
+        50,
+        13,
+        14
+      ],
+      "elevation": 1
+    },
+    {
+      "id": "metano_house_fire",
+      "role": "fire_home",
+      "position_px": [
+        224,
+        465
+      ],
+      "approx_bounds_cells": [
+        21,
+        50,
+        14,
+        13
+      ],
+      "elevation": 1
+    },
+    {
+      "id": "metano_inn",
+      "role": "inn",
+      "position_px": [
+        900,
+        700
+      ],
+      "approx_bounds_cells": [
+        105,
+        80,
+        20,
+        16
+      ],
+      "elevation": 0
+    }
+  ],
+  "road_hierarchy": {
+    "primary_avenue_cells": 16,
+    "secondary_street_cells": 8,
+    "primary_tiles_32px": 4,
+    "secondary_tiles_32px": 2
+  },
+  "spacing_rules": {
+    "min_cells": 12,
+    "mean_cells": 24,
+    "max_cells": 40,
+    "min_tiles_32px": 3,
+    "mean_tiles_32px": 6
+  },
+  "biome_profile": {
+    "primary_biome": "grassland",
+    "season": "spring"
+  },
+  "circulation": {
+    "entrance_south": {
+      "position_px": [
+        756,
+        1500
+      ],
+      "type": "main_gate"
+    },
+    "exit_north": {
+      "position_px": [
+        756,
+        40
+      ],
+      "type": "mountain_pass"
+    },
+    "exit_east": {
+      "position_px": [
+        1500,
+        756
+      ],
+      "type": "bridge_crossing"
+    }
+  }
+}

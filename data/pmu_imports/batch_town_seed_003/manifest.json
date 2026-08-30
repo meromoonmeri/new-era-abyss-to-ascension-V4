@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "map_name": "batch_town_seed_003",
+  "display_name": "Batch Town",
+  "generator_version": "1.0.0",
+  "seed": 102716,
+  "biome": "grassland",
+  "season": "spring",
+  "dimensions": {
+    "width_tiles": 64,
+    "height_tiles": 48,
+    "tile_size_px": 24,
+    "width_px": 1536,
+    "height_px": 1152
+  },
+  "validation": {
+    "status": "PASS",
+    "score": 99.0,
+    "connectivity": 100.0,
+    "reachable_objectives": 18,
+    "total_objectives": 18
+  },
+  "artifacts": {
+    "ground": "Data/Ground/batch_town_seed_003.rsground",
+    "tile": "Content/Tile/batch_town_seed_003_Base.tile",
+    "script": "Data/Script/halcyon/ground/batch_town_seed_003/init.lua"
+  }
+}
