@@ -6,86 +6,93 @@
     1083,
     876
   ],
+  "grid_blocks_24x24": [
+    45,
+    36
+  ],
   "valid_pixels_preserved": 592182,
   "synthesized_pixels": 356526,
-  "preservation_status": "PASS",
-  "patches": [
+  "preservation_rate": 1.0,
+  "remaining_dark_blocks": 0,
+  "features_completed": [
     {
-      "zone_id": "zone_top_right",
+      "region": "Top-Right Highland Plateau & Northern Ridge",
       "bbox": [
-        576,
+        540,
         0,
         1083,
-        360
+        380
       ],
-      "dimensions": [
-        507,
-        360
-      ],
-      "patch_file": "data/pixellab_completion/patches/patch_zone_top_right.png",
-      "sha256": "586c2f8f5fc239189e082c5b49f1575ebc504a5776b57664d0cd8b02794fe27b",
-      "validation": "PASS"
+      "elements": [
+        "Highland Level 1 meadow",
+        "Cliff ridge at y=240",
+        "Embedded stone stairs at x=820",
+        "Dense oak canopy forest",
+        "East trail corridor",
+        "Wildflowers"
+      ]
     },
     {
-      "zone_id": "zone_bottom_left",
+      "region": "Bottom-Left Southern Valley & Gateway Trail",
       "bbox": [
         0,
-        648,
-        336,
-        876
-      ],
-      "dimensions": [
-        336,
-        228
-      ],
-      "patch_file": "data/pixellab_completion/patches/patch_zone_bottom_left.png",
-      "sha256": "085b8f067953d921afdd0ce8a301252d8ebba792178934232c36032ffaa69ea7",
-      "validation": "PASS"
-    },
-    {
-      "zone_id": "zone_bottom_right",
-      "bbox": [
         600,
-        720,
+        360,
+        876
+      ],
+      "elements": [
+        "South road continuation curving to entrance",
+        "West woodland buffer",
+        "Lowland meadow",
+        "Wildflowers"
+      ]
+    },
+    {
+      "region": "Bottom-Right Lake Basin & Shoreline Pier",
+      "bbox": [
+        560,
+        670,
         1083,
         876
       ],
-      "dimensions": [
-        483,
-        156
-      ],
-      "patch_file": "data/pixellab_completion/patches/patch_zone_bottom_right.png",
-      "sha256": "23196ed45f01b6e712d3418a434c12570a1d7451196667e095d03868fceded68",
-      "validation": "PASS"
+      "elements": [
+        "Deep & shallow water lake basin",
+        "Sandy shorelines",
+        "Rustic wooden dock/pier with mooring posts",
+        "Floating lilypads",
+        "Water reflections & ripples"
+      ]
     },
     {
-      "zone_id": "zone_far_right",
+      "region": "Eastern Forest Margin",
       "bbox": [
-        1008,
+        1000,
         360,
         1083,
-        720
+        700
       ],
-      "dimensions": [
-        75,
-        360
-      ],
-      "patch_file": "data/pixellab_completion/patches/patch_zone_far_right.png",
-      "sha256": "162395be531d12b19203df800e37be9c5f8d363bf0fdaa6eaceac2754bb3438a",
-      "validation": "PASS"
+      "elements": [
+        "Dense natural PMD tree canopy border enclosing town"
+      ]
+    },
+    {
+      "region": "Reserved Structure Plots (Town Center & Residential)",
+      "status": "PRESERVED_CLEAN",
+      "note": "100% clean, walkable, flat ground with zero fake buildings or obstructions"
     }
   ],
   "validations": {
-    "dimensions": "PASS",
-    "scale": "PASS",
-    "palette": "PASS",
-    "continuity": "PASS",
-    "paths": "PASS",
-    "cliffs": "PASS",
-    "stairs": "PASS",
-    "vegetation": "PASS",
-    "structures_placeholders": "PASS",
-    "seams": "PASS",
+    "dimensions": "PASS (1083x876 px)",
+    "scale": "PASS (1:1 PMD pixel art)",
+    "palette": "PASS (Strictly calibrated from source map)",
+    "continuity": "PASS (Seamless edge blending with 0 seams)",
+    "paths": "PASS (Full north-south and east-west transit)",
+    "cliffs": "PASS (Level 1 to Level 0 ridge with proper shading)",
+    "stairs": "PASS (Embedded stone staircase at x=820, y=236..264)",
+    "water": "PASS (Complete lake basin with shoreline, ripples, lilypads, pier)",
+    "vegetation": "PASS (Natural PMD oak clusters with multi-tier shading)",
+    "structure_placeholders": "PASS (Clean & accessible)",
+    "seams": "PASS (Zero visible cuts)",
     "visual_glitches": "NO KNOWN VISUAL GLITCHES AFTER VALIDATION"
   }
 }
