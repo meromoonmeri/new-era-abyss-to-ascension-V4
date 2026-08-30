@@ -1,19 +1,34 @@
 # MILESTONE 1 — RAW_TOWN_ENVIRONMENT
 
-STATUS: **PASS** (runtime PASS observed; see RUNTIME section)
-Date: 2026-08-30 · Branch: `arena/01a02f1c-new-era-abyss-to-ascension-v4` · Generator: `tools/newtown/build_v4.py` · SEED: `20260830` (deterministic: byte-identical re-runs verified, sha256 `62fc90f187ba26a4…` twice)
+STATUS: **PASS** (validateur structurel 0 violation + runtime PMDO 0.8.12 PASS avec screenshot moteur)
+Date: 2026-08-30 · Branch `arena/01a02f1c-new-era-abyss-to-ascension-v4` · Commits `819091c8`, `9c561277`
+Générateur: `tools/newtown/mapforge.py` — SEED `20260830` (double run → sha256 identique `9a7b8613…`)
 
-## INPUT REFERENCES
+## ARCHITECTURE (implémentée, pas décrite)
 
-| Role | Source | Used for |
-|---|---|---|
-| Primary ground ecosystem | `metano_town.rsground` (189×189) | **every** tile, sheet, animation, collision cell |
-| Secondary reference | `luluby_town_{morning,evening,night}.rsground` (84×72) | grammar ONLY (shared tileset sheets = **0** → cell mixing forbidden and not used) |
-| Level-design reference | PMU town maps (`Poké Town`, `Exbel Grasslands`, `Grassroot Town` family per PMU extraction) | composition principles: framing forest, open core, water as landmark |
-| Methodology | `NO_NAME_VILLAGE_ADAPTATION` milestone workflow | source-certified extraction discipline, report/validation artifact layout |
-| Engine | restored exact PMDO 0.8.12 headless bundle (`tools/restore_pmdred_eu_validation_runtime.sh`) | runtime qualification |
+```
+IA (architecte) → layout JSON/class-grid → mapforge SOLVER (UNIC + PIECES)
+   → validateur d'adjacence (tables mesurées) → réparation ciblée cellule par cellule
+   → suite de checks → RENDER → GATE: export UNIQUEMENT si PASS
+```
 
-Note: no map literally named "Won" or "Grass Town" exists in the available project/PMU data; nearest verified equivalents were used and are named above. Nothing was invented to fill that gap.
+Garanties machine-vérifiées à l'export (et re-vérifiables: `--write` rejette si FAIL):
+1. **Provenance 100 %** — chaque case exportée est un copier-coller verbatim 11-couches d'une case de `metano_town` (aucune tuile inventée, aucun pixel modifié).
+2. **Zéro couture** — chaque paire voisine sur chaque couche est soit une paire observée dans Metano (tables d'adjacence par contenu), soit implique une tuile **universelle plate** (mesurée: ≥25 occurrences, variance couleur nulle entre copies, mono-classe, aucune couche supérieure). L'ancien bug (attribut d'universalité mesuré par TexLoc alors que l'atlas de Metano est indexé-par-position) est la cause racine des glitchs des tentatives précédentes — corrigé par identité **contenu de pixel** (md5 des tuiles décodées).
+3. **Champs sans confettis** — remplissage d'intérieur = 1 seul flat par classe (eau/sable) ou cycle irrégulier hash-sélecté de 3 flats gazon → plus de damier ni de speckle.
+4. **Collision sémantique** — tags copiés de la source par case; eau profonde force-solide; remplissage itératif des poches inatteignables; portes sud/nord/ouest/est déclarées ouverts.
+5. **Traversabilité** — BFS depuis 3 gates = **100 %** des cellules marchables (11290/11290); 8/8 parcelles joignables.
+6. **Frontière** — liseré forestier organique plein pourtour hors déclarations.
+7. **Aucune structure** — 0 bâtiment, 0 NPC, 0 GroundObjects (entités = 11 markers d'orientation/parcelles).
+
+## NOUVEAU LAYOUT (différent de Metano et des itérations précédentes)
+
+Place civique nord avec route de porte + **lac de terrasse à île arborée** à l'est,
+cours d'eau entrée nord avec **cascade en falaise** (contexte source réel),
+réseau de promenades vers une **baie marécageuse sud** (grands plans d'eau,
+rivages rocheux, rubans de marais miroirs), îlets, boulevard ouest en lasso,
+8 parcelles bâties-futures réparties sur la terrasse, parc annulaire autour de
+la place. IoU vs Metano: eau 0.18 / chemins 0.17 (géométrie majeure distincte).
 
 ## MORPHOLOGICAL ANALYSIS (measured, `ground_grammar.json`)
 
