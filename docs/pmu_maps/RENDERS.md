@@ -1,6 +1,6 @@
 # PMDO / SkyTemple Map Renders & Quality Gate Manifest
 
-This document indexes all validated PMD ground maps generated and verified via the **SkyTemple PMD Level Designer & Map Builder** pipeline.
+This document indexes all validated PMD ground maps generated and verified via the **SkyTemple & PixelLab Map Builder** pipeline.
 
 ---
 
@@ -8,6 +8,7 @@ This document indexes all validated PMD ground maps generated and verified via t
 
 | Map ID | Display Name | Grid (Cells) | PMD Tiles | Resolution | Layers | Connectivity | Visual Score | Status |
 |---|---|---|---|---|---|---|---|---|
+| `pixellab_altair_completed` | Altair Transition (Completed by PixelLab) | 135x108 | 45x36 | 1080x864 px | 6 | **100.0%** | **98.1/100** | **READY** |
 | `pixellab_altere_transition` | Altere Transition (Metano -> Altere Pond) | 64x38 | 21x12 | 1536x912 px | 5 | **100.0%** | **97.2/100** | **READY** |
 | `pixellab_metano_sanctuary` | Metano Sanctuary (PixelLab Native) | 189x189 | 63x63 | 1512x1512 px | 11 | **100.0%** | **96.5/100** | **READY** |
 | `skytemple_metano_outskirts` | Metano Outskirts (Clairière de Metano) | 189x189 | 63x63 | 1512x1512 px | 11 | **100.0%** | **95.9/100** | **READY** |
@@ -33,11 +34,12 @@ Every map in the New Era project adheres strictly to the 8-stage Quality Gate:
 
 ## 3. Render Previews
 
-### Altere Transition (`pixellab_altere_transition`)
-- **Render Output**: `docs/pmu_maps/renders/pixellab_altere_transition/final.png`
-- **Data Ground**: `Data/Ground/pixellab_altere_transition.rsground`
-- **Tile Atlas**: `Content/Tile/pixellab_altere_transition_Base.tile`
-- **Lua Script**: `Data/Script/halcyon/ground/pixellab_altere_transition/init.lua`
+### Altair Transition Completed (`pixellab_altair_completed`)
+- **Source Image**: `MAPACOMPLETEVIAPIXELLAB.webp` (37.3% empty draft completed via PixelLab)
+- **Render Output**: `docs/pmu_maps/renders/pixellab_altair_completed/final.png`
+- **Data Ground**: `Data/Ground/pixellab_altair_completed.rsground`
+- **Tile Atlas**: `Content/Tile/pixellab_altair_completed_Base.tile`
+- **Lua Script**: `Data/Script/halcyon/ground/pixellab_altair_completed/init.lua`
 
 ### Metano Outskirts (`skytemple_metano_outskirts`)
 - **Render Output**: `docs/pmu_maps/renders/skytemple_metano_outskirts/final.png`

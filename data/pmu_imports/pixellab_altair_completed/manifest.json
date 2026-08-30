@@ -1,0 +1,21 @@
+{
+  "map_id": "pixellab_altair_completed",
+  "display_name": "Altair Transition (PixelLab Completed)",
+  "source_image": "MAPACOMPLETEVIAPIXELLAB.webp",
+  "generator": "PixelLab + SkyTemple Completion Engine",
+  "resolution": [
+    1080,
+    864
+  ],
+  "grid_cells": [
+    135,
+    108
+  ],
+  "walkable_cells": 12514,
+  "blocked_cells": 2066,
+  "walkable_ratio": 0.858,
+  "layers_count": 6,
+  "status": "READY",
+  "reachability": 100.0,
+  "visual_score": 98.1
+}

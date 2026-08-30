@@ -166,7 +166,8 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         <div class="section-box">
             <div class="section-title">Select PMD Map</div>
             <select id="sel-map" onchange="loadSelectedMap()" style="width: 100%;">
-                <option value="pixellab_altere_transition">Altere Transition (PixelLab Native)</option>
+                <option value="pixellab_altair_completed">Altair Transition (Completed by PixelLab)</option>
+                <option value="pixellab_altere_transition">Altere Transition (Metano -> Altere Pond)</option>
                 <option value="pixellab_metano_sanctuary">Metano Sanctuary (PixelLab Native)</option>
                 <option value="metano_town_recreated">Metano Town (Recreated PMD Layout)</option>
                 <option value="metano_waterfall_haven">Metano Waterfall Haven (Hybrid & Animations)</option>
@@ -219,7 +220,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     </div>
 
     <script>
-        let currentMap = "pixellab_altere_transition";
+        let currentMap = "pixellab_altair_completed";
         let currentLayer = "final";
         const canvas = document.getElementById('view-canvas');
         const ctx = canvas.getContext('2d');
@@ -234,6 +235,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         function loadSelectedMap() {
             currentMap = document.getElementById('sel-map').value;
             const titles = {
+                "pixellab_altair_completed": "Altair Transition (Completed by PixelLab) — 45x36 Tiles (1080x864 px)",
                 "pixellab_altere_transition": "Altere Transition (Metano -> Altere Pond) — 64x38 Cells (1536x912 px)",
                 "pixellab_metano_sanctuary": "Metano Sanctuary (PixelLab Native) — 63x63 PMD Tiles (1512x1512 px)",
                 "metano_town_recreated": "Metano Town (Recreated PMD Layout) — 63x63 PMD Tiles (1512x1512 px)",
