@@ -1,0 +1,50 @@
+[
+  {
+    "id": "zone_top_right",
+    "name": "Top-Right Highland Plateau & Northern Ridge",
+    "bbox": [
+      576,
+      0,
+      1083,
+      360
+    ],
+    "type": "highland_cliff_forest",
+    "reference": "ref_highland_meadow.png, ref_cliff_ridge.png"
+  },
+  {
+    "id": "zone_bottom_left",
+    "name": "Bottom-Left Southern Meadow & Gateway Trail",
+    "bbox": [
+      0,
+      648,
+      336,
+      876
+    ],
+    "type": "lowland_meadow_trail",
+    "reference": "ref_dirt_trail.png, ref_tree_canopy.png"
+  },
+  {
+    "id": "zone_bottom_right",
+    "name": "Bottom-Right Lake Basin & Shoreline Pier",
+    "bbox": [
+      600,
+      720,
+      1083,
+      876
+    ],
+    "type": "water_lake_shore",
+    "reference": "ref_water_ripples.png"
+  },
+  {
+    "id": "zone_far_right",
+    "name": "Far-Right Canopy Perimeter Margin",
+    "bbox": [
+      1008,
+      360,
+      1083,
+      720
+    ],
+    "type": "dense_foliage_margin",
+    "reference": "ref_tree_canopy.png"
+  }
+]

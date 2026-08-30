@@ -1,0 +1,91 @@
+{
+  "source": "MAPACOMPLETEVIAPIXELLAB.webp",
+  "output": "MAPACOMPLETEVIAPIXELLAB_COMPLETED.webp",
+  "generator": "PixelLab Only",
+  "resolution": [
+    1083,
+    876
+  ],
+  "valid_pixels_preserved": 592182,
+  "synthesized_pixels": 356526,
+  "preservation_status": "PASS",
+  "patches": [
+    {
+      "zone_id": "zone_top_right",
+      "bbox": [
+        576,
+        0,
+        1083,
+        360
+      ],
+      "dimensions": [
+        507,
+        360
+      ],
+      "patch_file": "data/pixellab_completion/patches/patch_zone_top_right.png",
+      "sha256": "586c2f8f5fc239189e082c5b49f1575ebc504a5776b57664d0cd8b02794fe27b",
+      "validation": "PASS"
+    },
+    {
+      "zone_id": "zone_bottom_left",
+      "bbox": [
+        0,
+        648,
+        336,
+        876
+      ],
+      "dimensions": [
+        336,
+        228
+      ],
+      "patch_file": "data/pixellab_completion/patches/patch_zone_bottom_left.png",
+      "sha256": "085b8f067953d921afdd0ce8a301252d8ebba792178934232c36032ffaa69ea7",
+      "validation": "PASS"
+    },
+    {
+      "zone_id": "zone_bottom_right",
+      "bbox": [
+        600,
+        720,
+        1083,
+        876
+      ],
+      "dimensions": [
+        483,
+        156
+      ],
+      "patch_file": "data/pixellab_completion/patches/patch_zone_bottom_right.png",
+      "sha256": "23196ed45f01b6e712d3418a434c12570a1d7451196667e095d03868fceded68",
+      "validation": "PASS"
+    },
+    {
+      "zone_id": "zone_far_right",
+      "bbox": [
+        1008,
+        360,
+        1083,
+        720
+      ],
+      "dimensions": [
+        75,
+        360
+      ],
+      "patch_file": "data/pixellab_completion/patches/patch_zone_far_right.png",
+      "sha256": "162395be531d12b19203df800e37be9c5f8d363bf0fdaa6eaceac2754bb3438a",
+      "validation": "PASS"
+    }
+  ],
+  "validations": {
+    "dimensions": "PASS",
+    "scale": "PASS",
+    "palette": "PASS",
+    "continuity": "PASS",
+    "paths": "PASS",
+    "cliffs": "PASS",
+    "stairs": "PASS",
+    "vegetation": "PASS",
+    "structures_placeholders": "PASS",
+    "seams": "PASS",
+    "visual_glitches": "NO KNOWN VISUAL GLITCHES AFTER VALIDATION"
+  }
+}
