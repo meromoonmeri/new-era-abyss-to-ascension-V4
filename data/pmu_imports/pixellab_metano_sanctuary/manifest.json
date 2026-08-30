@@ -1,0 +1,32 @@
+{
+  "map_id": "pixellab_metano_sanctuary",
+  "display_name": "PixelLab Metano Sanctuary",
+  "biome": "grassland",
+  "season": "spring",
+  "seed": 948172,
+  "dimensions": {
+    "width_tiles": 63,
+    "height_tiles": 63,
+    "cell_subdivisions": 3,
+    "obstacle_grid_width": 189,
+    "obstacle_grid_height": 189,
+    "cell_size_px": 8,
+    "tile_size_px": 24
+  },
+  "validation": {
+    "status": "PASS",
+    "connectivity": 100.0,
+    "visual_score": 88.5,
+    "composite_score": 97.7
+  },
+  "artifacts": {
+    "ground": "Data/Ground/pixellab_metano_sanctuary.rsground",
+    "tile": "Content/Tile/pixellab_metano_sanctuary_Base.tile",
+    "script": "Data/Script/halcyon/ground/pixellab_metano_sanctuary/init.lua"
+  },
+  "hashes": {
+    "ground": "6fbc5aaacbf40e71457823bfe0cefc5a96f50abd6237e2933acfd5d8381a82f9",
+    "tile": "132ad5984cf64e1e7a8873d75c8fff36ac241da11f14ce89647da84fa88d32a0",
+    "script": "c7da5a0de9afc87f7e6060875e69440c7e6fe24c36996f06cf682c7c860a9a81"
+  }
+}

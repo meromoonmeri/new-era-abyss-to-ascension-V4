@@ -1,0 +1,32 @@
+{
+  "map_id": "pixellab_emerald_sanctuary",
+  "display_name": "Emerald Sanctuary Village",
+  "biome": "grassland",
+  "season": "spring",
+  "seed": 948172,
+  "dimensions": {
+    "width_tiles": 63,
+    "height_tiles": 63,
+    "cell_subdivisions": 3,
+    "obstacle_grid_width": 189,
+    "obstacle_grid_height": 189,
+    "cell_size_px": 8,
+    "tile_size_px": 24
+  },
+  "validation": {
+    "status": "PASS",
+    "connectivity": 100.0,
+    "visual_score": 88.5,
+    "composite_score": 97.7
+  },
+  "artifacts": {
+    "ground": "Data/Ground/pixellab_emerald_sanctuary.rsground",
+    "tile": "Content/Tile/pixellab_emerald_sanctuary_Base.tile",
+    "script": "Data/Script/halcyon/ground/pixellab_emerald_sanctuary/init.lua"
+  },
+  "hashes": {
+    "ground": "408474739af401e7c73b6c1c206b61bfc28e38b95a59e6928e01f0bf14901871",
+    "tile": "132ad5984cf64e1e7a8873d75c8fff36ac241da11f14ce89647da84fa88d32a0",
+    "script": "ec2d79ba7daec2734eb5f1d6bdf080fff8a1311f5837342cebcea0154d633a7d"
+  }
+}
