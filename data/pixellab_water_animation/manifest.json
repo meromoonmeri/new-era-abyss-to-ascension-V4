@@ -1,0 +1,32 @@
+{
+  "source": "pixellab_treehouse_village.webp",
+  "animated_gif": "pixellab_treehouse_village_WATER_ANIMATED.gif",
+  "reference_style": "PMU_Metano_Town_Water",
+  "resolution": [
+    1147,
+    928
+  ],
+  "frame_count": 4,
+  "fps": 5.0,
+  "frame_duration_ms": 200,
+  "loop": true,
+  "water_surface_pixels": 13209,
+  "waterfall_pixels": 6615,
+  "total_animated_pixels": 19824,
+  "non_water_pixels_preserved": 1044592,
+  "frames": [
+    "pixellab_treehouse_village_ANIM_FRAME_00.webp",
+    "pixellab_treehouse_village_ANIM_FRAME_01.webp",
+    "pixellab_treehouse_village_ANIM_FRAME_02.webp",
+    "pixellab_treehouse_village_ANIM_FRAME_03.webp"
+  ],
+  "validations": {
+    "dimensions": "PASS (1147x928 px exact)",
+    "scale": "PASS (1:1 PMD pixel art)",
+    "shoreline_integrity": "PASS (Hard shoreline mask, 0 leakage)",
+    "non_water_immutability": "PASS (0 mismatches)",
+    "waterfall_flow": "PASS (Vertical downward cascade with impact splash)",
+    "stream_and_lake": "PASS (Horizontal discrete wavelets & sparkle twinkle)",
+    "seamless_loop": "PASS (Frame 3 connects perfectly back to Frame 0)"
+  }
+}
