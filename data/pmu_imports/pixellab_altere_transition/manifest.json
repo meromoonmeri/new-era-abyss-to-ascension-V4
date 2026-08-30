@@ -1,0 +1,20 @@
+{
+  "map_id": "pixellab_altere_transition",
+  "display_name": "Altere Transition (Metano -> Altere Pond)",
+  "generator": "PixelLab + SkyTemple Hybrid Engine",
+  "resolution": [
+    1536,
+    912
+  ],
+  "grid_cells": [
+    64,
+    38
+  ],
+  "walkable_cells": 1782,
+  "blocked_cells": 650,
+  "walkable_ratio": 0.733,
+  "layers_count": 5,
+  "status": "READY",
+  "reachability": 100.0,
+  "visual_score": 97.2
+}
