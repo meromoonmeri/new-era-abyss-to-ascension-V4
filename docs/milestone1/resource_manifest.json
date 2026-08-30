@@ -1,0 +1,80 @@
+{
+ "ground": "town_hollow",
+ "dims": [
+  160,
+  120
+ ],
+ "layers": [
+  "Base",
+  "Cliffs",
+  "River",
+  "Layer 4",
+  "Objects Under",
+  "Objects Under Anim",
+  "Objects",
+  "Objects Anim",
+  "Objects Over",
+  "Objects Over Anim",
+  "Fringe"
+ ],
+ "music": "Treasure Town.ogg",
+ "markers": 9,
+ "sheets_used": {
+  "Metano_Town_Animated": {
+   "refs": 49,
+   "file": "Content/Tile/Metano_Town_Animated.tile"
+  },
+  "Metano_Town_Animation_Tileset": {
+   "refs": 2421,
+   "file": "Content/Tile/Metano_Town_Animation_Tileset.tile"
+  },
+  "Metano_Town_Base": {
+   "refs": 19199,
+   "file": "Content/Tile/Metano_Town_Base.tile"
+  },
+  "Metano_Town_Cliffs": {
+   "refs": 231,
+   "file": "Content/Tile/Metano_Town_Cliffs.tile"
+  },
+  "Metano_Town_Fringe": {
+   "refs": 1,
+   "file": "Content/Tile/Metano_Town_Fringe.tile"
+  },
+  "Metano_Town_Objects": {
+   "refs": 8051,
+   "file": "Content/Tile/Metano_Town_Objects.tile"
+  },
+  "Metano_Town_Objects_Over": {
+   "refs": 26,
+   "file": "Content/Tile/Metano_Town_Objects_Over.tile"
+  },
+  "Metano_Town_Objects_Under": {
+   "refs": 309,
+   "file": "Content/Tile/Metano_Town_Objects_Under.tile"
+  },
+  "Metano_Town_River_Animation_1": {
+   "refs": 1808,
+   "file": "Content/Tile/Metano_Town_River_Animation_1.tile"
+  },
+  "Metano_Town_River_Animation_2": {
+   "refs": 1808,
+   "file": "Content/Tile/Metano_Town_River_Animation_2.tile"
+  },
+  "Metano_Town_River_Animation_3": {
+   "refs": 1808,
+   "file": "Content/Tile/Metano_Town_River_Animation_3.tile"
+  },
+  "Metano_Town_River_Animation_4": {
+   "refs": 1808,
+   "file": "Content/Tile/Metano_Town_River_Animation_4.tile"
+  },
+  "Metano_Town_River_Sparkles": {
+   "refs": 472,
+   "file": "Content/Tile/Metano_Town_River_Sparkles.tile"
+  }
+ },
+ "sources": {
+  "metano_town": "sole tile source (shared_sheets with luluby = 0 => composition-only reference)"
+ },
+ "structures_in_map": 0
+}

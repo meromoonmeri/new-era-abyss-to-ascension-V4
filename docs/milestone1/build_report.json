@@ -1,0 +1,27 @@
+{
+ "seed": 20260830,
+ "dims": [
+  160,
+  120
+ ],
+ "px": [
+  1280,
+  960
+ ],
+ "matches": {
+  "exact": 17253,
+  "relaxed4": 1602,
+  "near": 214,
+  "center": 73,
+  "ford": 54,
+  "solo": 4
+ },
+ "exact_ratio": 0.8986,
+ "near_plus_center_ratio": 0.0149,
+ "originality": {
+  "water_IoU_vs_metano": 0.181,
+  "path_IoU_vs_metano": 0.167
+ },
+ "sha256": "62fc90f187ba26a49477e97bfd1de4a014448fd3589a2a7245b3625f8ecc9ee3",
+ "grammar": "see docs/MILESTONE1_RAW_TOWN_ENVIRONMENT.md"
+}

@@ -1,0 +1,421 @@
+{
+ "metano_town": {
+  "ground": "metano_town",
+  "dims_tiles": [
+   189,
+   189
+  ],
+  "dims_px": [
+   1512,
+   1512
+  ],
+  "layers": [
+   "Base",
+   "Cliffs",
+   "River",
+   "Layer 4",
+   "Objects Under",
+   "Objects Under Anim",
+   "Objects",
+   "Objects Anim",
+   "Objects Over",
+   "Objects Over Anim",
+   "Fringe"
+  ],
+  "music": "Treasure Town.ogg",
+  "sheets": [
+   "Metano_Town_Animated",
+   "Metano_Town_Animated_Under",
+   "Metano_Town_Animation_Tileset",
+   "Metano_Town_Base",
+   "Metano_Town_Cliffs",
+   "Metano_Town_Fringe",
+   "Metano_Town_Objects",
+   "Metano_Town_Objects_Over",
+   "Metano_Town_Objects_Under",
+   "Metano_Town_River_Animation_1",
+   "Metano_Town_River_Animation_2",
+   "Metano_Town_River_Animation_3",
+   "Metano_Town_River_Animation_4",
+   "Metano_Town_River_Sparkles"
+  ],
+  "tree_clusters": {
+   "n": 39,
+   "size": {
+    "p25": 2,
+    "p50": 14,
+    "p75": 206,
+    "p95": 4007,
+    "max": 4650,
+    "n": 39
+   },
+   "median_size": 14
+  },
+  "tree_nn_distance": {
+   "p25": 1,
+   "p50": 2,
+   "p75": 3,
+   "p95": 4,
+   "max": 10,
+   "n": 1296
+  },
+  "tree_to_path": {
+   "p25": 5,
+   "p50": 10,
+   "p75": 18,
+   "p95": 29,
+   "max": 53,
+   "n": 1296
+  },
+  "tree_to_water": {
+   "p25": 17,
+   "p50": 38,
+   "p75": 60,
+   "p95": 98,
+   "max": 132,
+   "n": 1296
+  },
+  "path_width_v": {
+   "p25": 1,
+   "p50": 1,
+   "p75": 2,
+   "p95": 4,
+   "max": 10,
+   "n": 2196
+  },
+  "path_width_h": {
+   "p25": 1,
+   "p50": 2,
+   "p75": 3,
+   "p95": 7,
+   "max": 19,
+   "n": 2196
+  },
+  "water_width_v": {
+   "p25": 4,
+   "p50": 10,
+   "p75": 18,
+   "p95": 30,
+   "max": 46,
+   "n": 3200
+  },
+  "water_width_h": {
+   "p25": 4,
+   "p50": 7,
+   "p75": 14,
+   "p95": 24,
+   "max": 37,
+   "n": 3200
+  },
+  "open_grass_radius": {
+   "p50": 5,
+   "p95": 10,
+   "max": 14,
+   "n": 2257
+  },
+  "density": {
+   "tree": 0.435,
+   "decor": 0.09,
+   "water": 0.09,
+   "path": 0.061,
+   "building": 0.012
+  },
+  "border_depth_x": 30,
+  "border_depth_y": 30,
+  "building_footprint_area": {
+   "p25": 35,
+   "p50": 40,
+   "p75": 72,
+   "p95": 84,
+   "max": 84,
+   "n": 11
+  },
+  "cls_counts": {
+   "T": 15546,
+   "G": 6791,
+   "D": 3229,
+   "B": 422,
+   "X": 2274,
+   "P": 2196,
+   "W": 3200,
+   "C": 2063
+  }
+ },
+ "luluby_town_morning": {
+  "ground": "luluby_town_morning",
+  "dims_tiles": [
+   84,
+   72
+  ],
+  "dims_px": [
+   672,
+   576
+  ],
+  "layers": [
+   "Base"
+  ],
+  "music": "",
+  "sheets": [
+   "LulubyTownMorning_Base"
+  ],
+  "tree_clusters": {
+   "n": 16,
+   "size": {
+    "p25": 1,
+    "p50": 2,
+    "p75": 159,
+    "p95": 915,
+    "max": 915,
+    "n": 16
+   },
+   "median_size": 2
+  },
+  "tree_nn_distance": {
+   "p25": 1,
+   "p50": 2,
+   "p75": 2,
+   "p95": 4,
+   "max": 12,
+   "n": 2243
+  },
+  "tree_to_path": {
+   "p25": 3,
+   "p50": 5,
+   "p75": 9,
+   "p95": 16,
+   "max": 25,
+   "n": 2243
+  },
+  "tree_to_water": {},
+  "path_width_v": {
+   "p25": 1,
+   "p50": 1,
+   "p75": 2,
+   "p95": 4,
+   "max": 10,
+   "n": 811
+  },
+  "path_width_h": {
+   "p25": 1,
+   "p50": 1,
+   "p75": 2,
+   "p95": 5,
+   "max": 11,
+   "n": 811
+  },
+  "water_width_v": {},
+  "water_width_h": {},
+  "open_grass_radius": {
+   "p50": 2,
+   "p95": 4,
+   "max": 8,
+   "n": 378
+  },
+  "density": {
+   "tree": 0.371,
+   "decor": 0.0,
+   "water": 0.0,
+   "path": 0.134,
+   "building": 0.008
+  },
+  "border_depth_x": 17,
+  "border_depth_y": 26,
+  "building_footprint_area": {},
+  "cls_counts": {
+   "T": 2243,
+   "G": 1789,
+   "P": 811,
+   "X": 1159,
+   "B": 46
+  }
+ },
+ "luluby_town_evening": {
+  "ground": "luluby_town_evening",
+  "dims_tiles": [
+   84,
+   72
+  ],
+  "dims_px": [
+   672,
+   576
+  ],
+  "layers": [
+   "Base"
+  ],
+  "music": "",
+  "sheets": [
+   "LulubyTownEvening_Base"
+  ],
+  "tree_clusters": {
+   "n": 12,
+   "size": {
+    "p25": 1,
+    "p50": 1,
+    "p75": 23,
+    "p95": 85,
+    "max": 85,
+    "n": 12
+   },
+   "median_size": 1
+  },
+  "tree_nn_distance": {
+   "p25": 1,
+   "p50": 2,
+   "p75": 4,
+   "p95": 9,
+   "max": 23,
+   "n": 156
+  },
+  "tree_to_path": {
+   "p25": 1,
+   "p50": 1,
+   "p75": 2,
+   "p95": 3,
+   "max": 4,
+   "n": 156
+  },
+  "tree_to_water": {},
+  "path_width_v": {
+   "p25": 1,
+   "p50": 3,
+   "p75": 5,
+   "p95": 12,
+   "max": 22,
+   "n": 2899
+  },
+  "path_width_h": {
+   "p25": 1,
+   "p50": 3,
+   "p75": 6,
+   "p95": 14,
+   "max": 28,
+   "n": 2899
+  },
+  "water_width_v": {},
+  "water_width_h": {},
+  "open_grass_radius": {
+   "p50": 7,
+   "p95": 14,
+   "max": 18,
+   "n": 378
+  },
+  "density": {
+   "tree": 0.026,
+   "decor": 0.0,
+   "water": 0.0,
+   "path": 0.479,
+   "building": 0.242
+  },
+  "border_depth_x": 0,
+  "border_depth_y": 0,
+  "building_footprint_area": {
+   "p25": 16,
+   "p50": 21,
+   "p75": 30,
+   "p95": 6048,
+   "max": 6048,
+   "n": 9
+  },
+  "cls_counts": {
+   "P": 2899,
+   "X": 1527,
+   "B": 1462,
+   "T": 156,
+   "G": 4
+  }
+ },
+ "luluby_town_night": {
+  "ground": "luluby_town_night",
+  "dims_tiles": [
+   84,
+   72
+  ],
+  "dims_px": [
+   672,
+   576
+  ],
+  "layers": [
+   "Base"
+  ],
+  "music": "",
+  "sheets": [
+   "LulubyTownNight_Base"
+  ],
+  "tree_clusters": {
+   "n": 0,
+   "size": {},
+   "median_size": 0
+  },
+  "tree_nn_distance": {},
+  "tree_to_path": {},
+  "tree_to_water": {},
+  "path_width_v": {},
+  "path_width_h": {},
+  "water_width_v": {
+   "p25": 2,
+   "p50": 4,
+   "p75": 10,
+   "p95": 25,
+   "max": 41,
+   "n": 1232
+  },
+  "water_width_h": {
+   "p25": 3,
+   "p50": 5,
+   "p75": 10,
+   "p95": 22,
+   "max": 40,
+   "n": 1232
+  },
+  "open_grass_radius": {
+   "p50": 1,
+   "p95": 5,
+   "max": 7,
+   "n": 378
+  },
+  "density": {
+   "tree": 0.0,
+   "decor": 0.0,
+   "water": 0.204,
+   "path": 0.0,
+   "building": 0.0
+  },
+  "border_depth_x": 0,
+  "border_depth_y": 0,
+  "building_footprint_area": {},
+  "cls_counts": {
+   "X": 4816,
+   "W": 1232
+  }
+ },
+ "compat": {
+  "shared_sheet_count": 0,
+  "per_ground_sheets": {
+   "metano_town": [
+    "Metano_Town_Animated",
+    "Metano_Town_Animated_Under",
+    "Metano_Town_Animation_Tileset",
+    "Metano_Town_Base",
+    "Metano_Town_Cliffs",
+    "Metano_Town_Fringe",
+    "Metano_Town_Objects",
+    "Metano_Town_Objects_Over",
+    "Metano_Town_Objects_Under",
+    "Metano_Town_River_Animation_1",
+    "Metano_Town_River_Animation_2",
+    "Metano_Town_River_Animation_3",
+    "Metano_Town_River_Animation_4",
+    "Metano_Town_River_Sparkles"
+   ],
+   "luluby_town_morning": [
+    "LulubyTownMorning_Base"
+   ],
+   "luluby_town_evening": [
+    "LulubyTownEvening_Base"
+   ],
+   "luluby_town_night": [
+    "LulubyTownNight_Base"
+   ]
+  }
+ }
+}
