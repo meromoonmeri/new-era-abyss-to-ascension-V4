@@ -58,7 +58,7 @@ Evening/night luluby variants were measured but their palette shifts the color c
 
 ## IMPLEMENTATION (how it is real map data)
 
-`Data/Ground/town_hollow.rsground` — PMDO ground JSON (BOM, 11 layers matching Metano stack `Base…Fringe`, `obstacles` 160×120 with per-cell Bounds+Tags, `Layers[].Tiles[][]` cells each carrying exact 11-tuple copied from a metano source cell, `Entities` with markers only, Music `Treasure Town.ogg`, `EdgeView=1`).
+`Data/Ground/town_hollow.rsground` — PMDO ground JSON (BOM, 11 layers matching Metano stack `Base…Fringe`, `obstacles` 168×128 with per-cell Bounds+Tags, `Layers[].Tiles[][]` cells each carrying exact 11-tuple copied from a metano source cell, `Entities` with markers only, Music `Treasure Town.ogg`, `EdgeView=1`).
 
 Cell placement = **context-matched synthesis**: for every target cell the desired 3×3 class neighbourhood (G/P/W/T/D/F/C measured classes) is matched against metano's own cell contexts; only cells with an identical context are copied (fallback tiers relaxed4 → near → center, counted). Therefore **every transition edge that appears here appeared in metano** — autotile-integrity by provenance, no manual border painting.
 
@@ -66,7 +66,7 @@ Match census: exact 90.0%, relaxed4 8.35%, near 1.1%, center-only 0.4%, ford poo
 
 ## VALIDATION
 
-- **Grid**: 160×120 tiles × 8px on all 11 layers + obstacle grid, dims equal, no fractional/px offsets (cells address only integer tile TexLocs). PASS
+- **Grid**: 168×128 tiles × 8px on all 11 layers + obstacle grid, dims equal, no fractional/px offsets (cells address only integer tile TexLocs). PASS
 - **Autotiles/transitions**: context-provenance proof above; no manual seam painting exists in this format. PASS
 - **Layers**: 11, correct names/order/`Layer` fields (Fringe=4). PASS
 - **Collision**: every copied cell carries the source cell's own Tags; deep water force-solid; border force-solid; validation BFS: walkable 10276, reachable-from-entrance 9893 = **0.9627**, all 9 markers reachable, isolated remainder = decorative nooks only. PASS
