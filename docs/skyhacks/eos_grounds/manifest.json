@@ -1,0 +1,1132 @@
+{
+ "source": "/home/user/skyhacks/merged_US",
+ "ground_pattern": "^G\\d",
+ "bg_list_total_entries": 443,
+ "all_classes": {
+  "D": 186,
+  "G": 23,
+  "H": 6,
+  "P": 44,
+  "S": 45,
+  "T": 10,
+  "V": 118,
+  "W": 11
+ },
+ "orphan_bma_on_disk": [],
+ "summary": {
+  "same_as_vanilla": 0,
+  "MODIFIED": 0,
+  "NEW_GROUND": 0,
+  "error": 0
+ },
+ "grounds": [
+  {
+   "name": "G01P01A",
+   "bpl": "G01P01A",
+   "bpc": "G01P01A",
+   "bpas": [
+    "G01P01A1"
+   ],
+   "class": "G",
+   "files": {
+    "bma": {
+     "ref": "G01P01A",
+     "bytes": 611,
+     "sha1": "75d3f4c53930b9f37ce55c6ad4ae47efc944665f"
+    },
+    "bpc": {
+     "ref": "G01P01A",
+     "bytes": 28366,
+     "sha1": "44b7bbe20774f4a72a14a7a50931d8fb938e9e03"
+    },
+    "bpl": {
+     "ref": "G01P01A",
+     "bytes": 964,
+     "sha1": "7042d8f8778261dec6fe5fab8572e82e5afe9194"
+    },
+    "bpa0": {
+     "ref": "G01P01A1",
+     "bytes": 2964,
+     "sha1": "145d3179f1eb06d2f32778fa14c2139ff530af3f"
+    }
+   },
+   "source_sha1_all": "532d3306fac26142d44558f0d1a463c3ad059208",
+   "tiles": [
+    60,
+    51
+   ],
+   "chunks": [
+    20,
+    17
+   ],
+   "pixel_size": [
+    480,
+    408
+   ],
+   "layer_count": 2,
+   "collision_layers": 1,
+   "render": "renders/g01p01a_frame0.png",
+   "frames": 4,
+   "anim_gif": "renders/g01p01a_anim.gif",
+   "collision_png": "collision/g01p01a_collision.png",
+   "solid_tiles": 2761,
+   "status": "unclassified"
+  },
+  {
+   "name": "G01P01A2",
+   "bpl": "G01P01A2",
+   "bpc": "G01P01A",
+   "bpas": [
+    "G01P01A1"
+   ],
+   "class": "G",
+   "files": {
+    "bma": {
+     "ref": "G01P01A2",
+     "bytes": 609,
+     "sha1": "407191de5071ac604a2367d28b21677a47bb5c2f"
+    },
+    "bpc": {
+     "ref": "G01P01A",
+     "bytes": 28366,
+     "sha1": "44b7bbe20774f4a72a14a7a50931d8fb938e9e03"
+    },
+    "bpl": {
+     "ref": "G01P01A2",
+     "bytes": 964,
+     "sha1": "7042d8f8778261dec6fe5fab8572e82e5afe9194"
+    },
+    "bpa0": {
+     "ref": "G01P01A1",
+     "bytes": 2964,
+     "sha1": "145d3179f1eb06d2f32778fa14c2139ff530af3f"
+    }
+   },
+   "source_sha1_all": "856764813cf20f2e55191de6c9f31d251ce23931",
+   "tiles": [
+    60,
+    51
+   ],
+   "chunks": [
+    20,
+    17
+   ],
+   "pixel_size": [
+    480,
+    408
+   ],
+   "layer_count": 2,
+   "collision_layers": 1,
+   "render": "renders/g01p01a2_frame0.png",
+   "frames": 4,
+   "anim_gif": "renders/g01p01a2_anim.gif",
+   "collision_png": "collision/g01p01a2_collision.png",
+   "solid_tiles": 2761,
+   "status": "unclassified"
+  },
+  {
+   "name": "G01P01B",
+   "bpl": "G01P01B",
+   "bpc": "G01P01B",
+   "bpas": [
+    "G01P01B1"
+   ],
+   "class": "G",
+   "files": {
+    "bma": {
+     "ref": "G01P01B",
+     "bytes": 702,
+     "sha1": "1983f495d558abbfc1a84af93c1c3b45a7bfad48"
+    },
+    "bpc": {
+     "ref": "G01P01B",
+     "bytes": 28548,
+     "sha1": "e31d44271513aa53b299d6773d2d3d8a2b74c0da"
+    },
+    "bpl": {
+     "ref": "G01P01B",
+     "bytes": 964,
+     "sha1": "deb35298f7d3b6d854367a81e0396c976ffb76fa"
+    },
+    "bpa0": {
+     "ref": "G01P01B1",
+     "bytes": 10004,
+     "sha1": "cfc2a1e46c34a22c263f636b5d721944dae91fe3"
+    }
+   },
+   "source_sha1_all": "a3b93453906a8c7e12eaddb4b0b43e4a9b23fec3",
+   "tiles": [
+    60,
+    51
+   ],
+   "chunks": [
+    20,
+    17
+   ],
+   "pixel_size": [
+    480,
+    408
+   ],
+   "layer_count": 2,
+   "collision_layers": 1,
+   "render": "renders/g01p01b_frame0.png",
+   "frames": 4,
+   "anim_gif": "renders/g01p01b_anim.gif",
+   "collision_png": "collision/g01p01b_collision.png",
+   "solid_tiles": 2762,
+   "status": "unclassified"
+  },
+  {
+   "name": "G01P01B2",
+   "bpl": "G01P01B2",
+   "bpc": "G01P01B",
+   "bpas": [
+    "G01P01B1"
+   ],
+   "class": "G",
+   "files": {
+    "bma": {
+     "ref": "G01P01B2",
+     "bytes": 692,
+     "sha1": "4152f7c62223830a640e518a0868aec475086c4e"
+    },
+    "bpc": {
+     "ref": "G01P01B",
+     "bytes": 28548,
+     "sha1": "e31d44271513aa53b299d6773d2d3d8a2b74c0da"
+    },
+    "bpl": {
+     "ref": "G01P01B2",
+     "bytes": 964,
+     "sha1": "deb35298f7d3b6d854367a81e0396c976ffb76fa"
+    },
+    "bpa0": {
+     "ref": "G01P01B1",
+     "bytes": 10004,
+     "sha1": "cfc2a1e46c34a22c263f636b5d721944dae91fe3"
+    }
+   },
+   "source_sha1_all": "e89ccd8957c254273f4c2c6c53962968d35b3726",
+   "tiles": [
+    60,
+    51
+   ],
+   "chunks": [
+    20,
+    17
+   ],
+   "pixel_size": [
+    480,
+    408
+   ],
+   "layer_count": 2,
+   "collision_layers": 1,
+   "render": "renders/g01p01b2_frame0.png",
+   "frames": 4,
+   "anim_gif": "renders/g01p01b2_anim.gif",
+   "collision_png": "collision/g01p01b2_collision.png",
+   "solid_tiles": 2762,
+   "status": "unclassified"
+  },
+  {
+   "name": "G01P01C",
+   "bpl": "G01P01C",
+   "bpc": "G01P01C",
+   "bpas": [
+    "G01P01C1"
+   ],
+   "class": "G",
+   "files": {
+    "bma": {
+     "ref": "G01P01C",
+     "bytes": 736,
+     "sha1": "1a2f4b0e03047ac7043a9d90c40aeacbbc50291b"
+    },
+    "bpc": {
+     "ref": "G01P01C",
+     "bytes": 27616,
+     "sha1": "f6e62073c40e04368f5db6f5b9aeffae5fa97f62"
+    },
+    "bpl": {
+     "ref": "G01P01C",
+     "bytes": 964,
+     "sha1": "b598076c08b140c7511ce689eeb81620debb44b7"
+    },
+    "bpa0": {
+     "ref": "G01P01C1",
+     "bytes": 26644,
+     "sha1": "dbf0db60e9c986d10b7c0df101d22b454000e78c"
+    }
+   },
+   "source_sha1_all": "27f8074ed9f71537f68c176f5008efeb705e90f8",
+   "tiles": [
+    60,
+    51
+   ],
+   "chunks": [
+    20,
+    17
+   ],
+   "pixel_size": [
+    480,
+    408
+   ],
+   "layer_count": 2,
+   "collision_layers": 1,
+   "render": "renders/g01p01c_frame0.png",
+   "frames": 4,
+   "anim_gif": "renders/g01p01c_anim.gif",
+   "collision_png": "collision/g01p01c_collision.png",
+   "solid_tiles": 2762,
+   "status": "unclassified"
+  },
+  {
+   "name": "G01P01C2",
+   "bpl": "G01P01C2",
+   "bpc": "G01P01C",
+   "bpas": [
+    "G01P01C1"
+   ],
+   "class": "G",
+   "files": {
+    "bma": {
+     "ref": "G01P01C2",
+     "bytes": 736,
+     "sha1": "f32faa182b52335e2a5771636b820cbb1b8f2180"
+    },
+    "bpc": {
+     "ref": "G01P01C",
+     "bytes": 27616,
+     "sha1": "f6e62073c40e04368f5db6f5b9aeffae5fa97f62"
+    },
+    "bpl": {
+     "ref": "G01P01C2",
+     "bytes": 964,
+     "sha1": "b598076c08b140c7511ce689eeb81620debb44b7"
+    },
+    "bpa0": {
+     "ref": "G01P01C1",
+     "bytes": 26644,
+     "sha1": "dbf0db60e9c986d10b7c0df101d22b454000e78c"
+    }
+   },
+   "source_sha1_all": "170bfa7254a707d5f5c93ad20cb763f002679710",
+   "tiles": [
+    60,
+    51
+   ],
+   "chunks": [
+    20,
+    17
+   ],
+   "pixel_size": [
+    480,
+    408
+   ],
+   "layer_count": 2,
+   "collision_layers": 1,
+   "render": "renders/g01p01c2_frame0.png",
+   "frames": 4,
+   "anim_gif": "renders/g01p01c2_anim.gif",
+   "collision_png": "collision/g01p01c2_collision.png",
+   "solid_tiles": 2762,
+   "status": "unclassified"
+  },
+  {
+   "name": "G01P02A",
+   "bpl": "G01P02A",
+   "bpc": "G01P02A",
+   "bpas": [],
+   "class": "G",
+   "files": {
+    "bma": {
+     "ref": "G01P02A",
+     "bytes": 568,
+     "sha1": "f6634e9948b943a4cc5346cd3f6aebd2bf289979"
+    },
+    "bpc": {
+     "ref": "G01P02A",
+     "bytes": 22546,
+     "sha1": "67fdf2525643e0057eab2982bf1b7970de3d4487"
+    },
+    "bpl": {
+     "ref": "G01P02A",
+     "bytes": 964,
+     "sha1": "3cbeaffc50b170b51ad06595d552fb6feb4e67d4"
+    }
+   },
+   "source_sha1_all": "dedcfa0ad3c29c5a9b8a9086a523819964820dc2",
+   "tiles": [
+    51,
+    39
+   ],
+   "chunks": [
+    17,
+    13
+   ],
+   "pixel_size": [
+    408,
+    312
+   ],
+   "layer_count": 2,
+   "collision_layers": 1,
+   "render": "renders/g01p02a_frame0.png",
+   "frames": 1,
+   "collision_png": "collision/g01p02a_collision.png",
+   "solid_tiles": 1866,
+   "status": "unclassified"
+  },
+  {
+   "name": "G01P03A",
+   "bpl": "G01P03A",
+   "bpc": "G01P03A",
+   "bpas": [],
+   "class": "G",
+   "files": {
+    "bma": {
+     "ref": "G01P03A",
+     "bytes": 1219,
+     "sha1": "3d6b6f615e8d4ecfca4f5545486533d1947399fa"
+    },
+    "bpc": {
+     "ref": "G01P03A",
+     "bytes": 39852,
+     "sha1": "87f99739d683e3a37aff2ab8e4247ec6b1f45ad7"
+    },
+    "bpl": {
+     "ref": "G01P03A",
+     "bytes": 964,
+     "sha1": "65cf5e5ae8238d2cc8df162c0528ef8019bb9779"
+    }
+   },
+   "source_sha1_all": "1ce0174b832bba651c37e94407c463ed0f104585",
+   "tiles": [
+    87,
+    57
+   ],
+   "chunks": [
+    29,
+    19
+   ],
+   "pixel_size": [
+    696,
+    456
+   ],
+   "layer_count": 2,
+   "collision_layers": 1,
+   "render": "renders/g01p03a_frame0.png",
+   "frames": 1,
+   "collision_png": "collision/g01p03a_collision.png",
+   "solid_tiles": 4271,
+   "status": "unclassified"
+  },
+  {
+   "name": "G01P04A",
+   "bpl": "G01P04A",
+   "bpc": "G01P04A",
+   "bpas": [],
+   "class": "G",
+   "files": {
+    "bma": {
+     "ref": "G01P04A",
+     "bytes": 994,
+     "sha1": "8715dc2c25fec5a07cfcedcd35abd248093b76c0"
+    },
+    "bpc": {
+     "ref": "G01P04A",
+     "bytes": 38006,
+     "sha1": "9188b3840d37359df86cedbd9e19fb00939bdd5d"
+    },
+    "bpl": {
+     "ref": "G01P04A",
+     "bytes": 964,
+     "sha1": "d8cd43ace11155571ff1286f5cccfa331df93157"
+    }
+   },
+   "source_sha1_all": "8a21df6b0ff9028420d0c2df77526b4198e6c396",
+   "tiles": [
+    81,
+    54
+   ],
+   "chunks": [
+    27,
+    18
+   ],
+   "pixel_size": [
+    648,
+    432
+   ],
+   "layer_count": 2,
+   "collision_layers": 1,
+   "render": "renders/g01p04a_frame0.png",
+   "frames": 1,
+   "collision_png": "collision/g01p04a_collision.png",
+   "solid_tiles": 3385,
+   "status": "unclassified"
+  },
+  {
+   "name": "G01P04A2",
+   "bpl": "G01P04A2",
+   "bpc": "G01P04A",
+   "bpas": [],
+   "class": "G",
+   "files": {
+    "bma": {
+     "ref": "G01P04A2",
+     "bytes": 998,
+     "sha1": "0315729c6852c1826d35ad4830c19ba30d41fc8f"
+    },
+    "bpc": {
+     "ref": "G01P04A",
+     "bytes": 38006,
+     "sha1": "9188b3840d37359df86cedbd9e19fb00939bdd5d"
+    },
+    "bpl": {
+     "ref": "G01P04A2",
+     "bytes": 964,
+     "sha1": "d8cd43ace11155571ff1286f5cccfa331df93157"
+    }
+   },
+   "source_sha1_all": "99e354aa874c41c4860520bc3955b2857dc39bac",
+   "tiles": [
+    81,
+    54
+   ],
+   "chunks": [
+    27,
+    18
+   ],
+   "pixel_size": [
+    648,
+    432
+   ],
+   "layer_count": 2,
+   "collision_layers": 1,
+   "render": "renders/g01p04a2_frame0.png",
+   "frames": 1,
+   "collision_png": "collision/g01p04a2_collision.png",
+   "solid_tiles": 3371,
+   "status": "unclassified"
+  },
+  {
+   "name": "G01P04C",
+   "bpl": "G01P04C",
+   "bpc": "G01P04C",
+   "bpas": [],
+   "class": "G",
+   "files": {
+    "bma": {
+     "ref": "G01P04C",
+     "bytes": 994,
+     "sha1": "a2e00699cffdd534dd298a02df2d87b54040f9b3"
+    },
+    "bpc": {
+     "ref": "G01P04C",
+     "bytes": 38004,
+     "sha1": "5e329e41d351a5fb631f7f83fb4bcc7d3bda5f7f"
+    },
+    "bpl": {
+     "ref": "G01P04C",
+     "bytes": 964,
+     "sha1": "049ed2956f8f5668275089ccc42b1a50dd526205"
+    }
+   },
+   "source_sha1_all": "85ef721ca7050a21c18f69b7838c471f5156732b",
+   "tiles": [
+    81,
+    54
+   ],
+   "chunks": [
+    27,
+    18
+   ],
+   "pixel_size": [
+    648,
+    432
+   ],
+   "layer_count": 2,
+   "collision_layers": 1,
+   "render": "renders/g01p04c_frame0.png",
+   "frames": 1,
+   "collision_png": "collision/g01p04c_collision.png",
+   "solid_tiles": 3378,
+   "status": "unclassified"
+  },
+  {
+   "name": "G01P04C2",
+   "bpl": "G01P04C2",
+   "bpc": "G01P04C",
+   "bpas": [],
+   "class": "G",
+   "files": {
+    "bma": {
+     "ref": "G01P04C2",
+     "bytes": 998,
+     "sha1": "e8cba93d51e631dd11615ccf1af8556d49a083c4"
+    },
+    "bpc": {
+     "ref": "G01P04C",
+     "bytes": 38004,
+     "sha1": "5e329e41d351a5fb631f7f83fb4bcc7d3bda5f7f"
+    },
+    "bpl": {
+     "ref": "G01P04C2",
+     "bytes": 964,
+     "sha1": "049ed2956f8f5668275089ccc42b1a50dd526205"
+    }
+   },
+   "source_sha1_all": "8246cbaea52b9735cb26f466f8dfc7001642d680",
+   "tiles": [
+    81,
+    54
+   ],
+   "chunks": [
+    27,
+    18
+   ],
+   "pixel_size": [
+    648,
+    432
+   ],
+   "layer_count": 2,
+   "collision_layers": 1,
+   "render": "renders/g01p04c2_frame0.png",
+   "frames": 1,
+   "collision_png": "collision/g01p04c2_collision.png",
+   "solid_tiles": 3365,
+   "status": "unclassified"
+  },
+  {
+   "name": "G01P05A",
+   "bpl": "G01P05A",
+   "bpc": "G01P05A",
+   "bpas": [
+    "G01P05A1"
+   ],
+   "class": "G",
+   "files": {
+    "bma": {
+     "ref": "G01P05A",
+     "bytes": 561,
+     "sha1": "b65391c7291bbbb32fb59c7abc62512521a8d539"
+    },
+    "bpc": {
+     "ref": "G01P05A",
+     "bytes": 23970,
+     "sha1": "190cda7e31e7316abf445288573a06e091c921b6"
+    },
+    "bpl": {
+     "ref": "G01P05A",
+     "bytes": 964,
+     "sha1": "e742966ee79c146d6b4f7716afc523879b784bc0"
+    },
+    "bpa0": {
+     "ref": "G01P05A1",
+     "bytes": 3092,
+     "sha1": "1704a07858cebc4ebd21736d9462067db02a17e8"
+    }
+   },
+   "source_sha1_all": "bea56bac5942720a7d5c8e1b25639530dc7539e4",
+   "tiles": [
+    51,
+    48
+   ],
+   "chunks": [
+    17,
+    16
+   ],
+   "pixel_size": [
+    408,
+    384
+   ],
+   "layer_count": 2,
+   "collision_layers": 1,
+   "render": "renders/g01p05a_frame0.png",
+   "frames": 4,
+   "anim_gif": "renders/g01p05a_anim.gif",
+   "collision_png": "collision/g01p05a_collision.png",
+   "solid_tiles": 2073,
+   "status": "unclassified"
+  },
+  {
+   "name": "G01P05C",
+   "bpl": "G01P05C",
+   "bpc": "G01P05C",
+   "bpas": [
+    "G01P05C1"
+   ],
+   "class": "G",
+   "files": {
+    "bma": {
+     "ref": "G01P05C",
+     "bytes": 561,
+     "sha1": "916dc28ad87f898a32adee1d1188638b2a88bc5f"
+    },
+    "bpc": {
+     "ref": "G01P05C",
+     "bytes": 23970,
+     "sha1": "a5bba30f9619d8584ffcaa3ea32c6187a917cba4"
+    },
+    "bpl": {
+     "ref": "G01P05C",
+     "bytes": 964,
+     "sha1": "404276bedae77e7ea62d96436afa115dc94222bc"
+    },
+    "bpa0": {
+     "ref": "G01P05C1",
+     "bytes": 3092,
+     "sha1": "9b012487e2896fe4dfcfb5223c4acc50654650cf"
+    }
+   },
+   "source_sha1_all": "679386611f6230b38e117d2b2ca142bfc0aa7a83",
+   "tiles": [
+    51,
+    48
+   ],
+   "chunks": [
+    17,
+    16
+   ],
+   "pixel_size": [
+    408,
+    384
+   ],
+   "layer_count": 2,
+   "collision_layers": 1,
+   "render": "renders/g01p05c_frame0.png",
+   "frames": 4,
+   "anim_gif": "renders/g01p05c_anim.gif",
+   "collision_png": "collision/g01p05c_collision.png",
+   "solid_tiles": 2067,
+   "status": "unclassified"
+  },
+  {
+   "name": "G01P06A",
+   "bpl": "G01P06A",
+   "bpc": "G01P06A",
+   "bpas": [
+    "G01P06A1"
+   ],
+   "class": "G",
+   "files": {
+    "bma": {
+     "ref": "G01P06A",
+     "bytes": 702,
+     "sha1": "c06be3a15f99f2fbe262d4fe1b6d2a56efb19e8f"
+    },
+    "bpc": {
+     "ref": "G01P06A",
+     "bytes": 38392,
+     "sha1": "022cb4578f9b09ed39bbad9a989f5c85f7c21738"
+    },
+    "bpl": {
+     "ref": "G01P06A",
+     "bytes": 964,
+     "sha1": "4083f241a2f18b57c432a7eaf5511cdb5d9551de"
+    },
+    "bpa0": {
+     "ref": "G01P06A1",
+     "bytes": 2196,
+     "sha1": "019dd92d14d5abd2e3356db1a5ae9e0145f98315"
+    }
+   },
+   "source_sha1_all": "e7284527fc1f30a1fc089c239589ac3f6e644c0e",
+   "tiles": [
+    63,
+    45
+   ],
+   "chunks": [
+    21,
+    15
+   ],
+   "pixel_size": [
+    504,
+    360
+   ],
+   "layer_count": 2,
+   "collision_layers": 1,
+   "render": "renders/g01p06a_frame0.png",
+   "frames": 4,
+   "anim_gif": "renders/g01p06a_anim.gif",
+   "collision_png": "collision/g01p06a_collision.png",
+   "solid_tiles": 2529,
+   "status": "unclassified"
+  },
+  {
+   "name": "G01P06B",
+   "bpl": "G01P06B",
+   "bpc": "G01P06B",
+   "bpas": [
+    "G01P06B1"
+   ],
+   "class": "G",
+   "files": {
+    "bma": {
+     "ref": "G01P06B",
+     "bytes": 702,
+     "sha1": "c06be3a15f99f2fbe262d4fe1b6d2a56efb19e8f"
+    },
+    "bpc": {
+     "ref": "G01P06B",
+     "bytes": 38390,
+     "sha1": "e3185233d38c05fbda1d5ca899f867ec9ada9e8a"
+    },
+    "bpl": {
+     "ref": "G01P06B",
+     "bytes": 964,
+     "sha1": "ab82eb231acf7990ef8ffdfec80525949710ee27"
+    },
+    "bpa0": {
+     "ref": "G01P06B1",
+     "bytes": 2580,
+     "sha1": "50879e0c47d0bd0c7a831316a08bffeb0969124d"
+    }
+   },
+   "source_sha1_all": "b4055721b5e3667f6bd4fcae93566fdac7776b73",
+   "tiles": [
+    63,
+    45
+   ],
+   "chunks": [
+    21,
+    15
+   ],
+   "pixel_size": [
+    504,
+    360
+   ],
+   "layer_count": 2,
+   "collision_layers": 1,
+   "render": "renders/g01p06b_frame0.png",
+   "frames": 4,
+   "anim_gif": "renders/g01p06b_anim.gif",
+   "collision_png": "collision/g01p06b_collision.png",
+   "solid_tiles": 2529,
+   "status": "unclassified"
+  },
+  {
+   "name": "G01P07A",
+   "bpl": "G01P07A",
+   "bpc": "G01P07A",
+   "bpas": [],
+   "class": "G",
+   "files": {
+    "bma": {
+     "ref": "G01P07A",
+     "bytes": 267,
+     "sha1": "ab19df2e2abcd7581a646bddd755d387a5aa01eb"
+    },
+    "bpc": {
+     "ref": "G01P07A",
+     "bytes": 23914,
+     "sha1": "ea49d39ca4afb53e2625c247fecc7e674f721141"
+    },
+    "bpl": {
+     "ref": "G01P07A",
+     "bytes": 964,
+     "sha1": "a33e25978ef41f1bbbd3d1b057a56902e8b620c0"
+    }
+   },
+   "source_sha1_all": "914757b6357b8c28632994aedd96b8a119607bc8",
+   "tiles": [
+    48,
+    39
+   ],
+   "chunks": [
+    16,
+    13
+   ],
+   "pixel_size": [
+    384,
+    312
+   ],
+   "layer_count": 1,
+   "collision_layers": 1,
+   "render": "renders/g01p07a_frame0.png",
+   "frames": 1,
+   "collision_png": "collision/g01p07a_collision.png",
+   "solid_tiles": 1720,
+   "status": "unclassified"
+  },
+  {
+   "name": "G01P07C",
+   "bpl": "G01P07C",
+   "bpc": "G01P07C",
+   "bpas": [],
+   "class": "G",
+   "files": {
+    "bma": {
+     "ref": "G01P07C",
+     "bytes": 267,
+     "sha1": "ab19df2e2abcd7581a646bddd755d387a5aa01eb"
+    },
+    "bpc": {
+     "ref": "G01P07C",
+     "bytes": 23914,
+     "sha1": "ea49d39ca4afb53e2625c247fecc7e674f721141"
+    },
+    "bpl": {
+     "ref": "G01P07C",
+     "bytes": 24068,
+     "sha1": "3458be9d1d09a2385a0bbb832767ac1c0f74c325"
+    }
+   },
+   "source_sha1_all": "dd1def19b322c6b0f9bf27e77ae939b821bd6c65",
+   "tiles": [
+    48,
+    39
+   ],
+   "chunks": [
+    16,
+    13
+   ],
+   "pixel_size": [
+    384,
+    312
+   ],
+   "layer_count": 1,
+   "collision_layers": 1,
+   "render": "renders/g01p07c_frame0.png",
+   "frames": 1,
+   "collision_png": "collision/g01p07c_collision.png",
+   "solid_tiles": 1720,
+   "status": "unclassified"
+  },
+  {
+   "name": "G01P08A",
+   "bpl": "G01P08A",
+   "bpc": "G01P08A",
+   "bpas": [],
+   "class": "G",
+   "files": {
+    "bma": {
+     "ref": "G01P08A",
+     "bytes": 268,
+     "sha1": "bbc4b35377865f85a96ba71ca732d47ad0747dea"
+    },
+    "bpc": {
+     "ref": "G01P08A",
+     "bytes": 19032,
+     "sha1": "f96e0ef4592b8256d2d3f01b4ff3afd8b9cd0490"
+    },
+    "bpl": {
+     "ref": "G01P08A",
+     "bytes": 964,
+     "sha1": "624b53b91aec0efeeffc5b8560a1dc329abf6b06"
+    }
+   },
+   "source_sha1_all": "577aaf6cbbec6e82a83bc2adad359d13ad79c937",
+   "tiles": [
+    32,
+    45
+   ],
+   "chunks": [
+    11,
+    15
+   ],
+   "pixel_size": [
+    256,
+    360
+   ],
+   "layer_count": 1,
+   "collision_layers": 1,
+   "render": "renders/g01p08a_frame0.png",
+   "frames": 1,
+   "collision_png": "collision/g01p08a_collision.png",
+   "solid_tiles": 1269,
+   "status": "unclassified"
+  },
+  {
+   "name": "G01P09A",
+   "bpl": "G01P09A",
+   "bpc": "G01P09A",
+   "bpas": [],
+   "class": "G",
+   "files": {
+    "bma": {
+     "ref": "G01P09A",
+     "bytes": 292,
+     "sha1": "d173677b2d07949588fcf0760fe5fa70639516fc"
+    },
+    "bpc": {
+     "ref": "G01P09A",
+     "bytes": 19664,
+     "sha1": "864bc3d5c5efaa6adc9402a983125c60eee9a87d"
+    },
+    "bpl": {
+     "ref": "G01P09A",
+     "bytes": 964,
+     "sha1": "ecdd73b800bc29b7d40d6828681ec992c2e89147"
+    }
+   },
+   "source_sha1_all": "5b8e574f5580acdc39f83190797eabceb7509338",
+   "tiles": [
+    54,
+    42
+   ],
+   "chunks": [
+    18,
+    14
+   ],
+   "pixel_size": [
+    432,
+    336
+   ],
+   "layer_count": 1,
+   "collision_layers": 1,
+   "render": "renders/g01p09a_frame0.png",
+   "frames": 1,
+   "collision_png": "collision/g01p09a_collision.png",
+   "solid_tiles": 2104,
+   "status": "unclassified"
+  },
+  {
+   "name": "G01P09C",
+   "bpl": "G01P09C",
+   "bpc": "G01P09C",
+   "bpas": [],
+   "class": "G",
+   "files": {
+    "bma": {
+     "ref": "G01P09C",
+     "bytes": 292,
+     "sha1": "d173677b2d07949588fcf0760fe5fa70639516fc"
+    },
+    "bpc": {
+     "ref": "G01P09C",
+     "bytes": 19662,
+     "sha1": "40d6aad3e6966ba9968567bdd6c6f672019d4389"
+    },
+    "bpl": {
+     "ref": "G01P09C",
+     "bytes": 964,
+     "sha1": "b0208cd359946d43db6153f273f5f3612e9ed632"
+    }
+   },
+   "source_sha1_all": "4f8b0652902defc00a53422893acafae8e979edb",
+   "tiles": [
+    54,
+    42
+   ],
+   "chunks": [
+    18,
+    14
+   ],
+   "pixel_size": [
+    432,
+    336
+   ],
+   "layer_count": 1,
+   "collision_layers": 1,
+   "render": "renders/g01p09c_frame0.png",
+   "frames": 1,
+   "collision_png": "collision/g01p09c_collision.png",
+   "solid_tiles": 2104,
+   "status": "unclassified"
+  },
+  {
+   "name": "G01P10A",
+   "bpl": "G01P10A",
+   "bpc": "G01P10A",
+   "bpas": [
+    "G01P10A1"
+   ],
+   "class": "G",
+   "files": {
+    "bma": {
+     "ref": "G01P10A",
+     "bytes": 292,
+     "sha1": "d6b2e56aeaa1ee89e5b6f1882bd8ca1d834fe8de"
+    },
+    "bpc": {
+     "ref": "G01P10A",
+     "bytes": 20374,
+     "sha1": "66efcaaff7854ccbaffa90c5cfbf94579cbd50d1"
+    },
+    "bpl": {
+     "ref": "G01P10A",
+     "bytes": 964,
+     "sha1": "509cec47f9739e8e772754acad231bc472510deb"
+    },
+    "bpa0": {
+     "ref": "G01P10A1",
+     "bytes": 1044,
+     "sha1": "5741fc40da405109ae10070f4a4e06f88e35d284"
+    }
+   },
+   "source_sha1_all": "2a86982ec532dd34ebdc370e222b338cfc884259",
+   "tiles": [
+    54,
+    42
+   ],
+   "chunks": [
+    18,
+    14
+   ],
+   "pixel_size": [
+    432,
+    336
+   ],
+   "layer_count": 1,
+   "collision_layers": 1,
+   "render": "renders/g01p10a_frame0.png",
+   "frames": 4,
+   "anim_gif": "renders/g01p10a_anim.gif",
+   "collision_png": "collision/g01p10a_collision.png",
+   "solid_tiles": 2113,
+   "status": "unclassified"
+  },
+  {
+   "name": "G01P10C",
+   "bpl": "G01P10C",
+   "bpc": "G01P10C",
+   "bpas": [
+    "G01P10C1"
+   ],
+   "class": "G",
+   "files": {
+    "bma": {
+     "ref": "G01P10C",
+     "bytes": 292,
+     "sha1": "d6b2e56aeaa1ee89e5b6f1882bd8ca1d834fe8de"
+    },
+    "bpc": {
+     "ref": "G01P10C",
+     "bytes": 20374,
+     "sha1": "66efcaaff7854ccbaffa90c5cfbf94579cbd50d1"
+    },
+    "bpl": {
+     "ref": "G01P10C",
+     "bytes": 964,
+     "sha1": "65bfbec92f1da9f60835ef8096c90be35fd7db45"
+    },
+    "bpa0": {
+     "ref": "G01P10C1",
+     "bytes": 1044,
+     "sha1": "5741fc40da405109ae10070f4a4e06f88e35d284"
+    }
+   },
+   "source_sha1_all": "a031cf2ac0ca782d895bdd20916b7d2efeb24329",
+   "tiles": [
+    54,
+    42
+   ],
+   "chunks": [
+    18,
+    14
+   ],
+   "pixel_size": [
+    432,
+    336
+   ],
+   "layer_count": 1,
+   "collision_layers": 1,
+   "render": "renders/g01p10c_frame0.png",
+   "frames": 4,
+   "anim_gif": "renders/g01p10c_anim.gif",
+   "collision_png": "collision/g01p10c_collision.png",
+   "solid_tiles": 2113,
+   "status": "unclassified"
+  }
+ ]
+}
