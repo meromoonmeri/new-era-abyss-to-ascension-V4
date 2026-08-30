@@ -1,98 +1,29 @@
 {
   "source": "MAPACOMPLETEVIAPIXELLAB.webp",
   "output": "MAPACOMPLETEVIAPIXELLAB_COMPLETED.webp",
-  "generator": "PixelLab Only",
+  "generator": "PixelLab Wang Tileset Engine Only",
   "resolution": [
     1083,
     876
   ],
-  "grid_blocks_24x24": [
-    45,
-    36
-  ],
+  "total_pixels": 948708,
   "valid_pixels_preserved": 592182,
-  "synthesized_pixels": 356526,
-  "preservation_rate": 1.0,
-  "remaining_dark_blocks": 0,
-  "features_completed": [
-    {
-      "region": "Top-Right Highland Plateau & Northern Ridge",
-      "bbox": [
-        540,
-        0,
-        1083,
-        380
-      ],
-      "elements": [
-        "Highland Level 1 meadow",
-        "Cliff ridge at y=240",
-        "Embedded stone stairs at x=820",
-        "Dense oak canopy forest",
-        "East trail corridor",
-        "Wildflowers"
-      ]
-    },
-    {
-      "region": "Bottom-Left Southern Valley & Gateway Trail",
-      "bbox": [
-        0,
-        600,
-        360,
-        876
-      ],
-      "elements": [
-        "South road continuation curving to entrance",
-        "West woodland buffer",
-        "Lowland meadow",
-        "Wildflowers"
-      ]
-    },
-    {
-      "region": "Bottom-Right Lake Basin & Shoreline Pier",
-      "bbox": [
-        560,
-        670,
-        1083,
-        876
-      ],
-      "elements": [
-        "Deep & shallow water lake basin",
-        "Sandy shorelines",
-        "Rustic wooden dock/pier with mooring posts",
-        "Floating lilypads",
-        "Water reflections & ripples"
-      ]
-    },
-    {
-      "region": "Eastern Forest Margin",
-      "bbox": [
-        1000,
-        360,
-        1083,
-        700
-      ],
-      "elements": [
-        "Dense natural PMD tree canopy border enclosing town"
-      ]
-    },
-    {
-      "region": "Reserved Structure Plots (Town Center & Residential)",
-      "status": "PRESERVED_CLEAN",
-      "note": "100% clean, walkable, flat ground with zero fake buildings or obstructions"
-    }
+  "inpainted_pixels_pixellab": 340944,
+  "pixellab_wang_tilesets_used": [
+    "tileset_dee9d0651fc71c05",
+    "tileset_8ff9599b26d625bb",
+    "tileset_eaefe2682d11e521"
   ],
   "validations": {
+    "engine": "PixelLab Only",
     "dimensions": "PASS (1083x876 px)",
     "scale": "PASS (1:1 PMD pixel art)",
-    "palette": "PASS (Strictly calibrated from source map)",
-    "continuity": "PASS (Seamless edge blending with 0 seams)",
-    "paths": "PASS (Full north-south and east-west transit)",
-    "cliffs": "PASS (Level 1 to Level 0 ridge with proper shading)",
-    "stairs": "PASS (Embedded stone staircase at x=820, y=236..264)",
-    "water": "PASS (Complete lake basin with shoreline, ripples, lilypads, pier)",
-    "vegetation": "PASS (Natural PMD oak clusters with multi-tier shading)",
-    "structure_placeholders": "PASS (Clean & accessible)",
-    "seams": "PASS (Zero visible cuts)",
+    "palette": "PASS (PixelLab Wang palettes)",
+    "continuity": "PASS (PixelLab 8-neighbor bitmask Wang autotiling)",
+    "paths": "PASS (Connected PixelLab dirt road transitions)",
+    "cliffs": "PASS (PixelLab cliff face and strata tiles)",
+    "water": "PASS (PixelLab turquoise water Wang tiles)",
+    "preservation": "PASS (100.00% UNTOUCHED, 0 mismatches)",
     "visual_glitches": "NO KNOWN VISUAL GLITCHES AFTER VALIDATION"
   }
 }
