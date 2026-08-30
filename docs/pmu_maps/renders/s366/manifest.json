@@ -1,0 +1,188 @@
+{
+ "schema": "new-era.pmu-render.v1",
+ "map_id": "s366",
+ "pipeline_version": "1.1.0",
+ "renderer_version": "render_pmu_maps (client-exact, 2026-08-30)",
+ "generated": "2026-08-30T14:53:49+00:00",
+ "source": {
+  "file": "Map-s366.dat",
+  "path": "/home/user/skyhacks/pmu_dataseed/Map-s366.dat",
+  "bytes": 21027,
+  "sha1": "1a73755c2a1e8bfb97b3f81071fb05cdac03c887",
+  "sha256": "f3de4d9e86a1f74de3248ec3d7db87684305c38f32ffb00e779edcbf34382111"
+ },
+ "tiles_archives_sha1": {
+  "0": "28a617d473fe7b38861dbf2036b1f130604f1c48",
+  "1": "1fb48bc0b55eeb8e148add463ed24241311a1ee0",
+  "2": "46af3b53978e12d3772b6d1a9af09643b6fe277c",
+  "3": "aaefe398df1ec6faf61b534e39c96a1511a34b2c",
+  "4": "5fa12151b24bfec5ce01c4f912a9a845c8004a45",
+  "5": "4a6f305ae6dfca6e8b6f169e9f8163ce9d56dc3f",
+  "6": "2e133606ade614ced8697748584b5b089b0bb023",
+  "7": "7589f3b2929cfaccafe688940acf00e2502eefe4",
+  "8": "0acca1ff00bdcff3b84a3dd429317fa029651c33",
+  "9": "9b050694d38bdfb04ec283e655ca1f0fcd873a1f",
+  "10": "05583e4ad685b7d7bf14fa75ce28d51f9e0b9a32"
+ },
+ "pmu": {
+  "name": "Bunny's House",
+  "version": "V9",
+  "revision": 44,
+  "dims_tiles": [
+   20,
+   15
+  ],
+  "tile_count": 300,
+  "music": "PMD) Happiness.mp3"
+ },
+ "render": {
+  "png": "render.png",
+  "png_sha256": "3e2eb9961e6469d5d89ed6479b41d2352133a08c2f6b5955c9727b4e0e59ee75",
+  "tile_size": 32,
+  "pixel_size": [
+   640,
+   480
+  ],
+  "layers_drawn": {
+   "PMU Ground": 300,
+   "PMU Mask": 139,
+   "PMU Mask2": 120,
+   "PMU Fringe": 2,
+   "PMU Fringe2": 1
+  },
+  "fallback_count": 15,
+  "fallback_coords": [
+   [
+    3,
+    8,
+    1,
+    "fallback0",
+    0,
+    5689
+   ],
+   [
+    10,
+    7,
+    2,
+    "fallback0",
+    0,
+    5348
+   ],
+   [
+    11,
+    7,
+    2,
+    "fallback0",
+    0,
+    5349
+   ],
+   [
+    11,
+    8,
+    2,
+    "fallback0",
+    0,
+    5363
+   ],
+   [
+    11,
+    9,
+    2,
+    "fallback0",
+    0,
+    5348
+   ],
+   [
+    11,
+    10,
+    2,
+    "fallback0",
+    0,
+    5362
+   ],
+   [
+    12,
+    7,
+    2,
+    "fallback0",
+    0,
+    5350
+   ],
+   [
+    12,
+    9,
+    2,
+    "fallback0",
+    0,
+    5349
+   ],
+   [
+    12,
+    10,
+    2,
+    "fallback0",
+    0,
+    5363
+   ],
+   [
+    13,
+    7,
+    2,
+    "fallback0",
+    0,
+    4928
+   ],
+   [
+    13,
+    8,
+    2,
+    "fallback0",
+    0,
+    5365
+   ],
+   [
+    13,
+    9,
+    2,
+    "fallback0",
+    0,
+    5350
+   ],
+   [
+    13,
+    10,
+    2,
+    "fallback0",
+    0,
+    5364
+   ],
+   [
+    14,
+    9,
+    2,
+    "fallback0",
+    0,
+    5351
+   ],
+   [
+    14,
+    10,
+    2,
+    "fallback0",
+    0,
+    5365
+   ]
+  ]
+ },
+ "transparency": {
+  "transparent_px": 0,
+  "opaque_px": 307200,
+  "partial_alpha_px": 0
+ },
+ "validation": {
+  "determinism_2run": "identical",
+  "scaling_applied": false,
+  "cropping_applied": false,
+  "result": "PASS"
+ }
+}

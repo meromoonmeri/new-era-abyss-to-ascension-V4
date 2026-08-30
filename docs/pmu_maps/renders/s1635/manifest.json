@@ -1,0 +1,67 @@
+{
+ "schema": "new-era.pmu-render.v1",
+ "map_id": "s1635",
+ "pipeline_version": "1.1.0",
+ "renderer_version": "render_pmu_maps (client-exact, 2026-08-30)",
+ "generated": "2026-08-30T14:49:22+00:00",
+ "source": {
+  "file": "Map-s1635.dat",
+  "path": "/home/user/skyhacks/pmu_dataseed/Map-s1635.dat",
+  "bytes": 173329,
+  "sha1": "ed228537c6c30bf15b2e86ce09e005cb28c2e901",
+  "sha256": "9a0b05f9beca1e0db2a5c7bb825847a1e40dacebb2e265905d69331bc21b80fe"
+ },
+ "tiles_archives_sha1": {
+  "0": "28a617d473fe7b38861dbf2036b1f130604f1c48",
+  "1": "1fb48bc0b55eeb8e148add463ed24241311a1ee0",
+  "2": "46af3b53978e12d3772b6d1a9af09643b6fe277c",
+  "3": "aaefe398df1ec6faf61b534e39c96a1511a34b2c",
+  "4": "5fa12151b24bfec5ce01c4f912a9a845c8004a45",
+  "5": "4a6f305ae6dfca6e8b6f169e9f8163ce9d56dc3f",
+  "6": "2e133606ade614ced8697748584b5b089b0bb023",
+  "7": "7589f3b2929cfaccafe688940acf00e2502eefe4",
+  "8": "0acca1ff00bdcff3b84a3dd429317fa029651c33",
+  "9": "9b050694d38bdfb04ec283e655ca1f0fcd873a1f",
+  "10": "05583e4ad685b7d7bf14fa75ce28d51f9e0b9a32"
+ },
+ "pmu": {
+  "name": "Redemo Cave 6F",
+  "version": "V9",
+  "revision": 3,
+  "dims_tiles": [
+   51,
+   51
+  ],
+  "tile_count": 2601,
+  "music": ""
+ },
+ "render": {
+  "png": "render.png",
+  "png_sha256": "288aaed3ae965d64b3f0c8d3457c85ad077a1050663b8b81b0d518b5e79c0e0c",
+  "tile_size": 32,
+  "pixel_size": [
+   1632,
+   1632
+  ],
+  "layers_drawn": {
+   "PMU Ground": 2601,
+   "PMU Mask": 0,
+   "PMU Mask2": 0,
+   "PMU Fringe": 0,
+   "PMU Fringe2": 0
+  },
+  "fallback_count": 0,
+  "fallback_coords": []
+ },
+ "transparency": {
+  "transparent_px": 0,
+  "opaque_px": 2663424,
+  "partial_alpha_px": 0
+ },
+ "validation": {
+  "determinism_2run": "identical",
+  "scaling_applied": false,
+  "cropping_applied": false,
+  "result": "PASS"
+ }
+}

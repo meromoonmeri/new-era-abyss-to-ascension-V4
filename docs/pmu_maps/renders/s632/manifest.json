@@ -1,0 +1,67 @@
+{
+ "schema": "new-era.pmu-render.v1",
+ "map_id": "s632",
+ "pipeline_version": "1.1.0",
+ "renderer_version": "render_pmu_maps (client-exact, 2026-08-30)",
+ "generated": "2026-08-30T14:55:29+00:00",
+ "source": {
+  "file": "Map-s632.dat",
+  "path": "/home/user/skyhacks/pmu_dataseed/Map-s632.dat",
+  "bytes": 46975,
+  "sha1": "e9f07c47c15446e440e1d1b5703f774fac9a2fc8",
+  "sha256": "2804ea2ddc3c5eb5b43a042c98a4a40aeaff4a7ea84a63881dcc18f440e4b3ac"
+ },
+ "tiles_archives_sha1": {
+  "0": "28a617d473fe7b38861dbf2036b1f130604f1c48",
+  "1": "1fb48bc0b55eeb8e148add463ed24241311a1ee0",
+  "2": "46af3b53978e12d3772b6d1a9af09643b6fe277c",
+  "3": "aaefe398df1ec6faf61b534e39c96a1511a34b2c",
+  "4": "5fa12151b24bfec5ce01c4f912a9a845c8004a45",
+  "5": "4a6f305ae6dfca6e8b6f169e9f8163ce9d56dc3f",
+  "6": "2e133606ade614ced8697748584b5b089b0bb023",
+  "7": "7589f3b2929cfaccafe688940acf00e2502eefe4",
+  "8": "0acca1ff00bdcff3b84a3dd429317fa029651c33",
+  "9": "9b050694d38bdfb04ec283e655ca1f0fcd873a1f",
+  "10": "05583e4ad685b7d7bf14fa75ce28d51f9e0b9a32"
+ },
+ "pmu": {
+  "name": "Anathema's Mosh Pit",
+  "version": "V9",
+  "revision": 21,
+  "dims_tiles": [
+   26,
+   26
+  ],
+  "tile_count": 676,
+  "music": ""
+ },
+ "render": {
+  "png": "render.png",
+  "png_sha256": "83c3ccac031c4c909fde60dd5e8e85da69e072413680c20cdc6f2764b7751043",
+  "tile_size": 32,
+  "pixel_size": [
+   832,
+   832
+  ],
+  "layers_drawn": {
+   "PMU Ground": 676,
+   "PMU Mask": 147,
+   "PMU Mask2": 43,
+   "PMU Fringe": 166,
+   "PMU Fringe2": 22
+  },
+  "fallback_count": 0,
+  "fallback_coords": []
+ },
+ "transparency": {
+  "transparent_px": 0,
+  "opaque_px": 692224,
+  "partial_alpha_px": 0
+ },
+ "validation": {
+  "determinism_2run": "identical",
+  "scaling_applied": false,
+  "cropping_applied": false,
+  "result": "PASS"
+ }
+}

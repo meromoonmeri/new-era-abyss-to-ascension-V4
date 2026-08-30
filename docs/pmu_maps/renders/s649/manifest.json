@@ -1,0 +1,67 @@
+{
+ "schema": "new-era.pmu-render.v1",
+ "map_id": "s649",
+ "pipeline_version": "1.1.0",
+ "renderer_version": "render_pmu_maps (client-exact, 2026-08-30)",
+ "generated": "2026-08-30T14:55:32+00:00",
+ "source": {
+  "file": "Map-s649.dat",
+  "path": "/home/user/skyhacks/pmu_dataseed/Map-s649.dat",
+  "bytes": 66242,
+  "sha1": "fbe775608b0a5b5e0dee956204bd11e361bb7fa3",
+  "sha256": "a6af1783983730b545f1e373f0d89976b857e5e31b706129a96dec136c13b448"
+ },
+ "tiles_archives_sha1": {
+  "0": "28a617d473fe7b38861dbf2036b1f130604f1c48",
+  "1": "1fb48bc0b55eeb8e148add463ed24241311a1ee0",
+  "2": "46af3b53978e12d3772b6d1a9af09643b6fe277c",
+  "3": "aaefe398df1ec6faf61b534e39c96a1511a34b2c",
+  "4": "5fa12151b24bfec5ce01c4f912a9a845c8004a45",
+  "5": "4a6f305ae6dfca6e8b6f169e9f8163ce9d56dc3f",
+  "6": "2e133606ade614ced8697748584b5b089b0bb023",
+  "7": "7589f3b2929cfaccafe688940acf00e2502eefe4",
+  "8": "0acca1ff00bdcff3b84a3dd429317fa029651c33",
+  "9": "9b050694d38bdfb04ec283e655ca1f0fcd873a1f",
+  "10": "05583e4ad685b7d7bf14fa75ce28d51f9e0b9a32"
+ },
+ "pmu": {
+  "name": "The Great Sea",
+  "version": "V9",
+  "revision": 12,
+  "dims_tiles": [
+   31,
+   31
+  ],
+  "tile_count": 961,
+  "music": "Anime) Riding on Lapras.mid"
+ },
+ "render": {
+  "png": "render.png",
+  "png_sha256": "8f11e8ea823e18828ca8b06a04d625f2abe161790352a470ae5b449f5c53e9f0",
+  "tile_size": 32,
+  "pixel_size": [
+   992,
+   992
+  ],
+  "layers_drawn": {
+   "PMU Ground": 21,
+   "PMU Mask": 942,
+   "PMU Mask2": 151,
+   "PMU Fringe": 9,
+   "PMU Fringe2": 0
+  },
+  "fallback_count": 0,
+  "fallback_coords": []
+ },
+ "transparency": {
+  "transparent_px": 0,
+  "opaque_px": 984064,
+  "partial_alpha_px": 0
+ },
+ "validation": {
+  "determinism_2run": "identical",
+  "scaling_applied": false,
+  "cropping_applied": false,
+  "result": "PASS"
+ }
+}

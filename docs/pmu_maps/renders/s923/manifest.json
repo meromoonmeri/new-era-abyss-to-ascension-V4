@@ -1,0 +1,84 @@
+{
+ "schema": "new-era.pmu-render.v1",
+ "map_id": "s923",
+ "pipeline_version": "1.1.0",
+ "renderer_version": "render_pmu_maps (client-exact, 2026-08-30)",
+ "generated": "2026-08-30T14:56:56+00:00",
+ "source": {
+  "file": "Map-s923.dat",
+  "path": "/home/user/skyhacks/pmu_dataseed/Map-s923.dat",
+  "bytes": 20299,
+  "sha1": "dc31d9b4e61f1169b99e2dda3a2bce249b903d77",
+  "sha256": "8862ca9ebf04e29cafefbea9881f644f4bdd8802ada6d0f2a0dd580cc0bcef4c"
+ },
+ "tiles_archives_sha1": {
+  "0": "28a617d473fe7b38861dbf2036b1f130604f1c48",
+  "1": "1fb48bc0b55eeb8e148add463ed24241311a1ee0",
+  "2": "46af3b53978e12d3772b6d1a9af09643b6fe277c",
+  "3": "aaefe398df1ec6faf61b534e39c96a1511a34b2c",
+  "4": "5fa12151b24bfec5ce01c4f912a9a845c8004a45",
+  "5": "4a6f305ae6dfca6e8b6f169e9f8163ce9d56dc3f",
+  "6": "2e133606ade614ced8697748584b5b089b0bb023",
+  "7": "7589f3b2929cfaccafe688940acf00e2502eefe4",
+  "8": "0acca1ff00bdcff3b84a3dd429317fa029651c33",
+  "9": "9b050694d38bdfb04ec283e655ca1f0fcd873a1f",
+  "10": "05583e4ad685b7d7bf14fa75ce28d51f9e0b9a32"
+ },
+ "pmu": {
+  "name": "Scarlet's House",
+  "version": "V9",
+  "revision": 35,
+  "dims_tiles": [
+   20,
+   15
+  ],
+  "tile_count": 300,
+  "music": "DPPt) Battle_Champion.mid"
+ },
+ "render": {
+  "png": "render.png",
+  "png_sha256": "050a68167a5a2f3ea8ae8351defadba9393e49852089da6ecd6257b3b49f0ffe",
+  "tile_size": 32,
+  "pixel_size": [
+   640,
+   480
+  ],
+  "layers_drawn": {
+   "PMU Ground": 6,
+   "PMU Mask": 56,
+   "PMU Mask2": 287,
+   "PMU Fringe": 97,
+   "PMU Fringe2": 45
+  },
+  "fallback_count": 2,
+  "fallback_coords": [
+   [
+    0,
+    9,
+    2,
+    "fallback0",
+    0,
+    5797
+   ],
+   [
+    0,
+    9,
+    3,
+    "fallback0",
+    0,
+    5797
+   ]
+  ]
+ },
+ "transparency": {
+  "transparent_px": 76680,
+  "opaque_px": 230520,
+  "partial_alpha_px": 0
+ },
+ "validation": {
+  "determinism_2run": "identical",
+  "scaling_applied": false,
+  "cropping_applied": false,
+  "result": "PASS"
+ }
+}

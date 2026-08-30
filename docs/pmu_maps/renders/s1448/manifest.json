@@ -1,0 +1,67 @@
+{
+ "schema": "new-era.pmu-render.v1",
+ "map_id": "s1448",
+ "pipeline_version": "1.1.0",
+ "renderer_version": "render_pmu_maps (client-exact, 2026-08-30)",
+ "generated": "2026-08-30T14:47:50+00:00",
+ "source": {
+  "file": "Map-s1448.dat",
+  "path": "/home/user/skyhacks/pmu_dataseed/Map-s1448.dat",
+  "bytes": 45876,
+  "sha1": "4291f8724515a7897ed95f1ec643f9f63b242c39",
+  "sha256": "f1745281dfcf648ad1b0ffb1ca2ed656d7895e30803753f45d9d5fa20cef8d5e"
+ },
+ "tiles_archives_sha1": {
+  "0": "28a617d473fe7b38861dbf2036b1f130604f1c48",
+  "1": "1fb48bc0b55eeb8e148add463ed24241311a1ee0",
+  "2": "46af3b53978e12d3772b6d1a9af09643b6fe277c",
+  "3": "aaefe398df1ec6faf61b534e39c96a1511a34b2c",
+  "4": "5fa12151b24bfec5ce01c4f912a9a845c8004a45",
+  "5": "4a6f305ae6dfca6e8b6f169e9f8163ce9d56dc3f",
+  "6": "2e133606ade614ced8697748584b5b089b0bb023",
+  "7": "7589f3b2929cfaccafe688940acf00e2502eefe4",
+  "8": "0acca1ff00bdcff3b84a3dd429317fa029651c33",
+  "9": "9b050694d38bdfb04ec283e655ca1f0fcd873a1f",
+  "10": "05583e4ad685b7d7bf14fa75ce28d51f9e0b9a32"
+ },
+ "pmu": {
+  "name": "Dodgeball Match!",
+  "version": "V9",
+  "revision": 18,
+  "dims_tiles": [
+   39,
+   17
+  ],
+  "tile_count": 663,
+  "music": "Anime) Advance Adventure~Faunsu e!!~.mp3"
+ },
+ "render": {
+  "png": "render.png",
+  "png_sha256": "24e7eb2eaecb452e2556f17f806e83c908c9142d01d93469ba13a844842806e2",
+  "tile_size": 32,
+  "pixel_size": [
+   1248,
+   544
+  ],
+  "layers_drawn": {
+   "PMU Ground": 663,
+   "PMU Mask": 193,
+   "PMU Mask2": 70,
+   "PMU Fringe": 30,
+   "PMU Fringe2": 0
+  },
+  "fallback_count": 0,
+  "fallback_coords": []
+ },
+ "transparency": {
+  "transparent_px": 0,
+  "opaque_px": 678912,
+  "partial_alpha_px": 0
+ },
+ "validation": {
+  "determinism_2run": "identical",
+  "scaling_applied": false,
+  "cropping_applied": false,
+  "result": "PASS"
+ }
+}

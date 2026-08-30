@@ -1,0 +1,67 @@
+{
+ "schema": "new-era.pmu-render.v1",
+ "map_id": "s1193",
+ "pipeline_version": "1.1.0",
+ "renderer_version": "render_pmu_maps (client-exact, 2026-08-30)",
+ "generated": "2026-08-30T14:27:04+00:00",
+ "source": {
+  "file": "Map-s1193.dat",
+  "path": "/home/user/skyhacks/pmu_dataseed/Map-s1193.dat",
+  "bytes": 20220,
+  "sha1": "56e5f51b7297d4ef0e51163d92cc22e9df357714",
+  "sha256": "91768dc44d7759f963a4adb585d3c4bdf40ce902da87390b5ea54b8f0050a587"
+ },
+ "tiles_archives_sha1": {
+  "0": "28a617d473fe7b38861dbf2036b1f130604f1c48",
+  "1": "1fb48bc0b55eeb8e148add463ed24241311a1ee0",
+  "2": "46af3b53978e12d3772b6d1a9af09643b6fe277c",
+  "3": "aaefe398df1ec6faf61b534e39c96a1511a34b2c",
+  "4": "5fa12151b24bfec5ce01c4f912a9a845c8004a45",
+  "5": "4a6f305ae6dfca6e8b6f169e9f8163ce9d56dc3f",
+  "6": "2e133606ade614ced8697748584b5b089b0bb023",
+  "7": "7589f3b2929cfaccafe688940acf00e2502eefe4",
+  "8": "0acca1ff00bdcff3b84a3dd429317fa029651c33",
+  "9": "9b050694d38bdfb04ec283e655ca1f0fcd873a1f",
+  "10": "05583e4ad685b7d7bf14fa75ce28d51f9e0b9a32"
+ },
+ "pmu": {
+  "name": "Tournament Waiting Room",
+  "version": "V9",
+  "revision": 4,
+  "dims_tiles": [
+   20,
+   15
+  ],
+  "tile_count": 300,
+  "music": "PBR) Stargazer Colossuem.ogg"
+ },
+ "render": {
+  "png": "render.png",
+  "png_sha256": "a05ef5f634ed9db3f870d24796b6d50329f2008e64f9b8b6738dc61c06f8bf7d",
+  "tile_size": 32,
+  "pixel_size": [
+   640,
+   480
+  ],
+  "layers_drawn": {
+   "PMU Ground": 300,
+   "PMU Mask": 7,
+   "PMU Mask2": 6,
+   "PMU Fringe": 2,
+   "PMU Fringe2": 0
+  },
+  "fallback_count": 0,
+  "fallback_coords": []
+ },
+ "transparency": {
+  "transparent_px": 0,
+  "opaque_px": 307200,
+  "partial_alpha_px": 0
+ },
+ "validation": {
+  "determinism_2run": "identical",
+  "scaling_applied": false,
+  "cropping_applied": false,
+  "result": "PASS"
+ }
+}

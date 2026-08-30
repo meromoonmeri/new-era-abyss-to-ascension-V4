@@ -1,0 +1,67 @@
+{
+ "schema": "new-era.pmu-render.v1",
+ "map_id": "s78",
+ "pipeline_version": "1.1.0",
+ "renderer_version": "render_pmu_maps (client-exact, 2026-08-30)",
+ "generated": "2026-08-30T14:56:12+00:00",
+ "source": {
+  "file": "Map-s78.dat",
+  "path": "/home/user/skyhacks/pmu_dataseed/Map-s78.dat",
+  "bytes": 82415,
+  "sha1": "296adb632f728f8e0bf89f7842670f6e5a139e8a",
+  "sha256": "f56774a192b09e622ac45db0ca4877f433b6ad0b1337538eaf4096cee93d52e1"
+ },
+ "tiles_archives_sha1": {
+  "0": "28a617d473fe7b38861dbf2036b1f130604f1c48",
+  "1": "1fb48bc0b55eeb8e148add463ed24241311a1ee0",
+  "2": "46af3b53978e12d3772b6d1a9af09643b6fe277c",
+  "3": "aaefe398df1ec6faf61b534e39c96a1511a34b2c",
+  "4": "5fa12151b24bfec5ce01c4f912a9a845c8004a45",
+  "5": "4a6f305ae6dfca6e8b6f169e9f8163ce9d56dc3f",
+  "6": "2e133606ade614ced8697748584b5b089b0bb023",
+  "7": "7589f3b2929cfaccafe688940acf00e2502eefe4",
+  "8": "0acca1ff00bdcff3b84a3dd429317fa029651c33",
+  "9": "9b050694d38bdfb04ec283e655ca1f0fcd873a1f",
+  "10": "05583e4ad685b7d7bf14fa75ce28d51f9e0b9a32"
+ },
+ "pmu": {
+  "name": "Tanren Village",
+  "version": "V9",
+  "revision": 108,
+  "dims_tiles": [
+   40,
+   30
+  ],
+  "tile_count": 1200,
+  "music": "PMD2) Treasure Town.mp3"
+ },
+ "render": {
+  "png": "render.png",
+  "png_sha256": "d83e4b70e92d971a2183da1e7bef82c878a2bc98162b111fb81f0208d065259b",
+  "tile_size": 32,
+  "pixel_size": [
+   1280,
+   960
+  ],
+  "layers_drawn": {
+   "PMU Ground": 1200,
+   "PMU Mask": 323,
+   "PMU Mask2": 160,
+   "PMU Fringe": 271,
+   "PMU Fringe2": 63
+  },
+  "fallback_count": 0,
+  "fallback_coords": []
+ },
+ "transparency": {
+  "transparent_px": 1680,
+  "opaque_px": 1227120,
+  "partial_alpha_px": 0
+ },
+ "validation": {
+  "determinism_2run": "identical",
+  "scaling_applied": false,
+  "cropping_applied": false,
+  "result": "PASS"
+ }
+}

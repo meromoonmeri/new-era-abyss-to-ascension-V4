@@ -1,0 +1,76 @@
+{
+ "schema": "new-era.pmu-render.v1",
+ "map_id": "s527",
+ "pipeline_version": "1.1.0",
+ "renderer_version": "render_pmu_maps (client-exact, 2026-08-30)",
+ "generated": "2026-08-30T14:54:45+00:00",
+ "source": {
+  "file": "Map-s527.dat",
+  "path": "/home/user/skyhacks/pmu_dataseed/Map-s527.dat",
+  "bytes": 35263,
+  "sha1": "6491f2a8850a7613c75dc2661d2e0977c25a122e",
+  "sha256": "a8d06d6d4ede9e46912da3a316419e5fac3ee2b90d8c1927fb24a18454cbb4de"
+ },
+ "tiles_archives_sha1": {
+  "0": "28a617d473fe7b38861dbf2036b1f130604f1c48",
+  "1": "1fb48bc0b55eeb8e148add463ed24241311a1ee0",
+  "2": "46af3b53978e12d3772b6d1a9af09643b6fe277c",
+  "3": "aaefe398df1ec6faf61b534e39c96a1511a34b2c",
+  "4": "5fa12151b24bfec5ce01c4f912a9a845c8004a45",
+  "5": "4a6f305ae6dfca6e8b6f169e9f8163ce9d56dc3f",
+  "6": "2e133606ade614ced8697748584b5b089b0bb023",
+  "7": "7589f3b2929cfaccafe688940acf00e2502eefe4",
+  "8": "0acca1ff00bdcff3b84a3dd429317fa029651c33",
+  "9": "9b050694d38bdfb04ec283e655ca1f0fcd873a1f",
+  "10": "05583e4ad685b7d7bf14fa75ce28d51f9e0b9a32"
+ },
+ "pmu": {
+  "name": "Eevee Garden's",
+  "version": "V9",
+  "revision": 27,
+  "dims_tiles": [
+   20,
+   25
+  ],
+  "tile_count": 500,
+  "music": "PMD2) Unused 2.mp3"
+ },
+ "render": {
+  "png": "render.png",
+  "png_sha256": "2f3d046e5d4a66fedb2e12923344e8418e681685d3e6dcc7cd196e737d5a2a09",
+  "tile_size": 32,
+  "pixel_size": [
+   640,
+   800
+  ],
+  "layers_drawn": {
+   "PMU Ground": 346,
+   "PMU Mask": 264,
+   "PMU Mask2": 104,
+   "PMU Fringe": 37,
+   "PMU Fringe2": 0
+  },
+  "fallback_count": 1,
+  "fallback_coords": [
+   [
+    14,
+    16,
+    1,
+    "fallback0",
+    0,
+    2750
+   ]
+  ]
+ },
+ "transparency": {
+  "transparent_px": 0,
+  "opaque_px": 512000,
+  "partial_alpha_px": 0
+ },
+ "validation": {
+  "determinism_2run": "identical",
+  "scaling_applied": false,
+  "cropping_applied": false,
+  "result": "PASS"
+ }
+}

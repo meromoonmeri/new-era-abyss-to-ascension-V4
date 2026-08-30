@@ -1,0 +1,67 @@
+{
+ "schema": "new-era.pmu-render.v1",
+ "map_id": "s1981",
+ "pipeline_version": "1.1.0",
+ "renderer_version": "render_pmu_maps (client-exact, 2026-08-30)",
+ "generated": "2026-08-30T14:52:48+00:00",
+ "source": {
+  "file": "Map-s1981.dat",
+  "path": "/home/user/skyhacks/pmu_dataseed/Map-s1981.dat",
+  "bytes": 175587,
+  "sha1": "097e72f46d0cfdcd26836e45139af39163a7b582",
+  "sha256": "3eb654d68d0cb38820403d94eba2a229ea7a6b3e40b7cca850c955a9a33c2752"
+ },
+ "tiles_archives_sha1": {
+  "0": "28a617d473fe7b38861dbf2036b1f130604f1c48",
+  "1": "1fb48bc0b55eeb8e148add463ed24241311a1ee0",
+  "2": "46af3b53978e12d3772b6d1a9af09643b6fe277c",
+  "3": "aaefe398df1ec6faf61b534e39c96a1511a34b2c",
+  "4": "5fa12151b24bfec5ce01c4f912a9a845c8004a45",
+  "5": "4a6f305ae6dfca6e8b6f169e9f8163ce9d56dc3f",
+  "6": "2e133606ade614ced8697748584b5b089b0bb023",
+  "7": "7589f3b2929cfaccafe688940acf00e2502eefe4",
+  "8": "0acca1ff00bdcff3b84a3dd429317fa029651c33",
+  "9": "9b050694d38bdfb04ec283e655ca1f0fcd873a1f",
+  "10": "05583e4ad685b7d7bf14fa75ce28d51f9e0b9a32"
+ },
+ "pmu": {
+  "name": "Winden Range",
+  "version": "V9",
+  "revision": 56,
+  "dims_tiles": [
+   51,
+   51
+  ],
+  "tile_count": 2601,
+  "music": ""
+ },
+ "render": {
+  "png": "render.png",
+  "png_sha256": "92aebec2e4fa1be62040427217ebf25637d4f53998e8e3dfa84baccdea2b6c9f",
+  "tile_size": 32,
+  "pixel_size": [
+   1632,
+   1632
+  ],
+  "layers_drawn": {
+   "PMU Ground": 2514,
+   "PMU Mask": 777,
+   "PMU Mask2": 7,
+   "PMU Fringe": 215,
+   "PMU Fringe2": 0
+  },
+  "fallback_count": 0,
+  "fallback_coords": []
+ },
+ "transparency": {
+  "transparent_px": 0,
+  "opaque_px": 2663424,
+  "partial_alpha_px": 0
+ },
+ "validation": {
+  "determinism_2run": "identical",
+  "scaling_applied": false,
+  "cropping_applied": false,
+  "result": "PASS"
+ }
+}

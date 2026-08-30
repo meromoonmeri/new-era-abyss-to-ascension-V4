@@ -1,0 +1,67 @@
+{
+ "schema": "new-era.pmu-render.v1",
+ "map_id": "s1825",
+ "pipeline_version": "1.1.0",
+ "renderer_version": "render_pmu_maps (client-exact, 2026-08-30)",
+ "generated": "2026-08-30T14:51:05+00:00",
+ "source": {
+  "file": "Map-s1825.dat",
+  "path": "/home/user/skyhacks/pmu_dataseed/Map-s1825.dat",
+  "bytes": 69720,
+  "sha1": "30fb63cc7bcc44ad94e5c24720afc6e67006a2ce",
+  "sha256": "85d203f225128e19a029c4037ec78c0f0c2b9904de63301c4f04269cf9b1e2a4"
+ },
+ "tiles_archives_sha1": {
+  "0": "28a617d473fe7b38861dbf2036b1f130604f1c48",
+  "1": "1fb48bc0b55eeb8e148add463ed24241311a1ee0",
+  "2": "46af3b53978e12d3772b6d1a9af09643b6fe277c",
+  "3": "aaefe398df1ec6faf61b534e39c96a1511a34b2c",
+  "4": "5fa12151b24bfec5ce01c4f912a9a845c8004a45",
+  "5": "4a6f305ae6dfca6e8b6f169e9f8163ce9d56dc3f",
+  "6": "2e133606ade614ced8697748584b5b089b0bb023",
+  "7": "7589f3b2929cfaccafe688940acf00e2502eefe4",
+  "8": "0acca1ff00bdcff3b84a3dd429317fa029651c33",
+  "9": "9b050694d38bdfb04ec283e655ca1f0fcd873a1f",
+  "10": "05583e4ad685b7d7bf14fa75ce28d51f9e0b9a32"
+ },
+ "pmu": {
+  "name": "The Grand Marathon [4th Checkpoint]",
+  "version": "V9",
+  "revision": 23,
+  "dims_tiles": [
+   20,
+   51
+  ],
+  "tile_count": 1020,
+  "music": "PMDB) Sky Tower.ogg"
+ },
+ "render": {
+  "png": "render.png",
+  "png_sha256": "6a68947e8666e1f8a7c09bb14fde35b8c7b3f3258d9d3ec69b5943ed3eb453d4",
+  "tile_size": 32,
+  "pixel_size": [
+   640,
+   1632
+  ],
+  "layers_drawn": {
+   "PMU Ground": 881,
+   "PMU Mask": 548,
+   "PMU Mask2": 172,
+   "PMU Fringe": 138,
+   "PMU Fringe2": 20
+  },
+  "fallback_count": 0,
+  "fallback_coords": []
+ },
+ "transparency": {
+  "transparent_px": 0,
+  "opaque_px": 1044480,
+  "partial_alpha_px": 0
+ },
+ "validation": {
+  "determinism_2run": "identical",
+  "scaling_applied": false,
+  "cropping_applied": false,
+  "result": "PASS"
+ }
+}

@@ -1,0 +1,132 @@
+{
+ "schema": "new-era.pmu-render.v1",
+ "map_id": "s68",
+ "pipeline_version": "1.1.0",
+ "renderer_version": "render_pmu_maps (client-exact, 2026-08-30)",
+ "generated": "2026-08-30T14:55:44+00:00",
+ "source": {
+  "file": "Map-s68.dat",
+  "path": "/home/user/skyhacks/pmu_dataseed/Map-s68.dat",
+  "bytes": 21037,
+  "sha1": "500b65eca25f9df43efc63f7217682cb26caf2b4",
+  "sha256": "ef6f62e18a920f4638a5ea986177081acf952bcbd5cdcc44cde02894d1c30514"
+ },
+ "tiles_archives_sha1": {
+  "0": "28a617d473fe7b38861dbf2036b1f130604f1c48",
+  "1": "1fb48bc0b55eeb8e148add463ed24241311a1ee0",
+  "2": "46af3b53978e12d3772b6d1a9af09643b6fe277c",
+  "3": "aaefe398df1ec6faf61b534e39c96a1511a34b2c",
+  "4": "5fa12151b24bfec5ce01c4f912a9a845c8004a45",
+  "5": "4a6f305ae6dfca6e8b6f169e9f8163ce9d56dc3f",
+  "6": "2e133606ade614ced8697748584b5b089b0bb023",
+  "7": "7589f3b2929cfaccafe688940acf00e2502eefe4",
+  "8": "0acca1ff00bdcff3b84a3dd429317fa029651c33",
+  "9": "9b050694d38bdfb04ec283e655ca1f0fcd873a1f",
+  "10": "05583e4ad685b7d7bf14fa75ce28d51f9e0b9a32"
+ },
+ "pmu": {
+  "name": "Winden Town - Eastern Cliffs",
+  "version": "V9",
+  "revision": 24,
+  "dims_tiles": [
+   20,
+   15
+  ],
+  "tile_count": 300,
+  "music": "DPPt) Route 216 (Midday).mp3"
+ },
+ "render": {
+  "png": "render.png",
+  "png_sha256": "fffe847152a0c10d1d00020aea5072d701091c4825c9909d44b5983f764d31f5",
+  "tile_size": 32,
+  "pixel_size": [
+   640,
+   480
+  ],
+  "layers_drawn": {
+   "PMU Ground": 300,
+   "PMU Mask": 152,
+   "PMU Mask2": 4,
+   "PMU Fringe": 55,
+   "PMU Fringe2": 1
+  },
+  "fallback_count": 8,
+  "fallback_coords": [
+   [
+    8,
+    10,
+    1,
+    "fallback0",
+    0,
+    3967
+   ],
+   [
+    9,
+    14,
+    3,
+    "fallback0",
+    0,
+    4695
+   ],
+   [
+    10,
+    3,
+    1,
+    "fallback0",
+    0,
+    3967
+   ],
+   [
+    10,
+    4,
+    2,
+    "fallback0",
+    0,
+    3967
+   ],
+   [
+    10,
+    14,
+    3,
+    "fallback0",
+    0,
+    4696
+   ],
+   [
+    11,
+    4,
+    1,
+    "fallback0",
+    0,
+    3967
+   ],
+   [
+    11,
+    4,
+    2,
+    "fallback0",
+    0,
+    3967
+   ],
+   [
+    11,
+    5,
+    1,
+    "fallback0",
+    0,
+    3967
+   ]
+  ]
+ },
+ "transparency": {
+  "transparent_px": 0,
+  "opaque_px": 307200,
+  "partial_alpha_px": 0
+ },
+ "validation": {
+  "determinism_2run": "identical",
+  "scaling_applied": false,
+  "cropping_applied": false,
+  "result": "PASS"
+ }
+}

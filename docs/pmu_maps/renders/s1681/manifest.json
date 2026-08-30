@@ -1,0 +1,67 @@
+{
+ "schema": "new-era.pmu-render.v1",
+ "map_id": "s1681",
+ "pipeline_version": "1.1.0",
+ "renderer_version": "render_pmu_maps (client-exact, 2026-08-30)",
+ "generated": "2026-08-30T14:49:48+00:00",
+ "source": {
+  "file": "Map-s1681.dat",
+  "path": "/home/user/skyhacks/pmu_dataseed/Map-s1681.dat",
+  "bytes": 169263,
+  "sha1": "2b195e8f0876df71227d245b66fe594689faf9b3",
+  "sha256": "5a90bae789aa99f4c658672cfc146f4a7fa140339a53fb366e474998327b7b3c"
+ },
+ "tiles_archives_sha1": {
+  "0": "28a617d473fe7b38861dbf2036b1f130604f1c48",
+  "1": "1fb48bc0b55eeb8e148add463ed24241311a1ee0",
+  "2": "46af3b53978e12d3772b6d1a9af09643b6fe277c",
+  "3": "aaefe398df1ec6faf61b534e39c96a1511a34b2c",
+  "4": "5fa12151b24bfec5ce01c4f912a9a845c8004a45",
+  "5": "4a6f305ae6dfca6e8b6f169e9f8163ce9d56dc3f",
+  "6": "2e133606ade614ced8697748584b5b089b0bb023",
+  "7": "7589f3b2929cfaccafe688940acf00e2502eefe4",
+  "8": "0acca1ff00bdcff3b84a3dd429317fa029651c33",
+  "9": "9b050694d38bdfb04ec283e655ca1f0fcd873a1f",
+  "10": "05583e4ad685b7d7bf14fa75ce28d51f9e0b9a32"
+ },
+ "pmu": {
+  "name": "Capture the Flag Blue Side (Dausk Version)",
+  "version": "V9",
+  "revision": 17,
+  "dims_tiles": [
+   50,
+   50
+  ],
+  "tile_count": 2500,
+  "music": "Anime) Enter the Aqua Gang!.ogg"
+ },
+ "render": {
+  "png": "render.png",
+  "png_sha256": "cc74b598f8bd6e52c648d83726fb6197d5167dd107536bafdfbea342e131dc68",
+  "tile_size": 32,
+  "pixel_size": [
+   1600,
+   1600
+  ],
+  "layers_drawn": {
+   "PMU Ground": 2500,
+   "PMU Mask": 1170,
+   "PMU Mask2": 4,
+   "PMU Fringe": 0,
+   "PMU Fringe2": 0
+  },
+  "fallback_count": 0,
+  "fallback_coords": []
+ },
+ "transparency": {
+  "transparent_px": 0,
+  "opaque_px": 2560000,
+  "partial_alpha_px": 0
+ },
+ "validation": {
+  "determinism_2run": "identical",
+  "scaling_applied": false,
+  "cropping_applied": false,
+  "result": "PASS"
+ }
+}

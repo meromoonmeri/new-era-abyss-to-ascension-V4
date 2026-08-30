@@ -1,0 +1,84 @@
+{
+ "schema": "new-era.pmu-render.v1",
+ "map_id": "s739",
+ "pipeline_version": "1.1.0",
+ "renderer_version": "render_pmu_maps (client-exact, 2026-08-30)",
+ "generated": "2026-08-30T14:56:01+00:00",
+ "source": {
+  "file": "Map-s739.dat",
+  "path": "/home/user/skyhacks/pmu_dataseed/Map-s739.dat",
+  "bytes": 47463,
+  "sha1": "b26a1947487eaffd03ae3c88a8deaa870241039b",
+  "sha256": "5053faf7bb2e41d1f5687645b0fc943aef9cb4bb4021e570dca44b55c4b02e35"
+ },
+ "tiles_archives_sha1": {
+  "0": "28a617d473fe7b38861dbf2036b1f130604f1c48",
+  "1": "1fb48bc0b55eeb8e148add463ed24241311a1ee0",
+  "2": "46af3b53978e12d3772b6d1a9af09643b6fe277c",
+  "3": "aaefe398df1ec6faf61b534e39c96a1511a34b2c",
+  "4": "5fa12151b24bfec5ce01c4f912a9a845c8004a45",
+  "5": "4a6f305ae6dfca6e8b6f169e9f8163ce9d56dc3f",
+  "6": "2e133606ade614ced8697748584b5b089b0bb023",
+  "7": "7589f3b2929cfaccafe688940acf00e2502eefe4",
+  "8": "0acca1ff00bdcff3b84a3dd429317fa029651c33",
+  "9": "9b050694d38bdfb04ec283e655ca1f0fcd873a1f",
+  "10": "05583e4ad685b7d7bf14fa75ce28d51f9e0b9a32"
+ },
+ "pmu": {
+  "name": "Hallowed Woods",
+  "version": "V9",
+  "revision": 41,
+  "dims_tiles": [
+   21,
+   31
+  ],
+  "tile_count": 651,
+  "music": "PMD2) Dusk Forest.mp3"
+ },
+ "render": {
+  "png": "render.png",
+  "png_sha256": "6f0336017acd8386302bde806ace9f687286cc86216fd64a779070ec0fd34b9e",
+  "tile_size": 32,
+  "pixel_size": [
+   672,
+   992
+  ],
+  "layers_drawn": {
+   "PMU Ground": 651,
+   "PMU Mask": 391,
+   "PMU Mask2": 110,
+   "PMU Fringe": 282,
+   "PMU Fringe2": 258
+  },
+  "fallback_count": 2,
+  "fallback_coords": [
+   [
+    2,
+    2,
+    2,
+    "fallback0",
+    0,
+    3491
+   ],
+   [
+    3,
+    3,
+    2,
+    "fallback0",
+    0,
+    3491
+   ]
+  ]
+ },
+ "transparency": {
+  "transparent_px": 0,
+  "opaque_px": 666624,
+  "partial_alpha_px": 0
+ },
+ "validation": {
+  "determinism_2run": "identical",
+  "scaling_applied": false,
+  "cropping_applied": false,
+  "result": "PASS"
+ }
+}

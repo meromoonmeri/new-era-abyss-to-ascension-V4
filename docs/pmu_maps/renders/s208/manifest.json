@@ -1,0 +1,196 @@
+{
+ "schema": "new-era.pmu-render.v1",
+ "map_id": "s208",
+ "pipeline_version": "1.1.0",
+ "renderer_version": "render_pmu_maps (client-exact, 2026-08-30)",
+ "generated": "2026-08-30T14:53:05+00:00",
+ "source": {
+  "file": "Map-s208.dat",
+  "path": "/home/user/skyhacks/pmu_dataseed/Map-s208.dat",
+  "bytes": 20325,
+  "sha1": "b1a0c228100b077fc4ca3e56c25728a1348730f9",
+  "sha256": "6ebb6c08e5f472f41151bc30e293328bbd27f0e728208222eee6aefdfa7f3f21"
+ },
+ "tiles_archives_sha1": {
+  "0": "28a617d473fe7b38861dbf2036b1f130604f1c48",
+  "1": "1fb48bc0b55eeb8e148add463ed24241311a1ee0",
+  "2": "46af3b53978e12d3772b6d1a9af09643b6fe277c",
+  "3": "aaefe398df1ec6faf61b534e39c96a1511a34b2c",
+  "4": "5fa12151b24bfec5ce01c4f912a9a845c8004a45",
+  "5": "4a6f305ae6dfca6e8b6f169e9f8163ce9d56dc3f",
+  "6": "2e133606ade614ced8697748584b5b089b0bb023",
+  "7": "7589f3b2929cfaccafe688940acf00e2502eefe4",
+  "8": "0acca1ff00bdcff3b84a3dd429317fa029651c33",
+  "9": "9b050694d38bdfb04ec283e655ca1f0fcd873a1f",
+  "10": "05583e4ad685b7d7bf14fa75ce28d51f9e0b9a32"
+ },
+ "pmu": {
+  "name": "Pkmn_Knight's LightChamber",
+  "version": "V9",
+  "revision": 9,
+  "dims_tiles": [
+   20,
+   15
+  ],
+  "tile_count": 300,
+  "music": "Pkmrs_103.mid"
+ },
+ "render": {
+  "png": "render.png",
+  "png_sha256": "39e030b61e3e42ef432f76d6c3f658dab19610263fdfa8000f8d1486014cd127",
+  "tile_size": 32,
+  "pixel_size": [
+   640,
+   480
+  ],
+  "layers_drawn": {
+   "PMU Ground": 300,
+   "PMU Mask": 91,
+   "PMU Mask2": 41,
+   "PMU Fringe": 4,
+   "PMU Fringe2": 0
+  },
+  "fallback_count": 16,
+  "fallback_coords": [
+   [
+    6,
+    7,
+    2,
+    "fallback0",
+    3,
+    3864
+   ],
+   [
+    7,
+    6,
+    2,
+    "fallback0",
+    3,
+    3850
+   ],
+   [
+    7,
+    8,
+    2,
+    "fallback0",
+    3,
+    3851
+   ],
+   [
+    8,
+    7,
+    2,
+    "fallback0",
+    3,
+    3865
+   ],
+   [
+    8,
+    12,
+    2,
+    "fallback0",
+    3,
+    4134
+   ],
+   [
+    8,
+    13,
+    2,
+    "fallback0",
+    3,
+    4148
+   ],
+   [
+    8,
+    14,
+    2,
+    "fallback0",
+    3,
+    4162
+   ],
+   [
+    9,
+    12,
+    2,
+    "fallback0",
+    3,
+    4135
+   ],
+   [
+    9,
+    13,
+    2,
+    "fallback0",
+    3,
+    4149
+   ],
+   [
+    9,
+    14,
+    2,
+    "fallback0",
+    3,
+    4163
+   ],
+   [
+    14,
+    13,
+    2,
+    "fallback0",
+    3,
+    5546
+   ],
+   [
+    17,
+    6,
+    2,
+    "fallback0",
+    3,
+    3878
+   ],
+   [
+    17,
+    7,
+    2,
+    "fallback0",
+    3,
+    3892
+   ],
+   [
+    18,
+    6,
+    2,
+    "fallback0",
+    3,
+    3879
+   ],
+   [
+    18,
+    7,
+    2,
+    "fallback0",
+    3,
+    3893
+   ],
+   [
+    19,
+    9,
+    2,
+    "fallback0",
+    3,
+    4189
+   ]
+  ]
+ },
+ "transparency": {
+  "transparent_px": 58368,
+  "opaque_px": 248832,
+  "partial_alpha_px": 0
+ },
+ "validation": {
+  "determinism_2run": "identical",
+  "scaling_applied": false,
+  "cropping_applied": false,
+  "result": "PASS"
+ }
+}

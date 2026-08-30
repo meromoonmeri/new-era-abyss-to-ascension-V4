@@ -1,0 +1,100 @@
+{
+ "schema": "new-era.pmu-render.v1",
+ "map_id": "s473",
+ "pipeline_version": "1.1.0",
+ "renderer_version": "render_pmu_maps (client-exact, 2026-08-30)",
+ "generated": "2026-08-30T14:54:31+00:00",
+ "source": {
+  "file": "Map-s473.dat",
+  "path": "/home/user/skyhacks/pmu_dataseed/Map-s473.dat",
+  "bytes": 116151,
+  "sha1": "a0f4fae56e4b549c0c0283cb2b3bbf640703e1b7",
+  "sha256": "b70d512ad3c221cd702c4b2ca9e457e7088dd39184769e694c7cfea45d98ecd9"
+ },
+ "tiles_archives_sha1": {
+  "0": "28a617d473fe7b38861dbf2036b1f130604f1c48",
+  "1": "1fb48bc0b55eeb8e148add463ed24241311a1ee0",
+  "2": "46af3b53978e12d3772b6d1a9af09643b6fe277c",
+  "3": "aaefe398df1ec6faf61b534e39c96a1511a34b2c",
+  "4": "5fa12151b24bfec5ce01c4f912a9a845c8004a45",
+  "5": "4a6f305ae6dfca6e8b6f169e9f8163ce9d56dc3f",
+  "6": "2e133606ade614ced8697748584b5b089b0bb023",
+  "7": "7589f3b2929cfaccafe688940acf00e2502eefe4",
+  "8": "0acca1ff00bdcff3b84a3dd429317fa029651c33",
+  "9": "9b050694d38bdfb04ec283e655ca1f0fcd873a1f",
+  "10": "05583e4ad685b7d7bf14fa75ce28d51f9e0b9a32"
+ },
+ "pmu": {
+  "name": "Change Relay Maze",
+  "version": "V9",
+  "revision": 30,
+  "dims_tiles": [
+   41,
+   41
+  ],
+  "tile_count": 1681,
+  "music": "DPPt) Route201.mid"
+ },
+ "render": {
+  "png": "render.png",
+  "png_sha256": "00d0b35823036837b2ea9f7df3edbb8b4141aa8c6a84ed54ae048b9bfc302126",
+  "tile_size": 32,
+  "pixel_size": [
+   1312,
+   1312
+  ],
+  "layers_drawn": {
+   "PMU Ground": 1681,
+   "PMU Mask": 665,
+   "PMU Mask2": 34,
+   "PMU Fringe": 3,
+   "PMU Fringe2": 0
+  },
+  "fallback_count": 4,
+  "fallback_coords": [
+   [
+    25,
+    11,
+    1,
+    "fallback0",
+    0,
+    5307
+   ],
+   [
+    36,
+    24,
+    0,
+    "fallback0",
+    0,
+    6012
+   ],
+   [
+    37,
+    5,
+    1,
+    "fallback0",
+    0,
+    5144
+   ],
+   [
+    40,
+    5,
+    1,
+    "fallback0",
+    0,
+    5144
+   ]
+  ]
+ },
+ "transparency": {
+  "transparent_px": 218,
+  "opaque_px": 1721126,
+  "partial_alpha_px": 0
+ },
+ "validation": {
+  "determinism_2run": "identical",
+  "scaling_applied": false,
+  "cropping_applied": false,
+  "result": "PASS"
+ }
+}

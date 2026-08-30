@@ -1,0 +1,84 @@
+{
+ "schema": "new-era.pmu-render.v1",
+ "map_id": "s883",
+ "pipeline_version": "1.1.0",
+ "renderer_version": "render_pmu_maps (client-exact, 2026-08-30)",
+ "generated": "2026-08-30T14:56:45+00:00",
+ "source": {
+  "file": "Map-s883.dat",
+  "path": "/home/user/skyhacks/pmu_dataseed/Map-s883.dat",
+  "bytes": 20730,
+  "sha1": "6be280c84893f1a6d20c49a501c262d01c0b72a3",
+  "sha256": "335f0cad009076e6d99420b4da187754801beeaf8a1120793d32bab0bb76bfdb"
+ },
+ "tiles_archives_sha1": {
+  "0": "28a617d473fe7b38861dbf2036b1f130604f1c48",
+  "1": "1fb48bc0b55eeb8e148add463ed24241311a1ee0",
+  "2": "46af3b53978e12d3772b6d1a9af09643b6fe277c",
+  "3": "aaefe398df1ec6faf61b534e39c96a1511a34b2c",
+  "4": "5fa12151b24bfec5ce01c4f912a9a845c8004a45",
+  "5": "4a6f305ae6dfca6e8b6f169e9f8163ce9d56dc3f",
+  "6": "2e133606ade614ced8697748584b5b089b0bb023",
+  "7": "7589f3b2929cfaccafe688940acf00e2502eefe4",
+  "8": "0acca1ff00bdcff3b84a3dd429317fa029651c33",
+  "9": "9b050694d38bdfb04ec283e655ca1f0fcd873a1f",
+  "10": "05583e4ad685b7d7bf14fa75ce28d51f9e0b9a32"
+ },
+ "pmu": {
+  "name": "Archford Town",
+  "version": "V9",
+  "revision": 52,
+  "dims_tiles": [
+   20,
+   15
+  ],
+  "tile_count": 300,
+  "music": "RSE) Lilycove.mid"
+ },
+ "render": {
+  "png": "render.png",
+  "png_sha256": "14354d02d753804ef6312db92aa9ee58607673734630e0bb50a812a2fdcd4ef0",
+  "tile_size": 32,
+  "pixel_size": [
+   640,
+   480
+  ],
+  "layers_drawn": {
+   "PMU Ground": 300,
+   "PMU Mask": 80,
+   "PMU Mask2": 12,
+   "PMU Fringe": 63,
+   "PMU Fringe2": 9
+  },
+  "fallback_count": 2,
+  "fallback_coords": [
+   [
+    0,
+    12,
+    2,
+    "fallback0",
+    0,
+    5669
+   ],
+   [
+    3,
+    4,
+    4,
+    "fallback0",
+    0,
+    5696
+   ]
+  ]
+ },
+ "transparency": {
+  "transparent_px": 0,
+  "opaque_px": 307200,
+  "partial_alpha_px": 0
+ },
+ "validation": {
+  "determinism_2run": "identical",
+  "scaling_applied": false,
+  "cropping_applied": false,
+  "result": "PASS"
+ }
+}

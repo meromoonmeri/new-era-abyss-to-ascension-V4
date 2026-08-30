@@ -1,0 +1,67 @@
+{
+ "schema": "new-era.pmu-render.v1",
+ "map_id": "s1686",
+ "pipeline_version": "1.1.0",
+ "renderer_version": "render_pmu_maps (client-exact, 2026-08-30)",
+ "generated": "2026-08-30T14:49:52+00:00",
+ "source": {
+  "file": "Map-s1686.dat",
+  "path": "/home/user/skyhacks/pmu_dataseed/Map-s1686.dat",
+  "bytes": 177884,
+  "sha1": "fa1d459571882295ec12f09a3f5ca38f755fd269",
+  "sha256": "c8c97cebabcd99747dc40c2406ad59aa11b8f733bc2d9c436d33357349db9384"
+ },
+ "tiles_archives_sha1": {
+  "0": "28a617d473fe7b38861dbf2036b1f130604f1c48",
+  "1": "1fb48bc0b55eeb8e148add463ed24241311a1ee0",
+  "2": "46af3b53978e12d3772b6d1a9af09643b6fe277c",
+  "3": "aaefe398df1ec6faf61b534e39c96a1511a34b2c",
+  "4": "5fa12151b24bfec5ce01c4f912a9a845c8004a45",
+  "5": "4a6f305ae6dfca6e8b6f169e9f8163ce9d56dc3f",
+  "6": "2e133606ade614ced8697748584b5b089b0bb023",
+  "7": "7589f3b2929cfaccafe688940acf00e2502eefe4",
+  "8": "0acca1ff00bdcff3b84a3dd429317fa029651c33",
+  "9": "9b050694d38bdfb04ec283e655ca1f0fcd873a1f",
+  "10": "05583e4ad685b7d7bf14fa75ce28d51f9e0b9a32"
+ },
+ "pmu": {
+  "name": "Exbel Plains",
+  "version": "V9",
+  "revision": 45,
+  "dims_tiles": [
+   51,
+   51
+  ],
+  "tile_count": 2601,
+  "music": "PMD2) In the Future.ogg"
+ },
+ "render": {
+  "png": "render.png",
+  "png_sha256": "7fa839d360ee8d83bba7e81edf78e87fb4e7bc8f2d420d2ecf955ad249e3287b",
+  "tile_size": 32,
+  "pixel_size": [
+   1632,
+   1632
+  ],
+  "layers_drawn": {
+   "PMU Ground": 2601,
+   "PMU Mask": 417,
+   "PMU Mask2": 34,
+   "PMU Fringe": 181,
+   "PMU Fringe2": 12
+  },
+  "fallback_count": 0,
+  "fallback_coords": []
+ },
+ "transparency": {
+  "transparent_px": 19,
+  "opaque_px": 2663405,
+  "partial_alpha_px": 0
+ },
+ "validation": {
+  "determinism_2run": "identical",
+  "scaling_applied": false,
+  "cropping_applied": false,
+  "result": "PASS"
+ }
+}

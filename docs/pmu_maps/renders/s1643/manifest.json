@@ -1,0 +1,67 @@
+{
+ "schema": "new-era.pmu-render.v1",
+ "map_id": "s1643",
+ "pipeline_version": "1.1.0",
+ "renderer_version": "render_pmu_maps (client-exact, 2026-08-30)",
+ "generated": "2026-08-30T14:49:29+00:00",
+ "source": {
+  "file": "Map-s1643.dat",
+  "path": "/home/user/skyhacks/pmu_dataseed/Map-s1643.dat",
+  "bytes": 175112,
+  "sha1": "d1a03e03c9c2dcfd76c67d33c2cccaf0e1a0d093",
+  "sha256": "afb19b2a9c86078c9e89c2e9376f4e68a900ee967d53e36cd779cf121a8fbcf2"
+ },
+ "tiles_archives_sha1": {
+  "0": "28a617d473fe7b38861dbf2036b1f130604f1c48",
+  "1": "1fb48bc0b55eeb8e148add463ed24241311a1ee0",
+  "2": "46af3b53978e12d3772b6d1a9af09643b6fe277c",
+  "3": "aaefe398df1ec6faf61b534e39c96a1511a34b2c",
+  "4": "5fa12151b24bfec5ce01c4f912a9a845c8004a45",
+  "5": "4a6f305ae6dfca6e8b6f169e9f8163ce9d56dc3f",
+  "6": "2e133606ade614ced8697748584b5b089b0bb023",
+  "7": "7589f3b2929cfaccafe688940acf00e2502eefe4",
+  "8": "0acca1ff00bdcff3b84a3dd429317fa029651c33",
+  "9": "9b050694d38bdfb04ec283e655ca1f0fcd873a1f",
+  "10": "05583e4ad685b7d7bf14fa75ce28d51f9e0b9a32"
+ },
+ "pmu": {
+  "name": "Archford, Southwestern Isle",
+  "version": "V9",
+  "revision": 10,
+  "dims_tiles": [
+   51,
+   51
+  ],
+  "tile_count": 2601,
+  "music": "BW2) White Tree Hollow.ogg"
+ },
+ "render": {
+  "png": "render.png",
+  "png_sha256": "4df62416998c3fdaff07ed08b24f44373680c7d3567b71fbd037fc193258ecd1",
+  "tile_size": 32,
+  "pixel_size": [
+   1632,
+   1632
+  ],
+  "layers_drawn": {
+   "PMU Ground": 2601,
+   "PMU Mask": 202,
+   "PMU Mask2": 102,
+   "PMU Fringe": 0,
+   "PMU Fringe2": 0
+  },
+  "fallback_count": 0,
+  "fallback_coords": []
+ },
+ "transparency": {
+  "transparent_px": 0,
+  "opaque_px": 2663424,
+  "partial_alpha_px": 0
+ },
+ "validation": {
+  "determinism_2run": "identical",
+  "scaling_applied": false,
+  "cropping_applied": false,
+  "result": "PASS"
+ }
+}

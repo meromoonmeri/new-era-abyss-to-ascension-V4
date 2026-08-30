@@ -1,0 +1,67 @@
+{
+ "schema": "new-era.pmu-render.v1",
+ "map_id": "s1718",
+ "pipeline_version": "1.1.0",
+ "renderer_version": "render_pmu_maps (client-exact, 2026-08-30)",
+ "generated": "2026-08-30T14:50:09+00:00",
+ "source": {
+  "file": "Map-s1718.dat",
+  "path": "/home/user/skyhacks/pmu_dataseed/Map-s1718.dat",
+  "bytes": 84719,
+  "sha1": "bf399f64b4865fb07fc7cb0fadd37fe8165e44ed",
+  "sha256": "919211c3d0dca9972dca419961430f8a9b6b00383a143d78b055dc98c29c031b"
+ },
+ "tiles_archives_sha1": {
+  "0": "28a617d473fe7b38861dbf2036b1f130604f1c48",
+  "1": "1fb48bc0b55eeb8e148add463ed24241311a1ee0",
+  "2": "46af3b53978e12d3772b6d1a9af09643b6fe277c",
+  "3": "aaefe398df1ec6faf61b534e39c96a1511a34b2c",
+  "4": "5fa12151b24bfec5ce01c4f912a9a845c8004a45",
+  "5": "4a6f305ae6dfca6e8b6f169e9f8163ce9d56dc3f",
+  "6": "2e133606ade614ced8697748584b5b089b0bb023",
+  "7": "7589f3b2929cfaccafe688940acf00e2502eefe4",
+  "8": "0acca1ff00bdcff3b84a3dd429317fa029651c33",
+  "9": "9b050694d38bdfb04ec283e655ca1f0fcd873a1f",
+  "10": "05583e4ad685b7d7bf14fa75ce28d51f9e0b9a32"
+ },
+ "pmu": {
+  "name": "Tanren Arena",
+  "version": "V9",
+  "revision": 222,
+  "dims_tiles": [
+   34,
+   34
+  ],
+  "tile_count": 1156,
+  "music": "BW2) Battle!  Hoenn Trainer.ogg"
+ },
+ "render": {
+  "png": "render.png",
+  "png_sha256": "4c5301e7c28e93e6a863384664897e174bd40320e31cf178be5b475d54d6e7c6",
+  "tile_size": 32,
+  "pixel_size": [
+   1088,
+   1088
+  ],
+  "layers_drawn": {
+   "PMU Ground": 1154,
+   "PMU Mask": 806,
+   "PMU Mask2": 216,
+   "PMU Fringe": 269,
+   "PMU Fringe2": 46
+  },
+  "fallback_count": 0,
+  "fallback_coords": []
+ },
+ "transparency": {
+  "transparent_px": 0,
+  "opaque_px": 1183744,
+  "partial_alpha_px": 0
+ },
+ "validation": {
+  "determinism_2run": "identical",
+  "scaling_applied": false,
+  "cropping_applied": false,
+  "result": "PASS"
+ }
+}

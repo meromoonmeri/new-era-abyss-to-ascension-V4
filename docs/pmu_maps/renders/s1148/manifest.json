@@ -1,0 +1,67 @@
+{
+ "schema": "new-era.pmu-render.v1",
+ "map_id": "s1148",
+ "pipeline_version": "1.1.0",
+ "renderer_version": "render_pmu_maps (client-exact, 2026-08-30)",
+ "generated": "2026-08-30T14:26:39+00:00",
+ "source": {
+  "file": "Map-s1148.dat",
+  "path": "/home/user/skyhacks/pmu_dataseed/Map-s1148.dat",
+  "bytes": 178990,
+  "sha1": "6bda15fe7ef5e3b0fba09ef8197203ba0ca4ba97",
+  "sha256": "95d15634909cf6a24e9ce4bcbc93279aaaac42ac8e25c906e25f43f3db32d7e8"
+ },
+ "tiles_archives_sha1": {
+  "0": "28a617d473fe7b38861dbf2036b1f130604f1c48",
+  "1": "1fb48bc0b55eeb8e148add463ed24241311a1ee0",
+  "2": "46af3b53978e12d3772b6d1a9af09643b6fe277c",
+  "3": "aaefe398df1ec6faf61b534e39c96a1511a34b2c",
+  "4": "5fa12151b24bfec5ce01c4f912a9a845c8004a45",
+  "5": "4a6f305ae6dfca6e8b6f169e9f8163ce9d56dc3f",
+  "6": "2e133606ade614ced8697748584b5b089b0bb023",
+  "7": "7589f3b2929cfaccafe688940acf00e2502eefe4",
+  "8": "0acca1ff00bdcff3b84a3dd429317fa029651c33",
+  "9": "9b050694d38bdfb04ec283e655ca1f0fcd873a1f",
+  "10": "05583e4ad685b7d7bf14fa75ce28d51f9e0b9a32"
+ },
+ "pmu": {
+  "name": "Underwater",
+  "version": "V9",
+  "revision": 70,
+  "dims_tiles": [
+   51,
+   51
+  ],
+  "tile_count": 2601,
+  "music": "PMD3) Infinite Dungeon 1.ogg"
+ },
+ "render": {
+  "png": "render.png",
+  "png_sha256": "a3675da290c78a3d9e70cc30e3000b4e51a018cbf3008ff977b169ccb36acefc",
+  "tile_size": 32,
+  "pixel_size": [
+   1632,
+   1632
+  ],
+  "layers_drawn": {
+   "PMU Ground": 2352,
+   "PMU Mask": 814,
+   "PMU Mask2": 257,
+   "PMU Fringe": 364,
+   "PMU Fringe2": 0
+  },
+  "fallback_count": 0,
+  "fallback_coords": []
+ },
+ "transparency": {
+  "transparent_px": 280229,
+  "opaque_px": 2383195,
+  "partial_alpha_px": 0
+ },
+ "validation": {
+  "determinism_2run": "identical",
+  "scaling_applied": false,
+  "cropping_applied": false,
+  "result": "PASS"
+ }
+}

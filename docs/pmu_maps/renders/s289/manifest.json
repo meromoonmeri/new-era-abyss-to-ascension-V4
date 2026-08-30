@@ -1,0 +1,92 @@
+{
+ "schema": "new-era.pmu-render.v1",
+ "map_id": "s289",
+ "pipeline_version": "1.1.0",
+ "renderer_version": "render_pmu_maps (client-exact, 2026-08-30)",
+ "generated": "2026-08-30T14:53:21+00:00",
+ "source": {
+  "file": "Map-s289.dat",
+  "path": "/home/user/skyhacks/pmu_dataseed/Map-s289.dat",
+  "bytes": 65962,
+  "sha1": "f6d827f32044b96877d55333a8423b2d05105747",
+  "sha256": "f308429a1be4adfc9ceeac32a2df26954b99ab9acc26f8a2a20807c0842a20ae"
+ },
+ "tiles_archives_sha1": {
+  "0": "28a617d473fe7b38861dbf2036b1f130604f1c48",
+  "1": "1fb48bc0b55eeb8e148add463ed24241311a1ee0",
+  "2": "46af3b53978e12d3772b6d1a9af09643b6fe277c",
+  "3": "aaefe398df1ec6faf61b534e39c96a1511a34b2c",
+  "4": "5fa12151b24bfec5ce01c4f912a9a845c8004a45",
+  "5": "4a6f305ae6dfca6e8b6f169e9f8163ce9d56dc3f",
+  "6": "2e133606ade614ced8697748584b5b089b0bb023",
+  "7": "7589f3b2929cfaccafe688940acf00e2502eefe4",
+  "8": "0acca1ff00bdcff3b84a3dd429317fa029651c33",
+  "9": "9b050694d38bdfb04ec283e655ca1f0fcd873a1f",
+  "10": "05583e4ad685b7d7bf14fa75ce28d51f9e0b9a32"
+ },
+ "pmu": {
+  "name": "Pok? Town Housing District",
+  "version": "V9",
+  "revision": 270,
+  "dims_tiles": [
+   20,
+   46
+  ],
+  "tile_count": 920,
+  "music": "PMD) Rescue Team Base.mp3"
+ },
+ "render": {
+  "png": "render.png",
+  "png_sha256": "38769f3294576286dd5ebf2160e7b46bd931ba9812ea899616b71467606ef1da",
+  "tile_size": 32,
+  "pixel_size": [
+   640,
+   1472
+  ],
+  "layers_drawn": {
+   "PMU Ground": 920,
+   "PMU Mask": 548,
+   "PMU Mask2": 51,
+   "PMU Fringe": 306,
+   "PMU Fringe2": 131
+  },
+  "fallback_count": 3,
+  "fallback_coords": [
+   [
+    4,
+    26,
+    3,
+    "fallback0",
+    0,
+    3179
+   ],
+   [
+    15,
+    0,
+    1,
+    "fallback0",
+    0,
+    3368
+   ],
+   [
+    19,
+    20,
+    0,
+    "fallback0",
+    0,
+    4371
+   ]
+  ]
+ },
+ "transparency": {
+  "transparent_px": 16,
+  "opaque_px": 942064,
+  "partial_alpha_px": 0
+ },
+ "validation": {
+  "determinism_2run": "identical",
+  "scaling_applied": false,
+  "cropping_applied": false,
+  "result": "PASS"
+ }
+}

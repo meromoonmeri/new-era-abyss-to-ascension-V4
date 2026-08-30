@@ -1,0 +1,67 @@
+{
+ "schema": "new-era.pmu-render.v1",
+ "map_id": "s1231",
+ "pipeline_version": "1.1.0",
+ "renderer_version": "render_pmu_maps (client-exact, 2026-08-30)",
+ "generated": "2026-08-30T14:27:32+00:00",
+ "source": {
+  "file": "Map-s1231.dat",
+  "path": "/home/user/skyhacks/pmu_dataseed/Map-s1231.dat",
+  "bytes": 176849,
+  "sha1": "ab197441ec55008d46e0e8e408bab3a3f7b63e18",
+  "sha256": "78c4bd593120d6725af1b58de9fb194e06fc4bca8a4ae43110e4c7bc7ac2bf6c"
+ },
+ "tiles_archives_sha1": {
+  "0": "28a617d473fe7b38861dbf2036b1f130604f1c48",
+  "1": "1fb48bc0b55eeb8e148add463ed24241311a1ee0",
+  "2": "46af3b53978e12d3772b6d1a9af09643b6fe277c",
+  "3": "aaefe398df1ec6faf61b534e39c96a1511a34b2c",
+  "4": "5fa12151b24bfec5ce01c4f912a9a845c8004a45",
+  "5": "4a6f305ae6dfca6e8b6f169e9f8163ce9d56dc3f",
+  "6": "2e133606ade614ced8697748584b5b089b0bb023",
+  "7": "7589f3b2929cfaccafe688940acf00e2502eefe4",
+  "8": "0acca1ff00bdcff3b84a3dd429317fa029651c33",
+  "9": "9b050694d38bdfb04ec283e655ca1f0fcd873a1f",
+  "10": "05583e4ad685b7d7bf14fa75ce28d51f9e0b9a32"
+ },
+ "pmu": {
+  "name": "Exbel Coast",
+  "version": "V9",
+  "revision": 98,
+  "dims_tiles": [
+   51,
+   51
+  ],
+  "tile_count": 2601,
+  "music": "PMDB) Friend Area ~ Pond.ogg"
+ },
+ "render": {
+  "png": "render.png",
+  "png_sha256": "811dfd947ad5bd2f760a26425b4bfc68bccfeb263bd5fed35c86b6c69cea95a0",
+  "tile_size": 32,
+  "pixel_size": [
+   1632,
+   1632
+  ],
+  "layers_drawn": {
+   "PMU Ground": 2515,
+   "PMU Mask": 1112,
+   "PMU Mask2": 171,
+   "PMU Fringe": 352,
+   "PMU Fringe2": 6
+  },
+  "fallback_count": 0,
+  "fallback_coords": []
+ },
+ "transparency": {
+  "transparent_px": 0,
+  "opaque_px": 2663424,
+  "partial_alpha_px": 0
+ },
+ "validation": {
+  "determinism_2run": "identical",
+  "scaling_applied": false,
+  "cropping_applied": false,
+  "result": "PASS"
+ }
+}

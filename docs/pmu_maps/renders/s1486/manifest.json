@@ -1,0 +1,67 @@
+{
+ "schema": "new-era.pmu-render.v1",
+ "map_id": "s1486",
+ "pipeline_version": "1.1.0",
+ "renderer_version": "render_pmu_maps (client-exact, 2026-08-30)",
+ "generated": "2026-08-30T14:48:06+00:00",
+ "source": {
+  "file": "Map-s1486.dat",
+  "path": "/home/user/skyhacks/pmu_dataseed/Map-s1486.dat",
+  "bytes": 20800,
+  "sha1": "505488250f3286a41aa116de375dab58ddf4655a",
+  "sha256": "133fe9e31a97be9ce4c4145a457ff691f38a021e98029d24657be74b42cee0ca"
+ },
+ "tiles_archives_sha1": {
+  "0": "28a617d473fe7b38861dbf2036b1f130604f1c48",
+  "1": "1fb48bc0b55eeb8e148add463ed24241311a1ee0",
+  "2": "46af3b53978e12d3772b6d1a9af09643b6fe277c",
+  "3": "aaefe398df1ec6faf61b534e39c96a1511a34b2c",
+  "4": "5fa12151b24bfec5ce01c4f912a9a845c8004a45",
+  "5": "4a6f305ae6dfca6e8b6f169e9f8163ce9d56dc3f",
+  "6": "2e133606ade614ced8697748584b5b089b0bb023",
+  "7": "7589f3b2929cfaccafe688940acf00e2502eefe4",
+  "8": "0acca1ff00bdcff3b84a3dd429317fa029651c33",
+  "9": "9b050694d38bdfb04ec283e655ca1f0fcd873a1f",
+  "10": "05583e4ad685b7d7bf14fa75ce28d51f9e0b9a32"
+ },
+ "pmu": {
+  "name": "Dragonfire backyard",
+  "version": "V9",
+  "revision": 65,
+  "dims_tiles": [
+   20,
+   15
+  ],
+  "tile_count": 300,
+  "music": "PMD) Run Away.mp3"
+ },
+ "render": {
+  "png": "render.png",
+  "png_sha256": "0be7a982cb4b1fad80b3828bbf93b1d61cc6db2b647e754aa24d9c43c711104b",
+  "tile_size": 32,
+  "pixel_size": [
+   640,
+   480
+  ],
+  "layers_drawn": {
+   "PMU Ground": 299,
+   "PMU Mask": 119,
+   "PMU Mask2": 143,
+   "PMU Fringe": 91,
+   "PMU Fringe2": 55
+  },
+  "fallback_count": 0,
+  "fallback_coords": []
+ },
+ "transparency": {
+  "transparent_px": 4,
+  "opaque_px": 307196,
+  "partial_alpha_px": 0
+ },
+ "validation": {
+  "determinism_2run": "identical",
+  "scaling_applied": false,
+  "cropping_applied": false,
+  "result": "PASS"
+ }
+}

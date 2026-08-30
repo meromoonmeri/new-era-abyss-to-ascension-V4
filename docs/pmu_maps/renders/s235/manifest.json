@@ -1,0 +1,92 @@
+{
+ "schema": "new-era.pmu-render.v1",
+ "map_id": "s235",
+ "pipeline_version": "1.1.0",
+ "renderer_version": "render_pmu_maps (client-exact, 2026-08-30)",
+ "generated": "2026-08-30T14:53:08+00:00",
+ "source": {
+  "file": "Map-s235.dat",
+  "path": "/home/user/skyhacks/pmu_dataseed/Map-s235.dat",
+  "bytes": 20125,
+  "sha1": "40e7d3412412a9e8e452ae757a6d913486719443",
+  "sha256": "9c1f2efec5eab0a4d0baa39f05a75ba90b4321cd23b8f99b92ec7790dbbd97c1"
+ },
+ "tiles_archives_sha1": {
+  "0": "28a617d473fe7b38861dbf2036b1f130604f1c48",
+  "1": "1fb48bc0b55eeb8e148add463ed24241311a1ee0",
+  "2": "46af3b53978e12d3772b6d1a9af09643b6fe277c",
+  "3": "aaefe398df1ec6faf61b534e39c96a1511a34b2c",
+  "4": "5fa12151b24bfec5ce01c4f912a9a845c8004a45",
+  "5": "4a6f305ae6dfca6e8b6f169e9f8163ce9d56dc3f",
+  "6": "2e133606ade614ced8697748584b5b089b0bb023",
+  "7": "7589f3b2929cfaccafe688940acf00e2502eefe4",
+  "8": "0acca1ff00bdcff3b84a3dd429317fa029651c33",
+  "9": "9b050694d38bdfb04ec283e655ca1f0fcd873a1f",
+  "10": "05583e4ad685b7d7bf14fa75ce28d51f9e0b9a32"
+ },
+ "pmu": {
+  "name": "Elitia's house/garden",
+  "version": "V9",
+  "revision": 15,
+  "dims_tiles": [
+   20,
+   15
+  ],
+  "tile_count": 300,
+  "music": "The Dark World Ssbb.mid"
+ },
+ "render": {
+  "png": "render.png",
+  "png_sha256": "1480e54b6a3eb20da045bcf50403a17736c87e8895196eabcdfa9f473f8e8cf6",
+  "tile_size": 32,
+  "pixel_size": [
+   640,
+   480
+  ],
+  "layers_drawn": {
+   "PMU Ground": 300,
+   "PMU Mask": 229,
+   "PMU Mask2": 6,
+   "PMU Fringe": 20,
+   "PMU Fringe2": 2
+  },
+  "fallback_count": 3,
+  "fallback_coords": [
+   [
+    1,
+    2,
+    1,
+    "fallback0",
+    3,
+    4386
+   ],
+   [
+    1,
+    3,
+    1,
+    "fallback0",
+    3,
+    4400
+   ],
+   [
+    1,
+    4,
+    1,
+    "fallback0",
+    3,
+    4414
+   ]
+  ]
+ },
+ "transparency": {
+  "transparent_px": 0,
+  "opaque_px": 307200,
+  "partial_alpha_px": 0
+ },
+ "validation": {
+  "determinism_2run": "identical",
+  "scaling_applied": false,
+  "cropping_applied": false,
+  "result": "PASS"
+ }
+}

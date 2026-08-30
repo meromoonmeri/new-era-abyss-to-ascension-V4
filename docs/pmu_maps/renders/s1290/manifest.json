@@ -1,0 +1,67 @@
+{
+ "schema": "new-era.pmu-render.v1",
+ "map_id": "s1290",
+ "pipeline_version": "1.1.0",
+ "renderer_version": "render_pmu_maps (client-exact, 2026-08-30)",
+ "generated": "2026-08-30T14:28:08+00:00",
+ "source": {
+  "file": "Map-s1290.dat",
+  "path": "/home/user/skyhacks/pmu_dataseed/Map-s1290.dat",
+  "bytes": 86684,
+  "sha1": "5d57ebf12a5dfc1c480c37051d4cec3c3c2714e0",
+  "sha256": "7cf4e7a5cb0ba3a52959a12ed3d63d2669197c069c6ac977ac599b878d65dcbc"
+ },
+ "tiles_archives_sha1": {
+  "0": "28a617d473fe7b38861dbf2036b1f130604f1c48",
+  "1": "1fb48bc0b55eeb8e148add463ed24241311a1ee0",
+  "2": "46af3b53978e12d3772b6d1a9af09643b6fe277c",
+  "3": "aaefe398df1ec6faf61b534e39c96a1511a34b2c",
+  "4": "5fa12151b24bfec5ce01c4f912a9a845c8004a45",
+  "5": "4a6f305ae6dfca6e8b6f169e9f8163ce9d56dc3f",
+  "6": "2e133606ade614ced8697748584b5b089b0bb023",
+  "7": "7589f3b2929cfaccafe688940acf00e2502eefe4",
+  "8": "0acca1ff00bdcff3b84a3dd429317fa029651c33",
+  "9": "9b050694d38bdfb04ec283e655ca1f0fcd873a1f",
+  "10": "05583e4ad685b7d7bf14fa75ce28d51f9e0b9a32"
+ },
+ "pmu": {
+  "name": "Mt.Barricade Cliffs",
+  "version": "V9",
+  "revision": 30,
+  "dims_tiles": [
+   31,
+   41
+  ],
+  "tile_count": 1271,
+  "music": "PMD) Mt. Blaze.ogg"
+ },
+ "render": {
+  "png": "render.png",
+  "png_sha256": "3bf31dee6ada6faebe31c3af0ff59aa862c0b089c6f3b001a7c2d302051f7e02",
+  "tile_size": 32,
+  "pixel_size": [
+   992,
+   1312
+  ],
+  "layers_drawn": {
+   "PMU Ground": 1271,
+   "PMU Mask": 911,
+   "PMU Mask2": 63,
+   "PMU Fringe": 0,
+   "PMU Fringe2": 0
+  },
+  "fallback_count": 0,
+  "fallback_coords": []
+ },
+ "transparency": {
+  "transparent_px": 0,
+  "opaque_px": 1301504,
+  "partial_alpha_px": 0
+ },
+ "validation": {
+  "determinism_2run": "identical",
+  "scaling_applied": false,
+  "cropping_applied": false,
+  "result": "PASS"
+ }
+}

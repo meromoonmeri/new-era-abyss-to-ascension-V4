@@ -1,0 +1,84 @@
+{
+ "schema": "new-era.pmu-render.v1",
+ "map_id": "s1508",
+ "pipeline_version": "1.1.0",
+ "renderer_version": "render_pmu_maps (client-exact, 2026-08-30)",
+ "generated": "2026-08-30T14:48:14+00:00",
+ "source": {
+  "file": "Map-s1508.dat",
+  "path": "/home/user/skyhacks/pmu_dataseed/Map-s1508.dat",
+  "bytes": 177028,
+  "sha1": "b0425d09721c1cfe89085d8ebd630ee6ca421bf7",
+  "sha256": "8108c0e1989788572e4244ef7ad97752c9b76d3cb144545e91678f562a0c2130"
+ },
+ "tiles_archives_sha1": {
+  "0": "28a617d473fe7b38861dbf2036b1f130604f1c48",
+  "1": "1fb48bc0b55eeb8e148add463ed24241311a1ee0",
+  "2": "46af3b53978e12d3772b6d1a9af09643b6fe277c",
+  "3": "aaefe398df1ec6faf61b534e39c96a1511a34b2c",
+  "4": "5fa12151b24bfec5ce01c4f912a9a845c8004a45",
+  "5": "4a6f305ae6dfca6e8b6f169e9f8163ce9d56dc3f",
+  "6": "2e133606ade614ced8697748584b5b089b0bb023",
+  "7": "7589f3b2929cfaccafe688940acf00e2502eefe4",
+  "8": "0acca1ff00bdcff3b84a3dd429317fa029651c33",
+  "9": "9b050694d38bdfb04ec283e655ca1f0fcd873a1f",
+  "10": "05583e4ad685b7d7bf14fa75ce28d51f9e0b9a32"
+ },
+ "pmu": {
+  "name": "Winden Pass",
+  "version": "V9",
+  "revision": 39,
+  "dims_tiles": [
+   51,
+   51
+  ],
+  "tile_count": 2601,
+  "music": "DPPt) Route 216 (Midday).mp3"
+ },
+ "render": {
+  "png": "render.png",
+  "png_sha256": "f58e0ad630ee37489c81ac54d00e54f0a0d79d254d12be5764a528d9a58e6106",
+  "tile_size": 32,
+  "pixel_size": [
+   1632,
+   1632
+  ],
+  "layers_drawn": {
+   "PMU Ground": 2600,
+   "PMU Mask": 444,
+   "PMU Mask2": 701,
+   "PMU Fringe": 404,
+   "PMU Fringe2": 11
+  },
+  "fallback_count": 2,
+  "fallback_coords": [
+   [
+    40,
+    5,
+    2,
+    "fallback0",
+    0,
+    3527
+   ],
+   [
+    45,
+    6,
+    2,
+    "fallback0",
+    0,
+    3527
+   ]
+  ]
+ },
+ "transparency": {
+  "transparent_px": 0,
+  "opaque_px": 2663424,
+  "partial_alpha_px": 0
+ },
+ "validation": {
+  "determinism_2run": "identical",
+  "scaling_applied": false,
+  "cropping_applied": false,
+  "result": "PASS"
+ }
+}

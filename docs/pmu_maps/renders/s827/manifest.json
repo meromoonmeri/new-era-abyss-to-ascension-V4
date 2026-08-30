@@ -1,0 +1,420 @@
+{
+ "schema": "new-era.pmu-render.v1",
+ "map_id": "s827",
+ "pipeline_version": "1.1.0",
+ "renderer_version": "render_pmu_maps (client-exact, 2026-08-30)",
+ "generated": "2026-08-30T14:56:30+00:00",
+ "source": {
+  "file": "Map-s827.dat",
+  "path": "/home/user/skyhacks/pmu_dataseed/Map-s827.dat",
+  "bytes": 20774,
+  "sha1": "b9117274ed5e4882239289873d25b3edebe36fbe",
+  "sha256": "958dcf2b2812b39887e1befd6f705acf74c6df344e056d5a8c0c7a0a70637a7f"
+ },
+ "tiles_archives_sha1": {
+  "0": "28a617d473fe7b38861dbf2036b1f130604f1c48",
+  "1": "1fb48bc0b55eeb8e148add463ed24241311a1ee0",
+  "2": "46af3b53978e12d3772b6d1a9af09643b6fe277c",
+  "3": "aaefe398df1ec6faf61b534e39c96a1511a34b2c",
+  "4": "5fa12151b24bfec5ce01c4f912a9a845c8004a45",
+  "5": "4a6f305ae6dfca6e8b6f169e9f8163ce9d56dc3f",
+  "6": "2e133606ade614ced8697748584b5b089b0bb023",
+  "7": "7589f3b2929cfaccafe688940acf00e2502eefe4",
+  "8": "0acca1ff00bdcff3b84a3dd429317fa029651c33",
+  "9": "9b050694d38bdfb04ec283e655ca1f0fcd873a1f",
+  "10": "05583e4ad685b7d7bf14fa75ce28d51f9e0b9a32"
+ },
+ "pmu": {
+  "name": "Haunted House",
+  "version": "V9",
+  "revision": 22,
+  "dims_tiles": [
+   20,
+   15
+  ],
+  "tile_count": 300,
+  "music": "4swords_cavedarkness_zb.mid"
+ },
+ "render": {
+  "png": "render.png",
+  "png_sha256": "7a4438546f4b5a787c69079724ad47f4eaae498f340bc209d2d8e48c4b2e3c17",
+  "tile_size": 32,
+  "pixel_size": [
+   640,
+   480
+  ],
+  "layers_drawn": {
+   "PMU Ground": 226,
+   "PMU Mask": 122,
+   "PMU Mask2": 57,
+   "PMU Fringe": 21,
+   "PMU Fringe2": 4
+  },
+  "fallback_count": 44,
+  "fallback_coords": [
+   [
+    1,
+    7,
+    3,
+    "fallback0",
+    3,
+    6328
+   ],
+   [
+    1,
+    8,
+    1,
+    "fallback0",
+    3,
+    6346
+   ],
+   [
+    2,
+    7,
+    3,
+    "fallback0",
+    3,
+    6329
+   ],
+   [
+    2,
+    8,
+    2,
+    "fallback0",
+    3,
+    6343
+   ],
+   [
+    3,
+    7,
+    3,
+    "fallback0",
+    3,
+    6330
+   ],
+   [
+    3,
+    8,
+    2,
+    "fallback0",
+    3,
+    6344
+   ],
+   [
+    4,
+    7,
+    3,
+    "fallback0",
+    3,
+    6331
+   ],
+   [
+    4,
+    8,
+    2,
+    "fallback0",
+    3,
+    6345
+   ],
+   [
+    5,
+    7,
+    3,
+    "fallback0",
+    3,
+    6332
+   ],
+   [
+    5,
+    8,
+    1,
+    "fallback0",
+    3,
+    6346
+   ],
+   [
+    6,
+    7,
+    3,
+    "fallback0",
+    3,
+    6333
+   ],
+   [
+    6,
+    8,
+    1,
+    "fallback0",
+    3,
+    6346
+   ],
+   [
+    7,
+    0,
+    2,
+    "fallback0",
+    3,
+    6137
+   ],
+   [
+    7,
+    1,
+    2,
+    "fallback0",
+    3,
+    6151
+   ],
+   [
+    7,
+    7,
+    3,
+    "fallback0",
+    3,
+    6334
+   ],
+   [
+    7,
+    8,
+    1,
+    "fallback0",
+    3,
+    6346
+   ],
+   [
+    8,
+    0,
+    2,
+    "fallback0",
+    3,
+    6138
+   ],
+   [
+    8,
+    1,
+    2,
+    "fallback0",
+    3,
+    6152
+   ],
+   [
+    8,
+    7,
+    3,
+    "fallback0",
+    3,
+    6332
+   ],
+   [
+    8,
+    8,
+    1,
+    "fallback0",
+    3,
+    6346
+   ],
+   [
+    9,
+    0,
+    2,
+    "fallback0",
+    3,
+    6095
+   ],
+   [
+    9,
+    1,
+    2,
+    "fallback0",
+    3,
+    6109
+   ],
+   [
+    9,
+    2,
+    2,
+    "fallback0",
+    3,
+    6123
+   ],
+   [
+    9,
+    7,
+    3,
+    "fallback0",
+    3,
+    6332
+   ],
+   [
+    9,
+    8,
+    1,
+    "fallback0",
+    3,
+    6346
+   ],
+   [
+    10,
+    0,
+    2,
+    "fallback0",
+    3,
+    6096
+   ],
+   [
+    10,
+    1,
+    2,
+    "fallback0",
+    3,
+    6110
+   ],
+   [
+    10,
+    2,
+    2,
+    "fallback0",
+    3,
+    6124
+   ],
+   [
+    10,
+    7,
+    3,
+    "fallback0",
+    3,
+    6230
+   ],
+   [
+    10,
+    8,
+    1,
+    "fallback0",
+    3,
+    6244
+   ],
+   [
+    11,
+    0,
+    2,
+    "fallback0",
+    3,
+    6137
+   ],
+   [
+    11,
+    1,
+    2,
+    "fallback0",
+    3,
+    6151
+   ],
+   [
+    11,
+    7,
+    3,
+    "fallback0",
+    3,
+    6230
+   ],
+   [
+    11,
+    8,
+    1,
+    "fallback0",
+    3,
+    6244
+   ],
+   [
+    12,
+    0,
+    2,
+    "fallback0",
+    3,
+    6138
+   ],
+   [
+    12,
+    1,
+    2,
+    "fallback0",
+    3,
+    6152
+   ],
+   [
+    12,
+    7,
+    3,
+    "fallback0",
+    3,
+    6333
+   ],
+   [
+    12,
+    8,
+    1,
+    "fallback0",
+    3,
+    6347
+   ],
+   [
+    13,
+    7,
+    3,
+    "fallback0",
+    3,
+    6334
+   ],
+   [
+    14,
+    7,
+    3,
+    "fallback0",
+    3,
+    6332
+   ],
+   [
+    15,
+    7,
+    3,
+    "fallback0",
+    3,
+    6332
+   ],
+   [
+    16,
+    7,
+    3,
+    "fallback0",
+    3,
+    6332
+   ],
+   [
+    17,
+    7,
+    3,
+    "fallback0",
+    3,
+    6332
+   ],
+   [
+    18,
+    7,
+    3,
+    "fallback0",
+    3,
+    6332
+   ]
+  ]
+ },
+ "transparency": {
+  "transparent_px": 193729,
+  "opaque_px": 113471,
+  "partial_alpha_px": 0
+ },
+ "validation": {
+  "determinism_2run": "identical",
+  "scaling_applied": false,
+  "cropping_applied": false,
+  "result": "PASS"
+ }
+}

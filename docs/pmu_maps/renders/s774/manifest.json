@@ -1,0 +1,67 @@
+{
+ "schema": "new-era.pmu-render.v1",
+ "map_id": "s774",
+ "pipeline_version": "1.1.0",
+ "renderer_version": "render_pmu_maps (client-exact, 2026-08-30)",
+ "generated": "2026-08-30T14:56:11+00:00",
+ "source": {
+  "file": "Map-s774.dat",
+  "path": "/home/user/skyhacks/pmu_dataseed/Map-s774.dat",
+  "bytes": 20743,
+  "sha1": "01702496504ffe69bb4c40483bcdba2f942fec0a",
+  "sha256": "3bc4bcfe2c92176ff5e637626c51a1d5e51cbf05b5cee0599a474b2bc7dcdb5a"
+ },
+ "tiles_archives_sha1": {
+  "0": "28a617d473fe7b38861dbf2036b1f130604f1c48",
+  "1": "1fb48bc0b55eeb8e148add463ed24241311a1ee0",
+  "2": "46af3b53978e12d3772b6d1a9af09643b6fe277c",
+  "3": "aaefe398df1ec6faf61b534e39c96a1511a34b2c",
+  "4": "5fa12151b24bfec5ce01c4f912a9a845c8004a45",
+  "5": "4a6f305ae6dfca6e8b6f169e9f8163ce9d56dc3f",
+  "6": "2e133606ade614ced8697748584b5b089b0bb023",
+  "7": "7589f3b2929cfaccafe688940acf00e2502eefe4",
+  "8": "0acca1ff00bdcff3b84a3dd429317fa029651c33",
+  "9": "9b050694d38bdfb04ec283e655ca1f0fcd873a1f",
+  "10": "05583e4ad685b7d7bf14fa75ce28d51f9e0b9a32"
+ },
+ "pmu": {
+  "name": "Noob Masterz Beach Area",
+  "version": "V9",
+  "revision": 38,
+  "dims_tiles": [
+   20,
+   15
+  ],
+  "tile_count": 300,
+  "music": "Pkmrs-sootopolis.mid"
+ },
+ "render": {
+  "png": "render.png",
+  "png_sha256": "5af708a53a66ce7c15457ac53ba84df9ea14a7b231caa6a51fb63cd9c39ef0ea",
+  "tile_size": 32,
+  "pixel_size": [
+   640,
+   480
+  ],
+  "layers_drawn": {
+   "PMU Ground": 300,
+   "PMU Mask": 104,
+   "PMU Mask2": 3,
+   "PMU Fringe": 57,
+   "PMU Fringe2": 13
+  },
+  "fallback_count": 0,
+  "fallback_coords": []
+ },
+ "transparency": {
+  "transparent_px": 28206,
+  "opaque_px": 278994,
+  "partial_alpha_px": 0
+ },
+ "validation": {
+  "determinism_2run": "identical",
+  "scaling_applied": false,
+  "cropping_applied": false,
+  "result": "PASS"
+ }
+}

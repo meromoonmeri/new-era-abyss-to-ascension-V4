@@ -1,0 +1,67 @@
+{
+ "schema": "new-era.pmu-render.v1",
+ "map_id": "s1407",
+ "pipeline_version": "1.1.0",
+ "renderer_version": "render_pmu_maps (client-exact, 2026-08-30)",
+ "generated": "2026-08-30T14:47:41+00:00",
+ "source": {
+  "file": "Map-s1407.dat",
+  "path": "/home/user/skyhacks/pmu_dataseed/Map-s1407.dat",
+  "bytes": 45961,
+  "sha1": "fe93a236688b1d80feb205551fe5e0ab62f5b333",
+  "sha256": "3cc46312928e5c2ae50aa0e40a30d81c738f0bdddb272feb58538582a5bc5951"
+ },
+ "tiles_archives_sha1": {
+  "0": "28a617d473fe7b38861dbf2036b1f130604f1c48",
+  "1": "1fb48bc0b55eeb8e148add463ed24241311a1ee0",
+  "2": "46af3b53978e12d3772b6d1a9af09643b6fe277c",
+  "3": "aaefe398df1ec6faf61b534e39c96a1511a34b2c",
+  "4": "5fa12151b24bfec5ce01c4f912a9a845c8004a45",
+  "5": "4a6f305ae6dfca6e8b6f169e9f8163ce9d56dc3f",
+  "6": "2e133606ade614ced8697748584b5b089b0bb023",
+  "7": "7589f3b2929cfaccafe688940acf00e2502eefe4",
+  "8": "0acca1ff00bdcff3b84a3dd429317fa029651c33",
+  "9": "9b050694d38bdfb04ec283e655ca1f0fcd873a1f",
+  "10": "05583e4ad685b7d7bf14fa75ce28d51f9e0b9a32"
+ },
+ "pmu": {
+  "name": "Iceberg Adrift 4F",
+  "version": "V9",
+  "revision": 22,
+  "dims_tiles": [
+   26,
+   26
+  ],
+  "tile_count": 676,
+  "music": "PMD2) Great Iceberg.mp3"
+ },
+ "render": {
+  "png": "render.png",
+  "png_sha256": "06c361147b504bca726bf60657995b725482ea2fb3fbed8bdb88321bf379e9d9",
+  "tile_size": 32,
+  "pixel_size": [
+   832,
+   832
+  ],
+  "layers_drawn": {
+   "PMU Ground": 676,
+   "PMU Mask": 359,
+   "PMU Mask2": 0,
+   "PMU Fringe": 4,
+   "PMU Fringe2": 0
+  },
+  "fallback_count": 0,
+  "fallback_coords": []
+ },
+ "transparency": {
+  "transparent_px": 0,
+  "opaque_px": 692224,
+  "partial_alpha_px": 0
+ },
+ "validation": {
+  "determinism_2run": "identical",
+  "scaling_applied": false,
+  "cropping_applied": false,
+  "result": "PASS"
+ }
+}

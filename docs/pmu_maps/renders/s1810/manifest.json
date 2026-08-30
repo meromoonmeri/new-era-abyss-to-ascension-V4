@@ -1,0 +1,204 @@
+{
+ "schema": "new-era.pmu-render.v1",
+ "map_id": "s1810",
+ "pipeline_version": "1.1.0",
+ "renderer_version": "render_pmu_maps (client-exact, 2026-08-30)",
+ "generated": "2026-08-30T14:50:53+00:00",
+ "source": {
+  "file": "Map-s1810.dat",
+  "path": "/home/user/skyhacks/pmu_dataseed/Map-s1810.dat",
+  "bytes": 176935,
+  "sha1": "6435b286220b70298bd2f2087a51a8075b347a3e",
+  "sha256": "e9443d0fbccbaacd9ea4449e80c33b8607de01948538e977d1b9d52c65c956e0"
+ },
+ "tiles_archives_sha1": {
+  "0": "28a617d473fe7b38861dbf2036b1f130604f1c48",
+  "1": "1fb48bc0b55eeb8e148add463ed24241311a1ee0",
+  "2": "46af3b53978e12d3772b6d1a9af09643b6fe277c",
+  "3": "aaefe398df1ec6faf61b534e39c96a1511a34b2c",
+  "4": "5fa12151b24bfec5ce01c4f912a9a845c8004a45",
+  "5": "4a6f305ae6dfca6e8b6f169e9f8163ce9d56dc3f",
+  "6": "2e133606ade614ced8697748584b5b089b0bb023",
+  "7": "7589f3b2929cfaccafe688940acf00e2502eefe4",
+  "8": "0acca1ff00bdcff3b84a3dd429317fa029651c33",
+  "9": "9b050694d38bdfb04ec283e655ca1f0fcd873a1f",
+  "10": "05583e4ad685b7d7bf14fa75ce28d51f9e0b9a32"
+ },
+ "pmu": {
+  "name": "Exbel, Grassroot Town",
+  "version": "V9",
+  "revision": 32,
+  "dims_tiles": [
+   51,
+   51
+  ],
+  "tile_count": 2601,
+  "music": "PMD2) Treasure Town.ogg"
+ },
+ "render": {
+  "png": "render.png",
+  "png_sha256": "d998ac7e06c4e34b55a5525861f42510ce84a1c9dfebfcf45943cbd61fb19817",
+  "tile_size": 32,
+  "pixel_size": [
+   1632,
+   1632
+  ],
+  "layers_drawn": {
+   "PMU Ground": 2598,
+   "PMU Mask": 733,
+   "PMU Mask2": 319,
+   "PMU Fringe": 336,
+   "PMU Fringe2": 78
+  },
+  "fallback_count": 17,
+  "fallback_coords": [
+   [
+    15,
+    21,
+    1,
+    "fallback0",
+    0,
+    3255
+   ],
+   [
+    25,
+    0,
+    1,
+    "fallback0",
+    0,
+    3369
+   ],
+   [
+    25,
+    1,
+    1,
+    "fallback0",
+    0,
+    3383
+   ],
+   [
+    29,
+    33,
+    4,
+    "fallback0",
+    0,
+    3100
+   ],
+   [
+    29,
+    34,
+    4,
+    "fallback0",
+    0,
+    3114
+   ],
+   [
+    30,
+    11,
+    3,
+    "fallback0",
+    0,
+    2744
+   ],
+   [
+    31,
+    11,
+    3,
+    "fallback0",
+    0,
+    2745
+   ],
+   [
+    32,
+    11,
+    3,
+    "fallback0",
+    0,
+    2746
+   ],
+   [
+    32,
+    34,
+    4,
+    "fallback0",
+    0,
+    3115
+   ],
+   [
+    33,
+    9,
+    3,
+    "fallback0",
+    0,
+    2732
+   ],
+   [
+    33,
+    10,
+    3,
+    "fallback0",
+    0,
+    2746
+   ],
+   [
+    33,
+    28,
+    2,
+    "fallback0",
+    0,
+    3369
+   ],
+   [
+    34,
+    7,
+    3,
+    "fallback0",
+    0,
+    2744
+   ],
+   [
+    35,
+    7,
+    3,
+    "fallback0",
+    0,
+    2745
+   ],
+   [
+    36,
+    7,
+    3,
+    "fallback0",
+    0,
+    2746
+   ],
+   [
+    37,
+    7,
+    3,
+    "fallback0",
+    0,
+    2745
+   ],
+   [
+    42,
+    16,
+    1,
+    "fallback0",
+    0,
+    3235
+   ]
+  ]
+ },
+ "transparency": {
+  "transparent_px": 0,
+  "opaque_px": 2663424,
+  "partial_alpha_px": 0
+ },
+ "validation": {
+  "determinism_2run": "identical",
+  "scaling_applied": false,
+  "cropping_applied": false,
+  "result": "PASS"
+ }
+}

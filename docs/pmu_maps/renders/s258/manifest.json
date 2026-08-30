@@ -1,0 +1,100 @@
+{
+ "schema": "new-era.pmu-render.v1",
+ "map_id": "s258",
+ "pipeline_version": "1.1.0",
+ "renderer_version": "render_pmu_maps (client-exact, 2026-08-30)",
+ "generated": "2026-08-30T14:53:14+00:00",
+ "source": {
+  "file": "Map-s258.dat",
+  "path": "/home/user/skyhacks/pmu_dataseed/Map-s258.dat",
+  "bytes": 108929,
+  "sha1": "301e6ed386354342441984efb5f1e9f3ecf74976",
+  "sha256": "75a48cf8df43bf5e1dd7afc6df397747e64decfd1da442e933e42f8345ef170d"
+ },
+ "tiles_archives_sha1": {
+  "0": "28a617d473fe7b38861dbf2036b1f130604f1c48",
+  "1": "1fb48bc0b55eeb8e148add463ed24241311a1ee0",
+  "2": "46af3b53978e12d3772b6d1a9af09643b6fe277c",
+  "3": "aaefe398df1ec6faf61b534e39c96a1511a34b2c",
+  "4": "5fa12151b24bfec5ce01c4f912a9a845c8004a45",
+  "5": "4a6f305ae6dfca6e8b6f169e9f8163ce9d56dc3f",
+  "6": "2e133606ade614ced8697748584b5b089b0bb023",
+  "7": "7589f3b2929cfaccafe688940acf00e2502eefe4",
+  "8": "0acca1ff00bdcff3b84a3dd429317fa029651c33",
+  "9": "9b050694d38bdfb04ec283e655ca1f0fcd873a1f",
+  "10": "05583e4ad685b7d7bf14fa75ce28d51f9e0b9a32"
+ },
+ "pmu": {
+  "name": "Cortek Canyon",
+  "version": "V9",
+  "revision": 74,
+  "dims_tiles": [
+   31,
+   51
+  ],
+  "tile_count": 1581,
+  "music": "PMD2) Northern Desert.mp3"
+ },
+ "render": {
+  "png": "render.png",
+  "png_sha256": "3dd6f161f3cf0668883bc6621603fc56c7b26d96426b32016bbef2a1cb017eb1",
+  "tile_size": 32,
+  "pixel_size": [
+   992,
+   1632
+  ],
+  "layers_drawn": {
+   "PMU Ground": 1571,
+   "PMU Mask": 838,
+   "PMU Mask2": 286,
+   "PMU Fringe": 75,
+   "PMU Fringe2": 8
+  },
+  "fallback_count": 4,
+  "fallback_coords": [
+   [
+    14,
+    43,
+    2,
+    "fallback0",
+    0,
+    2858
+   ],
+   [
+    15,
+    43,
+    2,
+    "fallback0",
+    0,
+    2858
+   ],
+   [
+    16,
+    43,
+    2,
+    "fallback0",
+    0,
+    2859
+   ],
+   [
+    17,
+    44,
+    2,
+    "fallback0",
+    0,
+    2845
+   ]
+  ]
+ },
+ "transparency": {
+  "transparent_px": 179451,
+  "opaque_px": 1439493,
+  "partial_alpha_px": 0
+ },
+ "validation": {
+  "determinism_2run": "identical",
+  "scaling_applied": false,
+  "cropping_applied": false,
+  "result": "PASS"
+ }
+}

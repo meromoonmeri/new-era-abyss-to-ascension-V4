@@ -1,0 +1,324 @@
+{
+ "schema": "new-era.pmu-render.v1",
+ "map_id": "s377",
+ "pipeline_version": "1.1.0",
+ "renderer_version": "render_pmu_maps (client-exact, 2026-08-30)",
+ "generated": "2026-08-30T14:53:54+00:00",
+ "source": {
+  "file": "Map-s377.dat",
+  "path": "/home/user/skyhacks/pmu_dataseed/Map-s377.dat",
+  "bytes": 178774,
+  "sha1": "9108f2e592f0fcb54d97163da53f0154d67e952c",
+  "sha256": "43241ad6baffd8efea718c28844a82d1b6f2b454ba4a98d90d92891b43da763a"
+ },
+ "tiles_archives_sha1": {
+  "0": "28a617d473fe7b38861dbf2036b1f130604f1c48",
+  "1": "1fb48bc0b55eeb8e148add463ed24241311a1ee0",
+  "2": "46af3b53978e12d3772b6d1a9af09643b6fe277c",
+  "3": "aaefe398df1ec6faf61b534e39c96a1511a34b2c",
+  "4": "5fa12151b24bfec5ce01c4f912a9a845c8004a45",
+  "5": "4a6f305ae6dfca6e8b6f169e9f8163ce9d56dc3f",
+  "6": "2e133606ade614ced8697748584b5b089b0bb023",
+  "7": "7589f3b2929cfaccafe688940acf00e2502eefe4",
+  "8": "0acca1ff00bdcff3b84a3dd429317fa029651c33",
+  "9": "9b050694d38bdfb04ec283e655ca1f0fcd873a1f",
+  "10": "05583e4ad685b7d7bf14fa75ce28d51f9e0b9a32"
+ },
+ "pmu": {
+  "name": "Cortek Canyon",
+  "version": "V9",
+  "revision": 70,
+  "dims_tiles": [
+   51,
+   51
+  ],
+  "tile_count": 2601,
+  "music": "PMD) Great Canyon.mp3"
+ },
+ "render": {
+  "png": "render.png",
+  "png_sha256": "364f96f90d059420c9cc64af9ea2367a731ebbc94e42763cbb940b44e0bbd857",
+  "tile_size": 32,
+  "pixel_size": [
+   1632,
+   1632
+  ],
+  "layers_drawn": {
+   "PMU Ground": 2591,
+   "PMU Mask": 1568,
+   "PMU Mask2": 268,
+   "PMU Fringe": 165,
+   "PMU Fringe2": 85
+  },
+  "fallback_count": 32,
+  "fallback_coords": [
+   [
+    30,
+    27,
+    3,
+    "fallback0",
+    0,
+    3794
+   ],
+   [
+    30,
+    28,
+    3,
+    "fallback0",
+    0,
+    3808
+   ],
+   [
+    31,
+    27,
+    3,
+    "fallback0",
+    0,
+    3795
+   ],
+   [
+    31,
+    28,
+    3,
+    "fallback0",
+    0,
+    3809
+   ],
+   [
+    40,
+    25,
+    4,
+    "fallback0",
+    0,
+    2906
+   ],
+   [
+    41,
+    25,
+    4,
+    "fallback0",
+    0,
+    2906
+   ],
+   [
+    41,
+    26,
+    4,
+    "fallback0",
+    0,
+    2906
+   ],
+   [
+    42,
+    26,
+    4,
+    "fallback0",
+    0,
+    2906
+   ],
+   [
+    42,
+    27,
+    4,
+    "fallback0",
+    0,
+    2906
+   ],
+   [
+    42,
+    28,
+    4,
+    "fallback0",
+    0,
+    2906
+   ],
+   [
+    42,
+    29,
+    4,
+    "fallback0",
+    0,
+    2906
+   ],
+   [
+    42,
+    30,
+    4,
+    "fallback0",
+    0,
+    2906
+   ],
+   [
+    42,
+    31,
+    4,
+    "fallback0",
+    0,
+    2906
+   ],
+   [
+    43,
+    25,
+    4,
+    "fallback0",
+    0,
+    2945
+   ],
+   [
+    43,
+    26,
+    4,
+    "fallback0",
+    0,
+    2906
+   ],
+   [
+    43,
+    27,
+    4,
+    "fallback0",
+    0,
+    2906
+   ],
+   [
+    44,
+    19,
+    4,
+    "fallback0",
+    0,
+    2933
+   ],
+   [
+    44,
+    25,
+    4,
+    "fallback0",
+    0,
+    2946
+   ],
+   [
+    44,
+    26,
+    4,
+    "fallback0",
+    0,
+    2960
+   ],
+   [
+    44,
+    27,
+    4,
+    "fallback0",
+    0,
+    2974
+   ],
+   [
+    45,
+    19,
+    4,
+    "fallback0",
+    0,
+    2934
+   ],
+   [
+    45,
+    20,
+    4,
+    "fallback0",
+    0,
+    2948
+   ],
+   [
+    45,
+    21,
+    4,
+    "fallback0",
+    0,
+    2962
+   ],
+   [
+    45,
+    22,
+    4,
+    "fallback0",
+    0,
+    2976
+   ],
+   [
+    45,
+    24,
+    4,
+    "fallback0",
+    0,
+    2933
+   ],
+   [
+    45,
+    25,
+    4,
+    "fallback0",
+    0,
+    2947
+   ],
+   [
+    45,
+    26,
+    4,
+    "fallback0",
+    0,
+    2961
+   ],
+   [
+    45,
+    27,
+    4,
+    "fallback0",
+    0,
+    2975
+   ],
+   [
+    46,
+    24,
+    4,
+    "fallback0",
+    0,
+    2934
+   ],
+   [
+    46,
+    25,
+    4,
+    "fallback0",
+    0,
+    2948
+   ],
+   [
+    46,
+    26,
+    4,
+    "fallback0",
+    0,
+    2962
+   ],
+   [
+    46,
+    27,
+    4,
+    "fallback0",
+    0,
+    2976
+   ]
+  ]
+ },
+ "transparency": {
+  "transparent_px": 141014,
+  "opaque_px": 2522410,
+  "partial_alpha_px": 0
+ },
+ "validation": {
+  "determinism_2run": "identical",
+  "scaling_applied": false,
+  "cropping_applied": false,
+  "result": "PASS"
+ }
+}

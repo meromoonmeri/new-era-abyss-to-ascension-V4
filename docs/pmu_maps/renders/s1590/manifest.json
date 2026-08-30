@@ -1,0 +1,67 @@
+{
+ "schema": "new-era.pmu-render.v1",
+ "map_id": "s1590",
+ "pipeline_version": "1.1.0",
+ "renderer_version": "render_pmu_maps (client-exact, 2026-08-30)",
+ "generated": "2026-08-30T14:48:51+00:00",
+ "source": {
+  "file": "Map-s1590.dat",
+  "path": "/home/user/skyhacks/pmu_dataseed/Map-s1590.dat",
+  "bytes": 37755,
+  "sha1": "87741706e123cc2ec1e9cb708c10b69c71fcfd74",
+  "sha256": "a7d78945117187fb2f3509df00d880aa42f0fcc919ace1cddbc0f9f887535f75"
+ },
+ "tiles_archives_sha1": {
+  "0": "28a617d473fe7b38861dbf2036b1f130604f1c48",
+  "1": "1fb48bc0b55eeb8e148add463ed24241311a1ee0",
+  "2": "46af3b53978e12d3772b6d1a9af09643b6fe277c",
+  "3": "aaefe398df1ec6faf61b534e39c96a1511a34b2c",
+  "4": "5fa12151b24bfec5ce01c4f912a9a845c8004a45",
+  "5": "4a6f305ae6dfca6e8b6f169e9f8163ce9d56dc3f",
+  "6": "2e133606ade614ced8697748584b5b089b0bb023",
+  "7": "7589f3b2929cfaccafe688940acf00e2502eefe4",
+  "8": "0acca1ff00bdcff3b84a3dd429317fa029651c33",
+  "9": "9b050694d38bdfb04ec283e655ca1f0fcd873a1f",
+  "10": "05583e4ad685b7d7bf14fa75ce28d51f9e0b9a32"
+ },
+ "pmu": {
+  "name": "Upper Holiday Cave",
+  "version": "V9",
+  "revision": 28,
+  "dims_tiles": [
+   21,
+   26
+  ],
+  "tile_count": 546,
+  "music": "HgSs) The End.ogg"
+ },
+ "render": {
+  "png": "render.png",
+  "png_sha256": "2d9400f051dc9466923ae58e83d063149514fe599b0856f3c2f74758af15f9e5",
+  "tile_size": 32,
+  "pixel_size": [
+   672,
+   832
+  ],
+  "layers_drawn": {
+   "PMU Ground": 546,
+   "PMU Mask": 254,
+   "PMU Mask2": 3,
+   "PMU Fringe": 0,
+   "PMU Fringe2": 0
+  },
+  "fallback_count": 0,
+  "fallback_coords": []
+ },
+ "transparency": {
+  "transparent_px": 0,
+  "opaque_px": 559104,
+  "partial_alpha_px": 0
+ },
+ "validation": {
+  "determinism_2run": "identical",
+  "scaling_applied": false,
+  "cropping_applied": false,
+  "result": "PASS"
+ }
+}

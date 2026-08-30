@@ -1,0 +1,76 @@
+{
+ "schema": "new-era.pmu-render.v1",
+ "map_id": "s879",
+ "pipeline_version": "1.1.0",
+ "renderer_version": "render_pmu_maps (client-exact, 2026-08-30)",
+ "generated": "2026-08-30T14:56:44+00:00",
+ "source": {
+  "file": "Map-s879.dat",
+  "path": "/home/user/skyhacks/pmu_dataseed/Map-s879.dat",
+  "bytes": 54448,
+  "sha1": "287ff6a25394c8dcc87e04d66be8624aa13a374d",
+  "sha256": "a600939cc230d0eb86edbf27642a29453ffa6a7ac5dcb49792a692894c2e62be"
+ },
+ "tiles_archives_sha1": {
+  "0": "28a617d473fe7b38861dbf2036b1f130604f1c48",
+  "1": "1fb48bc0b55eeb8e148add463ed24241311a1ee0",
+  "2": "46af3b53978e12d3772b6d1a9af09643b6fe277c",
+  "3": "aaefe398df1ec6faf61b534e39c96a1511a34b2c",
+  "4": "5fa12151b24bfec5ce01c4f912a9a845c8004a45",
+  "5": "4a6f305ae6dfca6e8b6f169e9f8163ce9d56dc3f",
+  "6": "2e133606ade614ced8697748584b5b089b0bb023",
+  "7": "7589f3b2929cfaccafe688940acf00e2502eefe4",
+  "8": "0acca1ff00bdcff3b84a3dd429317fa029651c33",
+  "9": "9b050694d38bdfb04ec283e655ca1f0fcd873a1f",
+  "10": "05583e4ad685b7d7bf14fa75ce28d51f9e0b9a32"
+ },
+ "pmu": {
+  "name": "Archford Town Housing District",
+  "version": "V9",
+  "revision": 161,
+  "dims_tiles": [
+   51,
+   15
+  ],
+  "tile_count": 765,
+  "music": "RSE) Verdanturf.mid"
+ },
+ "render": {
+  "png": "render.png",
+  "png_sha256": "30426b894125a92f1fd37e025692cdee0643ee16434ae12351777b383934429b",
+  "tile_size": 32,
+  "pixel_size": [
+   1632,
+   480
+  ],
+  "layers_drawn": {
+   "PMU Ground": 765,
+   "PMU Mask": 138,
+   "PMU Mask2": 54,
+   "PMU Fringe": 147,
+   "PMU Fringe2": 63
+  },
+  "fallback_count": 1,
+  "fallback_coords": [
+   [
+    42,
+    4,
+    3,
+    "fallback0",
+    0,
+    3433
+   ]
+  ]
+ },
+ "transparency": {
+  "transparent_px": 0,
+  "opaque_px": 783360,
+  "partial_alpha_px": 0
+ },
+ "validation": {
+  "determinism_2run": "identical",
+  "scaling_applied": false,
+  "cropping_applied": false,
+  "result": "PASS"
+ }
+}

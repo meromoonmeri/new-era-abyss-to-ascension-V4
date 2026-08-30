@@ -1,0 +1,67 @@
+{
+ "schema": "new-era.pmu-render.v1",
+ "map_id": "s1661",
+ "pipeline_version": "1.1.0",
+ "renderer_version": "render_pmu_maps (client-exact, 2026-08-30)",
+ "generated": "2026-08-30T14:49:41+00:00",
+ "source": {
+  "file": "Map-s1661.dat",
+  "path": "/home/user/skyhacks/pmu_dataseed/Map-s1661.dat",
+  "bytes": 65857,
+  "sha1": "473d20525d8ed4db113bb89ed9dbeeb91e001ef2",
+  "sha256": "8d64e4a2e6a49dcda6ec69b568366d7339b98c17585d40e1832e45093caa4cc8"
+ },
+ "tiles_archives_sha1": {
+  "0": "28a617d473fe7b38861dbf2036b1f130604f1c48",
+  "1": "1fb48bc0b55eeb8e148add463ed24241311a1ee0",
+  "2": "46af3b53978e12d3772b6d1a9af09643b6fe277c",
+  "3": "aaefe398df1ec6faf61b534e39c96a1511a34b2c",
+  "4": "5fa12151b24bfec5ce01c4f912a9a845c8004a45",
+  "5": "4a6f305ae6dfca6e8b6f169e9f8163ce9d56dc3f",
+  "6": "2e133606ade614ced8697748584b5b089b0bb023",
+  "7": "7589f3b2929cfaccafe688940acf00e2502eefe4",
+  "8": "0acca1ff00bdcff3b84a3dd429317fa029651c33",
+  "9": "9b050694d38bdfb04ec283e655ca1f0fcd873a1f",
+  "10": "05583e4ad685b7d7bf14fa75ce28d51f9e0b9a32"
+ },
+ "pmu": {
+  "name": "Team E.B.I.L.'s tower",
+  "version": "V9",
+  "revision": 188,
+  "dims_tiles": [
+   31,
+   31
+  ],
+  "tile_count": 961,
+  "music": "PMD2) Sealed Ruin.mp3"
+ },
+ "render": {
+  "png": "render.png",
+  "png_sha256": "704ad309a3e2327f64e43a945dbcac06d3dadb4a5347a9507890e5e58e85d224",
+  "tile_size": 32,
+  "pixel_size": [
+   992,
+   992
+  ],
+  "layers_drawn": {
+   "PMU Ground": 960,
+   "PMU Mask": 577,
+   "PMU Mask2": 118,
+   "PMU Fringe": 103,
+   "PMU Fringe2": 8
+  },
+  "fallback_count": 0,
+  "fallback_coords": []
+ },
+ "transparency": {
+  "transparent_px": 6,
+  "opaque_px": 984058,
+  "partial_alpha_px": 0
+ },
+ "validation": {
+  "determinism_2run": "identical",
+  "scaling_applied": false,
+  "cropping_applied": false,
+  "result": "PASS"
+ }
+}

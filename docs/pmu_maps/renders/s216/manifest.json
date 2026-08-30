@@ -1,0 +1,76 @@
+{
+ "schema": "new-era.pmu-render.v1",
+ "map_id": "s216",
+ "pipeline_version": "1.1.0",
+ "renderer_version": "render_pmu_maps (client-exact, 2026-08-30)",
+ "generated": "2026-08-30T14:53:06+00:00",
+ "source": {
+  "file": "Map-s216.dat",
+  "path": "/home/user/skyhacks/pmu_dataseed/Map-s216.dat",
+  "bytes": 24053,
+  "sha1": "b255e9441cf78b1fac71fc910e9738c27962966f",
+  "sha256": "970828280ada429b6498219829b8169a0fafc66a43cbe278733c6a75fb07e20e"
+ },
+ "tiles_archives_sha1": {
+  "0": "28a617d473fe7b38861dbf2036b1f130604f1c48",
+  "1": "1fb48bc0b55eeb8e148add463ed24241311a1ee0",
+  "2": "46af3b53978e12d3772b6d1a9af09643b6fe277c",
+  "3": "aaefe398df1ec6faf61b534e39c96a1511a34b2c",
+  "4": "5fa12151b24bfec5ce01c4f912a9a845c8004a45",
+  "5": "4a6f305ae6dfca6e8b6f169e9f8163ce9d56dc3f",
+  "6": "2e133606ade614ced8697748584b5b089b0bb023",
+  "7": "7589f3b2929cfaccafe688940acf00e2502eefe4",
+  "8": "0acca1ff00bdcff3b84a3dd429317fa029651c33",
+  "9": "9b050694d38bdfb04ec283e655ca1f0fcd873a1f",
+  "10": "05583e4ad685b7d7bf14fa75ce28d51f9e0b9a32"
+ },
+ "pmu": {
+  "name": "Kiroshi's House",
+  "version": "V9",
+  "revision": 53,
+  "dims_tiles": [
+   20,
+   15
+  ],
+  "tile_count": 300,
+  "music": "PMD2) Beach Cave.mp3"
+ },
+ "render": {
+  "png": "render.png",
+  "png_sha256": "55100600ce461db055dc94ce90a3b562a3b8972e1714864cb762b362b739e0bc",
+  "tile_size": 32,
+  "pixel_size": [
+   640,
+   480
+  ],
+  "layers_drawn": {
+   "PMU Ground": 287,
+   "PMU Mask": 80,
+   "PMU Mask2": 63,
+   "PMU Fringe": 14,
+   "PMU Fringe2": 60
+  },
+  "fallback_count": 1,
+  "fallback_coords": [
+   [
+    5,
+    8,
+    2,
+    "fallback0",
+    2,
+    3501
+   ]
+  ]
+ },
+ "transparency": {
+  "transparent_px": 12164,
+  "opaque_px": 295036,
+  "partial_alpha_px": 0
+ },
+ "validation": {
+  "determinism_2run": "identical",
+  "scaling_applied": false,
+  "cropping_applied": false,
+  "result": "PASS"
+ }
+}

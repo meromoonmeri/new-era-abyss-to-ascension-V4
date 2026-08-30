@@ -1,0 +1,100 @@
+{
+ "schema": "new-era.pmu-render.v1",
+ "map_id": "s1259",
+ "pipeline_version": "1.1.0",
+ "renderer_version": "render_pmu_maps (client-exact, 2026-08-30)",
+ "generated": "2026-08-30T14:27:48+00:00",
+ "source": {
+  "file": "Map-s1259.dat",
+  "path": "/home/user/skyhacks/pmu_dataseed/Map-s1259.dat",
+  "bytes": 174002,
+  "sha1": "95c61e04ca7da4eee04ead3f377c57063d642479",
+  "sha256": "d6bc8c6c76661123ad3303b018ef61dbc1d8026c5b033a7a7eb3a9c5375db391"
+ },
+ "tiles_archives_sha1": {
+  "0": "28a617d473fe7b38861dbf2036b1f130604f1c48",
+  "1": "1fb48bc0b55eeb8e148add463ed24241311a1ee0",
+  "2": "46af3b53978e12d3772b6d1a9af09643b6fe277c",
+  "3": "aaefe398df1ec6faf61b534e39c96a1511a34b2c",
+  "4": "5fa12151b24bfec5ce01c4f912a9a845c8004a45",
+  "5": "4a6f305ae6dfca6e8b6f169e9f8163ce9d56dc3f",
+  "6": "2e133606ade614ced8697748584b5b089b0bb023",
+  "7": "7589f3b2929cfaccafe688940acf00e2502eefe4",
+  "8": "0acca1ff00bdcff3b84a3dd429317fa029651c33",
+  "9": "9b050694d38bdfb04ec283e655ca1f0fcd873a1f",
+  "10": "05583e4ad685b7d7bf14fa75ce28d51f9e0b9a32"
+ },
+ "pmu": {
+  "name": "Exbel Plains",
+  "version": "V9",
+  "revision": 8,
+  "dims_tiles": [
+   51,
+   51
+  ],
+  "tile_count": 2601,
+  "music": ""
+ },
+ "render": {
+  "png": "render.png",
+  "png_sha256": "f9226c2c0fb4d4f9b4a835b305d010aca718c8d8e0b21dd8b3ffb2d96359bf25",
+  "tile_size": 32,
+  "pixel_size": [
+   1632,
+   1632
+  ],
+  "layers_drawn": {
+   "PMU Ground": 2600,
+   "PMU Mask": 1967,
+   "PMU Mask2": 22,
+   "PMU Fringe": 97,
+   "PMU Fringe2": 24
+  },
+  "fallback_count": 4,
+  "fallback_coords": [
+   [
+    35,
+    11,
+    3,
+    "fallback0",
+    0,
+    2926
+   ],
+   [
+    36,
+    11,
+    3,
+    "fallback0",
+    0,
+    2927
+   ],
+   [
+    37,
+    11,
+    3,
+    "fallback0",
+    0,
+    2928
+   ],
+   [
+    38,
+    11,
+    3,
+    "fallback0",
+    0,
+    2929
+   ]
+  ]
+ },
+ "transparency": {
+  "transparent_px": 0,
+  "opaque_px": 2663424,
+  "partial_alpha_px": 0
+ },
+ "validation": {
+  "determinism_2run": "identical",
+  "scaling_applied": false,
+  "cropping_applied": false,
+  "result": "PASS"
+ }
+}
