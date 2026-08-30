@@ -35,3 +35,18 @@ Every map adheres strictly to the 8-stage Quality Gate:
 6. **RENDER**: Multi-pass rendering (`final.png`, `layout.png`, `elevation.png`, `cliffs.png`, `collision.png`, `navigation.png`).
 7. **VALIDATION**: Automated pathfinding solver (BFS/A*) validating 100% reachability to all POIs, doors, and stairs.
 8. **EXPORT**: Compiling native RogueEssence `.rsground` metadata, `.tile` atlas binaries, and Lua ground scripts.
+
+
+### `pixellab_treehouse_village` — Village de l'Arbre Maison (Treehouse PMD Village)
+- **Status**: Complete & Verified (PixelLab Adjacent Map Extension)
+- **Dimensions**: 1147x928 px (143x116 8x8 cells)
+- **Connected to**: `MAPACOMPLETEVIAPIXELLAB_COMPLETED` (West-East gateway)
+- **Focal Landmark**: Grand Treehouse PMD Sanctuary (Spiral stairs, observation balcony, thatched roof, lantern doorway)
+- **Renders**:
+  - Final: `docs/pmu_maps/renders/pixellab_treehouse_village/final.png`
+  - Preview: `docs/pmu_maps/renders/pixellab_treehouse_village/preview.png`
+- **Data Files**:
+  - Ground: `Data/Ground/pixellab_treehouse_village.rsground`
+  - Tile Atlas: `Content/Tile/pixellab_treehouse_village_Base.tile`
+  - Lua Script: `Data/Script/halcyon/ground/pixellab_treehouse_village/init.lua`
+  - Manifest: `data/pmu_imports/pixellab_treehouse_village/manifest.json`

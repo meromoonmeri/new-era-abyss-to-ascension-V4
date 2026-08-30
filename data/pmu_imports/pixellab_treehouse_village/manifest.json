@@ -1,0 +1,40 @@
+{
+  "map_id": "pixellab_treehouse_village",
+  "name": "Village de l'Arbre Maison (Treehouse Village)",
+  "connected_to": "MAPACOMPLETEVIAPIXELLAB_COMPLETED (pixellab_altair_completed)",
+  "connection_type": "Seamless West-East Gateway",
+  "focal_landmark": {
+    "name": "Grand Treehouse PMD Sanctuary",
+    "description": "Ancient hollow oak tree with spiral timber stairs, observation balcony, thatched conical roof, and welcoming lantern entrance",
+    "position_grid": [
+      101,
+      40
+    ],
+    "interior_warp": "treehouse_interior_hub"
+  },
+  "dimensions_px": [
+    1147,
+    928
+  ],
+  "logical_grid_8x8": [
+    143,
+    116
+  ],
+  "walkability_rate": 87.95,
+  "features": [
+    "Grand ancient Treehouse with spiral staircase and thatched roof",
+    "Winding dirt path network leading to welcoming plaza",
+    "South-west waterfall cove with rustic cottage and crystal pond",
+    "Southern colorful wildflower meadow and scenic mushroom shrine",
+    "Northern stream with wooden footbridge",
+    "Dense PMD oak canopy perimeter and organic clusters"
+  ],
+  "quality_gate": {
+    "visual_continuity": "PASS (Exact style, palette, scale, and atmosphere)",
+    "reachability": "100.0%",
+    "gameplay_readability": "PASS (Unambiguous paths, clear obstacles, prominent entrance)",
+    "structures_placeholders": "PASS (Clean natural plots preserved)",
+    "seams": "PASS (Zero visible cuts)",
+    "status": "READY"
+  }
+}
