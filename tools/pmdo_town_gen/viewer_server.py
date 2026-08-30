@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 """Interactive Real-Time Web Viewer for PMDO Town Layout Generator.
 
 Provides live canvas layer toggles, entity inspector, parameter controls,
@@ -512,3 +513,29 @@ def run_viewer_server(port: int = 8080) -> None:
 
 if __name__ == "__main__":
     run_viewer_server(8080)
+=======
+"""Interactive web viewer for PMD & PMDO town layouts."""
+from __future__ import annotations
+
+import http.server
+import json
+import os
+import socketserver
+from pathlib import Path
+
+
+def run_viewer_server(port: int = 8080) -> None:
+    project_root = Path(__file__).resolve().parents[2]
+    web_dir = project_root / "docs/pmu_maps"
+
+    class Handler(http.server.SimpleHTTPRequestHandler):
+        def __init__(self, *args, **kwargs):
+            super().__init__(*args, directory=str(project_root), **kwargs)
+
+    print(f"Serving PMDO Town Viewer at http://0.0.0.0:{port}")
+    with socketserver.TCPServer(("0.0.0.0", port), Handler) as httpd:
+        try:
+            httpd.serve_forever()
+        except KeyboardInterrupt:
+            print("\nShutting down server.")
+>>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)

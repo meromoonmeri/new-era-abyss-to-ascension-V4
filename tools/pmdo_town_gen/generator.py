@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 """Master Town Layout Generator for PMDO.
 
 Orchestrates the complete 16-stage deterministic procedural generation pipeline,
@@ -243,3 +244,44 @@ class TownGenerator:
         # Sort by composite score descending
         batch.sort(key=lambda l: l.composite_score, reverse=True)
         return batch
+=======
+"""Master 16-stage pipeline generator for procedural PMDO towns."""
+from __future__ import annotations
+
+import random
+from pathlib import Path
+from typing import List, Optional, Tuple
+
+from .hybrid_town_synthesizer import HybridTownSynthesizer
+from .models import TownLayout, TownSpec
+from .pixellab_client import PixelLabClient
+
+
+class TownGenerator:
+    """Generates towns across procedural seeds and variants."""
+
+    def __init__(self, pixellab_client: Optional[PixelLabClient] = None, project_root: Optional[Path] = None):
+        self.client = pixellab_client or PixelLabClient()
+        self.project_root = project_root or Path(__file__).resolve().parents[2]
+        self.synth = HybridTownSynthesizer(pixellab_client=self.client, project_root=self.project_root)
+
+    def generate_and_export(self, spec: TownSpec, out_dir: Optional[Path] = None) -> Tuple[TownLayout, dict]:
+        return self.synth.synthesize_waterfall_haven(spec.name, spec.display_name, spec.seed)
+
+    def generate_variants(self, spec: TownSpec, count: int = 5) -> List[TownLayout]:
+        results = []
+        for i in range(count):
+            s = TownSpec(
+                name=f"{spec.name}_var_{i+1}",
+                display_name=f"{spec.display_name} Var #{i+1}",
+                seed=spec.seed + i * 101,
+            )
+            layout, _ = self.generate_and_export(s)
+            results.append(layout)
+        return results
+
+    def generate_batch_and_rank(self, spec: TownSpec, count: int = 20) -> List[TownLayout]:
+        layouts = self.generate_variants(spec, count=count)
+        layouts.sort(key=lambda l: l.composite_score, reverse=True)
+        return layouts
+>>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)

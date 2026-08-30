@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 """High-Fidelity Multi-Layer Visual Rasterizer for PMDO Town Generator.
 
 Uses PixelLab Wang autotilesets, PixelLab structure stamps, multi-level cliff shading,
@@ -27,10 +28,22 @@ from .models import (
 from .pixellab_client import PixelLabClient
 from .pixellab_structure_engine import PixelLabStructureEngine
 from .pixellab_tileset_engine import PixelLabTilesetEngine
+=======
+"""Multi-layer PNG rasterizer and visualization engine for PMD maps."""
+from __future__ import annotations
+
+import math
+from pathlib import Path
+from typing import Optional, Tuple
+from PIL import Image, ImageDraw
+
+from .models import TileCollision, TownLayout
+>>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
 from .structure_library import StructureLibrary
 
 
 class TownRenderer:
+<<<<<<< HEAD
     def __init__(
         self,
         tile_size: int = 24,
@@ -189,10 +202,133 @@ class TownRenderer:
                 draw.ellipse((dx * ts + 5, dy * ts, (dx + 1) * ts - 6, dy * ts + ts // 2), fill=(255, 235, 130, 255))
             elif dec.prop_type == "bench":
                 draw.rectangle((dx * ts + 2, dy * ts + 6, (dx + dw) * ts - 3, (dy + dh) * ts - 4), fill=(140, 90, 45, 255), outline=(50, 30, 15, 255))
+=======
+    """Renders pixel-perfect PMD maps across multiple visualization passes."""
+
+    def __init__(self, tile_size: int = 24, project_root: Optional[Path] = None):
+        self.tile_size = tile_size
+        self.project_root = project_root or Path(__file__).resolve().parents[2]
+        self.library = StructureLibrary(self.project_root)
+
+        # Authentic PMD Explorers Color Palette
+        self.col_grass_low = (108, 172, 72, 255)      # Level 0 Lush Grass
+        self.col_grass_high = (124, 188, 84, 255)     # Level 1 Highland Grass
+        self.col_cliff_top = (175, 138, 76, 255)      # Cliff Face Ochre
+        self.col_cliff_shade = (130, 95, 48, 255)     # Cliff Base Shadow
+        self.col_cliff_edge = (90, 145, 55, 255)      # Overhanging Grass Lip
+        self.col_water_deep = (48, 112, 184, 255)     # River Channel
+        self.col_water_shallow = (78, 155, 225, 255)  # River Bank / Shallows
+        self.col_water_foam = (210, 240, 255, 255)    # Waterfall Foam
+        self.col_dirt_road = (215, 185, 135, 255)     # Dirt Trail
+        self.col_stone_plaza = (185, 180, 170, 255)   # Cobblestone Plaza
+        self.col_stair_step = (165, 160, 150, 255)    # Chiseled Stone Stair
+        self.col_bridge_wood = (145, 100, 60, 255)    # Wooden Bridge Plank
+
+    def render_final(self, layout: TownLayout) -> Image.Image:
+        """Renders comprehensive final beauty pass with all 11 PMDO layers."""
+        w_px = layout.width * self.tile_size
+        h_px = layout.height * self.tile_size
+        img = Image.new("RGBA", (w_px, h_px), self.col_grass_low)
+        draw = ImageDraw.Draw(img)
+
+        # 1. Base Grass & Elevation Fill
+        for x in range(layout.width):
+            for y in range(layout.height):
+                elev = layout.heightmap[x][y]
+                col = self.col_grass_high if elev >= 1 else self.col_grass_low
+                px, py = x * self.tile_size, y * self.tile_size
+                draw.rectangle([px, py, px + self.tile_size - 1, py + self.tile_size - 1], fill=col)
+
+        # 2. Roads & Plazas
+        for x in range(layout.width):
+            for y in range(layout.height):
+                r = layout.road_mask[x][y]
+                px, py = x * self.tile_size, y * self.tile_size
+                if r == 1:  # Dirt trail
+                    draw.rectangle([px, py, px + self.tile_size - 1, py + self.tile_size - 1], fill=self.col_dirt_road)
+                    # Texture flecks
+                    draw.point((px + 4, py + 6), fill=(195, 165, 115, 255))
+                    draw.point((px + 16, py + 18), fill=(225, 195, 145, 255))
+                elif r == 2:  # Cobblestone Plaza / Bridge
+                    # Check if bridge over water
+                    if layout.water_mask[x][y] == 1:
+                        draw.rectangle([px, py, px + self.tile_size - 1, py + self.tile_size - 1], fill=self.col_bridge_wood)
+                        draw.line([(px, py + 4), (px + self.tile_size, py + 4)], fill=(110, 70, 40, 255))
+                        draw.line([(px, py + 12), (px + self.tile_size, py + 12)], fill=(110, 70, 40, 255))
+                        draw.line([(px, py + 20), (px + self.tile_size, py + 20)], fill=(110, 70, 40, 255))
+                    else:
+                        draw.rectangle([px, py, px + self.tile_size - 1, py + self.tile_size - 1], fill=self.col_stone_plaza)
+                        # Cobble pattern
+                        draw.rectangle([px + 2, py + 2, px + 10, py + 10], outline=(150, 145, 135, 255))
+                        draw.rectangle([px + 12, py + 2, px + 22, py + 10], outline=(150, 145, 135, 255))
+                        draw.rectangle([px + 2, py + 12, px + 22, py + 22], outline=(150, 145, 135, 255))
+
+        # 3. Water & River Network
+        for x in range(layout.width):
+            for y in range(layout.height):
+                if layout.water_mask[x][y] == 1 and layout.road_mask[x][y] != 2:
+                    px, py = x * self.tile_size, y * self.tile_size
+                    draw.rectangle([px, py, px + self.tile_size - 1, py + self.tile_size - 1], fill=self.col_water_deep)
+                    # Water ripples
+                    draw.line([(px + 4, py + 8), (px + 16, py + 8)], fill=self.col_water_shallow, width=2)
+                    draw.line([(px + 8, py + 16), (px + 20, py + 16)], fill=self.col_water_shallow, width=2)
+
+        # 4. Cliffs & Rock Faces
+        for x in range(layout.width):
+            for y in range(layout.height):
+                if layout.cliff_mask[x][y] == 1 and layout.water_mask[x][y] == 0:
+                    px, py = x * self.tile_size, y * self.tile_size
+                    draw.rectangle([px, py, px + self.tile_size - 1, py + self.tile_size - 1], fill=self.col_cliff_top)
+                    # Top lip grass fringe
+                    draw.line([(px, py), (px + self.tile_size, py)], fill=self.col_cliff_edge, width=3)
+                    # Base shadow
+                    draw.line([(px, py + self.tile_size - 3), (px + self.tile_size, py + self.tile_size - 3)], fill=self.col_cliff_shade, width=3)
+
+        # 5. Stairs
+        for st in layout.stairs:
+            for sx in range(st.x, st.x + st.width):
+                for sy in range(st.y, st.y + st.length):
+                    px, py = sx * self.tile_size, sy * self.tile_size
+                    draw.rectangle([px, py, px + self.tile_size - 1, py + self.tile_size - 1], fill=self.col_stair_step)
+                    draw.line([(px, py + 6), (px + self.tile_size, py + 6)], fill=(120, 115, 105, 255), width=2)
+                    draw.line([(px, py + 16), (px + self.tile_size, py + 16)], fill=(120, 115, 105, 255), width=2)
+
+        # 6. Buildings & Monuments
+        for b in layout.buildings:
+            bx_px = b.x * self.tile_size
+            by_px = b.y * self.tile_size
+            sprite = self.library.render_structure_sprite(b.prefab_id, self.tile_size)
+            img.alpha_composite(sprite, (bx_px, by_px))
+
+        # 7. Vegetation & Trees
+        for veg in layout.vegetation:
+            vx_px = veg.x * self.tile_size
+            vy_px = veg.y * self.tile_size
+            # Draw trunk
+            draw.rectangle([vx_px + 28, vy_px + 36, vx_px + 44, vy_px + 64], fill=(115, 75, 45, 255), outline=(70, 40, 20, 255), width=2)
+            # Draw lush canopy
+            draw.ellipse([vx_px + 4, vy_px + 4, vx_px + 68, vy_px + 52], fill=(55, 140, 45, 255), outline=(30, 85, 25, 255), width=2)
+            # Leaf highlights
+            draw.ellipse([vx_px + 12, vy_px + 10, vx_px + 44, vy_px + 32], fill=(85, 175, 65, 255))
+            draw.ellipse([vx_px + 32, vy_px + 14, vx_px + 60, vy_px + 38], fill=(95, 190, 75, 255))
+
+        # 8. Decorations
+        for dec in layout.decorations:
+            dx_px = dec.x * self.tile_size
+            dy_px = dec.y * self.tile_size
+            if dec.prop_type == "signpost":
+                draw.rectangle([dx_px + 10, dy_px + 12, dx_px + 14, dy_px + 22], fill=(110, 70, 40, 255))
+                draw.rectangle([dx_px + 4, dy_px + 4, dx_px + 20, dy_px + 14], fill=(220, 185, 130, 255), outline=(90, 50, 25, 255), width=1)
+            elif dec.prop_type == "campfire":
+                draw.ellipse([dx_px + 8, dy_px + 16, dx_px + 40, dy_px + 40], fill=(70, 65, 60, 255))
+                draw.polygon([(dx_px + 24, dy_px + 8), (dx_px + 16, dy_px + 30), (dx_px + 32, dy_px + 30)], fill=(255, 120, 20, 255))
+                draw.polygon([(dx_px + 24, dy_px + 14), (dx_px + 19, dy_px + 28), (dx_px + 29, dy_px + 28)], fill=(255, 230, 60, 255))
+>>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
 
         return img
 
     def render_layout(self, layout: TownLayout) -> Image.Image:
+<<<<<<< HEAD
         """Renders abstract layout showing districts, roads, and parcel footprints."""
         w, h = layout.width, layout.height
         ts = self.tile_size
@@ -227,10 +363,41 @@ class TownRenderer:
 
         for st in layout.stairs:
             draw.rectangle((st.x * ts, st.y * ts, (st.x + st.width) * ts - 1, (st.y + st.length) * ts - 1), fill=(255, 140, 0, 220), outline=(255, 255, 255, 255), width=2)
+=======
+        """Renders functional district zoning and layout parcels."""
+        w_px = layout.width * self.tile_size
+        h_px = layout.height * self.tile_size
+        img = Image.new("RGBA", (w_px, h_px), (40, 45, 50, 255))
+        draw = ImageDraw.Draw(img)
+
+        # Draw district bounds
+        col_districts = {
+            "plaza": (220, 180, 80, 80),
+            "residential": (80, 180, 220, 80),
+            "commercial": (180, 80, 220, 80),
+            "waterfront": (60, 120, 240, 80),
+        }
+
+        for d in layout.districts:
+            min_x, min_y, max_x, max_y = d.bounds
+            px1, py1 = min_x * self.tile_size, min_y * self.tile_size
+            px2, py2 = max_x * self.tile_size, max_y * self.tile_size
+            col = col_districts.get(d.district_type.value, (120, 120, 120, 80))
+            draw.rectangle([px1, py1, px2, py2], fill=col, outline=(255, 255, 255, 180), width=2)
+            draw.text((px1 + 8, py1 + 8), f"{d.district_type.value.upper()} (Elev {d.elevation})", fill=(255, 255, 255, 255))
+
+        # Buildings footprints
+        for b in layout.buildings:
+            bx, by = b.x * self.tile_size, b.y * self.tile_size
+            bw, bh = b.width * self.tile_size, b.height * self.tile_size
+            draw.rectangle([bx, by, bx + bw, by + bh], fill=(220, 60, 60, 160), outline=(255, 255, 255, 255), width=2)
+            draw.text((bx + 4, by + 4), b.instance_id, fill=(255, 255, 255, 255))
+>>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
 
         return img
 
     def render_elevation(self, layout: TownLayout) -> Image.Image:
+<<<<<<< HEAD
         """Renders discrete elevation tiers."""
         w, h = layout.width, layout.height
         ts = self.tile_size
@@ -309,5 +476,90 @@ class TownRenderer:
             sx = st.x + st.width // 2
             sy = st.y + st.length // 2
             draw.line((plaza_x * ts + ts // 2, plaza_y * ts + ts // 2, sx * ts + ts // 2, sy * ts + ts // 2), fill=(255, 128, 0, 255), width=3)
+=======
+        """Renders elevation heightmap."""
+        w_px = layout.width * self.tile_size
+        h_px = layout.height * self.tile_size
+        img = Image.new("RGBA", (w_px, h_px), (0, 0, 0, 255))
+        draw = ImageDraw.Draw(img)
+
+        elev_colors = {
+            0: (50, 120, 50, 255),
+            1: (120, 180, 90, 255),
+            2: (200, 220, 140, 255),
+        }
+
+        for x in range(layout.width):
+            for y in range(layout.height):
+                e = layout.heightmap[x][y]
+                col = elev_colors.get(e, (255, 255, 255, 255))
+                px, py = x * self.tile_size, y * self.tile_size
+                draw.rectangle([px, py, px + self.tile_size - 1, py + self.tile_size - 1], fill=col)
+
+        return img
+
+    def render_cliffs(self, layout: TownLayout) -> Image.Image:
+        """Renders cliff contours and stair anchors."""
+        w_px = layout.width * self.tile_size
+        h_px = layout.height * self.tile_size
+        img = Image.new("RGBA", (w_px, h_px), (30, 30, 30, 255))
+        draw = ImageDraw.Draw(img)
+
+        for x in range(layout.width):
+            for y in range(layout.height):
+                px, py = x * self.tile_size, y * self.tile_size
+                if layout.cliff_mask[x][y] == 1:
+                    draw.rectangle([px, py, px + self.tile_size - 1, py + self.tile_size - 1], fill=(200, 130, 50, 255))
+
+        for st in layout.stairs:
+            for sx in range(st.x, st.x + st.width):
+                for sy in range(st.y, st.y + st.length):
+                    px, py = sx * self.tile_size, sy * self.tile_size
+                    draw.rectangle([px, py, px + self.tile_size - 1, py + self.tile_size - 1], fill=(80, 220, 255, 255))
+
+        return img
+
+    def render_collision(self, layout: TownLayout) -> Image.Image:
+        """Renders debug collision grid."""
+        w_px = layout.width * self.tile_size
+        h_px = layout.height * self.tile_size
+        img = Image.new("RGBA", (w_px, h_px), (0, 0, 0, 255))
+        draw = ImageDraw.Draw(img)
+
+        col_map = {
+            TileCollision.WALKABLE.value: (40, 180, 60, 255),    # Green
+            TileCollision.BLOCKED.value: (200, 40, 40, 255),     # Red
+            TileCollision.WATER.value: (40, 100, 220, 255),     # Blue
+            TileCollision.CLIFF.value: (180, 110, 40, 255),     # Brown
+            TileCollision.BUILDING.value: (180, 40, 180, 255),  # Magenta
+            TileCollision.DOOR.value: (255, 220, 40, 255),      # Yellow
+            TileCollision.STAIR.value: (40, 220, 220, 255),     # Cyan
+            TileCollision.SIGN.value: (220, 140, 40, 255),      # Orange
+        }
+
+        for x in range(layout.width):
+            for y in range(layout.height):
+                c = layout.collision[x][y]
+                col = col_map.get(c, (255, 255, 255, 255))
+                px, py = x * self.tile_size, y * self.tile_size
+                draw.rectangle([px, py, px + self.tile_size - 1, py + self.tile_size - 1], fill=col, outline=(0, 0, 0, 80))
+
+        return img
+
+    def render_navigation(self, layout: TownLayout) -> Image.Image:
+        """Renders full circulation network and reachability paths."""
+        img = self.render_final(layout)
+        draw = ImageDraw.Draw(img)
+
+        # Draw pathways
+        for b in layout.buildings:
+            dx, dy = b.door_map_pos
+            px, py = dx * self.tile_size + self.tile_size // 2, dy * self.tile_size + self.tile_size // 2
+            draw.ellipse([px - 6, py - 6, px + 6, py + 6], fill=(255, 255, 0, 255), outline=(0, 0, 0, 255), width=2)
+
+        for st in layout.stairs:
+            sx, sy = (st.x + 1) * self.tile_size, (st.y + 1) * self.tile_size
+            draw.rectangle([sx - 8, sy - 8, sx + 8, sy + 8], fill=(0, 255, 255, 255), outline=(0, 0, 0, 255), width=2)
+>>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
 
         return img

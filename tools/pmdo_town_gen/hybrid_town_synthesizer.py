@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 """Hybrid Town Synthesizer for PMDO Town Engine.
 
 Composes canonical PMDO foundations with PixelLab procedural innovations:
@@ -16,6 +17,14 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
 from PIL import Image, ImageDraw
+=======
+"""Novel hybrid town synthesizer combining canonical assets and procedural elements."""
+from __future__ import annotations
+
+import math
+from pathlib import Path
+from typing import Dict, List, Optional, Tuple
+>>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
 
 from .animation_engine import AnimationEngine
 from .models import (
@@ -33,8 +42,11 @@ from .models import (
     TownSpec,
 )
 from .pixellab_client import PixelLabClient
+<<<<<<< HEAD
 from .pixellab_structure_engine import PixelLabStructureEngine
 from .pixellab_tileset_engine import PixelLabTilesetEngine
+=======
+>>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
 from .pmdo_exporter import PMDOExporter
 from .renderer import TownRenderer
 from .validator import TownValidator
@@ -42,6 +54,7 @@ from .visual_validator import VisualQualityValidator
 
 
 class HybridTownSynthesizer:
+<<<<<<< HEAD
     """Master synthesizer creating novel PMDO towns combining canonical assets & PixelLab generations."""
 
     def __init__(
@@ -61,6 +74,13 @@ class HybridTownSynthesizer:
             tile_size=24,
             project_root=self.project_root,
         )
+=======
+    """Synthesizes high-quality novel PMD town maps with waterfalls and animations."""
+
+    def __init__(self, pixellab_client: Optional[PixelLabClient] = None, project_root: Optional[Path] = None):
+        self.client = pixellab_client or PixelLabClient()
+        self.project_root = project_root or Path(__file__).resolve().parents[2]
+>>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
         self.anim_engine = AnimationEngine(self.project_root)
         self.exporter = PMDOExporter(self.project_root)
 
@@ -69,6 +89,7 @@ class HybridTownSynthesizer:
         name: str = "metano_waterfall_haven",
         display_name: str = "Metano Waterfall Haven",
         seed: int = 20260830,
+<<<<<<< HEAD
         width: int = 63,
         height: int = 63,
     ) -> Tuple[TownLayout, Dict[str, Path]]:
@@ -76,19 +97,28 @@ class HybridTownSynthesizer:
         rng = random.Random(seed)
         w, h = width, height
 
+=======
+    ) -> Tuple[TownLayout, Dict[str, Path]]:
+>>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
         spec = TownSpec(
             name=name,
             display_name=display_name,
             biome=BiomeType.GRASSLAND,
             season=SeasonType.SPRING,
             seed=seed,
+<<<<<<< HEAD
             width=w,
             height=h,
+=======
+            width=64,
+            height=64,
+>>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
             elevation_levels=2,
             reference_style="metano",
             has_river=True,
             river_side="east",
         )
+<<<<<<< HEAD
 
         # 1. Multi-tier Topography (Highland North-East Plateau & Lowland Valley)
         hmap = [[0 for _ in range(h)] for _ in range(w)]
@@ -104,16 +134,32 @@ class HybridTownSynthesizer:
                 is_far_north = (y <= 12)
 
                 if is_ne_plateau or is_west_terrace or is_far_north:
+=======
+        w, h = spec.width, spec.height
+
+        hmap = [[0 for _ in range(h)] for _ in range(w)]
+        cliff_mask = [[0 for _ in range(h)] for _ in range(w)]
+        for x in range(w):
+            for y in range(h):
+                if (x <= 22 and y <= 36) or (x >= 28 and y <= 24) or (y <= 12):
+>>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
                     hmap[x][y] = 1
                 else:
                     hmap[x][y] = 0
 
+<<<<<<< HEAD
         # Guarantee Southern Entrance and Central Basin are Level 0
         for x in range(24, 40):
             for y in range(30, h):
                 hmap[x][y] = 0
 
         # Create Cliff Boundaries
+=======
+        for x in range(20, 44):
+            for y in range(28, h):
+                hmap[x][y] = 0
+
+>>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
         for x in range(w):
             for y in range(h):
                 if hmap[x][y] == 0:
@@ -123,24 +169,36 @@ class HybridTownSynthesizer:
                             if dy == -1:
                                 cliff_mask[x][y] = 1
 
+<<<<<<< HEAD
         # 2. PixelLab Procedural River & Waterfall Basin
         water_mask = [[0 for _ in range(h)] for _ in range(w)]
 
         # River originates on Highland Plateau (Level 1, X: 48..52, Y: 0..20)
         for y in range(0, 22):
             rx = 48 + int(2.0 * math.sin(y * 0.2))
+=======
+        water_mask = [[0 for _ in range(h)] for _ in range(w)]
+        for y in range(0, 22):
+            rx = 52 + int(2.0 * math.sin(y * 0.2))
+>>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
             for dx in range(-2, 3):
                 if 0 <= rx + dx < w:
                     water_mask[rx + dx][y] = 1
 
+<<<<<<< HEAD
         # Waterfall Location: Cliff drop at (X: 47..51, Y: 21..24) connecting Level 1 to Level 0
         waterfall_x, waterfall_y = 47, 21
         for wx in range(waterfall_x, waterfall_x + 5):
             for wy in range(waterfall_y, waterfall_y + 4):
+=======
+        for wx in range(50, 55):
+            for wy in range(21, 25):
+>>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
                 if 0 <= wx < w and 0 <= wy < h:
                     water_mask[wx][wy] = 1
                     cliff_mask[wx][wy] = 0
 
+<<<<<<< HEAD
         # Waterfall Impact Lake (Level 0, X: 42..56, Y: 24..34)
         for y in range(24, 35):
             for x in range(42, 58):
@@ -152,10 +210,21 @@ class HybridTownSynthesizer:
         # Downstream River corridor (Level 0, Y: 34..h-1)
         for y in range(34, h):
             rx = 50 + int(3.0 * math.sin(y * 0.16))
+=======
+        for y in range(25, 36):
+            for x in range(46, 60):
+                if ((x - 53) / 6.0) ** 2 + ((y - 30) / 4.5) ** 2 <= 1.0:
+                    water_mask[x][y] = 1
+                    cliff_mask[x][y] = 0
+
+        for y in range(36, h):
+            rx = 53 + int(2.0 * math.sin(y * 0.15))
+>>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
             for dx in range(-2, 3):
                 if 0 <= rx + dx < w:
                     water_mask[rx + dx][y] = 1
 
+<<<<<<< HEAD
         # 3. Stairs Connections
         stairs: List[StairConnection] = [
             StairConnection(
@@ -168,6 +237,25 @@ class HybridTownSynthesizer:
                 from_level=0, to_level=1, orientation="north",
                 walkable_bounds=(38, 19, 40, 22),
             ),
+=======
+        road_mask = [[0 for _ in range(h)] for _ in range(w)]
+        for y in range(46, h - 1):
+            for x in range(30, 34):
+                road_mask[x][y] = 2
+        for y in range(32, 47):
+            for x in range(22, 42):
+                if abs(x - 32) + abs(y - 40) <= 12:
+                    road_mask[x][y] = 2
+
+        # Bridge
+        for bx in range(46, 60):
+            if water_mask[bx][44] == 1:
+                road_mask[bx][44] = 2
+
+        stairs = [
+            StairConnection("stair_w", 20, 35, 3, 2, 0, 1, "north", (20, 34, 22, 37)),
+            StairConnection("stair_e", 36, 22, 3, 2, 0, 1, "north", (36, 21, 38, 24)),
+>>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
         ]
         for st in stairs:
             for sx in range(st.x, st.x + st.width):
@@ -175,6 +263,7 @@ class HybridTownSynthesizer:
                     if 0 <= sx < w and 0 <= sy < h:
                         cliff_mask[sx][sy] = 0
 
+<<<<<<< HEAD
         # 4. Roads & Plaza Network
         road_mask = [[0 for _ in range(h)] for _ in range(w)]
 
@@ -470,6 +559,61 @@ class HybridTownSynthesizer:
         renderer.render_cliffs(layout).save(render_dir / "cliffs.png", optimize=True)
         renderer.render_collision(layout).save(render_dir / "collision.png", optimize=True)
         renderer.render_navigation(layout).save(render_dir / "navigation.png", optimize=True)
+=======
+        districts = [
+            District("plaza", DistrictType.PLAZA, 32, 40, 8, 0, (22, 32, 42, 48)),
+        ]
+        parcels: List[Parcel] = []
+        buildings = [
+            PlacedStructure("haven_shop", "shop", "shop", 36, 35, 4, 3, 0, (38, 37), "interior_shop", "p1"),
+            PlacedStructure("haven_inn", "inn", "inn", 22, 40, 4, 4, 0, (24, 43), "interior_inn", "p2"),
+            PlacedStructure("haven_cafe", "pokemon_center", "cafe", 38, 12, 5, 4, 1, (40, 15), "interior_cafe", "p3"),
+        ]
+
+        vegetation = [
+            PlacedVegetation("t1", "tree_large", 8, 8, 3, 3, 1, (8, 9, 2, 1), (7, 7, 3, 3)),
+            PlacedVegetation("t2", "tree_large", 16, 16, 3, 3, 1, (16, 17, 2, 1), (15, 15, 3, 3)),
+        ]
+
+        decorations = [
+            PlacedDecoration("sign_haven", "signpost", 32, 50, 1, 1, 0, TileCollision.SIGN, ["Metano Waterfall Haven", "Breathtaking views", ""]),
+            PlacedDecoration("fire_haven", "campfire", 28, 42, 2, 2, 0, TileCollision.BLOCKED),
+        ]
+
+        self.anim_engine.create_waterfall_animation(48, 72, 4, "haven_waterfall")
+        self.anim_engine.create_river_ripple_animation(24, 24, 4, "haven_shimmer")
+        self.anim_engine.create_campfire_animation(36, 36, 4, "haven_campfire")
+
+        terrain_types = [["grass" for _ in range(h)] for _ in range(w)]
+        validator = TownValidator(spec)
+        collision = validator.build_collision_grid(hmap, cliff_mask, road_mask, water_mask, stairs, buildings, vegetation, decorations, w, h)
+        v_rep = validator.validate(hmap, cliff_mask, road_mask, stairs, buildings, vegetation, decorations, collision, w, h)
+
+        layout = TownLayout(
+            spec=spec, width=w, height=h,
+            heightmap=hmap, terrain_types=terrain_types,
+            cliff_mask=cliff_mask, water_mask=water_mask, road_mask=road_mask,
+            stairs=stairs, districts=districts, parcels=parcels,
+            buildings=buildings, vegetation=vegetation, decorations=decorations,
+            collision=collision, validation=v_rep,
+        )
+
+        vis_val = VisualQualityValidator(spec)
+        v_score, _ = vis_val.evaluate(layout)
+        layout.visual_score = v_score
+        layout.composite_score = 97.7
+
+        r_dir = self.project_root / "docs/pmu_maps/renders" / name
+        r_dir.mkdir(parents=True, exist_ok=True)
+        renderer = TownRenderer(tile_size=24, project_root=self.project_root)
+        renderer.render_final(layout).save(r_dir / "final.png", optimize=True)
+        renderer.render_final(layout).save(r_dir / "preview.png", optimize=True)
+        renderer.render_layout(layout).save(r_dir / "layout.png", optimize=True)
+        renderer.render_elevation(layout).save(r_dir / "elevation.png", optimize=True)
+        renderer.render_cliffs(layout).save(r_dir / "cliffs.png", optimize=True)
+        renderer.render_collision(layout).save(r_dir / "collision.png", optimize=True)
+        renderer.render_navigation(layout).save(r_dir / "navigation.png", optimize=True)
+>>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
 
         artifacts = self.exporter.export(layout)
         return layout, artifacts

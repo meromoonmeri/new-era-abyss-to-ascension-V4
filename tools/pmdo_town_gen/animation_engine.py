@@ -1,13 +1,18 @@
+<<<<<<< HEAD
 """Multi-Frame Animation & .dir Binary Compiler for PMDO Town Engine.
 
 Handles multi-frame animated game objects (waterfalls, river ripples, campfires,
 waterwheels, smoking chimneys) with frame-perfect dimension alignment and zero jitter.
 Compiles to native PMDO .dir format: [uint64 png_len] + [PNG byte stream] + [tail: w, h, offset, frame_count].
 """
+=======
+"""Multi-frame animation and .dir format compiler for PMDO / RogueEssence."""
+>>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
 from __future__ import annotations
 
 import io
 import struct
+<<<<<<< HEAD
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
@@ -29,11 +34,21 @@ class AnimatedAsset:
 
 class AnimationEngine:
     """Generates, normalizes, and compiles multi-frame animation sequences for PMDO."""
+=======
+from pathlib import Path
+from typing import List, Optional, Tuple
+from PIL import Image, ImageDraw
+
+
+class AnimationEngine:
+    """Compiles multi-frame animated sprites into native RogueEssence .dir files."""
+>>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
 
     def __init__(self, project_root: Optional[Path] = None):
         self.project_root = project_root or Path(__file__).resolve().parents[2]
         self.output_dir = self.project_root / "Content/Object"
         self.output_dir.mkdir(parents=True, exist_ok=True)
+<<<<<<< HEAD
         self.cache: Dict[str, AnimatedAsset] = {}
 
     def compile_to_dir_format(
@@ -78,6 +93,33 @@ class AnimationEngine:
             f.write(dir_data)
 
         return dir_data
+=======
+
+    def compile_dir_file(
+        self,
+        frame_strip: Image.Image,
+        frame_width: int,
+        frame_height: int,
+        frame_count: int,
+        output_path: Path,
+    ) -> Path:
+        """Encodes horizontal frame strip into PMDO .dir format (PNG data + 16B footer)."""
+        png_io = io.BytesIO()
+        frame_strip.save(png_io, format="PNG")
+        png_bytes = png_io.getvalue()
+
+        # Footer: 16 bytes: [frame_width (i32), frame_height (i32), offset (i32), frame_count (i32)]
+        footer = struct.pack("<iiii", frame_width, frame_height, 0, frame_count)
+        payload_len = len(png_bytes)
+        header = struct.pack("<q", payload_len)
+
+        with open(output_path, "wb") as f:
+            f.write(header)
+            f.write(png_bytes)
+            f.write(footer)
+
+        return output_path
+>>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
 
     def create_waterfall_animation(
         self,
@@ -85,6 +127,7 @@ class AnimationEngine:
         height: int = 72,
         frame_count: int = 4,
         asset_id: str = "waterfall_cascade",
+<<<<<<< HEAD
     ) -> AnimatedAsset:
         """Generates a 4-frame top-down PMD waterfall animation with foaming rapids."""
         frames: List[Image.Image] = []
@@ -136,6 +179,38 @@ class AnimationEngine:
         )
         self.cache[asset_id] = asset
         return asset
+=======
+    ) -> Path:
+        """Generates dynamic 4-frame animated waterfall cascade."""
+        strip_w = width * frame_count
+        strip_h = height
+        strip = Image.new("RGBA", (strip_w, strip_h), (0, 0, 0, 0))
+        draw = ImageDraw.Draw(strip)
+
+        foam_colors = [
+            (225, 245, 255, 255),
+            (195, 230, 255, 255),
+            (160, 215, 255, 255),
+            (120, 190, 245, 255),
+        ]
+
+        for frame in range(frame_count):
+            fx = frame * width
+            # Draw torrent streams
+            for x in range(fx, fx + width, 4):
+                phase = (frame * 6 + (x - fx) * 3) % 24
+                # Water columns
+                draw.line([(x, 0), (x, height)], fill=(75, 145, 220, 255), width=3)
+                draw.line([(x + 1, phase), (x + 1, min(height, phase + 14))], fill=foam_colors[frame % 4], width=2)
+                draw.line([(x + 2, (phase + 12) % height), (x + 2, min(height, (phase + 26) % height))], fill=foam_colors[(frame + 2) % 4], width=2)
+
+            # Plunge splash foam at bottom
+            draw.ellipse([fx, height - 16, fx + width, height + 4], fill=(240, 250, 255, 255))
+            draw.ellipse([fx + 4, height - 12, fx + width - 4, height], fill=(210, 235, 255, 255))
+
+        out_path = self.output_dir / f"{asset_id}.dir"
+        return self.compile_dir_file(strip, width, height, frame_count, out_path)
+>>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
 
     def create_river_ripple_animation(
         self,
@@ -143,6 +218,7 @@ class AnimationEngine:
         height: int = 24,
         frame_count: int = 4,
         asset_id: str = "river_shimmer",
+<<<<<<< HEAD
     ) -> AnimatedAsset:
         """Generates a 4-frame seamless river shimmer and ripple animation."""
         frames: List[Image.Image] = []
@@ -177,12 +253,29 @@ class AnimationEngine:
         )
         self.cache[asset_id] = asset
         return asset
+=======
+    ) -> Path:
+        """Generates 4-frame river surface ripple animation."""
+        strip = Image.new("RGBA", (width * frame_count, height), (0, 0, 0, 0))
+        draw = ImageDraw.Draw(strip)
+
+        for frame in range(frame_count):
+            fx = frame * width
+            y_shift = frame * 3
+            draw.line([(fx + 3, (6 + y_shift) % height), (fx + 12, (6 + y_shift) % height)], fill=(160, 220, 255, 200), width=1)
+            draw.line([(fx + 10, (14 + y_shift) % height), (fx + 21, (14 + y_shift) % height)], fill=(160, 220, 255, 200), width=1)
+            draw.point((fx + 16, (9 + y_shift) % height), fill=(255, 255, 255, 230))
+
+        out_path = self.output_dir / f"{asset_id}.dir"
+        return self.compile_dir_file(strip, width, height, frame_count, out_path)
+>>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
 
     def create_campfire_animation(
         self,
         width: int = 36,
         height: int = 36,
         frame_count: int = 4,
+<<<<<<< HEAD
         asset_id: str = "Campfire_custom",
     ) -> AnimatedAsset:
         """Generates a 4-frame campfire animation matching PMDO Campfire.dir spec."""
@@ -238,3 +331,33 @@ class AnimationEngine:
         )
         self.cache[asset_id] = asset
         return asset
+=======
+        asset_id: str = "Campfire",
+    ) -> Path:
+        """Generates 4-frame flickering campfire animation."""
+        strip = Image.new("RGBA", (width * frame_count, height), (0, 0, 0, 0))
+        draw = ImageDraw.Draw(strip)
+
+        flame_shapes = [
+            [(18, 4), (10, 24), (26, 24)],
+            [(17, 2), (11, 24), (27, 24)],
+            [(19, 5), (9, 24), (25, 24)],
+            [(18, 3), (12, 24), (26, 24)],
+        ]
+
+        for frame in range(frame_count):
+            fx = frame * width
+            # Base stone circle
+            draw.ellipse([fx + 4, 20, fx + 32, 34], fill=(70, 65, 60, 255), outline=(40, 35, 30, 255))
+            # Logs
+            draw.line([(fx + 8, 28), (fx + 28, 24)], fill=(100, 60, 30, 255), width=3)
+            draw.line([(fx + 10, 24), (fx + 26, 28)], fill=(90, 50, 25, 255), width=3)
+            # Flame
+            pts = [(fx + x, y) for x, y in flame_shapes[frame]]
+            draw.polygon(pts, fill=(255, 100, 20, 255))
+            inner_pts = [(fx + x, y + 6) for x, y in flame_shapes[frame]]
+            draw.polygon(inner_pts, fill=(255, 220, 50, 255))
+
+        out_path = self.output_dir / f"{asset_id}.dir"
+        return self.compile_dir_file(strip, width, height, frame_count, out_path)
+>>>>>>> fab534f9 (feat(skytemple): Pipeline de creation et validation de maps PMD/PMDO conformes SkyTemple)
