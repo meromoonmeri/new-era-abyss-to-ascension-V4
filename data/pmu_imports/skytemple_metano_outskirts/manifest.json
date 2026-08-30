@@ -1,0 +1,32 @@
+{
+  "map_id": "skytemple_metano_outskirts",
+  "display_name": "Metano Outskirts (Clairi\u00e8re de Metano)",
+  "biome": "grassland",
+  "season": "spring",
+  "seed": 20260830,
+  "dimensions": {
+    "width_tiles": 63,
+    "height_tiles": 63,
+    "cell_subdivisions": 3,
+    "obstacle_grid_width": 189,
+    "obstacle_grid_height": 189,
+    "cell_size_px": 8,
+    "tile_size_px": 24
+  },
+  "validation": {
+    "status": "PASS",
+    "connectivity": 100.0,
+    "visual_score": 88.5,
+    "composite_score": 97.7
+  },
+  "artifacts": {
+    "ground": "Data/Ground/skytemple_metano_outskirts.rsground",
+    "tile": "Content/Tile/skytemple_metano_outskirts_Base.tile",
+    "script": "Data/Script/halcyon/ground/skytemple_metano_outskirts/init.lua"
+  },
+  "hashes": {
+    "ground": "9ceeb7a9f4da6973abca08e6569d725efbc0625da58a0ab3dd73fdcd2df92340",
+    "tile": "132ad5984cf64e1e7a8873d75c8fff36ac241da11f14ce89647da84fa88d32a0",
+    "script": "c4f72b27265d63d00fd1b10aed472dea25909f525d45fbaee050cb812a2236ce"
+  }
+}

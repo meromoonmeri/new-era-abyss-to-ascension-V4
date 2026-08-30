@@ -1,0 +1,32 @@
+{
+  "map_id": "test_skytemple_outskirts",
+  "display_name": "Test SkyTemple Outskirts",
+  "biome": "grassland",
+  "season": "spring",
+  "seed": 42,
+  "dimensions": {
+    "width_tiles": 63,
+    "height_tiles": 63,
+    "cell_subdivisions": 3,
+    "obstacle_grid_width": 189,
+    "obstacle_grid_height": 189,
+    "cell_size_px": 8,
+    "tile_size_px": 24
+  },
+  "validation": {
+    "status": "PASS",
+    "connectivity": 100.0,
+    "visual_score": 88.5,
+    "composite_score": 97.7
+  },
+  "artifacts": {
+    "ground": "Data/Ground/test_skytemple_outskirts.rsground",
+    "tile": "Content/Tile/test_skytemple_outskirts_Base.tile",
+    "script": "Data/Script/halcyon/ground/test_skytemple_outskirts/init.lua"
+  },
+  "hashes": {
+    "ground": "a8c4ad62ca1079683c82a352160aa608038c7a9801556de6161f0a4f079fb631",
+    "tile": "132ad5984cf64e1e7a8873d75c8fff36ac241da11f14ce89647da84fa88d32a0",
+    "script": "636f2c925f60158472bf9d9721f11fde3af31318194f9f63de73b5f41b5abc13"
+  }
+}
