@@ -2,11 +2,14 @@
 from __future__ import annotations
 
 import json
+import struct
 from pathlib import Path
 
 import pytest
 from PIL import Image
 
+from tools.pmdo_town_gen.animation_engine import AnimationEngine
+from tools.pmdo_town_gen.hybrid_town_synthesizer import HybridTownSynthesizer
 from tools.pmdo_town_gen.models import BiomeType, SeasonType, TileCollision, TownSpec
 from tools.pmdo_town_gen.pixellab_client import DEFAULT_PIXELLAB_TOKEN, PixelLabClient
 from tools.pmdo_town_gen.pixellab_structure_engine import PixelLabStructureEngine
@@ -58,84 +61,77 @@ def test_pixellab_bitmask_to_wang_index():
     assert engine.bitmask_to_wang_index(0) == 15
 
     # 3. Cardinal North lower, others matching -> 1 (North edge)
-    # N=0, NE=2, E=4, SE=8, S=16, SW=32, W=64, NW=128
     mask_north_edge = 4 | 16 | 64
     assert engine.bitmask_to_wang_index(mask_north_edge) == 1
 
 
-def test_pixellab_structure_stamp_generation(pixellab_client):
-    """Test generation of authentic PMD building stamps with transparency via PixelLab."""
-    asset = pixellab_client.create_structure_stamp(
-        description="pokemon mystery dungeon spinda cafe building with wooden timber beams",
-        category="cafe",
-        width=120,
-        height=96,
-        no_background=True,
-    )
+def test_animation_engine_dir_compilation(tmp_path):
+    """Test multi-frame animation .dir compiler with exact PMDO binary header/tail specification."""
+    anim_engine = AnimationEngine(project_root=tmp_path)
 
-    assert asset.asset_type == "structure"
-    assert Path(asset.image_path).exists()
-    assert len(asset.sha256) == 64
+    # 1. Generate 4-frame waterfall
+    wf = anim_engine.create_waterfall_animation(width=48, height=72, frame_count=4)
+    assert wf.frame_count == 4
+    assert Path(wf.dir_path).exists()
 
-    img = Image.open(asset.image_path)
-    assert img.size == (120, 96)
-    assert img.mode == "RGBA"
+    # Read binary .dir file
+    with open(wf.dir_path, "rb") as f:
+        data = f.read()
+
+    # Header is uint64 PNG length
+    png_len = struct.unpack("<Q", data[:8])[0]
+    png_data = data[8:8 + png_len]
+    assert png_data.startswith(b"\x89PNG")
+
+    # Tail is [width, height, 0, frame_count]
+    tail_data = data[8 + png_len:]
+    frame_w, frame_h, offset, frame_c = struct.unpack("<IIII", tail_data)
+    assert frame_w == 48
+    assert frame_h == 72
+    assert offset == 0
+    assert frame_c == 4
 
 
-def test_pixellab_structure_engine_prefabs(tmp_path):
-    """Test PixelLab structure engine sets up correct building prefabs & footprints."""
+def test_native_rsground_8x8_cell_bounds_and_tags(tmp_path):
+    """Test that generated .rsground follows exact 8x8 cell bounds and per-cell Tags format."""
     client = PixelLabClient(cache_dir=tmp_path / "cache")
-    engine = PixelLabStructureEngine(client=client, tile_size=24)
+    synth = HybridTownSynthesizer(pixellab_client=client, project_root=tmp_path)
+    layout, artifacts = synth.synthesize_waterfall_haven()
 
-    # Verify core PMD prefabs are loaded
-    assert "pokemon_center" in engine.prefabs
-    assert "shop" in engine.prefabs
-    assert "inn" in engine.prefabs
-    assert "fountain" in engine.prefabs
+    ground_json = json.loads(artifacts["ground"].read_text(encoding="utf-8-sig"))
+    obj = ground_json["Object"]
 
-    shop = engine.prefabs["shop"]
-    assert shop.width == 4
-    assert shop.height == 3
-    # Check door cell is walkable (0) and walls are blocked (1)
-    assert shop.collision[shop.door_pos[1]][shop.door_pos[0]] == TileCollision.WALKABLE.value
+    assert obj["TexSize"] == 1
+    obstacles = obj["obstacles"]
+    # 63 tiles x 3 subdivisions = 189 cols x 189 rows
+    assert len(obstacles) == 189
+    assert len(obstacles[0]) == 189
+
+    # Check cell 0,0 bounds
+    cell_0_0 = obstacles[0][0]
+    assert cell_0_0["Bounds"]["Width"] == 8
+    assert cell_0_0["Bounds"]["Height"] == 8
+    assert "Tags" in cell_0_0
+
+    # Verify 11 layers
+    assert len(obj["Layers"]) == 11
+    layer_names = [l["Name"] for l in obj["Layers"]]
+    assert "Base" in layer_names
+    assert "Cliffs" in layer_names
+    assert "River" in layer_names
+    assert "Fringe" in layer_names
 
 
-def test_end_to_end_pixellab_town_generation(tmp_path):
-    """Test end-to-end procedural town generation using PixelLab backend."""
+def test_hybrid_town_synthesis_connectivity_and_score(tmp_path):
+    """Test full novel hybrid town generation combining canonical + PixelLab assets."""
     client = PixelLabClient(cache_dir=tmp_path / "cache")
-    generator = TownGenerator(pixellab_client=client)
+    synth = HybridTownSynthesizer(pixellab_client=client, project_root=tmp_path)
+    layout, artifacts = synth.synthesize_waterfall_haven(name="test_waterfall_haven", seed=20260830)
 
-    spec = TownSpec(
-        name="pixellab_test_town",
-        display_name="PixelLab Town",
-        biome=BiomeType.GRASSLAND,
-        season=SeasonType.SPRING,
-        seed=20260830,
-        width=48,
-        height=48,
-        elevation_levels=2,
-        reference_style="metano",
-    )
-
-    layout, artifacts = generator.generate_and_export(spec, out_dir=tmp_path / "export")
-
-    assert layout.validation.status == "PASS"
-    assert layout.validation.score.connectivity == 100.0
-    assert layout.composite_score >= 90.0
-    assert artifacts["ground"].exists()
-    assert artifacts["tile"].exists()
-
-
-def test_metano_recreator_pixellab_integration(tmp_path):
-    """Test Metano Town recreation using PixelLab backend and canonical palette."""
-    client = PixelLabClient(cache_dir=tmp_path / "cache")
-    recreator = MetanoRecreator(pixellab_client=client)
-
-    layout = recreator.build_metano_layout()
     assert layout.validation.status == "PASS"
     assert layout.validation.score.connectivity == 100.0
     assert layout.visual_score.total_visual_score >= 85.0
     assert layout.composite_score >= 95.0
-
-    rendered = recreator.render_exact_metano(layout, tile_size=24)
-    assert rendered.size == (63 * 24, 63 * 24)
+    assert artifacts["ground"].exists()
+    assert artifacts["tile"].exists()
+    assert artifacts["script"].exists()

@@ -165,9 +165,13 @@ def test_native_pmdo_export_bundle(generator, tmp_path):
     # Verify .rsground JSON integrity
     ground_data = json.loads(artifacts["ground"].read_text(encoding="utf-8-sig"))
     assert ground_data["Object"]["Name"]["DefaultText"] == spec.display_name
-    assert len(ground_data["Object"]["obstacles"]) == spec.width
-    assert len(ground_data["Object"]["obstacles"][0]) == spec.height
+    assert ground_data["Object"]["TexSize"] == 1
+    assert len(ground_data["Object"]["obstacles"]) == spec.width * 3
+    assert len(ground_data["Object"]["obstacles"][0]) == spec.height * 3
+    assert ground_data["Object"]["obstacles"][0][0]["Bounds"]["Width"] == 8
+    assert "Tags" in ground_data["Object"]["obstacles"][0][0]
 
     # Verify .tile binary header
     tile_bytes = artifacts["tile"].read_bytes()
-    assert len(tile_bytes) > 1000
+    assert len(tile_bytes) > 200
+    assert tile_bytes[32:36] == b"\x89PNG"

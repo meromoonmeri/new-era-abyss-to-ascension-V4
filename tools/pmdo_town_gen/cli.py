@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 
 from .generator import TownGenerator
+from .hybrid_town_synthesizer import HybridTownSynthesizer
 from .models import BiomeType, SeasonType, TownSpec
 from .pixellab_client import DEFAULT_PIXELLAB_TOKEN, PixelLabClient
 from .reference_analyzer import ReferenceAnalyzer
@@ -26,6 +27,12 @@ def main() -> None:
 
     # 1.1 Recreate Metano Canonical command
     subparsers.add_parser("metano-exact", help="Recreate high-fidelity Metano Town using exact canonical colorimetry & layout")
+
+    # 1.2 Novel Hybrid Town Synthesis
+    syn_parser = subparsers.add_parser("synthesize-novel", help="Generate a novel PMDO town combining canonical assets & PixelLab procedural elements")
+    syn_parser.add_argument("--name", default="metano_waterfall_haven", help="Town ID")
+    syn_parser.add_argument("--display-name", default="Metano Waterfall Haven", help="Town title")
+    syn_parser.add_argument("--seed", type=int, default=20260830, help="Random seed")
 
     # 2. Generate command
     gen_parser = subparsers.add_parser("generate", help="Generate a procedural Pokémon town with PixelLab")
@@ -101,6 +108,23 @@ def main() -> None:
         print(f"  - PMDO Ground: {artifacts['ground']}")
         print(f"  - PMDO Tile: {artifacts['tile']}")
         print(f"  - Render: docs/pmu_maps/renders/metano_town_recreated/final.png")
+
+    elif args.command == "synthesize-novel":
+        synth = HybridTownSynthesizer(pixellab_client=pixellab_client)
+        layout, artifacts = synth.synthesize_waterfall_haven(
+            name=args.name,
+            display_name=args.display_name,
+            seed=args.seed,
+        )
+        print(f"Novel Hybrid Town Synthesis Complete ('{args.display_name}'):")
+        print(f"  - Composition: Canonical Terrain + PixelLab River & 4-Frame Waterfall (.dir)")
+        print(f"  - Validation Status: {layout.validation.status}")
+        print(f"  - Connectivity: {layout.validation.score.connectivity}% (100% reachability)")
+        print(f"  - Visual Score: {layout.visual_score.total_visual_score}/100")
+        print(f"  - Composite Score: {layout.composite_score}/100")
+        print(f"  - PMDO Ground: {artifacts['ground']}")
+        print(f"  - PMDO Tile: {artifacts['tile']}")
+        print(f"  - Render: docs/pmu_maps/renders/{args.name}/final.png")
 
     elif args.command == "generate":
         spec = TownSpec(

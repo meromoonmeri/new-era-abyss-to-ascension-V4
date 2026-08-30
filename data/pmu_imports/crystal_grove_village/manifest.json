@@ -1,0 +1,32 @@
+{
+  "map_id": "crystal_grove_village",
+  "display_name": "Crystal Grove Village",
+  "biome": "grassland",
+  "season": "spring",
+  "seed": 778899,
+  "dimensions": {
+    "width_tiles": 64,
+    "height_tiles": 48,
+    "cell_subdivisions": 3,
+    "obstacle_grid_width": 192,
+    "obstacle_grid_height": 144,
+    "cell_size_px": 8,
+    "tile_size_px": 24
+  },
+  "validation": {
+    "status": "PASS",
+    "connectivity": 100.0,
+    "visual_score": 85.2,
+    "composite_score": 97.0
+  },
+  "artifacts": {
+    "ground": "Data/Ground/crystal_grove_village.rsground",
+    "tile": "Content/Tile/crystal_grove_village_Base.tile",
+    "script": "Data/Script/halcyon/ground/crystal_grove_village/init.lua"
+  },
+  "hashes": {
+    "ground": "5479a2434ed3de5665391e39449b2b2ac30f7700a85670feecf3d034e8818df0",
+    "tile": "132ad5984cf64e1e7a8873d75c8fff36ac241da11f14ce89647da84fa88d32a0",
+    "script": "ea48e8aaf19b455727d8988b186fa775f5e43503bdc347f3ed3301cd39ae6455"
+  }
+}

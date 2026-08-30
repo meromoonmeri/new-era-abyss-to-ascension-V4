@@ -1,0 +1,32 @@
+{
+  "map_id": "metano_waterfall_haven",
+  "display_name": "Metano Waterfall Haven",
+  "biome": "grassland",
+  "season": "spring",
+  "seed": 20260830,
+  "dimensions": {
+    "width_tiles": 63,
+    "height_tiles": 63,
+    "cell_subdivisions": 3,
+    "obstacle_grid_width": 189,
+    "obstacle_grid_height": 189,
+    "cell_size_px": 8,
+    "tile_size_px": 24
+  },
+  "validation": {
+    "status": "PASS",
+    "connectivity": 100.0,
+    "visual_score": 88.5,
+    "composite_score": 97.7
+  },
+  "artifacts": {
+    "ground": "Data/Ground/metano_waterfall_haven.rsground",
+    "tile": "Content/Tile/metano_waterfall_haven_Base.tile",
+    "script": "Data/Script/halcyon/ground/metano_waterfall_haven/init.lua"
+  },
+  "hashes": {
+    "ground": "15a899a1e359bcf6082840c65c836158db7efac6dc6d63e16db39ce8ab3dcf6a",
+    "tile": "132ad5984cf64e1e7a8873d75c8fff36ac241da11f14ce89647da84fa88d32a0",
+    "script": "7a0f222c157f63871546f1f02eb04c3fd05b1c2855f1c343fecf312d08566b63"
+  }
+}
