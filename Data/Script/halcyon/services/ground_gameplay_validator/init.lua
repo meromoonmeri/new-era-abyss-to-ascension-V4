@@ -319,9 +319,17 @@ function V:begin()
   local msum=_DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get('master_zone')
   local ml=msum.Grounds
   for mi=0,ml.Count-1 do mz[ml[mi]]=mi end
+  -- nouveau jeu : zone conteneur town_zone (post-Halcyon)
+  local tz={}
+  local ok_tz,tsum=pcall(function() return _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get('town_zone') end)
+  if ok_tz and tsum~=nil then
+   local tl=tsum.Grounds
+   for ti=0,tl.Count-1 do tz[tl[ti]]=ti end
+  end
   for _,nm in ipairs(names) do
    local gi=zone_grounds[nm]
    if gi~=nil then PILOT[#PILOT+1]={id=nm,zone='sky_hub_zone',idx=gi}
+   elseif tz[nm]~=nil then PILOT[#PILOT+1]={id=nm,zone='town_zone',idx=tz[nm]}
    elseif mz[nm]~=nil then PILOT[#PILOT+1]={id=nm,zone='master_zone',idx=mz[nm]}
    else emit('{"event":"sky_pilot_missing","ground":"'..nm..'"}') end
   end
