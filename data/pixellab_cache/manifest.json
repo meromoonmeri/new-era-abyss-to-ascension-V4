@@ -1,0 +1,215 @@
+{
+  "version": "1.0",
+  "assets": {
+    "struct_cafe_2ddc41f7ad91ebda": {
+      "asset_id": "struct_cafe_2ddc41f7ad91ebda",
+      "asset_type": "structure",
+      "prompt": "pokemon mystery dungeon spinda cafe building with wooden timber beams, tiled roof, warm glowing windows, transparent background",
+      "parameters": {
+        "description": "pokemon mystery dungeon spinda cafe building with wooden timber beams, tiled roof, warm glowing windows, transparent background",
+        "category": "cafe",
+        "width": 120,
+        "height": 96,
+        "style_image_path": "/home/user/new-era-abyss-to-ascension-V4/docs/metano_origins_structure_library/buildings/metano_cafe_day.png",
+        "no_background": true
+      },
+      "sha256": "b16492b689a691609f2c462da79500684738e0ff07b4910730d1d51e31abd500",
+      "source": "pixellab_synthetic_fallback",
+      "created_at": 1788107010.7683446
+    },
+    "struct_shop_9a25d6797ba2a5f2": {
+      "asset_id": "struct_shop_9a25d6797ba2a5f2",
+      "asset_type": "structure",
+      "prompt": "pokemon mystery dungeon kecleon merchant shop with red striped fabric awning, wooden counter, market baskets, transparent background",
+      "parameters": {
+        "description": "pokemon mystery dungeon kecleon merchant shop with red striped fabric awning, wooden counter, market baskets, transparent background",
+        "category": "shop",
+        "width": 96,
+        "height": 72,
+        "style_image_path": "/home/user/new-era-abyss-to-ascension-V4/docs/metano_origins_structure_library/buildings/metano_kecleon_shop_day.png",
+        "no_background": true
+      },
+      "sha256": "51e176916f1012b29261281afcefce69f69d67a4d891bc961013be942272284a",
+      "source": "pixellab_synthetic_fallback",
+      "created_at": 1788107028.929149
+    },
+    "struct_inn_77cb8ca99918e3bf": {
+      "asset_id": "struct_inn_77cb8ca99918e3bf",
+      "asset_type": "structure",
+      "prompt": "pokemon mystery dungeon cozy rustic wooden inn with signpost and timber framing, transparent background",
+      "parameters": {
+        "description": "pokemon mystery dungeon cozy rustic wooden inn with signpost and timber framing, transparent background",
+        "category": "inn",
+        "width": 96,
+        "height": 96,
+        "style_image_path": "/home/user/new-era-abyss-to-ascension-V4/docs/metano_origins_structure_library/buildings/metano_cafe_day.png",
+        "no_background": true
+      },
+      "sha256": "18e4845e7870551231b6de84246a7a31bffdd7437b0b0090a5ad0b23dc9bfd44",
+      "source": "pixellab_synthetic_fallback",
+      "created_at": 1788107028.9962459
+    },
+    "struct_house_small_8b6f98383e9cf241": {
+      "asset_id": "struct_house_small_8b6f98383e9cf241",
+      "asset_type": "structure",
+      "prompt": "pokemon mystery dungeon small elemental wooden cottage with thatched roof and cobblestone foundation, transparent background",
+      "parameters": {
+        "description": "pokemon mystery dungeon small elemental wooden cottage with thatched roof and cobblestone foundation, transparent background",
+        "category": "house_small",
+        "width": 72,
+        "height": 72,
+        "style_image_path": "/home/user/new-era-abyss-to-ascension-V4/docs/metano_origins_structure_library/buildings/metano_house_normal_day.png",
+        "no_background": true
+      },
+      "sha256": "63b1ed468825e947ac755ec8551cd4f639d35a48c7d989951afd476f442223eb",
+      "source": "pixellab_synthetic_fallback",
+      "created_at": 1788107029.0538788
+    },
+    "struct_house_medium_90d0976be4ec51ca": {
+      "asset_id": "struct_house_medium_90d0976be4ec51ca",
+      "asset_type": "structure",
+      "prompt": "pokemon mystery dungeon sturdy stone rock house with chimney and wooden door, transparent background",
+      "parameters": {
+        "description": "pokemon mystery dungeon sturdy stone rock house with chimney and wooden door, transparent background",
+        "category": "house_medium",
+        "width": 96,
+        "height": 72,
+        "style_image_path": "/home/user/new-era-abyss-to-ascension-V4/docs/metano_origins_structure_library/buildings/metano_house_rock_day.png",
+        "no_background": true
+      },
+      "sha256": "fef0f728c263a22d1730617fa8f18690175cfa6c8add4f35b203fe164b5d14fe",
+      "source": "pixellab_synthetic_fallback",
+      "created_at": 1788107029.0936158
+    },
+    "struct_house_large_99a8c5ac544eead1": {
+      "asset_id": "struct_house_large_99a8c5ac544eead1",
+      "asset_type": "structure",
+      "prompt": "pokemon mystery dungeon large brick fire home with red clay shingle roof, transparent background",
+      "parameters": {
+        "description": "pokemon mystery dungeon large brick fire home with red clay shingle roof, transparent background",
+        "category": "house_large",
+        "width": 96,
+        "height": 96,
+        "style_image_path": "/home/user/new-era-abyss-to-ascension-V4/docs/metano_origins_structure_library/buildings/metano_house_fire_day.png",
+        "no_background": true
+      },
+      "sha256": "3c10568e9764024e0789d22ae1f0d60493397f34062a505e4172fa9c18ea0a53",
+      "source": "pixellab_synthetic_fallback",
+      "created_at": 1788107029.1452467
+    },
+    "struct_fountain_46f9e1dc5cf68a88": {
+      "asset_id": "struct_fountain_46f9e1dc5cf68a88",
+      "asset_type": "structure",
+      "prompt": "pokemon mystery dungeon multi-tier carved stone fountain with sparkling water pool, transparent background",
+      "parameters": {
+        "description": "pokemon mystery dungeon multi-tier carved stone fountain with sparkling water pool, transparent background",
+        "category": "fountain",
+        "width": 72,
+        "height": 72,
+        "style_image_path": null,
+        "no_background": true
+      },
+      "sha256": "507498446f4e665d146123dfff9198ab1da293bd449729b4ee57f327f6dec241",
+      "source": "pixellab_synthetic_fallback",
+      "created_at": 1788107029.187813
+    },
+    "tileset_8ff9599b26d625bb": {
+      "tileset_id": "tileset_8ff9599b26d625bb",
+      "lower": "grassland spring water",
+      "upper": "grassland spring grass",
+      "tile_size": 24,
+      "tiles": [
+        "tile_0",
+        "tile_1",
+        "tile_2",
+        "tile_3",
+        "tile_4",
+        "tile_5",
+        "tile_6",
+        "tile_7",
+        "tile_8",
+        "tile_9",
+        "tile_10",
+        "tile_11",
+        "tile_12",
+        "tile_13",
+        "tile_14",
+        "tile_15"
+      ],
+      "sha256": "aa93c2f2c1d615ee1e6101e98e1f0349bd9043c9455162487d44842257600097",
+      "source": "pixellab_synthetic_fallback",
+      "created_at": 1788107029.2383687
+    },
+    "tileset_dee9d0651fc71c05": {
+      "tileset_id": "tileset_dee9d0651fc71c05",
+      "lower": "grassland spring dirt",
+      "upper": "grassland spring grass",
+      "tile_size": 24,
+      "tiles": [
+        "tile_0",
+        "tile_1",
+        "tile_2",
+        "tile_3",
+        "tile_4",
+        "tile_5",
+        "tile_6",
+        "tile_7",
+        "tile_8",
+        "tile_9",
+        "tile_10",
+        "tile_11",
+        "tile_12",
+        "tile_13",
+        "tile_14",
+        "tile_15"
+      ],
+      "sha256": "eafa6dbbfd0fc5b08dedd59bcceb6b92242049326bb5ecb7598ad6c7a0744c9a",
+      "source": "pixellab_synthetic_fallback",
+      "created_at": 1788107029.2707086
+    },
+    "tileset_eaefe2682d11e521": {
+      "tileset_id": "tileset_eaefe2682d11e521",
+      "lower": "grassland spring cliff",
+      "upper": "grassland spring grass",
+      "tile_size": 24,
+      "tiles": [
+        "tile_0",
+        "tile_1",
+        "tile_2",
+        "tile_3",
+        "tile_4",
+        "tile_5",
+        "tile_6",
+        "tile_7",
+        "tile_8",
+        "tile_9",
+        "tile_10",
+        "tile_11",
+        "tile_12",
+        "tile_13",
+        "tile_14",
+        "tile_15"
+      ],
+      "sha256": "eafa6dbbfd0fc5b08dedd59bcceb6b92242049326bb5ecb7598ad6c7a0744c9a",
+      "source": "pixellab_synthetic_fallback",
+      "created_at": 1788107029.3034248
+    },
+    "struct_landmark_1a636f6d8fe76e80": {
+      "asset_id": "struct_landmark_1a636f6d8fe76e80",
+      "asset_type": "structure",
+      "prompt": "Pokemon mystery dungeon guild entrance with Wigglytuff tent and sentry grate",
+      "parameters": {
+        "description": "Pokemon mystery dungeon guild entrance with Wigglytuff tent and sentry grate",
+        "category": "landmark",
+        "width": 120,
+        "height": 96,
+        "style_image_path": null,
+        "no_background": true
+      },
+      "sha256": "baf03f7fffac5d6ca50bb5072de9fa62ab9fab70b2e641b23cffcf1fe28d6901",
+      "source": "pixellab_synthetic_fallback",
+      "created_at": 1788107038.2287183
+    }
+  },
+  "updated_at": 1788107038.2288244
+}

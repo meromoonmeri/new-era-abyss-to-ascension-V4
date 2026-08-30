@@ -1,0 +1,16 @@
+{
+  "asset_id": "struct_fountain_46f9e1dc5cf68a88",
+  "asset_type": "structure",
+  "prompt": "pokemon mystery dungeon multi-tier carved stone fountain with sparkling water pool, transparent background",
+  "parameters": {
+    "description": "pokemon mystery dungeon multi-tier carved stone fountain with sparkling water pool, transparent background",
+    "category": "fountain",
+    "width": 72,
+    "height": 72,
+    "style_image_path": null,
+    "no_background": true
+  },
+  "sha256": "507498446f4e665d146123dfff9198ab1da293bd449729b4ee57f327f6dec241",
+  "source": "pixellab_synthetic_fallback",
+  "created_at": 1788107029.187813
+}

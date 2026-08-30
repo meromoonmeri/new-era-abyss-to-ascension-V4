@@ -1,0 +1,16 @@
+{
+  "asset_id": "struct_inn_77cb8ca99918e3bf",
+  "asset_type": "structure",
+  "prompt": "pokemon mystery dungeon cozy rustic wooden inn with signpost and timber framing, transparent background",
+  "parameters": {
+    "description": "pokemon mystery dungeon cozy rustic wooden inn with signpost and timber framing, transparent background",
+    "category": "inn",
+    "width": 96,
+    "height": 96,
+    "style_image_path": "/home/user/new-era-abyss-to-ascension-V4/docs/metano_origins_structure_library/buildings/metano_cafe_day.png",
+    "no_background": true
+  },
+  "sha256": "18e4845e7870551231b6de84246a7a31bffdd7437b0b0090a5ad0b23dc9bfd44",
+  "source": "pixellab_synthetic_fallback",
+  "created_at": 1788107028.9962459
+}

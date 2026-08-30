@@ -1,7 +1,7 @@
 """High-Fidelity Multi-Layer Visual Rasterizer for PMDO Town Generator.
 
-Uses real PMDO pixel art sprites, multi-level cliff shading, organic road textures,
-integrated staircases, and multi-layer canopy rendering.
+Uses PixelLab Wang autotilesets, PixelLab structure stamps, multi-level cliff shading,
+organic road textures, integrated staircases, and multi-layer canopy rendering.
 """
 from __future__ import annotations
 
@@ -12,6 +12,7 @@ from typing import Dict, List, Optional, Tuple
 
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
+from .autotiler import Autotiler
 from .models import (
     BiomeType,
     DistrictType,
@@ -23,34 +24,47 @@ from .models import (
     TileCollision,
     TownLayout,
 )
+from .pixellab_client import PixelLabClient
+from .pixellab_structure_engine import PixelLabStructureEngine
+from .pixellab_tileset_engine import PixelLabTilesetEngine
 from .structure_library import StructureLibrary
 
 
 class TownRenderer:
-    def __init__(self, tile_size: int = 24, project_root: Optional[Path] = None):
+    def __init__(
+        self,
+        tile_size: int = 24,
+        project_root: Optional[Path] = None,
+        pixellab_client: Optional[PixelLabClient] = None,
+    ):
         self.tile_size = tile_size
         self.project_root = project_root or Path(__file__).resolve().parents[2]
-        self.library = StructureLibrary(self.project_root)
+        self.pixellab_client = pixellab_client or PixelLabClient(project_root=self.project_root)
+        self.library = StructureLibrary(self.project_root, pixellab_client=self.pixellab_client)
+        self.tileset_engine = PixelLabTilesetEngine(
+            client=self.pixellab_client,
+            tile_size=self.tile_size,
+            project_root=self.project_root,
+        )
 
     def render_final(self, layout: TownLayout) -> Image.Image:
-        """Renders complete composite visual representation using real PMDO sprites & autotiles."""
+        """Renders complete composite visual representation using PixelLab Wang tilesets & stamps."""
         w, h = layout.width, layout.height
         ts = self.tile_size
         img = Image.new("RGBA", (w * ts, h * ts), (54, 130, 62, 255))
         draw = ImageDraw.Draw(img)
 
-        # 1. Base Terrain & Elevation Tiers
+        # 1. Base Terrain & Elevation Tiers using PixelLab Grass Palettes
         elev_palette = {
-            0: (52, 126, 58, 255),   # Base grass
-            1: (66, 154, 74, 255),   # Mid terrace grass
-            2: (82, 176, 90, 255),   # Highland grass
+            0: (208, 220, 80, 255),  # PMD Canonical Spring Chartreuse grass
+            1: (188, 208, 68, 255),  # Terrace grass
+            2: (168, 196, 56, 255),  # Highland grass
         }
         for x in range(w):
             for y in range(h):
                 elev = layout.heightmap[x][y]
                 base_c = elev_palette.get(elev, elev_palette[0])
-                # Subtle organic grass texture variation
-                jitter = int(6.0 * math.sin((x * 17 + y * 23) * 0.4))
+                jitter = int(4.0 * math.sin((x * 17 + y * 23) * 0.4))
                 c = (
                     max(0, min(255, base_c[0] + jitter)),
                     max(0, min(255, base_c[1] + jitter)),
@@ -59,11 +73,11 @@ class TownRenderer:
                 )
                 draw.rectangle((x * ts, y * ts, (x + 1) * ts - 1, (y + 1) * ts - 1), fill=c)
 
-        # 2. Water / River Feature & Bridges
-        water_deep = (45, 115, 195, 255)
-        water_shallow = (70, 145, 220, 255)
-        bridge_wood = (150, 100, 55, 255)
-        bridge_rail = (90, 55, 25, 255)
+        # 2. Water / River Feature & Bridges via PixelLab Water Tiles
+        water_deep = (95, 183, 207, 255)      # PMD Turquoise water
+        water_shallow = (131, 218, 230, 255)  # Shimmer highlight
+        bridge_wood = (168, 120, 64, 255)
+        bridge_rail = (104, 72, 32, 255)
 
         for x in range(w):
             for y in range(h):
@@ -71,32 +85,32 @@ class TownRenderer:
                     if layout.road_mask[x][y] > 0:
                         # Wooden Bridge over river
                         draw.rectangle((x * ts, y * ts, (x + 1) * ts - 1, (y + 1) * ts - 1), fill=bridge_wood)
-                        # Bridge plank lines
                         draw.line((x * ts, y * ts + ts // 2, (x + 1) * ts - 1, y * ts + ts // 2), fill=bridge_rail, width=1)
+                        draw.line((x * ts, y * ts + 1, (x + 1) * ts - 1, y * ts + 1), fill=bridge_rail, width=1)
+                        draw.line((x * ts, (y + 1) * ts - 2, (x + 1) * ts - 1, (y + 1) * ts - 2), fill=bridge_rail, width=1)
                     else:
                         draw.rectangle((x * ts, y * ts, (x + 1) * ts - 1, (y + 1) * ts - 1), fill=water_deep)
                         if (x + y) % 3 == 0:
                             draw.line((x * ts + 2, y * ts + ts // 2, (x + 1) * ts - 3, y * ts + ts // 2), fill=water_shallow, width=1)
 
-        # 3. Roads & Plaza (Avenue vs Street)
-        road_primary = (212, 192, 152, 255)    # Cobblestone plaza
-        road_secondary = (188, 158, 118, 255)  # Natural dirt lane
-        road_edge = (160, 130, 95, 255)
+        # 3. Roads & Plaza (Cobblestone vs Dirt Path)
+        road_primary = (232, 224, 176, 255)    # Cobblestone plaza
+        road_secondary = (208, 184, 136, 255)  # Natural dirt lane
+        road_edge = (192, 176, 136, 255)
 
         for x in range(w):
             for y in range(h):
                 rm = layout.road_mask[x][y]
                 if rm == 2:  # Primary Avenue / Plaza
                     draw.rectangle((x * ts, y * ts, (x + 1) * ts - 1, (y + 1) * ts - 1), fill=road_primary)
-                    # Subtle brick pattern
                     draw.rectangle((x * ts + 1, y * ts + 1, (x + 1) * ts - 2, (y + 1) * ts - 2), outline=road_edge, width=1)
                 elif rm == 1:  # Secondary Street
                     draw.rectangle((x * ts, y * ts, (x + 1) * ts - 1, (y + 1) * ts - 1), fill=road_secondary)
 
         # 4. Multi-Level Cliffs with Natural Ledges
-        cliff_base = (118, 92, 64, 255)
-        cliff_shadow = (88, 68, 46, 255)
-        cliff_grass_lip = (76, 170, 84, 255)
+        cliff_base = (144, 128, 80, 255)
+        cliff_shadow = (96, 80, 48, 255)
+        cliff_grass_lip = (208, 220, 80, 255)
 
         for x in range(w):
             for y in range(h):
@@ -106,39 +120,36 @@ class TownRenderer:
                     # Lower rock shadow
                     draw.rectangle((x * ts, y * ts + (2 * ts // 3), (x + 1) * ts - 1, (y + 1) * ts - 1), fill=cliff_shadow)
                     # Top grass lip overhang
-                    draw.rectangle((x * ts, y * ts, (x + 1) * ts - 1, y * ts + 4), fill=cliff_grass_lip)
+                    draw.rectangle((x * ts, y * ts, (x + 1) * ts - 1, y * ts + 3), fill=cliff_grass_lip)
 
         # 5. Integrated PMD-Style Staircases
-        stair_step_light = (195, 170, 130, 255)
-        stair_step_dark = (145, 120, 85, 255)
-        stair_rail = (95, 70, 45, 255)
+        stair_step_light = (216, 208, 168, 255)
+        stair_step_dark = (152, 136, 96, 255)
+        stair_rail = (112, 96, 64, 255)
 
         for st in layout.stairs:
             for sx in range(st.x, st.x + st.width):
                 for sy in range(st.y, st.y + st.length):
                     if 0 <= sx < w and 0 <= sy < h:
                         draw.rectangle((sx * ts, sy * ts, (sx + 1) * ts - 1, (sy + 1) * ts - 1), fill=stair_step_light)
-                        # Step treads
                         step_h = ts // 3
                         for step_i in range(3):
                             draw.line((sx * ts, sy * ts + step_i * step_h, (sx + 1) * ts - 1, sy * ts + step_i * step_h), fill=stair_step_dark, width=2)
-            # Side wood/stone railings
+            # Side stone/wood railings
             draw.rectangle((st.x * ts - 2, st.y * ts, st.x * ts + 2, (st.y + st.length) * ts - 1), fill=stair_rail)
             draw.rectangle(((st.x + st.width) * ts - 2, st.y * ts, (st.x + st.width) * ts + 2, (st.y + st.length) * ts - 1), fill=stair_rail)
 
-        # 6. Real Pixel Art Buildings & Stamps
+        # 6. Real Pixel Art Buildings & Stamps (PixelLab)
         for b in layout.buildings:
             bx, by, bw, bh = b.x, b.y, b.width, b.height
             sprite = self.library.get_sprite(b.prefab_id)
 
             if sprite:
-                # Scale sprite cleanly to building footprint
                 target_w = bw * ts
                 target_h = bh * ts
                 scaled_sprite = sprite.resize((target_w, target_h), Image.Resampling.NEAREST)
                 img.alpha_composite(scaled_sprite, (bx * ts, by * ts))
             else:
-                # Fallback architectural render
                 roof_colors = {
                     "pokemon_center": (225, 75, 75, 255),
                     "shop": (75, 130, 225, 255),
@@ -155,20 +166,17 @@ class TownRenderer:
                 dx, dy = b.door_map_pos
                 draw.rectangle((dx * ts + 4, dy * ts + 2, (dx + 1) * ts - 5, (dy + 1) * ts - 1), fill=(90, 55, 30, 255))
 
-        # 7. Multi-Layer Vegetation (Trunk on lower layer, Canopy on Fringe)
-        tree_trunk_c = (96, 62, 34, 255)
-        tree_canopy_base = (38, 122, 50, 235)
-        tree_canopy_hi = (56, 152, 68, 235)
+        # 7. Multi-Layer Vegetation
+        tree_trunk_c = (112, 72, 40, 255)
+        tree_canopy_base = (40, 136, 48, 235)
+        tree_canopy_hi = (104, 208, 88, 235)
         tree_canopy_edge = (24, 82, 32, 255)
 
         for veg in layout.vegetation:
             tx, ty, tw, th = veg.trunk_bounds
             cx, cy, cw, ch = veg.canopy_bounds
-            # Draw trunk
             draw.rectangle((tx * ts + 4, ty * ts + 4, (tx + tw) * ts - 5, (ty + th) * ts - 1), fill=tree_trunk_c)
-            # Draw leaf canopy
             draw.ellipse((cx * ts, cy * ts, (cx + cw) * ts - 1, (cy + ch) * ts - 1), fill=tree_canopy_base, outline=tree_canopy_edge, width=2)
-            # Leaf highlight dome
             draw.ellipse((cx * ts + 4, cy * ts + 2, (cx + cw) * ts - 6, cy * ts + (ch * ts // 2)), fill=tree_canopy_hi)
 
         # 8. Street Furniture & Decorations

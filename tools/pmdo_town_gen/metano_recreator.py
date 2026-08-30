@@ -3,7 +3,7 @@
 Recreates Metano Town using the exact canonical PMD colorimetry, authentic
 palette (chartreuse spring grass, turquoise river, ochre cliffs, cobblestone plaza),
 and canonical spatial organization (Western Residential Terrace, Eastern River,
-Central Plaza with Kecleon Shop, Upper Cafe Terrace).
+Central Plaza with Kecleon Shop, Upper Cafe Terrace), integrated with PixelLab.
 """
 from __future__ import annotations
 
@@ -29,6 +29,8 @@ from .models import (
     TownLayout,
     TownSpec,
 )
+from .pixellab_client import PixelLabClient
+from .pixellab_tileset_engine import PixelLabTilesetEngine
 from .pmdo_exporter import PMDOExporter
 from .structure_library import StructureLibrary
 from .validator import TownValidator
@@ -60,9 +62,19 @@ METANO_PALETTE = {
 
 
 class MetanoRecreator:
-    def __init__(self, project_root: Optional[Path] = None):
+    def __init__(
+        self,
+        project_root: Optional[Path] = None,
+        pixellab_client: Optional[PixelLabClient] = None,
+    ):
         self.project_root = project_root or Path(__file__).resolve().parents[2]
-        self.library = StructureLibrary(self.project_root)
+        self.pixellab_client = pixellab_client or PixelLabClient(project_root=self.project_root)
+        self.library = StructureLibrary(self.project_root, pixellab_client=self.pixellab_client)
+        self.tileset_engine = PixelLabTilesetEngine(
+            client=self.pixellab_client,
+            tile_size=24,
+            project_root=self.project_root,
+        )
         self.exporter = PMDOExporter(self.project_root)
 
     def build_metano_layout(
@@ -110,164 +122,130 @@ class MetanoRecreator:
                 else:
                     hmap[x][y] = 0
 
-        # Guarantee southern main entrance corridor is flat Level 0
-        for x in range(w // 2 - 8, w // 2 + 8):
-            for y in range(h - 10, h):
-                hmap[x][y] = 0
-
-        # Compute cliff contours
+        # Create Cliff Boundaries (Edge transitions from 0 to 1)
         for x in range(w):
             for y in range(h):
-                if hmap[x][y] == 1:
-                    for nx, ny in ((x, y + 1), (x, y - 1), (x + 1, y), (x - 1, y)):
-                        if 0 <= nx < w and 0 <= ny < h and hmap[nx][ny] == 0:
-                            cliff_mask[x][y] = 1
-                            break
+                if hmap[x][y] == 0:
+                    # Check if adjacent to 1
+                    for dx, dy in ((-1, 0), (1, 0), (0, -1), (0, 1)):
+                        nx, ny = x + dx, y + dy
+                        if 0 <= nx < w and 0 <= ny < h and hmap[nx][ny] == 1:
+                            # If north neighbor is 1, south cell is cliff face
+                            if dy == -1:
+                                cliff_mask[x][y] = 1
 
-        # 2. Structural Staircases
+        # 2. Eastern River System
+        water_mask = [[0 for _ in range(h)] for _ in range(w)]
+        for y in range(h):
+            # Sinuous curve centered around x = 54
+            river_center = 52 + int(3.5 * math.sin(y * 0.15) + 2.0 * math.cos(y * 0.08))
+            river_width = 5
+            for x in range(river_center - river_width // 2, river_center + river_width // 2 + 1):
+                if 0 <= x < w:
+                    water_mask[x][y] = 1
+                    cliff_mask[x][y] = 0  # Water carves through cliffs
+
+        # 3. Stairs Connections (Encastrés dans les falaises)
         stairs: List[StairConnection] = []
 
-        # Stair 1: West Residential Ascent (connecting valley to western terrace)
-        st1_x, st1_y = 22, 33
-        stairs.append(
-            StairConnection(
-                id="stair_west_terrace",
-                from_level=0,
-                to_level=1,
-                x=st1_x,
-                y=st1_y,
-                width=3,
-                length=2,
-                orientation="north",
-                walkable_bounds=(st1_x, st1_y - 1, st1_x + 2, st1_y + 2),
-            )
+        # Stair 1: West Residential Access (Level 0 -> Level 1)
+        stair_west = StairConnection(
+            id="stair_west", x=22, y=34, width=3, length=3,
+            from_level=0, to_level=1, orientation="north",
+            walkable_bounds=(22, 33, 24, 37),
         )
+        stairs.append(stair_west)
 
-        # Stair 2: North Central Pass
-        st2_x, st2_y = 31, 14
-        stairs.append(
-            StairConnection(
-                id="stair_north_pass",
-                from_level=0,
-                to_level=1,
-                x=st2_x,
-                y=st2_y,
-                width=3,
-                length=2,
-                orientation="north",
-                walkable_bounds=(st2_x, st2_y - 1, st2_x + 2, st2_y + 2),
-            )
+        # Stair 2: North Mountain / Col Access (Level 0 -> Level 1)
+        stair_north = StairConnection(
+            id="stair_north", x=30, y=14, width=3, length=3,
+            from_level=0, to_level=1, orientation="north",
+            walkable_bounds=(30, 13, 32, 17),
         )
+        stairs.append(stair_north)
 
-        # Stair 3: East Cafe Terrace Ascent
-        st3_x, st3_y = 44, 25
-        stairs.append(
-            StairConnection(
-                id="stair_cafe_terrace",
-                from_level=0,
-                to_level=1,
-                x=st3_x,
-                y=st3_y,
-                width=3,
-                length=2,
-                orientation="north",
-                walkable_bounds=(st3_x, st3_y - 1, st3_x + 2, st3_y + 2),
-            )
+        # Stair 3: East Cafe Terrace Access (Level 0 -> Level 1)
+        stair_east = StairConnection(
+            id="stair_east", x=36, y=26, width=3, length=3,
+            from_level=0, to_level=1, orientation="north",
+            walkable_bounds=(36, 25, 38, 29),
         )
+        stairs.append(stair_east)
 
-        # Clear cliff mask at stair locations
+        # Clear cliff mask at stairs
         for st in stairs:
-            for sx in range(st.x - 1, st.x + st.width + 1):
+            for sx in range(st.x, st.x + st.width):
                 for sy in range(st.y - 1, st.y + st.length + 1):
                     if 0 <= sx < w and 0 <= sy < h:
                         cliff_mask[sx][sy] = 0
 
-        # 3. River & Waterways
-        water_mask = [[0 for _ in range(h)] for _ in range(w)]
-        river_base_x = 42
-        for y in range(h):
-            rx = river_base_x + int(3.0 * math.sin(y * 0.18))
-            for dx in range(-2, 3):
-                if 0 <= rx + dx < w:
-                    water_mask[rx + dx][y] = 1
-
-        # Clear water at stairs
-        for st in stairs:
-            for sx in range(st.x - 2, st.x + st.width + 3):
-                for sy in range(st.y - 2, st.y + st.length + 3):
-                    if 0 <= sx < w and 0 <= sy < h:
-                        water_mask[sx][sy] = 0
-
-        # 4. Districts & Road Hierarchy
-        districts = [
-            District(id="district_plaza", district_type=DistrictType.PLAZA, center_x=31, center_y=42, radius=8, elevation=0, bounds=(23, 34, 39, 50)),
-            District(id="district_residential", district_type=DistrictType.RESIDENTIAL, center_x=12, center_y=20, radius=12, elevation=1, bounds=(2, 6, 22, 32)),
-            District(id="district_cafe", district_type=DistrictType.COMMERCIAL, center_x=48, center_y=16, radius=10, elevation=1, bounds=(36, 6, 60, 24)),
-            District(id="district_waterfront", district_type=DistrictType.WATERFRONT, center_x=42, center_y=42, radius=6, elevation=0, bounds=(38, 36, 46, 48)),
-        ]
-
+        # 4. Roads & Plaza Network (Cobblestone Plaza + Natural Dirt Lanes)
         road_mask = [[0 for _ in range(h)] for _ in range(w)]
 
-        # Southern Entrance Avenue (Width 4, Cobblestone)
-        for y in range(48, h - 1):
-            for x in range(29, 34):
+        # 4.1 South Entry Grand Avenue (X: 30..33, Y: 48..62)
+        for y in range(48, 63):
+            for x in range(30, 34):
                 road_mask[x][y] = 2
 
-        # Central Plaza Hub (Radius 7)
-        for x in range(24, 39):
-            for y in range(36, 49):
-                dist = math.sqrt((x - 31) ** 2 + (y - 42) ** 2)
-                if dist <= 7.0:
+        # 4.2 Central Cobblestone Plaza (X: 24..42, Y: 32..48)
+        for y in range(32, 49):
+            for x in range(24, 43):
+                # Rounded octagon plaza
+                dx = abs(x - 33)
+                dy = abs(y - 40)
+                if dx + dy <= 14:
                     road_mask[x][y] = 2
 
-        # Road West to Western Stairs
-        for x in range(12, 28):
-            for y in range(32, 35):
-                road_mask[x][y] = 1
+        # 4.3 Western Terrace Branch Road (X: 6..22, Y: 18..34)
+        for x in range(6, 23):
+            road_mask[x][18] = 1
+            road_mask[x][28] = 1
+        for y in range(18, 35):
+            road_mask[22][y] = 1
+            road_mask[6][y] = 1
 
-        # Western Residential Street
-        for y in range(12, 34):
-            for x in range(10, 13):
-                road_mask[x][y] = 1
-        for x in range(4, 22):
-            for y in range(18, 21):
-                road_mask[x][y] = 1
-
-        # Road East across River Bridge to East Terrace
-        for x in range(36, 52):
-            for y in range(40, 43):
-                road_mask[x][y] = 2
-
-        # Road to Cafe on Upper East Terrace
+        # 4.4 Spinda Cafe Promenade (X: 36..50, Y: 16..26)
         for y in range(16, 27):
-            for x in range(44, 47):
-                road_mask[x][y] = 1
-        for x in range(44, 56):
-            for y in range(16, 19):
-                road_mask[x][y] = 1
+            road_mask[36][y] = 1
+        for x in range(36, 51):
+            road_mask[x][16] = 1
 
-        # 5. Buildings Allocation (Exact Metano Ensemble)
+        # 4.5 Eastern River Wooden Bridges
+        bridge_spots = [38, 48]
+        for by in bridge_spots:
+            for bx in range(44, 60):
+                if water_mask[bx][by] == 1:
+                    road_mask[bx][by] = 2  # Wooden bridge crossing
+
+        # 5. Districts, Parcels & Canonical Structure Stamps
+        districts: List[District] = [
+            District(id="district_plaza", district_type=DistrictType.PLAZA, center_x=33, center_y=40, radius=8, elevation=0, bounds=(24, 32, 42, 48)),
+            District(id="district_residential", district_type=DistrictType.RESIDENTIAL, center_x=13, center_y=21, radius=12, elevation=1, bounds=(2, 8, 24, 34)),
+            District(id="district_cafe", district_type=DistrictType.COMMERCIAL, center_x=43, center_y=17, radius=10, elevation=1, bounds=(34, 8, 52, 26)),
+            District(id="district_waterfront", district_type=DistrictType.WATERFRONT, center_x=55, center_y=31, radius=8, elevation=0, bounds=(48, 0, 62, 62)),
+        ]
+
         parcels: List[Parcel] = []
         buildings: List[PlacedStructure] = []
 
-        # 5.1 Kecleon Shop (at Plaza hub: 35, 38)
+        # 5.1 Kecleon Shop (Central Plaza North-East: 36, 34)
         p_shop = Parcel(
-            id="parcel_kecleon_shop", district_id="district_plaza",
-            bounds=(34, 37, 5, 5), elevation=0, front_road_side="south",
-            road_connection_point=(36, 42), door_target_pos=(36, 41),
+            id="parcel_shop", district_id="district_plaza",
+            bounds=(36, 34, 5, 5), elevation=0, front_road_side="south",
+            road_connection_point=(38, 40), door_target_pos=(38, 38),
             clearance=1, assigned_structure_id="shop",
         )
         parcels.append(p_shop)
         buildings.append(
             PlacedStructure(
-                instance_id="metano_kecleon_shop", prefab_id="shop", role="shop",
-                x=34, y=37, width=5, height=5, elevation=0,
-                door_map_pos=(36, 41), door_warp_target="interior_shop",
+                instance_id="metano_shop", prefab_id="shop", role="shop",
+                x=36, y=34, width=5, height=5, elevation=0,
+                door_map_pos=(38, 38), door_warp_target="interior_shop",
                 parcel_id=p_shop.id,
             )
         )
 
-        # 5.2 Metano Inn (South Plaza: 22, 44)
+        # 5.2 Metano Inn (South Plaza: 20, 43)
         p_inn = Parcel(
             id="parcel_inn", district_id="district_plaza",
             bounds=(20, 43, 8, 6), elevation=0, front_road_side="south",
@@ -284,7 +262,7 @@ class MetanoRecreator:
             )
         )
 
-        # 5.3 Spinda Cafe (Upper East Terrace: 46, 10)
+        # 5.3 Spinda Cafe (Upper East Terrace: 46, 9)
         p_cafe = Parcel(
             id="parcel_cafe", district_id="district_cafe",
             bounds=(46, 9, 8, 6), elevation=1, front_road_side="south",
@@ -353,43 +331,42 @@ class MetanoRecreator:
             )
         )
 
-        # 5.5 Plaza Fountain (Center: 29, 39)
+        # 5.5 Central Plaza Fountain (31, 38)
         p_fountain = Parcel(
             id="parcel_fountain", district_id="district_plaza",
-            bounds=(29, 39, 4, 4), elevation=0, front_road_side="south",
-            road_connection_point=(31, 44), door_target_pos=(31, 42),
+            bounds=(31, 38, 4, 4), elevation=0, front_road_side="south",
+            road_connection_point=(33, 43), door_target_pos=(33, 41),
             clearance=1, assigned_structure_id="fountain",
         )
         parcels.append(p_fountain)
         buildings.append(
             PlacedStructure(
-                instance_id="metano_fountain", prefab_id="fountain", role="monument",
-                x=29, y=39, width=4, height=4, elevation=0,
-                door_map_pos=(31, 42), door_warp_target="",
+                instance_id="plaza_fountain", prefab_id="fountain", role="monument",
+                x=31, y=38, width=4, height=4, elevation=0,
+                door_map_pos=(33, 41), door_warp_target="",
                 parcel_id=p_fountain.id,
             )
         )
 
-        # 6. Vegetation & Trees (Perimeter buffer + Courtyard shade trees)
+        # 6. Dense Perimeter Vegetation & Garden Trees
         vegetation: List[PlacedVegetation] = []
-        decorations: List[PlacedDecoration] = []
-
-        # Perimeter tree border
         tree_id = 1
-        for x in range(1, w - 2, 3):
-            for y in (1, 2, h - 3, h - 2):
-                if not (28 <= x <= 34 and y >= h - 4):  # Don't block main entrance
-                    vegetation.append(
-                        PlacedVegetation(
-                            id=f"tree_{tree_id}", veg_type="tree_large",
-                            x=x, y=y, width=3, height=3, elevation=hmap[x][y],
-                            trunk_bounds=(x, y + 1, 2, 1), canopy_bounds=(x - 1, y - 1, 3, 3),
-                        )
-                    )
-                    tree_id += 1
 
-        for y in range(4, h - 4, 4):
-            for x in (1, w - 3):
+        # North dense forest boundary
+        for x in range(0, w, 3):
+            for y in range(0, 7, 3):
+                vegetation.append(
+                    PlacedVegetation(
+                        id=f"tree_{tree_id}", veg_type="tree_large",
+                        x=x, y=y, width=3, height=3, elevation=hmap[x][y],
+                        trunk_bounds=(x, y + 1, 2, 1), canopy_bounds=(x - 1, y - 1, 3, 3),
+                    )
+                )
+                tree_id += 1
+
+        # West dense forest boundary
+        for y in range(6, h, 3):
+            for x in range(0, 4, 3):
                 vegetation.append(
                     PlacedVegetation(
                         id=f"tree_{tree_id}", veg_type="tree_large",
@@ -412,6 +389,7 @@ class MetanoRecreator:
             tree_id += 1
 
         # 7. Street Decorations (Signposts, Lampposts, Benches)
+        decorations: List[PlacedDecoration] = []
         decorations.append(
             PlacedDecoration(
                 id="sign_welcome", prop_type="signpost",
@@ -501,71 +479,80 @@ class MetanoRecreator:
 
         return layout
 
-    def render_metano_canonical(self, layout: TownLayout, tile_size: int = 24) -> Image.Image:
-        """Renders Metano Town with exact PMD canonical colorimetry and real sprites."""
+    def render_exact_metano(self, layout: TownLayout, tile_size: int = 24) -> Image.Image:
+        """Renders exact Metano Town using canonical PMD colorimetry, PixelLab tilesets, and stamps."""
         w, h = layout.width, layout.height
         ts = tile_size
         img = Image.new("RGBA", (w * ts, h * ts), METANO_PALETTE["grass_level_0"])
         draw = ImageDraw.Draw(img)
 
-        # 1. Base Grass with Subtle PMD Texture
+        # 1. Base Grass with Elevation Tiers & Subtle Jitter
         for x in range(w):
             for y in range(h):
                 elev = layout.heightmap[x][y]
-                base_c = METANO_PALETTE["grass_level_1"] if elev == 1 else METANO_PALETTE["grass_level_0"]
-                jitter_val = int(5.0 * math.sin((x * 13 + y * 19) * 0.5))
-                c = (
-                    max(0, min(255, base_c[0] + jitter_val)),
-                    max(0, min(255, base_c[1] + jitter_val)),
-                    max(0, min(255, base_c[2] + jitter_val)),
-                    255,
-                )
+                base_c = METANO_PALETTE["grass_level_1"] if elev >= 1 else METANO_PALETTE["grass_level_0"]
+                # Natural PMD grass stippling
+                if (x * 7 + y * 13) % 11 == 0:
+                    c = METANO_PALETTE["grass_jitter_1"] if elev == 0 else base_c
+                elif (x * 11 + y * 17) % 13 == 0:
+                    c = METANO_PALETTE["grass_jitter_2"]
+                else:
+                    c = base_c
                 draw.rectangle((x * ts, y * ts, (x + 1) * ts - 1, (y + 1) * ts - 1), fill=c)
 
-        # 2. Turquoise River & Wooden Bridges
+        # 2. Eastern River System & Water Waves
         for x in range(w):
             for y in range(h):
                 if layout.water_mask[x][y] == 1:
                     if layout.road_mask[x][y] > 0:
                         # Wooden Plank Bridge
                         draw.rectangle((x * ts, y * ts, (x + 1) * ts - 1, (y + 1) * ts - 1), fill=METANO_PALETTE["bridge_wood"])
+                        # Horizontal planks and dark side rails
+                        draw.line((x * ts, y * ts + 1, (x + 1) * ts - 1, y * ts + 1), fill=METANO_PALETTE["bridge_rail"], width=1)
+                        draw.line((x * ts, (y + 1) * ts - 2, (x + 1) * ts - 1, (y + 1) * ts - 2), fill=METANO_PALETTE["bridge_rail"], width=1)
                         draw.line((x * ts, y * ts + ts // 2, (x + 1) * ts - 1, y * ts + ts // 2), fill=METANO_PALETTE["bridge_rail"], width=1)
                     else:
+                        # Turquoise river
                         draw.rectangle((x * ts, y * ts, (x + 1) * ts - 1, (y + 1) * ts - 1), fill=METANO_PALETTE["river_deep"])
-                        if (x + y) % 3 == 0:
+                        if (x + y) % 4 == 0:
                             draw.line((x * ts + 2, y * ts + ts // 2, (x + 1) * ts - 3, y * ts + ts // 2), fill=METANO_PALETTE["river_shallow"], width=1)
 
-        # 3. Cobblestone Plaza & Sandy Roads
+        # 3. Roads & Plaza Network
         for x in range(w):
             for y in range(h):
                 rm = layout.road_mask[x][y]
-                if rm == 2:  # Primary Avenue / Plaza
+                if rm == 2 and layout.water_mask[x][y] == 0:
+                    # Plaza Cobblestones
                     draw.rectangle((x * ts, y * ts, (x + 1) * ts - 1, (y + 1) * ts - 1), fill=METANO_PALETTE["road_plaza"])
                     draw.rectangle((x * ts + 1, y * ts + 1, (x + 1) * ts - 2, (y + 1) * ts - 2), outline=METANO_PALETTE["road_plaza_grid"], width=1)
-                elif rm == 1:  # Dirt Street
+                elif rm == 1 and layout.water_mask[x][y] == 0:
+                    # Sandy Dirt Lanes
                     draw.rectangle((x * ts, y * ts, (x + 1) * ts - 1, (y + 1) * ts - 1), fill=METANO_PALETTE["road_dirt"])
 
-        # 4. Ochre Cliffs with Shaded Rock Faces & Top Grass Lip
+        # 4. Multi-Level Cliffs (Warm Ochre Rock Faces)
         for x in range(w):
             for y in range(h):
                 if layout.cliff_mask[x][y] == 1:
                     draw.rectangle((x * ts, y * ts, (x + 1) * ts - 1, (y + 1) * ts - 1), fill=METANO_PALETTE["cliff_face"])
+                    # Deep bottom shadow
                     draw.rectangle((x * ts, y * ts + (2 * ts // 3), (x + 1) * ts - 1, (y + 1) * ts - 1), fill=METANO_PALETTE["cliff_shadow"])
-                    draw.rectangle((x * ts, y * ts, (x + 1) * ts - 1, y * ts + 4), fill=METANO_PALETTE["cliff_lip"])
+                    # Overhanging grass lip
+                    draw.rectangle((x * ts, y * ts, (x + 1) * ts - 1, y * ts + 3), fill=METANO_PALETTE["cliff_lip"])
 
-        # 5. Integrated Stone Stairs
+        # 5. Integrated PMD Stone Staircases
         for st in layout.stairs:
             for sx in range(st.x, st.x + st.width):
                 for sy in range(st.y, st.y + st.length):
                     if 0 <= sx < w and 0 <= sy < h:
                         draw.rectangle((sx * ts, sy * ts, (sx + 1) * ts - 1, (sy + 1) * ts - 1), fill=METANO_PALETTE["stair_stone"])
+                        step_h = ts // 3
                         for step_i in range(3):
-                            step_y = sy * ts + step_i * (ts // 3)
-                            draw.line((sx * ts, step_y, (sx + 1) * ts - 1, step_y), fill=METANO_PALETTE["stair_step"], width=2)
-            draw.rectangle((st.x * ts - 2, st.y * ts, st.x * ts + 2, (st.y + st.length) * ts - 1), fill=METANO_PALETTE["bridge_rail"])
-            draw.rectangle(((st.x + st.width) * ts - 2, st.y * ts, (st.x + st.width) * ts + 2, (st.y + st.length) * ts - 1), fill=METANO_PALETTE["bridge_rail"])
+                            draw.line((sx * ts, sy * ts + step_i * step_h, (sx + 1) * ts - 1, sy * ts + step_i * step_h), fill=METANO_PALETTE["stair_step"], width=2)
+            # Stone railings
+            draw.rectangle((st.x * ts - 2, st.y * ts, st.x * ts + 2, (st.y + st.length) * ts - 1), fill=METANO_PALETTE["cliff_shadow"])
+            draw.rectangle(((st.x + st.width) * ts - 2, st.y * ts, (st.x + st.width) * ts + 2, (st.y + st.length) * ts - 1), fill=METANO_PALETTE["cliff_shadow"])
 
-        # 6. Real Pixel Art Building Stamps
+        # 6. Real Pixel Art Structure Stamps
         for b in layout.buildings:
             bx, by, bw, bh = b.x, b.y, b.width, b.height
             sprite = self.library.get_sprite(b.prefab_id)
@@ -574,13 +561,20 @@ class MetanoRecreator:
                 target_h = bh * ts
                 scaled_sprite = sprite.resize((target_w, target_h), Image.Resampling.NEAREST)
                 img.alpha_composite(scaled_sprite, (bx * ts, by * ts))
+            else:
+                # Fallback architectural block
+                draw.rectangle((bx * ts + 2, by * ts + 2, (bx + bw) * ts - 3, (by + bh) * ts - 3), fill=(235, 225, 205, 255), outline=(50, 40, 30, 255), width=2)
+                draw.rectangle((bx * ts, by * ts, (bx + bw) * ts - 1, (by + bh - 2) * ts - 1), fill=(180, 85, 60, 255), outline=(40, 30, 20, 255), width=2)
 
-        # 7. Trees (Multi-layer)
+        # 7. Dense Canopy Vegetation & Garden Trees
         for veg in layout.vegetation:
             tx, ty, tw, th = veg.trunk_bounds
             cx, cy, cw, ch = veg.canopy_bounds
+            # Tree trunk
             draw.rectangle((tx * ts + 4, ty * ts + 4, (tx + tw) * ts - 5, (ty + th) * ts - 1), fill=METANO_PALETTE["tree_trunk"])
+            # Forest leaf canopy
             draw.ellipse((cx * ts, cy * ts, (cx + cw) * ts - 1, (cy + ch) * ts - 1), fill=METANO_PALETTE["tree_canopy_base"], outline=METANO_PALETTE["tree_canopy_edge"], width=2)
+            # Vibrant lime highlight dome
             draw.ellipse((cx * ts + 4, cy * ts + 2, (cx + cw) * ts - 6, cy * ts + (ch * ts // 2)), fill=METANO_PALETTE["tree_canopy_dome"])
 
         # 8. Street Props
@@ -603,12 +597,12 @@ class MetanoRecreator:
         render_dir = self.project_root / "docs/pmu_maps/renders/metano_town_recreated"
         render_dir.mkdir(parents=True, exist_ok=True)
 
-        final_img = self.render_metano_canonical(layout, tile_size=24)
+        final_img = self.render_exact_metano(layout, tile_size=24)
         final_img.save(render_dir / "final.png", optimize=True)
         final_img.save(render_dir / "preview.png", optimize=True)
 
         from .renderer import TownRenderer
-        r = TownRenderer(tile_size=24, project_root=self.project_root)
+        r = TownRenderer(tile_size=24, project_root=self.project_root, pixellab_client=self.pixellab_client)
         r.render_layout(layout).save(render_dir / "layout.png", optimize=True)
         r.render_elevation(layout).save(render_dir / "elevation.png", optimize=True)
         r.render_cliffs(layout).save(render_dir / "cliffs.png", optimize=True)

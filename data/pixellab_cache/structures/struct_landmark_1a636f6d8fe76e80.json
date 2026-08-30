@@ -1,0 +1,16 @@
+{
+  "asset_id": "struct_landmark_1a636f6d8fe76e80",
+  "asset_type": "structure",
+  "prompt": "Pokemon mystery dungeon guild entrance with Wigglytuff tent and sentry grate",
+  "parameters": {
+    "description": "Pokemon mystery dungeon guild entrance with Wigglytuff tent and sentry grate",
+    "category": "landmark",
+    "width": 120,
+    "height": 96,
+    "style_image_path": null,
+    "no_background": true
+  },
+  "sha256": "baf03f7fffac5d6ca50bb5072de9fa62ab9fab70b2e641b23cffcf1fe28d6901",
+  "source": "pixellab_synthetic_fallback",
+  "created_at": 1788107038.2287183
+}

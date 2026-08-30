@@ -1,7 +1,8 @@
 """Structure Prefab Stamp Library for PMDO Town Generator.
 
 Stores multi-layer building prefabs, real pixel art sprites,
-collision envelopes, doorway anchors, and clearance constraints.
+collision envelopes, doorway anchors, and clearance constraints,
+powered by PixelLab.
 """
 from __future__ import annotations
 
@@ -13,21 +14,30 @@ from typing import Any, Dict, List, Optional, Tuple
 from PIL import Image
 
 from .models import BiomeType, LayerType, SeasonType, StructurePrefab, TileCollision
+from .pixellab_client import PixelLabClient
+from .pixellab_structure_engine import PixelLabStructureEngine
 
 
 class StructureLibrary:
-    def __init__(self, project_root: Optional[Path] = None):
+    def __init__(
+        self,
+        project_root: Optional[Path] = None,
+        pixellab_client: Optional[PixelLabClient] = None,
+    ):
         self.project_root = project_root or Path(__file__).resolve().parents[2]
+        self.pixellab_client = pixellab_client or PixelLabClient(project_root=self.project_root)
+        self.pixellab_engine = PixelLabStructureEngine(
+            client=self.pixellab_client,
+            project_root=self.project_root,
+        )
         self.prefabs: Dict[str, StructurePrefab] = {}
         self.sprite_cache: Dict[str, Image.Image] = {}
         self._load_default_prefabs()
         self._load_sprites()
 
     def _load_sprites(self) -> None:
-        """Loads real pixel art building images from docs/metano_origins_structure_library/buildings/."""
+        """Loads real pixel art building images from docs/metano_origins_structure_library/buildings/ and PixelLab."""
         b_dir = self.project_root / "docs/metano_origins_structure_library/buildings"
-        if not b_dir.exists():
-            return
 
         sprite_map = {
             "pokemon_center": "metano_cafe_day.png",
@@ -41,15 +51,30 @@ class StructureLibrary:
         }
 
         for p_id, filename in sprite_map.items():
-            img_path = b_dir / filename
-            if img_path.exists():
-                try:
-                    self.sprite_cache[p_id] = Image.open(img_path).convert("RGBA")
-                except Exception:
-                    pass
+            if b_dir.exists():
+                img_path = b_dir / filename
+                if img_path.exists():
+                    try:
+                        self.sprite_cache[p_id] = Image.open(img_path).convert("RGBA")
+                        continue
+                    except Exception:
+                        pass
+            
+            # If not found in static folder, check PixelLab engine
+            pl_sprite = self.pixellab_engine.get_sprite(p_id)
+            if pl_sprite:
+                self.sprite_cache[p_id] = pl_sprite
 
     def get_sprite(self, prefab_id: str) -> Optional[Image.Image]:
-        return self.sprite_cache.get(prefab_id)
+        # First check direct cache
+        if prefab_id in self.sprite_cache:
+            return self.sprite_cache[prefab_id]
+        # Then check PixelLab engine
+        pl_sprite = self.pixellab_engine.get_sprite(prefab_id)
+        if pl_sprite:
+            self.sprite_cache[prefab_id] = pl_sprite
+            return pl_sprite
+        return None
 
     def _load_default_prefabs(self) -> None:
         """Initializes canonical Pokémon structures with exact layer & collision schemas."""

@@ -1,0 +1,16 @@
+{
+  "asset_id": "struct_shop_9a25d6797ba2a5f2",
+  "asset_type": "structure",
+  "prompt": "pokemon mystery dungeon kecleon merchant shop with red striped fabric awning, wooden counter, market baskets, transparent background",
+  "parameters": {
+    "description": "pokemon mystery dungeon kecleon merchant shop with red striped fabric awning, wooden counter, market baskets, transparent background",
+    "category": "shop",
+    "width": 96,
+    "height": 72,
+    "style_image_path": "/home/user/new-era-abyss-to-ascension-V4/docs/metano_origins_structure_library/buildings/metano_kecleon_shop_day.png",
+    "no_background": true
+  },
+  "sha256": "51e176916f1012b29261281afcefce69f69d67a4d891bc961013be942272284a",
+  "source": "pixellab_synthetic_fallback",
+  "created_at": 1788107028.929149
+}

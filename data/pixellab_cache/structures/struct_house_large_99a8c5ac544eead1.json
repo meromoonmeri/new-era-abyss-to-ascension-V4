@@ -1,0 +1,16 @@
+{
+  "asset_id": "struct_house_large_99a8c5ac544eead1",
+  "asset_type": "structure",
+  "prompt": "pokemon mystery dungeon large brick fire home with red clay shingle roof, transparent background",
+  "parameters": {
+    "description": "pokemon mystery dungeon large brick fire home with red clay shingle roof, transparent background",
+    "category": "house_large",
+    "width": 96,
+    "height": 96,
+    "style_image_path": "/home/user/new-era-abyss-to-ascension-V4/docs/metano_origins_structure_library/buildings/metano_house_fire_day.png",
+    "no_background": true
+  },
+  "sha256": "3c10568e9764024e0789d22ae1f0d60493397f34062a505e4172fa9c18ea0a53",
+  "source": "pixellab_synthetic_fallback",
+  "created_at": 1788107029.1452467
+}

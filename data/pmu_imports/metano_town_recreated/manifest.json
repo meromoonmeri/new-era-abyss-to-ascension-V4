@@ -15,7 +15,7 @@
   },
   "validation": {
     "status": "PASS",
-    "score": 100.0,
+    "score": 99.8,
     "connectivity": 100.0,
     "reachable_objectives": 15,
     "total_objectives": 15

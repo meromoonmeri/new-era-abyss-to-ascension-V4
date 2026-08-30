@@ -1,0 +1,16 @@
+{
+  "asset_id": "struct_house_medium_90d0976be4ec51ca",
+  "asset_type": "structure",
+  "prompt": "pokemon mystery dungeon sturdy stone rock house with chimney and wooden door, transparent background",
+  "parameters": {
+    "description": "pokemon mystery dungeon sturdy stone rock house with chimney and wooden door, transparent background",
+    "category": "house_medium",
+    "width": 96,
+    "height": 72,
+    "style_image_path": "/home/user/new-era-abyss-to-ascension-V4/docs/metano_origins_structure_library/buildings/metano_house_rock_day.png",
+    "no_background": true
+  },
+  "sha256": "fef0f728c263a22d1730617fa8f18690175cfa6c8add4f35b203fe164b5d14fe",
+  "source": "pixellab_synthetic_fallback",
+  "created_at": 1788107029.0936158
+}

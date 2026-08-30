@@ -1,0 +1,16 @@
+{
+  "asset_id": "struct_cafe_2ddc41f7ad91ebda",
+  "asset_type": "structure",
+  "prompt": "pokemon mystery dungeon spinda cafe building with wooden timber beams, tiled roof, warm glowing windows, transparent background",
+  "parameters": {
+    "description": "pokemon mystery dungeon spinda cafe building with wooden timber beams, tiled roof, warm glowing windows, transparent background",
+    "category": "cafe",
+    "width": 120,
+    "height": 96,
+    "style_image_path": "/home/user/new-era-abyss-to-ascension-V4/docs/metano_origins_structure_library/buildings/metano_cafe_day.png",
+    "no_background": true
+  },
+  "sha256": "b16492b689a691609f2c462da79500684738e0ff07b4910730d1d51e31abd500",
+  "source": "pixellab_synthetic_fallback",
+  "created_at": 1788107010.7683446
+}

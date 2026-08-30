@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "map_name": "pixellab_metano_variant",
+  "display_name": "Starter Village",
+  "generator_version": "1.0.0",
+  "seed": 20260830,
+  "biome": "grassland",
+  "season": "spring",
+  "dimensions": {
+    "width_tiles": 64,
+    "height_tiles": 48,
+    "tile_size_px": 24,
+    "width_px": 1536,
+    "height_px": 1152
+  },
+  "validation": {
+    "status": "PASS",
+    "score": 99.0,
+    "connectivity": 100.0,
+    "reachable_objectives": 18,
+    "total_objectives": 18
+  },
+  "artifacts": {
+    "ground": "Data/Ground/pixellab_metano_variant.rsground",
+    "tile": "Content/Tile/pixellab_metano_variant_Base.tile",
+    "script": "Data/Script/halcyon/ground/pixellab_metano_variant/init.lua"
+  }
+}

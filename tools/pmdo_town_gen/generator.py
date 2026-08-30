@@ -1,7 +1,8 @@
 """Master Town Layout Generator for PMDO.
 
 Orchestrates the complete 16-stage deterministic procedural generation pipeline,
-incorporating reference-style layout synthesis and dual-engine validation.
+incorporating reference-style layout synthesis, PixelLab tileset/stamp engines,
+and dual-engine validation.
 """
 from __future__ import annotations
 
@@ -21,6 +22,8 @@ from .models import (
     ValidationReport,
 )
 from .parcel_engine import ParcelEngine
+from .pixellab_client import PixelLabClient
+from .pixellab_tileset_engine import PixelLabTilesetEngine
 from .pmdo_exporter import PMDOExporter
 from .renderer import TownRenderer
 from .road_network import RoadNetworkEngine
@@ -31,9 +34,19 @@ from .visual_validator import VisualQualityScore, VisualQualityValidator
 
 
 class TownGenerator:
-    def __init__(self, project_root: Optional[Path] = None):
+    def __init__(
+        self,
+        project_root: Optional[Path] = None,
+        pixellab_client: Optional[PixelLabClient] = None,
+    ):
         self.project_root = project_root or Path(__file__).resolve().parents[2]
-        self.library = StructureLibrary(self.project_root)
+        self.pixellab_client = pixellab_client or PixelLabClient(project_root=self.project_root)
+        self.library = StructureLibrary(self.project_root, pixellab_client=self.pixellab_client)
+        self.tileset_engine = PixelLabTilesetEngine(
+            client=self.pixellab_client,
+            tile_size=24,
+            project_root=self.project_root,
+        )
         self.exporter = PMDOExporter(self.project_root)
 
     def generate(self, spec: TownSpec) -> TownLayout:
@@ -106,7 +119,7 @@ class TownGenerator:
                 elif road_mask[x][y] > 0:
                     terrain_types[x][y] = "dirt"
 
-        # Stage 10-11: Parcels & Building Stamping
+        # Stage 10-11: Parcels & Building Stamping via PixelLab
         parcel_engine = ParcelEngine(active_spec, self.library)
         parcels, buildings = parcel_engine.generate(hmap, cliff_mask, road_mask, stairs, districts)
 
@@ -177,7 +190,11 @@ class TownGenerator:
         render_dir = self.project_root / "docs/pmu_maps/renders" / spec.name
         render_dir.mkdir(parents=True, exist_ok=True)
 
-        renderer = TownRenderer(tile_size=24, project_root=self.project_root)
+        renderer = TownRenderer(
+            tile_size=24,
+            project_root=self.project_root,
+            pixellab_client=self.pixellab_client,
+        )
         if render_passes:
             final_img = renderer.render_final(layout)
             final_img.save(render_dir / "final.png", optimize=True)

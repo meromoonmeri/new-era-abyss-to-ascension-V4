@@ -1,0 +1,27 @@
+{
+  "tileset_id": "tileset_8ff9599b26d625bb",
+  "lower": "grassland spring water",
+  "upper": "grassland spring grass",
+  "tile_size": 24,
+  "tiles": [
+    "tile_0",
+    "tile_1",
+    "tile_2",
+    "tile_3",
+    "tile_4",
+    "tile_5",
+    "tile_6",
+    "tile_7",
+    "tile_8",
+    "tile_9",
+    "tile_10",
+    "tile_11",
+    "tile_12",
+    "tile_13",
+    "tile_14",
+    "tile_15"
+  ],
+  "sha256": "aa93c2f2c1d615ee1e6101e98e1f0349bd9043c9455162487d44842257600097",
+  "source": "pixellab_synthetic_fallback",
+  "created_at": 1788107029.2383687
+}

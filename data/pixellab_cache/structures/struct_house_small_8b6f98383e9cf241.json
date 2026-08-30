@@ -1,0 +1,16 @@
+{
+  "asset_id": "struct_house_small_8b6f98383e9cf241",
+  "asset_type": "structure",
+  "prompt": "pokemon mystery dungeon small elemental wooden cottage with thatched roof and cobblestone foundation, transparent background",
+  "parameters": {
+    "description": "pokemon mystery dungeon small elemental wooden cottage with thatched roof and cobblestone foundation, transparent background",
+    "category": "house_small",
+    "width": 72,
+    "height": 72,
+    "style_image_path": "/home/user/new-era-abyss-to-ascension-V4/docs/metano_origins_structure_library/buildings/metano_house_normal_day.png",
+    "no_background": true
+  },
+  "sha256": "63b1ed468825e947ac755ec8551cd4f639d35a48c7d989951afd476f442223eb",
+  "source": "pixellab_synthetic_fallback",
+  "created_at": 1788107029.0538788
+}
