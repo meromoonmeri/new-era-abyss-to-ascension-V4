@@ -1,0 +1,31 @@
+{
+ "result": "PASS",
+ "checks": [
+  {
+   "name": "render.png d\u00e9codable",
+   "pass": true
+  },
+  {
+   "name": "dims = PMU dims \u00d7 32 (ni crop ni \u00e9chelle)",
+   "pass": true
+  },
+  {
+   "name": "empreinte PNG = manifest (gel)",
+   "pass": true
+  },
+  {
+   "name": "source sha1 = manifest",
+   "pass": true
+  },
+  {
+   "name": "d\u00e9terminisme 2 passes",
+   "pass": true
+  },
+  {
+   "name": "fallbacks d\u00e9clar\u00e9s (compt\u00e9s, jamais masqu\u00e9s)",
+   "pass": true
+  }
+ ],
+ "when": "2026-08-30T13:58:25+00:00",
+ "png_sha256": "d2e94706d478d737ce7d04987f0548721c2092e50bf4a34f9006e72b20515177"
+}

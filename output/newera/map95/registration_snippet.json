@@ -1,0 +1,7 @@
+{
+ "map_id": "map95",
+ "asset": "pmu_map95",
+ "groundmaps_entry": "pmu_map95",
+ "init_lua": "Data/Script/halcyon/ground/pmu_map95/init.lua",
+ "note": "install\u00e9"
+}

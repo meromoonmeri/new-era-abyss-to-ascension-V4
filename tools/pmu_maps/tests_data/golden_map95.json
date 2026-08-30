@@ -1,0 +1,19 @@
+{
+ "schema": "new-era.pmu-golden.v1",
+ "map_id": "map95",
+ "render_sha256": "d2e94706d478d737ce7d04987f0548721c2092e50bf4a34f9006e72b20515177",
+ "pixel_size": [
+  640,
+  480
+ ],
+ "layers_drawn": {
+  "PMU Ground": 300,
+  "PMU Mask": 130,
+  "PMU Mask2": 0,
+  "PMU Fringe": 0,
+  "PMU Fringe2": 0
+ },
+ "fallback_count": 0,
+ "source_sha1": "1713ad43ce9cb21f63fcc2493ecb3550d0bee3e8",
+ "note": "golden du rendu map95 \u2014 r\u00e9g\u00e9n\u00e9ration interdite sans r\u00e9-ex\u00e9cuter le pipeline ; sert de r\u00e9gression"
+}

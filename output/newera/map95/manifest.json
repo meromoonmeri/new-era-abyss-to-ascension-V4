@@ -1,0 +1,84 @@
+{
+ "map_id": "map95",
+ "mode": "A (pixel-perfect)",
+ "generated": "2026-08-30T13:59:12+00:00",
+ "provenance": {
+  "pmu_file": "map95.dat",
+  "pmu_sha1": "1713ad43ce9cb21f63fcc2493ecb3550d0bee3e8",
+  "pmu_sha256": "5583e2fbca56aa748ed0c16b4576da8245085acc5886abb2ad1b750a29e218bc",
+  "render_sha256": "d2e94706d478d737ce7d04987f0548721c2092e50bf4a34f9006e72b20515177",
+  "pmu_manifest": "output/pmu/map95/manifest.json"
+ },
+ "grid": {
+  "cells_xy": [
+   80,
+   60
+  ],
+  "cell_px": 8,
+  "texsize": 1,
+  "engine_status": "proven-path (TexSize=1, cellules 8 px, comme town_hollow valid\u00e9 in-engine)"
+ },
+ "build_stats": {
+  "cells": 300,
+  "drawn": 430,
+  "fallback": 0,
+  "missing_set": 0
+ },
+ "semantics": {
+  "special_tiles": 0,
+  "unknown_types": {},
+  "file": "output/pmu/map95/semantics.json"
+ },
+ "not_in_png_declared": [
+  "collision : source = PMU TileType du .dat (JAMAIS les pixels)",
+  "warps/portes : types + Data1-3 bruts \u2192 semantics.json ; markers de position pos\u00e9s ; s\u00e9mantique des cibles NON invent\u00e9e",
+  "NPCs : num\u00e9ros/spawns lus dans le .dat seulement ; NON instanci\u00e9s (le mapping identit\u00e9 PMU\u2192PMDO est un jalon s\u00e9par\u00e9)",
+  "animation multi-images : les archives .tile de ce dump sont mono-frame ; l'anim PMU = index de REMPLACEMENT d\u00e9j\u00e0 appliqu\u00e9 au rendu ; FrameLength 60 constant \u2014 rien d'invent\u00e9",
+  "m\u00e9t\u00e9o/overlay/musique PMU : non mapp\u00e9s (les .mp3 PMU ne sont pas dans ce d\u00e9p\u00f4t) \u2014 music/pmuref dans le manifest amont"
+ ],
+ "status": "OK",
+ "roundtrip": {
+  "method": "tools/render_ground_png.py (relecteur officiel) sur les fichiers \u00e9crits",
+  "rsground": "Data/Ground/pmu_map95.rsground",
+  "tileset": "Content/Tile/pmu_map95_tiles.tile",
+  "tileset_info": {
+   "entries": 6880,
+   "unique": 241,
+   "bytes": 147419,
+   "reload_keys_ok": true
+  },
+  "ground_render_meta": {
+   "ground": "pmu_map95",
+   "dimensions_tiles": [
+    80,
+    60
+   ],
+   "dimensions_pixels": [
+    640,
+    480
+   ],
+   "tick": 0,
+   "visible_layer_count": 5,
+   "sheets": [
+    "pmu_map95_tiles"
+   ],
+   "empty_sheet_references": 0,
+   "scope": "tile layers only; no entities/decorations/weather/lighting/shaders"
+  },
+  "match": true,
+  "differing_px": 0,
+  "max_channel_delta": 0,
+  "bbox": null,
+  "verdict": "BYTE-IDENTICAL (vue engine relue == rendu PMU)"
+ },
+ "installed": {
+  "rsground": "Data/Ground/pmu_map95.rsground",
+  "rsground_sha256": "d5a8f49c2b0b05fe05f2fc45efa57658fd1093c9067dd724ea3a1d5fdf13aa37",
+  "tileset": "Content/Tile/pmu_map95_tiles.tile",
+  "tileset_entries": 6880,
+  "tileset_unique": 241,
+  "markers": 0,
+  "dry_run": false,
+  "init_lua": "Data/Script/halcyon/ground/pmu_map95/init.lua"
+ }
+}

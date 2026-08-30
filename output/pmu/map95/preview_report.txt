@@ -1,0 +1,10 @@
+{
+ "dimensions_match_manifest": true,
+ "size_equals_tiles_x_32": true,
+ "fallback_count_reported": true,
+ "partial_alpha_px": 0,
+ "transparent_px": 0,
+ "solid_tiles_from_pmu_type": 111,
+ "walkable_tiles": 189
+}
+Lecture : quadrillage rouge = 32 px (tout décalage se voit). Rouge = types solides PMU (jamais déduits des pixels). Bandeaux = couche sola ; une couche vide ici = couche absente du .dat (signal, pas un défaut de rendu). Le render.png lui-même n'est jamais redimensionné.

@@ -1,0 +1,6 @@
+{
+ "npcs": [],
+ "specials": [],
+ "unknown_types": {},
+ "note": "Warp/Door/etc. : types + Data1-3 BRUTS du .dat. Interpr\u00e9tation des cibles de warp = \u00e0 valider contre Client/GameProcessor.cs ; jamais invent\u00e9e ici."
+}

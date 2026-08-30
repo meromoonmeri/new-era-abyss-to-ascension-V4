@@ -54,6 +54,8 @@ FIELD = {  # index de champ dans une ligne « Tile|… » (split sur '|')
     "ground": 3, "ground_anim": 4, "mask": 5, "mask_anim": 6,
     "mask2": 7, "mask2_anim": 8, "fringe": 9, "fringe_anim": 10,
     "fringe2": 11, "fringe2_anim": 12, "type": 13,
+    "data1": 14, "data2": 15, "data3": 16,
+    "string1": 17, "string2": 18, "string3": 19, "rval": 20,
     "ground_set": 21, "ground_anim_set": 22, "mask_set": 23,
     "mask_anim_set": 24, "mask2_set": 25, "mask2_anim_set": 26,
     "fringe_set": 27, "fringe_anim_set": 28, "fringe2_set": 29,
@@ -131,8 +133,9 @@ def sniff(raw: bytes) -> str:
         return "plain"
     # Cache chiffré 3DES du client (TripleDESCryptoServiceProvider) : taille
     # multiple de 8 par construction. Un plaintext PMU commence toujours par
-    # « MapData » (vu au-dessus) ; tout le reste aligné 8 est donc du 3DES.
-    if len(raw) % 8 == 0 and len(raw) > 64:
+    # « MapData » (vu au-dessus) ; tout le reste aligné 8 est traité comme du
+    # 3DES (chiffré — jamais deviné).
+    if len(raw) % 8 == 0 and len(raw) >= 64:
         return "encrypted"
     return "unknown"
 

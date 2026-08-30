@@ -1,4 +1,12 @@
-# Maps de ville PMU — render pixel-perfect : pipeline OUI, données partiellement NON
+# Maps de ville PMU — render pixel-perfect : moteur + statut données
+
+> **2026-08-30 (soir) — UPDATE** : le rendu n'est plus la fin de chaîne.
+> Le pipeline complet **PMU → PNG → New Era** existe : `tools/pmu_maps/`
+> (catalogue, sélection, preview, gates d'approbation, import mode A/B avec
+> round-trip disque byte-identical, provenance chaînée) et son guide
+> `docs/pmu_maps/PIPELINE_GUIDE.md`. Le blocage des 140 caches chiffrés
+> reste exactement documenté ci-dessous — c'est un problème d'intrant, plus
+> un problème d'outil.
 
 Date : 2026-08-30 — mission « récupère toutes les maps de ville de PMU en
 render pixel-perfect ».
