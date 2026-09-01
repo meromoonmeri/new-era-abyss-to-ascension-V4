@@ -85,5 +85,15 @@
   "sprites": [
    "sign_04_4x3"
   ]
+ },
+ "structures_demandees": {
+  "count": 4,
+  "atlas": "_atlas_structures4.png",
+  "sprites": [
+   "shop_awning_railstall",
+   "statue_bluewing_x",
+   "house_bearhead_redmat",
+   "totem_teal_boss"
+  ]
  }
 }

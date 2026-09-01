@@ -37,6 +37,18 @@ connexes propres dans le rendu (le sol y est incrusté).
 | Totems/statues | `atlas_totems_statues.png` + `*.png` | 8 | rendu Metano + montage source |
 | Panneaux/enseignes | `atlas_panneaux_enseignes.png` + `sign_04_4x3.png` | 1 | rendu Metano (panneau jaune) |
 
+### Structures demandées (les 4 objets fournis par l'utilisateur)
+
+Isolées depuis le **montage source** (`analysis/source.png`), en alpha à l'échelle
+×3. Regroupées dans `_atlas_structures4.png`.
+
+| Sprite | Fichier | Taille (px @×3) | Objet |
+|---|---|---|---|
+| `shop_awning_railstall` | `shop_awning_railstall.png` | 234×177 | échoppe/marché à auvent rouge-bleu |
+| `statue_bluewing_x` | `statue_bluewing_x.png` | 165×153 | statue bleue ailée au « X » |
+| `house_bearhead_redmat` | `house_bearhead_redmat.png` | 312×246 | maison tête d'ours/lapin (tapis rouge) |
+| `totem_teal_boss` | `totem_teal_boss.png` | 312×189 | totem boss turquoise/rouge |
+
 `manifest.json` : registre machine (famille → atlas + liste des sprites).
 
 ### Détail « totems_statues »
@@ -72,4 +84,9 @@ dérivée du bio du sol, donc un halo d'herbe/sable peut subsister par endroits 
 souhaité, car il ancre le sprite sur le terrain.
 
 Réglages : reproductibles via `isolate_final.py`, `isolate_trees2.py`,
-`isolate_source.py`, `isolate_zone.py` dans `CONVERSION_WS/`.
+`isolate_source.py`, `isolate_zone.py`, `isolate4.py` dans `CONVERSION_WS/`.
+
+Les 4 structures demandées sont isolées par `isolate4.py` (chroma-key sur le sol
+herbe/sable + plus grande composante + recadrage alpha + upscale ×3). De la
+végétation/arbres périphériques restent accolés à certains sprites (ils font
+partie de l'environnement immédiat du bâtiment) — le bâtiment, lui, est intact.
