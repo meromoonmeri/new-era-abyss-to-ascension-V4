@@ -1,0 +1,920 @@
+{
+  "schema_version": "2.0.0",
+  "project": "PMD Explorers of Sky Assembled Grounds & Alpha-Isolated Buildings",
+  "total_grounds": 34,
+  "total_buildings": 31,
+  "grounds": [
+    {
+      "slug": "ground_01_treasure_town_east_marketplace",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/grounds/ground_01_treasure_town_east_marketplace.png",
+      "title_fr": "Bourg-Trésor Est (Place du Marché & Boutiques)",
+      "dimensions_px": [
+        720,
+        960
+      ],
+      "tiles_count": [
+        90,
+        120
+      ],
+      "source": "Data/Ground/sky_eos_t00p01.rsground"
+    },
+    {
+      "slug": "ground_02_treasure_town_west_crossroads",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/grounds/ground_02_treasure_town_west_crossroads.png",
+      "title_fr": "Bourg-Trésor Ouest & Carrefour",
+      "dimensions_px": [
+        504,
+        672
+      ],
+      "tiles_count": [
+        63,
+        84
+      ],
+      "source": "Data/Ground/sky_eos_t00p02.rsground"
+    },
+    {
+      "slug": "ground_03_sharpedo_bluff_exterior",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/grounds/ground_03_sharpedo_bluff_exterior.png",
+      "title_fr": "Falaise Sharpedo Extérieur (Promontoire Côtier)",
+      "dimensions_px": [
+        504,
+        552
+      ],
+      "tiles_count": [
+        63,
+        69
+      ],
+      "source": "Data/Ground/sky_eos_t00p03.rsground"
+    },
+    {
+      "slug": "ground_04_sharpedo_bluff_interior_base",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/grounds/ground_04_sharpedo_bluff_interior_base.png",
+      "title_fr": "Base Sharpedo Intérieur (Chambre & Hublot)",
+      "dimensions_px": [
+        408,
+        480
+      ],
+      "tiles_count": [
+        51,
+        60
+      ],
+      "source": "Data/Ground/sky_eos_t00p04a.rsground"
+    },
+    {
+      "slug": "ground_05_treasure_town_beach_bubbles",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/grounds/ground_05_treasure_town_beach_bubbles.png",
+      "title_fr": "Plage des Bulles de Krabby (Crépuscule)",
+      "dimensions_px": [
+        504,
+        552
+      ],
+      "tiles_count": [
+        63,
+        69
+      ],
+      "source": "Data/Ground/sky_eos_t01p02a.rsground"
+    },
+    {
+      "slug": "ground_06_beach_cave_entrance",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/grounds/ground_06_beach_cave_entrance.png",
+      "title_fr": "Entrée Grotte Littorale (Beach Cave)",
+      "dimensions_px": [
+        432,
+        504
+      ],
+      "tiles_count": [
+        54,
+        63
+      ],
+      "source": "Data/Ground/sky_eos_t01p03a.rsground"
+    },
+    {
+      "slug": "ground_07_beach_ocean_sunset_vista",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/grounds/ground_07_beach_ocean_sunset_vista.png",
+      "title_fr": "Vue Crépusculaire sur l Océan",
+      "dimensions_px": [
+        360,
+        408
+      ],
+      "tiles_count": [
+        45,
+        51
+      ],
+      "source": "Data/Ground/sky_eos_t01p04a.rsground"
+    },
+    {
+      "slug": "ground_08_wigglytuff_guild_entrance_exterior",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/grounds/ground_08_wigglytuff_guild_entrance_exterior.png",
+      "title_fr": "Guilde de Grodoudou Extérieur (Sommet & Grille)",
+      "dimensions_px": [
+        456,
+        696
+      ],
+      "tiles_count": [
+        57,
+        87
+      ],
+      "source": "Data/Ground/sky_wigglytuff_guild_entrance.rsground"
+    },
+    {
+      "slug": "ground_09_wigglytuff_guild_1f_main_lobby",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/grounds/ground_09_wigglytuff_guild_1f_main_lobby.png",
+      "title_fr": "Guilde 1F Hall Principal & Tableau des Missions",
+      "dimensions_px": [
+        432,
+        648
+      ],
+      "tiles_count": [
+        54,
+        81
+      ],
+      "source": "Data/Ground/sky_wigglytuff_guild_main.rsground"
+    },
+    {
+      "slug": "ground_10_wigglytuff_guild_2f_training_hall",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/grounds/ground_10_wigglytuff_guild_2f_training_hall.png",
+      "title_fr": "Guilde 2F Étage Intermédiaire & Entraînement",
+      "dimensions_px": [
+        312,
+        408
+      ],
+      "tiles_count": [
+        39,
+        51
+      ],
+      "source": "Data/Ground/sky_eos_g01p02a.rsground"
+    },
+    {
+      "slug": "ground_11_wigglytuff_guild_3f_dining_mess_hall",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/grounds/ground_11_wigglytuff_guild_3f_dining_mess_hall.png",
+      "title_fr": "Guilde 3F Grand Réfectoire & Tables de Banquet",
+      "dimensions_px": [
+        432,
+        648
+      ],
+      "tiles_count": [
+        54,
+        81
+      ],
+      "source": "Data/Ground/sky_eos_g01p04c.rsground"
+    },
+    {
+      "slug": "ground_12_guildmaster_wigglytuff_chamber",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/grounds/ground_12_guildmaster_wigglytuff_chamber.png",
+      "title_fr": "Chambre du Maître Grodoudou (Trône & Pommes Parfaites)",
+      "dimensions_px": [
+        384,
+        408
+      ],
+      "tiles_count": [
+        48,
+        51
+      ],
+      "source": "Data/Ground/sky_eos_g01p05a.rsground"
+    },
+    {
+      "slug": "ground_13_guild_hero_partner_bedroom",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/grounds/ground_13_guild_hero_partner_bedroom.png",
+      "title_fr": "Chambre du Duo de Héros (Paillasses de Paille)",
+      "dimensions_px": [
+        360,
+        504
+      ],
+      "tiles_count": [
+        45,
+        63
+      ],
+      "source": "Data/Ground/sky_eos_g01p06a.rsground"
+    },
+    {
+      "slug": "ground_14_guild_apprentices_bedroom",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/grounds/ground_14_guild_apprentices_bedroom.png",
+      "title_fr": "Dortoir des Apprentis de la Guilde",
+      "dimensions_px": [
+        312,
+        384
+      ],
+      "tiles_count": [
+        39,
+        48
+      ],
+      "source": "Data/Ground/sky_eos_g01p07a.rsground"
+    },
+    {
+      "slug": "ground_15_guild_sentry_diglett_chamber",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/grounds/ground_15_guild_sentry_diglett_chamber.png",
+      "title_fr": "Poste de Garde Souterrain (Taupiqueur & Grille)",
+      "dimensions_px": [
+        360,
+        264
+      ],
+      "tiles_count": [
+        45,
+        33
+      ],
+      "source": "Data/Ground/sky_eos_g01p08a.rsground"
+    },
+    {
+      "slug": "ground_16_guild_storage_pantry_hallway",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/grounds/ground_16_guild_storage_pantry_hallway.png",
+      "title_fr": "Garde-Manger & Réserves de la Guilde",
+      "dimensions_px": [
+        336,
+        432
+      ],
+      "tiles_count": [
+        42,
+        54
+      ],
+      "source": "Data/Ground/sky_eos_g01p09a.rsground"
+    },
+    {
+      "slug": "ground_17_spinda_cafe_interior",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/grounds/ground_17_spinda_cafe_interior.png",
+      "title_fr": "Café Spinda Intérieur (Bar à Jus & Recyclerie)",
+      "dimensions_px": [
+        456,
+        696
+      ],
+      "tiles_count": [
+        57,
+        87
+      ],
+      "source": "Data/Ground/treasure_spinda_cafe.rsground"
+    },
+    {
+      "slug": "ground_18_spinda_cafe_exterior_plaza",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/grounds/ground_18_spinda_cafe_exterior_plaza.png",
+      "title_fr": "Place Extérieure du Café Spinda",
+      "dimensions_px": [
+        456,
+        432
+      ],
+      "tiles_count": [
+        57,
+        54
+      ],
+      "source": "Data/Ground/sky_eos_p01p01a.rsground"
+    },
+    {
+      "slug": "ground_19_metano_town_full_world_ground",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/grounds/ground_19_metano_town_full_world_ground.png",
+      "title_fr": "Bourg Métano Ville Complète (1512x1512)",
+      "dimensions_px": [
+        1512,
+        1512
+      ],
+      "tiles_count": [
+        189,
+        189
+      ],
+      "source": "Data/Ground/metano_town.rsground"
+    },
+    {
+      "slug": "ground_20_metano_grand_cafe_ground",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/grounds/ground_20_metano_grand_cafe_ground.png",
+      "title_fr": "Grand Café de Métano Sol Intérieur",
+      "dimensions_px": [
+        320,
+        456
+      ],
+      "tiles_count": [
+        40,
+        57
+      ],
+      "source": "Data/Ground/metano_cafe.rsground"
+    },
+    {
+      "slug": "ground_21_metano_inn_ground",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/grounds/ground_21_metano_inn_ground.png",
+      "title_fr": "Grande Auberge de Métano Sol Intérieur",
+      "dimensions_px": [
+        352,
+        448
+      ],
+      "tiles_count": [
+        44,
+        56
+      ],
+      "source": "Data/Ground/metano_inn.rsground"
+    },
+    {
+      "slug": "ground_22_metano_fire_home_ground",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/grounds/ground_22_metano_fire_home_ground.png",
+      "title_fr": "Maison Feu Sol Intérieur",
+      "dimensions_px": [
+        272,
+        344
+      ],
+      "tiles_count": [
+        34,
+        43
+      ],
+      "source": "Data/Ground/metano_fire_home.rsground"
+    },
+    {
+      "slug": "ground_23_metano_water_home_ground",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/grounds/ground_23_metano_water_home_ground.png",
+      "title_fr": "Maison Eau Sol Intérieur",
+      "dimensions_px": [
+        272,
+        344
+      ],
+      "tiles_count": [
+        34,
+        43
+      ],
+      "source": "Data/Ground/metano_water_home.rsground"
+    },
+    {
+      "slug": "ground_24_metano_electric_home_ground",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/grounds/ground_24_metano_electric_home_ground.png",
+      "title_fr": "Maison Électrik Sol Intérieur",
+      "dimensions_px": [
+        272,
+        344
+      ],
+      "tiles_count": [
+        34,
+        43
+      ],
+      "source": "Data/Ground/metano_electric_home.rsground"
+    },
+    {
+      "slug": "ground_25_metano_grass_home_ground",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/grounds/ground_25_metano_grass_home_ground.png",
+      "title_fr": "Maison Plante Sol Intérieur",
+      "dimensions_px": [
+        280,
+        368
+      ],
+      "tiles_count": [
+        35,
+        46
+      ],
+      "source": "Data/Ground/metano_grass_home.rsground"
+    },
+    {
+      "slug": "ground_26_metano_normal_home_ground",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/grounds/ground_26_metano_normal_home_ground.png",
+      "title_fr": "Maison Normale Sol Intérieur",
+      "dimensions_px": [
+        280,
+        360
+      ],
+      "tiles_count": [
+        35,
+        45
+      ],
+      "source": "Data/Ground/metano_normal_home.rsground"
+    },
+    {
+      "slug": "ground_27_metano_rock_home_ground",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/grounds/ground_27_metano_rock_home_ground.png",
+      "title_fr": "Maison Roche / Caverne Sol Intérieur",
+      "dimensions_px": [
+        272,
+        352
+      ],
+      "tiles_count": [
+        34,
+        44
+      ],
+      "source": "Data/Ground/metano_rock_home.rsground"
+    },
+    {
+      "slug": "ground_28_luluby_town_morning_ground",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/grounds/ground_28_luluby_town_morning_ground.png",
+      "title_fr": "Ville de Luluby (Matin)",
+      "dimensions_px": [
+        576,
+        672
+      ],
+      "tiles_count": [
+        72,
+        84
+      ],
+      "source": "Data/Ground/luluby_town_morning.rsground"
+    },
+    {
+      "slug": "ground_29_luluby_town_evening_ground",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/grounds/ground_29_luluby_town_evening_ground.png",
+      "title_fr": "Ville de Luluby (Soirée)",
+      "dimensions_px": [
+        576,
+        672
+      ],
+      "tiles_count": [
+        72,
+        84
+      ],
+      "source": "Data/Ground/luluby_town_evening.rsground"
+    },
+    {
+      "slug": "ground_30_luluby_town_night_ground",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/grounds/ground_30_luluby_town_night_ground.png",
+      "title_fr": "Ville de Luluby (Nuit)",
+      "dimensions_px": [
+        576,
+        672
+      ],
+      "tiles_count": [
+        72,
+        84
+      ],
+      "source": "Data/Ground/luluby_town_night.rsground"
+    },
+    {
+      "slug": "ground_31_luminous_spring_ground",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/grounds/ground_31_luminous_spring_ground.png",
+      "title_fr": "Source Lumineuse (Évolution)",
+      "dimensions_px": [
+        200,
+        200
+      ],
+      "tiles_count": [
+        25,
+        25
+      ],
+      "source": "Data/Ground/luminous_spring.rsground"
+    },
+    {
+      "slug": "ground_32_pelipper_post_office_ground",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/grounds/ground_32_pelipper_post_office_ground.png",
+      "title_fr": "Poste Pélipper (Pelipper Post Office)",
+      "dimensions_px": [
+        104,
+        128
+      ],
+      "tiles_count": [
+        13,
+        16
+      ],
+      "source": "Data/Ground/post_office.rsground"
+    },
+    {
+      "slug": "ground_33_ledian_dojo_ground",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/grounds/ground_33_ledian_dojo_ground.png",
+      "title_fr": "Dojo Coxyclaque (Ledian Dojo)",
+      "dimensions_px": [
+        312,
+        408
+      ],
+      "tiles_count": [
+        39,
+        51
+      ],
+      "source": "Data/Ground/ledian_dojo.rsground"
+    },
+    {
+      "slug": "ground_34_duskwood_edge_ground",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/grounds/ground_34_duskwood_edge_ground.png",
+      "title_fr": "Orée des Bois Sombres (Duskwood Edge)",
+      "dimensions_px": [
+        384,
+        456
+      ],
+      "tiles_count": [
+        48,
+        57
+      ],
+      "source": "Data/Ground/bois_sombres_oree.rsground"
+    }
+  ],
+  "buildings": [
+    {
+      "slug": "building_01_kecleon_brothers_shop_assembled",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/buildings/building_01_kecleon_brothers_shop_assembled.png",
+      "title_fr": "Boutique Marchande Frères Kecleon (Assembe Sans Fond)",
+      "desc_fr": "Double stand marchand avec auvents rayés vert et violet, étals en bois, tapis d'exposition, caisses de pommes, tonneaux de baies et présentoir.",
+      "dimensions_px": [
+        312,
+        240
+      ],
+      "subgrid_cells": [
+        39,
+        30
+      ]
+    },
+    {
+      "slug": "building_02_kangaskhan_storage_assembled",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/buildings/building_02_kangaskhan_storage_assembled.png",
+      "title_fr": "Réserve Kangourex (Kangaskhan Storage Assembe Sans Fond)",
+      "desc_fr": "Statue monumentale de Kangourex sculptée dans la roche avec poche ventrale aménagée en guichet de stockage, panneau en bois et roche taillée.",
+      "dimensions_px": [
+        296,
+        232
+      ],
+      "subgrid_cells": [
+        37,
+        29
+      ]
+    },
+    {
+      "slug": "building_03_duskull_bank_assembled",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/buildings/building_03_duskull_bank_assembled.png",
+      "title_fr": "Banque Skelénox (Duskull Bank Assembe Sans Fond)",
+      "desc_fr": "Crypte gothique sculptée en forme de crâne de pierre, clocher hanté, lanterne suspendue, guichet en fer forgé et coffre-fort.",
+      "dimensions_px": [
+        264,
+        232
+      ],
+      "subgrid_cells": [
+        33,
+        29
+      ]
+    },
+    {
+      "slug": "building_04_electivire_link_shop_assembled",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/buildings/building_04_electivire_link_shop_assembled.png",
+      "title_fr": "Stand Élekable / Liens de Capacités (Assembe Sans Fond)",
+      "desc_fr": "Totem électrique avec bobines parafoudre, auvent rayé jaune et noir, stand d'entraînement aux capacités combinées.",
+      "dimensions_px": [
+        264,
+        240
+      ],
+      "subgrid_cells": [
+        33,
+        30
+      ]
+    },
+    {
+      "slug": "building_05_xatu_appraisal_tent_assembled",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/buildings/building_05_xatu_appraisal_tent_assembled.png",
+      "title_fr": "Stand Expertise Coffres Xatu (Assembe Sans Fond)",
+      "desc_fr": "Pavillon mystique avec perchoir d'observation en bois sculpté et podium d'ouverture des coffres aux trésors.",
+      "dimensions_px": [
+        264,
+        152
+      ],
+      "subgrid_cells": [
+        33,
+        19
+      ]
+    },
+    {
+      "slug": "building_06_chansey_daycare_pavilion_assembled",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/buildings/building_06_chansey_daycare_pavilion_assembled.png",
+      "title_fr": "Garderie Leveinard (Chansey Day Care Assembe Sans Fond)",
+      "desc_fr": "Grand pavillon circulaire en nid tressé avec auvent œuf rose de Leveinard et berceau d'éclosion.",
+      "dimensions_px": [
+        312,
+        232
+      ],
+      "subgrid_cells": [
+        39,
+        29
+      ]
+    },
+    {
+      "slug": "building_07_croagunk_swap_cauldron_assembled",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/buildings/building_07_croagunk_swap_cauldron_assembled.png",
+      "title_fr": "Chaudron Cradopaud (Croagunk Swap Shop Assembe Sans Fond)",
+      "desc_fr": "Stand d'alchimie avec grand chaudron bouillonnant de liquide toxique, étagères de potions et tente en tissu violet.",
+      "dimensions_px": [
+        264,
+        232
+      ],
+      "subgrid_cells": [
+        33,
+        29
+      ]
+    },
+    {
+      "slug": "building_08_treasure_town_river_bridge_assembled",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/buildings/building_08_treasure_town_river_bridge_assembled.png",
+      "title_fr": "Pont & Passerelle Fluviale de Bourg-Trésor (Assembe Sans Fond)",
+      "desc_fr": "Pont en planches de bois massif avec rambardes et piles de soutien franchissant la rivière de Bourg-Trésor.",
+      "dimensions_px": [
+        240,
+        184
+      ],
+      "subgrid_cells": [
+        30,
+        23
+      ]
+    },
+    {
+      "slug": "building_09_marowak_dojo_pagoda_temple_assembled",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/buildings/building_09_marowak_dojo_pagoda_temple_assembled.png",
+      "title_fr": "Pagode Dojo d'Ossatueur (Marowak Dojo Assembe Sans Fond)",
+      "desc_fr": "Temple d'entraînement martial japonais avec toiture pagode traditionnelle en tuiles foncées, torii d'entrée et emblèmes ossements.",
+      "dimensions_px": [
+        456,
+        296
+      ],
+      "subgrid_cells": [
+        57,
+        37
+      ]
+    },
+    {
+      "slug": "building_10_crossroads_directional_signpost_assembled",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/buildings/building_10_crossroads_directional_signpost_assembled.png",
+      "title_fr": "Panneau Indicateur du Carrefour (Crossroads Signpost)",
+      "desc_fr": "Grand poteau indicateur en bois sculpté avec flèches pointant vers Bourg-Trésor, la Guilde de Grodoudou et la Plage.",
+      "dimensions_px": [
+        120,
+        120
+      ],
+      "subgrid_cells": [
+        15,
+        15
+      ]
+    },
+    {
+      "slug": "building_11_spindas_cafe_exterior_building_assembled",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/buildings/building_11_spindas_cafe_exterior_building_assembled.png",
+      "title_fr": "Bâtiment Café Spinda Extérieur (Assembe Sans Fond)",
+      "desc_fr": "Bâtiment emblématique avec toit théière sculpté, enseigne aux oreilles de Spinda, auvent en tissu et double porte battante.",
+      "dimensions_px": [
+        360,
+        360
+      ],
+      "subgrid_cells": [
+        45,
+        45
+      ]
+    },
+    {
+      "slug": "building_12_spinda_juice_bar_counter_assembled",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/buildings/building_12_spinda_juice_bar_counter_assembled.png",
+      "title_fr": "Comptoir Bar à Jus de Spinda (Assembe Sans Fond)",
+      "desc_fr": "Comptoir complet en bois verni avec mixeurs, verres de jus de baies, étagères de bouteilles et tabourets hauts.",
+      "dimensions_px": [
+        360,
+        192
+      ],
+      "subgrid_cells": [
+        45,
+        24
+      ]
+    },
+    {
+      "slug": "building_13_wynaut_wobbuffet_recycle_stand_assembled",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/buildings/building_13_wynaut_wobbuffet_recycle_stand_assembled.png",
+      "title_fr": "Stand Recyclerie Okéoké & Qulbutoké (Projet P)",
+      "desc_fr": "Stand complet de recyclage avec roulette de loterie du Projet P, caisses de tickets et boîtes de récompenses.",
+      "dimensions_px": [
+        192,
+        220
+      ],
+      "subgrid_cells": [
+        24,
+        27
+      ]
+    },
+    {
+      "slug": "building_14_spinda_cafe_lounge_tables_assembled",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/buildings/building_14_spinda_cafe_lounge_tables_assembled.png",
+      "title_fr": "Tables de Salon & Sièges du Café Spinda",
+      "desc_fr": "Ensemble de tables rondes en bois, chaises et tapis de détente pour les équipes d'explorateurs.",
+      "dimensions_px": [
+        168,
+        220
+      ],
+      "subgrid_cells": [
+        21,
+        27
+      ]
+    },
+    {
+      "slug": "building_15_sharpedo_bluff_carved_shark_head_assembled",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/buildings/building_15_sharpedo_bluff_carved_shark_head_assembled.png",
+      "title_fr": "Falaise Sharpedo Tête de Requin (Assembe Sans Fond)",
+      "desc_fr": "Promontoire rocheux sculpté en forme de tête géante de Sharpedo avec gueule béante servant d'entrée à la base secrète.",
+      "dimensions_px": [
+        408,
+        432
+      ],
+      "subgrid_cells": [
+        51,
+        54
+      ]
+    },
+    {
+      "slug": "building_16_sharpedo_bluff_base_interior_setup_assembled",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/buildings/building_16_sharpedo_bluff_base_interior_setup_assembled.png",
+      "title_fr": "Mobilier Intérieur de la Base Sharpedo",
+      "desc_fr": "Chambre de l'équipe avec hublot panoramique sur l'océan, paillasses en paille, bureau d'écriture et étagère de rangement.",
+      "dimensions_px": [
+        312,
+        384
+      ],
+      "subgrid_cells": [
+        39,
+        48
+      ]
+    },
+    {
+      "slug": "building_17_wigglytuff_guild_summit_tent_assembled",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/buildings/building_17_wigglytuff_guild_summit_tent_assembled.png",
+      "title_fr": "Tente Supérieure de la Guilde Grodoudou (Assembe Sans Fond)",
+      "desc_fr": "Tente emblématique au sommet de la falaise avec les yeux peints de Grodoudou et les mâts verticaux.",
+      "dimensions_px": [
+        360,
+        312
+      ],
+      "subgrid_cells": [
+        45,
+        39
+      ]
+    },
+    {
+      "slug": "building_18_guild_sentry_footprint_grate_assembled",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/buildings/building_18_guild_sentry_footprint_grate_assembled.png",
+      "title_fr": "Grille d'Empreinte de Taupiqueur & Échelle de Descente",
+      "desc_fr": "Grille métallique d'identification des visiteurs avec échelle descendant vers le vestibule de la Guilde.",
+      "dimensions_px": [
+        216,
+        260
+      ],
+      "subgrid_cells": [
+        27,
+        32
+      ]
+    },
+    {
+      "slug": "building_19_guild_mission_bulletin_boards_assembled",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/buildings/building_19_guild_mission_bulletin_boards_assembled.png",
+      "title_fr": "Tableaux des Missions & Avis de Recherche de la Guilde",
+      "desc_fr": "Grands panneaux d'affichage en bois sculpté avec avis de recherche de hors-la-loi et missions d'exploration.",
+      "dimensions_px": [
+        336,
+        212
+      ],
+      "subgrid_cells": [
+        42,
+        26
+      ]
+    },
+    {
+      "slug": "building_20_guild_dining_hall_banquet_tables_assembled",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/buildings/building_20_guild_dining_hall_banquet_tables_assembled.png",
+      "title_fr": "Grandes Tables de Banquet & Bancs du Réfectoire",
+      "desc_fr": "Longues tables en bois massif avec bancs de repas et chandeliers du réfectoire de la Guilde.",
+      "dimensions_px": [
+        336,
+        400
+      ],
+      "subgrid_cells": [
+        42,
+        50
+      ]
+    },
+    {
+      "slug": "building_21_guildmaster_wigglytuff_throne_set_assembled",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/buildings/building_21_guildmaster_wigglytuff_throne_set_assembled.png",
+      "title_fr": "Trône du Maître Grodoudou & Coffres Pommes Parfaites",
+      "desc_fr": "Trône royal en velours avec globe d'exploration et coffres débordant de Pommes Parfaites.",
+      "dimensions_px": [
+        288,
+        288
+      ],
+      "subgrid_cells": [
+        36,
+        36
+      ]
+    },
+    {
+      "slug": "building_22_hero_and_partner_straw_beds_assembled",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/buildings/building_22_hero_and_partner_straw_beds_assembled.png",
+      "title_fr": "Paillasses de Paille du Duo de Héros (Guilde)",
+      "desc_fr": "Lits de paille tressée du Héros et du Partenaire avec fenêtre et table de chevet dans la chambre de guilde.",
+      "dimensions_px": [
+        264,
+        408
+      ],
+      "subgrid_cells": [
+        33,
+        51
+      ]
+    },
+    {
+      "slug": "building_23_metano_normal_house_assembled",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/buildings/building_23_metano_normal_house_assembled.png",
+      "title_fr": "Maison Normale de Métano (Assembe Sans Fond)",
+      "desc_fr": "Maison traditionnelle en pierre et bois avec toit à deux pans et auvent d'entrée.",
+      "dimensions_px": [
+        240,
+        212
+      ],
+      "subgrid_cells": [
+        30,
+        26
+      ]
+    },
+    {
+      "slug": "building_24_metano_fire_house_assembled",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/buildings/building_24_metano_fire_house_assembled.png",
+      "title_fr": "Maison Feu de Métano (Assembe Sans Fond)",
+      "desc_fr": "Maison en dôme d'argile réfractaire avec fourneau à braises et cheminée conique.",
+      "dimensions_px": [
+        232,
+        200
+      ],
+      "subgrid_cells": [
+        29,
+        25
+      ]
+    },
+    {
+      "slug": "building_25_metano_water_house_assembled",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/buildings/building_25_metano_water_house_assembled.png",
+      "title_fr": "Maison Eau de Métano (Assembe Sans Fond)",
+      "desc_fr": "Maison riveraine avec roue à aubes en bois, canal d'eau vive et ponton d'amarrage.",
+      "dimensions_px": [
+        312,
+        280
+      ],
+      "subgrid_cells": [
+        39,
+        35
+      ]
+    },
+    {
+      "slug": "building_26_metano_electric_house_assembled",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/buildings/building_26_metano_electric_house_assembled.png",
+      "title_fr": "Maison Électrik de Métano (Assembe Sans Fond)",
+      "desc_fr": "Maison technologique avec bobines de décharge, pylône électrique et antenne réceptrice.",
+      "dimensions_px": [
+        240,
+        212
+      ],
+      "subgrid_cells": [
+        30,
+        26
+      ]
+    },
+    {
+      "slug": "building_27_metano_grass_house_assembled",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/buildings/building_27_metano_grass_house_assembled.png",
+      "title_fr": "Maison Plante de Métano (Assembe Sans Fond)",
+      "desc_fr": "Maison bâtie dans le tronc creux d'un arbre géant millénaire avec canopée feuillue et lierre.",
+      "dimensions_px": [
+        280,
+        312
+      ],
+      "subgrid_cells": [
+        35,
+        39
+      ]
+    },
+    {
+      "slug": "building_28_metano_rock_cave_house_assembled",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/buildings/building_28_metano_rock_cave_house_assembled.png",
+      "title_fr": "Maison Roche / Caverne de Métano (Assembe Sans Fond)",
+      "desc_fr": "Demeure troglodytique taillée directement dans la falaise rocheuse avec linteau de pierre massif.",
+      "dimensions_px": [
+        232,
+        220
+      ],
+      "subgrid_cells": [
+        29,
+        27
+      ]
+    },
+    {
+      "slug": "building_29_metano_grand_cafe_building_assembled",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/buildings/building_29_metano_grand_cafe_building_assembled.png",
+      "title_fr": "Grand Café de Métano Extérieur (Assembe Sans Fond)",
+      "desc_fr": "Grand complexe de restauration avec terrasse en bois, tables d'extérieur et auvents fleuris.",
+      "dimensions_px": [
+        340,
+        272
+      ],
+      "subgrid_cells": [
+        42,
+        34
+      ]
+    },
+    {
+      "slug": "building_30_metano_inn_building_assembled",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/buildings/building_30_metano_inn_building_assembled.png",
+      "title_fr": "Grande Auberge de Métano (Assembe Sans Fond)",
+      "desc_fr": "Auberge à deux étages avec enseigne suspendue, chambres sous combles et écurie.",
+      "dimensions_px": [
+        340,
+        300
+      ],
+      "subgrid_cells": [
+        42,
+        37
+      ]
+    },
+    {
+      "slug": "building_31_metano_plaza_central_pavilion_assembled",
+      "file": "data/pmd_sky_assembled_grounds_and_buildings/buildings/building_31_metano_plaza_central_pavilion_assembled.png",
+      "title_fr": "Kiosque Central & Fontaine de Métano (Assembe Sans Fond)",
+      "desc_fr": "Pavillon hexagonal de la place centrale avec fontaine en pierre et parterre de fleurs.",
+      "dimensions_px": [
+        280,
+        240
+      ],
+      "subgrid_cells": [
+        35,
+        30
+      ]
+    }
+  ]
+}
