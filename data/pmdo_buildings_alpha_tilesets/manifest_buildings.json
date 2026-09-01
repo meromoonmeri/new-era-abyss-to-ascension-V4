@@ -1,0 +1,424 @@
+{
+  "title": "PMDO Alpha-Isolated Buildings & Structures Library",
+  "methodology": "Palika Hand-Made Map Reconstruction",
+  "scale_standard": "Metano Town (2.0x Integer Scale / 32px PMDO Grid)",
+  "source_map": "MAPACOMPLETEVIAPIXELLAB_COMPLETED.webp",
+  "total_structures": 8,
+  "structures": [
+    {
+      "id": "bldg_01_grand_treehouse",
+      "name": "Grand Treehouse Sanctuaire",
+      "category": "Focal Landmark",
+      "pmdo_role": "Central Guild / Sanctuary Landmark",
+      "collision_type": "BLOCKED_WITH_DOOR",
+      "source_box_1x": [
+        430,
+        260,
+        710,
+        580
+      ],
+      "dimensions_1x": [
+        280,
+        320
+      ],
+      "dimensions_metano_2x": [
+        560,
+        640
+      ],
+      "pmdo_tile_bounds_32px": [
+        17,
+        20
+      ],
+      "pmdo_cell_bounds_8px": [
+        70,
+        80
+      ],
+      "files": {
+        "complete_png": "data/pmdo_buildings_alpha_tilesets/bldg_01_grand_treehouse/bldg_01_grand_treehouse_complete_metano_scale_2x.png",
+        "roof_layer_png": "data/pmdo_buildings_alpha_tilesets/bldg_01_grand_treehouse/bldg_01_grand_treehouse_roof_overhang_layer8.png",
+        "walls_layer_png": "data/pmdo_buildings_alpha_tilesets/bldg_01_grand_treehouse/bldg_01_grand_treehouse_walls_base_layer6.png",
+        "pmdo_tile": "Content/Tile/bldg_01_grand_treehouse_Base.tile"
+      }
+    },
+    {
+      "id": "bldg_02_northwest_watermill",
+      "name": "Moulin / Atelier Nord-Ouest",
+      "category": "Crafting / Workshop",
+      "pmdo_role": "Blacksmith / Crafting Hub",
+      "collision_type": "BLOCKED_WITH_DOOR",
+      "source_box_1x": [
+        90,
+        80,
+        270,
+        240
+      ],
+      "dimensions_1x": [
+        180,
+        160
+      ],
+      "dimensions_metano_2x": [
+        360,
+        320
+      ],
+      "pmdo_tile_bounds_32px": [
+        11,
+        10
+      ],
+      "pmdo_cell_bounds_8px": [
+        45,
+        40
+      ],
+      "files": {
+        "complete_png": "data/pmdo_buildings_alpha_tilesets/bldg_02_northwest_watermill/bldg_02_northwest_watermill_complete_metano_scale_2x.png",
+        "roof_layer_png": "data/pmdo_buildings_alpha_tilesets/bldg_02_northwest_watermill/bldg_02_northwest_watermill_roof_overhang_layer8.png",
+        "walls_layer_png": "data/pmdo_buildings_alpha_tilesets/bldg_02_northwest_watermill/bldg_02_northwest_watermill_walls_base_layer6.png",
+        "pmdo_tile": "Content/Tile/bldg_02_northwest_watermill_Base.tile"
+      }
+    },
+    {
+      "id": "bldg_03_southwest_fishery",
+      "name": "Cabane sur Pilotis du Ponton SO",
+      "category": "Waterfront Living",
+      "pmdo_role": "Fishery / Water Home",
+      "collision_type": "BLOCKED_WITH_DOOR",
+      "source_box_1x": [
+        100,
+        520,
+        290,
+        690
+      ],
+      "dimensions_1x": [
+        190,
+        170
+      ],
+      "dimensions_metano_2x": [
+        380,
+        340
+      ],
+      "pmdo_tile_bounds_32px": [
+        11,
+        10
+      ],
+      "pmdo_cell_bounds_8px": [
+        47,
+        42
+      ],
+      "files": {
+        "complete_png": "data/pmdo_buildings_alpha_tilesets/bldg_03_southwest_fishery/bldg_03_southwest_fishery_complete_metano_scale_2x.png",
+        "roof_layer_png": "data/pmdo_buildings_alpha_tilesets/bldg_03_southwest_fishery/bldg_03_southwest_fishery_roof_overhang_layer8.png",
+        "walls_layer_png": "data/pmdo_buildings_alpha_tilesets/bldg_03_southwest_fishery/bldg_03_southwest_fishery_walls_base_layer6.png",
+        "pmdo_tile": "Content/Tile/bldg_03_southwest_fishery_Base.tile"
+      }
+    },
+    {
+      "id": "bldg_04_southeast_market_stall",
+      "name": "\u00c9tal de March\u00e9 & Comptoir Sud-Est",
+      "category": "Commercial Shop",
+      "pmdo_role": "Kecleon Shop / Trade Outpost",
+      "collision_type": "BLOCKED_WITH_COUNTER",
+      "source_box_1x": [
+        720,
+        530,
+        930,
+        710
+      ],
+      "dimensions_1x": [
+        210,
+        180
+      ],
+      "dimensions_metano_2x": [
+        420,
+        360
+      ],
+      "pmdo_tile_bounds_32px": [
+        13,
+        11
+      ],
+      "pmdo_cell_bounds_8px": [
+        52,
+        45
+      ],
+      "files": {
+        "complete_png": "data/pmdo_buildings_alpha_tilesets/bldg_04_southeast_market_stall/bldg_04_southeast_market_stall_complete_metano_scale_2x.png",
+        "roof_layer_png": "data/pmdo_buildings_alpha_tilesets/bldg_04_southeast_market_stall/bldg_04_southeast_market_stall_roof_overhang_layer8.png",
+        "walls_layer_png": "data/pmdo_buildings_alpha_tilesets/bldg_04_southeast_market_stall/bldg_04_southeast_market_stall_walls_base_layer6.png",
+        "pmdo_tile": "Content/Tile/bldg_04_southeast_market_stall_Base.tile"
+      }
+    },
+    {
+      "id": "bldg_05_northeast_dwelling",
+      "name": "Maison R\u00e9sidentielle Est",
+      "category": "Residential Home",
+      "pmdo_role": "Normal Home / Resident Dwelling",
+      "collision_type": "BLOCKED_WITH_DOOR",
+      "source_box_1x": [
+        760,
+        110,
+        950,
+        280
+      ],
+      "dimensions_1x": [
+        190,
+        170
+      ],
+      "dimensions_metano_2x": [
+        380,
+        340
+      ],
+      "pmdo_tile_bounds_32px": [
+        11,
+        10
+      ],
+      "pmdo_cell_bounds_8px": [
+        47,
+        42
+      ],
+      "files": {
+        "complete_png": "data/pmdo_buildings_alpha_tilesets/bldg_05_northeast_dwelling/bldg_05_northeast_dwelling_complete_metano_scale_2x.png",
+        "roof_layer_png": "data/pmdo_buildings_alpha_tilesets/bldg_05_northeast_dwelling/bldg_05_northeast_dwelling_roof_overhang_layer8.png",
+        "walls_layer_png": "data/pmdo_buildings_alpha_tilesets/bldg_05_northeast_dwelling/bldg_05_northeast_dwelling_walls_base_layer6.png",
+        "pmdo_tile": "Content/Tile/bldg_05_northeast_dwelling_Base.tile"
+      }
+    },
+    {
+      "id": "bldg_06_central_gazebo",
+      "name": "Kiosque / Pergola de la Place",
+      "category": "Plaza Monument",
+      "pmdo_role": "Town Meeting Center / Bulletin Board",
+      "collision_type": "PARTIALLY_WALKABLE",
+      "source_box_1x": [
+        510,
+        580,
+        630,
+        690
+      ],
+      "dimensions_1x": [
+        120,
+        110
+      ],
+      "dimensions_metano_2x": [
+        240,
+        220
+      ],
+      "pmdo_tile_bounds_32px": [
+        7,
+        6
+      ],
+      "pmdo_cell_bounds_8px": [
+        30,
+        27
+      ],
+      "files": {
+        "complete_png": "data/pmdo_buildings_alpha_tilesets/bldg_06_central_gazebo/bldg_06_central_gazebo_complete_metano_scale_2x.png",
+        "roof_layer_png": "data/pmdo_buildings_alpha_tilesets/bldg_06_central_gazebo/bldg_06_central_gazebo_roof_overhang_layer8.png",
+        "walls_layer_png": "data/pmdo_buildings_alpha_tilesets/bldg_06_central_gazebo/bldg_06_central_gazebo_walls_base_layer6.png",
+        "pmdo_tile": "Content/Tile/bldg_06_central_gazebo_Base.tile"
+      }
+    },
+    {
+      "id": "bldg_07_wooden_bridge_west",
+      "name": "Pont en Bois de l'Anse",
+      "category": "Infrastructure",
+      "pmdo_role": "River Crossing Bridge",
+      "collision_type": "WALKABLE_BRIDGE",
+      "source_box_1x": [
+        180,
+        420,
+        310,
+        500
+      ],
+      "dimensions_1x": [
+        130,
+        80
+      ],
+      "dimensions_metano_2x": [
+        260,
+        160
+      ],
+      "pmdo_tile_bounds_32px": [
+        8,
+        5
+      ],
+      "pmdo_cell_bounds_8px": [
+        32,
+        20
+      ],
+      "files": {
+        "complete_png": "data/pmdo_buildings_alpha_tilesets/bldg_07_wooden_bridge_west/bldg_07_wooden_bridge_west_complete_metano_scale_2x.png",
+        "roof_layer_png": "data/pmdo_buildings_alpha_tilesets/bldg_07_wooden_bridge_west/bldg_07_wooden_bridge_west_roof_overhang_layer8.png",
+        "walls_layer_png": "data/pmdo_buildings_alpha_tilesets/bldg_07_wooden_bridge_west/bldg_07_wooden_bridge_west_walls_base_layer6.png",
+        "pmdo_tile": "Content/Tile/bldg_07_wooden_bridge_west_Base.tile"
+      }
+    },
+    {
+      "id": "bldg_08_cliff_staircase_east",
+      "name": "Grand Escalier de la Falaise Est",
+      "category": "Elevation Connector",
+      "pmdo_role": "Level 0 to Level 1 Elevation Transition",
+      "collision_type": "STAIR_TRANSITION",
+      "source_box_1x": [
+        680,
+        340,
+        780,
+        460
+      ],
+      "dimensions_1x": [
+        100,
+        120
+      ],
+      "dimensions_metano_2x": [
+        200,
+        240
+      ],
+      "pmdo_tile_bounds_32px": [
+        6,
+        7
+      ],
+      "pmdo_cell_bounds_8px": [
+        25,
+        30
+      ],
+      "files": {
+        "complete_png": "data/pmdo_buildings_alpha_tilesets/bldg_08_cliff_staircase_east/bldg_08_cliff_staircase_east_complete_metano_scale_2x.png",
+        "roof_layer_png": "data/pmdo_buildings_alpha_tilesets/bldg_08_cliff_staircase_east/bldg_08_cliff_staircase_east_roof_overhang_layer8.png",
+        "walls_layer_png": "data/pmdo_buildings_alpha_tilesets/bldg_08_cliff_staircase_east/bldg_08_cliff_staircase_east_walls_base_layer6.png",
+        "pmdo_tile": "Content/Tile/bldg_08_cliff_staircase_east_Base.tile"
+      }
+    }
+  ],
+  "master_tilesets": {
+    "all_complete": "pmdo_all_buildings_master_tileset.png",
+    "roofs_over": "pmdo_all_buildings_roofs_overhang_layer8.png",
+    "walls_under": "pmdo_all_buildings_walls_base_layer6.png"
+  },
+  "tileset_entries": [
+    {
+      "id": "bldg_01_grand_treehouse",
+      "name": "Grand Treehouse Sanctuaire",
+      "cell_col": 0,
+      "cell_row": 0,
+      "pmdo_red_box_rect": {
+        "x": 24,
+        "y": 16,
+        "width": 560,
+        "height": 640,
+        "grid_x_32px": 0,
+        "grid_y_32px": 0,
+        "tiles_w_32px": 18,
+        "tiles_h_32px": 20
+      }
+    },
+    {
+      "id": "bldg_02_northwest_watermill",
+      "name": "Moulin / Atelier Nord-Ouest",
+      "cell_col": 1,
+      "cell_row": 0,
+      "pmdo_red_box_rect": {
+        "x": 732,
+        "y": 176,
+        "width": 360,
+        "height": 320,
+        "grid_x_32px": 22,
+        "grid_y_32px": 5,
+        "tiles_w_32px": 12,
+        "tiles_h_32px": 10
+      }
+    },
+    {
+      "id": "bldg_03_southwest_fishery",
+      "name": "Cabane sur Pilotis du Ponton SO",
+      "cell_col": 0,
+      "cell_row": 1,
+      "pmdo_red_box_rect": {
+        "x": 114,
+        "y": 838,
+        "width": 380,
+        "height": 340,
+        "grid_x_32px": 3,
+        "grid_y_32px": 26,
+        "tiles_w_32px": 12,
+        "tiles_h_32px": 11
+      }
+    },
+    {
+      "id": "bldg_04_southeast_market_stall",
+      "name": "\u00c9tal de March\u00e9 & Comptoir Sud-Est",
+      "cell_col": 1,
+      "cell_row": 1,
+      "pmdo_red_box_rect": {
+        "x": 702,
+        "y": 828,
+        "width": 420,
+        "height": 360,
+        "grid_x_32px": 21,
+        "grid_y_32px": 25,
+        "tiles_w_32px": 14,
+        "tiles_h_32px": 12
+      }
+    },
+    {
+      "id": "bldg_05_northeast_dwelling",
+      "name": "Maison R\u00e9sidentielle Est",
+      "cell_col": 0,
+      "cell_row": 2,
+      "pmdo_red_box_rect": {
+        "x": 114,
+        "y": 1510,
+        "width": 380,
+        "height": 340,
+        "grid_x_32px": 3,
+        "grid_y_32px": 47,
+        "tiles_w_32px": 12,
+        "tiles_h_32px": 11
+      }
+    },
+    {
+      "id": "bldg_06_central_gazebo",
+      "name": "Kiosque / Pergola de la Place",
+      "cell_col": 1,
+      "cell_row": 2,
+      "pmdo_red_box_rect": {
+        "x": 792,
+        "y": 1570,
+        "width": 240,
+        "height": 220,
+        "grid_x_32px": 24,
+        "grid_y_32px": 49,
+        "tiles_w_32px": 8,
+        "tiles_h_32px": 7
+      }
+    },
+    {
+      "id": "bldg_07_wooden_bridge_west",
+      "name": "Pont en Bois de l'Anse",
+      "cell_col": 0,
+      "cell_row": 3,
+      "pmdo_red_box_rect": {
+        "x": 174,
+        "y": 2272,
+        "width": 260,
+        "height": 160,
+        "grid_x_32px": 5,
+        "grid_y_32px": 71,
+        "tiles_w_32px": 9,
+        "tiles_h_32px": 5
+      }
+    },
+    {
+      "id": "bldg_08_cliff_staircase_east",
+      "name": "Grand Escalier de la Falaise Est",
+      "cell_col": 1,
+      "cell_row": 3,
+      "pmdo_red_box_rect": {
+        "x": 812,
+        "y": 2232,
+        "width": 200,
+        "height": 240,
+        "grid_x_32px": 25,
+        "grid_y_32px": 69,
+        "tiles_w_32px": 7,
+        "tiles_h_32px": 8
+      }
+    }
+  ]
+}
