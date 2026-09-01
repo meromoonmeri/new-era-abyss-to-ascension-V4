@@ -1,0 +1,155 @@
+{
+  "schema": 1,
+  "title": "MAPCOMPLETE Metano PMDO Building Pack",
+  "session_branch": "arena/01a05db7-new-era-abyss-to-ascension-v4",
+  "authoritative_sources": {
+    "map_complete": "MAPACOMPLETEVIAPIXELLAB_COMPLETED.webp",
+    "scale_verification": "data/pmdo_master_animation_tilesets/05_mapacomplete_metano_scaled/metano_scale_verification.png",
+    "kingambit_manifest": "data/pmdo_master_animation_tilesets/05_mapacomplete_metano_scaled/buildings/kingambit/manifests/metano_kingambit_pmdo_scale_manifest.json"
+  },
+  "pmdo_scale": {
+    "description": "Metano Town PMDO building scale verified from metano_scale_verification.png: 2.0x integer nearest-neighbor relative to native MAPACOMPLETE building footprints. Canonical Metano map buildings referenced here are already at that PMDO scale; Kingambit HQ uses the prebuilt 40% nearest-neighbor café-matched normalization stored in the repository.",
+    "canonical_map_buildings_integer_scale": "2.0x",
+    "kingambit_external_nearest_neighbor_scale": 0.4
+  },
+  "counts": {
+    "total_assets": 4,
+    "visible_map_buildings": 3,
+    "external_requested_buildings": 1,
+    "duplicate_hash_groups": 0
+  },
+  "buildings": [
+    {
+      "id": "metano_cafe_spinda",
+      "type": "cafe",
+      "visible_on_map_complete": true,
+      "location_hint": "north-west plaza",
+      "map_bbox_native": [
+        92,
+        10,
+        171,
+        51
+      ],
+      "occurrences": "single visible instance",
+      "asset_path": "data/pmdo_assets_alpha_entiers/02_boutiques_et_marche/grand_cafe_spinda_terrasse_jour.png",
+      "source_strategy": "existing_canonical_alpha_asset",
+      "scale_action": "already at PMDO building scale; no additional rescale applied",
+      "format": "PNG",
+      "channels": "srgba",
+      "opaque_flag": "false",
+      "width": 259,
+      "height": 109,
+      "opaque_pixels": 16109,
+      "transparent_pixels": 12122,
+      "has_alpha": true,
+      "alpha_isolated": true,
+      "sha256": "399d307c94903ee2536477dd8176cf4c19ed970489c6a3b2258a80c4b709d33c",
+      "pmdo_scale_verified": true,
+      "scale_reference": "Metano Town PMDO building scale verified from metano_scale_verification.png: 2.0x integer nearest-neighbor relative to native MAPACOMPLETE building footprints. Canonical Metano map buildings referenced here are already at that PMDO scale; Kingambit HQ uses the prebuilt 40% nearest-neighbor café-matched normalization stored in the repository."
+    },
+    {
+      "id": "metano_fire_home_round",
+      "type": "house",
+      "visible_on_map_complete": true,
+      "location_hint": "south-west residential row",
+      "map_bbox_native": [
+        151,
+        471,
+        206,
+        521
+      ],
+      "occurrences": "single visible instance",
+      "asset_path": "data/pmdo_assets_alpha_entiers/03_batiments_et_tentes/maison_style_feu.png",
+      "source_strategy": "existing_canonical_alpha_asset",
+      "scale_action": "already at PMDO building scale; no additional rescale applied",
+      "format": "PNG",
+      "channels": "srgba",
+      "opaque_flag": "false",
+      "width": 110,
+      "height": 99,
+      "opaque_pixels": 7455,
+      "transparent_pixels": 3435,
+      "has_alpha": true,
+      "alpha_isolated": true,
+      "sha256": "a01f85800a06aa5fe41b94a8e68628fb9cae157186210b2df43ae78d5d2a3f87",
+      "pmdo_scale_verified": true,
+      "scale_reference": "Metano Town PMDO building scale verified from metano_scale_verification.png: 2.0x integer nearest-neighbor relative to native MAPACOMPLETE building footprints. Canonical Metano map buildings referenced here are already at that PMDO scale; Kingambit HQ uses the prebuilt 40% nearest-neighbor café-matched normalization stored in the repository."
+    },
+    {
+      "id": "metano_leaf_red_tent",
+      "type": "tent_house",
+      "visible_on_map_complete": true,
+      "location_hint": "repeated through the central and southern neighborhoods",
+      "map_bbox_native": [
+        418,
+        660,
+        466,
+        708
+      ],
+      "occurrences": "multiple visually identical instances; extracted once canonically",
+      "asset_path": "data/pmdo_assets_alpha_entiers/03_batiments_et_tentes/grande_tente_campement_unie.png",
+      "source_strategy": "existing_canonical_alpha_asset",
+      "scale_action": "already at PMDO building scale; no additional rescale applied",
+      "format": "PNG",
+      "channels": "srgba",
+      "opaque_flag": "false",
+      "width": 96,
+      "height": 96,
+      "opaque_pixels": 3998,
+      "transparent_pixels": 5218,
+      "has_alpha": true,
+      "alpha_isolated": true,
+      "sha256": "35b0cf27a5ca93aa48cdf3675ab61645bef960c0b8ea1942dd0942699767db21",
+      "pmdo_scale_verified": true,
+      "scale_reference": "Metano Town PMDO building scale verified from metano_scale_verification.png: 2.0x integer nearest-neighbor relative to native MAPACOMPLETE building footprints. Canonical Metano map buildings referenced here are already at that PMDO scale; Kingambit HQ uses the prebuilt 40% nearest-neighbor café-matched normalization stored in the repository."
+    },
+    {
+      "id": "kingambit_hq",
+      "type": "hq",
+      "visible_on_map_complete": false,
+      "requested_with_mapcomplete_batch": true,
+      "location_hint": "external user-supplied alpha-isolated building",
+      "asset_path": "data/pmdo_master_animation_tilesets/05_mapacomplete_metano_scaled/buildings/kingambit/pmdo/QGKingambit_metano_cafe_reference_pmdo_40pct.png",
+      "master_path": "data/pmdo_master_animation_tilesets/05_mapacomplete_metano_scaled/buildings/kingambit/master/QGKingambit-removebg-preview_trimmed.png",
+      "source_strategy": "existing_external_alpha_source_scaled_against_cafe_reference",
+      "format": "PNG",
+      "channels": "srgba",
+      "opaque_flag": "false",
+      "width": 211,
+      "height": 138,
+      "opaque_pixels": 16328,
+      "transparent_pixels": 12790,
+      "has_alpha": true,
+      "alpha_isolated": true,
+      "sha256": "f0541b47666344430ee33a28f9166cd492cae643fedddfde32c876a864b3ecb4",
+      "pmdo_scale_verified": true,
+      "scale_reference": "Metano Town PMDO standard: existing 2.0x map calibration; external Kingambit building matched to the canonical PMDO café via deterministic 40% nearest-neighbor downscale of the trimmed master",
+      "chosen_scale": 0.4,
+      "master_dimensions": [
+        528,
+        346
+      ]
+    }
+  ],
+  "excluded_visible_non_buildings": [
+    {
+      "id": "blue_roof_memorial",
+      "reason": "visible on the source map but functions visually as a monument/pedestal rather than a building"
+    },
+    {
+      "id": "pokemon_statue_podiums",
+      "reason": "visible on the source map but are statues/monuments, not buildings"
+    },
+    {
+      "id": "bunny_face_special_entrance",
+      "reason": "visible as a landmark/special entrance; excluded from this building-only pack"
+    }
+  ],
+  "duplicate_hash_groups": {},
+  "deliverables": {
+    "contact_sheet": "data/pmdo_master_animation_tilesets/05_mapacomplete_metano_scaled/buildings/map_complete/validation/MAPCOMPLETE_METANO_BUILDING_CONTACT_SHEET.png",
+    "scale_validation": "data/pmdo_master_animation_tilesets/05_mapacomplete_metano_scaled/buildings/map_complete/validation/MAPCOMPLETE_METANO_BUILDING_SCALE_VALIDATION.png",
+    "map_audit": "data/pmdo_master_animation_tilesets/05_mapacomplete_metano_scaled/buildings/map_complete/validation/MAPCOMPLETE_METANO_BUILDING_AUDIT.png",
+    "report": "data/pmdo_master_animation_tilesets/05_mapacomplete_metano_scaled/buildings/map_complete/reports/MAPCOMPLETE_METANO_BUILDING_SCALE_REPORT.md"
+  }
+}
