@@ -12,4 +12,4 @@ except: font=ImageFont.load_default()
 for k,(n,im) in enumerate(imgs):
     x=k*(maxw+pad)
     sheet.paste(im,(x,0),im); d.text((x+1,maxh+1),n,fill=(0,0,0),font=font)
-sheet.save(f'{OUT}/_atlas_structures4.png'); print("atlas",sheet.size, "| sprite sizes:", [(n,f'{i.width}x{i.height}') for n,i in imgs])
+sheet.save(f'{OUT}/_atlas_structures4.png'); print("atlas",sheet.size, [(n,f'{i.width}x{i.height}') for n,i in imgs])

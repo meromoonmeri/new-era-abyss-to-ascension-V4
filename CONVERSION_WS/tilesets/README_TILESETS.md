@@ -44,10 +44,19 @@ Isolées depuis le **montage source** (`analysis/source.png`), en alpha à l'éc
 
 | Sprite | Fichier | Taille (px @×3) | Objet |
 |---|---|---|---|
-| `shop_awning_railstall` | `shop_awning_railstall.png` | 234×177 | échoppe/marché à auvent rouge-bleu |
-| `statue_bluewing_x` | `statue_bluewing_x.png` | 165×153 | statue bleue ailée au « X » |
-| `house_bearhead_redmat` | `house_bearhead_redmat.png` | 312×246 | maison tête d'ours/lapin (tapis rouge) |
-| `totem_teal_boss` | `totem_teal_boss.png` | 312×189 | totem boss turquoise/rouge |
+| `shop_awning_railstall` | `shop_awning_railstall.png` | 225×156 | échoppe/marché à auvent rouge-bleu |
+| `statue_bluewing_x` | `statue_bluewing_x.png` | 180×159 | statue bleue ailée au « X » |
+| `house_bearhead_redmat` | `house_bearhead_redmat.png` | 225×198 | maison tête d'ours/lapin (tapis rouge) |
+| `totem_teal_boss` | `totem_teal_boss.png` | 195×189 | totem boss turquoise/rouge |
+
+Méthode v2 (corrigée par retour utilisateur) : le 1er chroma-key **mangeait la base
+tan/sable** des bâtiments (confondue avec le sol) et gardait le feuillage déco. La
+v2 classe le fond en **trois familles** — sol (herbe+sable), canopée verte (déco),
+et brindilles mortes (déco brun/gris) — soustrait le tout, puis garde la
+**composante principale** contenant le centre de la structure. Le recadrage est
+ensuite **resserré** sur la bbox mesurée de la structure (marge 3 px) pour exclure
+d'office la décoration périphérique. Résultat : structures **complètes** (base,
+tapis, plateforme inclus) et décoration **retirée**.
 
 `manifest.json` : registre machine (famille → atlas + liste des sprites).
 
@@ -84,9 +93,5 @@ dérivée du bio du sol, donc un halo d'herbe/sable peut subsister par endroits 
 souhaité, car il ancre le sprite sur le terrain.
 
 Réglages : reproductibles via `isolate_final.py`, `isolate_trees2.py`,
-`isolate_source.py`, `isolate_zone.py`, `isolate4.py` dans `CONVERSION_WS/`.
-
-Les 4 structures demandées sont isolées par `isolate4.py` (chroma-key sur le sol
-herbe/sable + plus grande composante + recadrage alpha + upscale ×3). De la
-végétation/arbres périphériques restent accolés à certains sprites (ils font
-partie de l'environnement immédiat du bâtiment) — le bâtiment, lui, est intact.
+`isolate_source.py`, `isolate_zone.py`, et `isolate4final.py` (4 structures
+demandées) dans `CONVERSION_WS/`.
