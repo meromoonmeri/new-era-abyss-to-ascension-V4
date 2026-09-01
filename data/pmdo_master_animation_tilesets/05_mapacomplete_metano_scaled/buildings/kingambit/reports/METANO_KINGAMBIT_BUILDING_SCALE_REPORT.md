@@ -50,5 +50,5 @@ Single-building recovery task requested by the user: scale `QGKingambit-removebg
 
 ## SHA-256
 
-- Master: `f70bc0d9e99e52260e7b5d9476afbc9984efadf7eb3ee774ff12ebd466c9313f`
-- PMDO scaled output: `f0541b47666344430ee33a28f9166cd492cae643fedddfde32c876a864b3ecb4`
+- Master: `8c5979227f9cba020ceb203d48e8a284cf3f7e28c523536afb45cbbb453bb707`
+- PMDO scaled output: `1521af4a2bcb25674e38411f3c0b3f80cd95fc46e3711a5a5bbc26af5d61af68`

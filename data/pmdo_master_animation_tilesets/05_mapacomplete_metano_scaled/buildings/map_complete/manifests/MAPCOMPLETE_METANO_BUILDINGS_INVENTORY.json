@@ -10,7 +10,8 @@
   "pmdo_scale": {
     "description": "Metano Town PMDO building scale verified from metano_scale_verification.png: 2.0x integer nearest-neighbor relative to native MAPACOMPLETE building footprints. Canonical Metano map buildings referenced here are already at that PMDO scale; Kingambit HQ uses the prebuilt 40% nearest-neighbor café-matched normalization stored in the repository.",
     "canonical_map_buildings_integer_scale": "2.0x",
-    "kingambit_external_nearest_neighbor_scale": 0.4
+    "kingambit_external_nearest_neighbor_scale": 0.4,
+    "pmdo_grid_px": 24
   },
   "counts": {
     "total_assets": 4,
@@ -121,7 +122,7 @@
       "transparent_pixels": 12790,
       "has_alpha": true,
       "alpha_isolated": true,
-      "sha256": "f0541b47666344430ee33a28f9166cd492cae643fedddfde32c876a864b3ecb4",
+      "sha256": "1521af4a2bcb25674e38411f3c0b3f80cd95fc46e3711a5a5bbc26af5d61af68",
       "pmdo_scale_verified": true,
       "scale_reference": "Metano Town PMDO standard: existing 2.0x map calibration; external Kingambit building matched to the canonical PMDO café via deterministic 40% nearest-neighbor downscale of the trimmed master",
       "chosen_scale": 0.4,
@@ -134,19 +135,94 @@
   "excluded_visible_non_buildings": [
     {
       "id": "blue_roof_memorial",
-      "reason": "visible on the source map but functions visually as a monument/pedestal rather than a building"
+      "reason": "visible on the source map but functions visually as a monument or pedestal rather than a building"
     },
     {
       "id": "pokemon_statue_podiums",
-      "reason": "visible on the source map but are statues/monuments, not buildings"
+      "reason": "visible on the source map but are statues or monuments, not buildings"
     },
     {
       "id": "bunny_face_special_entrance",
-      "reason": "visible as a landmark/special entrance; excluded from this building-only pack"
+      "reason": "visible as a landmark or special entrance; excluded from this building-only pack"
     }
   ],
   "duplicate_hash_groups": {},
+  "atlas": {
+    "schema": 1,
+    "title": "MAPCOMPLETE Metano PMDO Building Atlas",
+    "source_map": "MAPACOMPLETEVIAPIXELLAB_COMPLETED.webp",
+    "scale_reference": "data/pmdo_master_animation_tilesets/05_mapacomplete_metano_scaled/metano_scale_verification.png",
+    "pmdo_grid_px": 24,
+    "canvas": {
+      "width": 624,
+      "height": 336
+    },
+    "atlas_file": "data/pmdo_master_animation_tilesets/05_mapacomplete_metano_scaled/buildings/map_complete/pmdo/MAPCOMPLETE_METANO_BUILDINGS_PMDO_ATLAS.png",
+    "format": "PNG",
+    "channels": "srgba",
+    "opaque_flag": "false",
+    "opaque_pixels": 43890,
+    "transparent_pixels": 165774,
+    "sha256": "2b05201f4d4762ae3552b0a314b3a7db9ad9b4481576c0b3008d1ab560732be7",
+    "expected_opaque_sum_without_overlap": 43890,
+    "placements": [
+      {
+        "id": "metano_cafe_spinda",
+        "type": "cafe",
+        "source_path": "data/pmdo_assets_alpha_entiers/02_boutiques_et_marche/grand_cafe_spinda_terrasse_jour.png",
+        "x": 24,
+        "y": 24,
+        "grid_x": 1,
+        "grid_y": 1,
+        "width": 259,
+        "height": 109,
+        "grid_aligned": true,
+        "visible_on_map_complete": true
+      },
+      {
+        "id": "metano_fire_home_round",
+        "type": "house",
+        "source_path": "data/pmdo_assets_alpha_entiers/03_batiments_et_tentes/maison_style_feu.png",
+        "x": 312,
+        "y": 24,
+        "grid_x": 13,
+        "grid_y": 1,
+        "width": 110,
+        "height": 99,
+        "grid_aligned": true,
+        "visible_on_map_complete": true
+      },
+      {
+        "id": "metano_leaf_red_tent",
+        "type": "tent_house",
+        "source_path": "data/pmdo_assets_alpha_entiers/03_batiments_et_tentes/grande_tente_campement_unie.png",
+        "x": 456,
+        "y": 24,
+        "grid_x": 19,
+        "grid_y": 1,
+        "width": 96,
+        "height": 96,
+        "grid_aligned": true,
+        "visible_on_map_complete": true
+      },
+      {
+        "id": "kingambit_hq",
+        "type": "hq",
+        "source_path": "data/pmdo_master_animation_tilesets/05_mapacomplete_metano_scaled/buildings/kingambit/pmdo/QGKingambit_metano_cafe_reference_pmdo_40pct.png",
+        "x": 24,
+        "y": 168,
+        "grid_x": 1,
+        "grid_y": 7,
+        "width": 211,
+        "height": 138,
+        "grid_aligned": true,
+        "visible_on_map_complete": false
+      }
+    ]
+  },
   "deliverables": {
+    "atlas_png": "data/pmdo_master_animation_tilesets/05_mapacomplete_metano_scaled/buildings/map_complete/pmdo/MAPCOMPLETE_METANO_BUILDINGS_PMDO_ATLAS.png",
+    "atlas_manifest": "data/pmdo_master_animation_tilesets/05_mapacomplete_metano_scaled/buildings/map_complete/manifests/MAPCOMPLETE_METANO_BUILDINGS_PMDO_ATLAS.json",
     "contact_sheet": "data/pmdo_master_animation_tilesets/05_mapacomplete_metano_scaled/buildings/map_complete/validation/MAPCOMPLETE_METANO_BUILDING_CONTACT_SHEET.png",
     "scale_validation": "data/pmdo_master_animation_tilesets/05_mapacomplete_metano_scaled/buildings/map_complete/validation/MAPCOMPLETE_METANO_BUILDING_SCALE_VALIDATION.png",
     "map_audit": "data/pmdo_master_animation_tilesets/05_mapacomplete_metano_scaled/buildings/map_complete/validation/MAPCOMPLETE_METANO_BUILDING_AUDIT.png",

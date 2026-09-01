@@ -54,7 +54,7 @@
       527,
       345
     ],
-    "sha256": "f70bc0d9e99e52260e7b5d9476afbc9984efadf7eb3ee774ff12ebd466c9313f"
+    "sha256": "8c5979227f9cba020ceb203d48e8a284cf3f7e28c523536afb45cbbb453bb707"
   },
   "pmdo": {
     "width": 211,
@@ -70,7 +70,7 @@
       210,
       137
     ],
-    "sha256": "f0541b47666344430ee33a28f9166cd492cae643fedddfde32c876a864b3ecb4",
+    "sha256": "1521af4a2bcb25674e38411f3c0b3f80cd95fc46e3711a5a5bbc26af5d61af68",
     "alpha_isolation": true,
     "pmdo_scale_reference": "Metano Town PMDO standard: existing 2.0x map calibration; external Kingambit building matched to the canonical PMDO café via deterministic 40% nearest-neighbor downscale of the trimmed master"
   }

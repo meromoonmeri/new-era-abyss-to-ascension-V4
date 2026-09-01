@@ -5,9 +5,9 @@
 User-requested building-only PMDO scaling pass for the complete PixelLab map authority:
 - `MAPACOMPLETEVIAPIXELLAB_COMPLETED.webp`
 - `metano_scale_verification.png`
-- plus the separately requested external `QGKingambit` building already prepared in this repository.
+- plus the separately requested external `QGKingambit` building.
 
-This pack is conservative on purpose.  It only reuses exact canonical alpha-isolated PMDO assets already present in the repository for the buildings visibly represented on the complete map, and it does not duplicate those assets into a second pixel copy.
+This pack is conservative on purpose. It reuses exact canonical alpha-isolated PMDO assets already present in the repository for building types visibly represented on the complete map, and assembles them into one transparent PMDO atlas PNG without duplicating or repainting source art.
 
 ## PMDO scale used
 
@@ -20,12 +20,25 @@ Metano Town PMDO building scale verified from metano_scale_verification.png: 2.0
 - **metano_leaf_red_tent** — type `tent_house` — path `data/pmdo_assets_alpha_entiers/03_batiments_et_tentes/grande_tente_campement_unie.png` — 96×96 px — alpha isolated: PASS
 - **kingambit_hq** — type `hq` — path `data/pmdo_master_animation_tilesets/05_mapacomplete_metano_scaled/buildings/kingambit/pmdo/QGKingambit_metano_cafe_reference_pmdo_40pct.png` — 211×138 px — alpha isolated: PASS
 
+## PMDO assembled atlas
+
+- Atlas PNG: `data/pmdo_master_animation_tilesets/05_mapacomplete_metano_scaled/buildings/map_complete/pmdo/MAPCOMPLETE_METANO_BUILDINGS_PMDO_ATLAS.png`
+- Atlas manifest: `data/pmdo_master_animation_tilesets/05_mapacomplete_metano_scaled/buildings/map_complete/manifests/MAPCOMPLETE_METANO_BUILDINGS_PMDO_ATLAS.json`
+- Canvas: 624×336 px
+- PMDO grid: 24 px
+- Atlas alpha isolation: PASS
+
+Placement summary:
+- `metano_cafe_spinda` at px (24, 24) / grid (1, 1) — aligned: PASS
+- `metano_fire_home_round` at px (312, 24) / grid (13, 1) — aligned: PASS
+- `metano_leaf_red_tent` at px (456, 24) / grid (19, 1) — aligned: PASS
+- `kingambit_hq` at px (24, 168) / grid (1, 7) — aligned: PASS
 
 ## Excluded visible non-buildings
 
-- `blue_roof_memorial` — visible on the source map but functions visually as a monument/pedestal rather than a building
-- `pokemon_statue_podiums` — visible on the source map but are statues/monuments, not buildings
-- `bunny_face_special_entrance` — visible as a landmark/special entrance; excluded from this building-only pack
+- `blue_roof_memorial` — visible on the source map but functions visually as a monument or pedestal rather than a building
+- `pokemon_statue_podiums` — visible on the source map but are statues or monuments, not buildings
+- `bunny_face_special_entrance` — visible as a landmark or special entrance; excluded from this building-only pack
 
 
 ## Validation summary
@@ -34,15 +47,19 @@ Metano Town PMDO building scale verified from metano_scale_verification.png: 2.0
 - Visible MAPACOMPLETE building types: 3
 - External requested buildings: 1
 - PNG format: PASS
-- RGBA/alpha channel: PASS
+- RGBA or alpha channel: PASS
 - Transparent background present: PASS
 - Duplicate audit inside selected pack: PASS
 - Canonical café anchor present: PASS
 - Kingambit HQ present: PASS
+- Atlas grid alignment: PASS
+- Atlas overlap check: PASS
 
 ## Deliverables
 
 - Inventory: `data/pmdo_master_animation_tilesets/05_mapacomplete_metano_scaled/buildings/map_complete/manifests/MAPCOMPLETE_METANO_BUILDINGS_INVENTORY.json`
+- Atlas PNG: `data/pmdo_master_animation_tilesets/05_mapacomplete_metano_scaled/buildings/map_complete/pmdo/MAPCOMPLETE_METANO_BUILDINGS_PMDO_ATLAS.png`
+- Atlas manifest: `data/pmdo_master_animation_tilesets/05_mapacomplete_metano_scaled/buildings/map_complete/manifests/MAPCOMPLETE_METANO_BUILDINGS_PMDO_ATLAS.json`
 - Contact sheet: `data/pmdo_master_animation_tilesets/05_mapacomplete_metano_scaled/buildings/map_complete/validation/MAPCOMPLETE_METANO_BUILDING_CONTACT_SHEET.png`
 - Scale validation: `data/pmdo_master_animation_tilesets/05_mapacomplete_metano_scaled/buildings/map_complete/validation/MAPCOMPLETE_METANO_BUILDING_SCALE_VALIDATION.png`
 - Map audit: `data/pmdo_master_animation_tilesets/05_mapacomplete_metano_scaled/buildings/map_complete/validation/MAPCOMPLETE_METANO_BUILDING_AUDIT.png`
@@ -51,5 +68,5 @@ Metano Town PMDO building scale verified from metano_scale_verification.png: 2.0
 
 - No pixels were redrawn.
 - No colors were changed.
-- No interpolation other than declared nearest-neighbor scaling for the prebuilt Kingambit asset is used.
+- No interpolation other than the declared nearest-neighbor scaling for the prebuilt Kingambit asset was used.
 - The complete map file itself was not modified.
