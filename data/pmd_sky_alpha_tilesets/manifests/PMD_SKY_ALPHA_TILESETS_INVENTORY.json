@@ -1,0 +1,68 @@
+{
+  "schema_version": "2.0.0",
+  "title": "PMD Explorers of Sky (EoS) & PMU Alpha-Isolated Tileset Master Library",
+  "source_archive_count": 1168,
+  "total_tiles_audited": 999799,
+  "total_alpha_isolated_tiles": 66916,
+  "tile_dimensions_standard": [
+    32,
+    32
+  ],
+  "categories": {
+    "01_treasure_town_and_guild": {
+      "total_alpha_tiles": 5242,
+      "sampled_in_atlas": 2048,
+      "atlas_dimensions": [
+        1024,
+        2048
+      ],
+      "atlas_file": "data/pmd_sky_alpha_tilesets/categories/category_01_treasure_town_and_guild_atlas.png"
+    },
+    "02_dungeons_caves_and_peaks": {
+      "total_alpha_tiles": 23923,
+      "sampled_in_atlas": 2048,
+      "atlas_dimensions": [
+        1024,
+        2048
+      ],
+      "atlas_file": "data/pmd_sky_alpha_tilesets/categories/category_02_dungeons_caves_and_peaks_atlas.png"
+    },
+    "03_forests_and_vegetation": {
+      "total_alpha_tiles": 4321,
+      "sampled_in_atlas": 2048,
+      "atlas_dimensions": [
+        1024,
+        2048
+      ],
+      "atlas_file": "data/pmd_sky_alpha_tilesets/categories/category_03_forests_and_vegetation_atlas.png"
+    },
+    "04_water_beaches_and_coasts": {
+      "total_alpha_tiles": 6533,
+      "sampled_in_atlas": 2048,
+      "atlas_dimensions": [
+        1024,
+        2048
+      ],
+      "atlas_file": "data/pmd_sky_alpha_tilesets/categories/category_04_water_beaches_and_coasts_atlas.png"
+    },
+    "05_architecture_furniture_and_props": {
+      "total_alpha_tiles": 11478,
+      "sampled_in_atlas": 2048,
+      "atlas_dimensions": [
+        1024,
+        2048
+      ],
+      "atlas_file": "data/pmd_sky_alpha_tilesets/categories/category_05_architecture_furniture_and_props_atlas.png"
+    },
+    "06_pmu_sky_master_archives": {
+      "total_alpha_tiles": 15419,
+      "sampled_in_atlas": 2048,
+      "atlas_dimensions": [
+        1024,
+        2048
+      ],
+      "atlas_file": "data/pmd_sky_alpha_tilesets/categories/category_06_pmu_sky_master_archives_atlas.png"
+    }
+  },
+  "biome_count": 496
+}
