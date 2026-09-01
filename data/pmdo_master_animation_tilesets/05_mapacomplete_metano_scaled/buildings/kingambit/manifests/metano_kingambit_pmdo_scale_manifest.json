@@ -1,0 +1,77 @@
+{
+  "task": "Scale external Kingambit building to Metano PMDO-compatible size using the café building as reference",
+  "source_authority": {
+    "metano_map": "MAPACOMPLETEVIAPIXELLAB_COMPLETED.webp",
+    "metano_scale_verification": "data/pmdo_master_animation_tilesets/05_mapacomplete_metano_scaled/metano_scale_verification.png",
+    "metano_cafe_pmdo_reference": "docs/metano_origins_structure_library/buildings/metano_cafe_day.png",
+    "external_building_source": "data/pmdo_master_animation_tilesets/05_mapacomplete_metano_scaled/references/QGKingambit-removebg-preview.png"
+  },
+  "method": {
+    "master_preprocess": "trim transparent margins only",
+    "scale_selector": "opaque-pixel-area comparison against canonical Metano café asset",
+    "cafe_derived_target_scale": 0.3961031350877005,
+    "chosen_scale": 0.4,
+    "chosen_scale_rationale": "nearest simple deterministic point-scale ratio to the café-derived target that preserves pixel art without interpolation",
+    "resampler": "nearest-neighbor / point",
+    "palette_changed": false,
+    "interpolation_used": false,
+    "art_redesigned": false
+  },
+  "files": {
+    "master": "data/pmdo_master_animation_tilesets/05_mapacomplete_metano_scaled/buildings/kingambit/master/QGKingambit-removebg-preview_trimmed.png",
+    "pmdo": "data/pmdo_master_animation_tilesets/05_mapacomplete_metano_scaled/buildings/kingambit/pmdo/QGKingambit_metano_cafe_reference_pmdo_40pct.png",
+    "contact_sheet": "data/pmdo_master_animation_tilesets/05_mapacomplete_metano_scaled/buildings/kingambit/validation/METANO_KINGAMBIT_PMDO_CONTACT_SHEET.png",
+    "validation_sheet": "data/pmdo_master_animation_tilesets/05_mapacomplete_metano_scaled/buildings/kingambit/validation/METANO_KINGAMBIT_PMDO_SCALE_VALIDATION.png",
+    "report": "data/pmdo_master_animation_tilesets/05_mapacomplete_metano_scaled/buildings/kingambit/reports/METANO_KINGAMBIT_BUILDING_SCALE_REPORT.md"
+  },
+  "reference_cafe": {
+    "width": 259,
+    "height": 109,
+    "channels": "srgba",
+    "opaque": "false",
+    "format": "PNG",
+    "opaque_pixels": 16109,
+    "transparent_pixels": 12122,
+    "opaque_bbox": [
+      0,
+      0,
+      258,
+      108
+    ],
+    "sha256": "4dcd97a95d0a64f845af4f7d50e55b38ffecab21db85d510d12fe36b418a713a"
+  },
+  "master": {
+    "width": 528,
+    "height": 346,
+    "channels": "srgba",
+    "opaque": "false",
+    "format": "PNG",
+    "opaque_pixels": 102672,
+    "transparent_pixels": 80016,
+    "opaque_bbox": [
+      0,
+      0,
+      527,
+      345
+    ],
+    "sha256": "f70bc0d9e99e52260e7b5d9476afbc9984efadf7eb3ee774ff12ebd466c9313f"
+  },
+  "pmdo": {
+    "width": 211,
+    "height": 138,
+    "channels": "srgba",
+    "opaque": "false",
+    "format": "PNG",
+    "opaque_pixels": 16328,
+    "transparent_pixels": 12790,
+    "opaque_bbox": [
+      0,
+      0,
+      210,
+      137
+    ],
+    "sha256": "f0541b47666344430ee33a28f9166cd492cae643fedddfde32c876a864b3ecb4",
+    "alpha_isolation": true,
+    "pmdo_scale_reference": "Metano Town PMDO standard: existing 2.0x map calibration; external Kingambit building matched to the canonical PMDO café via deterministic 40% nearest-neighbor downscale of the trimmed master"
+  }
+}
