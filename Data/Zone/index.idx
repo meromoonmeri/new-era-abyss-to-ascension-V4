@@ -812,8 +812,9 @@
     "sky_eos_p01p02a",
     "sky_eos_t01p03a",
     "s04p01a",
-    "bois_sombres_oree"
-   ],
+    "bois_sombres_oree",
+   
+     "mapacomplete_metano"],
    "Maps": [
     [
      0
