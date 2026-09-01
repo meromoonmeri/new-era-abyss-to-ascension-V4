@@ -1,0 +1,528 @@
+{
+  "version": "1.0.0",
+  "description": "Collection complète des assets entiers de Rescue Team (PMD1) et des maps récentes GitHub en Alpha Isolate",
+  "categories": {
+    "01_place_pokemon_rescue_team": {
+      "place_pokemon_echoppe_kecleon_vert": {
+        "file": "01_place_pokemon_rescue_team/place_pokemon_echoppe_kecleon_vert.png",
+        "dimensions": [
+          112,
+          120
+        ],
+        "description": "Asset Place Pokémon entier Place Pokemon Echoppe Kecleon Vert"
+      },
+      "place_pokemon_banque_persian_felinferno": {
+        "file": "01_place_pokemon_rescue_team/place_pokemon_banque_persian_felinferno.png",
+        "dimensions": [
+          72,
+          60
+        ],
+        "description": "Asset Place Pokémon entier Place Pokemon Banque Persian Felinferno"
+      },
+      "place_pokemon_stand_gloupti_capacites": {
+        "file": "01_place_pokemon_rescue_team/place_pokemon_stand_gloupti_capacites.png",
+        "dimensions": [
+          96,
+          96
+        ],
+        "description": "Asset Place Pokémon entier Place Pokemon Stand Gloupti Capacites"
+      },
+      "place_pokemon_porte_dojo_makuhita": {
+        "file": "01_place_pokemon_rescue_team/place_pokemon_porte_dojo_makuhita.png",
+        "dimensions": [
+          112,
+          112
+        ],
+        "description": "Asset Place Pokémon entier Place Pokemon Porte Dojo Makuhita"
+      },
+      "place_pokemon_poste_bekipan_perchoir": {
+        "file": "01_place_pokemon_rescue_team/place_pokemon_poste_bekipan_perchoir.png",
+        "dimensions": [
+          50,
+          76
+        ],
+        "description": "Asset Place Pokémon entier Place Pokemon Poste Bekipan Perchoir"
+      },
+      "place_pokemon_tableau_missions": {
+        "file": "01_place_pokemon_rescue_team/place_pokemon_tableau_missions.png",
+        "dimensions": [
+          72,
+          72
+        ],
+        "description": "Asset Place Pokémon entier Place Pokemon Tableau Missions"
+      },
+      "place_pokemon_panneau_croisement": {
+        "file": "01_place_pokemon_rescue_team/place_pokemon_panneau_croisement.png",
+        "dimensions": [
+          64,
+          64
+        ],
+        "description": "Asset Place Pokémon entier Place Pokemon Panneau Croisement"
+      },
+      "place_pokemon_coffre_reserve_kangourex": {
+        "file": "01_place_pokemon_rescue_team/place_pokemon_coffre_reserve_kangourex.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "description": "Asset Place Pokémon entier Place Pokemon Coffre Reserve Kangourex"
+      },
+      "place_pokemon_stele_kangourex": {
+        "file": "01_place_pokemon_rescue_team/place_pokemon_stele_kangourex.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "description": "Asset Place Pokémon entier Place Pokemon Stele Kangourex"
+      },
+      "place_pokemon_jarre_poterie": {
+        "file": "01_place_pokemon_rescue_team/place_pokemon_jarre_poterie.png",
+        "dimensions": [
+          16,
+          16
+        ],
+        "description": "Asset Place Pokémon entier Place Pokemon Jarre Poterie"
+      },
+      "place_pokemon_panier_baies_rouges": {
+        "file": "01_place_pokemon_rescue_team/place_pokemon_panier_baies_rouges.png",
+        "dimensions": [
+          24,
+          24
+        ],
+        "description": "Asset Place Pokémon entier Place Pokemon Panier Baies Rouges"
+      },
+      "place_pokemon_panier_baies_bleues": {
+        "file": "01_place_pokemon_rescue_team/place_pokemon_panier_baies_bleues.png",
+        "dimensions": [
+          20,
+          20
+        ],
+        "description": "Asset Place Pokémon entier Place Pokemon Panier Baies Bleues"
+      },
+      "place_pokemon_cloture_bois": {
+        "file": "01_place_pokemon_rescue_team/place_pokemon_cloture_bois.png",
+        "dimensions": [
+          48,
+          48
+        ],
+        "description": "Asset Place Pokémon entier Place Pokemon Cloture Bois"
+      },
+      "place_pokemon_table_souche": {
+        "file": "01_place_pokemon_rescue_team/place_pokemon_table_souche.png",
+        "dimensions": [
+          48,
+          48
+        ],
+        "description": "Asset Place Pokémon entier Place Pokemon Table Souche"
+      },
+      "place_pokemon_chaise_souche": {
+        "file": "01_place_pokemon_rescue_team/place_pokemon_chaise_souche.png",
+        "dimensions": [
+          16,
+          16
+        ],
+        "description": "Asset Place Pokémon entier Place Pokemon Chaise Souche"
+      }
+    },
+    "02_bases_de_secours_rescue_team": {
+      "base_secours_depart_bois": {
+        "file": "02_bases_de_secours_rescue_team/base_secours_depart_bois.png",
+        "dimensions": [
+          112,
+          112
+        ],
+        "description": "Base de secours entière Base Secours Depart Bois"
+      },
+      "base_secours_tente_campement": {
+        "file": "02_bases_de_secours_rescue_team/base_secours_tente_campement.png",
+        "dimensions": [
+          80,
+          80
+        ],
+        "description": "Base de secours entière Base Secours Tente Campement"
+      },
+      "base_secours_grande_tente": {
+        "file": "02_bases_de_secours_rescue_team/base_secours_grande_tente.png",
+        "dimensions": [
+          96,
+          96
+        ],
+        "description": "Base de secours entière Base Secours Grande Tente"
+      },
+      "base_secours_chaumiere_feuilles_1": {
+        "file": "02_bases_de_secours_rescue_team/base_secours_chaumiere_feuilles_1.png",
+        "dimensions": [
+          87,
+          76
+        ],
+        "description": "Base de secours entière Base Secours Chaumiere Feuilles 1"
+      },
+      "base_secours_chaumiere_feuilles_2": {
+        "file": "02_bases_de_secours_rescue_team/base_secours_chaumiere_feuilles_2.png",
+        "dimensions": [
+          88,
+          97
+        ],
+        "description": "Base de secours entière Base Secours Chaumiere Feuilles 2"
+      },
+      "base_secours_lit_de_paille": {
+        "file": "02_bases_de_secours_rescue_team/base_secours_lit_de_paille.png",
+        "dimensions": [
+          40,
+          40
+        ],
+        "description": "Base de secours entière Base Secours Lit De Paille"
+      },
+      "base_secours_sac_provisions": {
+        "file": "02_bases_de_secours_rescue_team/base_secours_sac_provisions.png",
+        "dimensions": [
+          24,
+          24
+        ],
+        "description": "Base de secours entière Base Secours Sac Provisions"
+      },
+      "base_secours_porte_entree": {
+        "file": "02_bases_de_secours_rescue_team/base_secours_porte_entree.png",
+        "dimensions": [
+          64,
+          64
+        ],
+        "description": "Base de secours entière Base Secours Porte Entree"
+      },
+      "base_secours_boite_lettres_bekipan": {
+        "file": "02_bases_de_secours_rescue_team/base_secours_boite_lettres_bekipan.png",
+        "dimensions": [
+          40,
+          40
+        ],
+        "description": "Base de secours entière Base Secours Boite Lettres Bekipan"
+      }
+    },
+    "03_recent_maps_leaf_village": {
+      "leaf_village_master_map": {
+        "file": "03_recent_maps_leaf_village/leaf_village_master_map.png",
+        "dimensions": [
+          1008,
+          816
+        ],
+        "frames": 40,
+        "description": "Carte complète LeafVillage 40 frames d'animation"
+      },
+      "leaf_village_grand_arbre_maitre": {
+        "file": "03_recent_maps_leaf_village/leaf_village_grand_arbre_maitre.png",
+        "dimensions": [
+          420,
+          380
+        ],
+        "description": "Grand Arbre Maître du Village de Feuilles"
+      },
+      "leaf_village_chaumiere_ouest": {
+        "file": "03_recent_maps_leaf_village/leaf_village_chaumiere_ouest.png",
+        "dimensions": [
+          200,
+          220
+        ],
+        "description": "Chaumière Ouest de LeafVillage"
+      },
+      "leaf_village_chaumiere_est": {
+        "file": "03_recent_maps_leaf_village/leaf_village_chaumiere_est.png",
+        "dimensions": [
+          230,
+          250
+        ],
+        "description": "Chaumière Est de LeafVillage"
+      },
+      "leaf_village_cascade_animee": {
+        "folder": "03_recent_maps_leaf_village/cascade_animee_40_frames",
+        "frames": 40,
+        "frame_dimensions": [
+          200,
+          300
+        ],
+        "strip_file": "03_recent_maps_leaf_village/leaf_village_cascade_animation_strip_10frames.png",
+        "description": "Grande Cascade de LeafVillage (40 frames)"
+      }
+    },
+    "04_recent_maps_treehouse_village": {
+      "treehouse_village_master_map": {
+        "file": "04_recent_maps_treehouse_village/treehouse_village_master_map.png",
+        "dimensions": [
+          1147,
+          928
+        ],
+        "description": "Carte complète PixelLab Treehouse Village"
+      },
+      "grande_maison_arbre_treehouse_landmark": {
+        "file": "04_recent_maps_treehouse_village/grande_maison_arbre_treehouse_landmark.png",
+        "dimensions": [
+          300,
+          380
+        ],
+        "description": "Grand Landmark PMD Treehouse (Maison dans l'Arbre)"
+      },
+      "passerelle_pont_bois": {
+        "file": "04_recent_maps_treehouse_village/passerelle_pont_bois.png",
+        "dimensions": [
+          200,
+          150
+        ],
+        "description": "Passerelle en bois et pontons"
+      },
+      "cascade_treehouse_animee": {
+        "folder": "data/rescue_team_and_recent_maps_assets/04_recent_maps_treehouse_village/cascade_et_eau_6_frames",
+        "frames": 6,
+        "frame_dimensions": [
+          240,
+          278
+        ],
+        "strip_file": "04_recent_maps_treehouse_village/treehouse_cascade_animation_strip_6frames.png",
+        "description": "Cascade et écoulement d'eau SO animés (6 frames)"
+      }
+    },
+    "05_recent_maps_pixellab_base": {
+      "pixellab_base_village_master_map": {
+        "file": "05_recent_maps_pixellab_base/pixellab_base_village_master_map.png",
+        "dimensions": [
+          1083,
+          876
+        ],
+        "description": "Carte complète PixelLab Base Village"
+      },
+      "plateau_falaises_et_escaliers": {
+        "file": "05_recent_maps_pixellab_base/plateau_falaises_et_escaliers.png",
+        "dimensions": [
+          400,
+          300
+        ],
+        "description": "Plateau de falaises à trois niveaux et escaliers de pierre"
+      },
+      "place_centrale_et_riviere": {
+        "file": "05_recent_maps_pixellab_base/place_centrale_et_riviere.png",
+        "dimensions": [
+          450,
+          350
+        ],
+        "description": "Place centrale avec cours d'eau et pontons"
+      }
+    },
+    "06_donjons_rescue_team_pmdred": {
+      "donjon_d01p02": {
+        "file": "06_donjons_rescue_team_pmdred/pmdred_donjon_d01p02_tick0.png",
+        "dimensions": [
+          360,
+          336
+        ],
+        "description": "Ground de donjon Rescue Team D01P02"
+      },
+      "donjon_d02p02": {
+        "file": "06_donjons_rescue_team_pmdred/pmdred_donjon_d02p02_tick0.png",
+        "dimensions": [
+          360,
+          336
+        ],
+        "description": "Ground de donjon Rescue Team D02P02"
+      },
+      "donjon_d03p02": {
+        "file": "06_donjons_rescue_team_pmdred/pmdred_donjon_d03p02_tick0.png",
+        "dimensions": [
+          456,
+          552
+        ],
+        "description": "Ground de donjon Rescue Team D03P02"
+      },
+      "donjon_d04p02": {
+        "file": "06_donjons_rescue_team_pmdred/pmdred_donjon_d04p02_tick0.png",
+        "dimensions": [
+          552,
+          576
+        ],
+        "description": "Ground de donjon Rescue Team D04P02"
+      },
+      "donjon_d05p02": {
+        "file": "06_donjons_rescue_team_pmdred/pmdred_donjon_d05p02_tick0.png",
+        "dimensions": [
+          360,
+          408
+        ],
+        "description": "Ground de donjon Rescue Team D05P02"
+      },
+      "donjon_d06p02": {
+        "file": "06_donjons_rescue_team_pmdred/pmdred_donjon_d06p02_tick0.png",
+        "dimensions": [
+          456,
+          456
+        ],
+        "description": "Ground de donjon Rescue Team D06P02"
+      },
+      "donjon_d06p03": {
+        "file": "06_donjons_rescue_team_pmdred/pmdred_donjon_d06p03_tick0.png",
+        "dimensions": [
+          456,
+          456
+        ],
+        "description": "Ground de donjon Rescue Team D06P03"
+      },
+      "donjon_d09p02": {
+        "file": "06_donjons_rescue_team_pmdred/pmdred_donjon_d09p02_tick0.png",
+        "dimensions": [
+          456,
+          456
+        ],
+        "description": "Ground de donjon Rescue Team D09P02"
+      },
+      "donjon_d09p03": {
+        "file": "06_donjons_rescue_team_pmdred/pmdred_donjon_d09p03_tick0.png",
+        "dimensions": [
+          552,
+          552
+        ],
+        "description": "Ground de donjon Rescue Team D09P03"
+      },
+      "donjon_d10p02": {
+        "file": "06_donjons_rescue_team_pmdred/pmdred_donjon_d10p02_tick0.png",
+        "dimensions": [
+          456,
+          456
+        ],
+        "description": "Ground de donjon Rescue Team D10P02"
+      },
+      "donjon_d10p03": {
+        "file": "06_donjons_rescue_team_pmdred/pmdred_donjon_d10p03_tick0.png",
+        "dimensions": [
+          528,
+          504
+        ],
+        "description": "Ground de donjon Rescue Team D10P03"
+      },
+      "donjon_d11p02": {
+        "file": "06_donjons_rescue_team_pmdred/pmdred_donjon_d11p02_tick0.png",
+        "dimensions": [
+          456,
+          456
+        ],
+        "description": "Ground de donjon Rescue Team D11P02"
+      },
+      "donjon_d11p03": {
+        "file": "06_donjons_rescue_team_pmdred/pmdred_donjon_d11p03_tick0.png",
+        "dimensions": [
+          504,
+          504
+        ],
+        "description": "Ground de donjon Rescue Team D11P03"
+      },
+      "donjon_d12p02": {
+        "file": "06_donjons_rescue_team_pmdred/pmdred_donjon_d12p02_tick0.png",
+        "dimensions": [
+          456,
+          456
+        ],
+        "description": "Ground de donjon Rescue Team D12P02"
+      },
+      "donjon_d12p04": {
+        "file": "06_donjons_rescue_team_pmdred/pmdred_donjon_d12p04_tick0.png",
+        "dimensions": [
+          504,
+          504
+        ],
+        "description": "Ground de donjon Rescue Team D12P04"
+      },
+      "donjon_d13p02": {
+        "file": "06_donjons_rescue_team_pmdred/pmdred_donjon_d13p02_tick0.png",
+        "dimensions": [
+          456,
+          456
+        ],
+        "description": "Ground de donjon Rescue Team D13P02"
+      },
+      "donjon_d13p03": {
+        "file": "06_donjons_rescue_team_pmdred/pmdred_donjon_d13p03_tick0.png",
+        "dimensions": [
+          552,
+          600
+        ],
+        "description": "Ground de donjon Rescue Team D13P03"
+      },
+      "donjon_d14p01": {
+        "file": "06_donjons_rescue_team_pmdred/pmdred_donjon_d14p01_tick0.png",
+        "dimensions": [
+          528,
+          504
+        ],
+        "description": "Ground de donjon Rescue Team D14P01"
+      },
+      "donjon_d15p01": {
+        "file": "06_donjons_rescue_team_pmdred/pmdred_donjon_d15p01_tick0.png",
+        "dimensions": [
+          552,
+          600
+        ],
+        "description": "Ground de donjon Rescue Team D15P01"
+      },
+      "donjon_d16p01": {
+        "file": "06_donjons_rescue_team_pmdred/pmdred_donjon_d16p01_tick0.png",
+        "dimensions": [
+          360,
+          360
+        ],
+        "description": "Ground de donjon Rescue Team D16P01"
+      },
+      "donjon_d17p01": {
+        "file": "06_donjons_rescue_team_pmdred/pmdred_donjon_d17p01_tick0.png",
+        "dimensions": [
+          384,
+          360
+        ],
+        "description": "Ground de donjon Rescue Team D17P01"
+      },
+      "donjon_d18p01": {
+        "file": "06_donjons_rescue_team_pmdred/pmdred_donjon_d18p01_tick0.png",
+        "dimensions": [
+          360,
+          336
+        ],
+        "description": "Ground de donjon Rescue Team D18P01"
+      },
+      "donjon_d19p01": {
+        "file": "06_donjons_rescue_team_pmdred/pmdred_donjon_d19p01_tick0.png",
+        "dimensions": [
+          528,
+          504
+        ],
+        "description": "Ground de donjon Rescue Team D19P01"
+      },
+      "donjon_d20p01": {
+        "file": "06_donjons_rescue_team_pmdred/pmdred_donjon_d20p01_tick0.png",
+        "dimensions": [
+          360,
+          336
+        ],
+        "description": "Ground de donjon Rescue Team D20P01"
+      },
+      "donjon_d21p01": {
+        "file": "06_donjons_rescue_team_pmdred/pmdred_donjon_d21p01_tick0.png",
+        "dimensions": [
+          504,
+          480
+        ],
+        "description": "Ground de donjon Rescue Team D21P01"
+      },
+      "donjon_d23p01": {
+        "file": "06_donjons_rescue_team_pmdred/pmdred_donjon_d23p01_tick0.png",
+        "dimensions": [
+          360,
+          336
+        ],
+        "description": "Ground de donjon Rescue Team D23P01"
+      },
+      "donjon_d25p01": {
+        "file": "06_donjons_rescue_team_pmdred/pmdred_donjon_d25p01_tick0.png",
+        "dimensions": [
+          360,
+          336
+        ],
+        "description": "Ground de donjon Rescue Team D25P01"
+      }
+    }
+  },
+  "total_assets_entiers": 63
+}
