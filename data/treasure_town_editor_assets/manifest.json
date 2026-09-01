@@ -1,0 +1,599 @@
+{
+  "version": "1.0.0",
+  "title": "Treasure Town (Bourg-Tr\u00e9sor) PMDO Editor Complete Asset Library",
+  "target_engine": "PMDO (Pok\u00e9mon Mystery Dungeon Origins) / PMDO Map Editor",
+  "objects": {
+    "sign_crossroads_classic": {
+      "category": "signs",
+      "file": "objects/signs/sign_crossroads_classic.png",
+      "dimensions": [
+        64,
+        64
+      ],
+      "frames": 1,
+      "description": "Panneau / Tableau Sign Crossroads Classic"
+    },
+    "sign_wooden_simple": {
+      "category": "signs",
+      "file": "objects/signs/sign_wooden_simple.png",
+      "dimensions": [
+        40,
+        40
+      ],
+      "frames": 1,
+      "description": "Panneau / Tableau Sign Wooden Simple"
+    },
+    "mission_board_guild": {
+      "category": "signs",
+      "file": "objects/signs/mission_board_guild.png",
+      "dimensions": [
+        72,
+        72
+      ],
+      "frames": 1,
+      "description": "Panneau / Tableau Mission Board Guild"
+    },
+    "kecleon_shop_green_day": {
+      "category": "shops_or_props",
+      "file": "objects/shops_and_stands/kecleon_shop_green_day.png",
+      "dimensions": [
+        112,
+        120
+      ],
+      "frames": 1,
+      "description": "\u00c9l\u00e9ment Kecleon Shop Green Day"
+    },
+    "kecleon_shop_purple_night": {
+      "category": "shops_or_props",
+      "file": "objects/shops_and_stands/kecleon_shop_purple_night.png",
+      "dimensions": [
+        112,
+        120
+      ],
+      "frames": 1,
+      "description": "\u00c9l\u00e9ment Kecleon Shop Purple Night"
+    },
+    "spinda_cafe_day": {
+      "category": "shops_or_props",
+      "file": "objects/shops_and_stands/spinda_cafe_day.png",
+      "dimensions": [
+        259,
+        109
+      ],
+      "frames": 1,
+      "description": "\u00c9l\u00e9ment Spinda Cafe Day"
+    },
+    "spinda_cafe_night": {
+      "category": "shops_or_props",
+      "file": "objects/shops_and_stands/spinda_cafe_night.png",
+      "dimensions": [
+        259,
+        109
+      ],
+      "frames": 1,
+      "description": "\u00c9l\u00e9ment Spinda Cafe Night"
+    },
+    "merchant_stand_wood": {
+      "category": "shops_or_props",
+      "file": "objects/shops_and_stands/merchant_stand_wood.png",
+      "dimensions": [
+        72,
+        60
+      ],
+      "frames": 1,
+      "description": "\u00c9l\u00e9ment Merchant Stand Wood"
+    },
+    "merchant_counter_low": {
+      "category": "shops_or_props",
+      "file": "objects/shops_and_stands/merchant_counter_low.png",
+      "dimensions": [
+        56,
+        20
+      ],
+      "frames": 1,
+      "description": "\u00c9l\u00e9ment Merchant Counter Low"
+    },
+    "kangaskhan_storage_chest": {
+      "category": "shops_or_props",
+      "file": "objects/furnishing_and_props/kangaskhan_storage_chest.png",
+      "dimensions": [
+        32,
+        32
+      ],
+      "frames": 1,
+      "description": "\u00c9l\u00e9ment Kangaskhan Storage Chest"
+    },
+    "berry_basket_red": {
+      "category": "shops_or_props",
+      "file": "objects/furnishing_and_props/berry_basket_red.png",
+      "dimensions": [
+        24,
+        24
+      ],
+      "frames": 1,
+      "description": "\u00c9l\u00e9ment Berry Basket Red"
+    },
+    "berry_basket_blue": {
+      "category": "shops_or_props",
+      "file": "objects/furnishing_and_props/berry_basket_blue.png",
+      "dimensions": [
+        20,
+        20
+      ],
+      "frames": 1,
+      "description": "\u00c9l\u00e9ment Berry Basket Blue"
+    },
+    "terracotta_pot": {
+      "category": "shops_or_props",
+      "file": "objects/furnishing_and_props/terracotta_pot.png",
+      "dimensions": [
+        16,
+        16
+      ],
+      "frames": 1,
+      "description": "\u00c9l\u00e9ment Terracotta Pot"
+    },
+    "wooden_fence": {
+      "category": "shops_or_props",
+      "file": "objects/furnishing_and_props/wooden_fence.png",
+      "dimensions": [
+        48,
+        48
+      ],
+      "frames": 1,
+      "description": "\u00c9l\u00e9ment Wooden Fence"
+    },
+    "stump_table": {
+      "category": "shops_or_props",
+      "file": "objects/furnishing_and_props/stump_table.png",
+      "dimensions": [
+        48,
+        48
+      ],
+      "frames": 1,
+      "description": "\u00c9l\u00e9ment Stump Table"
+    },
+    "stump_chair": {
+      "category": "shops_or_props",
+      "file": "objects/furnishing_and_props/stump_chair.png",
+      "dimensions": [
+        16,
+        16
+      ],
+      "frames": 1,
+      "description": "\u00c9l\u00e9ment Stump Chair"
+    },
+    "tent_expedition_blue": {
+      "category": "tents_and_houses",
+      "file": "objects/tents_and_houses/tent_expedition_blue.png",
+      "dimensions": [
+        80,
+        80
+      ],
+      "frames": 1,
+      "description": "B\u00e2timent / Tente Tent Expedition Blue"
+    },
+    "tent_expedition_plain": {
+      "category": "tents_and_houses",
+      "file": "objects/tents_and_houses/tent_expedition_plain.png",
+      "dimensions": [
+        96,
+        96
+      ],
+      "frames": 1,
+      "description": "B\u00e2timent / Tente Tent Expedition Plain"
+    },
+    "beach_tent_coastal": {
+      "category": "tents_and_houses",
+      "file": "objects/tents_and_houses/beach_tent_coastal.png",
+      "dimensions": [
+        50,
+        76
+      ],
+      "frames": 1,
+      "description": "B\u00e2timent / Tente Beach Tent Coastal"
+    },
+    "house_town_normal": {
+      "category": "tents_and_houses",
+      "file": "objects/tents_and_houses/house_town_normal.png",
+      "dimensions": [
+        112,
+        112
+      ],
+      "frames": 1,
+      "description": "B\u00e2timent / Tente House Town Normal"
+    },
+    "house_leaf_hut_1": {
+      "category": "tents_and_houses",
+      "file": "objects/tents_and_houses/house_leaf_hut_1.png",
+      "dimensions": [
+        87,
+        76
+      ],
+      "frames": 1,
+      "description": "B\u00e2timent / Tente House Leaf Hut 1"
+    },
+    "house_leaf_hut_2": {
+      "category": "tents_and_houses",
+      "file": "objects/tents_and_houses/house_leaf_hut_2.png",
+      "dimensions": [
+        88,
+        97
+      ],
+      "frames": 1,
+      "description": "B\u00e2timent / Tente House Leaf Hut 2"
+    },
+    "shop_grand_bazaar": {
+      "category": "tents_and_houses",
+      "file": "objects/tents_and_houses/shop_grand_bazaar.png",
+      "dimensions": [
+        190,
+        156
+      ],
+      "frames": 1,
+      "description": "B\u00e2timent / Tente Shop Grand Bazaar"
+    },
+    "metano_house_fire": {
+      "category": "tents_and_houses",
+      "file": "objects/tents_and_houses/metano_house_fire.png",
+      "dimensions": [
+        110,
+        99
+      ],
+      "frames": 1,
+      "description": "B\u00e2timent / Tente Metano House Fire"
+    },
+    "metano_house_rock": {
+      "category": "tents_and_houses",
+      "file": "objects/tents_and_houses/metano_house_rock.png",
+      "dimensions": [
+        96,
+        96
+      ],
+      "frames": 1,
+      "description": "B\u00e2timent / Tente Metano House Rock"
+    },
+    "metano_house_normal": {
+      "category": "tents_and_houses",
+      "file": "objects/tents_and_houses/metano_house_normal.png",
+      "dimensions": [
+        80,
+        111
+      ],
+      "frames": 1,
+      "description": "B\u00e2timent / Tente Metano House Normal"
+    },
+    "kangaskhan_rock_statue": {
+      "category": "vegetation_or_props",
+      "file": "objects/furnishing_and_props/kangaskhan_rock_statue.png",
+      "dimensions": [
+        32,
+        32
+      ],
+      "frames": 1,
+      "description": "\u00c9l\u00e9ment Kangaskhan Rock Statue"
+    },
+    "closed_guild_door": {
+      "category": "vegetation_or_props",
+      "file": "objects/furnishing_and_props/closed_guild_door.png",
+      "dimensions": [
+        64,
+        64
+      ],
+      "frames": 1,
+      "description": "\u00c9l\u00e9ment Closed Guild Door"
+    },
+    "night_window": {
+      "category": "vegetation_or_props",
+      "file": "objects/furnishing_and_props/night_window.png",
+      "dimensions": [
+        64,
+        64
+      ],
+      "frames": 1,
+      "description": "\u00c9l\u00e9ment Night Window"
+    },
+    "hay_bed": {
+      "category": "vegetation_or_props",
+      "file": "objects/furnishing_and_props/hay_bed.png",
+      "dimensions": [
+        40,
+        40
+      ],
+      "frames": 1,
+      "description": "\u00c9l\u00e9ment Hay Bed"
+    },
+    "grassy_bag": {
+      "category": "vegetation_or_props",
+      "file": "objects/furnishing_and_props/grassy_bag.png",
+      "dimensions": [
+        24,
+        24
+      ],
+      "frames": 1,
+      "description": "\u00c9l\u00e9ment Grassy Bag"
+    },
+    "river_stone_round": {
+      "category": "vegetation_or_props",
+      "file": "objects/furnishing_and_props/river_stone_round.png",
+      "dimensions": [
+        24,
+        24
+      ],
+      "frames": 1,
+      "description": "\u00c9l\u00e9ment River Stone Round"
+    },
+    "river_stone_diamond": {
+      "category": "vegetation_or_props",
+      "file": "objects/furnishing_and_props/river_stone_diamond.png",
+      "dimensions": [
+        24,
+        24
+      ],
+      "frames": 1,
+      "description": "\u00c9l\u00e9ment River Stone Diamond"
+    },
+    "food_basket": {
+      "category": "vegetation_or_props",
+      "file": "objects/furnishing_and_props/food_basket.png",
+      "dimensions": [
+        32,
+        32
+      ],
+      "frames": 1,
+      "description": "\u00c9l\u00e9ment Food Basket"
+    },
+    "tablette_zarbi": {
+      "category": "vegetation_or_props",
+      "file": "objects/furnishing_and_props/tablette_zarbi.png",
+      "dimensions": [
+        32,
+        32
+      ],
+      "frames": 1,
+      "description": "\u00c9l\u00e9ment Tablette Zarbi"
+    },
+    "apricorn_big": {
+      "category": "vegetation_or_props",
+      "file": "objects/vegetation_and_nature/apricorn_big.png",
+      "dimensions": [
+        16,
+        16
+      ],
+      "frames": 1,
+      "description": "\u00c9l\u00e9ment Apricorn Big"
+    }
+  },
+  "animated_objects": {
+    "origins_windmill": {
+      "folder": "animated_objects_frames/origins_windmill",
+      "frame_count": 4,
+      "frame_size": [
+        64,
+        72
+      ],
+      "strip_file": "animated_objects_frames/origins_windmill/origins_windmill_animation_strip.png",
+      "frames": [
+        "frame_0.png",
+        "frame_1.png",
+        "frame_2.png",
+        "frame_3.png"
+      ]
+    },
+    "origins_well": {
+      "folder": "animated_objects_frames/origins_well",
+      "frame_count": 4,
+      "frame_size": [
+        72,
+        56
+      ],
+      "strip_file": "animated_objects_frames/origins_well/origins_well_animation_strip.png",
+      "frames": [
+        "frame_0.png",
+        "frame_1.png",
+        "frame_2.png",
+        "frame_3.png"
+      ]
+    },
+    "campfire": {
+      "folder": "animated_objects_frames/campfire",
+      "frame_count": 4,
+      "frame_size": [
+        36,
+        36
+      ],
+      "strip_file": "animated_objects_frames/campfire/campfire_animation_strip.png",
+      "frames": [
+        "frame_0.png",
+        "frame_1.png",
+        "frame_2.png",
+        "frame_3.png"
+      ]
+    },
+    "yellow_box": {
+      "folder": "animated_objects_frames/yellow_box",
+      "frame_count": 6,
+      "frame_size": [
+        24,
+        24
+      ],
+      "strip_file": "animated_objects_frames/yellow_box/yellow_box_animation_strip.png",
+      "frames": [
+        "frame_0.png",
+        "frame_1.png",
+        "frame_2.png",
+        "frame_3.png",
+        "frame_4.png",
+        "frame_5.png"
+      ]
+    },
+    "diary_blue_opening": {
+      "folder": "animated_objects_frames/diary_blue_opening",
+      "frame_count": 4,
+      "frame_size": [
+        24,
+        24
+      ],
+      "strip_file": "animated_objects_frames/diary_blue_opening/diary_blue_opening_animation_strip.png",
+      "frames": [
+        "frame_0.png",
+        "frame_1.png",
+        "frame_2.png",
+        "frame_3.png"
+      ]
+    },
+    "diary_blue_closing": {
+      "folder": "animated_objects_frames/diary_blue_closing",
+      "frame_count": 4,
+      "frame_size": [
+        24,
+        24
+      ],
+      "strip_file": "animated_objects_frames/diary_blue_closing/diary_blue_closing_animation_strip.png",
+      "frames": [
+        "frame_0.png",
+        "frame_1.png",
+        "frame_2.png",
+        "frame_3.png"
+      ]
+    },
+    "diary_red_opening": {
+      "folder": "animated_objects_frames/diary_red_opening",
+      "frame_count": 4,
+      "frame_size": [
+        24,
+        24
+      ],
+      "strip_file": "animated_objects_frames/diary_red_opening/diary_red_opening_animation_strip.png",
+      "frames": [
+        "frame_0.png",
+        "frame_1.png",
+        "frame_2.png",
+        "frame_3.png"
+      ]
+    },
+    "diary_red_closing": {
+      "folder": "animated_objects_frames/diary_red_closing",
+      "frame_count": 4,
+      "frame_size": [
+        24,
+        24
+      ],
+      "strip_file": "animated_objects_frames/diary_red_closing/diary_red_closing_animation_strip.png",
+      "frames": [
+        "frame_0.png",
+        "frame_1.png",
+        "frame_2.png",
+        "frame_3.png"
+      ]
+    }
+  },
+  "tilesets": {
+    "treasure_town_west": {
+      "atlas_png": "tilesets_pmdo_editor/treasure_town_west_atlas.png",
+      "pmdo_tile": "tilesets_pmdo_editor/treasure_town_west.tile",
+      "tile_count": 630,
+      "tile_dimensions": [
+        24,
+        24
+      ],
+      "atlas_dimensions": [
+        384,
+        960
+      ],
+      "grid_columns": 16,
+      "grid_rows": 40
+    },
+    "treasure_town_east": {
+      "atlas_png": "tilesets_pmdo_editor/treasure_town_east_atlas.png",
+      "pmdo_tile": "tilesets_pmdo_editor/treasure_town_east.tile",
+      "tile_count": 843,
+      "tile_dimensions": [
+        24,
+        24
+      ],
+      "atlas_dimensions": [
+        384,
+        1272
+      ],
+      "grid_columns": 16,
+      "grid_rows": 53
+    },
+    "treasure_town_t00p01": {
+      "atlas_png": "tilesets_pmdo_editor/treasure_town_t00p01_atlas.png",
+      "pmdo_tile": "tilesets_pmdo_editor/treasure_town_t00p01.tile",
+      "tile_count": 1411,
+      "tile_dimensions": [
+        8,
+        8
+      ],
+      "atlas_dimensions": [
+        256,
+        360
+      ],
+      "grid_columns": 32,
+      "grid_rows": 45
+    },
+    "treasure_town_t00p02": {
+      "atlas_png": "tilesets_pmdo_editor/treasure_town_t00p02_atlas.png",
+      "pmdo_tile": "tilesets_pmdo_editor/treasure_town_t00p02.tile",
+      "tile_count": 2167,
+      "tile_dimensions": [
+        8,
+        8
+      ],
+      "atlas_dimensions": [
+        256,
+        544
+      ],
+      "grid_columns": 32,
+      "grid_rows": 68
+    },
+    "treasure_town_t00p03": {
+      "atlas_png": "tilesets_pmdo_editor/treasure_town_t00p03_atlas.png",
+      "pmdo_tile": "tilesets_pmdo_editor/treasure_town_t00p03.tile",
+      "tile_count": 1623,
+      "tile_dimensions": [
+        8,
+        8
+      ],
+      "atlas_dimensions": [
+        256,
+        408
+      ],
+      "grid_columns": 32,
+      "grid_rows": 51
+    },
+    "treasure_town_crossroads_sign": {
+      "atlas_png": "tilesets_pmdo_editor/treasure_town_crossroads_sign_atlas.png",
+      "pmdo_tile": "tilesets_pmdo_editor/treasure_town_crossroads_sign.tile",
+      "tile_count": 33,
+      "tile_dimensions": [
+        8,
+        8
+      ],
+      "atlas_dimensions": [
+        256,
+        16
+      ],
+      "grid_columns": 32,
+      "grid_rows": 2
+    },
+    "treasure_town_spinda_cafe_props": {
+      "atlas_png": "tilesets_pmdo_editor/treasure_town_spinda_cafe_props_atlas.png",
+      "pmdo_tile": "tilesets_pmdo_editor/treasure_town_spinda_cafe_props.tile",
+      "tile_count": 750,
+      "tile_dimensions": [
+        8,
+        8
+      ],
+      "atlas_dimensions": [
+        256,
+        192
+      ],
+      "grid_columns": 32,
+      "grid_rows": 24
+    }
+  },
+  "total_assets": 51
+}
