@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "title": "Map-to-scale PMDO building atlas",
+  "source_map": "map to scale pmdo and make tilset asset.png",
+  "scale_reference": "data/pmdo_master_animation_tilesets/05_mapacomplete_metano_scaled/metano_scale_verification.png",
+  "pmdo_grid_px": 24,
+  "canvas": {
+    "width": 576,
+    "height": 192
+  },
+  "atlas_file": "data/pmdo_master_animation_tilesets/05_mapacomplete_metano_scaled/buildings/map_to_scale_pmdo_asset/pmdo/MAP_TO_SCALE_PMDO_BUILDINGS_ATLAS.png",
+  "format": "PNG",
+  "channels": "srgba",
+  "opaque_flag": "false",
+  "opaque_pixels": 27068,
+  "transparent_pixels": 83524,
+  "sha256": "8b80c0f90cbb5f47ab86edd978607d5317a5b76e439f082e3101f0f9880c1593",
+  "expected_opaque_sum_without_overlap": 27068,
+  "placements": [
+    {
+      "id": "metano_cafe_spinda",
+      "type": "cafe",
+      "source_path": "data/pmdo_assets_alpha_entiers/02_boutiques_et_marche/grand_cafe_spinda_terrasse_jour.png",
+      "x": 24,
+      "y": 24,
+      "grid_x": 1,
+      "grid_y": 1,
+      "width": 259,
+      "height": 109,
+      "grid_aligned": true
+    },
+    {
+      "id": "metano_fire_home_round",
+      "type": "house",
+      "source_path": "data/pmdo_assets_alpha_entiers/03_batiments_et_tentes/maison_style_feu.png",
+      "x": 312,
+      "y": 24,
+      "grid_x": 13,
+      "grid_y": 1,
+      "width": 110,
+      "height": 99,
+      "grid_aligned": true
+    },
+    {
+      "id": "metano_expedition_tent",
+      "type": "tent_house",
+      "source_path": "data/pmdo_assets_alpha_entiers/03_batiments_et_tentes/tente_expedition_bleue.png",
+      "x": 456,
+      "y": 24,
+      "grid_x": 19,
+      "grid_y": 1,
+      "width": 80,
+      "height": 80,
+      "grid_aligned": true
+    }
+  ]
+}
