@@ -1,0 +1,4419 @@
+{
+  "version": "1.0.0",
+  "description": "Collection complète des assets PMDO / PMU / EoS entiers en Alpha Isolate (zéro découpage en tuiles)",
+  "categories": {
+    "01_panneaux_et_missions": {
+      "grand_panneau_carrefour_4_directions": {
+        "file": "01_panneaux_et_missions/grand_panneau_carrefour_4_directions.png",
+        "dimensions": [
+          64,
+          64
+        ],
+        "frames": 1,
+        "description": "Asset entier Grand Panneau Carrefour 4 Directions"
+      },
+      "tableau_affichage_missions_guilde": {
+        "file": "01_panneaux_et_missions/tableau_affichage_missions_guilde.png",
+        "dimensions": [
+          72,
+          72
+        ],
+        "frames": 1,
+        "description": "Asset entier Tableau Affichage Missions Guilde"
+      },
+      "panneau_bois_simple": {
+        "file": "01_panneaux_et_missions/panneau_bois_simple.png",
+        "dimensions": [
+          40,
+          40
+        ],
+        "frames": 1,
+        "description": "Asset entier Panneau Bois Simple"
+      }
+    },
+    "02_boutiques_et_marche": {
+      "boutique_kecleon_vert_jour": {
+        "file": "02_boutiques_et_marche/boutique_kecleon_vert_jour.png",
+        "dimensions": [
+          112,
+          120
+        ],
+        "frames": 1,
+        "description": "Asset entier Boutique Kecleon Vert Jour"
+      },
+      "boutique_kecleon_violet_nuit": {
+        "file": "02_boutiques_et_marche/boutique_kecleon_violet_nuit.png",
+        "dimensions": [
+          112,
+          120
+        ],
+        "frames": 1,
+        "description": "Asset entier Boutique Kecleon Violet Nuit"
+      },
+      "grand_cafe_spinda_terrasse_jour": {
+        "file": "02_boutiques_et_marche/grand_cafe_spinda_terrasse_jour.png",
+        "dimensions": [
+          259,
+          109
+        ],
+        "frames": 1,
+        "description": "Asset entier Grand Cafe Spinda Terrasse Jour"
+      },
+      "grand_cafe_spinda_terrasse_nuit": {
+        "file": "02_boutiques_et_marche/grand_cafe_spinda_terrasse_nuit.png",
+        "dimensions": [
+          259,
+          109
+        ],
+        "frames": 1,
+        "description": "Asset entier Grand Cafe Spinda Terrasse Nuit"
+      },
+      "eventaire_marche_bois": {
+        "file": "02_boutiques_et_marche/eventaire_marche_bois.png",
+        "dimensions": [
+          72,
+          60
+        ],
+        "frames": 1,
+        "description": "Asset entier Eventaire Marche Bois"
+      },
+      "comptoir_marchand_bas": {
+        "file": "02_boutiques_et_marche/comptoir_marchand_bas.png",
+        "dimensions": [
+          56,
+          20
+        ],
+        "frames": 1,
+        "description": "Asset entier Comptoir Marchand Bas"
+      },
+      "reserve_coffre_kangourex": {
+        "file": "02_boutiques_et_marche/reserve_coffre_kangourex.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "frames": 1,
+        "description": "Asset entier Reserve Coffre Kangourex"
+      },
+      "panier_baies_rouges": {
+        "file": "02_boutiques_et_marche/panier_baies_rouges.png",
+        "dimensions": [
+          24,
+          24
+        ],
+        "frames": 1,
+        "description": "Asset entier Panier Baies Rouges"
+      },
+      "panier_baies_bleues": {
+        "file": "02_boutiques_et_marche/panier_baies_bleues.png",
+        "dimensions": [
+          20,
+          20
+        ],
+        "frames": 1,
+        "description": "Asset entier Panier Baies Bleues"
+      },
+      "jarre_terre_cuite": {
+        "file": "02_boutiques_et_marche/jarre_terre_cuite.png",
+        "dimensions": [
+          16,
+          16
+        ],
+        "frames": 1,
+        "description": "Asset entier Jarre Terre Cuite"
+      },
+      "cloture_bois_palissade": {
+        "file": "02_boutiques_et_marche/cloture_bois_palissade.png",
+        "dimensions": [
+          48,
+          48
+        ],
+        "frames": 1,
+        "description": "Asset entier Cloture Bois Palissade"
+      },
+      "table_souche_bois": {
+        "file": "02_boutiques_et_marche/table_souche_bois.png",
+        "dimensions": [
+          48,
+          48
+        ],
+        "frames": 1,
+        "description": "Asset entier Table Souche Bois"
+      },
+      "chaise_souche_bois": {
+        "file": "02_boutiques_et_marche/chaise_souche_bois.png",
+        "dimensions": [
+          16,
+          16
+        ],
+        "frames": 1,
+        "description": "Asset entier Chaise Souche Bois"
+      }
+    },
+    "03_batiments_et_tentes": {
+      "tente_expedition_bleue": {
+        "file": "03_batiments_et_tentes/tente_expedition_bleue.png",
+        "dimensions": [
+          80,
+          80
+        ],
+        "frames": 1,
+        "description": "Bâtiment entier Tente Expedition Bleue"
+      },
+      "grande_tente_campement_unie": {
+        "file": "03_batiments_et_tentes/grande_tente_campement_unie.png",
+        "dimensions": [
+          96,
+          96
+        ],
+        "frames": 1,
+        "description": "Bâtiment entier Grande Tente Campement Unie"
+      },
+      "tente_plage_cotiere": {
+        "file": "03_batiments_et_tentes/tente_plage_cotiere.png",
+        "dimensions": [
+          50,
+          76
+        ],
+        "frames": 1,
+        "description": "Bâtiment entier Tente Plage Cotiere"
+      },
+      "maison_standard_bourg_tresor": {
+        "file": "03_batiments_et_tentes/maison_standard_bourg_tresor.png",
+        "dimensions": [
+          112,
+          112
+        ],
+        "frames": 1,
+        "description": "Bâtiment entier Maison Standard Bourg Tresor"
+      },
+      "chaumiere_feuilles_foret_1": {
+        "file": "03_batiments_et_tentes/chaumiere_feuilles_foret_1.png",
+        "dimensions": [
+          87,
+          76
+        ],
+        "frames": 1,
+        "description": "Bâtiment entier Chaumiere Feuilles Foret 1"
+      },
+      "chaumiere_feuilles_foret_2": {
+        "file": "03_batiments_et_tentes/chaumiere_feuilles_foret_2.png",
+        "dimensions": [
+          88,
+          97
+        ],
+        "frames": 1,
+        "description": "Bâtiment entier Chaumiere Feuilles Foret 2"
+      },
+      "grand_bazar_guilde": {
+        "file": "03_batiments_et_tentes/grand_bazar_guilde.png",
+        "dimensions": [
+          190,
+          156
+        ],
+        "frames": 1,
+        "description": "Bâtiment entier Grand Bazar Guilde"
+      },
+      "maison_style_feu": {
+        "file": "03_batiments_et_tentes/maison_style_feu.png",
+        "dimensions": [
+          110,
+          99
+        ],
+        "frames": 1,
+        "description": "Bâtiment entier Maison Style Feu"
+      },
+      "maison_style_roche": {
+        "file": "03_batiments_et_tentes/maison_style_roche.png",
+        "dimensions": [
+          96,
+          96
+        ],
+        "frames": 1,
+        "description": "Bâtiment entier Maison Style Roche"
+      },
+      "maison_style_normal": {
+        "file": "03_batiments_et_tentes/maison_style_normal.png",
+        "dimensions": [
+          80,
+          111
+        ],
+        "frames": 1,
+        "description": "Bâtiment entier Maison Style Normal"
+      },
+      "tiles0_0357": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles0_0357.png",
+        "dimensions": [
+          88,
+          112
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles0_0357"
+      },
+      "tiles0_0367": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles0_0367.png",
+        "dimensions": [
+          145,
+          170
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles0_0367"
+      },
+      "tiles0_0370": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles0_0370.png",
+        "dimensions": [
+          94,
+          104
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles0_0370"
+      },
+      "tiles0_0373": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles0_0373.png",
+        "dimensions": [
+          108,
+          86
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles0_0373"
+      },
+      "tiles0_0492": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles0_0492.png",
+        "dimensions": [
+          46,
+          69
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles0_0492"
+      },
+      "tiles8_0002": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0002.png",
+        "dimensions": [
+          88,
+          112
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0002"
+      },
+      "tiles8_0003": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0003.png",
+        "dimensions": [
+          88,
+          112
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0003"
+      },
+      "tiles8_0004": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0004.png",
+        "dimensions": [
+          94,
+          104
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0004"
+      },
+      "tiles8_0005": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0005.png",
+        "dimensions": [
+          108,
+          86
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0005"
+      },
+      "tiles8_0008": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0008.png",
+        "dimensions": [
+          79,
+          79
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0008"
+      },
+      "tiles8_0009": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0009.png",
+        "dimensions": [
+          79,
+          79
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0009"
+      },
+      "tiles8_0010": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0010.png",
+        "dimensions": [
+          92,
+          106
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0010"
+      },
+      "tiles8_0011": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0011.png",
+        "dimensions": [
+          85,
+          103
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0011"
+      },
+      "tiles8_0012": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0012.png",
+        "dimensions": [
+          82,
+          98
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0012"
+      },
+      "tiles8_0013": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0013.png",
+        "dimensions": [
+          110,
+          98
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0013"
+      },
+      "tiles8_0014": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0014.png",
+        "dimensions": [
+          88,
+          93
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0014"
+      },
+      "tiles8_0015": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0015.png",
+        "dimensions": [
+          90,
+          91
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0015"
+      },
+      "tiles8_0016": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0016.png",
+        "dimensions": [
+          78,
+          87
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0016"
+      },
+      "tiles8_0017": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0017.png",
+        "dimensions": [
+          107,
+          81
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0017"
+      },
+      "tiles8_0018": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0018.png",
+        "dimensions": [
+          104,
+          95
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0018"
+      },
+      "tiles8_0019": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0019.png",
+        "dimensions": [
+          125,
+          87
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0019"
+      },
+      "tiles8_0020": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0020.png",
+        "dimensions": [
+          102,
+          81
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0020"
+      },
+      "tiles8_0022": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0022.png",
+        "dimensions": [
+          98,
+          96
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0022"
+      },
+      "tiles8_0024": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0024.png",
+        "dimensions": [
+          126,
+          94
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0024"
+      },
+      "tiles8_0027": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0027.png",
+        "dimensions": [
+          99,
+          98
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0027"
+      },
+      "tiles8_0028": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0028.png",
+        "dimensions": [
+          104,
+          92
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0028"
+      },
+      "tiles8_0029": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0029.png",
+        "dimensions": [
+          99,
+          108
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0029"
+      },
+      "tiles8_0033": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0033.png",
+        "dimensions": [
+          144,
+          119
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0033"
+      },
+      "tiles8_0034": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0034.png",
+        "dimensions": [
+          118,
+          111
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0034"
+      },
+      "tiles8_0038": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0038.png",
+        "dimensions": [
+          122,
+          120
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0038"
+      },
+      "tiles8_0039": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0039.png",
+        "dimensions": [
+          143,
+          118
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0039"
+      },
+      "tiles8_0040": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0040.png",
+        "dimensions": [
+          74,
+          48
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0040"
+      },
+      "tiles8_0041": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0041.png",
+        "dimensions": [
+          94,
+          76
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0041"
+      },
+      "tiles8_0042": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0042.png",
+        "dimensions": [
+          104,
+          87
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0042"
+      },
+      "tiles8_0043": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0043.png",
+        "dimensions": [
+          104,
+          79
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0043"
+      },
+      "tiles8_0045": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0045.png",
+        "dimensions": [
+          145,
+          170
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0045"
+      },
+      "tiles8_0055": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0055.png",
+        "dimensions": [
+          190,
+          108
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0055"
+      },
+      "tiles8_0058": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0058.png",
+        "dimensions": [
+          112,
+          64
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0058"
+      },
+      "tiles8_0062": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0062.png",
+        "dimensions": [
+          96,
+          116
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0062"
+      },
+      "tiles8_0063": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0063.png",
+        "dimensions": [
+          72,
+          72
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0063"
+      },
+      "tiles8_0064": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0064.png",
+        "dimensions": [
+          77,
+          69
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0064"
+      },
+      "tiles8_0080": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0080.png",
+        "dimensions": [
+          198,
+          101
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0080"
+      },
+      "tiles8_0095": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0095.png",
+        "dimensions": [
+          138,
+          114
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0095"
+      },
+      "tiles8_0098": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0098.png",
+        "dimensions": [
+          102,
+          93
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0098"
+      },
+      "tiles8_0099": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0099.png",
+        "dimensions": [
+          94,
+          139
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0099"
+      },
+      "tiles8_0106": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0106.png",
+        "dimensions": [
+          94,
+          104
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0106"
+      },
+      "tiles8_0107": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0107.png",
+        "dimensions": [
+          94,
+          104
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0107"
+      },
+      "tiles8_0108": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0108.png",
+        "dimensions": [
+          88,
+          136
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0108"
+      },
+      "tiles8_0113": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0113.png",
+        "dimensions": [
+          88,
+          136
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0113"
+      },
+      "tiles8_0114": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0114.png",
+        "dimensions": [
+          130,
+          114
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0114"
+      },
+      "tiles8_0115": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0115.png",
+        "dimensions": [
+          76,
+          91
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0115"
+      },
+      "tiles8_0116": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0116.png",
+        "dimensions": [
+          82,
+          78
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0116"
+      },
+      "tiles8_0117": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0117.png",
+        "dimensions": [
+          77,
+          96
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0117"
+      },
+      "tiles8_0119": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0119.png",
+        "dimensions": [
+          76,
+          128
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0119"
+      },
+      "tiles8_0120": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0120.png",
+        "dimensions": [
+          90,
+          108
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0120"
+      },
+      "tiles8_0121": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0121.png",
+        "dimensions": [
+          91,
+          108
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0121"
+      },
+      "tiles8_0123": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0123.png",
+        "dimensions": [
+          114,
+          92
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0123"
+      },
+      "tiles8_0132": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0132.png",
+        "dimensions": [
+          102,
+          109
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0132"
+      },
+      "tiles8_0133": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0133.png",
+        "dimensions": [
+          122,
+          118
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0133"
+      },
+      "tiles8_0134": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0134.png",
+        "dimensions": [
+          100,
+          111
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0134"
+      },
+      "tiles8_0135": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0135.png",
+        "dimensions": [
+          104,
+          85
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0135"
+      },
+      "tiles8_0136": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0136.png",
+        "dimensions": [
+          78,
+          87
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0136"
+      },
+      "tiles8_0137": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0137.png",
+        "dimensions": [
+          100,
+          111
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0137"
+      },
+      "tiles8_0138": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0138.png",
+        "dimensions": [
+          76,
+          91
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0138"
+      },
+      "tiles8_0139": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0139.png",
+        "dimensions": [
+          82,
+          78
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0139"
+      },
+      "tiles8_0140": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0140.png",
+        "dimensions": [
+          100,
+          115
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0140"
+      },
+      "tiles8_0141": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0141.png",
+        "dimensions": [
+          94,
+          76
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0141"
+      },
+      "tiles8_0142": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0142.png",
+        "dimensions": [
+          104,
+          79
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0142"
+      },
+      "tiles8_0143": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0143.png",
+        "dimensions": [
+          94,
+          79
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0143"
+      },
+      "tiles8_0144": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0144.png",
+        "dimensions": [
+          88,
+          112
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0144"
+      },
+      "tiles8_0145": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0145.png",
+        "dimensions": [
+          88,
+          112
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0145"
+      },
+      "tiles8_0146": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0146.png",
+        "dimensions": [
+          82,
+          98
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0146"
+      },
+      "tiles8_0147": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0147.png",
+        "dimensions": [
+          88,
+          112
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0147"
+      },
+      "tiles8_0148": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0148.png",
+        "dimensions": [
+          99,
+          108
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0148"
+      },
+      "tiles8_0150": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0150.png",
+        "dimensions": [
+          92,
+          129
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0150"
+      },
+      "tiles8_0152": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0152.png",
+        "dimensions": [
+          108,
+          104
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0152"
+      },
+      "tiles8_0156": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0156.png",
+        "dimensions": [
+          79,
+          79
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0156"
+      },
+      "tiles8_0157": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0157.png",
+        "dimensions": [
+          79,
+          79
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0157"
+      },
+      "tiles8_0158": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0158.png",
+        "dimensions": [
+          79,
+          79
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0158"
+      },
+      "tiles8_0159": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0159.png",
+        "dimensions": [
+          79,
+          79
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0159"
+      },
+      "tiles8_0160": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0160.png",
+        "dimensions": [
+          79,
+          79
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0160"
+      },
+      "tiles8_0161": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0161.png",
+        "dimensions": [
+          79,
+          79
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0161"
+      },
+      "tiles8_0162": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0162.png",
+        "dimensions": [
+          79,
+          79
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0162"
+      },
+      "tiles8_0163": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0163.png",
+        "dimensions": [
+          79,
+          79
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0163"
+      },
+      "tiles8_0164": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0164.png",
+        "dimensions": [
+          79,
+          79
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0164"
+      },
+      "tiles8_0165": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0165.png",
+        "dimensions": [
+          79,
+          79
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0165"
+      },
+      "tiles8_0166": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0166.png",
+        "dimensions": [
+          79,
+          79
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0166"
+      },
+      "tiles8_0167": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0167.png",
+        "dimensions": [
+          79,
+          79
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0167"
+      },
+      "tiles8_0168": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0168.png",
+        "dimensions": [
+          79,
+          79
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0168"
+      },
+      "tiles8_0169": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0169.png",
+        "dimensions": [
+          79,
+          79
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0169"
+      },
+      "tiles8_0170": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0170.png",
+        "dimensions": [
+          79,
+          79
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0170"
+      },
+      "tiles8_0171": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0171.png",
+        "dimensions": [
+          79,
+          79
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0171"
+      },
+      "tiles8_0209": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0209.png",
+        "dimensions": [
+          41,
+          39
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0209"
+      },
+      "tiles8_0282": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_0282.png",
+        "dimensions": [
+          46,
+          69
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_0282"
+      },
+      "tiles8_1112": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_1112.png",
+        "dimensions": [
+          120,
+          87
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_1112"
+      },
+      "tiles8_1114": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_1114.png",
+        "dimensions": [
+          70,
+          56
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_1114"
+      },
+      "tiles8_1244": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_1244.png",
+        "dimensions": [
+          56,
+          45
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_1244"
+      },
+      "tiles8_1245": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_1245.png",
+        "dimensions": [
+          56,
+          45
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_1245"
+      },
+      "tiles8_1274": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_1274.png",
+        "dimensions": [
+          102,
+          71
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_1274"
+      },
+      "tiles8_1275": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles8_1275.png",
+        "dimensions": [
+          64,
+          50
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles8_1275"
+      },
+      "tiles9_0034": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles9_0034.png",
+        "dimensions": [
+          41,
+          39
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles9_0034"
+      },
+      "tiles9_0050": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles9_0050.png",
+        "dimensions": [
+          40,
+          63
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles9_0050"
+      },
+      "tiles9_0051": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles9_0051.png",
+        "dimensions": [
+          40,
+          63
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles9_0051"
+      },
+      "tiles9_0053": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles9_0053.png",
+        "dimensions": [
+          88,
+          112
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles9_0053"
+      },
+      "tiles9_0057": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles9_0057.png",
+        "dimensions": [
+          64,
+          51
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles9_0057"
+      },
+      "tiles9_0070": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles9_0070.png",
+        "dimensions": [
+          145,
+          170
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles9_0070"
+      },
+      "tiles9_0075": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles9_0075.png",
+        "dimensions": [
+          94,
+          104
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles9_0075"
+      },
+      "tiles9_0076": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles9_0076.png",
+        "dimensions": [
+          108,
+          86
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles9_0076"
+      },
+      "tiles9_0082": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles9_0082.png",
+        "dimensions": [
+          46,
+          69
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles9_0082"
+      },
+      "tiles9_0085": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles9_0085.png",
+        "dimensions": [
+          79,
+          96
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles9_0085"
+      },
+      "tiles9_0091": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles9_0091.png",
+        "dimensions": [
+          79,
+          96
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles9_0091"
+      },
+      "tiles9_0354": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles9_0354.png",
+        "dimensions": [
+          85,
+          103
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles9_0354"
+      },
+      "tiles9_0355": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles9_0355.png",
+        "dimensions": [
+          82,
+          98
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles9_0355"
+      },
+      "tiles9_0360": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles9_0360.png",
+        "dimensions": [
+          91,
+          106
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles9_0360"
+      },
+      "tiles9_0361": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles9_0361.png",
+        "dimensions": [
+          110,
+          98
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles9_0361"
+      },
+      "tiles9_0363": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles9_0363.png",
+        "dimensions": [
+          90,
+          91
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles9_0363"
+      },
+      "tiles9_0364": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles9_0364.png",
+        "dimensions": [
+          107,
+          81
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles9_0364"
+      },
+      "tiles9_0365": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles9_0365.png",
+        "dimensions": [
+          79,
+          79
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles9_0365"
+      },
+      "tiles9_0367": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles9_0367.png",
+        "dimensions": [
+          88,
+          93
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles9_0367"
+      },
+      "tiles9_0369": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles9_0369.png",
+        "dimensions": [
+          102,
+          81
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles9_0369"
+      },
+      "tiles9_0375": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles9_0375.png",
+        "dimensions": [
+          104,
+          95
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles9_0375"
+      },
+      "tiles9_0380": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles9_0380.png",
+        "dimensions": [
+          125,
+          88
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles9_0380"
+      },
+      "tiles9_0400": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles9_0400.png",
+        "dimensions": [
+          106,
+          91
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles9_0400"
+      },
+      "tiles9_0406": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles9_0406.png",
+        "dimensions": [
+          126,
+          94
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles9_0406"
+      },
+      "tiles9_0409": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles9_0409.png",
+        "dimensions": [
+          79,
+          79
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles9_0409"
+      },
+      "tiles9_0413": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles9_0413.png",
+        "dimensions": [
+          100,
+          115
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles9_0413"
+      },
+      "tiles9_0422": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles9_0422.png",
+        "dimensions": [
+          116,
+          99
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles9_0422"
+      },
+      "tiles9_0434": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles9_0434.png",
+        "dimensions": [
+          115,
+          98
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles9_0434"
+      },
+      "tiles9_0510": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles9_0510.png",
+        "dimensions": [
+          212,
+          198
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles9_0510"
+      },
+      "tiles9_0528": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles9_0528.png",
+        "dimensions": [
+          196,
+          198
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles9_0528"
+      },
+      "tiles9_0530": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles9_0530.png",
+        "dimensions": [
+          101,
+          108
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles9_0530"
+      },
+      "tiles9_0546": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles9_0546.png",
+        "dimensions": [
+          88,
+          112
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles9_0546"
+      },
+      "tiles9_0547": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles9_0547.png",
+        "dimensions": [
+          88,
+          136
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles9_0547"
+      },
+      "tiles9_0548": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles9_0548.png",
+        "dimensions": [
+          212,
+          160
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles9_0548"
+      },
+      "tiles9_0553": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles9_0553.png",
+        "dimensions": [
+          204,
+          182
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles9_0553"
+      },
+      "tiles9_0554": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles9_0554.png",
+        "dimensions": [
+          196,
+          230
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles9_0554"
+      },
+      "tiles9_0555": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles9_0555.png",
+        "dimensions": [
+          176,
+          194
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles9_0555"
+      },
+      "tiles9_0631": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles9_0631.png",
+        "dimensions": [
+          79,
+          96
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles9_0631"
+      },
+      "tiles9_0641": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles9_0641.png",
+        "dimensions": [
+          88,
+          112
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles9_0641"
+      },
+      "tiles9_0643": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles9_0643.png",
+        "dimensions": [
+          108,
+          81
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles9_0643"
+      },
+      "tiles9_0646": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles9_0646.png",
+        "dimensions": [
+          96,
+          104
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles9_0646"
+      },
+      "tiles9_0648": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles9_0648.png",
+        "dimensions": [
+          109,
+          87
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles9_0648"
+      },
+      "tiles9_0744": {
+        "file": "03_batiments_et_tentes/pmuniverse_143_batiments/tiles9_0744.png",
+        "dimensions": [
+          122,
+          120
+        ],
+        "frames": 1,
+        "description": "Bâtiment complet PMUniverse tiles9_0744"
+      }
+    },
+    "04_vegetation_et_nature": {
+      "noigrume_geant": {
+        "file": "04_vegetation_et_nature/noigrume_geant.png",
+        "dimensions": [
+          16,
+          16
+        ],
+        "frames": 1,
+        "description": "Élément naturel entier Noigrume Geant"
+      },
+      "rocher_riviere_rond": {
+        "file": "04_vegetation_et_nature/rocher_riviere_rond.png",
+        "dimensions": [
+          24,
+          24
+        ],
+        "frames": 1,
+        "description": "Élément naturel entier Rocher Riviere Rond"
+      },
+      "rocher_riviere_diamant": {
+        "file": "04_vegetation_et_nature/rocher_riviere_diamant.png",
+        "dimensions": [
+          24,
+          24
+        ],
+        "frames": 1,
+        "description": "Élément naturel entier Rocher Riviere Diamant"
+      },
+      "stele_pierre_kangourex": {
+        "file": "04_vegetation_et_nature/stele_pierre_kangourex.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "frames": 1,
+        "description": "Élément naturel entier Stele Pierre Kangourex"
+      },
+      "porte_guilde_fermee": {
+        "file": "04_vegetation_et_nature/porte_guilde_fermee.png",
+        "dimensions": [
+          64,
+          64
+        ],
+        "frames": 1,
+        "description": "Élément naturel entier Porte Guilde Fermee"
+      },
+      "couchette_paille_dortoir": {
+        "file": "04_vegetation_et_nature/couchette_paille_dortoir.png",
+        "dimensions": [
+          40,
+          40
+        ],
+        "frames": 1,
+        "description": "Élément naturel entier Couchette Paille Dortoir"
+      },
+      "sac_provisions_herbe": {
+        "file": "04_vegetation_et_nature/sac_provisions_herbe.png",
+        "dimensions": [
+          24,
+          24
+        ],
+        "frames": 1,
+        "description": "Élément naturel entier Sac Provisions Herbe"
+      },
+      "panier_gros_vivres": {
+        "file": "04_vegetation_et_nature/panier_gros_vivres.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "frames": 1,
+        "description": "Élément naturel entier Panier Gros Vivres"
+      },
+      "tablette_zarbi_mystere": {
+        "file": "04_vegetation_et_nature/tablette_zarbi_mystere.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "frames": 1,
+        "description": "Élément naturel entier Tablette Zarbi Mystere"
+      },
+      "fenetre_nocturne_eclairee": {
+        "file": "04_vegetation_et_nature/fenetre_nocturne_eclairee.png",
+        "dimensions": [
+          64,
+          64
+        ],
+        "frames": 1,
+        "description": "Élément naturel entier Fenetre Nocturne Eclairee"
+      }
+    },
+    "05_objets_animes_frames_completes": {
+      "bs_lightball_8_png": {
+        "folder": "05_objets_animes_frames_completes/bs_lightball_8_png",
+        "frame_count": 8,
+        "frame_dimensions": [
+          16,
+          16
+        ],
+        "strip_file": "05_objets_animes_frames_completes/bs_lightball_8_png/bs_lightball_8_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png",
+          "frame_6.png",
+          "frame_7.png"
+        ],
+        "description": "Effet animé entier Bs Lightball 8 Png"
+      },
+      "bs_plant_8_png": {
+        "folder": "05_objets_animes_frames_completes/bs_plant_8_png",
+        "frame_count": 8,
+        "frame_dimensions": [
+          12,
+          71
+        ],
+        "strip_file": "05_objets_animes_frames_completes/bs_plant_8_png/bs_plant_8_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png",
+          "frame_6.png",
+          "frame_7.png"
+        ],
+        "description": "Effet animé entier Bs Plant 8 Png"
+      },
+      "c_magma_13_png": {
+        "folder": "05_objets_animes_frames_completes/c_magma_13_png",
+        "frame_count": 13,
+        "frame_dimensions": [
+          20,
+          20
+        ],
+        "strip_file": "05_objets_animes_frames_completes/c_magma_13_png/c_magma_13_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png",
+          "frame_6.png",
+          "frame_7.png",
+          "frame_8.png",
+          "frame_9.png",
+          "frame_10.png",
+          "frame_11.png",
+          "frame_12.png"
+        ],
+        "description": "Effet animé entier C Magma 13 Png"
+      },
+      "c_magma_14_png": {
+        "folder": "05_objets_animes_frames_completes/c_magma_14_png",
+        "frame_count": 14,
+        "frame_dimensions": [
+          20,
+          20
+        ],
+        "strip_file": "05_objets_animes_frames_completes/c_magma_14_png/c_magma_14_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png",
+          "frame_6.png",
+          "frame_7.png",
+          "frame_8.png",
+          "frame_9.png",
+          "frame_10.png",
+          "frame_11.png",
+          "frame_12.png",
+          "frame_13.png"
+        ],
+        "description": "Effet animé entier C Magma 14 Png"
+      },
+      "c_smoke_1_5_png": {
+        "folder": "05_objets_animes_frames_completes/c_smoke_1_5_png",
+        "frame_count": 5,
+        "frame_dimensions": [
+          100,
+          205
+        ],
+        "strip_file": "05_objets_animes_frames_completes/c_smoke_1_5_png/c_smoke_1_5_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png"
+        ],
+        "description": "Effet animé entier C Smoke 1 5 Png"
+      },
+      "c_smoke_2_5_png": {
+        "folder": "05_objets_animes_frames_completes/c_smoke_2_5_png",
+        "frame_count": 5,
+        "frame_dimensions": [
+          100,
+          205
+        ],
+        "strip_file": "05_objets_animes_frames_completes/c_smoke_2_5_png/c_smoke_2_5_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png"
+        ],
+        "description": "Effet animé entier C Smoke 2 5 Png"
+      },
+      "c_smoke_3_7_png": {
+        "folder": "05_objets_animes_frames_completes/c_smoke_3_7_png",
+        "frame_count": 7,
+        "frame_dimensions": [
+          25,
+          36
+        ],
+        "strip_file": "05_objets_animes_frames_completes/c_smoke_3_7_png/c_smoke_3_7_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png",
+          "frame_6.png"
+        ],
+        "description": "Effet animé entier C Smoke 3 7 Png"
+      },
+      "c_smoke_4_7_png": {
+        "folder": "05_objets_animes_frames_completes/c_smoke_4_7_png",
+        "frame_count": 7,
+        "frame_dimensions": [
+          25,
+          36
+        ],
+        "strip_file": "05_objets_animes_frames_completes/c_smoke_4_7_png/c_smoke_4_7_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png",
+          "frame_6.png"
+        ],
+        "description": "Effet animé entier C Smoke 4 7 Png"
+      },
+      "dl_machine_30_png": {
+        "folder": "05_objets_animes_frames_completes/dl_machine_30_png",
+        "frame_count": 30,
+        "frame_dimensions": [
+          82,
+          65
+        ],
+        "strip_file": "05_objets_animes_frames_completes/dl_machine_30_png/dl_machine_30_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png",
+          "frame_6.png",
+          "frame_7.png",
+          "frame_8.png",
+          "frame_9.png",
+          "frame_10.png",
+          "frame_11.png",
+          "frame_12.png",
+          "frame_13.png",
+          "frame_14.png",
+          "frame_15.png",
+          "frame_16.png",
+          "frame_17.png",
+          "frame_18.png",
+          "frame_19.png",
+          "frame_20.png",
+          "frame_21.png",
+          "frame_22.png",
+          "frame_23.png",
+          "frame_24.png",
+          "frame_25.png",
+          "frame_26.png",
+          "frame_27.png",
+          "frame_28.png",
+          "frame_29.png"
+        ],
+        "description": "Effet animé entier Dl Machine 30 Png"
+      },
+      "dl_tv_1_15_png": {
+        "folder": "05_objets_animes_frames_completes/dl_tv_1_15_png",
+        "frame_count": 15,
+        "frame_dimensions": [
+          94,
+          31
+        ],
+        "strip_file": "05_objets_animes_frames_completes/dl_tv_1_15_png/dl_tv_1_15_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png",
+          "frame_6.png",
+          "frame_7.png",
+          "frame_8.png",
+          "frame_9.png",
+          "frame_10.png",
+          "frame_11.png",
+          "frame_12.png",
+          "frame_13.png",
+          "frame_14.png"
+        ],
+        "description": "Effet animé entier Dl Tv 1 15 Png"
+      },
+      "dl_tv_2_15_png": {
+        "folder": "05_objets_animes_frames_completes/dl_tv_2_15_png",
+        "frame_count": 15,
+        "frame_dimensions": [
+          14,
+          23
+        ],
+        "strip_file": "05_objets_animes_frames_completes/dl_tv_2_15_png/dl_tv_2_15_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png",
+          "frame_6.png",
+          "frame_7.png",
+          "frame_8.png",
+          "frame_9.png",
+          "frame_10.png",
+          "frame_11.png",
+          "frame_12.png",
+          "frame_13.png",
+          "frame_14.png"
+        ],
+        "description": "Effet animé entier Dl Tv 2 15 Png"
+      },
+      "dl_tv_3_15_png": {
+        "folder": "05_objets_animes_frames_completes/dl_tv_3_15_png",
+        "frame_count": 15,
+        "frame_dimensions": [
+          14,
+          23
+        ],
+        "strip_file": "05_objets_animes_frames_completes/dl_tv_3_15_png/dl_tv_3_15_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png",
+          "frame_6.png",
+          "frame_7.png",
+          "frame_8.png",
+          "frame_9.png",
+          "frame_10.png",
+          "frame_11.png",
+          "frame_12.png",
+          "frame_13.png",
+          "frame_14.png"
+        ],
+        "description": "Effet animé entier Dl Tv 3 15 Png"
+      },
+      "dl_tv_4_15_png": {
+        "folder": "05_objets_animes_frames_completes/dl_tv_4_15_png",
+        "frame_count": 15,
+        "frame_dimensions": [
+          14,
+          23
+        ],
+        "strip_file": "05_objets_animes_frames_completes/dl_tv_4_15_png/dl_tv_4_15_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png",
+          "frame_6.png",
+          "frame_7.png",
+          "frame_8.png",
+          "frame_9.png",
+          "frame_10.png",
+          "frame_11.png",
+          "frame_12.png",
+          "frame_13.png",
+          "frame_14.png"
+        ],
+        "description": "Effet animé entier Dl Tv 4 15 Png"
+      },
+      "dl_tv_5_15_png": {
+        "folder": "05_objets_animes_frames_completes/dl_tv_5_15_png",
+        "frame_count": 15,
+        "frame_dimensions": [
+          14,
+          23
+        ],
+        "strip_file": "05_objets_animes_frames_completes/dl_tv_5_15_png/dl_tv_5_15_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png",
+          "frame_6.png",
+          "frame_7.png",
+          "frame_8.png",
+          "frame_9.png",
+          "frame_10.png",
+          "frame_11.png",
+          "frame_12.png",
+          "frame_13.png",
+          "frame_14.png"
+        ],
+        "description": "Effet animé entier Dl Tv 5 15 Png"
+      },
+      "dl_tv_6_15_png": {
+        "folder": "05_objets_animes_frames_completes/dl_tv_6_15_png",
+        "frame_count": 15,
+        "frame_dimensions": [
+          30,
+          23
+        ],
+        "strip_file": "05_objets_animes_frames_completes/dl_tv_6_15_png/dl_tv_6_15_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png",
+          "frame_6.png",
+          "frame_7.png",
+          "frame_8.png",
+          "frame_9.png",
+          "frame_10.png",
+          "frame_11.png",
+          "frame_12.png",
+          "frame_13.png",
+          "frame_14.png"
+        ],
+        "description": "Effet animé entier Dl Tv 6 15 Png"
+      },
+      "dl_tv_7_15_png": {
+        "folder": "05_objets_animes_frames_completes/dl_tv_7_15_png",
+        "frame_count": 15,
+        "frame_dimensions": [
+          30,
+          23
+        ],
+        "strip_file": "05_objets_animes_frames_completes/dl_tv_7_15_png/dl_tv_7_15_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png",
+          "frame_6.png",
+          "frame_7.png",
+          "frame_8.png",
+          "frame_9.png",
+          "frame_10.png",
+          "frame_11.png",
+          "frame_12.png",
+          "frame_13.png",
+          "frame_14.png"
+        ],
+        "description": "Effet animé entier Dl Tv 7 15 Png"
+      },
+      "dl_water_1_12_png": {
+        "folder": "05_objets_animes_frames_completes/dl_water_1_12_png",
+        "frame_count": 12,
+        "frame_dimensions": [
+          16,
+          18
+        ],
+        "strip_file": "05_objets_animes_frames_completes/dl_water_1_12_png/dl_water_1_12_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png",
+          "frame_6.png",
+          "frame_7.png",
+          "frame_8.png",
+          "frame_9.png",
+          "frame_10.png",
+          "frame_11.png"
+        ],
+        "description": "Effet animé entier Dl Water 1 12 Png"
+      },
+      "dl_water_2_12_png": {
+        "folder": "05_objets_animes_frames_completes/dl_water_2_12_png",
+        "frame_count": 12,
+        "frame_dimensions": [
+          16,
+          18
+        ],
+        "strip_file": "05_objets_animes_frames_completes/dl_water_2_12_png/dl_water_2_12_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png",
+          "frame_6.png",
+          "frame_7.png",
+          "frame_8.png",
+          "frame_9.png",
+          "frame_10.png",
+          "frame_11.png"
+        ],
+        "description": "Effet animé entier Dl Water 2 12 Png"
+      },
+      "dsc_light_7_png": {
+        "folder": "05_objets_animes_frames_completes/dsc_light_7_png",
+        "frame_count": 7,
+        "frame_dimensions": [
+          38,
+          39
+        ],
+        "strip_file": "05_objets_animes_frames_completes/dsc_light_7_png/dsc_light_7_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png",
+          "frame_6.png"
+        ],
+        "description": "Effet animé entier Dsc Light 7 Png"
+      },
+      "ec_wave1_4_png": {
+        "folder": "05_objets_animes_frames_completes/ec_wave1_4_png",
+        "frame_count": 4,
+        "frame_dimensions": [
+          54,
+          43
+        ],
+        "strip_file": "05_objets_animes_frames_completes/ec_wave1_4_png/ec_wave1_4_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png"
+        ],
+        "description": "Effet animé entier Ec Wave1 4 Png"
+      },
+      "ec_wave_2_4_png": {
+        "folder": "05_objets_animes_frames_completes/ec_wave_2_4_png",
+        "frame_count": 4,
+        "frame_dimensions": [
+          53,
+          44
+        ],
+        "strip_file": "05_objets_animes_frames_completes/ec_wave_2_4_png/ec_wave_2_4_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png"
+        ],
+        "description": "Effet animé entier Ec Wave 2 4 Png"
+      },
+      "ec_wave_3_4_png": {
+        "folder": "05_objets_animes_frames_completes/ec_wave_3_4_png",
+        "frame_count": 4,
+        "frame_dimensions": [
+          18,
+          28
+        ],
+        "strip_file": "05_objets_animes_frames_completes/ec_wave_3_4_png/ec_wave_3_4_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png"
+        ],
+        "description": "Effet animé entier Ec Wave 3 4 Png"
+      },
+      "ef_transparency_5_png": {
+        "folder": "05_objets_animes_frames_completes/ef_transparency_5_png",
+        "frame_count": 5,
+        "frame_dimensions": [
+          369,
+          255
+        ],
+        "strip_file": "05_objets_animes_frames_completes/ef_transparency_5_png/ef_transparency_5_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png"
+        ],
+        "description": "Effet animé entier Ef Transparency 5 Png"
+      },
+      "ei_light_1_4_png": {
+        "folder": "05_objets_animes_frames_completes/ei_light_1_4_png",
+        "frame_count": 4,
+        "frame_dimensions": [
+          13,
+          12
+        ],
+        "strip_file": "05_objets_animes_frames_completes/ei_light_1_4_png/ei_light_1_4_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png"
+        ],
+        "description": "Effet animé entier Ei Light 1 4 Png"
+      },
+      "fd_sand_9_png": {
+        "folder": "05_objets_animes_frames_completes/fd_sand_9_png",
+        "frame_count": 9,
+        "frame_dimensions": [
+          70,
+          46
+        ],
+        "strip_file": "05_objets_animes_frames_completes/fd_sand_9_png/fd_sand_9_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png",
+          "frame_6.png",
+          "frame_7.png",
+          "frame_8.png"
+        ],
+        "description": "Effet animé entier Fd Sand 9 Png"
+      },
+      "fd_sand_1_12_png": {
+        "folder": "05_objets_animes_frames_completes/fd_sand_1_12_png",
+        "frame_count": 12,
+        "frame_dimensions": [
+          36,
+          119
+        ],
+        "strip_file": "05_objets_animes_frames_completes/fd_sand_1_12_png/fd_sand_1_12_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png",
+          "frame_6.png",
+          "frame_7.png",
+          "frame_8.png",
+          "frame_9.png",
+          "frame_10.png",
+          "frame_11.png"
+        ],
+        "description": "Effet animé entier Fd Sand 1 12 Png"
+      },
+      "fd_sand_2_12_png": {
+        "folder": "05_objets_animes_frames_completes/fd_sand_2_12_png",
+        "frame_count": 12,
+        "frame_dimensions": [
+          36,
+          119
+        ],
+        "strip_file": "05_objets_animes_frames_completes/fd_sand_2_12_png/fd_sand_2_12_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png",
+          "frame_6.png",
+          "frame_7.png",
+          "frame_8.png",
+          "frame_9.png",
+          "frame_10.png",
+          "frame_11.png"
+        ],
+        "description": "Effet animé entier Fd Sand 2 12 Png"
+      },
+      "fd_sand_3_9_png": {
+        "folder": "05_objets_animes_frames_completes/fd_sand_3_9_png",
+        "frame_count": 9,
+        "frame_dimensions": [
+          56,
+          19
+        ],
+        "strip_file": "05_objets_animes_frames_completes/fd_sand_3_9_png/fd_sand_3_9_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png",
+          "frame_6.png",
+          "frame_7.png",
+          "frame_8.png"
+        ],
+        "description": "Effet animé entier Fd Sand 3 9 Png"
+      },
+      "fd_sand_31_9_png": {
+        "folder": "05_objets_animes_frames_completes/fd_sand_31_9_png",
+        "frame_count": 9,
+        "frame_dimensions": [
+          56,
+          19
+        ],
+        "strip_file": "05_objets_animes_frames_completes/fd_sand_31_9_png/fd_sand_31_9_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png",
+          "frame_6.png",
+          "frame_7.png",
+          "frame_8.png"
+        ],
+        "description": "Effet animé entier Fd Sand 31 9 Png"
+      },
+      "ff_cloud_1_5_png": {
+        "folder": "05_objets_animes_frames_completes/ff_cloud_1_5_png",
+        "frame_count": 5,
+        "frame_dimensions": [
+          36,
+          94
+        ],
+        "strip_file": "05_objets_animes_frames_completes/ff_cloud_1_5_png/ff_cloud_1_5_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png"
+        ],
+        "description": "Effet animé entier Ff Cloud 1 5 Png"
+      },
+      "ff_cloud_2_5_png": {
+        "folder": "05_objets_animes_frames_completes/ff_cloud_2_5_png",
+        "frame_count": 5,
+        "frame_dimensions": [
+          36,
+          94
+        ],
+        "strip_file": "05_objets_animes_frames_completes/ff_cloud_2_5_png/ff_cloud_2_5_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png"
+        ],
+        "description": "Effet animé entier Ff Cloud 2 5 Png"
+      },
+      "j_water_12_png": {
+        "folder": "05_objets_animes_frames_completes/j_water_12_png",
+        "frame_count": 12,
+        "frame_dimensions": [
+          256,
+          76
+        ],
+        "strip_file": "05_objets_animes_frames_completes/j_water_12_png/j_water_12_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png",
+          "frame_6.png",
+          "frame_7.png",
+          "frame_8.png",
+          "frame_9.png",
+          "frame_10.png",
+          "frame_11.png"
+        ],
+        "description": "Effet animé entier J Water 12 Png"
+      },
+      "li_lava_16_png": {
+        "folder": "05_objets_animes_frames_completes/li_lava_16_png",
+        "frame_count": 16,
+        "frame_dimensions": [
+          72,
+          37
+        ],
+        "strip_file": "05_objets_animes_frames_completes/li_lava_16_png/li_lava_16_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png",
+          "frame_6.png",
+          "frame_7.png",
+          "frame_8.png",
+          "frame_9.png",
+          "frame_10.png",
+          "frame_11.png",
+          "frame_12.png",
+          "frame_13.png",
+          "frame_14.png",
+          "frame_15.png"
+        ],
+        "description": "Effet animé entier Li Lava 16 Png"
+      },
+      "li_wave_5_png": {
+        "folder": "05_objets_animes_frames_completes/li_wave_5_png",
+        "frame_count": 5,
+        "frame_dimensions": [
+          130,
+          36
+        ],
+        "strip_file": "05_objets_animes_frames_completes/li_wave_5_png/li_wave_5_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png"
+        ],
+        "description": "Effet animé entier Li Wave 5 Png"
+      },
+      "mv_moon_18_png": {
+        "folder": "05_objets_animes_frames_completes/mv_moon_18_png",
+        "frame_count": 18,
+        "frame_dimensions": [
+          60,
+          60
+        ],
+        "strip_file": "05_objets_animes_frames_completes/mv_moon_18_png/mv_moon_18_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png",
+          "frame_6.png",
+          "frame_7.png",
+          "frame_8.png",
+          "frame_9.png",
+          "frame_10.png",
+          "frame_11.png",
+          "frame_12.png",
+          "frame_13.png",
+          "frame_14.png",
+          "frame_15.png",
+          "frame_16.png",
+          "frame_17.png"
+        ],
+        "description": "Effet animé entier Mv Moon 18 Png"
+      },
+      "pp_fan_6_png": {
+        "folder": "05_objets_animes_frames_completes/pp_fan_6_png",
+        "frame_count": 6,
+        "frame_dimensions": [
+          80,
+          36
+        ],
+        "strip_file": "05_objets_animes_frames_completes/pp_fan_6_png/pp_fan_6_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png"
+        ],
+        "description": "Effet animé entier Pp Fan 6 Png"
+      },
+      "pp_machine_6_png": {
+        "folder": "05_objets_animes_frames_completes/pp_machine_6_png",
+        "frame_count": 6,
+        "frame_dimensions": [
+          64,
+          55
+        ],
+        "strip_file": "05_objets_animes_frames_completes/pp_machine_6_png/pp_machine_6_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png"
+        ],
+        "description": "Effet animé entier Pp Machine 6 Png"
+      },
+      "ps_bubble_7_png": {
+        "folder": "05_objets_animes_frames_completes/ps_bubble_7_png",
+        "frame_count": 7,
+        "frame_dimensions": [
+          21,
+          17
+        ],
+        "strip_file": "05_objets_animes_frames_completes/ps_bubble_7_png/ps_bubble_7_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png",
+          "frame_6.png"
+        ],
+        "description": "Effet animé entier Ps Bubble 7 Png"
+      },
+      "ps_bubble_1_5_png": {
+        "folder": "05_objets_animes_frames_completes/ps_bubble_1_5_png",
+        "frame_count": 5,
+        "frame_dimensions": [
+          8,
+          9
+        ],
+        "strip_file": "05_objets_animes_frames_completes/ps_bubble_1_5_png/ps_bubble_1_5_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png"
+        ],
+        "description": "Effet animé entier Ps Bubble 1 5 Png"
+      },
+      "si_flower_1_5_png": {
+        "folder": "05_objets_animes_frames_completes/si_flower_1_5_png",
+        "frame_count": 5,
+        "frame_dimensions": [
+          21,
+          21
+        ],
+        "strip_file": "05_objets_animes_frames_completes/si_flower_1_5_png/si_flower_1_5_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png"
+        ],
+        "description": "Effet animé entier Si Flower 1 5 Png"
+      },
+      "si_flower_2_5_png": {
+        "folder": "05_objets_animes_frames_completes/si_flower_2_5_png",
+        "frame_count": 5,
+        "frame_dimensions": [
+          16,
+          20
+        ],
+        "strip_file": "05_objets_animes_frames_completes/si_flower_2_5_png/si_flower_2_5_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png"
+        ],
+        "description": "Effet animé entier Si Flower 2 5 Png"
+      },
+      "si_light_1_6_png": {
+        "folder": "05_objets_animes_frames_completes/si_light_1_6_png",
+        "frame_count": 6,
+        "frame_dimensions": [
+          24,
+          10
+        ],
+        "strip_file": "05_objets_animes_frames_completes/si_light_1_6_png/si_light_1_6_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png"
+        ],
+        "description": "Effet animé entier Si Light 1 6 Png"
+      },
+      "si_light_2_6_png": {
+        "folder": "05_objets_animes_frames_completes/si_light_2_6_png",
+        "frame_count": 6,
+        "frame_dimensions": [
+          16,
+          9
+        ],
+        "strip_file": "05_objets_animes_frames_completes/si_light_2_6_png/si_light_2_6_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png"
+        ],
+        "description": "Effet animé entier Si Light 2 6 Png"
+      },
+      "si_light_3_6_png": {
+        "folder": "05_objets_animes_frames_completes/si_light_3_6_png",
+        "frame_count": 6,
+        "frame_dimensions": [
+          14,
+          14
+        ],
+        "strip_file": "05_objets_animes_frames_completes/si_light_3_6_png/si_light_3_6_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png"
+        ],
+        "description": "Effet animé entier Si Light 3 6 Png"
+      },
+      "si_wave_2_png": {
+        "folder": "05_objets_animes_frames_completes/si_wave_2_png",
+        "frame_count": 2,
+        "frame_dimensions": [
+          269,
+          136
+        ],
+        "strip_file": "05_objets_animes_frames_completes/si_wave_2_png/si_wave_2_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png"
+        ],
+        "description": "Effet animé entier Si Wave 2 Png"
+      },
+      "sp_fire_1_9_png": {
+        "folder": "05_objets_animes_frames_completes/sp_fire_1_9_png",
+        "frame_count": 9,
+        "frame_dimensions": [
+          31,
+          41
+        ],
+        "strip_file": "05_objets_animes_frames_completes/sp_fire_1_9_png/sp_fire_1_9_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png",
+          "frame_6.png",
+          "frame_7.png",
+          "frame_8.png"
+        ],
+        "description": "Effet animé entier Sp Fire 1 9 Png"
+      },
+      "sp_fire_2_9_png": {
+        "folder": "05_objets_animes_frames_completes/sp_fire_2_9_png",
+        "frame_count": 9,
+        "frame_dimensions": [
+          31,
+          41
+        ],
+        "strip_file": "05_objets_animes_frames_completes/sp_fire_2_9_png/sp_fire_2_9_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png",
+          "frame_6.png",
+          "frame_7.png",
+          "frame_8.png"
+        ],
+        "description": "Effet animé entier Sp Fire 2 9 Png"
+      },
+      "sp_fire_3_8_png": {
+        "folder": "05_objets_animes_frames_completes/sp_fire_3_8_png",
+        "frame_count": 8,
+        "frame_dimensions": [
+          18,
+          26
+        ],
+        "strip_file": "05_objets_animes_frames_completes/sp_fire_3_8_png/sp_fire_3_8_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png",
+          "frame_6.png",
+          "frame_7.png"
+        ],
+        "description": "Effet animé entier Sp Fire 3 8 Png"
+      },
+      "sp_fire_4_8_png": {
+        "folder": "05_objets_animes_frames_completes/sp_fire_4_8_png",
+        "frame_count": 8,
+        "frame_dimensions": [
+          18,
+          26
+        ],
+        "strip_file": "05_objets_animes_frames_completes/sp_fire_4_8_png/sp_fire_4_8_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png",
+          "frame_6.png",
+          "frame_7.png"
+        ],
+        "description": "Effet animé entier Sp Fire 4 8 Png"
+      },
+      "tf_stone_32_png": {
+        "folder": "05_objets_animes_frames_completes/tf_stone_32_png",
+        "frame_count": 32,
+        "frame_dimensions": [
+          54,
+          39
+        ],
+        "strip_file": "05_objets_animes_frames_completes/tf_stone_32_png/tf_stone_32_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png",
+          "frame_6.png",
+          "frame_7.png",
+          "frame_8.png",
+          "frame_9.png",
+          "frame_10.png",
+          "frame_11.png",
+          "frame_12.png",
+          "frame_13.png",
+          "frame_14.png",
+          "frame_15.png",
+          "frame_16.png",
+          "frame_17.png",
+          "frame_18.png",
+          "frame_19.png",
+          "frame_20.png",
+          "frame_21.png",
+          "frame_22.png",
+          "frame_23.png",
+          "frame_24.png",
+          "frame_25.png",
+          "frame_26.png",
+          "frame_27.png",
+          "frame_28.png",
+          "frame_29.png",
+          "frame_30.png",
+          "frame_31.png"
+        ],
+        "description": "Effet animé entier Tf Stone 32 Png"
+      },
+      "tm_thunder_1_48_png": {
+        "folder": "05_objets_animes_frames_completes/tm_thunder_1_48_png",
+        "frame_count": 48,
+        "frame_dimensions": [
+          18,
+          41
+        ],
+        "strip_file": "05_objets_animes_frames_completes/tm_thunder_1_48_png/tm_thunder_1_48_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png",
+          "frame_6.png",
+          "frame_7.png",
+          "frame_8.png",
+          "frame_9.png",
+          "frame_10.png",
+          "frame_11.png",
+          "frame_12.png",
+          "frame_13.png",
+          "frame_14.png",
+          "frame_15.png",
+          "frame_16.png",
+          "frame_17.png",
+          "frame_18.png",
+          "frame_19.png",
+          "frame_20.png",
+          "frame_21.png",
+          "frame_22.png",
+          "frame_23.png",
+          "frame_24.png",
+          "frame_25.png",
+          "frame_26.png",
+          "frame_27.png",
+          "frame_28.png",
+          "frame_29.png",
+          "frame_30.png",
+          "frame_31.png",
+          "frame_32.png",
+          "frame_33.png",
+          "frame_34.png",
+          "frame_35.png",
+          "frame_36.png",
+          "frame_37.png",
+          "frame_38.png",
+          "frame_39.png",
+          "frame_40.png",
+          "frame_41.png",
+          "frame_42.png",
+          "frame_43.png",
+          "frame_44.png",
+          "frame_45.png",
+          "frame_46.png",
+          "frame_47.png"
+        ],
+        "description": "Effet animé entier Tm Thunder 1 48 Png"
+      },
+      "tm_thunder_2_48_png": {
+        "folder": "05_objets_animes_frames_completes/tm_thunder_2_48_png",
+        "frame_count": 48,
+        "frame_dimensions": [
+          18,
+          41
+        ],
+        "strip_file": "05_objets_animes_frames_completes/tm_thunder_2_48_png/tm_thunder_2_48_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png",
+          "frame_6.png",
+          "frame_7.png",
+          "frame_8.png",
+          "frame_9.png",
+          "frame_10.png",
+          "frame_11.png",
+          "frame_12.png",
+          "frame_13.png",
+          "frame_14.png",
+          "frame_15.png",
+          "frame_16.png",
+          "frame_17.png",
+          "frame_18.png",
+          "frame_19.png",
+          "frame_20.png",
+          "frame_21.png",
+          "frame_22.png",
+          "frame_23.png",
+          "frame_24.png",
+          "frame_25.png",
+          "frame_26.png",
+          "frame_27.png",
+          "frame_28.png",
+          "frame_29.png",
+          "frame_30.png",
+          "frame_31.png",
+          "frame_32.png",
+          "frame_33.png",
+          "frame_34.png",
+          "frame_35.png",
+          "frame_36.png",
+          "frame_37.png",
+          "frame_38.png",
+          "frame_39.png",
+          "frame_40.png",
+          "frame_41.png",
+          "frame_42.png",
+          "frame_43.png",
+          "frame_44.png",
+          "frame_45.png",
+          "frame_46.png",
+          "frame_47.png"
+        ],
+        "description": "Effet animé entier Tm Thunder 2 48 Png"
+      },
+      "tm_thunder_3_48_png": {
+        "folder": "05_objets_animes_frames_completes/tm_thunder_3_48_png",
+        "frame_count": 48,
+        "frame_dimensions": [
+          15,
+          26
+        ],
+        "strip_file": "05_objets_animes_frames_completes/tm_thunder_3_48_png/tm_thunder_3_48_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png",
+          "frame_6.png",
+          "frame_7.png",
+          "frame_8.png",
+          "frame_9.png",
+          "frame_10.png",
+          "frame_11.png",
+          "frame_12.png",
+          "frame_13.png",
+          "frame_14.png",
+          "frame_15.png",
+          "frame_16.png",
+          "frame_17.png",
+          "frame_18.png",
+          "frame_19.png",
+          "frame_20.png",
+          "frame_21.png",
+          "frame_22.png",
+          "frame_23.png",
+          "frame_24.png",
+          "frame_25.png",
+          "frame_26.png",
+          "frame_27.png",
+          "frame_28.png",
+          "frame_29.png",
+          "frame_30.png",
+          "frame_31.png",
+          "frame_32.png",
+          "frame_33.png",
+          "frame_34.png",
+          "frame_35.png",
+          "frame_36.png",
+          "frame_37.png",
+          "frame_38.png",
+          "frame_39.png",
+          "frame_40.png",
+          "frame_41.png",
+          "frame_42.png",
+          "frame_43.png",
+          "frame_44.png",
+          "frame_45.png",
+          "frame_46.png",
+          "frame_47.png"
+        ],
+        "description": "Effet animé entier Tm Thunder 3 48 Png"
+      },
+      "tm_thunder_4_48_png": {
+        "folder": "05_objets_animes_frames_completes/tm_thunder_4_48_png",
+        "frame_count": 48,
+        "frame_dimensions": [
+          15,
+          26
+        ],
+        "strip_file": "05_objets_animes_frames_completes/tm_thunder_4_48_png/tm_thunder_4_48_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png",
+          "frame_6.png",
+          "frame_7.png",
+          "frame_8.png",
+          "frame_9.png",
+          "frame_10.png",
+          "frame_11.png",
+          "frame_12.png",
+          "frame_13.png",
+          "frame_14.png",
+          "frame_15.png",
+          "frame_16.png",
+          "frame_17.png",
+          "frame_18.png",
+          "frame_19.png",
+          "frame_20.png",
+          "frame_21.png",
+          "frame_22.png",
+          "frame_23.png",
+          "frame_24.png",
+          "frame_25.png",
+          "frame_26.png",
+          "frame_27.png",
+          "frame_28.png",
+          "frame_29.png",
+          "frame_30.png",
+          "frame_31.png",
+          "frame_32.png",
+          "frame_33.png",
+          "frame_34.png",
+          "frame_35.png",
+          "frame_36.png",
+          "frame_37.png",
+          "frame_38.png",
+          "frame_39.png",
+          "frame_40.png",
+          "frame_41.png",
+          "frame_42.png",
+          "frame_43.png",
+          "frame_44.png",
+          "frame_45.png",
+          "frame_46.png",
+          "frame_47.png"
+        ],
+        "description": "Effet animé entier Tm Thunder 4 48 Png"
+      },
+      "tp_ripples_5_png": {
+        "folder": "05_objets_animes_frames_completes/tp_ripples_5_png",
+        "frame_count": 5,
+        "frame_dimensions": [
+          24,
+          16
+        ],
+        "strip_file": "05_objets_animes_frames_completes/tp_ripples_5_png/tp_ripples_5_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png"
+        ],
+        "description": "Effet animé entier Tp Ripples 5 Png"
+      },
+      "tup_ripples_4_png": {
+        "folder": "05_objets_animes_frames_completes/tup_ripples_4_png",
+        "frame_count": 4,
+        "frame_dimensions": [
+          20,
+          16
+        ],
+        "strip_file": "05_objets_animes_frames_completes/tup_ripples_4_png/tup_ripples_4_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png"
+        ],
+        "description": "Effet animé entier Tup Ripples 4 Png"
+      },
+      "vp_erupt_8_png": {
+        "folder": "05_objets_animes_frames_completes/vp_erupt_8_png",
+        "frame_count": 8,
+        "frame_dimensions": [
+          80,
+          39
+        ],
+        "strip_file": "05_objets_animes_frames_completes/vp_erupt_8_png/vp_erupt_8_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png",
+          "frame_6.png",
+          "frame_7.png"
+        ],
+        "description": "Effet animé entier Vp Erupt 8 Png"
+      },
+      "vp_erupt_1_8_png": {
+        "folder": "05_objets_animes_frames_completes/vp_erupt_1_8_png",
+        "frame_count": 8,
+        "frame_dimensions": [
+          50,
+          169
+        ],
+        "strip_file": "05_objets_animes_frames_completes/vp_erupt_1_8_png/vp_erupt_1_8_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png",
+          "frame_6.png",
+          "frame_7.png"
+        ],
+        "description": "Effet animé entier Vp Erupt 1 8 Png"
+      },
+      "vp_erupt_2_8_png": {
+        "folder": "05_objets_animes_frames_completes/vp_erupt_2_8_png",
+        "frame_count": 8,
+        "frame_dimensions": [
+          32,
+          113
+        ],
+        "strip_file": "05_objets_animes_frames_completes/vp_erupt_2_8_png/vp_erupt_2_8_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png",
+          "frame_6.png",
+          "frame_7.png"
+        ],
+        "description": "Effet animé entier Vp Erupt 2 8 Png"
+      },
+      "vp_erupt_3_8_png": {
+        "folder": "05_objets_animes_frames_completes/vp_erupt_3_8_png",
+        "frame_count": 8,
+        "frame_dimensions": [
+          32,
+          57
+        ],
+        "strip_file": "05_objets_animes_frames_completes/vp_erupt_3_8_png/vp_erupt_3_8_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png",
+          "frame_6.png",
+          "frame_7.png"
+        ],
+        "description": "Effet animé entier Vp Erupt 3 8 Png"
+      },
+      "vp_pop_2_17_png": {
+        "folder": "05_objets_animes_frames_completes/vp_pop_2_17_png",
+        "frame_count": 17,
+        "frame_dimensions": [
+          8,
+          11
+        ],
+        "strip_file": "05_objets_animes_frames_completes/vp_pop_2_17_png/vp_pop_2_17_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png",
+          "frame_6.png",
+          "frame_7.png",
+          "frame_8.png",
+          "frame_9.png",
+          "frame_10.png",
+          "frame_11.png",
+          "frame_12.png",
+          "frame_13.png",
+          "frame_14.png",
+          "frame_15.png",
+          "frame_16.png"
+        ],
+        "description": "Effet animé entier Vp Pop 2 17 Png"
+      },
+      "vp_pop_3_16_png": {
+        "folder": "05_objets_animes_frames_completes/vp_pop_3_16_png",
+        "frame_count": 16,
+        "frame_dimensions": [
+          8,
+          8
+        ],
+        "strip_file": "05_objets_animes_frames_completes/vp_pop_3_16_png/vp_pop_3_16_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png",
+          "frame_6.png",
+          "frame_7.png",
+          "frame_8.png",
+          "frame_9.png",
+          "frame_10.png",
+          "frame_11.png",
+          "frame_12.png",
+          "frame_13.png",
+          "frame_14.png",
+          "frame_15.png"
+        ],
+        "description": "Effet animé entier Vp Pop 3 16 Png"
+      },
+      "vp_pop_4_15_png": {
+        "folder": "05_objets_animes_frames_completes/vp_pop_4_15_png",
+        "frame_count": 15,
+        "frame_dimensions": [
+          15,
+          14
+        ],
+        "strip_file": "05_objets_animes_frames_completes/vp_pop_4_15_png/vp_pop_4_15_png_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png",
+          "frame_6.png",
+          "frame_7.png",
+          "frame_8.png",
+          "frame_9.png",
+          "frame_10.png",
+          "frame_11.png",
+          "frame_12.png",
+          "frame_13.png",
+          "frame_14.png"
+        ],
+        "description": "Effet animé entier Vp Pop 4 15 Png"
+      },
+      "feu_de_camp_bivouac": {
+        "folder": "05_objets_animes_frames_completes/feu_de_camp_bivouac",
+        "frame_count": 4,
+        "frame_dimensions": [
+          36,
+          36
+        ],
+        "strip_file": "05_objets_animes_frames_completes/feu_de_camp_bivouac/feu_de_camp_bivouac_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png"
+        ],
+        "description": "Objet animé entier Feu De Camp Bivouac"
+      },
+      "moulin_a_vent_ailes_tournantes": {
+        "folder": "05_objets_animes_frames_completes/moulin_a_vent_ailes_tournantes",
+        "frame_count": 4,
+        "frame_dimensions": [
+          64,
+          72
+        ],
+        "strip_file": "05_objets_animes_frames_completes/moulin_a_vent_ailes_tournantes/moulin_a_vent_ailes_tournantes_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png"
+        ],
+        "description": "Objet animé entier Moulin A Vent Ailes Tournantes"
+      },
+      "puits_village_manivelle_et_eau": {
+        "folder": "05_objets_animes_frames_completes/puits_village_manivelle_et_eau",
+        "frame_count": 4,
+        "frame_dimensions": [
+          72,
+          56
+        ],
+        "strip_file": "05_objets_animes_frames_completes/puits_village_manivelle_et_eau/puits_village_manivelle_et_eau_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png"
+        ],
+        "description": "Objet animé entier Puits Village Manivelle Et Eau"
+      },
+      "boite_tresor_scintillante": {
+        "folder": "05_objets_animes_frames_completes/boite_tresor_scintillante",
+        "frame_count": 6,
+        "frame_dimensions": [
+          24,
+          24
+        ],
+        "strip_file": "05_objets_animes_frames_completes/boite_tresor_scintillante/boite_tresor_scintillante_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png"
+        ],
+        "description": "Objet animé entier Boite Tresor Scintillante"
+      },
+      "coeur_energie_animique": {
+        "folder": "05_objets_animes_frames_completes/coeur_energie_animique",
+        "frame_count": 36,
+        "frame_dimensions": [
+          154,
+          121
+        ],
+        "strip_file": "05_objets_animes_frames_completes/coeur_energie_animique/coeur_energie_animique_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png",
+          "frame_6.png",
+          "frame_7.png",
+          "frame_8.png",
+          "frame_9.png",
+          "frame_10.png",
+          "frame_11.png",
+          "frame_12.png",
+          "frame_13.png",
+          "frame_14.png",
+          "frame_15.png",
+          "frame_16.png",
+          "frame_17.png",
+          "frame_18.png",
+          "frame_19.png",
+          "frame_20.png",
+          "frame_21.png",
+          "frame_22.png",
+          "frame_23.png",
+          "frame_24.png",
+          "frame_25.png",
+          "frame_26.png",
+          "frame_27.png",
+          "frame_28.png",
+          "frame_29.png",
+          "frame_30.png",
+          "frame_31.png",
+          "frame_32.png",
+          "frame_33.png",
+          "frame_34.png",
+          "frame_35.png"
+        ],
+        "description": "Objet animé entier Coeur Energie Animique"
+      },
+      "racines_telluriques_lueur": {
+        "folder": "05_objets_animes_frames_completes/racines_telluriques_lueur",
+        "frame_count": 16,
+        "frame_dimensions": [
+          154,
+          121
+        ],
+        "strip_file": "05_objets_animes_frames_completes/racines_telluriques_lueur/racines_telluriques_lueur_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png",
+          "frame_6.png",
+          "frame_7.png",
+          "frame_8.png",
+          "frame_9.png",
+          "frame_10.png",
+          "frame_11.png",
+          "frame_12.png",
+          "frame_13.png",
+          "frame_14.png",
+          "frame_15.png"
+        ],
+        "description": "Objet animé entier Racines Telluriques Lueur"
+      },
+      "journal_bleu_ouverture": {
+        "folder": "05_objets_animes_frames_completes/journal_bleu_ouverture",
+        "frame_count": 4,
+        "frame_dimensions": [
+          24,
+          24
+        ],
+        "strip_file": "05_objets_animes_frames_completes/journal_bleu_ouverture/journal_bleu_ouverture_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png"
+        ],
+        "description": "Objet animé entier Journal Bleu Ouverture"
+      },
+      "journal_bleu_fermeture": {
+        "folder": "05_objets_animes_frames_completes/journal_bleu_fermeture",
+        "frame_count": 4,
+        "frame_dimensions": [
+          24,
+          24
+        ],
+        "strip_file": "05_objets_animes_frames_completes/journal_bleu_fermeture/journal_bleu_fermeture_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png"
+        ],
+        "description": "Objet animé entier Journal Bleu Fermeture"
+      },
+      "journal_rouge_ouverture": {
+        "folder": "05_objets_animes_frames_completes/journal_rouge_ouverture",
+        "frame_count": 4,
+        "frame_dimensions": [
+          24,
+          24
+        ],
+        "strip_file": "05_objets_animes_frames_completes/journal_rouge_ouverture/journal_rouge_ouverture_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png"
+        ],
+        "description": "Objet animé entier Journal Rouge Ouverture"
+      },
+      "journal_rouge_fermeture": {
+        "folder": "05_objets_animes_frames_completes/journal_rouge_fermeture",
+        "frame_count": 4,
+        "frame_dimensions": [
+          24,
+          24
+        ],
+        "strip_file": "05_objets_animes_frames_completes/journal_rouge_fermeture/journal_rouge_fermeture_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png"
+        ],
+        "description": "Objet animé entier Journal Rouge Fermeture"
+      },
+      "grande_cascade_de_lave": {
+        "folder": "05_objets_animes_frames_completes/grande_cascade_de_lave",
+        "frame_count": 64,
+        "frame_dimensions": [
+          48,
+          48
+        ],
+        "strip_file": "05_objets_animes_frames_completes/grande_cascade_de_lave/grande_cascade_de_lave_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png",
+          "frame_6.png",
+          "frame_7.png",
+          "frame_8.png",
+          "frame_9.png",
+          "frame_10.png",
+          "frame_11.png",
+          "frame_12.png",
+          "frame_13.png",
+          "frame_14.png",
+          "frame_15.png",
+          "frame_16.png",
+          "frame_17.png",
+          "frame_18.png",
+          "frame_19.png",
+          "frame_20.png",
+          "frame_21.png",
+          "frame_22.png",
+          "frame_23.png",
+          "frame_24.png",
+          "frame_25.png",
+          "frame_26.png",
+          "frame_27.png",
+          "frame_28.png",
+          "frame_29.png",
+          "frame_30.png",
+          "frame_31.png",
+          "frame_32.png",
+          "frame_33.png",
+          "frame_34.png",
+          "frame_35.png",
+          "frame_36.png",
+          "frame_37.png",
+          "frame_38.png",
+          "frame_39.png",
+          "frame_40.png",
+          "frame_41.png",
+          "frame_42.png",
+          "frame_43.png",
+          "frame_44.png",
+          "frame_45.png",
+          "frame_46.png",
+          "frame_47.png",
+          "frame_48.png",
+          "frame_49.png",
+          "frame_50.png",
+          "frame_51.png",
+          "frame_52.png",
+          "frame_53.png",
+          "frame_54.png",
+          "frame_55.png",
+          "frame_56.png",
+          "frame_57.png",
+          "frame_58.png",
+          "frame_59.png",
+          "frame_60.png",
+          "frame_61.png",
+          "frame_62.png",
+          "frame_63.png"
+        ],
+        "description": "Objet animé entier Grande Cascade De Lave"
+      },
+      "petite_cascade_de_lave": {
+        "folder": "05_objets_animes_frames_completes/petite_cascade_de_lave",
+        "frame_count": 64,
+        "frame_dimensions": [
+          48,
+          48
+        ],
+        "strip_file": "05_objets_animes_frames_completes/petite_cascade_de_lave/petite_cascade_de_lave_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png",
+          "frame_6.png",
+          "frame_7.png",
+          "frame_8.png",
+          "frame_9.png",
+          "frame_10.png",
+          "frame_11.png",
+          "frame_12.png",
+          "frame_13.png",
+          "frame_14.png",
+          "frame_15.png",
+          "frame_16.png",
+          "frame_17.png",
+          "frame_18.png",
+          "frame_19.png",
+          "frame_20.png",
+          "frame_21.png",
+          "frame_22.png",
+          "frame_23.png",
+          "frame_24.png",
+          "frame_25.png",
+          "frame_26.png",
+          "frame_27.png",
+          "frame_28.png",
+          "frame_29.png",
+          "frame_30.png",
+          "frame_31.png",
+          "frame_32.png",
+          "frame_33.png",
+          "frame_34.png",
+          "frame_35.png",
+          "frame_36.png",
+          "frame_37.png",
+          "frame_38.png",
+          "frame_39.png",
+          "frame_40.png",
+          "frame_41.png",
+          "frame_42.png",
+          "frame_43.png",
+          "frame_44.png",
+          "frame_45.png",
+          "frame_46.png",
+          "frame_47.png",
+          "frame_48.png",
+          "frame_49.png",
+          "frame_50.png",
+          "frame_51.png",
+          "frame_52.png",
+          "frame_53.png",
+          "frame_54.png",
+          "frame_55.png",
+          "frame_56.png",
+          "frame_57.png",
+          "frame_58.png",
+          "frame_59.png",
+          "frame_60.png",
+          "frame_61.png",
+          "frame_62.png",
+          "frame_63.png"
+        ],
+        "description": "Objet animé entier Petite Cascade De Lave"
+      },
+      "bassin_lave_bouillonnante": {
+        "folder": "05_objets_animes_frames_completes/bassin_lave_bouillonnante",
+        "frame_count": 66,
+        "frame_dimensions": [
+          48,
+          24
+        ],
+        "strip_file": "05_objets_animes_frames_completes/bassin_lave_bouillonnante/bassin_lave_bouillonnante_animation_strip.png",
+        "frames": [
+          "frame_0.png",
+          "frame_1.png",
+          "frame_2.png",
+          "frame_3.png",
+          "frame_4.png",
+          "frame_5.png",
+          "frame_6.png",
+          "frame_7.png",
+          "frame_8.png",
+          "frame_9.png",
+          "frame_10.png",
+          "frame_11.png",
+          "frame_12.png",
+          "frame_13.png",
+          "frame_14.png",
+          "frame_15.png",
+          "frame_16.png",
+          "frame_17.png",
+          "frame_18.png",
+          "frame_19.png",
+          "frame_20.png",
+          "frame_21.png",
+          "frame_22.png",
+          "frame_23.png",
+          "frame_24.png",
+          "frame_25.png",
+          "frame_26.png",
+          "frame_27.png",
+          "frame_28.png",
+          "frame_29.png",
+          "frame_30.png",
+          "frame_31.png",
+          "frame_32.png",
+          "frame_33.png",
+          "frame_34.png",
+          "frame_35.png",
+          "frame_36.png",
+          "frame_37.png",
+          "frame_38.png",
+          "frame_39.png",
+          "frame_40.png",
+          "frame_41.png",
+          "frame_42.png",
+          "frame_43.png",
+          "frame_44.png",
+          "frame_45.png",
+          "frame_46.png",
+          "frame_47.png",
+          "frame_48.png",
+          "frame_49.png",
+          "frame_50.png",
+          "frame_51.png",
+          "frame_52.png",
+          "frame_53.png",
+          "frame_54.png",
+          "frame_55.png",
+          "frame_56.png",
+          "frame_57.png",
+          "frame_58.png",
+          "frame_59.png",
+          "frame_60.png",
+          "frame_61.png",
+          "frame_62.png",
+          "frame_63.png",
+          "frame_64.png",
+          "frame_65.png"
+        ],
+        "description": "Objet animé entier Bassin Lave Bouillonnante"
+      }
+    },
+    "06_accessoires_et_decor_interieur": {
+      "flower_vase_0": {
+        "file": "06_accessoires_et_decor_interieur/flower_vase_0.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "plants_and_natural_decor",
+        "frames": 1,
+        "description": "Objet entier Flower Vase"
+      },
+      "round_stool_or_table_1": {
+        "file": "06_accessoires_et_decor_interieur/round_stool_or_table_1.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "furniture_and_textiles",
+        "frames": 1,
+        "description": "Objet entier Round Stool Or Table"
+      },
+      "red_mushroom_2": {
+        "file": "06_accessoires_et_decor_interieur/red_mushroom_2.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "plants_and_natural_decor",
+        "frames": 1,
+        "description": "Objet entier Red Mushroom"
+      },
+      "closed_book_3": {
+        "file": "06_accessoires_et_decor_interieur/closed_book_3.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "books_and_documents",
+        "frames": 1,
+        "description": "Objet entier Closed Book"
+      },
+      "wall_shelf_4": {
+        "file": "06_accessoires_et_decor_interieur/wall_shelf_4.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "furniture_and_textiles",
+        "frames": 1,
+        "description": "Objet entier Wall Shelf"
+      },
+      "small_bottle_5": {
+        "file": "06_accessoires_et_decor_interieur/small_bottle_5.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "containers_and_storage",
+        "frames": 1,
+        "description": "Objet entier Small Bottle"
+      },
+      "small_dish_6": {
+        "file": "06_accessoires_et_decor_interieur/small_dish_6.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "lighting_and_tableware",
+        "frames": 1,
+        "description": "Objet entier Small Dish"
+      },
+      "tea_service_7": {
+        "file": "06_accessoires_et_decor_interieur/tea_service_7.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "lighting_and_tableware",
+        "frames": 1,
+        "description": "Objet entier Tea Service"
+      },
+      "flower_bouquet_8": {
+        "file": "06_accessoires_et_decor_interieur/flower_bouquet_8.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "plants_and_natural_decor",
+        "frames": 1,
+        "description": "Objet entier Flower Bouquet"
+      },
+      "paper_or_letter_9": {
+        "file": "06_accessoires_et_decor_interieur/paper_or_letter_9.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "books_and_documents",
+        "frames": 1,
+        "description": "Objet entier Paper Or Letter"
+      },
+      "red_coral_or_branch_10": {
+        "file": "06_accessoires_et_decor_interieur/red_coral_or_branch_10.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "plants_and_natural_decor",
+        "frames": 1,
+        "description": "Objet entier Red Coral Or Branch"
+      },
+      "candelabrum_11": {
+        "file": "06_accessoires_et_decor_interieur/candelabrum_11.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "lighting_and_tableware",
+        "frames": 1,
+        "description": "Objet entier Candelabrum"
+      },
+      "flower_arrangement_12": {
+        "file": "06_accessoires_et_decor_interieur/flower_arrangement_12.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "plants_and_natural_decor",
+        "frames": 1,
+        "description": "Objet entier Flower Arrangement"
+      },
+      "cabinet_or_wall_fixture_13": {
+        "file": "06_accessoires_et_decor_interieur/cabinet_or_wall_fixture_13.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "containers_and_storage",
+        "frames": 1,
+        "description": "Objet entier Cabinet Or Wall Fixture"
+      },
+      "mantel_or_counter_14": {
+        "file": "06_accessoires_et_decor_interieur/mantel_or_counter_14.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "wall_art_and_fixtures",
+        "frames": 1,
+        "description": "Objet entier Mantel Or Counter"
+      },
+      "wooden_plank_15": {
+        "file": "06_accessoires_et_decor_interieur/wooden_plank_15.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "furniture_and_textiles",
+        "frames": 1,
+        "description": "Objet entier Wooden Plank"
+      },
+      "spear_or_polearm_16": {
+        "file": "06_accessoires_et_decor_interieur/spear_or_polearm_16.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "weapons_armor_and_tools",
+        "frames": 1,
+        "description": "Objet entier Spear Or Polearm"
+      },
+      "round_shield_17": {
+        "file": "06_accessoires_et_decor_interieur/round_shield_17.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "weapons_armor_and_tools",
+        "frames": 1,
+        "description": "Objet entier Round Shield"
+      },
+      "framed_landscape_18": {
+        "file": "06_accessoires_et_decor_interieur/framed_landscape_18.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "wall_art_and_fixtures",
+        "frames": 1,
+        "description": "Objet entier Framed Landscape"
+      },
+      "framed_flower_art_19": {
+        "file": "06_accessoires_et_decor_interieur/framed_flower_art_19.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "plants_and_natural_decor",
+        "frames": 1,
+        "description": "Objet entier Framed Flower Art"
+      },
+      "framed_character_art_20": {
+        "file": "06_accessoires_et_decor_interieur/framed_character_art_20.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "wall_art_and_fixtures",
+        "frames": 1,
+        "description": "Objet entier Framed Character Art"
+      },
+      "standing_tool_or_scale_21": {
+        "file": "06_accessoires_et_decor_interieur/standing_tool_or_scale_21.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "weapons_armor_and_tools",
+        "frames": 1,
+        "description": "Objet entier Standing Tool Or Scale"
+      },
+      "terracotta_pot_22": {
+        "file": "06_accessoires_et_decor_interieur/terracotta_pot_22.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "containers_and_storage",
+        "frames": 1,
+        "description": "Objet entier Terracotta Pot"
+      },
+      "wooden_pipe_fixture_23": {
+        "file": "06_accessoires_et_decor_interieur/wooden_pipe_fixture_23.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "wall_art_and_fixtures",
+        "frames": 1,
+        "description": "Objet entier Wooden Pipe Fixture"
+      },
+      "woven_mat_24": {
+        "file": "06_accessoires_et_decor_interieur/woven_mat_24.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "furniture_and_textiles",
+        "frames": 1,
+        "description": "Objet entier Woven Mat"
+      },
+      "wooden_tub_25": {
+        "file": "06_accessoires_et_decor_interieur/wooden_tub_25.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "containers_and_storage",
+        "frames": 1,
+        "description": "Objet entier Wooden Tub"
+      },
+      "bookcase_26": {
+        "file": "06_accessoires_et_decor_interieur/bookcase_26.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "books_and_documents",
+        "frames": 1,
+        "description": "Objet entier Bookcase"
+      },
+      "framed_flower_art_2_27": {
+        "file": "06_accessoires_et_decor_interieur/framed_flower_art_2_27.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "plants_and_natural_decor",
+        "frames": 1,
+        "description": "Objet entier Framed Flower Art 2"
+      },
+      "framed_character_art_2_28": {
+        "file": "06_accessoires_et_decor_interieur/framed_character_art_2_28.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "wall_art_and_fixtures",
+        "frames": 1,
+        "description": "Objet entier Framed Character Art 2"
+      },
+      "empty_frame_29": {
+        "file": "06_accessoires_et_decor_interieur/empty_frame_29.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "wall_art_and_fixtures",
+        "frames": 1,
+        "description": "Objet entier Empty Frame"
+      },
+      "wall_map_30": {
+        "file": "06_accessoires_et_decor_interieur/wall_map_30.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "books_and_documents",
+        "frames": 1,
+        "description": "Objet entier Wall Map"
+      },
+      "blue_ceramic_pot_31": {
+        "file": "06_accessoires_et_decor_interieur/blue_ceramic_pot_31.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "containers_and_storage",
+        "frames": 1,
+        "description": "Objet entier Blue Ceramic Pot"
+      },
+      "bottle_and_candle_32": {
+        "file": "06_accessoires_et_decor_interieur/bottle_and_candle_32.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "containers_and_storage",
+        "frames": 1,
+        "description": "Objet entier Bottle And Candle"
+      },
+      "washstand_or_vanity_33": {
+        "file": "06_accessoires_et_decor_interieur/washstand_or_vanity_33.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "furniture_and_textiles",
+        "frames": 1,
+        "description": "Objet entier Washstand Or Vanity"
+      },
+      "wooden_plank_2_34": {
+        "file": "06_accessoires_et_decor_interieur/wooden_plank_2_34.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "furniture_and_textiles",
+        "frames": 1,
+        "description": "Objet entier Wooden Plank 2"
+      },
+      "wooden_pipe_fixture_2_35": {
+        "file": "06_accessoires_et_decor_interieur/wooden_pipe_fixture_2_35.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "wall_art_and_fixtures",
+        "frames": 1,
+        "description": "Objet entier Wooden Pipe Fixture 2"
+      },
+      "blue_ceramic_pot_2_36": {
+        "file": "06_accessoires_et_decor_interieur/blue_ceramic_pot_2_36.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "containers_and_storage",
+        "frames": 1,
+        "description": "Objet entier Blue Ceramic Pot 2"
+      },
+      "ink_and_quill_37": {
+        "file": "06_accessoires_et_decor_interieur/ink_and_quill_37.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "books_and_documents",
+        "frames": 1,
+        "description": "Objet entier Ink And Quill"
+      },
+      "round_wooden_stool_38": {
+        "file": "06_accessoires_et_decor_interieur/round_wooden_stool_38.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "furniture_and_textiles",
+        "frames": 1,
+        "description": "Objet entier Round Wooden Stool"
+      },
+      "teapot_and_cups_39": {
+        "file": "06_accessoires_et_decor_interieur/teapot_and_cups_39.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "containers_and_storage",
+        "frames": 1,
+        "description": "Objet entier Teapot And Cups"
+      },
+      "open_book_40": {
+        "file": "06_accessoires_et_decor_interieur/open_book_40.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "books_and_documents",
+        "frames": 1,
+        "description": "Objet entier Open Book"
+      },
+      "terracotta_pot_2_41": {
+        "file": "06_accessoires_et_decor_interieur/terracotta_pot_2_41.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "containers_and_storage",
+        "frames": 1,
+        "description": "Objet entier Terracotta Pot 2"
+      },
+      "framed_landscape_2_42": {
+        "file": "06_accessoires_et_decor_interieur/framed_landscape_2_42.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "wall_art_and_fixtures",
+        "frames": 1,
+        "description": "Objet entier Framed Landscape 2"
+      },
+      "woven_mat_2_43": {
+        "file": "06_accessoires_et_decor_interieur/woven_mat_2_43.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "furniture_and_textiles",
+        "frames": 1,
+        "description": "Objet entier Woven Mat 2"
+      },
+      "metal_container_44": {
+        "file": "06_accessoires_et_decor_interieur/metal_container_44.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "containers_and_storage",
+        "frames": 1,
+        "description": "Objet entier Metal Container"
+      },
+      "round_shield_2_45": {
+        "file": "06_accessoires_et_decor_interieur/round_shield_2_45.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "weapons_armor_and_tools",
+        "frames": 1,
+        "description": "Objet entier Round Shield 2"
+      },
+      "small_bottle_2_46": {
+        "file": "06_accessoires_et_decor_interieur/small_bottle_2_46.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "containers_and_storage",
+        "frames": 1,
+        "description": "Objet entier Small Bottle 2"
+      },
+      "bottle_set_47": {
+        "file": "06_accessoires_et_decor_interieur/bottle_set_47.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "containers_and_storage",
+        "frames": 1,
+        "description": "Objet entier Bottle Set"
+      },
+      "red_berry_pile_48": {
+        "file": "06_accessoires_et_decor_interieur/red_berry_pile_48.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "plants_and_natural_decor",
+        "frames": 1,
+        "description": "Objet entier Red Berry Pile"
+      },
+      "potted_sprout_49": {
+        "file": "06_accessoires_et_decor_interieur/potted_sprout_49.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "plants_and_natural_decor",
+        "frames": 1,
+        "description": "Objet entier Potted Sprout"
+      },
+      "small_hook_or_handle_50": {
+        "file": "06_accessoires_et_decor_interieur/small_hook_or_handle_50.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "toys_and_miscellaneous",
+        "frames": 1,
+        "description": "Objet entier Small Hook Or Handle"
+      },
+      "stone_pile_51": {
+        "file": "06_accessoires_et_decor_interieur/stone_pile_51.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "plants_and_natural_decor",
+        "frames": 1,
+        "description": "Objet entier Stone Pile"
+      },
+      "teddy_bear_52": {
+        "file": "06_accessoires_et_decor_interieur/teddy_bear_52.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "toys_and_miscellaneous",
+        "frames": 1,
+        "description": "Objet entier Teddy Bear"
+      },
+      "metal_container_2_53": {
+        "file": "06_accessoires_et_decor_interieur/metal_container_2_53.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "containers_and_storage",
+        "frames": 1,
+        "description": "Objet entier Metal Container 2"
+      },
+      "wooden_tub_2_54": {
+        "file": "06_accessoires_et_decor_interieur/wooden_tub_2_54.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "containers_and_storage",
+        "frames": 1,
+        "description": "Objet entier Wooden Tub 2"
+      },
+      "bamboo_bundle_55": {
+        "file": "06_accessoires_et_decor_interieur/bamboo_bundle_55.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "plants_and_natural_decor",
+        "frames": 1,
+        "description": "Objet entier Bamboo Bundle"
+      },
+      "potted_leafy_plant_56": {
+        "file": "06_accessoires_et_decor_interieur/potted_leafy_plant_56.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "plants_and_natural_decor",
+        "frames": 1,
+        "description": "Objet entier Potted Leafy Plant"
+      },
+      "round_wooden_stool_2_57": {
+        "file": "06_accessoires_et_decor_interieur/round_wooden_stool_2_57.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "furniture_and_textiles",
+        "frames": 1,
+        "description": "Objet entier Round Wooden Stool 2"
+      },
+      "wooden_sign_or_small_table_58": {
+        "file": "06_accessoires_et_decor_interieur/wooden_sign_or_small_table_58.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "furniture_and_textiles",
+        "frames": 1,
+        "description": "Objet entier Wooden Sign Or Small Table"
+      },
+      "candelabrum_2_59": {
+        "file": "06_accessoires_et_decor_interieur/candelabrum_2_59.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "lighting_and_tableware",
+        "frames": 1,
+        "description": "Objet entier Candelabrum 2"
+      },
+      "open_book_2_60": {
+        "file": "06_accessoires_et_decor_interieur/open_book_2_60.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "books_and_documents",
+        "frames": 1,
+        "description": "Objet entier Open Book 2"
+      },
+      "closed_book_2_61": {
+        "file": "06_accessoires_et_decor_interieur/closed_book_2_61.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "books_and_documents",
+        "frames": 1,
+        "description": "Objet entier Closed Book 2"
+      },
+      "red_shield_62": {
+        "file": "06_accessoires_et_decor_interieur/red_shield_62.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "weapons_armor_and_tools",
+        "frames": 1,
+        "description": "Objet entier Red Shield"
+      },
+      "yellow_cushion_or_mat_63": {
+        "file": "06_accessoires_et_decor_interieur/yellow_cushion_or_mat_63.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "furniture_and_textiles",
+        "frames": 1,
+        "description": "Objet entier Yellow Cushion Or Mat"
+      },
+      "parchment_64": {
+        "file": "06_accessoires_et_decor_interieur/parchment_64.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "books_and_documents",
+        "frames": 1,
+        "description": "Objet entier Parchment"
+      },
+      "newspaper_65": {
+        "file": "06_accessoires_et_decor_interieur/newspaper_65.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "books_and_documents",
+        "frames": 1,
+        "description": "Objet entier Newspaper"
+      },
+      "horn_66": {
+        "file": "06_accessoires_et_decor_interieur/horn_66.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "weapons_armor_and_tools",
+        "frames": 1,
+        "description": "Objet entier Horn"
+      },
+      "decorative_wall_plaque_67": {
+        "file": "06_accessoires_et_decor_interieur/decorative_wall_plaque_67.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "wall_art_and_fixtures",
+        "frames": 1,
+        "description": "Objet entier Decorative Wall Plaque"
+      },
+      "table_lamp_68": {
+        "file": "06_accessoires_et_decor_interieur/table_lamp_68.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "furniture_and_textiles",
+        "frames": 1,
+        "description": "Objet entier Table Lamp"
+      },
+      "red_shield_2_69": {
+        "file": "06_accessoires_et_decor_interieur/red_shield_2_69.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "weapons_armor_and_tools",
+        "frames": 1,
+        "description": "Objet entier Red Shield 2"
+      },
+      "bottle_set_2_70": {
+        "file": "06_accessoires_et_decor_interieur/bottle_set_2_70.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "containers_and_storage",
+        "frames": 1,
+        "description": "Objet entier Bottle Set 2"
+      },
+      "round_shield_3_71": {
+        "file": "06_accessoires_et_decor_interieur/round_shield_3_71.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "weapons_armor_and_tools",
+        "frames": 1,
+        "description": "Objet entier Round Shield 3"
+      },
+      "small_barrel_72": {
+        "file": "06_accessoires_et_decor_interieur/small_barrel_72.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "containers_and_storage",
+        "frames": 1,
+        "description": "Objet entier Small Barrel"
+      },
+      "key_ring_73": {
+        "file": "06_accessoires_et_decor_interieur/key_ring_73.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "weapons_armor_and_tools",
+        "frames": 1,
+        "description": "Objet entier Key Ring"
+      },
+      "hanging_chains_74": {
+        "file": "06_accessoires_et_decor_interieur/hanging_chains_74.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "weapons_armor_and_tools",
+        "frames": 1,
+        "description": "Objet entier Hanging Chains"
+      },
+      "small_ring_75": {
+        "file": "06_accessoires_et_decor_interieur/small_ring_75.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "weapons_armor_and_tools",
+        "frames": 1,
+        "description": "Objet entier Small Ring"
+      },
+      "coin_stack_76": {
+        "file": "06_accessoires_et_decor_interieur/coin_stack_76.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "weapons_armor_and_tools",
+        "frames": 1,
+        "description": "Objet entier Coin Stack"
+      },
+      "covered_dish_on_mat_77": {
+        "file": "06_accessoires_et_decor_interieur/covered_dish_on_mat_77.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "furniture_and_textiles",
+        "frames": 1,
+        "description": "Objet entier Covered Dish On Mat"
+      },
+      "floor_grate_78": {
+        "file": "06_accessoires_et_decor_interieur/floor_grate_78.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "weapons_armor_and_tools",
+        "frames": 1,
+        "description": "Objet entier Floor Grate"
+      },
+      "wooden_chest_or_cabinet_79": {
+        "file": "06_accessoires_et_decor_interieur/wooden_chest_or_cabinet_79.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "containers_and_storage",
+        "frames": 1,
+        "description": "Objet entier Wooden Chest Or Cabinet"
+      },
+      "red_hanging_panel_80": {
+        "file": "06_accessoires_et_decor_interieur/red_hanging_panel_80.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "wall_art_and_fixtures",
+        "frames": 1,
+        "description": "Objet entier Red Hanging Panel"
+      },
+      "blue_hanging_panel_81": {
+        "file": "06_accessoires_et_decor_interieur/blue_hanging_panel_81.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "wall_art_and_fixtures",
+        "frames": 1,
+        "description": "Objet entier Blue Hanging Panel"
+      },
+      "wooden_dresser_82": {
+        "file": "06_accessoires_et_decor_interieur/wooden_dresser_82.png",
+        "dimensions": [
+          32,
+          32
+        ],
+        "category": "containers_and_storage",
+        "frames": 1,
+        "description": "Objet entier Wooden Dresser"
+      }
+    }
+  },
+  "total_assets_entiers": 338
+}
