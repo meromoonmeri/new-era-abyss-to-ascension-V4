@@ -1,0 +1,89 @@
+{
+ "arbres": {
+  "count": 36,
+  "atlas": "atlas_arbres.png",
+  "sprites": [
+   "tree_00_6x6",
+   "tree_01_9x6",
+   "tree_02_6x6",
+   "tree_03_4x6",
+   "tree_04_10x6",
+   "tree_05_8x6",
+   "tree_06_2x3",
+   "tree_07_9x6",
+   "tree_08_6x6",
+   "tree_09_10x6",
+   "tree_10_9x7",
+   "tree_11_6x6",
+   "tree_12_8x4",
+   "tree_13_10x6",
+   "tree_14_10x6",
+   "tree_15_10x6",
+   "tree_16_10x6",
+   "tree_17_3x3",
+   "tree_18_10x6",
+   "tree_19_10x6",
+   "tree_20_10x7",
+   "tree_21_10x8",
+   "tree_22_11x6",
+   "tree_23_10x6",
+   "tree_24_3x3",
+   "tree_25_10x6",
+   "tree_26_3x3",
+   "tree_27_10x6",
+   "tree_28_10x7",
+   "tree_29_10x5",
+   "tree_30_10x6",
+   "tree_31_10x7",
+   "tree_32_10x6",
+   "tree_33_10x6",
+   "tree_34_10x7",
+   "tree_35_10x6"
+  ]
+ },
+ "batiments": {
+  "count": 18,
+  "atlas": "atlas_batiments.png",
+  "sprites": [
+   "building_00_7x6",
+   "building_01_10x8",
+   "building_02_14x13",
+   "building_03_12x15",
+   "building_04_10x8",
+   "building_05_6x7",
+   "building_06_8x6",
+   "building_07_10x13",
+   "building_08_11x10",
+   "building_09_6x6",
+   "building_10_10x5",
+   "building_11_10x10",
+   "building_12_13x11",
+   "building_13_7x5",
+   "building_14_15x12",
+   "building_15_14x10",
+   "building_16_15x13",
+   "building_17_11x11"
+  ]
+ },
+ "totems_statues": {
+  "count": 8,
+  "atlas": "atlas_totems_statues.png",
+  "sprites": [
+   "obj_shop_red",
+   "obj_statue_celebi",
+   "obj_statue_island",
+   "src_kiosk_hat",
+   "src_statue_blue_wing",
+   "src_statue_smurf",
+   "src_statue_volt",
+   "src_totem_purple_face"
+  ]
+ },
+ "panneaux_enseignes": {
+  "count": 1,
+  "atlas": "atlas_panneaux_enseignes.png",
+  "sprites": [
+   "sign_04_4x3"
+  ]
+ }
+}
