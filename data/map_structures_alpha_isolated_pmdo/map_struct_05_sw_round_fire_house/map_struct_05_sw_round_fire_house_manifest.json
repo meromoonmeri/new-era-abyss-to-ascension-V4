@@ -1,0 +1,38 @@
+{
+  "id": "map_struct_05_sw_round_fire_house",
+  "name_en": "Southwest Round Fire-Style House",
+  "name_fr": "Maison Ronde Style Feu Sud-Ouest",
+  "source_map": "map to scale pmdo and make tilset asset.png",
+  "crop_box": [
+    142,
+    492,
+    206,
+    560
+  ],
+  "split_y_rel": 36,
+  "description": "Round terracotta hut with pointed thatched cap roof and wood trim doorway.",
+  "category": "residential_house",
+  "native_dimensions": [
+    64,
+    68
+  ],
+  "pmdo_dimensions_raw": [
+    128,
+    136
+  ],
+  "pmdo_grid_dimensions": [
+    128,
+    160
+  ],
+  "pmdo_tiles_w": 4,
+  "pmdo_tiles_h": 5,
+  "split_y_pmdo_px": 96,
+  "files": {
+    "raw_crop": "data/map_structures_alpha_isolated_pmdo/map_struct_05_sw_round_fire_house/map_struct_05_sw_round_fire_house_raw_crop.png",
+    "native_1x_alpha": "data/map_structures_alpha_isolated_pmdo/map_struct_05_sw_round_fire_house/map_struct_05_sw_round_fire_house_native_1x_alpha.png",
+    "pmdo_2x_complete": "data/map_structures_alpha_isolated_pmdo/map_struct_05_sw_round_fire_house/map_struct_05_sw_round_fire_house_complete_pmdo_2x.png",
+    "layer8_roof": "data/map_structures_alpha_isolated_pmdo/map_struct_05_sw_round_fire_house/map_struct_05_sw_round_fire_house_roof_overhang_layer8.png",
+    "layer6_walls": "data/map_structures_alpha_isolated_pmdo/map_struct_05_sw_round_fire_house/map_struct_05_sw_round_fire_house_walls_base_layer6.png",
+    "pmdo_tile_binary": "Content/Tile/map_struct_05_sw_round_fire_house_Base.tile"
+  }
+}

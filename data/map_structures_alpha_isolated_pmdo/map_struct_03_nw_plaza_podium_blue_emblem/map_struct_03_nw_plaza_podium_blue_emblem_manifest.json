@@ -1,0 +1,38 @@
+{
+  "id": "map_struct_03_nw_plaza_podium_blue_emblem",
+  "name_en": "Plaza Podium & Blue Guild Emblem",
+  "name_fr": "Podium de Place & Emblème Bleu de Guilde",
+  "source_map": "map to scale pmdo and make tilset asset.png",
+  "crop_box": [
+    182,
+    216,
+    254,
+    282
+  ],
+  "split_y_rel": 32,
+  "description": "Stone ceremony podium featuring blue Guild emblem crest and circular paving.",
+  "category": "monument_plaza",
+  "native_dimensions": [
+    72,
+    66
+  ],
+  "pmdo_dimensions_raw": [
+    144,
+    132
+  ],
+  "pmdo_grid_dimensions": [
+    160,
+    160
+  ],
+  "pmdo_tiles_w": 5,
+  "pmdo_tiles_h": 5,
+  "split_y_pmdo_px": 92,
+  "files": {
+    "raw_crop": "data/map_structures_alpha_isolated_pmdo/map_struct_03_nw_plaza_podium_blue_emblem/map_struct_03_nw_plaza_podium_blue_emblem_raw_crop.png",
+    "native_1x_alpha": "data/map_structures_alpha_isolated_pmdo/map_struct_03_nw_plaza_podium_blue_emblem/map_struct_03_nw_plaza_podium_blue_emblem_native_1x_alpha.png",
+    "pmdo_2x_complete": "data/map_structures_alpha_isolated_pmdo/map_struct_03_nw_plaza_podium_blue_emblem/map_struct_03_nw_plaza_podium_blue_emblem_complete_pmdo_2x.png",
+    "layer8_roof": "data/map_structures_alpha_isolated_pmdo/map_struct_03_nw_plaza_podium_blue_emblem/map_struct_03_nw_plaza_podium_blue_emblem_roof_overhang_layer8.png",
+    "layer6_walls": "data/map_structures_alpha_isolated_pmdo/map_struct_03_nw_plaza_podium_blue_emblem/map_struct_03_nw_plaza_podium_blue_emblem_walls_base_layer6.png",
+    "pmdo_tile_binary": "Content/Tile/map_struct_03_nw_plaza_podium_blue_emblem_Base.tile"
+  }
+}

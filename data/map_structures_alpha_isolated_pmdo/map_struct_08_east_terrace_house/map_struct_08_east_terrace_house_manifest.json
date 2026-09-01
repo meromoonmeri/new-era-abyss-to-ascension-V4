@@ -1,0 +1,38 @@
+{
+  "id": "map_struct_08_east_terrace_house",
+  "name_en": "East Terrace Wooden House",
+  "name_fr": "Maison en Bois sur Terrasse Est",
+  "source_map": "map to scale pmdo and make tilset asset.png",
+  "crop_box": [
+    552,
+    420,
+    680,
+    542
+  ],
+  "split_y_rel": 64,
+  "description": "Spacious cliffside dwelling with large sloped wooden shingle roof and front porch.",
+  "category": "residential_house",
+  "native_dimensions": [
+    128,
+    122
+  ],
+  "pmdo_dimensions_raw": [
+    256,
+    244
+  ],
+  "pmdo_grid_dimensions": [
+    256,
+    256
+  ],
+  "pmdo_tiles_w": 8,
+  "pmdo_tiles_h": 8,
+  "split_y_pmdo_px": 140,
+  "files": {
+    "raw_crop": "data/map_structures_alpha_isolated_pmdo/map_struct_08_east_terrace_house/map_struct_08_east_terrace_house_raw_crop.png",
+    "native_1x_alpha": "data/map_structures_alpha_isolated_pmdo/map_struct_08_east_terrace_house/map_struct_08_east_terrace_house_native_1x_alpha.png",
+    "pmdo_2x_complete": "data/map_structures_alpha_isolated_pmdo/map_struct_08_east_terrace_house/map_struct_08_east_terrace_house_complete_pmdo_2x.png",
+    "layer8_roof": "data/map_structures_alpha_isolated_pmdo/map_struct_08_east_terrace_house/map_struct_08_east_terrace_house_roof_overhang_layer8.png",
+    "layer6_walls": "data/map_structures_alpha_isolated_pmdo/map_struct_08_east_terrace_house/map_struct_08_east_terrace_house_walls_base_layer6.png",
+    "pmdo_tile_binary": "Content/Tile/map_struct_08_east_terrace_house_Base.tile"
+  }
+}

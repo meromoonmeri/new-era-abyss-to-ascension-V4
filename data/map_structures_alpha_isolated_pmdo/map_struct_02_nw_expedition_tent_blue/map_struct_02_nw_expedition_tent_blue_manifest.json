@@ -1,0 +1,38 @@
+{
+  "id": "map_struct_02_nw_expedition_tent_blue",
+  "name_en": "Northwest Blue Expedition Tent",
+  "name_fr": "Tente d'Expédition Bleue Nord-Ouest",
+  "source_map": "map to scale pmdo and make tilset asset.png",
+  "crop_box": [
+    216,
+    168,
+    272,
+    222
+  ],
+  "split_y_rel": 28,
+  "description": "Blue fabric expedition dome tent with entrance flap and wooden tie-down pegs.",
+  "category": "tent_dwelling",
+  "native_dimensions": [
+    56,
+    54
+  ],
+  "pmdo_dimensions_raw": [
+    112,
+    108
+  ],
+  "pmdo_grid_dimensions": [
+    128,
+    128
+  ],
+  "pmdo_tiles_w": 4,
+  "pmdo_tiles_h": 4,
+  "split_y_pmdo_px": 76,
+  "files": {
+    "raw_crop": "data/map_structures_alpha_isolated_pmdo/map_struct_02_nw_expedition_tent_blue/map_struct_02_nw_expedition_tent_blue_raw_crop.png",
+    "native_1x_alpha": "data/map_structures_alpha_isolated_pmdo/map_struct_02_nw_expedition_tent_blue/map_struct_02_nw_expedition_tent_blue_native_1x_alpha.png",
+    "pmdo_2x_complete": "data/map_structures_alpha_isolated_pmdo/map_struct_02_nw_expedition_tent_blue/map_struct_02_nw_expedition_tent_blue_complete_pmdo_2x.png",
+    "layer8_roof": "data/map_structures_alpha_isolated_pmdo/map_struct_02_nw_expedition_tent_blue/map_struct_02_nw_expedition_tent_blue_roof_overhang_layer8.png",
+    "layer6_walls": "data/map_structures_alpha_isolated_pmdo/map_struct_02_nw_expedition_tent_blue/map_struct_02_nw_expedition_tent_blue_walls_base_layer6.png",
+    "pmdo_tile_binary": "Content/Tile/map_struct_02_nw_expedition_tent_blue_Base.tile"
+  }
+}

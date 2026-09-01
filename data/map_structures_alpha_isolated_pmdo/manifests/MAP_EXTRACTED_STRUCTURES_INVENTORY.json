@@ -1,0 +1,492 @@
+{
+  "schema_version": "2.0.0",
+  "title": "Map-Extracted Alpha-Isolated Structures PMDO Library",
+  "source_map": "map to scale pmdo and make tilset asset.png",
+  "scale_metrics": {
+    "scale_factor": 2.0,
+    "interpolation": "nearest_neighbor_integer_lossless",
+    "tile_grid_px": 32,
+    "collision_cell_px": 8,
+    "pure_alpha_32bit": true
+  },
+  "structure_count": 10,
+  "structures": [
+    {
+      "id": "map_struct_01_nw_spinda_grand_cafe",
+      "name_en": "Northwest Grand Spinda Café",
+      "name_fr": "Grand Café Spinda Nord-Ouest",
+      "source_map": "map to scale pmdo and make tilset asset.png",
+      "crop_box": [
+        114,
+        18,
+        260,
+        115
+      ],
+      "split_y_rel": 58,
+      "description": "Grand terraced Spinda Café with wooden canopy, entrance counter, and side patio.",
+      "category": "service_cafe",
+      "native_dimensions": [
+        146,
+        97
+      ],
+      "pmdo_dimensions_raw": [
+        292,
+        194
+      ],
+      "pmdo_grid_dimensions": [
+        320,
+        224
+      ],
+      "pmdo_tiles_w": 10,
+      "pmdo_tiles_h": 7,
+      "split_y_pmdo_px": 146,
+      "files": {
+        "raw_crop": "data/map_structures_alpha_isolated_pmdo/map_struct_01_nw_spinda_grand_cafe/map_struct_01_nw_spinda_grand_cafe_raw_crop.png",
+        "native_1x_alpha": "data/map_structures_alpha_isolated_pmdo/map_struct_01_nw_spinda_grand_cafe/map_struct_01_nw_spinda_grand_cafe_native_1x_alpha.png",
+        "pmdo_2x_complete": "data/map_structures_alpha_isolated_pmdo/map_struct_01_nw_spinda_grand_cafe/map_struct_01_nw_spinda_grand_cafe_complete_pmdo_2x.png",
+        "layer8_roof": "data/map_structures_alpha_isolated_pmdo/map_struct_01_nw_spinda_grand_cafe/map_struct_01_nw_spinda_grand_cafe_roof_overhang_layer8.png",
+        "layer6_walls": "data/map_structures_alpha_isolated_pmdo/map_struct_01_nw_spinda_grand_cafe/map_struct_01_nw_spinda_grand_cafe_walls_base_layer6.png",
+        "pmdo_tile_binary": "Content/Tile/map_struct_01_nw_spinda_grand_cafe_Base.tile"
+      }
+    },
+    {
+      "id": "map_struct_02_nw_expedition_tent_blue",
+      "name_en": "Northwest Blue Expedition Tent",
+      "name_fr": "Tente d'Expédition Bleue Nord-Ouest",
+      "source_map": "map to scale pmdo and make tilset asset.png",
+      "crop_box": [
+        216,
+        168,
+        272,
+        222
+      ],
+      "split_y_rel": 28,
+      "description": "Blue fabric expedition dome tent with entrance flap and wooden tie-down pegs.",
+      "category": "tent_dwelling",
+      "native_dimensions": [
+        56,
+        54
+      ],
+      "pmdo_dimensions_raw": [
+        112,
+        108
+      ],
+      "pmdo_grid_dimensions": [
+        128,
+        128
+      ],
+      "pmdo_tiles_w": 4,
+      "pmdo_tiles_h": 4,
+      "split_y_pmdo_px": 76,
+      "files": {
+        "raw_crop": "data/map_structures_alpha_isolated_pmdo/map_struct_02_nw_expedition_tent_blue/map_struct_02_nw_expedition_tent_blue_raw_crop.png",
+        "native_1x_alpha": "data/map_structures_alpha_isolated_pmdo/map_struct_02_nw_expedition_tent_blue/map_struct_02_nw_expedition_tent_blue_native_1x_alpha.png",
+        "pmdo_2x_complete": "data/map_structures_alpha_isolated_pmdo/map_struct_02_nw_expedition_tent_blue/map_struct_02_nw_expedition_tent_blue_complete_pmdo_2x.png",
+        "layer8_roof": "data/map_structures_alpha_isolated_pmdo/map_struct_02_nw_expedition_tent_blue/map_struct_02_nw_expedition_tent_blue_roof_overhang_layer8.png",
+        "layer6_walls": "data/map_structures_alpha_isolated_pmdo/map_struct_02_nw_expedition_tent_blue/map_struct_02_nw_expedition_tent_blue_walls_base_layer6.png",
+        "pmdo_tile_binary": "Content/Tile/map_struct_02_nw_expedition_tent_blue_Base.tile"
+      }
+    },
+    {
+      "id": "map_struct_03_nw_plaza_podium_blue_emblem",
+      "name_en": "Plaza Podium & Blue Guild Emblem",
+      "name_fr": "Podium de Place & Emblème Bleu de Guilde",
+      "source_map": "map to scale pmdo and make tilset asset.png",
+      "crop_box": [
+        182,
+        216,
+        254,
+        282
+      ],
+      "split_y_rel": 32,
+      "description": "Stone ceremony podium featuring blue Guild emblem crest and circular paving.",
+      "category": "monument_plaza",
+      "native_dimensions": [
+        72,
+        66
+      ],
+      "pmdo_dimensions_raw": [
+        144,
+        132
+      ],
+      "pmdo_grid_dimensions": [
+        160,
+        160
+      ],
+      "pmdo_tiles_w": 5,
+      "pmdo_tiles_h": 5,
+      "split_y_pmdo_px": 92,
+      "files": {
+        "raw_crop": "data/map_structures_alpha_isolated_pmdo/map_struct_03_nw_plaza_podium_blue_emblem/map_struct_03_nw_plaza_podium_blue_emblem_raw_crop.png",
+        "native_1x_alpha": "data/map_structures_alpha_isolated_pmdo/map_struct_03_nw_plaza_podium_blue_emblem/map_struct_03_nw_plaza_podium_blue_emblem_native_1x_alpha.png",
+        "pmdo_2x_complete": "data/map_structures_alpha_isolated_pmdo/map_struct_03_nw_plaza_podium_blue_emblem/map_struct_03_nw_plaza_podium_blue_emblem_complete_pmdo_2x.png",
+        "layer8_roof": "data/map_structures_alpha_isolated_pmdo/map_struct_03_nw_plaza_podium_blue_emblem/map_struct_03_nw_plaza_podium_blue_emblem_roof_overhang_layer8.png",
+        "layer6_walls": "data/map_structures_alpha_isolated_pmdo/map_struct_03_nw_plaza_podium_blue_emblem/map_struct_03_nw_plaza_podium_blue_emblem_walls_base_layer6.png",
+        "pmdo_tile_binary": "Content/Tile/map_struct_03_nw_plaza_podium_blue_emblem_Base.tile"
+      }
+    },
+    {
+      "id": "map_struct_04_w_bear_cave_dwelling",
+      "name_en": "West Bear-Head Cave Dwelling",
+      "name_fr": "Habitation Grotte Tête d'Ours Ouest",
+      "source_map": "map to scale pmdo and make tilset asset.png",
+      "crop_box": [
+        92,
+        390,
+        170,
+        465
+      ],
+      "split_y_rel": 40,
+      "description": "Cliffside cave dwelling carved into a carved Ursaring / Teddiursa bear face entrance.",
+      "category": "unique_dwelling",
+      "native_dimensions": [
+        78,
+        75
+      ],
+      "pmdo_dimensions_raw": [
+        156,
+        150
+      ],
+      "pmdo_grid_dimensions": [
+        160,
+        160
+      ],
+      "pmdo_tiles_w": 5,
+      "pmdo_tiles_h": 5,
+      "split_y_pmdo_px": 90,
+      "files": {
+        "raw_crop": "data/map_structures_alpha_isolated_pmdo/map_struct_04_w_bear_cave_dwelling/map_struct_04_w_bear_cave_dwelling_raw_crop.png",
+        "native_1x_alpha": "data/map_structures_alpha_isolated_pmdo/map_struct_04_w_bear_cave_dwelling/map_struct_04_w_bear_cave_dwelling_native_1x_alpha.png",
+        "pmdo_2x_complete": "data/map_structures_alpha_isolated_pmdo/map_struct_04_w_bear_cave_dwelling/map_struct_04_w_bear_cave_dwelling_complete_pmdo_2x.png",
+        "layer8_roof": "data/map_structures_alpha_isolated_pmdo/map_struct_04_w_bear_cave_dwelling/map_struct_04_w_bear_cave_dwelling_roof_overhang_layer8.png",
+        "layer6_walls": "data/map_structures_alpha_isolated_pmdo/map_struct_04_w_bear_cave_dwelling/map_struct_04_w_bear_cave_dwelling_walls_base_layer6.png",
+        "pmdo_tile_binary": "Content/Tile/map_struct_04_w_bear_cave_dwelling_Base.tile"
+      }
+    },
+    {
+      "id": "map_struct_05_sw_round_fire_house",
+      "name_en": "Southwest Round Fire-Style House",
+      "name_fr": "Maison Ronde Style Feu Sud-Ouest",
+      "source_map": "map to scale pmdo and make tilset asset.png",
+      "crop_box": [
+        142,
+        492,
+        206,
+        560
+      ],
+      "split_y_rel": 36,
+      "description": "Round terracotta hut with pointed thatched cap roof and wood trim doorway.",
+      "category": "residential_house",
+      "native_dimensions": [
+        64,
+        68
+      ],
+      "pmdo_dimensions_raw": [
+        128,
+        136
+      ],
+      "pmdo_grid_dimensions": [
+        128,
+        160
+      ],
+      "pmdo_tiles_w": 4,
+      "pmdo_tiles_h": 5,
+      "split_y_pmdo_px": 96,
+      "files": {
+        "raw_crop": "data/map_structures_alpha_isolated_pmdo/map_struct_05_sw_round_fire_house/map_struct_05_sw_round_fire_house_raw_crop.png",
+        "native_1x_alpha": "data/map_structures_alpha_isolated_pmdo/map_struct_05_sw_round_fire_house/map_struct_05_sw_round_fire_house_native_1x_alpha.png",
+        "pmdo_2x_complete": "data/map_structures_alpha_isolated_pmdo/map_struct_05_sw_round_fire_house/map_struct_05_sw_round_fire_house_complete_pmdo_2x.png",
+        "layer8_roof": "data/map_structures_alpha_isolated_pmdo/map_struct_05_sw_round_fire_house/map_struct_05_sw_round_fire_house_roof_overhang_layer8.png",
+        "layer6_walls": "data/map_structures_alpha_isolated_pmdo/map_struct_05_sw_round_fire_house/map_struct_05_sw_round_fire_house_walls_base_layer6.png",
+        "pmdo_tile_binary": "Content/Tile/map_struct_05_sw_round_fire_house_Base.tile"
+      }
+    },
+    {
+      "id": "map_struct_06_center_plaza_pavilion",
+      "name_en": "Central Plaza Pavilion & Landmark",
+      "name_fr": "Pavillon & Monument de Place Centrale",
+      "source_map": "map to scale pmdo and make tilset asset.png",
+      "crop_box": [
+        262,
+        262,
+        342,
+        342
+      ],
+      "split_y_rel": 42,
+      "description": "Central plaza gathering pavilion with wooden columns, railing, and tiled roof.",
+      "category": "plaza_pavilion",
+      "native_dimensions": [
+        80,
+        80
+      ],
+      "pmdo_dimensions_raw": [
+        160,
+        160
+      ],
+      "pmdo_grid_dimensions": [
+        160,
+        160
+      ],
+      "pmdo_tiles_w": 5,
+      "pmdo_tiles_h": 5,
+      "split_y_pmdo_px": 84,
+      "files": {
+        "raw_crop": "data/map_structures_alpha_isolated_pmdo/map_struct_06_center_plaza_pavilion/map_struct_06_center_plaza_pavilion_raw_crop.png",
+        "native_1x_alpha": "data/map_structures_alpha_isolated_pmdo/map_struct_06_center_plaza_pavilion/map_struct_06_center_plaza_pavilion_native_1x_alpha.png",
+        "pmdo_2x_complete": "data/map_structures_alpha_isolated_pmdo/map_struct_06_center_plaza_pavilion/map_struct_06_center_plaza_pavilion_complete_pmdo_2x.png",
+        "layer8_roof": "data/map_structures_alpha_isolated_pmdo/map_struct_06_center_plaza_pavilion/map_struct_06_center_plaza_pavilion_roof_overhang_layer8.png",
+        "layer6_walls": "data/map_structures_alpha_isolated_pmdo/map_struct_06_center_plaza_pavilion/map_struct_06_center_plaza_pavilion_walls_base_layer6.png",
+        "pmdo_tile_binary": "Content/Tile/map_struct_06_center_plaza_pavilion_Base.tile"
+      }
+    },
+    {
+      "id": "map_struct_07_center_treehouse_dwelling",
+      "name_en": "Central Treehouse Living Quarters",
+      "name_fr": "Logis de Maison dans l'Arbre Centrale",
+      "source_map": "map to scale pmdo and make tilset asset.png",
+      "crop_box": [
+        380,
+        278,
+        482,
+        392
+      ],
+      "split_y_rel": 60,
+      "description": "Multi-tiered living quarters integrated into the giant central village tree trunk.",
+      "category": "treehouse_dwelling",
+      "native_dimensions": [
+        102,
+        114
+      ],
+      "pmdo_dimensions_raw": [
+        204,
+        228
+      ],
+      "pmdo_grid_dimensions": [
+        224,
+        256
+      ],
+      "pmdo_tiles_w": 7,
+      "pmdo_tiles_h": 8,
+      "split_y_pmdo_px": 148,
+      "files": {
+        "raw_crop": "data/map_structures_alpha_isolated_pmdo/map_struct_07_center_treehouse_dwelling/map_struct_07_center_treehouse_dwelling_raw_crop.png",
+        "native_1x_alpha": "data/map_structures_alpha_isolated_pmdo/map_struct_07_center_treehouse_dwelling/map_struct_07_center_treehouse_dwelling_native_1x_alpha.png",
+        "pmdo_2x_complete": "data/map_structures_alpha_isolated_pmdo/map_struct_07_center_treehouse_dwelling/map_struct_07_center_treehouse_dwelling_complete_pmdo_2x.png",
+        "layer8_roof": "data/map_structures_alpha_isolated_pmdo/map_struct_07_center_treehouse_dwelling/map_struct_07_center_treehouse_dwelling_roof_overhang_layer8.png",
+        "layer6_walls": "data/map_structures_alpha_isolated_pmdo/map_struct_07_center_treehouse_dwelling/map_struct_07_center_treehouse_dwelling_walls_base_layer6.png",
+        "pmdo_tile_binary": "Content/Tile/map_struct_07_center_treehouse_dwelling_Base.tile"
+      }
+    },
+    {
+      "id": "map_struct_08_east_terrace_house",
+      "name_en": "East Terrace Wooden House",
+      "name_fr": "Maison en Bois sur Terrasse Est",
+      "source_map": "map to scale pmdo and make tilset asset.png",
+      "crop_box": [
+        552,
+        420,
+        680,
+        542
+      ],
+      "split_y_rel": 64,
+      "description": "Spacious cliffside dwelling with large sloped wooden shingle roof and front porch.",
+      "category": "residential_house",
+      "native_dimensions": [
+        128,
+        122
+      ],
+      "pmdo_dimensions_raw": [
+        256,
+        244
+      ],
+      "pmdo_grid_dimensions": [
+        256,
+        256
+      ],
+      "pmdo_tiles_w": 8,
+      "pmdo_tiles_h": 8,
+      "split_y_pmdo_px": 140,
+      "files": {
+        "raw_crop": "data/map_structures_alpha_isolated_pmdo/map_struct_08_east_terrace_house/map_struct_08_east_terrace_house_raw_crop.png",
+        "native_1x_alpha": "data/map_structures_alpha_isolated_pmdo/map_struct_08_east_terrace_house/map_struct_08_east_terrace_house_native_1x_alpha.png",
+        "pmdo_2x_complete": "data/map_structures_alpha_isolated_pmdo/map_struct_08_east_terrace_house/map_struct_08_east_terrace_house_complete_pmdo_2x.png",
+        "layer8_roof": "data/map_structures_alpha_isolated_pmdo/map_struct_08_east_terrace_house/map_struct_08_east_terrace_house_roof_overhang_layer8.png",
+        "layer6_walls": "data/map_structures_alpha_isolated_pmdo/map_struct_08_east_terrace_house/map_struct_08_east_terrace_house_walls_base_layer6.png",
+        "pmdo_tile_binary": "Content/Tile/map_struct_08_east_terrace_house_Base.tile"
+      }
+    },
+    {
+      "id": "map_struct_09_southeast_market_stall",
+      "name_en": "Southeast Bazaar & Market Canopy",
+      "name_fr": "Échoppe & Auvent de Marché Sud-Est",
+      "source_map": "map to scale pmdo and make tilset asset.png",
+      "crop_box": [
+        680,
+        520,
+        802,
+        642
+      ],
+      "split_y_rel": 62,
+      "description": "Open-air merchant shop stall with colorful striped canopy and goods display counter.",
+      "category": "market_stall",
+      "native_dimensions": [
+        122,
+        122
+      ],
+      "pmdo_dimensions_raw": [
+        244,
+        244
+      ],
+      "pmdo_grid_dimensions": [
+        256,
+        256
+      ],
+      "pmdo_tiles_w": 8,
+      "pmdo_tiles_h": 8,
+      "split_y_pmdo_px": 136,
+      "files": {
+        "raw_crop": "data/map_structures_alpha_isolated_pmdo/map_struct_09_southeast_market_stall/map_struct_09_southeast_market_stall_raw_crop.png",
+        "native_1x_alpha": "data/map_structures_alpha_isolated_pmdo/map_struct_09_southeast_market_stall/map_struct_09_southeast_market_stall_native_1x_alpha.png",
+        "pmdo_2x_complete": "data/map_structures_alpha_isolated_pmdo/map_struct_09_southeast_market_stall/map_struct_09_southeast_market_stall_complete_pmdo_2x.png",
+        "layer8_roof": "data/map_structures_alpha_isolated_pmdo/map_struct_09_southeast_market_stall/map_struct_09_southeast_market_stall_roof_overhang_layer8.png",
+        "layer6_walls": "data/map_structures_alpha_isolated_pmdo/map_struct_09_southeast_market_stall/map_struct_09_southeast_market_stall_walls_base_layer6.png",
+        "pmdo_tile_binary": "Content/Tile/map_struct_09_southeast_market_stall_Base.tile"
+      }
+    },
+    {
+      "id": "map_struct_10_south_fishery_dock",
+      "name_en": "South Fishery & Lakeside Dock Hut",
+      "name_fr": "Cabane de Pêcheur & Ponton Sud",
+      "source_map": "map to scale pmdo and make tilset asset.png",
+      "crop_box": [
+        320,
+        600,
+        442,
+        722
+      ],
+      "split_y_rel": 62,
+      "description": "Waterside fishing station with wooden dock stilts, drying racks, and boat slip.",
+      "category": "fishery_dock",
+      "native_dimensions": [
+        122,
+        122
+      ],
+      "pmdo_dimensions_raw": [
+        244,
+        244
+      ],
+      "pmdo_grid_dimensions": [
+        256,
+        256
+      ],
+      "pmdo_tiles_w": 8,
+      "pmdo_tiles_h": 8,
+      "split_y_pmdo_px": 136,
+      "files": {
+        "raw_crop": "data/map_structures_alpha_isolated_pmdo/map_struct_10_south_fishery_dock/map_struct_10_south_fishery_dock_raw_crop.png",
+        "native_1x_alpha": "data/map_structures_alpha_isolated_pmdo/map_struct_10_south_fishery_dock/map_struct_10_south_fishery_dock_native_1x_alpha.png",
+        "pmdo_2x_complete": "data/map_structures_alpha_isolated_pmdo/map_struct_10_south_fishery_dock/map_struct_10_south_fishery_dock_complete_pmdo_2x.png",
+        "layer8_roof": "data/map_structures_alpha_isolated_pmdo/map_struct_10_south_fishery_dock/map_struct_10_south_fishery_dock_roof_overhang_layer8.png",
+        "layer6_walls": "data/map_structures_alpha_isolated_pmdo/map_struct_10_south_fishery_dock/map_struct_10_south_fishery_dock_walls_base_layer6.png",
+        "pmdo_tile_binary": "Content/Tile/map_struct_10_south_fishery_dock_Base.tile"
+      }
+    }
+  ],
+  "master_tilesets": {
+    "all_structures": "data/map_structures_alpha_isolated_pmdo/map_all_structures_master_tileset.png",
+    "layer_8_roofs": "data/map_structures_alpha_isolated_pmdo/map_all_structures_roofs_layer8.png",
+    "layer_6_walls": "data/map_structures_alpha_isolated_pmdo/map_all_structures_walls_layer6.png"
+  },
+  "atlas_layout": {
+    "map_struct_01_nw_spinda_grand_cafe": {
+      "name_en": "Northwest Grand Spinda Café",
+      "atlas_pixel_x": 32,
+      "atlas_pixel_y": 32,
+      "width": 320,
+      "height": 224,
+      "tiles_w": 10,
+      "tiles_h": 7
+    },
+    "map_struct_02_nw_expedition_tent_blue": {
+      "name_en": "Northwest Blue Expedition Tent",
+      "atlas_pixel_x": 384,
+      "atlas_pixel_y": 32,
+      "width": 128,
+      "height": 128,
+      "tiles_w": 4,
+      "tiles_h": 4
+    },
+    "map_struct_03_nw_plaza_podium_blue_emblem": {
+      "name_en": "Plaza Podium & Blue Guild Emblem",
+      "atlas_pixel_x": 32,
+      "atlas_pixel_y": 288,
+      "width": 160,
+      "height": 160,
+      "tiles_w": 5,
+      "tiles_h": 5
+    },
+    "map_struct_04_w_bear_cave_dwelling": {
+      "name_en": "West Bear-Head Cave Dwelling",
+      "atlas_pixel_x": 384,
+      "atlas_pixel_y": 288,
+      "width": 160,
+      "height": 160,
+      "tiles_w": 5,
+      "tiles_h": 5
+    },
+    "map_struct_05_sw_round_fire_house": {
+      "name_en": "Southwest Round Fire-Style House",
+      "atlas_pixel_x": 32,
+      "atlas_pixel_y": 480,
+      "width": 128,
+      "height": 160,
+      "tiles_w": 4,
+      "tiles_h": 5
+    },
+    "map_struct_06_center_plaza_pavilion": {
+      "name_en": "Central Plaza Pavilion & Landmark",
+      "atlas_pixel_x": 384,
+      "atlas_pixel_y": 480,
+      "width": 160,
+      "height": 160,
+      "tiles_w": 5,
+      "tiles_h": 5
+    },
+    "map_struct_07_center_treehouse_dwelling": {
+      "name_en": "Central Treehouse Living Quarters",
+      "atlas_pixel_x": 32,
+      "atlas_pixel_y": 672,
+      "width": 224,
+      "height": 256,
+      "tiles_w": 7,
+      "tiles_h": 8
+    },
+    "map_struct_08_east_terrace_house": {
+      "name_en": "East Terrace Wooden House",
+      "atlas_pixel_x": 384,
+      "atlas_pixel_y": 672,
+      "width": 256,
+      "height": 256,
+      "tiles_w": 8,
+      "tiles_h": 8
+    },
+    "map_struct_09_southeast_market_stall": {
+      "name_en": "Southeast Bazaar & Market Canopy",
+      "atlas_pixel_x": 32,
+      "atlas_pixel_y": 960,
+      "width": 256,
+      "height": 256,
+      "tiles_w": 8,
+      "tiles_h": 8
+    },
+    "map_struct_10_south_fishery_dock": {
+      "name_en": "South Fishery & Lakeside Dock Hut",
+      "atlas_pixel_x": 384,
+      "atlas_pixel_y": 960,
+      "width": 256,
+      "height": 256,
+      "tiles_w": 8,
+      "tiles_h": 8
+    }
+  }
+}

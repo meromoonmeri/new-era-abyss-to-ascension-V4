@@ -1,0 +1,38 @@
+{
+  "id": "map_struct_06_center_plaza_pavilion",
+  "name_en": "Central Plaza Pavilion & Landmark",
+  "name_fr": "Pavillon & Monument de Place Centrale",
+  "source_map": "map to scale pmdo and make tilset asset.png",
+  "crop_box": [
+    262,
+    262,
+    342,
+    342
+  ],
+  "split_y_rel": 42,
+  "description": "Central plaza gathering pavilion with wooden columns, railing, and tiled roof.",
+  "category": "plaza_pavilion",
+  "native_dimensions": [
+    80,
+    80
+  ],
+  "pmdo_dimensions_raw": [
+    160,
+    160
+  ],
+  "pmdo_grid_dimensions": [
+    160,
+    160
+  ],
+  "pmdo_tiles_w": 5,
+  "pmdo_tiles_h": 5,
+  "split_y_pmdo_px": 84,
+  "files": {
+    "raw_crop": "data/map_structures_alpha_isolated_pmdo/map_struct_06_center_plaza_pavilion/map_struct_06_center_plaza_pavilion_raw_crop.png",
+    "native_1x_alpha": "data/map_structures_alpha_isolated_pmdo/map_struct_06_center_plaza_pavilion/map_struct_06_center_plaza_pavilion_native_1x_alpha.png",
+    "pmdo_2x_complete": "data/map_structures_alpha_isolated_pmdo/map_struct_06_center_plaza_pavilion/map_struct_06_center_plaza_pavilion_complete_pmdo_2x.png",
+    "layer8_roof": "data/map_structures_alpha_isolated_pmdo/map_struct_06_center_plaza_pavilion/map_struct_06_center_plaza_pavilion_roof_overhang_layer8.png",
+    "layer6_walls": "data/map_structures_alpha_isolated_pmdo/map_struct_06_center_plaza_pavilion/map_struct_06_center_plaza_pavilion_walls_base_layer6.png",
+    "pmdo_tile_binary": "Content/Tile/map_struct_06_center_plaza_pavilion_Base.tile"
+  }
+}

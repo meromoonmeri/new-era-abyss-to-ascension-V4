@@ -1,0 +1,38 @@
+{
+  "id": "map_struct_04_w_bear_cave_dwelling",
+  "name_en": "West Bear-Head Cave Dwelling",
+  "name_fr": "Habitation Grotte Tête d'Ours Ouest",
+  "source_map": "map to scale pmdo and make tilset asset.png",
+  "crop_box": [
+    92,
+    390,
+    170,
+    465
+  ],
+  "split_y_rel": 40,
+  "description": "Cliffside cave dwelling carved into a carved Ursaring / Teddiursa bear face entrance.",
+  "category": "unique_dwelling",
+  "native_dimensions": [
+    78,
+    75
+  ],
+  "pmdo_dimensions_raw": [
+    156,
+    150
+  ],
+  "pmdo_grid_dimensions": [
+    160,
+    160
+  ],
+  "pmdo_tiles_w": 5,
+  "pmdo_tiles_h": 5,
+  "split_y_pmdo_px": 90,
+  "files": {
+    "raw_crop": "data/map_structures_alpha_isolated_pmdo/map_struct_04_w_bear_cave_dwelling/map_struct_04_w_bear_cave_dwelling_raw_crop.png",
+    "native_1x_alpha": "data/map_structures_alpha_isolated_pmdo/map_struct_04_w_bear_cave_dwelling/map_struct_04_w_bear_cave_dwelling_native_1x_alpha.png",
+    "pmdo_2x_complete": "data/map_structures_alpha_isolated_pmdo/map_struct_04_w_bear_cave_dwelling/map_struct_04_w_bear_cave_dwelling_complete_pmdo_2x.png",
+    "layer8_roof": "data/map_structures_alpha_isolated_pmdo/map_struct_04_w_bear_cave_dwelling/map_struct_04_w_bear_cave_dwelling_roof_overhang_layer8.png",
+    "layer6_walls": "data/map_structures_alpha_isolated_pmdo/map_struct_04_w_bear_cave_dwelling/map_struct_04_w_bear_cave_dwelling_walls_base_layer6.png",
+    "pmdo_tile_binary": "Content/Tile/map_struct_04_w_bear_cave_dwelling_Base.tile"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "id": "map_struct_10_south_fishery_dock",
+  "name_en": "South Fishery & Lakeside Dock Hut",
+  "name_fr": "Cabane de Pêcheur & Ponton Sud",
+  "source_map": "map to scale pmdo and make tilset asset.png",
+  "crop_box": [
+    320,
+    600,
+    442,
+    722
+  ],
+  "split_y_rel": 62,
+  "description": "Waterside fishing station with wooden dock stilts, drying racks, and boat slip.",
+  "category": "fishery_dock",
+  "native_dimensions": [
+    122,
+    122
+  ],
+  "pmdo_dimensions_raw": [
+    244,
+    244
+  ],
+  "pmdo_grid_dimensions": [
+    256,
+    256
+  ],
+  "pmdo_tiles_w": 8,
+  "pmdo_tiles_h": 8,
+  "split_y_pmdo_px": 136,
+  "files": {
+    "raw_crop": "data/map_structures_alpha_isolated_pmdo/map_struct_10_south_fishery_dock/map_struct_10_south_fishery_dock_raw_crop.png",
+    "native_1x_alpha": "data/map_structures_alpha_isolated_pmdo/map_struct_10_south_fishery_dock/map_struct_10_south_fishery_dock_native_1x_alpha.png",
+    "pmdo_2x_complete": "data/map_structures_alpha_isolated_pmdo/map_struct_10_south_fishery_dock/map_struct_10_south_fishery_dock_complete_pmdo_2x.png",
+    "layer8_roof": "data/map_structures_alpha_isolated_pmdo/map_struct_10_south_fishery_dock/map_struct_10_south_fishery_dock_roof_overhang_layer8.png",
+    "layer6_walls": "data/map_structures_alpha_isolated_pmdo/map_struct_10_south_fishery_dock/map_struct_10_south_fishery_dock_walls_base_layer6.png",
+    "pmdo_tile_binary": "Content/Tile/map_struct_10_south_fishery_dock_Base.tile"
+  }
+}

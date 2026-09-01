@@ -1,0 +1,38 @@
+{
+  "id": "map_struct_07_center_treehouse_dwelling",
+  "name_en": "Central Treehouse Living Quarters",
+  "name_fr": "Logis de Maison dans l'Arbre Centrale",
+  "source_map": "map to scale pmdo and make tilset asset.png",
+  "crop_box": [
+    380,
+    278,
+    482,
+    392
+  ],
+  "split_y_rel": 60,
+  "description": "Multi-tiered living quarters integrated into the giant central village tree trunk.",
+  "category": "treehouse_dwelling",
+  "native_dimensions": [
+    102,
+    114
+  ],
+  "pmdo_dimensions_raw": [
+    204,
+    228
+  ],
+  "pmdo_grid_dimensions": [
+    224,
+    256
+  ],
+  "pmdo_tiles_w": 7,
+  "pmdo_tiles_h": 8,
+  "split_y_pmdo_px": 148,
+  "files": {
+    "raw_crop": "data/map_structures_alpha_isolated_pmdo/map_struct_07_center_treehouse_dwelling/map_struct_07_center_treehouse_dwelling_raw_crop.png",
+    "native_1x_alpha": "data/map_structures_alpha_isolated_pmdo/map_struct_07_center_treehouse_dwelling/map_struct_07_center_treehouse_dwelling_native_1x_alpha.png",
+    "pmdo_2x_complete": "data/map_structures_alpha_isolated_pmdo/map_struct_07_center_treehouse_dwelling/map_struct_07_center_treehouse_dwelling_complete_pmdo_2x.png",
+    "layer8_roof": "data/map_structures_alpha_isolated_pmdo/map_struct_07_center_treehouse_dwelling/map_struct_07_center_treehouse_dwelling_roof_overhang_layer8.png",
+    "layer6_walls": "data/map_structures_alpha_isolated_pmdo/map_struct_07_center_treehouse_dwelling/map_struct_07_center_treehouse_dwelling_walls_base_layer6.png",
+    "pmdo_tile_binary": "Content/Tile/map_struct_07_center_treehouse_dwelling_Base.tile"
+  }
+}

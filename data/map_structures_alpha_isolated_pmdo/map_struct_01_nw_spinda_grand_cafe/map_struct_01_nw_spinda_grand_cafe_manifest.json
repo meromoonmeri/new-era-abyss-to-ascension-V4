@@ -1,0 +1,38 @@
+{
+  "id": "map_struct_01_nw_spinda_grand_cafe",
+  "name_en": "Northwest Grand Spinda Café",
+  "name_fr": "Grand Café Spinda Nord-Ouest",
+  "source_map": "map to scale pmdo and make tilset asset.png",
+  "crop_box": [
+    114,
+    18,
+    260,
+    115
+  ],
+  "split_y_rel": 58,
+  "description": "Grand terraced Spinda Café with wooden canopy, entrance counter, and side patio.",
+  "category": "service_cafe",
+  "native_dimensions": [
+    146,
+    97
+  ],
+  "pmdo_dimensions_raw": [
+    292,
+    194
+  ],
+  "pmdo_grid_dimensions": [
+    320,
+    224
+  ],
+  "pmdo_tiles_w": 10,
+  "pmdo_tiles_h": 7,
+  "split_y_pmdo_px": 146,
+  "files": {
+    "raw_crop": "data/map_structures_alpha_isolated_pmdo/map_struct_01_nw_spinda_grand_cafe/map_struct_01_nw_spinda_grand_cafe_raw_crop.png",
+    "native_1x_alpha": "data/map_structures_alpha_isolated_pmdo/map_struct_01_nw_spinda_grand_cafe/map_struct_01_nw_spinda_grand_cafe_native_1x_alpha.png",
+    "pmdo_2x_complete": "data/map_structures_alpha_isolated_pmdo/map_struct_01_nw_spinda_grand_cafe/map_struct_01_nw_spinda_grand_cafe_complete_pmdo_2x.png",
+    "layer8_roof": "data/map_structures_alpha_isolated_pmdo/map_struct_01_nw_spinda_grand_cafe/map_struct_01_nw_spinda_grand_cafe_roof_overhang_layer8.png",
+    "layer6_walls": "data/map_structures_alpha_isolated_pmdo/map_struct_01_nw_spinda_grand_cafe/map_struct_01_nw_spinda_grand_cafe_walls_base_layer6.png",
+    "pmdo_tile_binary": "Content/Tile/map_struct_01_nw_spinda_grand_cafe_Base.tile"
+  }
+}
