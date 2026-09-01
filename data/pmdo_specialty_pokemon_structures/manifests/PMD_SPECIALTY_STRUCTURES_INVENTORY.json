@@ -1,0 +1,492 @@
+{
+  "schema_version": "2.0.0",
+  "title": "PMD Specialty Pokémon Structures — PMDO Scaled & Alpha-Isolated Tileset Library",
+  "methodology": "Palika mapping decomposition & Metano Town PMDO standard scaling",
+  "scale_metrics": {
+    "scale_factor": 2.0,
+    "interpolation": "nearest_neighbor_integer_lossless",
+    "tile_grid_px": 32,
+    "collision_cell_px": 8,
+    "zero_denaturation": true,
+    "pure_alpha_32bit": true
+  },
+  "structure_count": 7,
+  "structures": [
+    {
+      "id": "pmd_struct_01_sentret_house_shop",
+      "folder_name": "01_sentret_house_shop",
+      "name_en": "Sentret House & Shop",
+      "name_fr": "Maison & Boutique Fouinette",
+      "src_file": "tiles8_0114.png",
+      "split_y_native": 62,
+      "description": "Sentret round wood-carved dwelling and shop featuring dual orb chests and red entrance rug.",
+      "category": "residential_shop",
+      "door_offset_px_native": [
+        53,
+        90
+      ],
+      "collision_box_native": [
+        10,
+        50,
+        110,
+        54
+      ],
+      "native_dimensions": [
+        130,
+        114
+      ],
+      "pmdo_dimensions_raw": [
+        260,
+        228
+      ],
+      "pmdo_grid_dimensions": [
+        288,
+        256
+      ],
+      "pmdo_tiles_w": 9,
+      "pmdo_tiles_h": 8,
+      "padding_offset": [
+        14,
+        28
+      ],
+      "split_y_pmdo_px": 152,
+      "layer_assignments": {
+        "layer_8_roofs_overhang": "data/pmdo_specialty_pokemon_structures/01_sentret_house_shop/pmd_struct_01_sentret_house_shop_roof_overhang_layer8.png",
+        "layer_6_walls_base": "data/pmdo_specialty_pokemon_structures/01_sentret_house_shop/pmd_struct_01_sentret_house_shop_walls_base_layer6.png",
+        "layer_0_collision": "Base ground layer logic & blockages"
+      },
+      "files": {
+        "native_1x": "data/pmdo_specialty_pokemon_structures/01_sentret_house_shop/pmd_struct_01_sentret_house_shop_native_1x.png",
+        "pmdo_2x_complete": "data/pmdo_specialty_pokemon_structures/01_sentret_house_shop/pmd_struct_01_sentret_house_shop_complete_metano_scale_2x.png",
+        "layer8_roof": "data/pmdo_specialty_pokemon_structures/01_sentret_house_shop/pmd_struct_01_sentret_house_shop_roof_overhang_layer8.png",
+        "layer6_walls": "data/pmdo_specialty_pokemon_structures/01_sentret_house_shop/pmd_struct_01_sentret_house_shop_walls_base_layer6.png",
+        "pmdo_tile_binary": "Content/Tile/pmd_struct_01_sentret_house_shop_Base.tile"
+      }
+    },
+    {
+      "id": "pmd_struct_02_armaldo_head_shop",
+      "folder_name": "02_armaldo_head_shop",
+      "name_en": "Armaldo Head Shop",
+      "name_fr": "Échoppe Tête d'Armaldo & Trésors",
+      "src_file": "tiles9_0553.png",
+      "split_y_native": 96,
+      "description": "Armaldo / Anorith fossil head boutique equipped with jewel treasure chests and blue/red striped mat.",
+      "category": "specialty_shop",
+      "door_offset_px_native": [
+        86,
+        150
+      ],
+      "collision_box_native": [
+        16,
+        70,
+        172,
+        95
+      ],
+      "native_dimensions": [
+        204,
+        182
+      ],
+      "pmdo_dimensions_raw": [
+        408,
+        364
+      ],
+      "pmdo_grid_dimensions": [
+        416,
+        384
+      ],
+      "pmdo_tiles_w": 13,
+      "pmdo_tiles_h": 12,
+      "padding_offset": [
+        4,
+        20
+      ],
+      "split_y_pmdo_px": 212,
+      "layer_assignments": {
+        "layer_8_roofs_overhang": "data/pmdo_specialty_pokemon_structures/02_armaldo_head_shop/pmd_struct_02_armaldo_head_shop_roof_overhang_layer8.png",
+        "layer_6_walls_base": "data/pmdo_specialty_pokemon_structures/02_armaldo_head_shop/pmd_struct_02_armaldo_head_shop_walls_base_layer6.png",
+        "layer_0_collision": "Base ground layer logic & blockages"
+      },
+      "files": {
+        "native_1x": "data/pmdo_specialty_pokemon_structures/02_armaldo_head_shop/pmd_struct_02_armaldo_head_shop_native_1x.png",
+        "pmdo_2x_complete": "data/pmdo_specialty_pokemon_structures/02_armaldo_head_shop/pmd_struct_02_armaldo_head_shop_complete_metano_scale_2x.png",
+        "layer8_roof": "data/pmdo_specialty_pokemon_structures/02_armaldo_head_shop/pmd_struct_02_armaldo_head_shop_roof_overhang_layer8.png",
+        "layer6_walls": "data/pmdo_specialty_pokemon_structures/02_armaldo_head_shop/pmd_struct_02_armaldo_head_shop_walls_base_layer6.png",
+        "pmdo_tile_binary": "Content/Tile/pmd_struct_02_armaldo_head_shop_Base.tile"
+      }
+    },
+    {
+      "id": "pmd_struct_03_duskull_skull_bank",
+      "folder_name": "03_duskull_skull_bank",
+      "name_en": "Duskull Skull Bank",
+      "name_fr": "Banque Crâne de Skélenox",
+      "src_file": "tiles9_0548.png",
+      "split_y_native": 84,
+      "description": "Duskull skull financial institution with purple ruffled collar, gold accents, and yellow canopy.",
+      "category": "bank_service",
+      "door_offset_px_native": [
+        90,
+        130
+      ],
+      "collision_box_native": [
+        18,
+        65,
+        176,
+        80
+      ],
+      "native_dimensions": [
+        212,
+        160
+      ],
+      "pmdo_dimensions_raw": [
+        424,
+        320
+      ],
+      "pmdo_grid_dimensions": [
+        448,
+        320
+      ],
+      "pmdo_tiles_w": 14,
+      "pmdo_tiles_h": 10,
+      "padding_offset": [
+        12,
+        0
+      ],
+      "split_y_pmdo_px": 168,
+      "layer_assignments": {
+        "layer_8_roofs_overhang": "data/pmdo_specialty_pokemon_structures/03_duskull_skull_bank/pmd_struct_03_duskull_skull_bank_roof_overhang_layer8.png",
+        "layer_6_walls_base": "data/pmdo_specialty_pokemon_structures/03_duskull_skull_bank/pmd_struct_03_duskull_skull_bank_walls_base_layer6.png",
+        "layer_0_collision": "Base ground layer logic & blockages"
+      },
+      "files": {
+        "native_1x": "data/pmdo_specialty_pokemon_structures/03_duskull_skull_bank/pmd_struct_03_duskull_skull_bank_native_1x.png",
+        "pmdo_2x_complete": "data/pmdo_specialty_pokemon_structures/03_duskull_skull_bank/pmd_struct_03_duskull_skull_bank_complete_metano_scale_2x.png",
+        "layer8_roof": "data/pmdo_specialty_pokemon_structures/03_duskull_skull_bank/pmd_struct_03_duskull_skull_bank_roof_overhang_layer8.png",
+        "layer6_walls": "data/pmdo_specialty_pokemon_structures/03_duskull_skull_bank/pmd_struct_03_duskull_skull_bank_walls_base_layer6.png",
+        "pmdo_tile_binary": "Content/Tile/pmd_struct_03_duskull_skull_bank_Base.tile"
+      }
+    },
+    {
+      "id": "pmd_struct_04_alakazam_head_shop",
+      "folder_name": "04_alakazam_head_shop",
+      "name_en": "Alakazam Head Shop",
+      "name_fr": "Pavillon Tête d'Alakazam",
+      "src_file": "tiles9_0528.png",
+      "split_y_native": 102,
+      "description": "Alakazam psychic academy and shop with yellow striped fence, large mustache crests, and entrance gate.",
+      "category": "dojo_service",
+      "door_offset_px_native": [
+        82,
+        160
+      ],
+      "collision_box_native": [
+        15,
+        75,
+        166,
+        105
+      ],
+      "native_dimensions": [
+        196,
+        198
+      ],
+      "pmdo_dimensions_raw": [
+        392,
+        396
+      ],
+      "pmdo_grid_dimensions": [
+        416,
+        416
+      ],
+      "pmdo_tiles_w": 13,
+      "pmdo_tiles_h": 13,
+      "padding_offset": [
+        12,
+        20
+      ],
+      "split_y_pmdo_px": 224,
+      "layer_assignments": {
+        "layer_8_roofs_overhang": "data/pmdo_specialty_pokemon_structures/04_alakazam_head_shop/pmd_struct_04_alakazam_head_shop_roof_overhang_layer8.png",
+        "layer_6_walls_base": "data/pmdo_specialty_pokemon_structures/04_alakazam_head_shop/pmd_struct_04_alakazam_head_shop_walls_base_layer6.png",
+        "layer_0_collision": "Base ground layer logic & blockages"
+      },
+      "files": {
+        "native_1x": "data/pmdo_specialty_pokemon_structures/04_alakazam_head_shop/pmd_struct_04_alakazam_head_shop_native_1x.png",
+        "pmdo_2x_complete": "data/pmdo_specialty_pokemon_structures/04_alakazam_head_shop/pmd_struct_04_alakazam_head_shop_complete_metano_scale_2x.png",
+        "layer8_roof": "data/pmdo_specialty_pokemon_structures/04_alakazam_head_shop/pmd_struct_04_alakazam_head_shop_roof_overhang_layer8.png",
+        "layer6_walls": "data/pmdo_specialty_pokemon_structures/04_alakazam_head_shop/pmd_struct_04_alakazam_head_shop_walls_base_layer6.png",
+        "pmdo_tile_binary": "Content/Tile/pmd_struct_04_alakazam_head_shop_Base.tile"
+      }
+    },
+    {
+      "id": "pmd_struct_05_wynaut_recycle_shop",
+      "folder_name": "05_wynaut_recycle_shop",
+      "name_en": "Wynaut Recycle Shop",
+      "name_fr": "Stand de Recyclage Okéoké & Qulbutoké",
+      "src_file": "tiles9_0555.png",
+      "split_y_native": 98,
+      "description": "Wynaut bulbous head recycling counter featuring item sorting boxes, tail display, and purple floor mat.",
+      "category": "recycle_shop",
+      "door_offset_px_native": [
+        72,
+        156
+      ],
+      "collision_box_native": [
+        14,
+        70,
+        148,
+        105
+      ],
+      "native_dimensions": [
+        176,
+        194
+      ],
+      "pmdo_dimensions_raw": [
+        352,
+        388
+      ],
+      "pmdo_grid_dimensions": [
+        352,
+        416
+      ],
+      "pmdo_tiles_w": 11,
+      "pmdo_tiles_h": 13,
+      "padding_offset": [
+        0,
+        28
+      ],
+      "split_y_pmdo_px": 224,
+      "layer_assignments": {
+        "layer_8_roofs_overhang": "data/pmdo_specialty_pokemon_structures/05_wynaut_recycle_shop/pmd_struct_05_wynaut_recycle_shop_roof_overhang_layer8.png",
+        "layer_6_walls_base": "data/pmdo_specialty_pokemon_structures/05_wynaut_recycle_shop/pmd_struct_05_wynaut_recycle_shop_walls_base_layer6.png",
+        "layer_0_collision": "Base ground layer logic & blockages"
+      },
+      "files": {
+        "native_1x": "data/pmdo_specialty_pokemon_structures/05_wynaut_recycle_shop/pmd_struct_05_wynaut_recycle_shop_native_1x.png",
+        "pmdo_2x_complete": "data/pmdo_specialty_pokemon_structures/05_wynaut_recycle_shop/pmd_struct_05_wynaut_recycle_shop_complete_metano_scale_2x.png",
+        "layer8_roof": "data/pmdo_specialty_pokemon_structures/05_wynaut_recycle_shop/pmd_struct_05_wynaut_recycle_shop_roof_overhang_layer8.png",
+        "layer6_walls": "data/pmdo_specialty_pokemon_structures/05_wynaut_recycle_shop/pmd_struct_05_wynaut_recycle_shop_walls_base_layer6.png",
+        "pmdo_tile_binary": "Content/Tile/pmd_struct_05_wynaut_recycle_shop_Base.tile"
+      }
+    },
+    {
+      "id": "pmd_struct_06_metagross_pavilion_shop",
+      "folder_name": "06_metagross_pavilion_shop",
+      "name_en": "Metagross Pavilion Shop",
+      "name_fr": "Pavillon Forteresse Métalosse",
+      "src_file": "tiles9_0510.png",
+      "split_y_native": 106,
+      "description": "Metagross metallic fortress shop featuring iconic silver face-cross over yellow pavilion entrance drape.",
+      "category": "fortress_shop",
+      "door_offset_px_native": [
+        90,
+        160
+      ],
+      "collision_box_native": [
+        18,
+        80,
+        176,
+        102
+      ],
+      "native_dimensions": [
+        212,
+        198
+      ],
+      "pmdo_dimensions_raw": [
+        424,
+        396
+      ],
+      "pmdo_grid_dimensions": [
+        448,
+        416
+      ],
+      "pmdo_tiles_w": 14,
+      "pmdo_tiles_h": 13,
+      "padding_offset": [
+        12,
+        20
+      ],
+      "split_y_pmdo_px": 232,
+      "layer_assignments": {
+        "layer_8_roofs_overhang": "data/pmdo_specialty_pokemon_structures/06_metagross_pavilion_shop/pmd_struct_06_metagross_pavilion_shop_roof_overhang_layer8.png",
+        "layer_6_walls_base": "data/pmdo_specialty_pokemon_structures/06_metagross_pavilion_shop/pmd_struct_06_metagross_pavilion_shop_walls_base_layer6.png",
+        "layer_0_collision": "Base ground layer logic & blockages"
+      },
+      "files": {
+        "native_1x": "data/pmdo_specialty_pokemon_structures/06_metagross_pavilion_shop/pmd_struct_06_metagross_pavilion_shop_native_1x.png",
+        "pmdo_2x_complete": "data/pmdo_specialty_pokemon_structures/06_metagross_pavilion_shop/pmd_struct_06_metagross_pavilion_shop_complete_metano_scale_2x.png",
+        "layer8_roof": "data/pmdo_specialty_pokemon_structures/06_metagross_pavilion_shop/pmd_struct_06_metagross_pavilion_shop_roof_overhang_layer8.png",
+        "layer6_walls": "data/pmdo_specialty_pokemon_structures/06_metagross_pavilion_shop/pmd_struct_06_metagross_pavilion_shop_walls_base_layer6.png",
+        "pmdo_tile_binary": "Content/Tile/pmd_struct_06_metagross_pavilion_shop_Base.tile"
+      }
+    },
+    {
+      "id": "pmd_struct_07_zangoose_seviper_dojo",
+      "folder_name": "07_zangoose_seviper_dojo",
+      "name_en": "Zangoose & Seviper Dojo",
+      "name_fr": "Dojo Rivalité Mangriff & Séviper",
+      "src_file": "tiles9_0554.png",
+      "split_y_native": 118,
+      "description": "Large dual-element combat dojo featuring twin red/blue tile pagodas, Zangoose/Seviper crests, and purple tatami.",
+      "category": "dojo_landmark",
+      "door_offset_px_native": [
+        82,
+        185
+      ],
+      "collision_box_native": [
+        16,
+        95,
+        164,
+        120
+      ],
+      "native_dimensions": [
+        196,
+        230
+      ],
+      "pmdo_dimensions_raw": [
+        392,
+        460
+      ],
+      "pmdo_grid_dimensions": [
+        416,
+        480
+      ],
+      "pmdo_tiles_w": 13,
+      "pmdo_tiles_h": 15,
+      "padding_offset": [
+        12,
+        20
+      ],
+      "split_y_pmdo_px": 256,
+      "layer_assignments": {
+        "layer_8_roofs_overhang": "data/pmdo_specialty_pokemon_structures/07_zangoose_seviper_dojo/pmd_struct_07_zangoose_seviper_dojo_roof_overhang_layer8.png",
+        "layer_6_walls_base": "data/pmdo_specialty_pokemon_structures/07_zangoose_seviper_dojo/pmd_struct_07_zangoose_seviper_dojo_walls_base_layer6.png",
+        "layer_0_collision": "Base ground layer logic & blockages"
+      },
+      "files": {
+        "native_1x": "data/pmdo_specialty_pokemon_structures/07_zangoose_seviper_dojo/pmd_struct_07_zangoose_seviper_dojo_native_1x.png",
+        "pmdo_2x_complete": "data/pmdo_specialty_pokemon_structures/07_zangoose_seviper_dojo/pmd_struct_07_zangoose_seviper_dojo_complete_metano_scale_2x.png",
+        "layer8_roof": "data/pmdo_specialty_pokemon_structures/07_zangoose_seviper_dojo/pmd_struct_07_zangoose_seviper_dojo_roof_overhang_layer8.png",
+        "layer6_walls": "data/pmdo_specialty_pokemon_structures/07_zangoose_seviper_dojo/pmd_struct_07_zangoose_seviper_dojo_walls_base_layer6.png",
+        "pmdo_tile_binary": "Content/Tile/pmd_struct_07_zangoose_seviper_dojo_Base.tile"
+      }
+    }
+  ],
+  "master_tilesets": {
+    "all_structures": {
+      "file": "data/pmdo_specialty_pokemon_structures/pmdo_specialty_structures_master_tileset.png",
+      "tile_binary": "Content/Tile/PMD_Specialty_Structures_All_Base.tile",
+      "dimensions": [
+        992,
+        1856
+      ]
+    },
+    "layer_8_roofs_overhang": {
+      "file": "data/pmdo_specialty_pokemon_structures/pmdo_specialty_structures_roofs_overhang_layer8.png",
+      "tile_binary": "Content/Tile/PMD_Specialty_Structures_Roofs_Over.tile",
+      "dimensions": [
+        992,
+        1856
+      ]
+    },
+    "layer_6_walls_base": {
+      "file": "data/pmdo_specialty_pokemon_structures/pmdo_specialty_structures_walls_base_layer6.png",
+      "tile_binary": "Content/Tile/PMD_Specialty_Structures_Walls_Under.tile",
+      "dimensions": [
+        992,
+        1856
+      ]
+    }
+  },
+  "atlas_layout": {
+    "pmd_struct_01_sentret_house_shop": {
+      "name_en": "Sentret House & Shop",
+      "col_idx": 0,
+      "row_idx": 0,
+      "atlas_pixel_x": 32,
+      "atlas_pixel_y": 32,
+      "grid_col": 1,
+      "grid_row": 1,
+      "width": 288,
+      "height": 256,
+      "tiles_w": 9,
+      "tiles_h": 8
+    },
+    "pmd_struct_02_armaldo_head_shop": {
+      "name_en": "Armaldo Head Shop",
+      "col_idx": 1,
+      "row_idx": 0,
+      "atlas_pixel_x": 512,
+      "atlas_pixel_y": 32,
+      "grid_col": 16,
+      "grid_row": 1,
+      "width": 416,
+      "height": 384,
+      "tiles_w": 13,
+      "tiles_h": 12
+    },
+    "pmd_struct_03_duskull_skull_bank": {
+      "name_en": "Duskull Skull Bank",
+      "col_idx": 0,
+      "row_idx": 1,
+      "atlas_pixel_x": 32,
+      "atlas_pixel_y": 448,
+      "grid_col": 1,
+      "grid_row": 14,
+      "width": 448,
+      "height": 320,
+      "tiles_w": 14,
+      "tiles_h": 10
+    },
+    "pmd_struct_04_alakazam_head_shop": {
+      "name_en": "Alakazam Head Shop",
+      "col_idx": 1,
+      "row_idx": 1,
+      "atlas_pixel_x": 512,
+      "atlas_pixel_y": 448,
+      "grid_col": 16,
+      "grid_row": 14,
+      "width": 416,
+      "height": 416,
+      "tiles_w": 13,
+      "tiles_h": 13
+    },
+    "pmd_struct_05_wynaut_recycle_shop": {
+      "name_en": "Wynaut Recycle Shop",
+      "col_idx": 0,
+      "row_idx": 2,
+      "atlas_pixel_x": 32,
+      "atlas_pixel_y": 896,
+      "grid_col": 1,
+      "grid_row": 28,
+      "width": 352,
+      "height": 416,
+      "tiles_w": 11,
+      "tiles_h": 13
+    },
+    "pmd_struct_06_metagross_pavilion_shop": {
+      "name_en": "Metagross Pavilion Shop",
+      "col_idx": 1,
+      "row_idx": 2,
+      "atlas_pixel_x": 512,
+      "atlas_pixel_y": 896,
+      "grid_col": 16,
+      "grid_row": 28,
+      "width": 448,
+      "height": 416,
+      "tiles_w": 14,
+      "tiles_h": 13
+    },
+    "pmd_struct_07_zangoose_seviper_dojo": {
+      "name_en": "Zangoose & Seviper Dojo",
+      "col_idx": 0,
+      "row_idx": 3,
+      "atlas_pixel_x": 32,
+      "atlas_pixel_y": 1344,
+      "grid_col": 1,
+      "grid_row": 42,
+      "width": 416,
+      "height": 480,
+      "tiles_w": 13,
+      "tiles_h": 15
+    }
+  }
+}

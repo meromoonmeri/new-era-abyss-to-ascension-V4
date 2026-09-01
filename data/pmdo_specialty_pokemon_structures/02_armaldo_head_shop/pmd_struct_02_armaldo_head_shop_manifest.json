@@ -1,0 +1,51 @@
+{
+  "id": "pmd_struct_02_armaldo_head_shop",
+  "folder_name": "02_armaldo_head_shop",
+  "name_en": "Armaldo Head Shop",
+  "name_fr": "Échoppe Tête d'Armaldo & Trésors",
+  "src_file": "tiles9_0553.png",
+  "split_y_native": 96,
+  "description": "Armaldo / Anorith fossil head boutique equipped with jewel treasure chests and blue/red striped mat.",
+  "category": "specialty_shop",
+  "door_offset_px_native": [
+    86,
+    150
+  ],
+  "collision_box_native": [
+    16,
+    70,
+    172,
+    95
+  ],
+  "native_dimensions": [
+    204,
+    182
+  ],
+  "pmdo_dimensions_raw": [
+    408,
+    364
+  ],
+  "pmdo_grid_dimensions": [
+    416,
+    384
+  ],
+  "pmdo_tiles_w": 13,
+  "pmdo_tiles_h": 12,
+  "padding_offset": [
+    4,
+    20
+  ],
+  "split_y_pmdo_px": 212,
+  "layer_assignments": {
+    "layer_8_roofs_overhang": "data/pmdo_specialty_pokemon_structures/02_armaldo_head_shop/pmd_struct_02_armaldo_head_shop_roof_overhang_layer8.png",
+    "layer_6_walls_base": "data/pmdo_specialty_pokemon_structures/02_armaldo_head_shop/pmd_struct_02_armaldo_head_shop_walls_base_layer6.png",
+    "layer_0_collision": "Base ground layer logic & blockages"
+  },
+  "files": {
+    "native_1x": "data/pmdo_specialty_pokemon_structures/02_armaldo_head_shop/pmd_struct_02_armaldo_head_shop_native_1x.png",
+    "pmdo_2x_complete": "data/pmdo_specialty_pokemon_structures/02_armaldo_head_shop/pmd_struct_02_armaldo_head_shop_complete_metano_scale_2x.png",
+    "layer8_roof": "data/pmdo_specialty_pokemon_structures/02_armaldo_head_shop/pmd_struct_02_armaldo_head_shop_roof_overhang_layer8.png",
+    "layer6_walls": "data/pmdo_specialty_pokemon_structures/02_armaldo_head_shop/pmd_struct_02_armaldo_head_shop_walls_base_layer6.png",
+    "pmdo_tile_binary": "Content/Tile/pmd_struct_02_armaldo_head_shop_Base.tile"
+  }
+}

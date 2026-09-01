@@ -1,0 +1,51 @@
+{
+  "id": "pmd_struct_07_zangoose_seviper_dojo",
+  "folder_name": "07_zangoose_seviper_dojo",
+  "name_en": "Zangoose & Seviper Dojo",
+  "name_fr": "Dojo Rivalité Mangriff & Séviper",
+  "src_file": "tiles9_0554.png",
+  "split_y_native": 118,
+  "description": "Large dual-element combat dojo featuring twin red/blue tile pagodas, Zangoose/Seviper crests, and purple tatami.",
+  "category": "dojo_landmark",
+  "door_offset_px_native": [
+    82,
+    185
+  ],
+  "collision_box_native": [
+    16,
+    95,
+    164,
+    120
+  ],
+  "native_dimensions": [
+    196,
+    230
+  ],
+  "pmdo_dimensions_raw": [
+    392,
+    460
+  ],
+  "pmdo_grid_dimensions": [
+    416,
+    480
+  ],
+  "pmdo_tiles_w": 13,
+  "pmdo_tiles_h": 15,
+  "padding_offset": [
+    12,
+    20
+  ],
+  "split_y_pmdo_px": 256,
+  "layer_assignments": {
+    "layer_8_roofs_overhang": "data/pmdo_specialty_pokemon_structures/07_zangoose_seviper_dojo/pmd_struct_07_zangoose_seviper_dojo_roof_overhang_layer8.png",
+    "layer_6_walls_base": "data/pmdo_specialty_pokemon_structures/07_zangoose_seviper_dojo/pmd_struct_07_zangoose_seviper_dojo_walls_base_layer6.png",
+    "layer_0_collision": "Base ground layer logic & blockages"
+  },
+  "files": {
+    "native_1x": "data/pmdo_specialty_pokemon_structures/07_zangoose_seviper_dojo/pmd_struct_07_zangoose_seviper_dojo_native_1x.png",
+    "pmdo_2x_complete": "data/pmdo_specialty_pokemon_structures/07_zangoose_seviper_dojo/pmd_struct_07_zangoose_seviper_dojo_complete_metano_scale_2x.png",
+    "layer8_roof": "data/pmdo_specialty_pokemon_structures/07_zangoose_seviper_dojo/pmd_struct_07_zangoose_seviper_dojo_roof_overhang_layer8.png",
+    "layer6_walls": "data/pmdo_specialty_pokemon_structures/07_zangoose_seviper_dojo/pmd_struct_07_zangoose_seviper_dojo_walls_base_layer6.png",
+    "pmdo_tile_binary": "Content/Tile/pmd_struct_07_zangoose_seviper_dojo_Base.tile"
+  }
+}

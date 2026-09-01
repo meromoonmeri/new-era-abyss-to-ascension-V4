@@ -1,0 +1,51 @@
+{
+  "id": "pmd_struct_01_sentret_house_shop",
+  "folder_name": "01_sentret_house_shop",
+  "name_en": "Sentret House & Shop",
+  "name_fr": "Maison & Boutique Fouinette",
+  "src_file": "tiles8_0114.png",
+  "split_y_native": 62,
+  "description": "Sentret round wood-carved dwelling and shop featuring dual orb chests and red entrance rug.",
+  "category": "residential_shop",
+  "door_offset_px_native": [
+    53,
+    90
+  ],
+  "collision_box_native": [
+    10,
+    50,
+    110,
+    54
+  ],
+  "native_dimensions": [
+    130,
+    114
+  ],
+  "pmdo_dimensions_raw": [
+    260,
+    228
+  ],
+  "pmdo_grid_dimensions": [
+    288,
+    256
+  ],
+  "pmdo_tiles_w": 9,
+  "pmdo_tiles_h": 8,
+  "padding_offset": [
+    14,
+    28
+  ],
+  "split_y_pmdo_px": 152,
+  "layer_assignments": {
+    "layer_8_roofs_overhang": "data/pmdo_specialty_pokemon_structures/01_sentret_house_shop/pmd_struct_01_sentret_house_shop_roof_overhang_layer8.png",
+    "layer_6_walls_base": "data/pmdo_specialty_pokemon_structures/01_sentret_house_shop/pmd_struct_01_sentret_house_shop_walls_base_layer6.png",
+    "layer_0_collision": "Base ground layer logic & blockages"
+  },
+  "files": {
+    "native_1x": "data/pmdo_specialty_pokemon_structures/01_sentret_house_shop/pmd_struct_01_sentret_house_shop_native_1x.png",
+    "pmdo_2x_complete": "data/pmdo_specialty_pokemon_structures/01_sentret_house_shop/pmd_struct_01_sentret_house_shop_complete_metano_scale_2x.png",
+    "layer8_roof": "data/pmdo_specialty_pokemon_structures/01_sentret_house_shop/pmd_struct_01_sentret_house_shop_roof_overhang_layer8.png",
+    "layer6_walls": "data/pmdo_specialty_pokemon_structures/01_sentret_house_shop/pmd_struct_01_sentret_house_shop_walls_base_layer6.png",
+    "pmdo_tile_binary": "Content/Tile/pmd_struct_01_sentret_house_shop_Base.tile"
+  }
+}

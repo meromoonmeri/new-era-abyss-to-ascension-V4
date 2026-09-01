@@ -1,0 +1,93 @@
+{
+  "pmd_struct_01_sentret_house_shop": {
+    "name_en": "Sentret House & Shop",
+    "col_idx": 0,
+    "row_idx": 0,
+    "atlas_pixel_x": 32,
+    "atlas_pixel_y": 32,
+    "grid_col": 1,
+    "grid_row": 1,
+    "width": 288,
+    "height": 256,
+    "tiles_w": 9,
+    "tiles_h": 8
+  },
+  "pmd_struct_02_armaldo_head_shop": {
+    "name_en": "Armaldo Head Shop",
+    "col_idx": 1,
+    "row_idx": 0,
+    "atlas_pixel_x": 512,
+    "atlas_pixel_y": 32,
+    "grid_col": 16,
+    "grid_row": 1,
+    "width": 416,
+    "height": 384,
+    "tiles_w": 13,
+    "tiles_h": 12
+  },
+  "pmd_struct_03_duskull_skull_bank": {
+    "name_en": "Duskull Skull Bank",
+    "col_idx": 0,
+    "row_idx": 1,
+    "atlas_pixel_x": 32,
+    "atlas_pixel_y": 448,
+    "grid_col": 1,
+    "grid_row": 14,
+    "width": 448,
+    "height": 320,
+    "tiles_w": 14,
+    "tiles_h": 10
+  },
+  "pmd_struct_04_alakazam_head_shop": {
+    "name_en": "Alakazam Head Shop",
+    "col_idx": 1,
+    "row_idx": 1,
+    "atlas_pixel_x": 512,
+    "atlas_pixel_y": 448,
+    "grid_col": 16,
+    "grid_row": 14,
+    "width": 416,
+    "height": 416,
+    "tiles_w": 13,
+    "tiles_h": 13
+  },
+  "pmd_struct_05_wynaut_recycle_shop": {
+    "name_en": "Wynaut Recycle Shop",
+    "col_idx": 0,
+    "row_idx": 2,
+    "atlas_pixel_x": 32,
+    "atlas_pixel_y": 896,
+    "grid_col": 1,
+    "grid_row": 28,
+    "width": 352,
+    "height": 416,
+    "tiles_w": 11,
+    "tiles_h": 13
+  },
+  "pmd_struct_06_metagross_pavilion_shop": {
+    "name_en": "Metagross Pavilion Shop",
+    "col_idx": 1,
+    "row_idx": 2,
+    "atlas_pixel_x": 512,
+    "atlas_pixel_y": 896,
+    "grid_col": 16,
+    "grid_row": 28,
+    "width": 448,
+    "height": 416,
+    "tiles_w": 14,
+    "tiles_h": 13
+  },
+  "pmd_struct_07_zangoose_seviper_dojo": {
+    "name_en": "Zangoose & Seviper Dojo",
+    "col_idx": 0,
+    "row_idx": 3,
+    "atlas_pixel_x": 32,
+    "atlas_pixel_y": 1344,
+    "grid_col": 1,
+    "grid_row": 42,
+    "width": 416,
+    "height": 480,
+    "tiles_w": 13,
+    "tiles_h": 15
+  }
+}

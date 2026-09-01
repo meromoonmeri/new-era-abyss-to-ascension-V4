@@ -1,0 +1,51 @@
+{
+  "id": "pmd_struct_03_duskull_skull_bank",
+  "folder_name": "03_duskull_skull_bank",
+  "name_en": "Duskull Skull Bank",
+  "name_fr": "Banque Crâne de Skélenox",
+  "src_file": "tiles9_0548.png",
+  "split_y_native": 84,
+  "description": "Duskull skull financial institution with purple ruffled collar, gold accents, and yellow canopy.",
+  "category": "bank_service",
+  "door_offset_px_native": [
+    90,
+    130
+  ],
+  "collision_box_native": [
+    18,
+    65,
+    176,
+    80
+  ],
+  "native_dimensions": [
+    212,
+    160
+  ],
+  "pmdo_dimensions_raw": [
+    424,
+    320
+  ],
+  "pmdo_grid_dimensions": [
+    448,
+    320
+  ],
+  "pmdo_tiles_w": 14,
+  "pmdo_tiles_h": 10,
+  "padding_offset": [
+    12,
+    0
+  ],
+  "split_y_pmdo_px": 168,
+  "layer_assignments": {
+    "layer_8_roofs_overhang": "data/pmdo_specialty_pokemon_structures/03_duskull_skull_bank/pmd_struct_03_duskull_skull_bank_roof_overhang_layer8.png",
+    "layer_6_walls_base": "data/pmdo_specialty_pokemon_structures/03_duskull_skull_bank/pmd_struct_03_duskull_skull_bank_walls_base_layer6.png",
+    "layer_0_collision": "Base ground layer logic & blockages"
+  },
+  "files": {
+    "native_1x": "data/pmdo_specialty_pokemon_structures/03_duskull_skull_bank/pmd_struct_03_duskull_skull_bank_native_1x.png",
+    "pmdo_2x_complete": "data/pmdo_specialty_pokemon_structures/03_duskull_skull_bank/pmd_struct_03_duskull_skull_bank_complete_metano_scale_2x.png",
+    "layer8_roof": "data/pmdo_specialty_pokemon_structures/03_duskull_skull_bank/pmd_struct_03_duskull_skull_bank_roof_overhang_layer8.png",
+    "layer6_walls": "data/pmdo_specialty_pokemon_structures/03_duskull_skull_bank/pmd_struct_03_duskull_skull_bank_walls_base_layer6.png",
+    "pmdo_tile_binary": "Content/Tile/pmd_struct_03_duskull_skull_bank_Base.tile"
+  }
+}
