@@ -1,71 +1,71 @@
 {
-  "schema_version": "2.0.0",
-  "project": "Reminiscencia Assembled Structures & Empty/Decorated Interiors",
+  "schema_version": "3.0.0",
+  "project": "Reminiscencia Assembled Structures & Empty/Decorated Interiors (Clean Approach)",
   "total_interiors_rendered": 18,
-  "total_exterior_structures": 20,
+  "total_exterior_structures": 21,
   "interiors": [
     {
       "map_id": 5,
       "slug": "interior_01_casa_de_anthony",
       "title_fr": "Maison d'Anthony (Casa de Anthony)",
-      "desc_fr": "Résidence principale du héros avec chambre, salon, cuisine et bureau.",
+      "desc_fr": "Résidence principale du héros avec chambre, salon, cuisine ouverte, bureau et cheminée.",
       "empty_file": "data/reminiscencia_assembled_structures_and_interiors/interiors_empty_no_decoration/interior_01_casa_de_anthony_empty_no_decoration.png",
       "decorated_file": "data/reminiscencia_assembled_structures_and_interiors/interiors_decorated/interior_01_casa_de_anthony_decorated.png",
       "dimensions_px": [
-        496,
-        496
+        964,
+        976
       ],
-      "subgrid_cells": [
-        31,
-        31
+      "tiles_count_32px": [
+        30,
+        30
       ]
     },
     {
       "map_id": 27,
       "slug": "interior_02_taberna_du_port",
       "title_fr": "Taverne du Port (Taberna)",
-      "desc_fr": "Grande taverne maritime avec bar en bois, fûts de bière, cheminée et tables de jeu.",
+      "desc_fr": "Grande taverne maritime avec comptoir de bar en chêne, tonneaux de bière, tables de jeu et foyer.",
       "empty_file": "data/reminiscencia_assembled_structures_and_interiors/interiors_empty_no_decoration/interior_02_taberna_du_port_empty_no_decoration.png",
       "decorated_file": "data/reminiscencia_assembled_structures_and_interiors/interiors_decorated/interior_02_taberna_du_port_decorated.png",
       "dimensions_px": [
-        496,
-        544
+        1028,
+        864
       ],
-      "subgrid_cells": [
-        31,
-        34
+      "tiles_count_32px": [
+        32,
+        27
       ]
     },
     {
       "map_id": 68,
       "slug": "interior_03_casa_de_isla_pontos",
       "title_fr": "Maison d'Isla Pontos (Casa Pontos)",
-      "desc_fr": "Maison insulaire traditionnelle avec chambre à coucher, tapis et cuisine.",
+      "desc_fr": "Maison insulaire traditionnelle en pierre avec lit, tapis et cuisine.",
       "empty_file": "data/reminiscencia_assembled_structures_and_interiors/interiors_empty_no_decoration/interior_03_casa_de_isla_pontos_empty_no_decoration.png",
       "decorated_file": "data/reminiscencia_assembled_structures_and_interiors/interiors_decorated/interior_03_casa_de_isla_pontos_decorated.png",
       "dimensions_px": [
-        352,
-        320
+        484,
+        608
       ],
-      "subgrid_cells": [
-        22,
-        20
+      "tiles_count_32px": [
+        15,
+        19
       ]
     },
     {
       "map_id": 71,
       "slug": "interior_04_restaurante_maritime",
       "title_fr": "Grand Restaurant Maritime (Restaurante)",
-      "desc_fr": "Restaurant de poissons et fruits de mer avec cuisine ouverte, rangées de tables et comptoir d'accueil.",
+      "desc_fr": "Salle de restauration avec rangées de tables, cuisine ouverte de chef et comptoir d'accueil.",
       "empty_file": "data/reminiscencia_assembled_structures_and_interiors/interiors_empty_no_decoration/interior_04_restaurante_maritime_empty_no_decoration.png",
       "decorated_file": "data/reminiscencia_assembled_structures_and_interiors/interiors_decorated/interior_04_restaurante_maritime_decorated.png",
       "dimensions_px": [
-        400,
-        544
+        1010,
+        720
       ],
-      "subgrid_cells": [
-        25,
-        34
+      "tiles_count_32px": [
+        31,
+        22
       ]
     },
     {
@@ -76,220 +76,220 @@
       "empty_file": "data/reminiscencia_assembled_structures_and_interiors/interiors_empty_no_decoration/interior_05_botica_de_minos_empty_no_decoration.png",
       "decorated_file": "data/reminiscencia_assembled_structures_and_interiors/interiors_decorated/interior_05_botica_de_minos_decorated.png",
       "dimensions_px": [
-        448,
-        480
+        836,
+        848
       ],
-      "subgrid_cells": [
-        28,
-        30
+      "tiles_count_32px": [
+        26,
+        26
       ]
     },
     {
       "map_id": 76,
       "slug": "interior_06_torre_glauco_etage_1",
       "title_fr": "Tour d'Isla Glauco — Étage 1 (Torre Glauco)",
-      "desc_fr": "Étage inférieur de la tour ancienne avec piliers de pierre, dalles et escalier en colimaçon.",
+      "desc_fr": "Étage inférieur de la tour ancienne avec dalles de pierre taillée et piliers massifs.",
       "empty_file": "data/reminiscencia_assembled_structures_and_interiors/interiors_empty_no_decoration/interior_06_torre_glauco_etage_1_empty_no_decoration.png",
       "decorated_file": "data/reminiscencia_assembled_structures_and_interiors/interiors_decorated/interior_06_torre_glauco_etage_1_decorated.png",
       "dimensions_px": [
-        416,
-        304
+        608,
+        832
       ],
-      "subgrid_cells": [
-        26,
-        19
+      "tiles_count_32px": [
+        19,
+        26
       ]
     },
     {
       "map_id": 77,
       "slug": "interior_07_torre_glauco_etage_2",
       "title_fr": "Tour d'Isla Glauco — Étage 2 (Torre Glauco)",
-      "desc_fr": "Étage intermédiaire de la tour avec couloirs de garde, torches murales et fenêtres d'archères.",
+      "desc_fr": "Étage intermédiaire avec couloirs de guet fortifiés, torches murales et escaliers.",
       "empty_file": "data/reminiscencia_assembled_structures_and_interiors/interiors_empty_no_decoration/interior_07_torre_glauco_etage_2_empty_no_decoration.png",
       "decorated_file": "data/reminiscencia_assembled_structures_and_interiors/interiors_decorated/interior_07_torre_glauco_etage_2_decorated.png",
       "dimensions_px": [
-        880,
-        512
+        1024,
+        1760
       ],
-      "subgrid_cells": [
-        55,
-        32
+      "tiles_count_32px": [
+        32,
+        55
       ]
     },
     {
       "map_id": 115,
       "slug": "interior_08_carcel_isla_talasa_cellules",
       "title_fr": "Prison d'Isla Talasa — Bloc des Cellules (Cárcel)",
-      "desc_fr": "Complexe carcéral souterrain avec cellules à barreaux métalliques, couloirs de ronde et postes de geôliers.",
+      "desc_fr": "Complexe pénitentiaire souterrain avec cellules à barreaux métalliques, couloirs de ronde et paillasses.",
       "empty_file": "data/reminiscencia_assembled_structures_and_interiors/interiors_empty_no_decoration/interior_08_carcel_isla_talasa_cellules_empty_no_decoration.png",
       "decorated_file": "data/reminiscencia_assembled_structures_and_interiors/interiors_decorated/interior_08_carcel_isla_talasa_cellules_decorated.png",
       "dimensions_px": [
-        576,
-        672
+        1266,
+        1088
       ],
-      "subgrid_cells": [
-        36,
-        42
+      "tiles_count_32px": [
+        39,
+        34
       ]
     },
     {
       "map_id": 118,
       "slug": "interior_09_palacio_de_justicia_grande_salle",
       "title_fr": "Palais de Justice — Grande Salle d'Audience (Palacio)",
-      "desc_fr": "Cour de justice monumentale avec tribune des juges, bancs d'audience, colonnes de marbre et sceau royal.",
+      "desc_fr": "Cour de justice monumentale avec tribune des magistrats, bancs d'audience et colonnade de marbre.",
       "empty_file": "data/reminiscencia_assembled_structures_and_interiors/interiors_empty_no_decoration/interior_09_palacio_de_justicia_grande_salle_empty_no_decoration.png",
       "decorated_file": "data/reminiscencia_assembled_structures_and_interiors/interiors_decorated/interior_09_palacio_de_justicia_grande_salle_decorated.png",
       "dimensions_px": [
-        880,
-        800
+        1348,
+        1584
       ],
-      "subgrid_cells": [
-        55,
-        50
+      "tiles_count_32px": [
+        42,
+        49
       ]
     },
     {
       "map_id": 120,
       "slug": "interior_10_palacio_de_justicia_chambres",
       "title_fr": "Palais de Justice — Bureaux & Conseil (Palacio)",
-      "desc_fr": "Bureaux des magistrats, archives judiciaires et salle de délibération.",
+      "desc_fr": "Salle des délibérations, archives judiciaires et bureaux d'écriture.",
       "empty_file": "data/reminiscencia_assembled_structures_and_interiors/interiors_empty_no_decoration/interior_10_palacio_de_justicia_chambres_empty_no_decoration.png",
       "decorated_file": "data/reminiscencia_assembled_structures_and_interiors/interiors_decorated/interior_10_palacio_de_justicia_chambres_decorated.png",
       "dimensions_px": [
-        880,
-        800
+        1348,
+        1584
       ],
-      "subgrid_cells": [
-        55,
-        50
+      "tiles_count_32px": [
+        42,
+        49
       ]
     },
     {
       "map_id": 122,
       "slug": "interior_11_carcel_talasa_long_couloir",
       "title_fr": "Prison d'Isla Talasa — Galerie Centrale (Cárcel)",
-      "desc_fr": "Longue galerie sécurisée avec portes blindées et torches.",
+      "desc_fr": "Longue galerie centrale de circulation carcérale avec portes d'accès sécurisées.",
       "empty_file": "data/reminiscencia_assembled_structures_and_interiors/interiors_empty_no_decoration/interior_11_carcel_talasa_long_couloir_empty_no_decoration.png",
       "decorated_file": "data/reminiscencia_assembled_structures_and_interiors/interiors_decorated/interior_11_carcel_talasa_long_couloir_decorated.png",
       "dimensions_px": [
-        1136,
-        368
+        548,
+        2144
       ],
-      "subgrid_cells": [
-        71,
-        23
+      "tiles_count_32px": [
+        17,
+        67
       ]
     },
     {
       "map_id": 123,
       "slug": "interior_12_carcel_talasa_salle_interrogatoire",
       "title_fr": "Prison d'Isla Talasa — Salle de Surveillance",
-      "desc_fr": "Chambre de garde avec bureau de commande et cellules d'isolement.",
+      "desc_fr": "Poste de commandement des gardes avec bureau de contrôle et sas d'isolement.",
       "empty_file": "data/reminiscencia_assembled_structures_and_interiors/interiors_empty_no_decoration/interior_12_carcel_talasa_salle_interrogatoire_empty_no_decoration.png",
       "decorated_file": "data/reminiscencia_assembled_structures_and_interiors/interiors_decorated/interior_12_carcel_talasa_salle_interrogatoire_decorated.png",
       "dimensions_px": [
-        400,
-        400
+        612,
+        768
       ],
-      "subgrid_cells": [
-        25,
-        25
+      "tiles_count_32px": [
+        19,
+        24
       ]
     },
     {
       "map_id": 151,
       "slug": "interior_13_templo_varuna_sanctuaire",
       "title_fr": "Temple Varuna — Sanctuaire Intérieur (Templo)",
-      "desc_fr": "Sanctuaire sous-marin dédié à Varuna avec autel divin, coraux sacrés et piliers runiques.",
+      "desc_fr": "Sanctuaire sous-marin avec autel cérémonial, coraux sacrés et stèles antiques.",
       "empty_file": "data/reminiscencia_assembled_structures_and_interiors/interiors_empty_no_decoration/interior_13_templo_varuna_sanctuaire_empty_no_decoration.png",
       "decorated_file": "data/reminiscencia_assembled_structures_and_interiors/interiors_decorated/interior_13_templo_varuna_sanctuaire_decorated.png",
       "dimensions_px": [
-        432,
-        400
+        800,
+        864
       ],
-      "subgrid_cells": [
-        27,
-        25
+      "tiles_count_32px": [
+        25,
+        27
       ]
     },
     {
       "map_id": 153,
       "slug": "interior_14_templo_varuna_nef_principale",
       "title_fr": "Temple Varuna — Nef Principale (Templo)",
-      "desc_fr": "Grande nef submergée avec mosaïques océaniques et statues antiques.",
+      "desc_fr": "Grande nef submergée ornée de mosaïques aquatiques et de statues divines.",
       "empty_file": "data/reminiscencia_assembled_structures_and_interiors/interiors_empty_no_decoration/interior_14_templo_varuna_nef_principale_empty_no_decoration.png",
       "decorated_file": "data/reminiscencia_assembled_structures_and_interiors/interiors_decorated/interior_14_templo_varuna_nef_principale_decorated.png",
       "dimensions_px": [
-        432,
-        400
+        800,
+        864
       ],
-      "subgrid_cells": [
-        27,
-        25
+      "tiles_count_32px": [
+        25,
+        27
       ]
     },
     {
       "map_id": 202,
       "slug": "interior_15_palacio_justicia_antichambre",
       "title_fr": "Palais de Justice — Antichambre & Vestibule",
-      "desc_fr": "Vestibule d'entrée avec tapis cérémonial et luminaires.",
+      "desc_fr": "Hall d'entrée cérémonial avec tapis d'apparat et luminaires.",
       "empty_file": "data/reminiscencia_assembled_structures_and_interiors/interiors_empty_no_decoration/interior_15_palacio_justicia_antichambre_empty_no_decoration.png",
       "decorated_file": "data/reminiscencia_assembled_structures_and_interiors/interiors_decorated/interior_15_palacio_justicia_antichambre_decorated.png",
       "dimensions_px": [
-        240,
-        320
+        640,
+        480
       ],
-      "subgrid_cells": [
-        15,
-        20
+      "tiles_count_32px": [
+        20,
+        15
       ]
     },
     {
       "map_id": 207,
       "slug": "interior_16_torre_salle_rituelle",
       "title_fr": "Tour Ancienne — Salle Rituelle",
-      "desc_fr": "Chambre de rituel avec cercle arcanique gravé au sol.",
+      "desc_fr": "Chambre rituelle mystique avec cercle arcanique gravé sur le pavement.",
       "empty_file": "data/reminiscencia_assembled_structures_and_interiors/interiors_empty_no_decoration/interior_16_torre_salle_rituelle_empty_no_decoration.png",
       "decorated_file": "data/reminiscencia_assembled_structures_and_interiors/interiors_decorated/interior_16_torre_salle_rituelle_decorated.png",
       "dimensions_px": [
-        240,
-        320
+        640,
+        480
       ],
-      "subgrid_cells": [
-        15,
-        20
+      "tiles_count_32px": [
+        20,
+        15
       ]
     },
     {
       "map_id": 212,
       "slug": "interior_17_templo_varuna_chambre_tresors",
       "title_fr": "Temple Varuna — Chambre des Trésors",
-      "desc_fr": "Chambre sacrée abritant les reliques maritimes de Varuna.",
+      "desc_fr": "Crypte sous-marine abritant les reliques sacrées de Varuna.",
       "empty_file": "data/reminiscencia_assembled_structures_and_interiors/interiors_empty_no_decoration/interior_17_templo_varuna_chambre_tresors_empty_no_decoration.png",
       "decorated_file": "data/reminiscencia_assembled_structures_and_interiors/interiors_decorated/interior_17_templo_varuna_chambre_tresors_decorated.png",
       "dimensions_px": [
-        240,
-        320
+        640,
+        480
       ],
-      "subgrid_cells": [
-        15,
-        20
+      "tiles_count_32px": [
+        20,
+        15
       ]
     },
     {
       "map_id": 500,
       "slug": "interior_18_escena_torre_quemada_crypte",
       "title_fr": "Tour Brûlée — Crypte & Ruines (Torre Quemada)",
-      "desc_fr": "Crypte dévastée par les flammes avec poutres calcinées et failles de lave.",
+      "desc_fr": "Crypte dévastée par l'incendie avec charpente noircie et failles incandescentes.",
       "empty_file": "data/reminiscencia_assembled_structures_and_interiors/interiors_empty_no_decoration/interior_18_escena_torre_quemada_crypte_empty_no_decoration.png",
       "decorated_file": "data/reminiscencia_assembled_structures_and_interiors/interiors_decorated/interior_18_escena_torre_quemada_crypte_decorated.png",
       "dimensions_px": [
-        576,
-        592
+        800,
+        800
       ],
-      "subgrid_cells": [
-        36,
-        37
+      "tiles_count_32px": [
+        25,
+        25
       ]
     }
   ],
@@ -300,12 +300,12 @@
       "title_fr": "Maison du Nord-Ouest (Pueblo Isla Brizo)",
       "desc_fr": "Maison villageoise en bois et pierre blanche avec toit de chaume, cheminée et jardinière.",
       "dimensions_px": [
-        256,
-        256
+        384,
+        384
       ],
-      "subgrid_cells": [
-        16,
-        16
+      "tiles_count_32px": [
+        12,
+        12
       ]
     },
     {
@@ -314,12 +314,12 @@
       "title_fr": "Boutique du Village (Pueblo Isla Brizo)",
       "desc_fr": "Boutique marchande avec auvent en tissu, tonneaux extérieurs, caisses de ravitaillement et enseigne.",
       "dimensions_px": [
-        288,
-        256
+        448,
+        384
       ],
-      "subgrid_cells": [
-        18,
-        16
+      "tiles_count_32px": [
+        14,
+        12
       ]
     },
     {
@@ -328,248 +328,262 @@
       "title_fr": "Grande Maison Bourgeoise Est (Pueblo Isla Brizo)",
       "desc_fr": "Demeure spacieuse à deux corps de logis avec terrasse en bois, barrières et verger.",
       "dimensions_px": [
-        256,
-        304
+        512,
+        480
       ],
-      "subgrid_cells": [
+      "tiles_count_32px": [
         16,
-        19
+        15
       ]
     },
     {
-      "slug": "structure_04_pueblo_brizo_moulin_et_grange",
-      "file": "data/reminiscencia_assembled_structures_and_interiors/structures_exterior/structure_04_pueblo_brizo_moulin_et_grange.png",
-      "title_fr": "Moulin à Vent & Grange Agricole",
-      "desc_fr": "Grand moulin à vent avec pales rotatives, grange en planches et meules de foin.",
+      "slug": "structure_04_pueblo_brizo_moulin_a_vent",
+      "file": "data/reminiscencia_assembled_structures_and_interiors/structures_exterior/structure_04_pueblo_brizo_moulin_a_vent.png",
+      "title_fr": "Grand Moulin à Vent (Pueblo Isla Brizo)",
+      "desc_fr": "Grand moulin à vent avec pales rotatives, tour cylindrique en pierre et meules de grain.",
       "dimensions_px": [
-        288,
-        288
+        448,
+        512
       ],
-      "subgrid_cells": [
-        18,
-        18
+      "tiles_count_32px": [
+        14,
+        16
       ]
     },
     {
-      "slug": "structure_05_pueblo_brizo_ponton_et_cabane_peche",
-      "file": "data/reminiscencia_assembled_structures_and_interiors/structures_exterior/structure_05_pueblo_brizo_ponton_et_cabane_peche.png",
+      "slug": "structure_05_pueblo_brizo_grange_agricole",
+      "file": "data/reminiscencia_assembled_structures_and_interiors/structures_exterior/structure_05_pueblo_brizo_grange_agricole.png",
+      "title_fr": "Grange Agricole & Entrepôt de Foin",
+      "desc_fr": "Grande grange en planches de bois avec toiture pentue et bottes de paille.",
+      "dimensions_px": [
+        448,
+        512
+      ],
+      "tiles_count_32px": [
+        14,
+        16
+      ]
+    },
+    {
+      "slug": "structure_06_pueblo_brizo_ponton_cabane_peche",
+      "file": "data/reminiscencia_assembled_structures_and_interiors/structures_exterior/structure_06_pueblo_brizo_ponton_cabane_peche.png",
       "title_fr": "Ponton & Cabane de Pêcheur de Brizo",
       "desc_fr": "Cabane sur pilotis avec filets de pêche, casiers à crabes, jetée d'amarrage et barques.",
       "dimensions_px": [
-        285,
-        304
+        576,
+        512
       ],
-      "subgrid_cells": [
-        17,
-        19
+      "tiles_count_32px": [
+        18,
+        16
       ]
     },
     {
-      "slug": "structure_06_aldea_pontos_maison_volcanique",
-      "file": "data/reminiscencia_assembled_structures_and_interiors/structures_exterior/structure_06_aldea_pontos_maison_volcanique.png",
+      "slug": "structure_07_aldea_pontos_maison_volcanique",
+      "file": "data/reminiscencia_assembled_structures_and_interiors/structures_exterior/structure_07_aldea_pontos_maison_volcanique.png",
       "title_fr": "Maison en Roche Volcanique (Isla Pontos)",
       "desc_fr": "Habitation robuste en blocs de basalte et pierre volcanique avec toiture en ardoise sombre.",
       "dimensions_px": [
-        288,
-        288
+        512,
+        512
       ],
-      "subgrid_cells": [
-        18,
-        18
+      "tiles_count_32px": [
+        16,
+        16
       ]
     },
     {
-      "slug": "structure_07_aldea_pontos_taverne_forge",
-      "file": "data/reminiscencia_assembled_structures_and_interiors/structures_exterior/structure_07_aldea_pontos_taverne_forge.png",
+      "slug": "structure_08_aldea_pontos_taverne_forge",
+      "file": "data/reminiscencia_assembled_structures_and_interiors/structures_exterior/structure_08_aldea_pontos_taverne_forge.png",
       "title_fr": "Forge & Taverne des Mineurs (Isla Pontos)",
       "desc_fr": "Atelier de forge avec enclume extérieure, soufflet, cheminée à fumée et réserve de minerais.",
       "dimensions_px": [
-        304,
-        304
+        640,
+        512
       ],
-      "subgrid_cells": [
-        19,
-        19
+      "tiles_count_32px": [
+        20,
+        16
       ]
     },
     {
-      "slug": "structure_08_aldea_pontos_temple_pierre",
-      "file": "data/reminiscencia_assembled_structures_and_interiors/structures_exterior/structure_08_aldea_pontos_temple_pierre.png",
+      "slug": "structure_09_aldea_pontos_temple_pierre",
+      "file": "data/reminiscencia_assembled_structures_and_interiors/structures_exterior/structure_09_aldea_pontos_temple_pierre.png",
       "title_fr": "Sanctuaire de Pierre Ancestral (Isla Pontos)",
       "desc_fr": "Petit temple mégalithique sculpté dans la roche avec stèle votive et braseros.",
       "dimensions_px": [
-        176,
-        288
+        576,
+        512
       ],
-      "subgrid_cells": [
-        11,
-        18
+      "tiles_count_32px": [
+        18,
+        16
       ]
     },
     {
-      "slug": "structure_09_aldea_pontos_poste_garde_pont",
-      "file": "data/reminiscencia_assembled_structures_and_interiors/structures_exterior/structure_09_aldea_pontos_poste_garde_pont.png",
-      "title_fr": "Poste de Garde & Pont en Corde",
+      "slug": "structure_10_aldea_pontos_poste_garde_pont",
+      "file": "data/reminiscencia_assembled_structures_and_interiors/structures_exterior/structure_10_aldea_pontos_poste_garde_pont.png",
+      "title_fr": "Poste de Garde & Pont Suspendu",
       "desc_fr": "Guérite de guet en bois fortifié reliant les gorges par un pont suspendu.",
       "dimensions_px": [
-        320,
-        320
+        640,
+        640
       ],
-      "subgrid_cells": [
+      "tiles_count_32px": [
         20,
         20
       ]
     },
     {
-      "slug": "structure_10_ciudad_glauco_grande_tour_garde",
-      "file": "data/reminiscencia_assembled_structures_and_interiors/structures_exterior/structure_10_ciudad_glauco_grande_tour_garde.png",
+      "slug": "structure_11_ciudad_glauco_grande_tour_garde",
+      "file": "data/reminiscencia_assembled_structures_and_interiors/structures_exterior/structure_11_ciudad_glauco_grande_tour_garde.png",
       "title_fr": "Grande Tour de Garde (Isla Glauco)",
       "desc_fr": "Haute tour de guet fortifiée en maçonnerie médiévale avec créneaux et bannière.",
       "dimensions_px": [
-        272,
-        384
+        640,
+        706
       ],
-      "subgrid_cells": [
-        17,
-        24
+      "tiles_count_32px": [
+        20,
+        22
       ]
     },
     {
-      "slug": "structure_11_ciudad_glauco_palais_gouverneur",
-      "file": "data/reminiscencia_assembled_structures_and_interiors/structures_exterior/structure_11_ciudad_glauco_palais_gouverneur.png",
+      "slug": "structure_12_ciudad_glauco_palais_gouverneur",
+      "file": "data/reminiscencia_assembled_structures_and_interiors/structures_exterior/structure_12_ciudad_glauco_palais_gouverneur.png",
       "title_fr": "Palais du Gouverneur (Isla Glauco)",
       "desc_fr": "Édifice majestueux en pierre de taille avec grand escalier frontal, colonnade et portail d'honneur.",
       "dimensions_px": [
-        255,
-        384
+        896,
+        768
       ],
-      "subgrid_cells": [
-        15,
-        24
-      ]
-    },
-    {
-      "slug": "structure_12_ciudad_glauco_centre_marche_couvert",
-      "file": "data/reminiscencia_assembled_structures_and_interiors/structures_exterior/structure_12_ciudad_glauco_centre_marche_couvert.png",
-      "title_fr": "Halle du Marché Couvert (Isla Glauco)",
-      "desc_fr": "Grande halle marchande avec charpente en bois, étals de marchands et fontaine centrale.",
-      "dimensions_px": [
-        384,
-        320
-      ],
-      "subgrid_cells": [
-        24,
-        20
-      ]
-    },
-    {
-      "slug": "structure_13_ciudad_glauco_caserne_garnison",
-      "file": "data/reminiscencia_assembled_structures_and_interiors/structures_exterior/structure_13_ciudad_glauco_caserne_garnison.png",
-      "title_fr": "Caserne & Armurerie de la Garnison",
-      "desc_fr": "Bâtiment militaire avec râteliers d'armes, mannequins d'entraînement et cour pavée.",
-      "dimensions_px": [
-        352,
-        315
-      ],
-      "subgrid_cells": [
-        22,
-        19
-      ]
-    },
-    {
-      "slug": "structure_14_ciudad_talasa_palais_justice_facade",
-      "file": "data/reminiscencia_assembled_structures_and_interiors/structures_exterior/structure_14_ciudad_talasa_palais_justice_facade.png",
-      "title_fr": "Façade Monumentale du Palais de Justice",
-      "desc_fr": "Façade néoclassique imposante avec fronton sculpté, statue de la justice et perron en marbre.",
-      "dimensions_px": [
-        416,
-        352
-      ],
-      "subgrid_cells": [
-        26,
-        22
-      ]
-    },
-    {
-      "slug": "structure_15_ciudad_talasa_prison_forteresse",
-      "file": "data/reminiscencia_assembled_structures_and_interiors/structures_exterior/structure_15_ciudad_talasa_prison_forteresse.png",
-      "title_fr": "Forteresse Carcérale de Talasa",
-      "desc_fr": "Bastion fortifié aux murs épais en pierre taillée avec herses et meurtrières.",
-      "dimensions_px": [
-        432,
-        352
-      ],
-      "subgrid_cells": [
-        27,
-        22
-      ]
-    },
-    {
-      "slug": "structure_16_ciudad_talasa_grand_phare_portuaire",
-      "file": "data/reminiscencia_assembled_structures_and_interiors/structures_exterior/structure_16_ciudad_talasa_grand_phare_portuaire.png",
-      "title_fr": "Grand Phare Portuaire de Talasa",
-      "desc_fr": "Phare maritime monumental guidant les navires à l'entrée de la baie de Talasa.",
-      "dimensions_px": [
-        176,
-        320
-      ],
-      "subgrid_cells": [
-        11,
-        20
-      ]
-    },
-    {
-      "slug": "structure_17_ciudad_talasa_centre_commercial",
-      "file": "data/reminiscencia_assembled_structures_and_interiors/structures_exterior/structure_17_ciudad_talasa_centre_commercial.png",
-      "title_fr": "Comptoir Commercial & Banques",
-      "desc_fr": "Grand complexe d'échanges marchands avec bureaux de change et entrepôts douaniers.",
-      "dimensions_px": [
-        448,
-        384
-      ],
-      "subgrid_cells": [
+      "tiles_count_32px": [
         28,
         24
       ]
     },
     {
-      "slug": "structure_18_ciudad_talasa_gare_maritime_docks",
-      "file": "data/reminiscencia_assembled_structures_and_interiors/structures_exterior/structure_18_ciudad_talasa_gare_maritime_docks.png",
-      "title_fr": "Gare Maritime & Docks d'Embarquement",
-      "desc_fr": "Quais maritimes pavés avec grues de déchargement, pontons en bois et hangars portuaires.",
+      "slug": "structure_13_ciudad_glauco_halle_marche_couvert",
+      "file": "data/reminiscencia_assembled_structures_and_interiors/structures_exterior/structure_13_ciudad_glauco_halle_marche_couvert.png",
+      "title_fr": "Halle du Marché Couvert (Isla Glauco)",
+      "desc_fr": "Grande halle marchande avec charpente en bois, étals de marchands et fontaine centrale.",
       "dimensions_px": [
-        624,
-        384
+        832,
+        596
       ],
-      "subgrid_cells": [
-        39,
+      "tiles_count_32px": [
+        26,
+        18
+      ]
+    },
+    {
+      "slug": "structure_14_ciudad_glauco_caserne_garnison",
+      "file": "data/reminiscencia_assembled_structures_and_interiors/structures_exterior/structure_14_ciudad_glauco_caserne_garnison.png",
+      "title_fr": "Caserne & Armurerie de la Garnison",
+      "desc_fr": "Bâtiment militaire avec râteliers d'armes, mannequins d'entraînement et cour pavée.",
+      "dimensions_px": [
+        704,
+        640
+      ],
+      "tiles_count_32px": [
+        22,
+        20
+      ]
+    },
+    {
+      "slug": "structure_15_ciudad_talasa_palais_justice_facade",
+      "file": "data/reminiscencia_assembled_structures_and_interiors/structures_exterior/structure_15_ciudad_talasa_palais_justice_facade.png",
+      "title_fr": "Façade Monumentale du Palais de Justice",
+      "desc_fr": "Façade néoclassique imposante avec fronton sculpté, statue de la justice et perron en marbre.",
+      "dimensions_px": [
+        832,
+        704
+      ],
+      "tiles_count_32px": [
+        26,
+        22
+      ]
+    },
+    {
+      "slug": "structure_16_ciudad_talasa_prison_forteresse",
+      "file": "data/reminiscencia_assembled_structures_and_interiors/structures_exterior/structure_16_ciudad_talasa_prison_forteresse.png",
+      "title_fr": "Forteresse Carcérale de Talasa",
+      "desc_fr": "Bastion fortifié aux murs épais en pierre taillée avec herses et meurtrières.",
+      "dimensions_px": [
+        896,
+        704
+      ],
+      "tiles_count_32px": [
+        28,
+        22
+      ]
+    },
+    {
+      "slug": "structure_17_ciudad_talasa_grand_phare_portuaire",
+      "file": "data/reminiscencia_assembled_structures_and_interiors/structures_exterior/structure_17_ciudad_talasa_grand_phare_portuaire.png",
+      "title_fr": "Grand Phare Portuaire de Talasa",
+      "desc_fr": "Phare maritime monumental guidant les navires à l'entrée de la baie de Talasa.",
+      "dimensions_px": [
+        256,
+        832
+      ],
+      "tiles_count_32px": [
+        8,
+        26
+      ]
+    },
+    {
+      "slug": "structure_18_ciudad_talasa_comptoir_commercial",
+      "file": "data/reminiscencia_assembled_structures_and_interiors/structures_exterior/structure_18_ciudad_talasa_comptoir_commercial.png",
+      "title_fr": "Comptoir Commercial & Banques (Talasa)",
+      "desc_fr": "Grand complexe d'échanges marchands avec bureaux de change et entrepôts douaniers.",
+      "dimensions_px": [
+        896,
+        768
+      ],
+      "tiles_count_32px": [
+        28,
         24
       ]
     },
     {
-      "slug": "structure_19_isla_desierta_cabane_naufrage",
-      "file": "data/reminiscencia_assembled_structures_and_interiors/structures_exterior/structure_19_isla_desierta_cabane_naufrage.png",
+      "slug": "structure_19_ciudad_talasa_gare_maritime_docks",
+      "file": "data/reminiscencia_assembled_structures_and_interiors/structures_exterior/structure_19_ciudad_talasa_gare_maritime_docks.png",
+      "title_fr": "Gare Maritime & Docks Portuaires",
+      "desc_fr": "Quais maritimes pavés avec grues de déchargement, pontons en bois et hangars portuaires.",
+      "dimensions_px": [
+        1088,
+        768
+      ],
+      "tiles_count_32px": [
+        34,
+        24
+      ]
+    },
+    {
+      "slug": "structure_20_isla_desierta_cabane_naufrage",
+      "file": "data/reminiscencia_assembled_structures_and_interiors/structures_exterior/structure_20_isla_desierta_cabane_naufrage.png",
       "title_fr": "Abri de Fortune du Naufragé (Isla Desierta)",
       "desc_fr": "Cabane construite avec des épaves de navire, toiles de voile et troncs de palmier.",
       "dimensions_px": [
-        416,
-        416
+        832,
+        832
       ],
-      "subgrid_cells": [
+      "tiles_count_32px": [
         26,
         26
       ]
     },
     {
-      "slug": "structure_20_cala_brizo_quai_et_fanal",
-      "file": "data/reminiscencia_assembled_structures_and_interiors/structures_exterior/structure_20_cala_brizo_quai_et_fanal.png",
+      "slug": "structure_21_cala_brizo_quai_et_fanal",
+      "file": "data/reminiscencia_assembled_structures_and_interiors/structures_exterior/structure_21_cala_brizo_quai_et_fanal.png",
       "title_fr": "Quai de Débarquement & Fanal (Cala Brizo)",
       "desc_fr": "Embarcadère en pierre brute avec fanal d'accostage et escaliers taillés dans la falaise.",
       "dimensions_px": [
-        416,
-        416
+        832,
+        832
       ],
-      "subgrid_cells": [
+      "tiles_count_32px": [
         26,
         26
       ]
